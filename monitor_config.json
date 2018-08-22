@@ -1,0 +1,71 @@
+{
+	"prettier": { "useTabs": true, "parser": "babylon" },
+	"monitors": [
+		{
+			"name": "Facebook Audience Network",
+			"tags": ["Facebook", "prebid"],
+			"url": "https://connect.facebook.net/en_US/fbadnw55.js",
+			"version": "4250800",
+			"versionRegex": "^\\/.*?\\sv([0-9]+),",
+			"diffIgnorePatterns": ["JIT Construction", "\"revision\""],
+			"etag": "\"e544d5af6ed55b3c27b83196157a52bf\""
+		},
+		{
+			"name": "Facebook Main",
+			"tags": ["Facebook"],
+			"url": "https://connect.facebook.net/en_US/all.js",
+			"version": "4250765",
+			"versionRegex": "^\\/.*?\\sv([0-9]+),",
+			"diffIgnorePatterns": ["JIT Construction", "\"revision\""],
+			"etag": "\"f8b550a8e3a66e54b7d91ed0365653c9\""
+		},
+		{
+			"name": "Facebook Events",
+			"tags": ["Facebook", "analytics", "conversions"],
+			"url": "https://connect.facebook.net/en_US/fbevents.js",
+			"version": "2.8.25",
+			"versionRegex": "fbq.version=\"([0-9.]+)\"",
+			"etag": ""
+		},
+		{
+			"name": "Criteo",
+			"tags": ["Criteo", "prebid"],
+			"url": "https://static.criteo.net/js/ld/publishertag.js",
+			"version": "54",
+			"versionRegex": "PublisherTagVersion=([0-9]+),",
+			"etag": "W/\"5b509c3d-131c1\""
+		},
+		{
+			"name": "Amazon TAM",
+			"tags": ["Amazon", "prebid"],
+			"url": "https://c.amazon-adsystem.com/aax2/apstag.js",
+			"version": "7.13.00",
+			"versionRegex": "apstag - v([0-9.]+)",
+			"etag": "8ca4813f0f33bf2d521894c396ecf821"
+		},
+		{
+			"name": "Google Publisher Tools",
+			"tags": ["Google", "DFP", "GAM"],
+			"url": "https://www.googletagservices.com/tag/js/gpt.js",
+			"version": "243",
+			"versionRegex": "\\{return\"([0-9]+)\"\\}",
+			"etag": "\"8 / 646 of 1000 / last-modified: 1535146356\""
+		},
+		{
+			"name": "Moat",
+			"tags": ["Moat", "analytics", "viewability"],
+			"url": "https://z.moatads.com/px2/client.js",
+			"version": "24",
+			"versionRegex": "pixel\\.gif\\?e=([1-9][0-9]+)",
+			"etag": "\"e3e5bfb800ecfa25c1ce57a75f6de85a\""
+		},
+		{
+			"name": "PulsePoint",
+			"tags": ["PulsePoint", "prebid"],
+			"url": "https://tag.contextweb.com/getjs.static.js",
+			"version": "",
+			"versionRegex": "",
+			"etag": "24e3b1b6dd83b252f1213e42689762834e238463"
+		}
+	]
+}

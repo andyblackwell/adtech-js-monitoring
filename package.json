@@ -18,5 +18,11 @@
   "engines": {
     "node": "0.10.x",
     "npm": "1.2.x"
+  },
+  "dependencies": {
+    "crawler": "^1.2.0",
+    "fs-extra": "^7.0.0",
+    "prettier": "1.14.2",
+    "semver": "^5.5.1"
   }
 }
