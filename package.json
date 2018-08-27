@@ -1,7 +1,7 @@
 {
-  "name": "facebook-js-sdk-watcher",
+  "name": "adtech-js-monitoring",
   "version": "0.0.1",
-  "author": "Nathan Friedly - http://nfriedly.com",
+  "author": "Andy Blackwell - http://andyblackwell.com.com",
   "description": "This project watches the FB JS SDK for changes and pushes any changes to github",
   "main": "web.js",
   "scripts": {
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/nfriedly/connect-js.git"
+    "url": "git://github.com/andyblackwell/adtech-js-monitoring.git"
   },
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/nfriedly/connect-js/issues"
+    "url": "https://github.com/andyblackwell/adtech-js-monitoring/issues"
   },
   "engines": {
-    "node": "0.10.x",
-    "npm": "1.2.x"
+    "node": "8.11.x",
+    "npm": "5.6.x"
   },
   "dependencies": {
     "crawler": "^1.2.0",
