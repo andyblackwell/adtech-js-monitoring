@@ -28,6 +28,7 @@ var c = new Crawler({
 			let filename = 'data/' + uri.hostname + uri.pathname;
 			let monitor = res.options.monitor;
 			let save = function(){
+				console.log(`updated: ${monitor.name}`);
 				if (res.headers.etag) {
 					monitor.etag = res.headers.etag; // store and use this next time
 				}
@@ -47,10 +48,9 @@ var c = new Crawler({
 				spawnSync("git", ["add", "."]);
 
 				let message = `updated( ${monitor.name} ): `;
-				message += execSync("echo `date +'%A, %B %-d, %Y'`").toString();
 				let changes = execSync("echo \"`git diff --cached --stat`\"").toString();
+				message += execSync("echo `date +'%A, %B %-d, %Y'`").toString();
 				if(changes.length > 3){
-					console.log('changes', changes.length);
 					message += changes;
 				}
 				message = message.replace(/\n$/g, '');
