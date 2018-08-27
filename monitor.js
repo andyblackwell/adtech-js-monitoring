@@ -112,5 +112,6 @@ try{
 }catch(e){}
 
 c.on('drain',function(){
+	spawnSync("git", ["push", "origin", "master"]);
 	console.log('DONE!');
 });
