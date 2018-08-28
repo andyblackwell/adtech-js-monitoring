@@ -86,10 +86,8 @@ var c = new Crawler({
 
 function writeFile(filename, content){
 	dir = filename.split('/').slice(0, -1).join('/')
-	fs.ensureDir(dir)
-		.then(() => {
-			fs.createWriteStream(filename).write(content);
-		});
+	fs.ensureDirSync(dir);
+	fs.writeFileSync(filename, content);
 }
 
 try{
