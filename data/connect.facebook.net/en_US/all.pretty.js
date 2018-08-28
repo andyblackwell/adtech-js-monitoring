@@ -1,4 +1,4 @@
-/*1535336750,,JIT Construction: v4250800,en_US*/
+/*1535429019,,JIT Construction: v4253697,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4250800",
+						revision: "4253697",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -12285,37 +12285,34 @@ try {
 												: "100%"
 										);
 										var b = ES("JSON", "parse", !1, a.chatStarted);
-										if (z)
-											if (
-												!ES("JSON", "parse", !1, a.showInterstitialOnPage) &&
-												!b
-											) {
-												var c = screen.width - 120;
+										if (b)
+											(w = !0),
+												ES("Object", "assign", !1, this._iframe.style, {
+													boxShadow: "none",
+													height: "100%",
+													right: "0",
+													top: "0",
+													width: "100%"
+												}),
+												ES("JSON", "parse", !1, a.dialogHidden) || E();
+										else if (z)
+											if (!ES("JSON", "parse", !1, a.showInterstitialOnPage)) {
+												b = screen.width - 120;
 												ES("Object", "assign", !1, this._iframe.style, {
 													bottom: "12px",
 													right: "84px",
 													top: "auto",
-													width: c + "px"
+													width: b + "px"
 												});
 											} else this._makeDialogIframeFullScreen(), (C = !0);
 										else
-											b
-												? ((w = !0),
-												  ES("Object", "assign", !1, this._iframe.style, {
-														boxShadow: "none",
-														height: "100%",
-														right: "0",
-														top: "0",
-														width: "100%"
-												  }),
-												  ES("JSON", "parse", !1, a.dialogHidden) || E())
-												: ES("Object", "assign", !1, this._iframe.style, {
-														borderRadius: "9pt",
-														bottom: "63pt",
-														right: "3pt",
-														top: "auto",
-														width: "288pt"
-												  });
+											ES("Object", "assign", !1, this._iframe.style, {
+												borderRadius: "9pt",
+												bottom: "63pt",
+												right: "3pt",
+												top: "auto",
+												width: "288pt"
+											});
 										x = this._iframe;
 									}
 								},
@@ -13702,7 +13699,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4250800","namespace":"FB","message":"' +
+				'","revision":"4253697","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
