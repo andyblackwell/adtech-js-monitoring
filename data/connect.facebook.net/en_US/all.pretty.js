@@ -1,4 +1,4 @@
-/*1535433823,,JIT Construction: v4254138,en_US*/
+/*1535468537,,JIT Construction: v4255553,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4254138",
+						revision: "4255553",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -13699,7 +13699,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4254138","namespace":"FB","message":"' +
+				'","revision":"4255553","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
