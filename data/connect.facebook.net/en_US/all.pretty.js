@@ -1,4 +1,4 @@
-/*1535665025,,JIT Construction: v4265692,en_US*/
+/*1535667427,,JIT Construction: v4266485,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4265692",
+						revision: "4266485",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2769,50 +2769,17 @@ try {
 						null
 					);
 					__d(
-						"QueryString",
+						"Env",
 						[],
 						function(a, b, c, d, e, f) {
-							__p && __p();
-							function a(a) {
-								__p && __p();
-								var b = [];
-								ES(ES("Object", "keys", !1, a).sort(), "forEach", !0, function(
-									c
-								) {
-									var d = a[c];
-									if (d === undefined) return;
-									if (d === null) {
-										b.push(c);
-										return;
-									}
-									b.push(encodeURIComponent(c) + "=" + encodeURIComponent(d));
-								});
-								return b.join("&");
-							}
-							function b(a, b) {
-								__p && __p();
-								b === void 0 && (b = !1);
-								var c = {};
-								if (a === "") return c;
-								a = a.split("&");
-								for (var d = 0; d < a.length; d++) {
-									var e = a[d].split("=", 2),
-										f = decodeURIComponent(e[0]);
-									if (b && Object.prototype.hasOwnProperty.call(c, f))
-										throw new URIError("Duplicate key: " + f);
-									c[f] = e.length === 2 ? decodeURIComponent(e[1]) : null;
-								}
-								return c;
-							}
-							function c(a, b) {
-								return (
-									a +
-									(ES(a, "indexOf", !0, "?") !== -1 ? "&" : "?") +
-									(typeof b === "string" ? b : g.encode(b))
-								);
-							}
-							var g = { encode: a, decode: b, appendToUrl: c };
-							e.exports = g;
+							b = {
+								start: ES("Date", "now", !1),
+								nocatch: !1,
+								ajaxpipe_token: null
+							};
+							a.Env && ES("Object", "assign", !1, b, a.Env);
+							a.Env = b;
+							e.exports = b;
 						},
 						null
 					);
@@ -2835,829 +2802,6 @@ try {
 									(this.innerError = b);
 							}
 							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"AssertionError",
-						["ManagedError"],
-						function(a, b, c, d, e, f, g) {
-							function a(a) {
-								g.prototype.constructor.apply(this, arguments);
-							}
-							a.prototype = new g();
-							a.prototype.constructor = a;
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"Assert",
-						["AssertionError", "sprintf"],
-						function(a, b, c, d, e, f, g, h) {
-							__p && __p();
-							function i(a, b) {
-								if (typeof a !== "boolean" || !a) throw new g(b);
-								return a;
-							}
-							function j(a, b, c) {
-								__p && __p();
-								var d;
-								if (b === undefined) d = "undefined";
-								else if (b === null) d = "null";
-								else {
-									var e = Object.prototype.toString.call(b);
-									d = /\s(\w*)/.exec(e)[1].toLowerCase();
-								}
-								i(
-									ES(a, "indexOf", !0, d) !== -1,
-									c || h("Expression is of type %s, not %s", d, a)
-								);
-								return b;
-							}
-							function a(a, b, c) {
-								i(b instanceof a, c || "Expression not instance of type");
-								return b;
-							}
-							function k(a, b) {
-								(l["is" + a] = b),
-									(l["maybe" + a] = function(a, c) {
-										a != null && b(a, c);
-									});
-							}
-							var l = {
-								isInstanceOf: a,
-								isTrue: i,
-								isTruthy: function(a, b) {
-									return i(!!a, b);
-								},
-								type: j,
-								define: function(a, b) {
-									(a =
-										a.substring(0, 1).toUpperCase() +
-										a.substring(1).toLowerCase()),
-										k(a, function(a, c) {
-											i(b(a), c);
-										});
-								}
-							};
-							ES(
-								[
-									"Array",
-									"Boolean",
-									"Date",
-									"Function",
-									"Null",
-									"Number",
-									"Object",
-									"Regexp",
-									"String",
-									"Undefined"
-								],
-								"forEach",
-								!0,
-								function(a) {
-									k(a, ES(j, "bind", !0, null, a.toLowerCase()));
-								}
-							);
-							e.exports = l;
-						},
-						null
-					);
-					__d(
-						"Type",
-						["Assert"],
-						function(a, b, c, d, e, f, g) {
-							__p && __p();
-							function h() {
-								var a = this.__mixins;
-								if (a)
-									for (var b = 0; b < a.length; b++)
-										a[b].apply(this, arguments);
-							}
-							function i(a, b) {
-								if (b instanceof a) return !0;
-								if (b instanceof h)
-									for (var c = 0; c < b.__mixins.length; c++)
-										if (b.__mixins[c] == a) return !0;
-								return !1;
-							}
-							function j(a, b) {
-								var c = a.prototype;
-								ES("Array", "isArray", !1, b) || (b = [b]);
-								for (var a = 0; a < b.length; a++) {
-									var d = b[a];
-									typeof d === "function" &&
-										(c.__mixins.push(d), (d = d.prototype));
-									ES(ES("Object", "keys", !1, d), "forEach", !0, function(a) {
-										c[a] = d[a];
-									});
-								}
-							}
-							function k(a, b, c) {
-								__p && __p();
-								var d =
-									b && Object.prototype.hasOwnProperty.call(b, "constructor")
-										? b.constructor
-										: function() {
-												this.parent.apply(this, arguments);
-										  };
-								g.isFunction(d);
-								if (a && a.prototype instanceof h === !1)
-									throw new Error("parent type does not inherit from Type");
-								a = a || h;
-								function e() {}
-								e.prototype = a.prototype;
-								d.prototype = new e();
-								b && ES("Object", "assign", !1, d.prototype, b);
-								d.prototype.constructor = d;
-								d.parent = a;
-								d.prototype.__mixins = a.prototype.__mixins
-									? Array.prototype.slice.call(a.prototype.__mixins)
-									: [];
-								c && j(d, c);
-								d.prototype.parent = function() {
-									(this.parent = a.prototype.parent), a.apply(this, arguments);
-								};
-								d.prototype.parentCall = function(b) {
-									return a.prototype[b].apply(
-										this,
-										Array.prototype.slice.call(arguments, 1)
-									);
-								};
-								d.extend = function(a, b) {
-									return k(this, a, b);
-								};
-								return d;
-							}
-							ES("Object", "assign", !1, h.prototype, {
-								instanceOf: function(a) {
-									return i(a, this);
-								}
-							});
-							ES("Object", "assign", !1, h, {
-								extend: function(a, b) {
-									return typeof a === "function"
-										? k.apply(null, arguments)
-										: k(null, a, b);
-								},
-								instanceOf: i
-							});
-							e.exports = h;
-						},
-						null
-					);
-					__d(
-						"sdk.Model",
-						["ObservableMixin", "Type"],
-						function(a, b, c, d, e, f, g, h) {
-							"use strict";
-							__p && __p();
-							a = h.extend(
-								{
-									constructor: function(a) {
-										__p && __p();
-										this.parent();
-										var b = {},
-											c = this;
-										ES(ES("Object", "keys", !1, a), "forEach", !0, function(d) {
-											(b[d] = a[d]),
-												(c["set" + d] = function(a) {
-													if (a === b[d]) return c;
-													b[d] = a;
-													c.inform(d + ".change", a);
-													return c;
-												}),
-												(c["get" + d] = function() {
-													return b[d];
-												});
-										});
-									}
-								},
-								g
-							);
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"sdk.Runtime",
-						["JSSDKRuntimeConfig", "sdk.Model"],
-						function(a, b, c, d, e, f, g, h) {
-							__p && __p();
-							var i = { UNKNOWN: 0, PAGETAB: 1, CANVAS: 2, PLATFORM: 4 },
-								j = new h({
-									AccessToken: "",
-									AutoLogAppEvents: !1,
-									ClientID: "",
-									CookieUserID: "",
-									Environment: i.UNKNOWN,
-									Initialized: !1,
-									IsVersioned: !1,
-									KidDirectedSite: undefined,
-									Locale: g.locale,
-									LoggedIntoFacebook: undefined,
-									LoginStatus: undefined,
-									Revision: g.revision,
-									Rtl: g.rtl,
-									Scope: undefined,
-									SDKAB: g.sdkab,
-									SDKUrl: g.sdkurl,
-									SDKNS: g.sdkns,
-									UseCookie: !1,
-									UserID: "",
-									Version: undefined
-								});
-							ES("Object", "assign", !1, j, {
-								ENVIRONMENTS: i,
-								isEnvironment: function(a) {
-									var b = this.getEnvironment();
-									return (a | b) === b;
-								},
-								isCanvasEnvironment: function() {
-									return (
-										this.isEnvironment(i.CANVAS) ||
-										this.isEnvironment(i.PAGETAB)
-									);
-								}
-							});
-							(function() {
-								var a = /app_runner/.test(window.name)
-									? i.PAGETAB
-									: /iframe_canvas/.test(window.name)
-										? i.CANVAS
-										: i.UNKNOWN;
-								(a | i.PAGETAB) === a && (a |= i.CANVAS);
-								j.setEnvironment(a);
-							})();
-							e.exports = j;
-						},
-						null
-					);
-					__d(
-						"sdk.Cookie",
-						["QueryString", "sdk.Runtime"],
-						function(a, b, c, d, e, f, g, h) {
-							__p && __p();
-							var i = null;
-							function j(a, b, c, d) {
-								a = a + h.getClientID();
-								d = d ? ";Secure" : "";
-								var e = i !== null && i !== ".";
-								e &&
-									((document.cookie =
-										a + "=; expires=Wed, 04 Feb 2004 08:00:00 GMT" + d),
-									(document.cookie =
-										a +
-										"=; expires=Wed, 04 Feb 2004 08:00:00 GMT;domain=" +
-										location.hostname +
-										d));
-								var f = new Date(c).toUTCString();
-								document.cookie =
-									a +
-									"=" +
-									b +
-									(b && c === 0 ? "" : "; expires=" + f) +
-									"; path=/" +
-									(e ? "; domain=" + ((a = i) != null ? a : "") : "") +
-									d;
-							}
-							function k(a) {
-								a = a + h.getClientID();
-								a = new RegExp("\\b" + a + "=([^;]*)\\b");
-								a = document.cookie.match(a);
-								if (a === null || a === undefined) return null;
-								else return a[1];
-							}
-							a = {
-								setDomain: function(a) {
-									i = a;
-									a = g.encode({
-										base_domain: i !== null && i !== "." ? i : ""
-									});
-									var b = new Date();
-									b.setFullYear(b.getFullYear() + 1);
-									j("fbm_", a, b.getTime(), !1);
-								},
-								getDomain: function() {
-									return i;
-								},
-								loadMeta: function() {
-									var a = k("fbm_");
-									if (a !== null && a !== undefined && i === null) {
-										a = g.decode(a);
-										i = a.base_domain;
-										return a;
-									}
-									return null;
-								},
-								loadSignedRequest: function() {
-									return k("fbsr_");
-								},
-								setSignedRequestCookie: function(a, b, c) {
-									if (a === "")
-										throw new Error(
-											"Value passed to Cookie.setSignedRequestCookie was empty."
-										);
-									j("fbsr_", a, b, c);
-								},
-								clearSignedRequestCookie: function() {
-									this.loadMeta(), j("fbsr_", "", 0, !1);
-								},
-								setRaw: j,
-								getRaw: k
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"Miny",
-						[],
-						function(a, b, c, d, e, f) {
-							__p && __p();
-							var g = "Miny1",
-								h = "wxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_".split("");
-							a = {
-								encode: function(a) {
-									__p && __p();
-									if (/^$|[~\\]|__proto__/.test(a)) return a;
-									a = a.match(/\w+|\W+/g);
-									var b,
-										c = ES("Object", "create", !1, null);
-									for (b = 0; b < a.length; b++) c[a[b]] = (c[a[b]] || 0) + 1;
-									var d = ES("Object", "keys", !1, c);
-									d.sort(function(a, b) {
-										return c[b] - c[a];
-									});
-									for (b = 0; b < d.length; b++) {
-										var e = (b - (b % 32)) / 32;
-										c[d[b]] = e ? e.toString(32) + h[b % 32] : h[b % 32];
-									}
-									e = "";
-									for (b = 0; b < a.length; b++) e += c[a[b]];
-									d.unshift(g, d.length);
-									d.push(e);
-									return d.join("~");
-								}
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"sdk.UA",
-						[],
-						function(a, b, c, d, e, f) {
-							__p && __p();
-							a = navigator.userAgent;
-							var g = {
-									iphone: /\b(iPhone|iP[ao]d)/.test(a),
-									ipad: /\b(iP[ao]d)/.test(a),
-									android: /Android/i.test(a),
-									nativeApp: /FBAN\/\w+;/i.test(a),
-									nativeAndroidApp: /FB_IAB\/\w+;/i.test(a),
-									nativeInstagramApp: /Instagram/i.test(a),
-									ucBrowser: /UCBrowser/i.test(a)
-								},
-								h = /Mobile/i.test(a),
-								i = {
-									ie: "",
-									firefox: "",
-									chrome: "",
-									webkit: "",
-									osx: "",
-									edge: "",
-									operaMini: "",
-									ucWeb: ""
-								};
-							b = /(?:MSIE.(\d+\.\d+))|(?:(?:Firefox|GranParadiso|Iceweasel).(\d+\.\d+))|(?:AppleWebKit.(\d+(?:\.\d+)?))|(?:Trident\/\d+\.\d+.*rv:(\d+\.\d+))/.exec(
-								a
-							);
-							if (b) {
-								i.ie = b[1] ? parseFloat(b[1]) : b[4] ? parseFloat(b[4]) : "";
-								i.firefox = b[2] || "";
-								i.webkit = b[3] || "";
-								if (b[3]) {
-									c = /(?:Chrome\/(\d+\.\d+))/.exec(a);
-									i.chrome = c ? c[1] : "";
-									d = /(?:Edge\/(\d+\.\d+))/.exec(a);
-									i.edge = d ? d[1] : "";
-								}
-							}
-							f = /(?:Mac OS X (\d+(?:[._]\d+)?))/.exec(a);
-							f && (i.osx = f[1]);
-							b = /(?:Opera Mini\/(\d+(?:\.\d+)?))/.exec(a);
-							b && (i.operaMini = b[1]);
-							c = /(?:UCWEB\/(\d+(?:\.\d+))?)/.exec(a);
-							c && (i.ucWeb = c[1] || "2.0");
-							function j(a) {
-								return ES(a.split("."), "map", !0, function(a) {
-									return parseFloat(a);
-								});
-							}
-							var k = {};
-							ES(ES("Object", "keys", !1, i), "map", !0, function(a) {
-								(k[a] = function() {
-									return parseFloat(i[a]);
-								}),
-									(k[a].getVersionParts = function() {
-										return j(i[a]);
-									});
-							});
-							ES(ES("Object", "keys", !1, g), "map", !0, function(a) {
-								k[a] = function() {
-									return g[a];
-								};
-							});
-							k.mobile = function() {
-								return g.iphone || g.ipad || g.android || h;
-							};
-							k.mTouch = function() {
-								return g.android || g.iphone || g.ipad;
-							};
-							k.facebookInAppBrowser = function() {
-								return g.nativeApp || g.nativeAndroidApp;
-							};
-							k.inAppBrowser = function() {
-								return (
-									g.nativeApp || g.nativeAndroidApp || g.nativeInstagramApp
-								);
-							};
-							k.mBasic = function() {
-								return !!(i.ucWeb || i.operaMini);
-							};
-							e.exports = k;
-						},
-						null
-					);
-					__d(
-						"getBlankIframeSrc",
-						["sdk.UA"],
-						function(a, b, c, d, e, f, g) {
-							function a() {
-								return g.ie() < 10 ? "javascript:false" : "about:blank";
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"insertIframe",
-						["GlobalCallback", "getBlankIframeSrc", "guid"],
-						function(a, b, c, d, e, f, g, h, i) {
-							__p && __p();
-							function a(a) {
-								__p && __p();
-								a.id = a.id || i();
-								a.name = a.name || i();
-								var b = !1,
-									c = !1,
-									d = function() {
-										b &&
-											!c &&
-											((c = !0), a.onload && a.onload(a.root.firstChild));
-									},
-									e = g.create(d);
-								if (document.attachEvent) {
-									var f =
-										'<iframe id="' +
-										a.id +
-										'" name="' +
-										a.name +
-										'"' +
-										(a.title ? ' title="' + a.title + '"' : "") +
-										(a.className ? ' class="' + a.className + '"' : "") +
-										' style="border:none;' +
-										(a.width ? "width:" + a.width + "px;" : "") +
-										(a.height ? "height:" + a.height + "px;" : "") +
-										'" src="' +
-										h() +
-										'" frameborder="0" scrolling="no" allowtransparency="true" onload="' +
-										e +
-										'()"></iframe>';
-									a.root.innerHTML =
-										'<iframe src="' +
-										h() +
-										'" frameborder="0" scrolling="no" style="height:1px"></iframe>';
-									b = !0;
-									setTimeout(function() {
-										(a.root.innerHTML = f),
-											(a.root.firstChild.src = a.url),
-											a.onInsert && a.onInsert(a.root.firstChild);
-									}, 0);
-								} else {
-									e = document.createElement("iframe");
-									e.id = a.id;
-									e.name = a.name;
-									e.onload = d;
-									e.scrolling = "no";
-									e.style.border = "none";
-									e.style.overflow = "hidden";
-									a.title && (e.title = a.title);
-									a.className && (e.className = a.className);
-									a.height !== undefined && (e.style.height = a.height + "px");
-									a.width !== undefined &&
-										(a.width == "100%"
-											? (e.style.width = a.width)
-											: (e.style.width = a.width + "px"));
-									a.root.appendChild(e);
-									b = !0;
-									e.src = a.url;
-									a.onInsert && a.onInsert(e);
-								}
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"sdk.domReady",
-						[],
-						function(a, b, c, d, e, f) {
-							__p && __p();
-							var g;
-							b =
-								"readyState" in document
-									? /loaded|complete/.test(document.readyState)
-									: !!document.body;
-							function h() {
-								if (!g) return;
-								var a;
-								while ((a = g.shift())) a();
-								g = null;
-							}
-							function a(a) {
-								if (g) {
-									g.push(a);
-									return;
-								} else a();
-							}
-							if (!b) {
-								g = [];
-								document.addEventListener
-									? (document.addEventListener("DOMContentLoaded", h, !1),
-									  window.addEventListener("load", h, !1))
-									: document.attachEvent &&
-									  (document.attachEvent("onreadystatechange", h),
-									  window.attachEvent("onload", h));
-								if (
-									document.documentElement.doScroll &&
-									window === window.top
-								) {
-									c = function a() {
-										try {
-											document.documentElement.doScroll("left");
-										} catch (b) {
-											setTimeout(a, 0);
-											return;
-										}
-										h();
-									};
-									c();
-								}
-							}
-							e.exports = a;
-						},
-						3
-					);
-					__d(
-						"sdk.Content",
-						["Log", "sdk.domReady", "sdk.UA"],
-						function(a, b, c, d, e, f, g, h, i) {
-							__p && __p();
-							var j,
-								k = {
-									append: function(a, b) {
-										b ||
-											(!j
-												? ((j = b = document.getElementById("fb-root")),
-												  b ||
-														(g.warn(
-															'The "fb-root" div has not been created, auto-creating'
-														),
-														(j = b = document.createElement("div")),
-														(b.id = "fb-root"),
-														i.ie() || !document.body
-															? h(function() {
-																	document.body.appendChild(b);
-															  })
-															: document.body.appendChild(b)),
-												  (b.className += " fb_reset"))
-												: (b = j));
-										if (typeof a === "string") {
-											var c = document.createElement("div");
-											b.appendChild(c).innerHTML = a;
-											return c;
-										} else return b.appendChild(a);
-									},
-									appendHidden: function(a) {
-										if (!b) {
-											var b = document.createElement("div"),
-												c = b.style;
-											c.position = "absolute";
-											c.top = "-10000px";
-											c.width = c.height = 0;
-											b = k.append(b);
-										}
-										return k.append(a, b);
-									},
-									submitToTarget: function(a, b) {
-										__p && __p();
-										var c = document.createElement("form");
-										c.action = a.url;
-										c.target = a.target;
-										c.method = b ? "GET" : "POST";
-										k.appendHidden(c);
-										for (var d in a.params)
-											if (Object.prototype.hasOwnProperty.call(a.params, d)) {
-												b = a.params[d];
-												if (b !== null && b !== undefined) {
-													var e = document.createElement("input");
-													e.name = d;
-													e.value = b;
-													c.appendChild(e);
-												}
-											}
-										c.submit();
-										c.parentNode.removeChild(c);
-									}
-								};
-							e.exports = k;
-						},
-						null
-					);
-					__d(
-						"sdk.Impressions",
-						[
-							"Miny",
-							"QueryString",
-							"UrlMap",
-							"getBlankIframeSrc",
-							"guid",
-							"insertIframe",
-							"sdk.Content",
-							"sdk.Runtime"
-						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
-							__p && __p();
-							function o(a) {
-								__p && __p();
-								var b = n.getClientID();
-								!a.api_key && b && (a.api_key = b);
-								a.kid_directed_site = n.getKidDirectedSite();
-								b = i.resolve("www", !0) + "/impression.php/" + k() + "/";
-								var c = h.appendToUrl(b, a);
-								if (
-									c.length > 2e3 &&
-									(a.payload && typeof a.payload === "string")
-								) {
-									var d = g.encode(a.payload);
-									d &&
-										d.length < a.payload.length &&
-										((a.payload = d), (c = h.appendToUrl(b, a)));
-								}
-								if (c.length <= 2e3) {
-									d = new Image();
-									d.src = c;
-								} else {
-									d = k();
-									var e = m.appendHidden("");
-									l({
-										url: j(),
-										root: e,
-										name: d,
-										className: "fb_hidden fb_invisible",
-										onload: function() {
-											e.parentNode.removeChild(e);
-										}
-									});
-									m.submitToTarget({ url: b, target: d, params: a });
-								}
-							}
-							a = {
-								log: function(a, b) {
-									b.source || (b.source = "jssdk"),
-										o({ lid: a, payload: ES("JSON", "stringify", !1, b) });
-								},
-								impression: o
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"sdk.Scribe",
-						["QueryString", "UrlMap", "sdk.Runtime"],
-						function(a, b, c, d, e, f, g, h, i) {
-							function a(a, b) {
-								typeof b.extra === "object" &&
-									(b.extra.revision = i.getRevision()),
-									(new Image().src = g.appendToUrl(
-										h.resolve("www") + "/common/scribe_endpoint.php",
-										{ c: a, m: ES("JSON", "stringify", !1, b) }
-									));
-							}
-							b = { log: a };
-							e.exports = b;
-						},
-						null
-					);
-					__d(
-						"Base64",
-						[],
-						function(a, b, c, d, e, f) {
-							__p && __p();
-							var g =
-								"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-							function h(a) {
-								a =
-									(a.charCodeAt(0) << 16) |
-									(a.charCodeAt(1) << 8) |
-									a.charCodeAt(2);
-								return String.fromCharCode(
-									g.charCodeAt(a >>> 18),
-									g.charCodeAt((a >>> 12) & 63),
-									g.charCodeAt((a >>> 6) & 63),
-									g.charCodeAt(a & 63)
-								);
-							}
-							var i =
-								">___?456789:;<=_______\0\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19______\x1a\x1b\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123";
-							function j(a) {
-								a =
-									(i.charCodeAt(a.charCodeAt(0) - 43) << 18) |
-									(i.charCodeAt(a.charCodeAt(1) - 43) << 12) |
-									(i.charCodeAt(a.charCodeAt(2) - 43) << 6) |
-									i.charCodeAt(a.charCodeAt(3) - 43);
-								return String.fromCharCode(a >>> 16, (a >>> 8) & 255, a & 255);
-							}
-							var k = {
-								encode: function(a) {
-									a = unescape(encodeURI(a));
-									var b = (a.length + 2) % 3;
-									a = (a + "\0\0".slice(b)).replace(/[\s\S]{3}/g, h);
-									return a.slice(0, a.length + b - 2) + "==".slice(b);
-								},
-								decode: function(a) {
-									a = a.replace(/[^A-Za-z0-9+\/]/g, "");
-									var b = (a.length + 3) & 3;
-									a = (a + "AAA".slice(b)).replace(/..../g, j);
-									a = a.slice(0, a.length + b - 3);
-									try {
-										return decodeURIComponent(escape(a));
-									} catch (a) {
-										throw new Error("Not valid UTF-8");
-									}
-								},
-								encodeObject: function(a) {
-									return k.encode(ES("JSON", "stringify", !1, a));
-								},
-								decodeObject: function(a) {
-									return ES("JSON", "parse", !1, k.decode(a));
-								},
-								encodeNums: function(a) {
-									return String.fromCharCode.apply(
-										String,
-										ES(a, "map", !0, function(a) {
-											return g.charCodeAt((a | -(a > 63)) & -(a > 0) & 63);
-										})
-									);
-								}
-							};
-							e.exports = k;
-						},
-						null
-					);
-					__d(
-						"sdk.SignedRequest",
-						["Base64"],
-						function(a, b, c, d, e, f, g) {
-							function a(a) {
-								if (!a) return null;
-								a = a
-									.split(".", 2)[1]
-									.replace(/\-/g, "+")
-									.replace(/\_/g, "/");
-								return g.decodeObject(a);
-							}
-							b = { parse: a };
-							e.exports = b;
-						},
-						null
-					);
-					__d(
-						"Env",
-						[],
-						function(a, b, c, d, e, f) {
-							b = {
-								start: ES("Date", "now", !1),
-								nocatch: !1,
-								ajaxpipe_token: null
-							};
-							a.Env && ES("Object", "assign", !1, b, a.Env);
-							a.Env = b;
-							e.exports = b;
 						},
 						null
 					);
@@ -4340,6 +3484,951 @@ try {
 								g.addGlobalMetadata(a, b, c);
 							};
 							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"WebStorage",
+						["FBLogger", "ex"],
+						function(a, b, c, d, e, f, g, h) {
+							"use strict";
+							__p && __p();
+							var i = {},
+								j = {};
+							function k(a, b, c) {
+								Object.prototype.hasOwnProperty.call(i, c) || (i[c] = b(c));
+								return i[c];
+							}
+							function l(a) {
+								try {
+									return window[a];
+								} catch (a) {
+									g("web_storage").warn(
+										"Failed to get storage for read %s",
+										a.message
+									);
+								}
+								return null;
+							}
+							function m(a) {
+								__p && __p();
+								try {
+									a = window[a];
+									if (a) {
+										var b = "__test__" + ES("Date", "now", !1);
+										a.setItem(b, "");
+										a.removeItem(b);
+									}
+									return a;
+								} catch (a) {
+									g("web_storage").warn("Failed to get storage %s", a.message);
+								}
+								return null;
+							}
+							function n(a) {
+								var b = [];
+								for (var c = 0; c < a.length; c++) b.push(a.key(c) || "");
+								return b;
+							}
+							function a(a, b, c) {
+								__p && __p();
+								if (a == null) return new Error("storage cannot be null");
+								var d = null;
+								try {
+									a.setItem(b, c);
+								} catch (f) {
+									var e = ES(n(a), "map", !0, function(b) {
+										var c = (a.getItem(b) || "").length;
+										return b + "(" + c + ")";
+									});
+									d = new Error(
+										h(
+											"%sStorage quota exceeded while setting %s(%s). Items(length) follows: %s",
+											f.name ? f.name + ": " : "",
+											b,
+											c.length,
+											e.join()
+										)
+									);
+									g("web_storage")
+										.catching(d)
+										.mustfix("Error set item");
+								}
+								return d;
+							}
+							b = {
+								getLocalStorage: function() {
+									return k(i, m, "localStorage");
+								},
+								getSessionStorage: function() {
+									return k(i, m, "sessionStorage");
+								},
+								getLocalStorageForRead: function() {
+									return k(j, l, "localStorage");
+								},
+								getSessionStorageForRead: function() {
+									return k(j, l, "sessionStorage");
+								},
+								setItemGuarded: a
+							};
+							e.exports = b;
+						},
+						null
+					);
+					__d(
+						"QueryString",
+						[],
+						function(a, b, c, d, e, f) {
+							__p && __p();
+							function a(a) {
+								__p && __p();
+								var b = [];
+								ES(ES("Object", "keys", !1, a).sort(), "forEach", !0, function(
+									c
+								) {
+									var d = a[c];
+									if (d === undefined) return;
+									if (d === null) {
+										b.push(c);
+										return;
+									}
+									b.push(encodeURIComponent(c) + "=" + encodeURIComponent(d));
+								});
+								return b.join("&");
+							}
+							function b(a, b) {
+								__p && __p();
+								b === void 0 && (b = !1);
+								var c = {};
+								if (a === "") return c;
+								a = a.split("&");
+								for (var d = 0; d < a.length; d++) {
+									var e = a[d].split("=", 2),
+										f = decodeURIComponent(e[0]);
+									if (b && Object.prototype.hasOwnProperty.call(c, f))
+										throw new URIError("Duplicate key: " + f);
+									c[f] = e.length === 2 ? decodeURIComponent(e[1]) : null;
+								}
+								return c;
+							}
+							function c(a, b) {
+								return (
+									a +
+									(ES(a, "indexOf", !0, "?") !== -1 ? "&" : "?") +
+									(typeof b === "string" ? b : g.encode(b))
+								);
+							}
+							var g = { encode: a, decode: b, appendToUrl: c };
+							e.exports = g;
+						},
+						null
+					);
+					__d(
+						"AssertionError",
+						["ManagedError"],
+						function(a, b, c, d, e, f, g) {
+							function a(a) {
+								g.prototype.constructor.apply(this, arguments);
+							}
+							a.prototype = new g();
+							a.prototype.constructor = a;
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"Assert",
+						["AssertionError", "sprintf"],
+						function(a, b, c, d, e, f, g, h) {
+							__p && __p();
+							function i(a, b) {
+								if (typeof a !== "boolean" || !a) throw new g(b);
+								return a;
+							}
+							function j(a, b, c) {
+								__p && __p();
+								var d;
+								if (b === undefined) d = "undefined";
+								else if (b === null) d = "null";
+								else {
+									var e = Object.prototype.toString.call(b);
+									d = /\s(\w*)/.exec(e)[1].toLowerCase();
+								}
+								i(
+									ES(a, "indexOf", !0, d) !== -1,
+									c || h("Expression is of type %s, not %s", d, a)
+								);
+								return b;
+							}
+							function a(a, b, c) {
+								i(b instanceof a, c || "Expression not instance of type");
+								return b;
+							}
+							function k(a, b) {
+								(l["is" + a] = b),
+									(l["maybe" + a] = function(a, c) {
+										a != null && b(a, c);
+									});
+							}
+							var l = {
+								isInstanceOf: a,
+								isTrue: i,
+								isTruthy: function(a, b) {
+									return i(!!a, b);
+								},
+								type: j,
+								define: function(a, b) {
+									(a =
+										a.substring(0, 1).toUpperCase() +
+										a.substring(1).toLowerCase()),
+										k(a, function(a, c) {
+											i(b(a), c);
+										});
+								}
+							};
+							ES(
+								[
+									"Array",
+									"Boolean",
+									"Date",
+									"Function",
+									"Null",
+									"Number",
+									"Object",
+									"Regexp",
+									"String",
+									"Undefined"
+								],
+								"forEach",
+								!0,
+								function(a) {
+									k(a, ES(j, "bind", !0, null, a.toLowerCase()));
+								}
+							);
+							e.exports = l;
+						},
+						null
+					);
+					__d(
+						"Type",
+						["Assert"],
+						function(a, b, c, d, e, f, g) {
+							__p && __p();
+							function h() {
+								var a = this.__mixins;
+								if (a)
+									for (var b = 0; b < a.length; b++)
+										a[b].apply(this, arguments);
+							}
+							function i(a, b) {
+								if (b instanceof a) return !0;
+								if (b instanceof h)
+									for (var c = 0; c < b.__mixins.length; c++)
+										if (b.__mixins[c] == a) return !0;
+								return !1;
+							}
+							function j(a, b) {
+								var c = a.prototype;
+								ES("Array", "isArray", !1, b) || (b = [b]);
+								for (var a = 0; a < b.length; a++) {
+									var d = b[a];
+									typeof d === "function" &&
+										(c.__mixins.push(d), (d = d.prototype));
+									ES(ES("Object", "keys", !1, d), "forEach", !0, function(a) {
+										c[a] = d[a];
+									});
+								}
+							}
+							function k(a, b, c) {
+								__p && __p();
+								var d =
+									b && Object.prototype.hasOwnProperty.call(b, "constructor")
+										? b.constructor
+										: function() {
+												this.parent.apply(this, arguments);
+										  };
+								g.isFunction(d);
+								if (a && a.prototype instanceof h === !1)
+									throw new Error("parent type does not inherit from Type");
+								a = a || h;
+								function e() {}
+								e.prototype = a.prototype;
+								d.prototype = new e();
+								b && ES("Object", "assign", !1, d.prototype, b);
+								d.prototype.constructor = d;
+								d.parent = a;
+								d.prototype.__mixins = a.prototype.__mixins
+									? Array.prototype.slice.call(a.prototype.__mixins)
+									: [];
+								c && j(d, c);
+								d.prototype.parent = function() {
+									(this.parent = a.prototype.parent), a.apply(this, arguments);
+								};
+								d.prototype.parentCall = function(b) {
+									return a.prototype[b].apply(
+										this,
+										Array.prototype.slice.call(arguments, 1)
+									);
+								};
+								d.extend = function(a, b) {
+									return k(this, a, b);
+								};
+								return d;
+							}
+							ES("Object", "assign", !1, h.prototype, {
+								instanceOf: function(a) {
+									return i(a, this);
+								}
+							});
+							ES("Object", "assign", !1, h, {
+								extend: function(a, b) {
+									return typeof a === "function"
+										? k.apply(null, arguments)
+										: k(null, a, b);
+								},
+								instanceOf: i
+							});
+							e.exports = h;
+						},
+						null
+					);
+					__d(
+						"sdk.Model",
+						["ObservableMixin", "Type"],
+						function(a, b, c, d, e, f, g, h) {
+							"use strict";
+							__p && __p();
+							a = h.extend(
+								{
+									constructor: function(a) {
+										__p && __p();
+										this.parent();
+										var b = {},
+											c = this;
+										ES(ES("Object", "keys", !1, a), "forEach", !0, function(d) {
+											(b[d] = a[d]),
+												(c["set" + d] = function(a) {
+													if (a === b[d]) return c;
+													b[d] = a;
+													c.inform(d + ".change", a);
+													return c;
+												}),
+												(c["get" + d] = function() {
+													return b[d];
+												});
+										});
+									}
+								},
+								g
+							);
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"sdk.Runtime",
+						["JSSDKRuntimeConfig", "sdk.Model"],
+						function(a, b, c, d, e, f, g, h) {
+							__p && __p();
+							var i = { UNKNOWN: 0, PAGETAB: 1, CANVAS: 2, PLATFORM: 4 },
+								j = new h({
+									AccessToken: "",
+									AutoLogAppEvents: !1,
+									ClientID: "",
+									CookieUserID: "",
+									Environment: i.UNKNOWN,
+									Initialized: !1,
+									IsVersioned: !1,
+									KidDirectedSite: undefined,
+									Locale: g.locale,
+									LoggedIntoFacebook: undefined,
+									LoginStatus: undefined,
+									Revision: g.revision,
+									Rtl: g.rtl,
+									Scope: undefined,
+									SDKAB: g.sdkab,
+									SDKUrl: g.sdkurl,
+									SDKNS: g.sdkns,
+									UseCookie: !1,
+									UseLocalStorage: !0,
+									UserID: "",
+									Version: undefined
+								});
+							ES("Object", "assign", !1, j, {
+								ENVIRONMENTS: i,
+								isEnvironment: function(a) {
+									var b = this.getEnvironment();
+									return (a | b) === b;
+								},
+								isCanvasEnvironment: function() {
+									return (
+										this.isEnvironment(i.CANVAS) ||
+										this.isEnvironment(i.PAGETAB)
+									);
+								}
+							});
+							(function() {
+								var a = /app_runner/.test(window.name)
+									? i.PAGETAB
+									: /iframe_canvas/.test(window.name)
+										? i.CANVAS
+										: i.UNKNOWN;
+								(a | i.PAGETAB) === a && (a |= i.CANVAS);
+								j.setEnvironment(a);
+							})();
+							e.exports = j;
+						},
+						null
+					);
+					__d(
+						"sdk.Cookie",
+						["QueryString", "sdk.Runtime"],
+						function(a, b, c, d, e, f, g, h) {
+							__p && __p();
+							var i = null;
+							function j(a, b, c, d) {
+								a = a + h.getClientID();
+								d = d ? ";Secure" : "";
+								var e = i !== null && i !== ".";
+								e &&
+									((document.cookie =
+										a + "=; expires=Wed, 04 Feb 2004 08:00:00 GMT" + d),
+									(document.cookie =
+										a +
+										"=; expires=Wed, 04 Feb 2004 08:00:00 GMT;domain=" +
+										location.hostname +
+										d));
+								var f = new Date(c).toUTCString();
+								document.cookie =
+									a +
+									"=" +
+									b +
+									(b && c === 0 ? "" : "; expires=" + f) +
+									"; path=/" +
+									(e ? "; domain=" + ((a = i) != null ? a : "") : "") +
+									d;
+							}
+							function k(a) {
+								a = a + h.getClientID();
+								a = new RegExp("\\b" + a + "=([^;]*)\\b");
+								a = document.cookie.match(a);
+								if (a === null || a === undefined) return null;
+								else return a[1];
+							}
+							a = {
+								setDomain: function(a) {
+									i = a;
+									a = g.encode({
+										base_domain: i !== null && i !== "." ? i : ""
+									});
+									var b = new Date();
+									b.setFullYear(b.getFullYear() + 1);
+									j("fbm_", a, b.getTime(), !1);
+								},
+								getDomain: function() {
+									return i;
+								},
+								loadMeta: function() {
+									var a = k("fbm_");
+									if (a !== null && a !== undefined && i === null) {
+										a = g.decode(a);
+										i = a.base_domain;
+										return a;
+									}
+									return null;
+								},
+								loadSignedRequest: function() {
+									return k("fbsr_");
+								},
+								setSignedRequestCookie: function(a, b, c) {
+									if (a === "")
+										throw new Error(
+											"Value passed to Cookie.setSignedRequestCookie was empty."
+										);
+									j("fbsr_", a, b, c);
+								},
+								clearSignedRequestCookie: function() {
+									this.loadMeta(), j("fbsr_", "", 0, !1);
+								},
+								setRaw: j,
+								getRaw: k
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"Miny",
+						[],
+						function(a, b, c, d, e, f) {
+							__p && __p();
+							var g = "Miny1",
+								h = "wxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_".split("");
+							a = {
+								encode: function(a) {
+									__p && __p();
+									if (/^$|[~\\]|__proto__/.test(a)) return a;
+									a = a.match(/\w+|\W+/g);
+									var b,
+										c = ES("Object", "create", !1, null);
+									for (b = 0; b < a.length; b++) c[a[b]] = (c[a[b]] || 0) + 1;
+									var d = ES("Object", "keys", !1, c);
+									d.sort(function(a, b) {
+										return c[b] - c[a];
+									});
+									for (b = 0; b < d.length; b++) {
+										var e = (b - (b % 32)) / 32;
+										c[d[b]] = e ? e.toString(32) + h[b % 32] : h[b % 32];
+									}
+									e = "";
+									for (b = 0; b < a.length; b++) e += c[a[b]];
+									d.unshift(g, d.length);
+									d.push(e);
+									return d.join("~");
+								}
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"sdk.UA",
+						[],
+						function(a, b, c, d, e, f) {
+							__p && __p();
+							a = navigator.userAgent;
+							var g = {
+									iphone: /\b(iPhone|iP[ao]d)/.test(a),
+									ipad: /\b(iP[ao]d)/.test(a),
+									android: /Android/i.test(a),
+									nativeApp: /FBAN\/\w+;/i.test(a),
+									nativeAndroidApp: /FB_IAB\/\w+;/i.test(a),
+									nativeInstagramApp: /Instagram/i.test(a),
+									ucBrowser: /UCBrowser/i.test(a)
+								},
+								h = /Mobile/i.test(a),
+								i = {
+									ie: "",
+									firefox: "",
+									chrome: "",
+									webkit: "",
+									osx: "",
+									edge: "",
+									operaMini: "",
+									ucWeb: ""
+								};
+							b = /(?:MSIE.(\d+\.\d+))|(?:(?:Firefox|GranParadiso|Iceweasel).(\d+\.\d+))|(?:AppleWebKit.(\d+(?:\.\d+)?))|(?:Trident\/\d+\.\d+.*rv:(\d+\.\d+))/.exec(
+								a
+							);
+							if (b) {
+								i.ie = b[1] ? parseFloat(b[1]) : b[4] ? parseFloat(b[4]) : "";
+								i.firefox = b[2] || "";
+								i.webkit = b[3] || "";
+								if (b[3]) {
+									c = /(?:Chrome\/(\d+\.\d+))/.exec(a);
+									i.chrome = c ? c[1] : "";
+									d = /(?:Edge\/(\d+\.\d+))/.exec(a);
+									i.edge = d ? d[1] : "";
+								}
+							}
+							f = /(?:Mac OS X (\d+(?:[._]\d+)?))/.exec(a);
+							f && (i.osx = f[1]);
+							b = /(?:Opera Mini\/(\d+(?:\.\d+)?))/.exec(a);
+							b && (i.operaMini = b[1]);
+							c = /(?:UCWEB\/(\d+(?:\.\d+))?)/.exec(a);
+							c && (i.ucWeb = c[1] || "2.0");
+							function j(a) {
+								return ES(a.split("."), "map", !0, function(a) {
+									return parseFloat(a);
+								});
+							}
+							var k = {};
+							ES(ES("Object", "keys", !1, i), "map", !0, function(a) {
+								(k[a] = function() {
+									return parseFloat(i[a]);
+								}),
+									(k[a].getVersionParts = function() {
+										return j(i[a]);
+									});
+							});
+							ES(ES("Object", "keys", !1, g), "map", !0, function(a) {
+								k[a] = function() {
+									return g[a];
+								};
+							});
+							k.mobile = function() {
+								return g.iphone || g.ipad || g.android || h;
+							};
+							k.mTouch = function() {
+								return g.android || g.iphone || g.ipad;
+							};
+							k.facebookInAppBrowser = function() {
+								return g.nativeApp || g.nativeAndroidApp;
+							};
+							k.inAppBrowser = function() {
+								return (
+									g.nativeApp || g.nativeAndroidApp || g.nativeInstagramApp
+								);
+							};
+							k.mBasic = function() {
+								return !!(i.ucWeb || i.operaMini);
+							};
+							e.exports = k;
+						},
+						null
+					);
+					__d(
+						"getBlankIframeSrc",
+						["sdk.UA"],
+						function(a, b, c, d, e, f, g) {
+							function a() {
+								return g.ie() < 10 ? "javascript:false" : "about:blank";
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"insertIframe",
+						["GlobalCallback", "getBlankIframeSrc", "guid"],
+						function(a, b, c, d, e, f, g, h, i) {
+							__p && __p();
+							function a(a) {
+								__p && __p();
+								a.id = a.id || i();
+								a.name = a.name || i();
+								var b = !1,
+									c = !1,
+									d = function() {
+										b &&
+											!c &&
+											((c = !0), a.onload && a.onload(a.root.firstChild));
+									},
+									e = g.create(d);
+								if (document.attachEvent) {
+									var f =
+										'<iframe id="' +
+										a.id +
+										'" name="' +
+										a.name +
+										'"' +
+										(a.title ? ' title="' + a.title + '"' : "") +
+										(a.className ? ' class="' + a.className + '"' : "") +
+										' style="border:none;' +
+										(a.width ? "width:" + a.width + "px;" : "") +
+										(a.height ? "height:" + a.height + "px;" : "") +
+										'" src="' +
+										h() +
+										'" frameborder="0" scrolling="no" allowtransparency="true" onload="' +
+										e +
+										'()"></iframe>';
+									a.root.innerHTML =
+										'<iframe src="' +
+										h() +
+										'" frameborder="0" scrolling="no" style="height:1px"></iframe>';
+									b = !0;
+									setTimeout(function() {
+										(a.root.innerHTML = f),
+											(a.root.firstChild.src = a.url),
+											a.onInsert && a.onInsert(a.root.firstChild);
+									}, 0);
+								} else {
+									e = document.createElement("iframe");
+									e.id = a.id;
+									e.name = a.name;
+									e.onload = d;
+									e.scrolling = "no";
+									e.style.border = "none";
+									e.style.overflow = "hidden";
+									a.title && (e.title = a.title);
+									a.className && (e.className = a.className);
+									a.height !== undefined && (e.style.height = a.height + "px");
+									a.width !== undefined &&
+										(a.width == "100%"
+											? (e.style.width = a.width)
+											: (e.style.width = a.width + "px"));
+									a.root.appendChild(e);
+									b = !0;
+									e.src = a.url;
+									a.onInsert && a.onInsert(e);
+								}
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"sdk.domReady",
+						[],
+						function(a, b, c, d, e, f) {
+							__p && __p();
+							var g;
+							b =
+								"readyState" in document
+									? /loaded|complete/.test(document.readyState)
+									: !!document.body;
+							function h() {
+								if (!g) return;
+								var a;
+								while ((a = g.shift())) a();
+								g = null;
+							}
+							function a(a) {
+								if (g) {
+									g.push(a);
+									return;
+								} else a();
+							}
+							if (!b) {
+								g = [];
+								document.addEventListener
+									? (document.addEventListener("DOMContentLoaded", h, !1),
+									  window.addEventListener("load", h, !1))
+									: document.attachEvent &&
+									  (document.attachEvent("onreadystatechange", h),
+									  window.attachEvent("onload", h));
+								if (
+									document.documentElement.doScroll &&
+									window === window.top
+								) {
+									c = function a() {
+										try {
+											document.documentElement.doScroll("left");
+										} catch (b) {
+											setTimeout(a, 0);
+											return;
+										}
+										h();
+									};
+									c();
+								}
+							}
+							e.exports = a;
+						},
+						3
+					);
+					__d(
+						"sdk.Content",
+						["Log", "sdk.domReady", "sdk.UA"],
+						function(a, b, c, d, e, f, g, h, i) {
+							__p && __p();
+							var j,
+								k = {
+									append: function(a, b) {
+										b ||
+											(!j
+												? ((j = b = document.getElementById("fb-root")),
+												  b ||
+														(g.warn(
+															'The "fb-root" div has not been created, auto-creating'
+														),
+														(j = b = document.createElement("div")),
+														(b.id = "fb-root"),
+														i.ie() || !document.body
+															? h(function() {
+																	document.body.appendChild(b);
+															  })
+															: document.body.appendChild(b)),
+												  (b.className += " fb_reset"))
+												: (b = j));
+										if (typeof a === "string") {
+											var c = document.createElement("div");
+											b.appendChild(c).innerHTML = a;
+											return c;
+										} else return b.appendChild(a);
+									},
+									appendHidden: function(a) {
+										if (!b) {
+											var b = document.createElement("div"),
+												c = b.style;
+											c.position = "absolute";
+											c.top = "-10000px";
+											c.width = c.height = 0;
+											b = k.append(b);
+										}
+										return k.append(a, b);
+									},
+									submitToTarget: function(a, b) {
+										__p && __p();
+										var c = document.createElement("form");
+										c.action = a.url;
+										c.target = a.target;
+										c.method = b ? "GET" : "POST";
+										k.appendHidden(c);
+										for (var d in a.params)
+											if (Object.prototype.hasOwnProperty.call(a.params, d)) {
+												b = a.params[d];
+												if (b !== null && b !== undefined) {
+													var e = document.createElement("input");
+													e.name = d;
+													e.value = b;
+													c.appendChild(e);
+												}
+											}
+										c.submit();
+										c.parentNode.removeChild(c);
+									}
+								};
+							e.exports = k;
+						},
+						null
+					);
+					__d(
+						"sdk.Impressions",
+						[
+							"Miny",
+							"QueryString",
+							"UrlMap",
+							"getBlankIframeSrc",
+							"guid",
+							"insertIframe",
+							"sdk.Content",
+							"sdk.Runtime"
+						],
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
+							__p && __p();
+							function o(a) {
+								__p && __p();
+								var b = n.getClientID();
+								!a.api_key && b && (a.api_key = b);
+								a.kid_directed_site = n.getKidDirectedSite();
+								b = i.resolve("www", !0) + "/impression.php/" + k() + "/";
+								var c = h.appendToUrl(b, a);
+								if (
+									c.length > 2e3 &&
+									(a.payload && typeof a.payload === "string")
+								) {
+									var d = g.encode(a.payload);
+									d &&
+										d.length < a.payload.length &&
+										((a.payload = d), (c = h.appendToUrl(b, a)));
+								}
+								if (c.length <= 2e3) {
+									d = new Image();
+									d.src = c;
+								} else {
+									d = k();
+									var e = m.appendHidden("");
+									l({
+										url: j(),
+										root: e,
+										name: d,
+										className: "fb_hidden fb_invisible",
+										onload: function() {
+											e.parentNode.removeChild(e);
+										}
+									});
+									m.submitToTarget({ url: b, target: d, params: a });
+								}
+							}
+							a = {
+								log: function(a, b) {
+									b.source || (b.source = "jssdk"),
+										o({ lid: a, payload: ES("JSON", "stringify", !1, b) });
+								},
+								impression: o
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"sdk.Scribe",
+						["QueryString", "UrlMap", "sdk.Runtime"],
+						function(a, b, c, d, e, f, g, h, i) {
+							function a(a, b) {
+								typeof b.extra === "object" &&
+									(b.extra.revision = i.getRevision()),
+									(new Image().src = g.appendToUrl(
+										h.resolve("www") + "/common/scribe_endpoint.php",
+										{ c: a, m: ES("JSON", "stringify", !1, b) }
+									));
+							}
+							b = { log: a };
+							e.exports = b;
+						},
+						null
+					);
+					__d(
+						"Base64",
+						[],
+						function(a, b, c, d, e, f) {
+							__p && __p();
+							var g =
+								"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+							function h(a) {
+								a =
+									(a.charCodeAt(0) << 16) |
+									(a.charCodeAt(1) << 8) |
+									a.charCodeAt(2);
+								return String.fromCharCode(
+									g.charCodeAt(a >>> 18),
+									g.charCodeAt((a >>> 12) & 63),
+									g.charCodeAt((a >>> 6) & 63),
+									g.charCodeAt(a & 63)
+								);
+							}
+							var i =
+								">___?456789:;<=_______\0\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19______\x1a\x1b\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123";
+							function j(a) {
+								a =
+									(i.charCodeAt(a.charCodeAt(0) - 43) << 18) |
+									(i.charCodeAt(a.charCodeAt(1) - 43) << 12) |
+									(i.charCodeAt(a.charCodeAt(2) - 43) << 6) |
+									i.charCodeAt(a.charCodeAt(3) - 43);
+								return String.fromCharCode(a >>> 16, (a >>> 8) & 255, a & 255);
+							}
+							var k = {
+								encode: function(a) {
+									a = unescape(encodeURI(a));
+									var b = (a.length + 2) % 3;
+									a = (a + "\0\0".slice(b)).replace(/[\s\S]{3}/g, h);
+									return a.slice(0, a.length + b - 2) + "==".slice(b);
+								},
+								decode: function(a) {
+									a = a.replace(/[^A-Za-z0-9+\/]/g, "");
+									var b = (a.length + 3) & 3;
+									a = (a + "AAA".slice(b)).replace(/..../g, j);
+									a = a.slice(0, a.length + b - 3);
+									try {
+										return decodeURIComponent(escape(a));
+									} catch (a) {
+										throw new Error("Not valid UTF-8");
+									}
+								},
+								encodeObject: function(a) {
+									return k.encode(ES("JSON", "stringify", !1, a));
+								},
+								decodeObject: function(a) {
+									return ES("JSON", "parse", !1, k.decode(a));
+								},
+								encodeNums: function(a) {
+									return String.fromCharCode.apply(
+										String,
+										ES(a, "map", !0, function(a) {
+											return g.charCodeAt((a | -(a > 63)) & -(a > 0) & 63);
+										})
+									);
+								}
+							};
+							e.exports = k;
+						},
+						null
+					);
+					__d(
+						"sdk.SignedRequest",
+						["Base64"],
+						function(a, b, c, d, e, f, g) {
+							function a(a) {
+								if (!a) return null;
+								a = a
+									.split(".", 2)[1]
+									.replace(/\-/g, "+")
+									.replace(/\_/g, "/");
+								return g.decodeObject(a);
+							}
+							b = { parse: a };
+							e.exports = b;
 						},
 						null
 					);
@@ -6101,6 +6190,7 @@ try {
 							"OAuthControllerParameterName",
 							"ObservableMixin",
 							"UrlMap",
+							"WebStorage",
 							"guid",
 							"sdk.Cookie",
 							"sdk.createIframe",
@@ -6135,53 +6225,55 @@ try {
 							s,
 							t,
 							u,
-							v
+							v,
+							w
 						) {
 							__p && __p();
-							var w = "fblo_",
-								x = 365 * 24 * 60 * 60 * 1e3,
-								y,
-								z,
-								A = new j();
-							function B(a, b) {
+							var x = "fblst_",
+								y = "fblo_",
+								z = 365 * 24 * 60 * 60 * 1e3,
+								A,
+								B,
+								C = new j();
+							function D(a, b) {
 								__p && __p();
-								var c = r.getUserID(),
+								var c = s.getUserID(),
 									d = "";
 								if (a)
 									if (a.userID) d = a.userID;
 									else if (a.signedRequest) {
-										var e = t.parse(a.signedRequest);
+										var e = u.parse(a.signedRequest);
 										e && e.user_id && (d = e.user_id);
 									}
-								e = r.getLoginStatus();
+								e = s.getLoginStatus();
 								var f =
 										(e === "unknown" && a) ||
-										(r.getUseCookie() && r.getCookieUserID() !== d),
+										(s.getUseCookie() && s.getCookieUserID() !== d),
 									g = c && !a;
 								c = a && c && c != d;
-								var h = a != y;
+								var h = a != A;
 								e = b != (e || "unknown");
-								r.setLoginStatus(b);
-								r.setAccessToken((a && a.accessToken) || null);
-								r.setUserID(d);
-								y = a;
+								s.setLoginStatus(b);
+								s.setAccessToken((a && a.accessToken) || null);
+								s.setUserID(d);
+								A = a;
 								d = { authResponse: a, status: b };
-								(g || c) && A.inform("logout", d);
-								(f || c) && A.inform("login", d);
-								h && A.inform("authresponse.change", d);
-								e && A.inform("status.change", d);
+								(g || c) && C.inform("logout", d);
+								(f || c) && C.inform("login", d);
+								h && C.inform("authresponse.change", d);
+								e && C.inform("status.change", d);
 								return d;
 							}
-							function C() {
-								return y;
+							function E() {
+								return A;
 							}
-							function D(a, b, c) {
+							function F(a, b, c) {
 								__p && __p();
 								return function(d) {
 									__p && __p();
 									var e = !1;
 									if (d && d.access_token) {
-										var f = t.parse(d.signed_request);
+										var f = u.parse(d.signed_request);
 										b = {
 											accessToken: d.access_token,
 											userID: f.user_id,
@@ -6200,129 +6292,137 @@ try {
 												)
 											}));
 										d.enforce_https && (e = !0);
-										if (r.getUseCookie()) {
+										if (
+											s.getUseLocalStorage() &&
+											location.protocol === "https:" &&
+											d.long_lived_token
+										) {
+											f = l.getLocalStorage();
+											f && f.setItem(x + s.getClientID(), d.long_lived_token);
+										}
+										if (s.getUseCookie()) {
 											f =
 												b.expiresIn === 0
 													? 0
 													: ES("Date", "now", !1) + b.expiresIn * 1e3;
-											var g = m.getDomain();
-											!g && d.base_domain && m.setDomain("." + d.base_domain);
-											m.setSignedRequestCookie(d.signed_request, f, e);
+											var g = n.getDomain();
+											!g && d.base_domain && n.setDomain("." + d.base_domain);
+											n.setSignedRequestCookie(d.signed_request, f, e);
 										}
-										E();
+										G();
 										g = "connected";
-										B(b, g);
+										D(b, g);
 									} else
 										(c === "logout" || c === "login_status") &&
 											(d && d.error && d.error === "not_authorized"
-												? ((g = "not_authorized"), B(null, g))
+												? ((g = "not_authorized"), D(null, g))
 												: d && d.error && d.error === "authorization_expired"
-													? ((g = "authorization_expired"), B(null, g))
-													: ((g = "unknown"), B(null, g)),
-											r.getUseCookie() && m.clearSignedRequestCookie(),
+													? ((g = "authorization_expired"), D(null, g))
+													: ((g = "unknown"), D(null, g)),
+											s.getUseCookie() && n.clearSignedRequestCookie(),
 											c === "logout" &&
-												(F(),
-												s.log("jssdk_error", {
-													appId: r.getClientID(),
+												(H(),
+												t.log("jssdk_error", {
+													appId: s.getClientID(),
 													error: "PLATFORM_AUTH_LOGOUT",
 													extra: { args: { fblo: !0 } }
 												})));
 									if (a) {
-										f = { authResponse: b, status: r.getLoginStatus() };
+										f = { authResponse: b, status: s.getLoginStatus() };
 										a(f);
 									}
 									return b;
 								};
 							}
-							function E() {
-								m.setRaw(w, "", 0, !1);
+							function G() {
+								n.setRaw(y, "", 0, !1);
 							}
-							function F() {
-								m.setRaw(w, "y", ES("Date", "now", !1) + x, !1);
+							function H() {
+								n.setRaw(y, "y", ES("Date", "now", !1) + z, !1);
 							}
-							function G(a) {
+							function I(a) {
 								__p && __p();
 								var b,
 									c = ES("Date", "now", !1);
-								z && (clearTimeout(z), (z = null));
-								var d = m.getRaw(w) === "y";
+								B && (clearTimeout(B), (B = null));
+								var d = n.getRaw(y) === "y";
 								if (d) {
 									d = "unknown";
-									B(null, d);
+									D(null, d);
 									a && a({ authResponse: null, status: d });
 									return;
 								}
-								var e = D(a, y, "login_status");
-								d = new u(k.resolve("www") + "/connect/ping")
-									.addQueryData(i.CLIENT_ID, r.getClientID())
+								var e = F(a, A, "login_status");
+								d = new v(k.resolve("www") + "/connect/ping")
+									.addQueryData(i.CLIENT_ID, s.getClientID())
 									.addQueryData(i.RESPONSE_TYPE, "token,signed_request")
 									.addQueryData(i.DOMAIN, location.hostname)
-									.addQueryData(i.ORIGIN, p())
+									.addQueryData(i.ORIGIN, q())
 									.addQueryData(
 										i.REDIRECT_URI,
-										v.handler(function(a) {
-											if (o("e2e_ping_tracking", !0)) {
+										w.handler(function(a) {
+											if (p("e2e_ping_tracking", !0)) {
 												var d = {
 													init: c,
 													close: ES("Date", "now", !1),
 													method: "ping"
 												};
 												h.debug("e2e: %s", ES("JSON", "stringify", !1, d));
-												q.log(114, { payload: d });
+												r.log(114, { payload: d });
 											}
 											b.parentNode.removeChild(b);
 											e(a) &&
-												(z = setTimeout(function() {
-													G(function() {});
+												(B = setTimeout(function() {
+													I(function() {});
 												}, 12e5));
 										}, "parent")
 									)
 									.addQueryData(i.SDK, "joey")
 									.addQueryData(
 										i.VERSION,
-										r.getIsVersioned() ? r.getVersion() : null
+										s.getIsVersioned() ? s.getVersion() : null
 									);
-								b = n({
+								b = o({
 									root: g.getRoot(),
-									name: l(),
+									name: m(),
 									url: d.toString(),
 									style: { display: "none" }
 								});
 							}
-							var H;
+							var J;
 							function a(a, b) {
 								__p && __p();
-								if (!r.getClientID()) {
+								if (!s.getClientID()) {
 									h.warn(
 										"FB.getLoginStatus() called before calling FB.init()."
 									);
 									return;
 								}
 								if (a)
-									if (!b && H === "loaded") {
-										var c = { authResponse: C(), status: r.getLoginStatus() };
+									if (!b && J === "loaded") {
+										var c = { authResponse: E(), status: s.getLoginStatus() };
 										a(c);
 										return;
-									} else A.subscribe("FB.loginStatus", a);
-								if (!b && H === "loading") return;
-								H = "loading";
+									} else C.subscribe("FB.loginStatus", a);
+								if (!b && J === "loading") return;
+								J = "loading";
 								c = function(a) {
-									(H = "loaded"),
-										A.inform("FB.loginStatus", a),
-										A.clearSubscribers("FB.loginStatus");
+									(J = "loaded"),
+										C.inform("FB.loginStatus", a),
+										C.clearSubscribers("FB.loginStatus");
 								};
-								G(c);
+								I(c);
 							}
-							ES("Object", "assign", !1, A, {
-								removeLogoutState: E,
+							ES("Object", "assign", !1, C, {
+								removeLogoutState: G,
 								getLoginStatus: a,
-								fetchLoginStatus: G,
-								setAuthResponse: B,
-								getAuthResponse: C,
-								parseSignedRequest: t.parse,
-								xdResponseWrapper: D
+								fetchLoginStatus: I,
+								setAuthResponse: D,
+								getAuthResponse: E,
+								parseSignedRequest: u.parse,
+								xdResponseWrapper: F
 							});
-							e.exports = A;
+							e.exports = C;
 						},
 						null
 					);
@@ -10437,6 +10537,8 @@ try {
 								a.cookie &&
 									(o.setUseCookie(!0),
 									typeof a.cookie === "string" && j.setDomain(a.cookie));
+								(a.localStorage === !1 || a.localStorage === "false") &&
+									o.setUseLocalStorage(!1);
 								a.kidDirectedSite && o.setKidDirectedSite(!0);
 								(a.autoLogAppEvents === "1" || a.autoLogAppEvents === "true") &&
 									(a.autoLogAppEvents = !0);
@@ -13685,7 +13787,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -13696,7 +13798,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4265692","namespace":"FB","message":"' +
+				'","revision":"4266485","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
