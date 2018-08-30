@@ -15,5 +15,7 @@ fi
 
 cd tmp/;
 
+git pull origin master;
+
 # lastly, run our script
 node ./monitor.js;
