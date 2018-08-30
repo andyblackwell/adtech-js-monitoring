@@ -1,1 +1,1 @@
-worker: bash monitor_run.sh
+worker: bash heroku.sh

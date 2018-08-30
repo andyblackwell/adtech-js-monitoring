@@ -5,7 +5,7 @@ const url = require("url");
 const semver = require('semver');
 const Crawler = require("crawler");
 const prettier = require("prettier");
-const configFile = './monitor_config.json';
+const configFile = './monitor.config.json';
 const { execSync, spawnSync } = require('child_process');
 let config = fs.readJsonSync(configFile);
 
@@ -45,17 +45,25 @@ var c = new Crawler({
 					prettier.format(JSON.stringify(config), Object.assign({}, config.prettier, {parser: 'json'}))
 				);
 
-				spawnSync("git", ["add", "."]);
+				let message = execSync("echo `date +'%Y-%m-%d %I:%M %p'`").toString();
+				message += ` :: ${monitor.name}`;
 
-				let message = `updated( ${monitor.name} ): `;
-				let changes = execSync("echo \"`git diff --cached --stat`\"").toString();
-				message += execSync("echo `date +'%A, %B %-d, %Y'`").toString();
-				if(changes.length > 3){
-					message += changes;
+				let changes = execSync("echo \"`git diff -w --no-color data/*pretty* | grep -E '^\\+' | grep -E -v '^\\+{2,}\\s(a|b)\\/'`\"").toString();
+				if(monitor.diffIgnorePatterns) {
+					try{
+						let regex = new RegExp('(' + monitor.diffIgnorePatterns.join('|') + ')');
+						changes = changes.split(/\n/gm).filter(line => !line.match(regex) && line.replace(/\s/g, '').length).join("\n");
+					}catch(e){ console.log(e); }
 				}
-				message = message.replace(/\n$/g, '');
+				if(changes.length){
+					changes = execSync("echo \"`git diff -w --no-color --shortstat data/*pretty*`\"").toString().replace(/(^\s+|\s+$)/gm, '');
+					message += ` :: ${changes}`;
+					message = message.replace(/\n/gm, '');
+					console.log(message);
+					spawnSync("git", ["add", "."]);
+					spawnSync("git", ["commit", "-m", message]);
+				}
 
-				spawnSync("git", ["commit", "-m", message]);
 			}
 			if(monitor.versionRegex) {
 				let pattern = new RegExp(monitor.versionRegex);
