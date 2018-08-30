@@ -48,7 +48,7 @@ var c = new Crawler({
 				let message = execSync("echo `date +'%Y-%m-%d %I:%M %p'`").toString();
 				message += ` :: ${monitor.name}`;
 
-				let changes = execSync("echo \"`git diff -w --no-color data/*pretty* | grep -E '^\\+' | grep -E -v '^\\+{2,}\\s(a|b)\\/'`\"").toString();
+				let changes = execSync("echo \"`git diff -w --no-color data/*pretty* | grep -E '^(\\+|-)' | grep -E -v '^(\\+|-){2,}\\s(a|b)\\/'`\"").toString();
 				if(monitor.diffIgnorePatterns) {
 					try{
 						let regex = new RegExp('(' + monitor.diffIgnorePatterns.join('|') + ')');
