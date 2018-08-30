@@ -62,6 +62,8 @@ var c = new Crawler({
 					console.log(message);
 					spawnSync("git", ["add", "."]);
 					spawnSync("git", ["commit", "-m", message]);
+				}else{
+					spawnSync("git", ["reset", "--hard"]);
 				}
 
 			}
