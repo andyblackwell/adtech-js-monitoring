@@ -56,7 +56,7 @@ var c = new Crawler({
 					}catch(e){ console.log(e); }
 				}
 				if(changes.length){
-					changes = execSync("echo \"`git diff -w --no-color --shortstat data/*pretty*`\"").toString().replace(/\s(changed|insertions|deletions)/, "").replace(/(^\s+|\s+$)/gm, '');
+					changes = execSync("echo \"`git diff -w --no-color --shortstat data/*pretty*`\"").toString().replace(/\s(changed|insertions|deletions)/g, "").replace(/(^\s+|\s+$)/gm, '');
 					message += ` :: ${changes}`;
 					message = message.replace(/\n/gm, '');
 					console.log(message);
