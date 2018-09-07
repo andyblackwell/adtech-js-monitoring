@@ -1,4 +1,4 @@
-/*1536343644,,JIT Construction: v4289237,en_US*/
+/*1536353556,,JIT Construction: v4290032,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2806,15 +2806,15 @@ try {
 						function(a, b, c, d, e, f, g, h) {
 							"use strict";
 							__p && __p();
-							function a(a, b) {
-								(this.$1 = a), (this.$2 = b);
+							function a(a, b, c) {
+								(this.$1 = a), (this.$2 = b), (this.$3 = c);
 							}
-							a.prototype.$3 = function(a) {
+							a.prototype.$4 = function(a) {
 								__p && __p();
-								var b = this.$4(),
-									c = this.$5();
+								var b = this.$5(),
+									c = this.$6();
 								b.appendChild(c);
-								var d = this.$6();
+								var d = this.$7();
 								b.appendChild(d);
 								g.add(d, "click", function() {
 									c.style.paddingRight = "1px";
@@ -2832,7 +2832,7 @@ try {
 								});
 								return b;
 							};
-							a.prototype.$4 = function() {
+							a.prototype.$5 = function() {
 								__p && __p();
 								var a = document.createElement("div");
 								a.className = "fbAdChoices";
@@ -2847,7 +2847,7 @@ try {
 								a.style.top = "0";
 								return a;
 							};
-							a.prototype.$5 = function() {
+							a.prototype.$6 = function() {
 								__p && __p();
 								var a = document.createElement("a");
 								a.innerText = "AdChoices";
@@ -2868,7 +2868,7 @@ try {
 								a.target = "_blank";
 								return a;
 							};
-							a.prototype.$6 = function() {
+							a.prototype.$7 = function() {
 								var a = document.createElement("img");
 								a.src = this.$2.adChoicesIcon;
 								a.style.backgroundColor = "#ccc";
@@ -2886,12 +2886,13 @@ try {
 								a.style.top = "0";
 								a.style.right = "0";
 								a.style.border = "0";
-								a.style.height = "16px";
-								a.style.width = "18px";
+								this.$3
+									? ((a.style.height = "23px"), (a.style.width = "47px"))
+									: ((a.style.height = "16px"), (a.style.width = "18px"));
 								this.$1.appendChild(a);
 								a.contentDocument.open();
 								a.contentDocument.close();
-								var b = this.$3(a);
+								var b = this.$4(a);
 								a = h(a.contentDocument.body);
 								a.style.margin = "0";
 								a.style.padding = "0";
@@ -6580,7 +6581,7 @@ try {
 										d && (d.style.marginTop = "7px"));
 									return;
 								}
-								c = new j(b, a);
+								c = new j(b, a, !!this.$13.adChoicesBiggerClickArea);
 								c.render();
 							};
 							a.prototype.adLoaded = function(a, b, c, d) {
@@ -7330,7 +7331,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4289237","namespace":"FB","message":"' +
+				'","revision":"4290032","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
