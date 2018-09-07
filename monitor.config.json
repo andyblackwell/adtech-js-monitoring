@@ -16,7 +16,7 @@
 			"url": "https://connect.facebook.net/en_US/all.js",
 			"version": "4274975",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
-			"diffIgnorePatterns": ["JIT Construction", "revision", "\"http(s)?:\/\/www\.facebook\.com\/\""],
+			"diffIgnorePatterns": ["JIT Construction", "revision", "\"http(s)?:\\/\\/www\\.facebook\\.com\\/\""],
 			"etag": "\"826eac4e37cb8abc8c579cd51cd860f4\""
 		},
 		{
