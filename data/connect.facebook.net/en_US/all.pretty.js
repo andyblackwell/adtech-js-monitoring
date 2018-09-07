@@ -1,4 +1,4 @@
-/*1536051421,,JIT Construction: v4274975,en_US*/
+/*1536344082,,JIT Construction: v4289237,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4274975",
+						revision: "4289237",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -2233,9 +2233,9 @@ try {
 							https_only_enforce_starting: 1538809200000,
 							https_only_learn_more:
 								"https://developers.facebook.com/blog/post/2018/06/08/enforce-https-facebook-login/",
-							https_only_scribe_logging: { rate: 1 }
+							https_only_scribe_logging: { rate: 1 },
+							log_perf: { rate: 0.001 }
 						},
-						log_perf: { rate: 10 },
 						api: {
 							mode: "warn",
 							https_only: [
@@ -2524,7 +2524,8 @@ try {
 								STATE: "state",
 								SSO: "sso",
 								SSO_KEY: "sso_key",
-								VERSION: "version"
+								VERSION: "version",
+								ANCESTOR_ORIGINS: "ancestor_origins"
 							});
 						},
 						null
@@ -6389,6 +6390,14 @@ try {
 										i.VERSION,
 										s.getIsVersioned() ? s.getVersion() : null
 									);
+								if (window.location.ancestorOrigins) {
+									a = window.location.ancestorOrigins;
+									if (a.length > 0) {
+										var f = "";
+										for (var j = 0; j < a.length; j++) (f += a[j]), (f += ",");
+										d.addQueryData(i.ANCESTOR_ORIGINS, f.slice(0, -1));
+									}
+								}
 								b = o({
 									root: g.getRoot(),
 									name: m(),
@@ -6607,7 +6616,9 @@ try {
 						"normalizeError",
 						["sdk.UA"],
 						function(a, b, c, d, e, f, g) {
-							function a(a) {
+							"use strict";
+							__p && __p();
+							a = function(a) {
 								var b = {
 									line: a.lineNumber || a.line,
 									message: a.message,
@@ -6622,7 +6633,7 @@ try {
 									((b.script = a[1]), (b.line = parseInt(a[2], 10)));
 								for (var c in b) b[c] == null && delete b[c];
 								return b;
-							}
+							};
 							e.exports = a;
 						},
 						null
@@ -10652,39 +10663,52 @@ try {
 								m,
 								n = {};
 							if (l) {
-								a = k.getEntriesByName(j.getSDKUrl())[0];
-								a ||
-									(a = k.getEntriesByType("resource").find(function(a) {
-										return ES(a.name, "startsWith", !0, j.getSDKUrl() + "#");
-									}));
-								if (a) {
-									n.fetchTime = parseInt(a.duration, 10);
-									"transferSize" in a &&
-										(n.transferSize = parseInt(a.transferSize, 10));
+								var o = j.getSDKUrl();
+								a = null;
+								b = ES(k.getEntriesByType("resource"), "filter", !0, function(
+									a
+								) {
+									return ES(a.name, "startsWith", !0, o);
+								});
+								if (b.length > 1)
+									if (b > 2) b = null;
+									else {
+										c = b.findIndex(function(a) {
+											return ES(a.name, "startsWith", !0, o + "?hash=");
+										});
+										!c ? (b = null) : ((a = b.splice(c)[0]), (b = b[0]));
+									}
+								else b.length === 1 ? (b = b[0]) : (b = null);
+								if (b) {
+									n.fetchTime = Number(b.duration);
+									a && (n.fetchTime += Number(a.duration));
+									"transferSize" in b &&
+										((n.transferSize = Number(b.transferSize)),
+										a && (n.transferSize += Number(a.transferSize)));
 									g.debug(
 										"sdkperf: it took %s ms and %s bytes to load %s",
-										parseInt(a.duration, 10),
-										parseInt(a.transferSize, 10),
-										j.getSDKUrl()
+										n.fetchTime,
+										n.transferSize,
+										o
 									);
-									m = a.startTime;
+									m = b.startTime;
 									n.ns = j.getSDKNS();
-									b = j.getSDKAB();
-									b && (n.ab = b);
+									d = j.getSDKAB();
+									d && (n.ab = d);
 									m &&
 										setTimeout(function() {
 											i.log(116, n);
 										}, 1e4);
 								}
 							}
-							c = {
+							f = {
 								log: function(a) {
 									if (!l || !m) return;
-									n[a] = parseInt(k.now() - m, 10);
+									n[a] = Number(k.now() - m);
 									g.debug("sdkperf: %s logged after %s ms", a, n[a]);
 								}
 							};
-							e.exports = c;
+							e.exports = f;
 						},
 						null
 					);
@@ -13805,7 +13829,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4274975","namespace":"FB","message":"' +
+				'","revision":"4289237","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
