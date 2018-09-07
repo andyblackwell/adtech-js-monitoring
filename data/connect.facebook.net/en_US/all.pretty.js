@@ -1,4 +1,4 @@
-/*1536357689,,JIT Construction: v4290032,en_US*/
+/*1536359118,,JIT Construction: v4290588,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4290032",
+						revision: "4290588",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -2322,7 +2322,7 @@ try {
 					});
 					__d("JSSDKXDConfig", [], {
 						XdUrl: "/connect/xd_arbiter.php?version=42",
-						XdBundleUrl: "/connect/xd_arbiter/r/0P3pVtbsZok.js?version=42",
+						XdBundleUrl: "/connect/xd_arbiter/r/kO5a7GzG6AF.js?version=42",
 						Flash: {
 							path:
 								"https://connect.facebook.net/rsrc.php/v2/yW/r/yOZN1vHw3Z_.swf"
@@ -2748,9 +2748,8 @@ try {
 										c = "Invariant: ";
 										for (var h = 0; h < e.length; h++) c += "%s,";
 									}
-									var i = new Error(
-										g.blameToPreviousFrame(j.apply(undefined, [c].concat(e)))
-									);
+									c = g.blameToPreviousFrame(c);
+									var i = new Error(j.apply(undefined, [c].concat(e)));
 									i.name = "Invariant Violation";
 									i.messageWithParams = [c].concat(e);
 									throw i;
@@ -13829,7 +13828,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4290032","namespace":"FB","message":"' +
+				'","revision":"4290588","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
