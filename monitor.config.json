@@ -5,23 +5,23 @@
 			"name": "Facebook Audience Network",
 			"tags": ["Facebook", "prebid"],
 			"url": "https://connect.facebook.net/en_US/fbadnw55.js",
-			"version": "4293045",
+			"version": "4293069",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
 			"diffIgnorePatterns": ["JIT Construction", "revision"],
-			"etag": "\"41e35b58e86043a55c9aa70b8a865d1e\""
+			"etag": "\"b62eac9cd41c073efffe5885b64cf76f\""
 		},
 		{
 			"name": "Facebook Main",
 			"tags": ["Facebook"],
 			"url": "https://connect.facebook.net/en_US/all.js",
-			"version": "4293045",
+			"version": "4293069",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
 			"diffIgnorePatterns": [
 				"JIT Construction",
 				"revision",
 				"\"http(s)?:\\/\\/www\\.facebook\\.com\\/\""
 			],
-			"etag": "\"c14bc0a9c443fdb65bdb41816c74607d\""
+			"etag": "\"1fc6bc7d537c163eb4d68c0372f2b6ad\""
 		},
 		{
 			"name": "Facebook Events",
