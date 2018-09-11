@@ -1,4 +1,4 @@
-/*1536637058,,JIT Construction: v4296919,en_US*/
+/*1536650224,,JIT Construction: v4298304,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2188,12 +2188,12 @@ try {
 						a.Set = i;
 					})(typeof global === "undefined" ? this : global);
 					__d("UrlMapConfig", [], {
-						www: "web.facebook.com",
-						m: "mobile.facebook.com",
+						www: "www.facebook.com",
+						m: "m.facebook.com",
 						connect: "connect.facebook.net",
 						business: "business.facebook.com",
 						api: "api.facebook.com",
-						api_read: "api.facebook.com",
+						api_read: "api-read.facebook.com",
 						graph: "graph.facebook.com",
 						an: "an.facebook.com",
 						fbcdn: "static.xx.fbcdn.net",
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4296919",
+						revision: "4298304",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2234,7 +2234,8 @@ try {
 							https_only_learn_more:
 								"https://developers.facebook.com/blog/post/2018/06/08/enforce-https-facebook-login/",
 							https_only_scribe_logging: { rate: 1 },
-							log_perf: { rate: 0.001 }
+							log_perf: { rate: 0.001 },
+							plugin_tags_blacklist: ["name"]
 						},
 						api: {
 							mode: "warn",
@@ -10559,6 +10560,7 @@ try {
 								a.kidDirectedSite && o.setKidDirectedSite(!0);
 								(a.autoLogAppEvents === "1" || a.autoLogAppEvents === "true") &&
 									(a.autoLogAppEvents = !0);
+								a.ab && o.setSDKAB(a.ab);
 								o.setInitialized(!0);
 								p.mBasic() && m.init();
 								l.fire("init:post", a);
@@ -10654,11 +10656,7 @@ try {
 							"use strict";
 							__p && __p();
 							var k = window.performance,
-								l =
-									k &&
-									"now" in k &&
-									"getEntriesByName" in k &&
-									h("log_perf", !1),
+								l = k && "now" in k && "getEntriesByName" in k,
 								m,
 								n = {};
 							if (l) {
@@ -10678,36 +10676,39 @@ try {
 										!c ? (b = null) : ((a = b.splice(c)[0]), (b = b[0]));
 									}
 								else b.length === 1 ? (b = b[0]) : (b = null);
-								if (b) {
-									n.fetchTime = Number(b.duration);
-									a && (n.fetchTime += Number(a.duration));
+								b &&
+									((n.fetchTime = Number(b.duration)),
+									a && (n.fetchTime += Number(a.duration)),
 									"transferSize" in b &&
 										((n.transferSize = Number(b.transferSize)),
-										a && (n.transferSize += Number(a.transferSize)));
+										a && (n.transferSize += Number(a.transferSize))),
 									g.debug(
 										"sdkperf: it took %s ms and %s bytes to load %s",
 										n.fetchTime,
 										n.transferSize,
 										o
-									);
-									m = b.startTime;
-									n.ns = j.getSDKNS();
-									d = j.getSDKAB();
-									d && (n.ab = d);
+									),
+									(m = b.startTime),
+									(n.ns = j.getSDKNS()),
 									m &&
 										setTimeout(function() {
-											i.log(116, n);
-										}, 1e4);
-								}
+											var a = h("log_perf", !1),
+												b = j.getSDKAB();
+											b &&
+												((n.ab = b),
+												(b === "yn" || b === "ny") &&
+													(a = h("log_perf_devsite", !1)));
+											a && i.log(116, n);
+										}, 1e4));
 							}
-							f = {
+							d = {
 								log: function(a) {
 									if (!l || !m) return;
 									n[a] = Number(k.now() - m);
 									g.debug("sdkperf: %s logged after %s ms", a, n[a]);
 								}
 							};
-							e.exports = f;
+							e.exports = d;
 						},
 						null
 					);
@@ -13817,7 +13818,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -13828,7 +13829,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4296919","namespace":"FB","message":"' +
+				'","revision":"4298304","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
