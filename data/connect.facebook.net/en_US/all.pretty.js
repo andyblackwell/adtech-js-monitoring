@@ -1,4 +1,4 @@
-/*1536695711,,JIT Construction: v4299584,en_US*/
+/*1536706534,,JIT Construction: v4301017,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4299584",
+						revision: "4301017",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "https://connect.facebook.net/en_US/all.js"
+						sdkurl: "http://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2778,6 +2778,171 @@ try {
 						null
 					);
 					__d(
+						"ErrorConstants",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							a = {
+								ANONYMOUS_GUARD_TAG: "<anonymous guard>",
+								EVAL_FRAME_PATTERN_CHROME: /^at .*eval eval (at .*\:\d+\:\d+), .*$/,
+								GLOBAL_ERROR_HANDLER_TAG:
+									typeof window === "undefined"
+										? "<self.onerror>"
+										: "<window.onerror>",
+								GLOBAL_REACT_ERROR_HANDLER_TAG: "<global.react>",
+								IE_AND_OTHER_FRAME_PATTERN: /(.*)[@\s][^\s]+$/,
+								IE_STACK_TRACE_REFERENCES: [
+									"Unknown script code",
+									"Function code",
+									"eval code"
+								]
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"CometErrorUtils",
+						["ErrorConstants"],
+						function(a, b, c, d, e, f, g) {
+							"use strict";
+							__p && __p();
+							Error.stackTraceLimit != null &&
+								Error.stackTraceLimit < 40 &&
+								(Error.stackTraceLimit = 40);
+							var h = {
+								getColumn: function(a) {
+									a = (a = a.columnNumber) != null ? a : "";
+									return String(a);
+								},
+								getColumnFromStackData: function(a) {
+									return (a[0] && a[0].column) || "";
+								},
+								getIEFrame: function(a) {
+									for (var b = 0; b < g.IE_STACK_TRACE_REFERENCES.length; b++) {
+										var c = " " + g.IE_STACK_TRACE_REFERENCES[b];
+										if (ES(a, "endsWith", !0, c))
+											return [a, a.substring(0, a.length - c.length)];
+									}
+									return null;
+								},
+								getLine: function(a) {
+									a = (a = a.lineNumber) != null ? a : "";
+									return String(a);
+								},
+								getLineFromStackData: function(a) {
+									return (a[0] && a[0].line) || "";
+								},
+								getReactComponentStack: function(a) {
+									if (a == null || a === "") return null;
+									a = a.split("\n");
+									a.splice(0, 1);
+									return ES(a, "map", !0, function(a) {
+										return ES(a, "trim", !0);
+									});
+								},
+								getScript: function(a) {
+									a = (a = a.fileName) != null ? a : "";
+									return String(a);
+								},
+								getScriptFromStackData: function(a) {
+									return (a[0] && a[0].script) || "";
+								},
+								normalizeError: function(a) {
+									var b = h.normalizeErrorStack(a),
+										c = h.getReactComponentStack(
+											a.reactComponentStackForLogging
+										);
+									c = {
+										_originalError: a,
+										column: h.getColumn(a) || h.getColumnFromStackData(b),
+										deferredSource: null,
+										extra: {},
+										fbloggerMetadata: [],
+										guard: "",
+										guardList: [],
+										line: h.getLine(a) || h.getLineFromStackData(b),
+										message: a.message,
+										messageWithParams: [],
+										name: a.name,
+										reactComponentStack: c,
+										script: h.getScript(a) || h.getScriptFromStackData(b),
+										serverHash: null,
+										stack: ES(b, "map", !0, function(a) {
+											return a.text;
+										}).join("\n"),
+										stackFrames: b,
+										type: ""
+									};
+									typeof c.message === "string"
+										? (c.messageWithParams = [c.message])
+										: ((c.messageObject = c.message),
+										  (c.message =
+												String(c.message) + " (" + typeof c.message + ")"));
+									typeof window !== "undefined" &&
+										window &&
+										window.location &&
+										(c.windowLocationURL = window.location.href);
+									for (var d in c) c[d] == null && delete c[d];
+									return c;
+								},
+								normalizeErrorStack: function(a) {
+									__p && __p();
+									var b = a.stack;
+									if (b == null) return [];
+									a = a.message;
+									var c = b.replace(/^[\w \.\<\>:]+:\s/, "");
+									a =
+										a != null && ES(c, "startsWith", !0, a)
+											? c.substr(a.length + 1)
+											: c !== b
+												? c.replace(/^.*?\n/, "")
+												: b;
+									return ES(
+										a
+											.split(/\n\n/)[0]
+											.replace(/[\(\)]|\[.*?\]/g, "")
+											.split("\n"),
+										"map",
+										!0,
+										function(a) {
+											__p && __p();
+											a = ES(a, "trim", !0);
+											var b = a.match(g.EVAL_FRAME_PATTERN_CHROME);
+											b && (a = b[1]);
+											var c, d;
+											b = a.match(/:(\d+)(?::(\d+))?$/);
+											b &&
+												((c = b[1]),
+												(d = b[2]),
+												(a = a.slice(0, -b[0].length)));
+											var e;
+											b =
+												h.getIEFrame(a) ||
+												a.match(g.IE_AND_OTHER_FRAME_PATTERN);
+											if (b) {
+												a = a.substring(b[1].length + 1);
+												b = b[1].match(/(?:at)?\s*(.*)(?:[^\s]+|$)/);
+												e = b ? b[1] : "";
+											}
+											ES(a, "includes", !0, "charset=utf-8;base64,") &&
+												(a = "<inlined-file>");
+											b = { column: d, identifier: e, line: c, script: a };
+											var f = e != null && e !== "" ? " " + e + " (" : " ",
+												i = f.length > 1 ? ")" : "",
+												j = c != null && c !== "" ? ":" + c : "",
+												k = d != null && d !== "" ? ":" + d : "";
+											f = "    at" + f + a + j + k + i;
+											return babelHelpers["extends"]({}, b, { text: f });
+										}
+									);
+								}
+							};
+							e.exports = h;
+						},
+						null
+					);
+					__d(
 						"Env",
 						[],
 						function(a, b, c, d, e, f) {
@@ -2883,77 +3048,52 @@ try {
 					__d(
 						"ErrorUtils",
 						[
+							"CometErrorUtils",
 							"Env",
+							"ErrorConstants",
 							"LogviewForcedKeyError",
 							"eprintf",
 							"erx",
 							"removeFromArray",
 							"sprintf"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
+							"use strict";
 							__p && __p();
-							var m = "<anonymous guard>",
-								n = "<generated guard>",
-								o =
-									typeof window === "undefined"
-										? "<self.onerror>"
-										: "<window.onerror>",
-								p = "<global.react>",
-								q = /^https?:\/\//i,
-								r = /^Type Mismatch for/,
-								s = /(.*)[@\s][^\s]+$/,
-								t = /^at .*eval eval (at .*\:\d+\:\d+), .*$/,
-								u = [],
-								v,
-								w = [],
-								x = 50,
-								y = [],
-								z = !1,
-								A = !1,
-								B = !1,
-								C = /\bnocatch\b/.test(location.search),
-								D = ["Unknown script code", "Function code", "eval code"];
-							g.stack_trace_limit &&
-								Error.stackTraceLimit != null &&
-								(Error.stackTraceLimit = g.stack_trace_limit);
-							function E(a) {
+							var o = "<generated guard>",
+								p = /^https?:\/\//i,
+								q = /^Type Mismatch for/,
+								r = [],
+								s,
+								t = [],
+								u = 50,
+								v = [],
+								w = !1,
+								x = !1,
+								y = !1,
+								z = /\bnocatch\b/.test(location.search);
+							function A(a) {
 								a = a.columnNumber || a.column;
 								return a != null ? String(a) : "";
 							}
-							function F(a) {
+							function B(a) {
 								return (a[0] && a[0].column) || "";
 							}
-							function G(a) {
-								for (var b = 0; b < D.length; b++) {
-									var c = " " + D[b];
-									if (ES(a, "endsWith", !0, c))
-										return [a, a.substring(0, a.length - c.length)];
-								}
-								return null;
-							}
-							function H(a) {
+							function C(a) {
 								a = a.lineNumber || a.line;
 								return a != null ? String(a) : "";
 							}
-							function I(a) {
+							function D(a) {
 								return (a[0] && a[0].line) || "";
 							}
-							function J(a) {
+							function E(a) {
 								a = a.fileName || a.sourceURL;
 								return a != null ? String(a) : "";
 							}
-							function K(a) {
+							function F(a) {
 								return (a[0] && a[0].script) || "";
 							}
-							function L(a) {
-								if (!a) return null;
-								a = a.split("\n");
-								a.splice(0, 1);
-								return ES(a, "map", !0, function(a) {
-									return ES(a, "trim", !0);
-								});
-							}
-							function M(a) {
+							function G(a) {
 								__p && __p();
 								var b = a.stackTrace || a.stack;
 								if (b == null) return [];
@@ -2975,14 +3115,15 @@ try {
 									function(a) {
 										__p && __p();
 										a = ES(a, "trim", !0);
-										var b = a.match(t);
+										var b = a.match(i.EVAL_FRAME_PATTERN_CHROME);
 										b && (a = b[1]);
 										var c, d;
 										b = a.match(/:(\d+)(?::(\d+))?$/);
 										b &&
 											((c = b[1]), (d = b[2]), (a = a.slice(0, -b[0].length)));
 										var e;
-										b = G(a) || a.match(s);
+										b =
+											g.getIEFrame(a) || a.match(i.IE_AND_OTHER_FRAME_PATTERN);
 										if (b) {
 											a = a.substring(b[1].length + 1);
 											b = b[1].match(/(?:at)?\s*(.*)(?:[^\s]+|$)/);
@@ -2991,7 +3132,7 @@ try {
 										ES(a, "includes", !0, "charset=utf-8;base64,") &&
 											(a = "<inlined-file>");
 										b = { column: d, identifier: e, line: c, script: a };
-										v && v(b);
+										s && s(b);
 										a =
 											"    at" +
 											(b.identifier ? " " + b.identifier + " (" : " ") +
@@ -3003,51 +3144,51 @@ try {
 									}
 								);
 							}
-							function N(a) {
-								y.unshift(a), (z = !0);
+							function H(a) {
+								v.unshift(a), (w = !0);
 							}
-							function O() {
-								y.shift(), (z = y.length !== 0);
+							function I() {
+								v.shift(), (w = v.length !== 0);
 							}
-							var P = {
-								ANONYMOUS_GUARD_TAG: m,
-								GENERATED_GUARD_TAG: n,
-								GLOBAL_ERROR_HANDLER_TAG: o,
-								history: w,
+							var J = {
+								ANONYMOUS_GUARD_TAG: i.ANONYMOUS_GUARD_TAG,
+								GENERATED_GUARD_TAG: o,
+								GLOBAL_ERROR_HANDLER_TAG: i.GLOBAL_ERROR_HANDLER_TAG,
+								history: t,
 								addListener: function(a, b) {
 									b === void 0 && (b = !1),
-										u.push(a),
+										r.push(a),
 										b ||
-											ES(w, "forEach", !0, function(b) {
+											ES(t, "forEach", !0, function(b) {
 												return a(b.error, b.loggingType);
 											});
 								},
 								removeListener: function(a) {
-									k(u, a);
+									m(r, a);
 								},
 								setSourceResolver: function(a) {
-									v = a;
+									s = a;
 								},
-								applyWithGuard: function(b, c, d, e, f, h) {
+								applyWithGuard: function(b, c, d, e, f, g) {
 									__p && __p();
-									N(f || m);
-									g.nocatch && (C = !0);
-									if (C) {
+									H(f || i.ANONYMOUS_GUARD_TAG);
+									h.nocatch && (z = !0);
+									if (z) {
 										try {
 											f = b.apply(c, d || []);
 										} finally {
-											O();
+											I();
 										}
 										return f;
 									}
 									try {
 										return b.apply(c, d || []);
-									} catch (g) {
-										f = g;
+									} catch (h) {
+										f = h;
 										if (f == null)
 											try {
-												var i = c,
-													j = function(a) {
+												var j = c,
+													k = function(a) {
 														__p && __p();
 														if (a == null) return "<unset>";
 														else if (typeof a === "object" && a.toString)
@@ -3064,44 +3205,44 @@ try {
 														return "<unset>";
 													};
 												if (c != null)
-													if (c == window) i = "[The window object]";
-													else if (c == a) i = "[The global object]";
+													if (c == window) j = "[The window object]";
+													else if (c == a) j = "[The global object]";
 													else {
-														var k = c,
-															n = {};
-														ES(ES("Object", "keys", !1, k), "map", !0, function(
+														var l = c,
+															m = {};
+														ES(ES("Object", "keys", !1, l), "map", !0, function(
 															a,
 															b
 														) {
-															b = k[a];
-															n[a] = j(b);
+															b = l[a];
+															m[a] = k(b);
 														});
-														i = n;
+														j = m;
 													}
-												c = ES(d || [], "map", !0, j);
+												c = ES(d || [], "map", !0, k);
 												var o =
 														"applyWithGuard threw null or undefined:\nFunc: %s\nContext: %s\nArgs: %s",
 													p = b.toString && b.toString().substr(0, 1024);
-												i = ES("JSON", "stringify", !1, i).substr(0, 1024);
+												j = ES("JSON", "stringify", !1, j).substr(0, 1024);
 												c = ES("JSON", "stringify", !1, c).substr(0, 1024);
-												var q = l(
+												var q = n(
 													o,
 													p ? p : "this function does not support toString",
-													i,
+													j,
 													c
 												);
 												f = new Error(q);
 												f.messageWithParams = [
 													o,
 													p ? p : "this function does not support toString",
-													i,
+													j,
 													c
 												];
 											} catch (a) {
 												q =
 													"applyWithGuard threw null or undefined with unserializable data:\nFunc: %s\nMetaEx: %s";
 												o = b.toString && b.toString().substr(0, 1024);
-												p = l(
+												p = n(
 													q,
 													o ? o : "this function does not support toString",
 													a.message
@@ -3113,33 +3254,33 @@ try {
 													a.message
 												];
 											}
-										h &&
-											h.deferredSource &&
-											(f.deferredSource = h.deferredSource);
-										i = P.normalizeError(f);
-										e && e(i);
-										i.extra || (i.extra = {});
+										g &&
+											g.deferredSource &&
+											(f.deferredSource = g.deferredSource);
+										j = J.normalizeError(f);
+										e && e(j);
+										j.extra || (j.extra = {});
 										if (b)
 											try {
-												i.extra[b.toString().substring(0, 100)] = "function";
+												j.extra[b.toString().substring(0, 100)] = "function";
 											} catch (a) {}
 										d &&
-											(i.extra[
+											(j.extra[
 												ES("Array", "from", !1, d)
 													.toString()
 													.substring(0, 100)
 											] = "args");
-										i.guard = y[0];
-										i.guardList = y.slice();
-										P.reportError(i, !1, "GUARDED");
+										j.guard = v[0];
+										j.guardList = v.slice();
+										J.reportError(j, !1, "GUARDED");
 									} finally {
-										O();
+										I();
 									}
 								},
 								guard: function(a, b, c) {
-									b = b || a.name || n;
+									b = b || a.name || o;
 									function d() {
-										return P.applyWithGuard(
+										return J.applyWithGuard(
 											a,
 											c || this,
 											[].concat(Array.prototype.slice.call(arguments)),
@@ -3151,7 +3292,7 @@ try {
 									return d;
 								},
 								inGuard: function() {
-									return z;
+									return w;
 								},
 								normalizeError: function(a) {
 									__p && __p();
@@ -3159,40 +3300,40 @@ try {
 									a = a != null ? a : {};
 									if (Object.prototype.hasOwnProperty.call(a, "_originalError"))
 										return a;
-									var c = M(a),
+									var c = G(a),
 										d = !1;
 									if (a.framesToPop) {
 										var e = a.framesToPop,
 											f;
 										while (e > 0 && c.length > 0)
 											(f = c.shift()), e--, (d = !0);
-										r.test(a.message) &&
+										q.test(a.message) &&
 											a.framesToPop === 2 &&
 											f &&
-											(q.test(f.script) &&
+											(p.test(f.script) &&
 												(a.message +=
 													" at " +
 													f.script +
 													(f.line ? ":" + f.line : "") +
 													(f.column ? ":" + f.column : "")));
 									}
-									e = L(a.reactComponentStackForLogging);
-									var g = a instanceof h ? a.getForcedCategoryKey() : null;
+									e = g.getReactComponentStack(a.reactComponentStackForLogging);
+									var h = a instanceof j ? a.getForcedCategoryKey() : null;
 									b = {
 										_originalError: b,
-										column: d ? F(c) : E(a) || F(c),
+										column: d ? B(c) : A(a) || B(c),
 										deferredSource: a.deferredSource,
 										extra: a.extra,
 										fbloggerMetadata: a.fbloggerMetadata,
-										forcedLogviewKey: g,
+										forcedLogviewKey: h,
 										guard: a.guard,
 										guardList: a.guardList,
-										line: d ? I(c) : H(a) || I(c),
+										line: d ? D(c) : C(a) || D(c),
 										message: a.message,
 										messageWithParams: a.messageWithParams,
 										name: a.name,
 										reactComponentStack: e,
-										script: d ? K(c) : J(a) || K(c),
+										script: d ? F(c) : E(a) || F(c),
 										serverHash: a.serverHash,
 										snapshot: a.snapshot,
 										stack: ES(c, "map", !0, function(a) {
@@ -3203,18 +3344,18 @@ try {
 									};
 									typeof b.message === "string"
 										? (b.messageWithParams =
-												b.messageWithParams || j(b.message))
+												b.messageWithParams || l(b.message))
 										: ((b.messageObject = b.message),
 										  (b.message =
 												String(b.message) + " (" + typeof b.message + ")"));
 									b.messageWithParams &&
-										(b.message = i.apply(undefined, b.messageWithParams));
+										(b.message = k.apply(undefined, b.messageWithParams));
 									typeof window !== "undefined" &&
 										window &&
 										window.location &&
 										(b.windowLocationURL = window.location.href);
-									v && v(b);
-									for (var k in b) b[k] == null && delete b[k];
+									s && s(b);
+									for (var i in b) b[i] == null && delete b[i];
 									return b;
 								},
 								onerror: function(a, b, c, d, e) {
@@ -3223,57 +3364,296 @@ try {
 										(e.script = e.script || b),
 										(e.line = e.line || c),
 										(e.column = e.column || d),
-										(e.guard = o),
-										(e.guardList = [o]),
-										P.reportError(e, !0, "FATAL");
+										(e.guard = i.GLOBAL_ERROR_HANDLER_TAG),
+										(e.guardList = [i.GLOBAL_ERROR_HANDLER_TAG]),
+										J.reportError(e, !0, "FATAL");
 								},
 								reportError: function(b, c, d) {
 									__p && __p();
 									c === void 0 && (c = !1);
 									d === void 0 && (d = "DEPRECATED");
-									if (A) {
+									if (x) {
 										!1;
 										return !1;
 									}
-									b.reactComponentStack && N(p);
-									y.length > 0 &&
-										((b.guard = b.guard || y[0]), (b.guardList = y.slice()));
-									b.reactComponentStack && O();
-									b = P.normalizeError(b);
+									b.reactComponentStack && H(i.GLOBAL_REACT_ERROR_HANDLER_TAG);
+									v.length > 0 &&
+										((b.guard = b.guard || v[0]), (b.guardList = v.slice()));
+									b.reactComponentStack && I();
+									b = J.normalizeError(b);
 									if (!c) {
 										c = a.console;
 										var e = b._originalError;
 										e = e != null ? "" + e.message : "";
-										if ((!c[b.type] || b.type === "error") && !B) {
+										if ((!c[b.type] || b.type === "error") && !y) {
 											e = e.length > 80 ? e.slice(0, 77) + "..." : e;
 											c.error(
 												'ErrorUtils caught an error: "' +
 													e +
 													"\". Subsequent errors won't be logged; see https://fburl.com/debugjs."
 											);
-											B = !0;
+											y = !0;
 										}
 									}
-									w.length > x && w.splice(x / 2, 1);
-									w.push({ error: b, loggingType: d });
-									A = !0;
-									for (var c = 0; c < u.length; c++)
+									t.length > u && t.splice(u / 2, 1);
+									t.push({ error: b, loggingType: d });
+									x = !0;
+									for (var c = 0; c < r.length; c++)
 										try {
-											u[c](b, d);
+											r[c](b, d);
 										} catch (a) {
 											!1;
 										}
-									A = !1;
+									x = !1;
 									return !0;
 								}
 							};
-							a.onerror = P.onerror;
-							e.exports = a.ErrorUtils = P;
+							a.onerror = J.onerror;
+							e.exports = a.ErrorUtils = J;
 							typeof __t === "function" &&
 								__t.setHandler &&
-								__t.setHandler(P.reportError);
+								__t.setHandler(J.reportError);
 						},
 						3
+					);
+					__d(
+						"defaultTo",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							function a(a, b) {
+								return a == null
+									? b
+									: typeof a === "string" && a === ""
+										? b
+										: a;
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"ErrorGuard",
+						["CometErrorUtils", "ErrorConstants", "defaultTo"],
+						function(a, b, c, d, e, f, g, h, i) {
+							"use strict";
+							__p && __p();
+							var j = !1,
+								k = !1,
+								l = [],
+								m = 50,
+								n = [],
+								o = {
+									guardList: [],
+									isGuarding: !1,
+									addListener: function(a, b) {
+										b === void 0 && (b = !1),
+											n.push(a),
+											b ||
+												ES(l, "forEach", !0, function(b) {
+													return a(b.error, b.loggingType);
+												});
+									},
+									applyWithGuard: function(a, b, c, d) {
+										__p && __p();
+										o.pushGuard(
+											d && d.name != null && d.name !== ""
+												? d.name
+												: h.ANONYMOUS_GUARD_TAG
+										);
+										try {
+											return a.apply(b, c || []);
+										} catch (e) {
+											b = g.normalizeError(e);
+											d &&
+												d.deferredSource &&
+												(b.deferredSource = d.deferredSource);
+											d && d.onError && d.onError(b);
+											b.extra == null && (b.extra = {});
+											if (typeof b.extra === "object") {
+												if (a)
+													try {
+														b.extra[a.toString().substring(0, 100)] =
+															"function";
+													} catch (a) {}
+												c &&
+													(b.extra[
+														ES("Array", "from", !1, c)
+															.toString()
+															.substring(0, 100)
+													] = "args");
+											}
+											b.guard = o.guardList[0];
+											b.guardList = o.guardList.slice();
+											o.reportError(b, !1, "GUARDED");
+										} finally {
+											o.popGuard();
+										}
+										return null;
+									},
+									onerror: function(a, b, c, d, e) {
+										e = e || new Error(a);
+										e.message = e.message || a;
+										e.lineNumber = Number(i(String(e.lineNumber), c));
+										e.columnNumber = Number(i(String(e.columnNumber), d));
+										e = g.normalizeError(e);
+										e.script = i(e.script, b);
+										e.guard = h.GLOBAL_ERROR_HANDLER_TAG;
+										e.guardList = [h.GLOBAL_ERROR_HANDLER_TAG];
+										o.reportError(e, !0, "FATAL");
+									},
+									popGuard: function() {
+										o.guardList.shift(),
+											(o.isGuarding = o.guardList.length !== 0);
+									},
+									pushGuard: function(a) {
+										o.guardList.unshift(a), (o.isGuarding = !0);
+									},
+									removeListener: function(a) {
+										a = ES(l, "indexOf", !0, a);
+										a !== -1 && l.splice(a, 1);
+									},
+									reportError: function(b, c, d) {
+										__p && __p();
+										c === void 0 && (c = !1);
+										d === void 0 && (d = "DEPRECATED");
+										if (j) return !1;
+										b.reactComponentStack == null &&
+											o.pushGuard(h.GLOBAL_REACT_ERROR_HANDLER_TAG);
+										if (o.guardList.length > 0) {
+											var e;
+											b.guard = (e = b.guard) != null ? e : o.guardList[0];
+											b.guardList = o.guardList.slice();
+										}
+										b.reactComponentStack && o.popGuard();
+										if (!c) {
+											e = a.console;
+											c = "" + b.message;
+											if ((!e[b.type] || b.type === "error") && !k) {
+												c = c.length > 80 ? c.slice(0, 77) + "..." : c;
+												e.error(
+													'ErrorUtils caught an error: "' +
+														c +
+														"\". Subsequent errors won't be logged; see https://fburl.com/debugjs."
+												);
+												k = !0;
+											}
+										}
+										l.length > m && l.splice(m / 2, 1);
+										l.push({ error: b, loggingType: d });
+										j = !0;
+										for (var e = 0; e < n.length; e++)
+											try {
+												n[e](b, d);
+											} catch (a) {
+												!1;
+											}
+										j = !1;
+										return !0;
+									}
+								};
+							a.onerror = o.onerror;
+							e.exports = o;
+						},
+						null
+					);
+					__d(
+						"FBLogMessageCore",
+						["CometErrorUtils", "ErrorGuard"],
+						function(a, b, c, d, e, f, g, h) {
+							"use strict";
+							__p && __p();
+							var i = { info: "log", mustfix: "error", warn: "warn" };
+							function j(a) {
+								for (
+									var b = arguments.length,
+										c = new Array(b > 1 ? b - 1 : 0),
+										d = 1;
+									d < b;
+									d++
+								)
+									c[d - 1] = arguments[d];
+								return (
+									"<![EX[" +
+									ES(
+										"JSON",
+										"stringify",
+										!1,
+										[a].concat(
+											ES(c, "map", !0, function(a) {
+												return String(a);
+											})
+										)
+									) +
+									"]]"
+								);
+							}
+							function k(a) {
+								this.project = a;
+							}
+							k.prototype.$1 = function(a, b) {
+								__p && __p();
+								var c;
+								for (
+									var d = arguments.length,
+										e = new Array(d > 2 ? d - 2 : 0),
+										f = 2;
+									f < d;
+									f++
+								)
+									e[f - 2] = arguments[f];
+								if (this.error) {
+									c = this.error;
+									var l = b + " from %s: %s";
+									e.push(c.name);
+									e.push(c.message);
+									c.message = j.apply(undefined, [l].concat(e));
+								} else c = new Error(j.apply(undefined, [b].concat(e)));
+								if (this.error && ES(c.name, "startsWith", !0, "<level:")) {
+									var m = new k("fblogger");
+									m.warn("Double logging detected");
+								}
+								var n = "FBLogger" + (this.error ? " caught " + c.name : "");
+								c.name = "<level:" + a + "> <name:" + this.project + "> " + n;
+								var o = g.normalizeError(c);
+								o.type = i[a];
+								h.reportError(o, !1, "FBLOGGER");
+							};
+							k.prototype.mustfix = function(a) {
+								for (
+									var b = arguments.length,
+										c = new Array(b > 1 ? b - 1 : 0),
+										d = 1;
+									d < b;
+									d++
+								)
+									c[d - 1] = arguments[d];
+								this.$1.apply(this, ["mustfix", a].concat(c));
+							};
+							k.prototype.warn = function(a) {
+								for (
+									var b = arguments.length,
+										c = new Array(b > 1 ? b - 1 : 0),
+										d = 1;
+									d < b;
+									d++
+								)
+									c[d - 1] = arguments[d];
+								this.$1.apply(this, ["warn", a].concat(c));
+							};
+							k.prototype.info = function(a) {};
+							k.prototype.debug = function(a) {};
+							k.prototype.catching = function(a) {
+								!(a instanceof Error)
+									? new k("fblogger").warn(
+											"Catching non-Error object is not supported"
+									  )
+									: (this.error = a);
+								return this;
+							};
+							e.exports = k;
+						},
+						null
 					);
 					__d(
 						"FBLoggerMetadata",
@@ -3320,33 +3700,37 @@ try {
 						[
 							"ErrorUtils",
 							"FBLoggerMetadata",
+							"FBLogMessageCore",
 							"TAAL",
 							"TAALOpcodes",
 							"erx",
 							"ex",
 							"sprintf"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
 							"use strict";
 							__p && __p();
-							var n = { mustfix: "error", warn: "warn", info: "log" },
-								o = l,
-								p = function a(b) {
+							var o,
+								p = { mustfix: "error", warn: "warn", info: "log" },
+								q = m,
+								r = function a(b) {
 									return function(c) {
 										b > 0 && (c(), a(b - 1)(c));
 									};
 								};
-							function q(a) {
-								(this.project = a),
+							a = babelHelpers.inherits(s, i);
+							o = a && a.prototype;
+							function s(a) {
+								o.constructor.call(this, a),
 									(this.metadata = new h()),
 									(this.taalOpcodes = []);
 							}
-							q.prototype.$1 = function(a, b) {
+							s.prototype.$FBLogMessage1 = function(a, b) {
 								__p && __p();
 								var c = 2;
 								if (b === undefined) {
-									var d = new q("fblogger");
-									p(c)(function() {
+									var d = new s("fblogger");
+									r(c)(function() {
 										return d.blameToPreviousFrame();
 									});
 									d.mustfix(
@@ -3358,22 +3742,22 @@ try {
 								for (
 									var f = arguments.length,
 										h = new Array(f > 2 ? f - 2 : 0),
-										l = 2;
-									l < f;
-									l++
+										i = 2;
+									i < f;
+									i++
 								)
-									h[l - 2] = arguments[l];
+									h[i - 2] = arguments[i];
 								if (this.error) {
 									e = this.error;
-									var r = b + " from %s: %s";
+									var m = b + " from %s: %s";
 									h.push(e.name);
-									h.push(e.message ? m.apply(null, k(e.message)) : "");
-									e.message = o.apply(undefined, [r].concat(h));
+									h.push(e.message ? n.apply(null, l(e.message)) : "");
+									e.message = q.apply(undefined, [m].concat(h));
 								} else {
-									p(c)(
+									r(c)(
 										ES(
 											function() {
-												return this.taalOpcodes.unshift(j.previousFrame());
+												return this.taalOpcodes.unshift(k.previousFrame());
 											},
 											"bind",
 											!0,
@@ -3381,27 +3765,27 @@ try {
 										)
 									);
 									if (this.taalOpcodes) {
-										var s = i.applyOpcodes(b, this.taalOpcodes);
-										e = new Error(o.apply(undefined, [s].concat(h)));
-									} else e = new Error(o.apply(undefined, [b].concat(h)));
+										var o = j.applyOpcodes(b, this.taalOpcodes);
+										e = new Error(q.apply(undefined, [o].concat(h)));
+									} else e = new Error(q.apply(undefined, [b].concat(h)));
 								}
 								if (this.error && ES(e.name, "startsWith", !0, "<level:")) {
-									var t = new q("fblogger");
-									p(c)(function() {
+									var t = new s("fblogger");
+									r(c)(function() {
 										return t.blameToPreviousFrame();
 									});
 									t.warn("Double logging detected");
 								}
 								var u = "FBLogger" + (this.error ? " caught " + e.name : "");
-								e.name = m("<level:%s> <name:%s> %s", a, this.project, u);
+								e.name = n("<level:%s> <name:%s> %s", a, this.project, u);
 								e = g.normalizeError(e);
 								if (!this.metadata.isEmpty()) {
 									var v = this.metadata.getAll(),
 										w = v.invalidMetadata,
 										x = v.validMetadata;
 									if (w.length > 0) {
-										var y = new q("fblogger");
-										p(c)(function() {
+										var y = new s("fblogger");
+										r(c)(function() {
 											return y.blameToPreviousFrame();
 										});
 										y.warn(
@@ -3415,21 +3799,21 @@ try {
 										return a.join(":");
 									});
 								}
-								var z = n[a];
+								var z = p[a];
 								e.type = z;
 								if (
 									this.error &&
 									(this.taalOpcodes && this.taalOpcodes.length)
 								) {
-									var A = new q("fblogger");
-									p(c)(function() {
+									var A = new s("fblogger");
+									r(c)(function() {
 										return A.blameToPreviousFrame();
 									});
 									A.warn("Blame helpers do not work with catching");
 								}
 								g.reportError(e, !1, "FBLOGGER");
 							};
-							q.prototype.mustfix = function(a) {
+							s.prototype.mustfix = function(a) {
 								for (
 									var b = arguments.length,
 										c = new Array(b > 1 ? b - 1 : 0),
@@ -3438,9 +3822,9 @@ try {
 									d++
 								)
 									c[d - 1] = arguments[d];
-								this.$1.apply(this, ["mustfix", a].concat(c));
+								this.$FBLogMessage1.apply(this, ["mustfix", a].concat(c));
 							};
-							q.prototype.warn = function(a) {
+							s.prototype.warn = function(a) {
 								for (
 									var b = arguments.length,
 										c = new Array(b > 1 ? b - 1 : 0),
@@ -3449,35 +3833,35 @@ try {
 									d++
 								)
 									c[d - 1] = arguments[d];
-								this.$1.apply(this, ["warn", a].concat(c));
+								this.$FBLogMessage1.apply(this, ["warn", a].concat(c));
 							};
-							q.prototype.info = function(a) {};
-							q.prototype.debug = function(a) {};
-							q.prototype.catching = function(a) {
+							s.prototype.info = function(a) {};
+							s.prototype.debug = function(a) {};
+							s.prototype.catching = function(a) {
 								!(a instanceof Error)
-									? new q("fblogger")
+									? new s("fblogger")
 											.blameToPreviousFrame()
 											.warn("Catching non-Error object is not supported")
-									: (this.error = a);
+									: o.catching.call(this, a);
 								return this;
 							};
-							q.prototype.blameToPreviousFile = function() {
-								this.taalOpcodes.push(j.previousFile());
+							s.prototype.blameToPreviousFile = function() {
+								this.taalOpcodes.push(k.previousFile());
 								return this;
 							};
-							q.prototype.blameToPreviousFrame = function() {
-								this.taalOpcodes.push(j.previousFrame());
+							s.prototype.blameToPreviousFrame = function() {
+								this.taalOpcodes.push(k.previousFrame());
 								return this;
 							};
-							q.prototype.blameToPreviousDirectory = function() {
-								this.taalOpcodes.push(j.previousDirectory());
+							s.prototype.blameToPreviousDirectory = function() {
+								this.taalOpcodes.push(k.previousDirectory());
 								return this;
 							};
-							q.prototype.addMetadata = function(a, b, c) {
+							s.prototype.addMetadata = function(a, b, c) {
 								this.metadata.addMetadata(a, b, c);
 								return this;
 							};
-							e.exports = q;
+							e.exports = s;
 						},
 						null
 					);
@@ -13819,7 +14203,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"https://www.facebook.com/" +
+		"http://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -13830,7 +14214,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4299584","namespace":"FB","message":"' +
+				'","revision":"4301017","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
