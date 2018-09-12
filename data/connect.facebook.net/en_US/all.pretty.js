@@ -1,4 +1,4 @@
-/*1536706534,,JIT Construction: v4301017,en_US*/
+/*1536714433,,JIT Construction: v4301576,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4301017",
+						revision: "4301576",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2235,7 +2235,7 @@ try {
 								"https://developers.facebook.com/blog/post/2018/06/08/enforce-https-facebook-login/",
 							https_only_scribe_logging: { rate: 1 },
 							log_perf: { rate: 0.001 },
-							log_perf_devsite: { rate: 1 },
+							log_perf_devsite: { rate: 2 },
 							plugin_tags_blacklist: ["name"]
 						},
 						api: {
@@ -14203,7 +14203,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -14214,7 +14214,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4301017","namespace":"FB","message":"' +
+				'","revision":"4301576","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
