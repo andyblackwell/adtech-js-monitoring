@@ -1,4 +1,4 @@
-/*1536800132,,JIT Construction: v4305985,en_US*/
+/*1536848146,,JIT Construction: v4308122,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -5448,50 +5448,45 @@ try {
 					);
 					__d(
 						"AdQualityTest.adquality",
-						[
-							"AdQualityMeasurementResult.adquality",
-							"AdQualityStatistics.adquality"
-						],
-						function(a, b, c, d, e, f, g, h) {
+						["AdQualityStatistics.adquality"],
+						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
 							function a(a) {
 								(this.$1 = !1),
-									(this.$3 = !1),
-									(this.$4 = a),
-									(this.$5 = new h(a.viewableRatio)),
-									(this.$6 = new h(a.viewableRatio)),
-									(this.$7 = 0),
-									(this.$8 = g.unknownResult());
+									(this.$2 = a),
+									(this.$3 = new g(a.viewableRatio)),
+									(this.$4 = 0);
 							}
 							a.prototype.registerProgress = function(a, b, c, d) {
 								__p && __p();
-								this.$7 += a;
-								if (this.$2) return;
+								if (this.$1) return;
+								this.$4 += a;
 								if (
-									this.$4.startTimeSeconds >= 0 &&
-									this.$7 < this.$4.startTimeSeconds
+									this.$2.startTimeSeconds >= 0 &&
+									this.$4 < this.$2.startTimeSeconds
 								)
 									return;
-								this.$5.registerProgress(a, b);
-								this.$6.registerProgress(a, b);
+								this.$3.registerProgress(a, b);
 								c = b.getViewableRatio() || 0;
-								this.$4.continuous &&
-									(!b.getIsContinuous() || c < this.$4.viewableRatio) &&
-									(this.$6 = new h(this.$4.viewableRatio));
-								d = this.$6.getData().viewableSeconds || 0;
-								d >= this.$4.viewableSeconds && b.isConclusive() && this.$9(b);
+								if (
+									this.$2.continuous &&
+									(!b.getIsContinuous() || c < this.$2.viewableRatio)
+								) {
+									this.$3 = new g(this.$2.viewableRatio);
+									return;
+								}
+								d = this.$3.getData().viewableSeconds || 0;
+								d >= this.$2.viewableSeconds && b.isConclusive() && this.$5(b);
 							};
-							a.prototype.$9 = function(a) {
-								this.$8 = a;
-								this.$2 = !0;
-								a = this.$6;
-								this.$4.adQualityTestConditionTrueCallback({
-									measurementResult: this.$8,
-									statistics: a.getData(),
-									lastLoggingTime: 0,
-									currentLoggingTime: 0
-								});
+							a.prototype.$5 = function(a) {
+								(this.$1 = !0),
+									this.$2.adQualityTestConditionTrueCallback({
+										measurementResult: a,
+										statistics: this.$3.getData(),
+										lastLoggingTime: 0,
+										currentLoggingTime: 0
+									});
 							};
 							e.exports = a;
 						},
@@ -7381,7 +7376,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4305985","namespace":"FB","message":"' +
+				'","revision":"4308122","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
