@@ -1,4 +1,4 @@
-/*1536977446,,JIT Construction: v4314645,en_US*/
+/*1536987048,,JIT Construction: v4317287,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4314645",
+						revision: "4317287",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2324,7 +2324,7 @@ try {
 					});
 					__d("JSSDKXDConfig", [], {
 						XdUrl: "/connect/xd_arbiter.php?version=42",
-						XdBundleUrl: "/connect/xd_arbiter/r/kO5a7GzG6AF.js?version=42",
+						XdBundleUrl: "/connect/xd_arbiter/r/mp2v3DK3INU.js?version=42",
 						Flash: {
 							path:
 								"https://connect.facebook.net/rsrc.php/v2/yW/r/yOZN1vHw3Z_.swf"
@@ -2611,7 +2611,8 @@ try {
 							e.exports = ES("Object", "freeze", !1, {
 								PREVIOUS_FILE: 1,
 								PREVIOUS_FRAME: 2,
-								PREVIOUS_DIR: 3
+								PREVIOUS_DIR: 3,
+								FORCED_KEY: 4
 							});
 						},
 						null
@@ -14205,7 +14206,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -14216,7 +14217,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4314645","namespace":"FB","message":"' +
+				'","revision":"4317287","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
