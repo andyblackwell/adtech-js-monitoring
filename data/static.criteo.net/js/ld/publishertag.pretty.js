@@ -456,14 +456,18 @@
 				(t.prototype.filterNoBidSlots = function(t) {
 					var e = this.bidManager.filterNoBidSlots(t);
 					return this.context.shouldIgnoreSilentMode
-						? (e.length !== t.length && this.context.setSilentModeIgnored(), t)
+						? (e.length !== t.length &&
+								this.context.setSilentModeIgnored &&
+								this.context.setSilentModeIgnored(),
+						  t)
 						: e;
 				}),
 				(t.prototype.silentModeEnabled = function() {
 					var t = !1;
 					return (
 						this.silentModeManager.silentModeEnabled() &&
-							(this.context.shouldIgnoreSilentMode
+							(this.context.shouldIgnoreSilentMode &&
+							this.context.setSilentModeIgnored
 								? this.context.setSilentModeIgnored()
 								: (t = !0)),
 						t
@@ -1109,7 +1113,7 @@
 				t
 			);
 		})(),
-		PublisherTagVersion = 55,
+		PublisherTagVersion = 56,
 		DirectBiddingUrlBuilder = (function() {
 			function a(t) {
 				void 0 === t && (t = !1), (this.auditMode = t);
