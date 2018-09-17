@@ -1,4 +1,4 @@
-/*1537206587,,JIT Construction: v4319111,en_US*/
+/*1537216374,,JIT Construction: v4320031,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4319111",
+						revision: "4320031",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2857,6 +2857,7 @@ try {
 										);
 									c = {
 										_originalError: a,
+										cerror: !0,
 										column: h.getColumn(a) || h.getColumnFromStackData(b),
 										deferredSource: null,
 										extra: {},
@@ -3323,6 +3324,7 @@ try {
 									var h = a instanceof j ? a.getForcedCategoryKey() : null;
 									b = {
 										_originalError: b,
+										cerror: !1,
 										column: d ? B(c) : A(a) || B(c),
 										deferredSource: a.deferredSource,
 										extra: a.extra,
@@ -3520,6 +3522,7 @@ try {
 										c === void 0 && (c = !1);
 										d === void 0 && (d = "DEPRECATED");
 										if (j) return !1;
+										b.cerror = !0;
 										b.reactComponentStack == null &&
 											o.pushGuard(h.GLOBAL_REACT_ERROR_HANDLER_TAG);
 										if (o.guardList.length > 0) {
@@ -14212,7 +14215,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -14223,7 +14226,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4319111","namespace":"FB","message":"' +
+				'","revision":"4320031","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
