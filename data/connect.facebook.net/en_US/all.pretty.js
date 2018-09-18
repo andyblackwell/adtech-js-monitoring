@@ -1,4 +1,4 @@
-/*1537226512,,JIT Construction: v4320849,en_US*/
+/*1537233896,,JIT Construction: v4321790,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4320849",
+						revision: "4321790",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -4406,20 +4406,20 @@ try {
 								},
 								h = /Mobile/i.test(a),
 								i = {
-									ie: "",
-									firefox: "",
-									chrome: "",
-									webkit: "",
-									osx: "",
-									edge: "",
-									operaMini: "",
-									ucWeb: ""
+									ie: NaN,
+									firefox: NaN,
+									chrome: NaN,
+									webkit: NaN,
+									osx: NaN,
+									edge: NaN,
+									operaMini: NaN,
+									ucWeb: NaN
 								};
 							b = /(?:MSIE.(\d+\.\d+))|(?:(?:Firefox|GranParadiso|Iceweasel).(\d+\.\d+))|(?:AppleWebKit.(\d+(?:\.\d+)?))|(?:Trident\/\d+\.\d+.*rv:(\d+\.\d+))/.exec(
 								a
 							);
 							if (b) {
-								i.ie = b[1] ? parseFloat(b[1]) : b[4] ? parseFloat(b[4]) : "";
+								i.ie = b[1] ? parseFloat(b[1]) : b[4] ? parseFloat(b[4]) : NaN;
 								i.firefox = b[2] || "";
 								i.webkit = b[3] || "";
 								if (b[3]) {
@@ -4436,7 +4436,7 @@ try {
 							c = /(?:UCWEB\/(\d+(?:\.\d+))?)/.exec(a);
 							c && (i.ucWeb = c[1] || "2.0");
 							function j(a) {
-								return ES(a.split("."), "map", !0, function(a) {
+								return ES(String(a).split("."), "map", !0, function(a) {
 									return parseFloat(a);
 								});
 							}
@@ -14215,7 +14215,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -14226,7 +14226,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4320849","namespace":"FB","message":"' +
+				'","revision":"4321790","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
