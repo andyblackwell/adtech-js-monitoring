@@ -1,4 +1,4 @@
-/*1537185052,,JIT Construction: v4318679,en_US*/
+/*1537278747,,JIT Construction: v4323872,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -5466,18 +5466,11 @@ try {
 							function a(a) {
 								(this.$1 = !1),
 									(this.$2 = a),
-									(this.$3 = new g(a.viewableRatio)),
-									(this.$4 = 0);
+									(this.$3 = new g(a.viewableRatio));
 							}
 							a.prototype.registerProgress = function(a, b, c, d) {
 								__p && __p();
 								if (this.$1) return;
-								this.$4 += a;
-								if (
-									this.$2.startTimeSeconds >= 0 &&
-									this.$4 < this.$2.startTimeSeconds
-								)
-									return;
 								this.$3.registerProgress(a, b);
 								c = b.getViewableRatio() || 0;
 								if (
@@ -5488,9 +5481,9 @@ try {
 									return;
 								}
 								d = this.$3.getData().viewableSeconds || 0;
-								d >= this.$2.viewableSeconds && b.isConclusive() && this.$5(b);
+								d >= this.$2.viewableSeconds && b.isConclusive() && this.$4(b);
 							};
-							a.prototype.$5 = function(a) {
+							a.prototype.$4 = function(a) {
 								(this.$1 = !0),
 									this.$2.adQualityTestConditionTrueCallback({
 										measurementResult: a,
@@ -7388,7 +7381,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4318679","namespace":"FB","message":"' +
+				'","revision":"4323872","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
