@@ -854,11 +854,15 @@
 						(this.hasSetTargetingBeenCalled = !0));
 				}),
 				(t.prototype.finish = function(t, e) {
-					if ((this.builder.withAdapterEndElapsed(this.timer.elapsed()), e))
+					if (
+						(this.builder.withAdapterEndElapsed(this.timer.elapsed()),
+						e && 0 !== e.length)
+					)
 						for (var n = 0, o = e; n < o.length; n++) {
 							var i = o[n];
 							this.builder.addSlot(i.imp_id, i.zone_id, i.ad_unit_id);
 						}
+					else this.builder.addSlot("");
 					t.storeMetric(this.builder.build());
 				}),
 				t
@@ -1113,7 +1117,7 @@
 				t
 			);
 		})(),
-		PublisherTagVersion = 56,
+		PublisherTagVersion = 57,
 		DirectBiddingUrlBuilder = (function() {
 			function a(t) {
 				void 0 === t && (t = !1), (this.auditMode = t);
