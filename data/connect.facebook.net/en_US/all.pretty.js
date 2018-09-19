@@ -1,4 +1,4 @@
-/*1537325717,,JIT Construction: v4326458,en_US*/
+/*1537332923,,JIT Construction: v4327514,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4326458",
+						revision: "4327514",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -4402,6 +4402,8 @@ try {
 									nativeApp: /FBAN\/\w+;/i.test(a),
 									nativeAndroidApp: /FB_IAB\/\w+;/i.test(a),
 									nativeInstagramApp: /Instagram/i.test(a),
+									nativeMessengeriOSApp: /MessengerForiOS/i.test(a),
+									nativeMessengerAndroidApp: /Orca\-Android/i.test(a),
 									ucBrowser: /UCBrowser/i.test(a)
 								},
 								h = /Mobile/i.test(a),
@@ -4470,6 +4472,12 @@ try {
 							};
 							k.mBasic = function() {
 								return !!(i.ucWeb || i.operaMini);
+							};
+							k.instagram = function() {
+								return g.nativeInstagramApp;
+							};
+							k.messenger = function() {
+								return g.nativeMessengeriOSApp || g.nativeMessengerAndroidApp;
 							};
 							e.exports = k;
 						},
@@ -14226,7 +14234,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4326458","namespace":"FB","message":"' +
+				'","revision":"4327514","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
