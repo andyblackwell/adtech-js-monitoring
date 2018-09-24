@@ -14,14 +14,14 @@
 			"name": "Facebook Main",
 			"tags": ["Facebook"],
 			"url": "https://connect.facebook.net/en_US/all.js",
-			"version": "4343522",
+			"version": "4343583",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
 			"diffIgnorePatterns": [
 				"JIT Construction",
 				"revision",
 				"\"http(s)?:\\/\\/www\\.facebook\\.com\\/\""
 			],
-			"etag": "\"507460acc046869abaeb79e9198ee0dc\""
+			"etag": "\"3d0a86b5a68a59b90f951c68e6e573a4\""
 		},
 		{
 			"name": "Facebook Events",
