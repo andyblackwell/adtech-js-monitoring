@@ -1,4 +1,4 @@
-/*1537988593,,JIT Construction: v4354076,en_US*/
+/*1538003046,,JIT Construction: v4355512,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4354076",
+						revision: "4355512",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -7189,7 +7189,6 @@ try {
 							"sdk.DOM",
 							"sdk.domReady",
 							"sdk.ErrorHandling",
-							"sdk.feature",
 							"sdk.Insights",
 							"sdk.Runtime",
 							"sdk.Scribe"
@@ -7214,47 +7213,37 @@ try {
 							q,
 							r,
 							s,
-							t,
-							u
+							t
 						) {
 							__p && __p();
-							var v,
-								w,
-								x = l(i, "api.mode"),
-								y,
-								z = r("https_only_enforce_starting", !1),
-								A = r("https_only_learn_more", ""),
-								B = {};
-							v = window.FB = {};
+							var u = (window.FB = {}),
+								v,
+								w = l(i, "api.mode"),
+								x = {};
 							b = {};
 							k.level = 0;
 							h.setPrefix("FB.__globalCallbacks");
-							var C = document.createElement("div");
-							g.setRoot(C);
+							var y = document.createElement("div");
+							g.setRoot(y);
 							p(function() {
 								k.info("domReady"),
-									n.appendHidden(C),
+									n.appendHidden(y),
 									j.rules && o.addCssRules(j.rules, j.components);
 							});
-							t.subscribe("AccessToken.change", function(a) {
+							s.subscribe("AccessToken.change", function(a) {
 								!a &&
-									t.getLoginStatus() === "connected" &&
+									s.getLoginStatus() === "connected" &&
 									m.getLoginStatus(null, !0);
 							});
 							l(i, "api.whitelist.length") &&
-								((w = {}),
+								((v = {}),
 								ES(i.api.whitelist, "forEach", !0, function(a) {
-									w[a] = 1;
+									v[a] = 1;
 								}));
-							l(i, "api.https_only.length") &&
-								((y = {}),
-								ES(i.api.https_only, "forEach", !0, function(a) {
-									y[a] = 1;
-								}));
-							function D(a, b, c, d) {
+							function z(a, b, c, d) {
 								__p && __p();
 								var e;
-								/^_/.test(c) ? (e = "hide") : w && !w[b] && (e = x);
+								/^_/.test(c) ? (e = "hide") : v && !v[b] && (e = w);
 								switch (e) {
 									case "hide":
 										return;
@@ -7266,124 +7255,68 @@ try {
 											);
 										};
 									default:
-										return location.protocol !== "https:" &&
-											y &&
-											y[b] &&
-											z &&
-											z - ES("Date", "now", !1) <= 0
-											? function() {
-													k.log(
-														"error",
-														-1,
-														"The method FB.%s can no longer be called from http pages. %s",
-														b,
-														A
-													);
-											  }
-											: q.guard(function() {
-													__p && __p();
-													if (
-														location.protocol !== "https:" &&
-														y &&
-														y[b] &&
-														z
-													) {
-														var f =
-															Math.floor((z - ES("Date", "now", !1)) / 864e5) +
-															1;
-														f > 30
-															? k.log(
-																	"warn",
-																	-1,
-																	"The method FB.%s will stop working when called from http pages in %s days.  Please update your site to use https for Facebook Login. %s",
-																	b,
-																	Math.floor(
-																		(z - ES("Date", "now", !1)) / 864e5
-																	),
-																	A
-															  )
-															: k.log(
-																	"error",
-																	-1,
-																	"The method FB.%s will stop working when called from http pages in %s days.  Please update your site to use https for Facebook Login. %s",
-																	b,
-																	Math.floor(
-																		(z - ES("Date", "now", !1)) / 864e5
-																	),
-																	A
-															  );
-														r("https_only_scribe_logging", !0) &&
-															!Object.prototype.hasOwnProperty.call(B, b) &&
-															(u.log("jssdk_error", {
-																appId: t.getClientID(),
-																error: "HttpsOnly",
-																extra: { message: b }
-															}),
-															(B[b] = !0));
-													}
-													e === "warn" &&
-														(k.warn(
-															"The method FB.%s is not officially supported by Facebook and access to it will soon be removed.",
-															b
-														),
-														Object.prototype.hasOwnProperty.call(B, b) ||
-															(s.log(
-																s.TYPE.WARNING,
-																s.CATEGORY.DEPRECATED,
-																"FB." + b
-															),
-															u.log("jssdk_error", {
-																appId: t.getClientID(),
-																error: "Private method used",
-																extra: { message: b }
-															}),
-															(B[b] = !0)));
-													function g(a) {
-														if (ES("Array", "isArray", !1, a))
-															return ES(a, "map", !0, g);
-														return a && typeof a === "object" && a.__wrapped
-															? a.__wrapped
-															: typeof a === "function" &&
-															  /^function/.test(a.toString())
-																? q.unguard(a)
-																: a;
-													}
-													var h = ES(
-															Array.prototype.slice.call(arguments),
-															"map",
-															!0,
-															g
-														),
-														i = a.apply(d, h),
-														j,
-														l = !0;
-													if (i && typeof i === "object") {
-														j = ES("Object", "create", !1, i);
-														j.__wrapped = i;
-														for (var c in i) {
-															var m = i[c];
-															if (
-																typeof m !== "function" ||
-																c === "constructor"
-															)
-																continue;
-															l = !1;
-															j[c] = D(m, b + ":" + c, c, i);
-														}
-													}
-													return !l ? j : l ? i : j;
-											  }, b);
+										return q.guard(function() {
+											__p && __p();
+											e === "warn" &&
+												(k.warn(
+													"The method FB.%s is not officially supported by Facebook and access to it will soon be removed.",
+													b
+												),
+												Object.prototype.hasOwnProperty.call(x, b) ||
+													(r.log(
+														r.TYPE.WARNING,
+														r.CATEGORY.DEPRECATED,
+														"FB." + b
+													),
+													t.log("jssdk_error", {
+														appId: s.getClientID(),
+														error: "Private method used",
+														extra: { message: b }
+													}),
+													(x[b] = !0)));
+											function f(a) {
+												if (ES("Array", "isArray", !1, a))
+													return ES(a, "map", !0, f);
+												return a && typeof a === "object" && a.__wrapped
+													? a.__wrapped
+													: typeof a === "function" &&
+													  /^function/.test(a.toString())
+														? q.unguard(a)
+														: a;
+											}
+											var g = ES(
+													Array.prototype.slice.call(arguments),
+													"map",
+													!0,
+													f
+												),
+												h = a.apply(d, g),
+												i,
+												j = !0;
+											if (h && typeof h === "object") {
+												i = ES("Object", "create", !1, h);
+												i.__wrapped = h;
+												for (var c in h) {
+													var l = h[c];
+													if (typeof l !== "function" || c === "constructor")
+														continue;
+													j = !1;
+													i[c] = z(l, b + ":" + c, c, h);
+												}
+											}
+											return !j ? i : j ? h : i;
+										}, b);
 								}
 							}
 							function a(a, b) {
-								var c = a ? l(v, a, !0) : v;
+								var c = a ? l(u, a, !0) : u;
 								ES(ES("Object", "keys", !1, b), "forEach", !0, function(d) {
 									var e = b[d];
 									if (typeof e === "function") {
 										var f = (a ? a + "." : "") + d,
-											g = D(e, f, d, b);
+											g = z(e, f, d, b);
 										g && (c[d] = g);
-									} else (typeof e === "object" || typeof e === "number") && ((f = (a ? a + "." : "") + d), w && w[f] && (c[d] = e));
+									} else (typeof e === "object" || typeof e === "number") && ((f = (a ? a + "." : "") + d), v && v[f] && (c[d] = e));
 								});
 							}
 							ES("Object", "assign", !1, b, { provide: a });
@@ -8221,6 +8154,65 @@ try {
 						null
 					);
 					__d(
+						"sdk.unsecureDisallowed",
+						["Log", "sdk.feature", "sdk.Runtime", "sdk.Scribe"],
+						function(a, b, c, d, e, f, g, h, i, j) {
+							"use strict";
+							__p && __p();
+							var k = h("https_only_enforce_starting", !1),
+								l = h("https_only_learn_more", ""),
+								m = {};
+							function a(a) {
+								__p && __p();
+								if (
+									location.protocol !== "https:" &&
+									k &&
+									k - ES("Date", "now", !1) <= 0
+								) {
+									g.log(
+										"error",
+										-1,
+										"The method FB.%s can no longer be called from http pages. %s",
+										a,
+										l
+									);
+									return !0;
+								}
+								if (location.protocol !== "https:" && k) {
+									var b = Math.floor((k - ES("Date", "now", !1)) / 864e5) + 1;
+									b > 30
+										? g.log(
+												"warn",
+												-1,
+												"The method FB.%s will stop working when called from http pages in %s days.  Please update your site to use https for Facebook Login. %s",
+												a,
+												Math.floor((k - ES("Date", "now", !1)) / 864e5),
+												l
+										  )
+										: g.log(
+												"error",
+												-1,
+												"The method FB.%s will stop working when called from http pages in %s days.  Please update your site to use https for Facebook Login. %s",
+												a,
+												Math.floor((k - ES("Date", "now", !1)) / 864e5),
+												l
+										  );
+									h("https_only_scribe_logging", !0) &&
+										!Object.prototype.hasOwnProperty.call(m, a) &&
+										(j.log("jssdk_error", {
+											appId: i.getClientID(),
+											error: "HttpsOnly",
+											extra: { message: a }
+										}),
+										(m[a] = !0));
+								}
+								return !1;
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"sdk.api",
 						[
 							"ApiClient",
@@ -8228,17 +8220,18 @@ try {
 							"sdk.PlatformVersioning",
 							"sdk.Runtime",
 							"sdk.Scribe",
-							"sdk.URI"
+							"sdk.URI",
+							"sdk.unsecureDisallowed"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
 							__p && __p();
-							var m = h("should_log_response_error", !1),
-								n;
+							var n = h("should_log_response_error", !1),
+								o;
 							j.subscribe("ClientID.change", function(a) {
 								return g.setClientID(a);
 							});
 							j.subscribe("AccessToken.change", function(a) {
-								(n = a), g.setAccessToken(a);
+								(o = a), g.setAccessToken(a);
 							});
 							g.setDefaultParams({ sdk: "joey" });
 							g.subscribe("request.complete", function(a, b, c, d) {
@@ -8251,7 +8244,7 @@ try {
 													d.error.code == 190)) &&
 										  (a = !0)
 										: d.error_code && (d.error_code == "190" && (a = !0)));
-								a && n === j.getAccessToken() && j.setAccessToken(null);
+								a && o === j.getAccessToken() && j.setAccessToken(null);
 							});
 							g.subscribe("request.complete", function(a, b, c, d) {
 								((a == "/me/permissions" && b === "delete") ||
@@ -8261,7 +8254,7 @@ try {
 									j.setAccessToken(null);
 							});
 							g.subscribe("request.error", function(a, b, c, d) {
-								m &&
+								n &&
 									d.error.type === "http" &&
 									k.log("jssdk_error", {
 										appId: j.getClientID(),
@@ -8274,6 +8267,7 @@ try {
 							});
 							function a(a) {
 								__p && __p();
+								if (m("api")) return;
 								if (typeof a === "string")
 									if (j.getIsVersioned()) {
 										i.assertVersionIsSet();
@@ -10277,24 +10271,32 @@ try {
 							"sdk.Event",
 							"sdk.Runtime",
 							"sdk.SignedRequest",
-							"sdk.ui"
+							"sdk.ui",
+							"sdk.unsecureDisallowed"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) {
 							__p && __p();
 							g.provide("", {
 								getLoginStatus: function() {
-									return i.getLoginStatus.apply(i, arguments);
+									return o("getLoginStatus")
+										? null
+										: i.getLoginStatus.apply(i, arguments);
 								},
 								getAuthResponse: function() {
-									return i.getAuthResponse();
+									return o("getAuthResponse") ? null : i.getAuthResponse();
 								},
 								getAccessToken: function() {
-									return l.getAccessToken() || null;
+									return o("getAccessToken")
+										? null
+										: l.getAccessToken() || null;
 								},
 								getUserID: function() {
-									return l.getUserID() || l.getCookieUserID();
+									return o("getUserID")
+										? null
+										: l.getUserID() || l.getCookieUserID();
 								},
 								login: function(a, b) {
+									if (o("login")) return;
 									b &&
 										b.perms &&
 										!b.scope &&
@@ -14240,7 +14242,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4354076","namespace":"FB","message":"' +
+				'","revision":"4355512","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
