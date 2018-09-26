@@ -1054,19 +1054,17 @@
 				}),
 				(h.prototype.evalWithCmp = function(t, e) {
 					var n = this;
-					if (
-						(setTimeout(function() {
-							return n.onTimeout();
-						}, this.timeout || 3e3),
-						this.cache.silentModeEnabled())
-					)
+					if (this.cache.silentModeEnabled())
 						return (
 							Log.Debug(
 								"Request ignored because the global silent mode is enabled"
 							),
 							void this.callbackSuccess("", void 0)
 						);
-					this.directBiddingEvent.setGDPRConsent(e),
+					setTimeout(function() {
+						return n.onTimeout();
+					}, this.timeout || 3e3),
+						this.directBiddingEvent.setGDPRConsent(e),
 						this.directBiddingEvent.evalWithTimeout(t, this.timeout);
 				}),
 				(h.prototype.onSuccess = function(t, e) {
@@ -1117,7 +1115,7 @@
 				t
 			);
 		})(),
-		PublisherTagVersion = 57,
+		PublisherTagVersion = 58,
 		DirectBiddingUrlBuilder = (function() {
 			function a(t) {
 				void 0 === t && (t = !1), (this.auditMode = t);
@@ -2192,13 +2190,18 @@
 					return this.url;
 				}),
 				(o.prototype.buildCdbRequest = function() {
-					if (!this.cache.silentModeEnabled())
-						return (
-							this.timer.sendRequest(this.url), this.requestBuilder.getRequest()
+					if (this.cache.silentModeEnabled())
+						Log.Debug(
+							"Request ignored because the global silent mode is enabled"
 						);
-					Log.Debug(
-						"Request ignored because the global silent mode is enabled"
-					);
+					else {
+						if (this.requestBuilder.isValid())
+							return (
+								this.timer.sendRequest(this.url),
+								this.requestBuilder.getRequest()
+							);
+						Log.Debug("Request ignored because it doesnt contain any slot");
+					}
 				}),
 				(o.GetAllAdapters = function() {
 					return window.Criteo.prebid_adapters;
