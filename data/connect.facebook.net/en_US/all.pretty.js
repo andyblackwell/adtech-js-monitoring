@@ -1,4 +1,4 @@
-/*1538015315,,JIT Construction: v4355621,en_US*/
+/*1538024874,,JIT Construction: v4357353,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4355621",
+						revision: "4357353",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2961,52 +2961,6 @@ try {
 						null
 					);
 					__d(
-						"ManagedError",
-						[],
-						function(a, b, c, d, e, f) {
-							var g;
-							b = babelHelpers.inherits(a, Error);
-							g = b && b.prototype;
-							function a(a, b) {
-								"use strict";
-								g.constructor.call(
-									this,
-									a !== null && a !== undefined ? a : ""
-								),
-									a !== null && a !== undefined
-										? (this.message = a)
-										: (this.message = ""),
-									(this.innerError = b);
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"LogviewForcedKeyError",
-						["ManagedError"],
-						function(a, b, c, d, e, f, g) {
-							__p && __p();
-							var h;
-							b = babelHelpers.inherits(a, g);
-							h = b && b.prototype;
-							function a(a, b) {
-								"use strict";
-								h.constructor.call(this, b, a);
-							}
-							a.prototype.getCause = function() {
-								"use strict";
-								return this.innerError;
-							};
-							a.prototype.getForcedCategoryKey = function() {
-								"use strict";
-								return this.message;
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"erx",
 						["ex"],
 						function(a, b, c, d, e, f, g) {
@@ -3054,49 +3008,48 @@ try {
 							"CometErrorUtils",
 							"Env",
 							"ErrorConstants",
-							"LogviewForcedKeyError",
 							"eprintf",
 							"erx",
 							"removeFromArray",
 							"sprintf"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
 							"use strict";
 							__p && __p();
-							var o = "<generated guard>",
-								p = /^https?:\/\//i,
-								q = /^Type Mismatch for/,
-								r = [],
-								s,
-								t = [],
-								u = 50,
-								v = [],
+							var n = "<generated guard>",
+								o = /^https?:\/\//i,
+								p = /^Type Mismatch for/,
+								q = [],
+								r,
+								s = [],
+								t = 50,
+								u = [],
+								v = !1,
 								w = !1,
 								x = !1,
-								y = !1,
-								z = /\bnocatch\b/.test(location.search);
-							function A(a) {
+								y = /\bnocatch\b/.test(location.search);
+							function z(a) {
 								a = a.columnNumber || a.column;
 								return a != null ? String(a) : "";
 							}
-							function B(a) {
+							function A(a) {
 								return (a[0] && a[0].column) || "";
 							}
-							function C(a) {
+							function B(a) {
 								a = a.lineNumber || a.line;
 								return a != null ? String(a) : "";
 							}
-							function D(a) {
+							function C(a) {
 								return (a[0] && a[0].line) || "";
 							}
-							function E(a) {
+							function D(a) {
 								a = a.fileName || a.sourceURL;
 								return a != null ? String(a) : "";
 							}
-							function F(a) {
+							function E(a) {
 								return (a[0] && a[0].script) || "";
 							}
-							function G(a) {
+							function F(a) {
 								__p && __p();
 								var b = a.stackTrace || a.stack;
 								if (b == null) return [];
@@ -3135,7 +3088,7 @@ try {
 										ES(a, "includes", !0, "charset=utf-8;base64,") &&
 											(a = "<inlined-file>");
 										b = { column: d, identifier: e, line: c, script: a };
-										s && s(b);
+										r && r(b);
 										a =
 											"    at" +
 											(b.identifier ? " " + b.identifier + " (" : " ") +
@@ -3147,40 +3100,40 @@ try {
 									}
 								);
 							}
-							function H(a) {
-								v.unshift(a), (w = !0);
+							function G(a) {
+								u.unshift(a), (v = !0);
 							}
-							function I() {
-								v.shift(), (w = v.length !== 0);
+							function H() {
+								u.shift(), (v = u.length !== 0);
 							}
-							var J = {
+							var I = {
 								ANONYMOUS_GUARD_TAG: i.ANONYMOUS_GUARD_TAG,
-								GENERATED_GUARD_TAG: o,
+								GENERATED_GUARD_TAG: n,
 								GLOBAL_ERROR_HANDLER_TAG: i.GLOBAL_ERROR_HANDLER_TAG,
-								history: t,
+								history: s,
 								addListener: function(a, b) {
 									b === void 0 && (b = !1),
-										r.push(a),
+										q.push(a),
 										b ||
-											ES(t, "forEach", !0, function(b) {
+											ES(s, "forEach", !0, function(b) {
 												return a(b.error, b.loggingType);
 											});
 								},
 								removeListener: function(a) {
-									m(r, a);
+									l(q, a);
 								},
 								setSourceResolver: function(a) {
-									s = a;
+									r = a;
 								},
 								applyWithGuard: function(b, c, d, e, f, g) {
 									__p && __p();
-									H(f || i.ANONYMOUS_GUARD_TAG);
-									h.nocatch && (z = !0);
-									if (z) {
+									G(f || i.ANONYMOUS_GUARD_TAG);
+									h.nocatch && (y = !0);
+									if (y) {
 										try {
 											f = b.apply(c, d || []);
 										} finally {
-											I();
+											H();
 										}
 										return f;
 									}
@@ -3212,15 +3165,15 @@ try {
 													else if (c == a) j = "[The global object]";
 													else {
 														var l = c,
-															m = {};
+															n = {};
 														ES(ES("Object", "keys", !1, l), "map", !0, function(
 															a,
 															b
 														) {
 															b = l[a];
-															m[a] = k(b);
+															n[a] = k(b);
 														});
-														j = m;
+														j = n;
 													}
 												c = ES(d || [], "map", !0, k);
 												var o =
@@ -3228,7 +3181,7 @@ try {
 													p = b.toString && b.toString().substr(0, 1024);
 												j = ES("JSON", "stringify", !1, j).substr(0, 1024);
 												c = ES("JSON", "stringify", !1, c).substr(0, 1024);
-												var q = n(
+												var q = m(
 													o,
 													p ? p : "this function does not support toString",
 													j,
@@ -3245,7 +3198,7 @@ try {
 												q =
 													"applyWithGuard threw null or undefined with unserializable data:\nFunc: %s\nMetaEx: %s";
 												o = b.toString && b.toString().substr(0, 1024);
-												p = n(
+												p = m(
 													q,
 													o ? o : "this function does not support toString",
 													a.message
@@ -3260,7 +3213,7 @@ try {
 										g &&
 											g.deferredSource &&
 											(f.deferredSource = g.deferredSource);
-										j = J.normalizeError(f);
+										j = I.normalizeError(f);
 										e && e(j);
 										j.extra || (j.extra = {});
 										if (b)
@@ -3273,17 +3226,17 @@ try {
 													.toString()
 													.substring(0, 100)
 											] = "args");
-										j.guard = v[0];
-										j.guardList = v.slice();
-										J.reportError(j, !1, "GUARDED");
+										j.guard = u[0];
+										j.guardList = u.slice();
+										I.reportError(j, !1, "GUARDED");
 									} finally {
-										I();
+										H();
 									}
 								},
 								guard: function(a, b, c) {
-									b = b || a.name || o;
+									b = b || a.name || n;
 									function d() {
-										return J.applyWithGuard(
+										return I.applyWithGuard(
 											a,
 											c || this,
 											[].concat(Array.prototype.slice.call(arguments)),
@@ -3295,7 +3248,7 @@ try {
 									return d;
 								},
 								inGuard: function() {
-									return w;
+									return v;
 								},
 								normalizeError: function(a) {
 									__p && __p();
@@ -3303,17 +3256,17 @@ try {
 									a = a != null ? a : {};
 									if (Object.prototype.hasOwnProperty.call(a, "_originalError"))
 										return a;
-									var c = G(a),
+									var c = F(a),
 										d = !1;
 									if (a.framesToPop) {
 										var e = a.framesToPop,
 											f;
 										while (e > 0 && c.length > 0)
 											(f = c.shift()), e--, (d = !0);
-										q.test(a.message) &&
+										p.test(a.message) &&
 											a.framesToPop === 2 &&
 											f &&
-											(p.test(f.script) &&
+											(o.test(f.script) &&
 												(a.message +=
 													" at " +
 													f.script +
@@ -3321,23 +3274,21 @@ try {
 													(f.column ? ":" + f.column : "")));
 									}
 									e = g.getReactComponentStack(a.reactComponentStackForLogging);
-									var h = a instanceof j ? a.getForcedCategoryKey() : null;
 									b = {
 										_originalError: b,
 										cerror: !1,
-										column: d ? B(c) : A(a) || B(c),
+										column: d ? A(c) : z(a) || A(c),
 										deferredSource: a.deferredSource,
 										extra: a.extra,
 										fbloggerMetadata: a.fbloggerMetadata,
-										forcedLogviewKey: h,
 										guard: a.guard,
 										guardList: a.guardList,
-										line: d ? D(c) : C(a) || D(c),
+										line: d ? C(c) : B(a) || C(c),
 										message: a.message,
 										messageWithParams: a.messageWithParams,
 										name: a.name,
 										reactComponentStack: e,
-										script: d ? F(c) : E(a) || F(c),
+										script: d ? E(c) : D(a) || E(c),
 										serverHash: a.serverHash,
 										snapshot: a.snapshot,
 										stack: ES(c, "map", !0, function(a) {
@@ -3348,18 +3299,18 @@ try {
 									};
 									typeof b.message === "string"
 										? (b.messageWithParams =
-												b.messageWithParams || l(b.message))
+												b.messageWithParams || k(b.message))
 										: ((b.messageObject = b.message),
 										  (b.message =
 												String(b.message) + " (" + typeof b.message + ")"));
 									b.messageWithParams &&
-										(b.message = k.apply(undefined, b.messageWithParams));
+										(b.message = j.apply(undefined, b.messageWithParams));
 									typeof window !== "undefined" &&
 										window &&
 										window.location &&
 										(b.windowLocationURL = window.location.href);
-									s && s(b);
-									for (var i in b) b[i] == null && delete b[i];
+									r && r(b);
+									for (var h in b) b[h] == null && delete b[h];
 									return b;
 								},
 								onerror: function(a, b, c, d, e) {
@@ -3370,53 +3321,53 @@ try {
 										(e.column = e.column || d),
 										(e.guard = i.GLOBAL_ERROR_HANDLER_TAG),
 										(e.guardList = [i.GLOBAL_ERROR_HANDLER_TAG]),
-										J.reportError(e, !0, "FATAL");
+										I.reportError(e, !0, "FATAL");
 								},
 								reportError: function(b, c, d) {
 									__p && __p();
 									c === void 0 && (c = !1);
 									d === void 0 && (d = "DEPRECATED");
-									if (x) {
+									if (w) {
 										!1;
 										return !1;
 									}
-									b.reactComponentStack && H(i.GLOBAL_REACT_ERROR_HANDLER_TAG);
-									v.length > 0 &&
-										((b.guard = b.guard || v[0]), (b.guardList = v.slice()));
-									b.reactComponentStack && I();
-									b = J.normalizeError(b);
+									b.reactComponentStack && G(i.GLOBAL_REACT_ERROR_HANDLER_TAG);
+									u.length > 0 &&
+										((b.guard = b.guard || u[0]), (b.guardList = u.slice()));
+									b.reactComponentStack && H();
+									b = I.normalizeError(b);
 									if (!c) {
 										c = a.console;
 										var e = b._originalError;
 										e = e != null ? "" + e.message : "";
-										if ((!c[b.type] || b.type === "error") && !y) {
+										if ((!c[b.type] || b.type === "error") && !x) {
 											e = e.length > 80 ? e.slice(0, 77) + "..." : e;
 											c.error(
 												'ErrorUtils caught an error: "' +
 													e +
 													"\". Subsequent errors won't be logged; see https://fburl.com/debugjs."
 											);
-											y = !0;
+											x = !0;
 										}
 									}
-									t.length > u && t.splice(u / 2, 1);
-									t.push({ error: b, loggingType: d });
-									x = !0;
-									for (var c = 0; c < r.length; c++)
+									s.length > t && s.splice(t / 2, 1);
+									s.push({ error: b, loggingType: d });
+									w = !0;
+									for (var c = 0; c < q.length; c++)
 										try {
-											r[c](b, d);
+											q[c](b, d);
 										} catch (a) {
 											!1;
 										}
-									x = !1;
+									w = !1;
 									return !0;
 								}
 							};
-							a.onerror = J.onerror;
-							e.exports = a.ErrorUtils = J;
+							a.onerror = I.onerror;
+							e.exports = a.ErrorUtils = I;
 							typeof __t === "function" &&
 								__t.setHandler &&
-								__t.setHandler(J.reportError);
+								__t.setHandler(I.reportError);
 						},
 						3
 					);
@@ -4018,6 +3969,28 @@ try {
 							}
 							var g = { encode: a, decode: b, appendToUrl: c };
 							e.exports = g;
+						},
+						null
+					);
+					__d(
+						"ManagedError",
+						[],
+						function(a, b, c, d, e, f) {
+							var g;
+							b = babelHelpers.inherits(a, Error);
+							g = b && b.prototype;
+							function a(a, b) {
+								"use strict";
+								g.constructor.call(
+									this,
+									a !== null && a !== undefined ? a : ""
+								),
+									a !== null && a !== undefined
+										? (this.message = a)
+										: (this.message = ""),
+									(this.innerError = b);
+							}
+							e.exports = a;
 						},
 						null
 					);
@@ -14231,7 +14204,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -14242,7 +14215,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4355621","namespace":"FB","message":"' +
+				'","revision":"4357353","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
