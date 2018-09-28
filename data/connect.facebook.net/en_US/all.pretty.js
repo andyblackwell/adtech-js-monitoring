@@ -1,4 +1,4 @@
-/*1538099528,,JIT Construction: v4360835,en_US*/
+/*1538106741,,JIT Construction: v4361463,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4360835",
+						revision: "4361463",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2961,6 +2961,49 @@ try {
 						null
 					);
 					__d(
+						"FBLoggerMetadata",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							__p && __p();
+							var g = [];
+							function a() {
+								this.metadata = [].concat(g);
+							}
+							a.prototype.addMetadata = function(a, b, c) {
+								this.metadata.push([a, b, c]);
+								return this;
+							};
+							a.prototype.isEmpty = function() {
+								return this.metadata.length === 0;
+							};
+							a.prototype.getAll = function() {
+								__p && __p();
+								var a = [],
+									b = ES(this.metadata, "filter", !0, function(b) {
+										if (b == null) return !1;
+										var c = ES(b, "filter", !0, function(a) {
+											return a && ES(a, "indexOf", !0, ":") > -1;
+										});
+										if (c.length > 0) {
+											a.push(b);
+											return !1;
+										}
+										return !0;
+									});
+								return { invalidMetadata: a, validMetadata: b };
+							};
+							a.addGlobalMetadata = function(a, b, c) {
+								g.push([a, b, c]);
+							};
+							a.getGlobalMetadata = function() {
+								return g;
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"erx",
 						["ex"],
 						function(a, b, c, d, e, f, g) {
@@ -3008,48 +3051,49 @@ try {
 							"CometErrorUtils",
 							"Env",
 							"ErrorConstants",
+							"FBLoggerMetadata",
 							"eprintf",
 							"erx",
 							"removeFromArray",
 							"sprintf"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
 							"use strict";
 							__p && __p();
-							var n = "<generated guard>",
-								o = /^https?:\/\//i,
-								p = /^Type Mismatch for/,
-								q = [],
-								r,
-								s = [],
-								t = 50,
-								u = [],
-								v = !1,
+							var o = "<generated guard>",
+								p = /^https?:\/\//i,
+								q = /^Type Mismatch for/,
+								r = [],
+								s,
+								t = [],
+								u = 50,
+								v = [],
 								w = !1,
 								x = !1,
-								y = /\bnocatch\b/.test(location.search);
-							function z(a) {
+								y = !1,
+								z = /\bnocatch\b/.test(location.search);
+							function A(a) {
 								a = a.columnNumber || a.column;
 								return a != null ? String(a) : "";
 							}
-							function A(a) {
+							function B(a) {
 								return (a[0] && a[0].column) || "";
 							}
-							function B(a) {
+							function C(a) {
 								a = a.lineNumber || a.line;
 								return a != null ? String(a) : "";
 							}
-							function C(a) {
+							function D(a) {
 								return (a[0] && a[0].line) || "";
 							}
-							function D(a) {
+							function E(a) {
 								a = a.fileName || a.sourceURL;
 								return a != null ? String(a) : "";
 							}
-							function E(a) {
+							function F(a) {
 								return (a[0] && a[0].script) || "";
 							}
-							function F(a) {
+							function G(a) {
 								__p && __p();
 								var b = a.stackTrace || a.stack;
 								if (b == null) return [];
@@ -3088,7 +3132,7 @@ try {
 										ES(a, "includes", !0, "charset=utf-8;base64,") &&
 											(a = "<inlined-file>");
 										b = { column: d, identifier: e, line: c, script: a };
-										r && r(b);
+										s && s(b);
 										a =
 											"    at" +
 											(b.identifier ? " " + b.identifier + " (" : " ") +
@@ -3100,40 +3144,40 @@ try {
 									}
 								);
 							}
-							function G(a) {
-								u.unshift(a), (v = !0);
+							function H(a) {
+								v.unshift(a), (w = !0);
 							}
-							function H() {
-								u.shift(), (v = u.length !== 0);
+							function I() {
+								v.shift(), (w = v.length !== 0);
 							}
-							var I = {
+							var J = {
 								ANONYMOUS_GUARD_TAG: i.ANONYMOUS_GUARD_TAG,
-								GENERATED_GUARD_TAG: n,
+								GENERATED_GUARD_TAG: o,
 								GLOBAL_ERROR_HANDLER_TAG: i.GLOBAL_ERROR_HANDLER_TAG,
-								history: s,
+								history: t,
 								addListener: function(a, b) {
 									b === void 0 && (b = !1),
-										q.push(a),
+										r.push(a),
 										b ||
-											ES(s, "forEach", !0, function(b) {
+											ES(t, "forEach", !0, function(b) {
 												return a(b.error, b.loggingType);
 											});
 								},
 								removeListener: function(a) {
-									l(q, a);
+									m(r, a);
 								},
 								setSourceResolver: function(a) {
-									r = a;
+									s = a;
 								},
 								applyWithGuard: function(b, c, d, e, f, g) {
 									__p && __p();
-									G(f || i.ANONYMOUS_GUARD_TAG);
-									h.nocatch && (y = !0);
-									if (y) {
+									H(f || i.ANONYMOUS_GUARD_TAG);
+									h.nocatch && (z = !0);
+									if (z) {
 										try {
 											f = b.apply(c, d || []);
 										} finally {
-											H();
+											I();
 										}
 										return f;
 									}
@@ -3165,15 +3209,15 @@ try {
 													else if (c == a) j = "[The global object]";
 													else {
 														var l = c,
-															n = {};
+															m = {};
 														ES(ES("Object", "keys", !1, l), "map", !0, function(
 															a,
 															b
 														) {
 															b = l[a];
-															n[a] = k(b);
+															m[a] = k(b);
 														});
-														j = n;
+														j = m;
 													}
 												c = ES(d || [], "map", !0, k);
 												var o =
@@ -3181,7 +3225,7 @@ try {
 													p = b.toString && b.toString().substr(0, 1024);
 												j = ES("JSON", "stringify", !1, j).substr(0, 1024);
 												c = ES("JSON", "stringify", !1, c).substr(0, 1024);
-												var q = m(
+												var q = n(
 													o,
 													p ? p : "this function does not support toString",
 													j,
@@ -3198,7 +3242,7 @@ try {
 												q =
 													"applyWithGuard threw null or undefined with unserializable data:\nFunc: %s\nMetaEx: %s";
 												o = b.toString && b.toString().substr(0, 1024);
-												p = m(
+												p = n(
 													q,
 													o ? o : "this function does not support toString",
 													a.message
@@ -3213,7 +3257,7 @@ try {
 										g &&
 											g.deferredSource &&
 											(f.deferredSource = g.deferredSource);
-										j = I.normalizeError(f);
+										j = J.normalizeError(f);
 										e && e(j);
 										j.extra || (j.extra = {});
 										if (b)
@@ -3226,17 +3270,17 @@ try {
 													.toString()
 													.substring(0, 100)
 											] = "args");
-										j.guard = u[0];
-										j.guardList = u.slice();
-										I.reportError(j, !1, "GUARDED");
+										j.guard = v[0];
+										j.guardList = v.slice();
+										J.reportError(j, !1, "GUARDED");
 									} finally {
-										H();
+										I();
 									}
 								},
 								guard: function(a, b, c) {
-									b = b || a.name || n;
+									b = b || a.name || o;
 									function d() {
-										return I.applyWithGuard(
+										return J.applyWithGuard(
 											a,
 											c || this,
 											[].concat(Array.prototype.slice.call(arguments)),
@@ -3248,7 +3292,7 @@ try {
 									return d;
 								},
 								inGuard: function() {
-									return v;
+									return w;
 								},
 								normalizeError: function(a) {
 									__p && __p();
@@ -3256,17 +3300,17 @@ try {
 									a = a != null ? a : {};
 									if (Object.prototype.hasOwnProperty.call(a, "_originalError"))
 										return a;
-									var c = F(a),
+									var c = G(a),
 										d = !1;
 									if (a.framesToPop) {
 										var e = a.framesToPop,
 											f;
 										while (e > 0 && c.length > 0)
 											(f = c.shift()), e--, (d = !0);
-										p.test(a.message) &&
+										q.test(a.message) &&
 											a.framesToPop === 2 &&
 											f &&
-											(o.test(f.script) &&
+											(p.test(f.script) &&
 												(a.message +=
 													" at " +
 													f.script +
@@ -3274,21 +3318,27 @@ try {
 													(f.column ? ":" + f.column : "")));
 									}
 									e = g.getReactComponentStack(a.reactComponentStackForLogging);
-									b = {
+									var h = a.fbloggerMetadata ? a.fbloggerMetadata : [],
+										i = ES(j.getGlobalMetadata(), "map", !0, function(a) {
+											return a.join(":");
+										});
+									h = [].concat(h, i);
+									h.length === 0 && (h = undefined);
+									i = {
 										_originalError: b,
 										cerror: !1,
-										column: d ? A(c) : z(a) || A(c),
+										column: d ? B(c) : A(a) || B(c),
 										deferredSource: a.deferredSource,
 										extra: a.extra,
-										fbloggerMetadata: a.fbloggerMetadata,
+										fbloggerMetadata: h,
 										guard: a.guard,
 										guardList: a.guardList,
-										line: d ? C(c) : B(a) || C(c),
+										line: d ? D(c) : C(a) || D(c),
 										message: a.message,
 										messageWithParams: a.messageWithParams,
 										name: a.name,
 										reactComponentStack: e,
-										script: d ? E(c) : D(a) || E(c),
+										script: d ? F(c) : E(a) || F(c),
 										serverHash: a.serverHash,
 										snapshot: a.snapshot,
 										stack: ES(c, "map", !0, function(a) {
@@ -3297,21 +3347,21 @@ try {
 										stackFrames: c,
 										type: a.type
 									};
-									typeof b.message === "string"
-										? (b.messageWithParams =
-												b.messageWithParams || k(b.message))
-										: ((b.messageObject = b.message),
-										  (b.message =
-												String(b.message) + " (" + typeof b.message + ")"));
-									b.messageWithParams &&
-										(b.message = j.apply(undefined, b.messageWithParams));
+									typeof i.message === "string"
+										? (i.messageWithParams =
+												i.messageWithParams || l(i.message))
+										: ((i.messageObject = i.message),
+										  (i.message =
+												String(i.message) + " (" + typeof i.message + ")"));
+									i.messageWithParams &&
+										(i.message = k.apply(undefined, i.messageWithParams));
 									typeof window !== "undefined" &&
 										window &&
 										window.location &&
-										(b.windowLocationURL = window.location.href);
-									r && r(b);
-									for (var h in b) b[h] == null && delete b[h];
-									return b;
+										(i.windowLocationURL = window.location.href);
+									s && s(i);
+									for (var m in i) i[m] == null && delete i[m];
+									return i;
 								},
 								onerror: function(a, b, c, d, e) {
 									(e = e || {}),
@@ -3321,53 +3371,53 @@ try {
 										(e.column = e.column || d),
 										(e.guard = i.GLOBAL_ERROR_HANDLER_TAG),
 										(e.guardList = [i.GLOBAL_ERROR_HANDLER_TAG]),
-										I.reportError(e, !0, "FATAL");
+										J.reportError(e, !0, "FATAL");
 								},
 								reportError: function(b, c, d) {
 									__p && __p();
 									c === void 0 && (c = !1);
 									d === void 0 && (d = "DEPRECATED");
-									if (w) {
+									if (x) {
 										!1;
 										return !1;
 									}
-									b.reactComponentStack && G(i.GLOBAL_REACT_ERROR_HANDLER_TAG);
-									u.length > 0 &&
-										((b.guard = b.guard || u[0]), (b.guardList = u.slice()));
-									b.reactComponentStack && H();
-									b = I.normalizeError(b);
+									b.reactComponentStack && H(i.GLOBAL_REACT_ERROR_HANDLER_TAG);
+									v.length > 0 &&
+										((b.guard = b.guard || v[0]), (b.guardList = v.slice()));
+									b.reactComponentStack && I();
+									b = J.normalizeError(b);
 									if (!c) {
 										c = a.console;
 										var e = b._originalError;
 										e = e != null ? "" + e.message : "";
-										if ((!c[b.type] || b.type === "error") && !x) {
+										if ((!c[b.type] || b.type === "error") && !y) {
 											e = e.length > 80 ? e.slice(0, 77) + "..." : e;
 											c.error(
 												'ErrorUtils caught an error: "' +
 													e +
 													"\". Subsequent errors won't be logged; see https://fburl.com/debugjs."
 											);
-											x = !0;
+											y = !0;
 										}
 									}
-									s.length > t && s.splice(t / 2, 1);
-									s.push({ error: b, loggingType: d });
-									w = !0;
-									for (var c = 0; c < q.length; c++)
+									t.length > u && t.splice(u / 2, 1);
+									t.push({ error: b, loggingType: d });
+									x = !0;
+									for (var c = 0; c < r.length; c++)
 										try {
-											q[c](b, d);
+											r[c](b, d);
 										} catch (a) {
 											!1;
 										}
-									w = !1;
+									x = !1;
 									return !0;
 								}
 							};
-							a.onerror = I.onerror;
-							e.exports = a.ErrorUtils = I;
+							a.onerror = J.onerror;
+							e.exports = a.ErrorUtils = J;
 							typeof __t === "function" &&
 								__t.setHandler &&
-								__t.setHandler(I.reportError);
+								__t.setHandler(J.reportError);
 						},
 						3
 					);
@@ -3608,46 +3658,6 @@ try {
 								return this;
 							};
 							e.exports = k;
-						},
-						null
-					);
-					__d(
-						"FBLoggerMetadata",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							__p && __p();
-							var g = [];
-							function a() {
-								this.metadata = [].concat(g);
-							}
-							a.prototype.addMetadata = function(a, b, c) {
-								this.metadata.push([a, b, c]);
-								return this;
-							};
-							a.prototype.isEmpty = function() {
-								return this.metadata.length === 0;
-							};
-							a.prototype.getAll = function() {
-								__p && __p();
-								var a = [],
-									b = ES(this.metadata, "filter", !0, function(b) {
-										if (b == null) return !1;
-										var c = ES(b, "filter", !0, function(a) {
-											return a && ES(a, "indexOf", !0, ":") > -1;
-										});
-										if (c.length > 0) {
-											a.push(b);
-											return !1;
-										}
-										return !0;
-									});
-								return { invalidMetadata: a, validMetadata: b };
-							};
-							a.addGlobalMetadata = function(a, b, c) {
-								g.push([a, b, c]);
-							};
-							e.exports = a;
 						},
 						null
 					);
@@ -14204,7 +14214,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -14215,7 +14225,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4360835","namespace":"FB","message":"' +
+				'","revision":"4361463","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
