@@ -1115,7 +1115,7 @@
 				t
 			);
 		})(),
-		PublisherTagVersion = 58,
+		PublisherTagVersion = 59,
 		DirectBiddingUrlBuilder = (function() {
 			function a(t) {
 				void 0 === t && (t = !1), (this.auditMode = t);
@@ -3352,15 +3352,9 @@
 				(o.isSafariBrowser = function() {
 					return null !== navigator.userAgent.match(o.SAFARI_CHECK_REGEX);
 				}),
-				(o.isAndroidBrowser = function() {
-					return null !== navigator.userAgent.match(o.ANDROID_CHECK_REGEX);
-				}),
 				(o.prototype.synchronizeCriteoUid = function(t) {
 					var e = this;
-					if (
-						(t || o.isSafariBrowser() || o.isAndroidBrowser()) &&
-						this.topWin.addEventListener
-					)
+					if ((t || o.isSafariBrowser()) && this.topWin.addEventListener)
 						if ("complete" === this.topDoc.readyState)
 							this.appendGumIframeIfDoesNotExist();
 						else {
@@ -3544,7 +3538,6 @@
 				(o.TLD_TEST_COOKIE_NAME = "cto_pub_test_tld"),
 				(o.SYNCFRAME_ID = "criteo-syncframe"),
 				(o.SAFARI_CHECK_REGEX = /^Mozilla\/5\.0 \([^)]+\) AppleWebKit\/[^ ]+ \(KHTML, like Gecko\) Version\/([^ ]+)( Mobile\/[^ ]+)? Safari\/[^ ]+$/i),
-				(o.ANDROID_CHECK_REGEX = /^.*Mozilla\/5.0\s?\(Linux.*;(\s?U;)?\s?Android\s?([^;]*);(.*;)*\s?(.+)\s?Build\/([^;)]*)(;\swv)?/i),
 				o
 			);
 		})(),
