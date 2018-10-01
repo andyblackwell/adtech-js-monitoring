@@ -1,4 +1,4 @@
-/*1538213763,,JIT Construction: v4367017,en_US*/
+/*1538403725,,JIT Construction: v4368315,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -6957,7 +6957,7 @@ try {
 							a.prototype.loadVideo = function(a, b, c) {
 								__p && __p();
 								if (!b.adVideo) throw new Error("No video for Ad.");
-								this.$27 = !!this.$13.videoWaitForPlaceholderImpression;
+								this.$27 = !0;
 								this.$28.addRequiredEvent();
 								var d = new v(
 									H(b.adVideo),
@@ -7406,7 +7406,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4367017","namespace":"FB","message":"' +
+				'","revision":"4368315","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
