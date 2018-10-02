@@ -1,4 +1,4 @@
-/*1538440704,,JIT Construction: v4370989,en_US*/
+/*1538446811,,JIT Construction: v4371805,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4370989",
+						revision: "4371805",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -2324,7 +2324,7 @@ try {
 					});
 					__d("JSSDKXDConfig", [], {
 						XdUrl: "/connect/xd_arbiter.php?version=42",
-						XdBundleUrl: "/connect/xd_arbiter/r/mp2v3DK3INU.js?version=42",
+						XdBundleUrl: "/connect/xd_arbiter/r/30jx6e8KIxc.js?version=42",
 						Flash: {
 							path:
 								"https://connect.facebook.net/rsrc.php/v2/yW/r/yOZN1vHw3Z_.swf"
@@ -2340,12 +2340,6 @@ try {
 							"css:fb.css.iframewidget",
 							"css:fb.css.customer_chat_plugin_iframe"
 						]
-					});
-					__d("ApiClientConfig", [], {
-						FlashRequest: {
-							swfUrl:
-								"https://connect.facebook.net/rsrc.php/v2/yd/r/mxzow1Sdmxr.swf"
-						}
 					});
 					__d("JSSDKCanvasPrefetcherConfig", [], {
 						blacklist: [144959615576466, 768691303149786, 320528941393723],
@@ -2748,7 +2742,15 @@ try {
 										f++
 									)
 										e[f - 2] = arguments[f];
-									if (c === undefined) {
+									if (typeof c === "number")
+										(c = "Minified invariant #" + String(b)),
+											e.length !== 0 &&
+												(c +=
+													": " +
+													ES(e, "map", !0, function(a) {
+														return "%s";
+													}).join(", "));
+									else if (c === undefined) {
 										c = "Invariant: ";
 										for (var h = 0; h < e.length; h++) c += "%s,";
 									}
@@ -2771,7 +2773,7 @@ try {
 								resolve: function(a) {
 									var b = "https";
 									if (a in g) return b + "://" + g[a];
-									a in g || h(0, undefined, a);
+									a in g || h(0, 2511, a);
 									return "";
 								}
 							};
@@ -5079,7 +5081,7 @@ try {
 							};
 							function q(a, b) {
 								"use strict";
-								b || k(0, undefined),
+								b || k(0, 2966),
 									(this.$9 = b),
 									(this.$7 = ""),
 									(this.$1 = ""),
@@ -5098,7 +5100,7 @@ try {
 										"You attempted to set the protocol of a URI to `%s`. That protocol does not pass the `URISchemes.isAllowed` test.",
 										a
 									),
-									k(0, undefined, a));
+									k(0, 587, a));
 								this.$7 = a;
 								return this;
 							};
@@ -5606,11 +5608,11 @@ try {
 								: window.attachEvent
 									? ((k = function(a, b, c) {
 											(c.wrapper = i(c, "entry", "DOMEventListener.add " + b)),
-												a.attachEvent || h(0, undefined),
+												a.attachEvent || h(0, 2798),
 												a.attachEvent("on" + b, c.wrapper);
 									  }),
 									  (l = function(a, b, c) {
-											a.detachEvent || h(0, undefined),
+											a.detachEvent || h(0, 2799),
 												a.detachEvent("on" + b, c.wrapper);
 									  }))
 									: (l = k = g);
@@ -6289,7 +6291,7 @@ try {
 										d++
 									)
 										c[d] = arguments[d];
-									c.length >= 2 || g(0, undefined);
+									c.length >= 2 || g(0, 4837);
 									var e = c[0],
 										f = c[1];
 									return h(a, e, f);
@@ -7524,8 +7526,8 @@ try {
 							};
 							m.prototype.$5 = function() {
 								__p && __p();
-								this.$1.length > 0 || i(0, undefined);
-								this.$1.length === this.$2.length || i(0, undefined);
+								this.$1.length > 0 || i(0, 4698);
+								this.$1.length === this.$2.length || i(0, 4699);
 								var a = this.$1,
 									b = this.$2;
 								this.$1 = [];
@@ -7789,74 +7791,6 @@ try {
 						null
 					);
 					__d(
-						"FlashRequest",
-						["DOMWrapper", "Flash", "GlobalCallback", "QueryString", "Queue"],
-						function(a, b, c, d, e, f, g, h, i, j, k) {
-							__p && __p();
-							var l,
-								m = {},
-								n,
-								o;
-							function p() {
-								__p && __p();
-								if (!n) throw new Error("swfUrl has not been set");
-								var a = i.create(function() {
-										l.start(function(a) {
-											var b = o.execute(a.method, a.url, a.body);
-											if (!b) throw new Error("Could create request");
-											m[b] = a.callback;
-										});
-									}),
-									b = i.create(function(a, b, c) {
-										var d;
-										try {
-											d = ES("JSON", "parse", !1, decodeURIComponent(c));
-										} catch (a) {
-											d = {
-												error: {
-													type: "SyntaxError",
-													message: a.message,
-													status: b,
-													raw: c
-												}
-											};
-										}
-										m[a](d);
-										delete m[a];
-									});
-								o = h.embed(n, g.getRoot(), null, {
-									log: !1,
-									initCallback: a,
-									requestCallback: b
-								});
-							}
-							function a(a, b, c, d) {
-								__p && __p();
-								c.suppress_http_code = 1;
-								c.method || (c.method = b);
-								c = j.encode(c);
-								b === "get" && a.length + c.length < 2e3
-									? ((a = j.appendToUrl(a, c)), (c = ""))
-									: (b = "post");
-								if (!l) {
-									if (!h.isAvailable()) return !1;
-									l = new k();
-									p();
-								}
-								l.enqueue({ method: b, url: a, body: c, callback: d });
-								return !0;
-							}
-							b = {
-								setSwfUrl: function(a) {
-									n = a;
-								},
-								execute: a
-							};
-							e.exports = b;
-						},
-						null
-					);
-					__d(
 						"JSONPRequest",
 						["DOMWrapper", "GlobalCallback", "QueryString"],
 						function(a, b, c, d, e, f, g, h, i) {
@@ -7912,12 +7846,10 @@ try {
 						"ApiClient",
 						[
 							"ApiBatcher",
-							"ApiClientConfig",
 							"ApiClientUtils",
 							"Assert",
 							"ChunkedRequest",
 							"CORSRequest",
-							"FlashRequest",
 							"JSONPRequest",
 							"Log",
 							"ObservableMixin",
@@ -7925,13 +7857,13 @@ try {
 							"UrlMap",
 							"flattenObject"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q) {
 							__p && __p();
-							var t,
-								u,
-								v,
-								w = n.MAX_QUERYSTRING_LENGTH,
-								x = {
+							var r,
+								s,
+								t,
+								u = l.MAX_QUERYSTRING_LENGTH,
+								v = {
 									fql_query: !0,
 									fql_multiquery: !0,
 									friends_get: !0,
@@ -7939,39 +7871,39 @@ try {
 									stream_get: !0,
 									users_getinfo: !0
 								},
-								y = ["cors", "jsonp", "flash"],
+								w = ["cors", "jsonp"],
+								x = 0,
+								y = [],
 								z = 0,
-								A = [],
-								B = 0,
-								C = 0,
-								D;
-							function E(a, b, c, d) {
+								A = 0,
+								B;
+							function C(a, b, c, d) {
 								__p && __p();
-								var e = B !== 0 && z >= B;
+								var e = z !== 0 && x >= z;
 								if (e) {
-									A.push(function() {
-										return E(a, b, c, d);
+									y.push(function() {
+										return C(a, b, c, d);
 									});
-									H.inform("request.queued", a, b, c);
+									F.inform("request.queued", a, b, c);
 									return;
 								}
-								z++;
-								v && (c = ES("Object", "assign", !1, {}, v, c));
+								x++;
+								t && (c = ES("Object", "assign", !1, {}, t, c));
 								c.pretty = c.pretty || 0;
-								c = s(c);
-								e = { jsonp: n, cors: l, flash: m, chunked: k };
+								c = q(c);
+								e = { jsonp: l, cors: k, chunked: j };
 								var f = {},
-									g = c.access_token || t;
+									g = c.access_token || r;
 								g && (f.access_token = g);
 								g = ES("Object", "keys", !1, f);
 								g.length > 0 &&
-									((a = q.appendToUrl(a, f)),
+									((a = o.appendToUrl(a, f)),
 									ES(g, "forEach", !0, function(a) {
 										return delete c[a];
 									}));
 								c.transport
 									? ((f = [c.transport]), delete c.transport)
-									: (f = y);
+									: (f = w);
 								for (var g = 0; g < f.length; g++) {
 									var h = e[f[g]],
 										i = ES("Object", "assign", !1, {}, c);
@@ -7984,7 +7916,7 @@ try {
 									}
 								});
 							}
-							function F(a, b, c, d, e, f, g, h) {
+							function D(a, b, c, d, e, f, g, h) {
 								__p && __p();
 								if (d.transport && d.transport === "chunked" && h === !1) {
 									a(g, !1);
@@ -7992,7 +7924,7 @@ try {
 								}
 								g &&
 									g.error &&
-									H.inform(
+									F.inform(
 										"request.error",
 										b,
 										c,
@@ -8001,7 +7933,7 @@ try {
 										ES("Date", "now", !1) - e,
 										f
 									);
-								H.inform(
+								F.inform(
 									"request.complete",
 									b,
 									c,
@@ -8010,45 +7942,45 @@ try {
 									ES("Date", "now", !1) - e,
 									f
 								);
-								z--;
+								x--;
 								a && a(g);
-								h = A.length > 0 && z < B;
+								h = y.length > 0 && x < z;
 								if (h) {
-									b = A.shift();
+									b = y.shift();
 									b();
 								}
 							}
-							function G() {
+							function E() {
 								for (
 									var a = arguments.length, b = new Array(a), c = 0;
 									c < a;
 									c++
 								)
 									b[c] = arguments[c];
-								var d = i.parseCallDataFromArgs(b),
+								var d = h.parseCallDataFromArgs(b),
 									e = d.uri,
 									f = d.callback,
 									g = d.params,
-									h = g.method;
-								I(e, h) && (h = "post");
+									i = g.method;
+								G(e, i) && (i = "post");
 								var j =
 										e.getProtocol() && e.getDomain()
 											? e.setQueryData({}).toString()
-											: r.resolve("graph") + e.getPath(),
-									k = C++;
-								H.inform("request.prepare", j, g, k);
-								E(
+											: p.resolve("graph") + e.getPath(),
+									k = A++;
+								F.inform("request.prepare", j, g, k);
+								C(
 									j,
-									h == "get" ? "get" : "post",
+									i == "get" ? "get" : "post",
 									g,
 									ES(
-										F,
+										D,
 										"bind",
 										!0,
 										null,
 										f,
 										e.getPath(),
-										h,
+										i,
 										g,
 										ES("Date", "now", !1),
 										k
@@ -8057,22 +7989,22 @@ try {
 							}
 							function a() {
 								var a;
-								D || (D = new g(G, u));
-								(a = D).scheduleBatchCall.apply(a, arguments);
+								B || (B = new g(E, s));
+								(a = B).scheduleBatchCall.apply(a, arguments);
 							}
 							function b(a, b) {
 								__p && __p();
-								j.isObject(a);
-								j.isString(a.method, "method missing");
-								b || o.warn("No callback passed to the ApiClient");
+								i.isObject(a);
+								i.isString(a.method, "method missing");
+								b || m.warn("No callback passed to the ApiClient");
 								var c = a.method.toLowerCase().replace(".", "_");
 								a.format = "json-strings";
-								a.api_key = u;
-								c = c in x ? "api_read" : "api";
-								c = r.resolve(c) + "/restserver.php";
-								var d = C++;
+								a.api_key = s;
+								c = c in v ? "api_read" : "api";
+								c = p.resolve(c) + "/restserver.php";
+								var d = A++;
 								b = ES(
-									F,
+									D,
 									"bind",
 									!0,
 									null,
@@ -8083,46 +8015,45 @@ try {
 									ES("Date", "now", !1),
 									d
 								);
-								E(c, "get", a, b);
+								C(c, "get", a, b);
 							}
-							var H = ES("Object", "assign", !1, new p(), {
+							var F = ES("Object", "assign", !1, new n(), {
 								setAccessToken: function(a) {
-									t = a;
+									r = a;
 								},
 								setAccessTokenForClientID: function(a, b) {
-									t && u && u !== b ? !1 : (t = a);
+									r && s && s !== b ? !1 : (r = a);
 								},
 								getAccessToken: function() {
-									return t;
+									return r;
 								},
 								setClientID: function(a) {
-									u = a;
+									s = a;
 								},
 								setDefaultParams: function(a) {
-									v = a;
+									t = a;
 								},
 								setDefaultTransports: function(a) {
-									y = a;
+									w = a;
 								},
 								setMaxConcurrentRequests: function(a) {
-									B = a;
+									z = a;
 								},
 								getCurrentlyExecutingRequestCount: function() {
-									return z;
+									return x;
 								},
 								getQueuedRequestCount: function() {
-									return A.length;
+									return y.length;
 								},
 								rest: b,
-								graph: G,
+								graph: E,
 								scheduleBatchCall: a,
 								prepareBatchParams: g.prepareBatchParams
 							});
-							function I(a, b) {
-								return a.toString().length > w && b === "get";
+							function G(a, b) {
+								return a.toString().length > u && b === "get";
 							}
-							m.setSwfUrl(h.FlashRequest.swfUrl);
-							e.exports = H;
+							e.exports = F;
 						},
 						null
 					);
@@ -8301,7 +8232,7 @@ try {
 							function h(a, b, c) {
 								if (a === null || a === undefined) c[b] = undefined;
 								else if (typeof a === "object") {
-									typeof a.appendChild !== "function" || g(0, undefined);
+									typeof a.appendChild !== "function" || g(0, 2616);
 									for (var d in a)
 										d !== "$$typeof" &&
 											Object.prototype.hasOwnProperty.call(a, d) &&
@@ -8459,7 +8390,7 @@ try {
 								var b = a,
 									c;
 								return function() {
-									arguments.length && g(0, undefined);
+									arguments.length && g(0, 4494);
 									b && ((c = b()), (b = null));
 									return c;
 								};
@@ -11080,7 +11011,17 @@ try {
 										});
 										!c ? (b = null) : ((a = b.splice(c)[0]), (b = b[0]));
 									}
-								else b.length === 1 ? (b = b[0]) : (b = null);
+								else if (b.length === 1) {
+									d = document.getElementById("facebook-jssdk-iframe");
+									d &&
+										d instanceof HTMLIFrameElement &&
+										(a = d.contentWindow.performance
+											.getEntriesByType("resource")
+											.find(function(a) {
+												return ES(a.name, "startsWith", !0, o);
+											}));
+									b = b[0];
+								} else b = null;
 								b &&
 									((n.fetchTime = Math.round(b.duration)),
 									a && (n.fetchTime += Math.round(a.duration)),
@@ -11106,14 +11047,14 @@ try {
 											a && i.log(116, n);
 										}, 1e4));
 							}
-							d = {
+							f = {
 								log: function(a) {
 									if (!l || !m) return;
 									n[a] = Math.round(k.now() - m);
 									g.debug("sdkperf: %s logged after %s ms", a, n[a]);
 								}
 							};
-							e.exports = d;
+							e.exports = f;
 						},
 						null
 					);
@@ -13561,7 +13502,7 @@ try {
 								return h <= a && a <= k;
 							}
 							function a(a, b) {
-								(0 <= b && b < a.length) || g(0, undefined, b, a.length);
+								(0 <= b && b < a.length) || g(0, 1346, b, a.length);
 								if (b + 1 === a.length) return !1;
 								var c = a.charCodeAt(b);
 								a = a.charCodeAt(b + 1);
@@ -14234,7 +14175,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4370989","namespace":"FB","message":"' +
+				'","revision":"4371805","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
