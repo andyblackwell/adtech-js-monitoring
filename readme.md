@@ -5,6 +5,24 @@ This project aims to provide a useful resource to developers who are working wit
 
 My server runs a cronjob every 15 minutes that downloads the latest js files, commits any changes, and then pushes to github.
 
+Links to change history for each file currently being tracked:
+-----
+[Facebook Main - https://connect.facebook.net/en_US/all.js](https://github.com/andyblackwell/adtech-js-monitoring/commits/master/data/connect.facebook.net/en_US/all.pretty.js)
+
+[Facebook Audience Network - https://connect.facebook.net/en_US/fbadnw55.js](https://github.com/andyblackwell/adtech-js-monitoring/commits/master/data/connect.facebook.net/en_US/fbadnw55.pretty.js)
+
+[Facebook Events - https://connect.facebook.net/en_US/fbevents.js](https://github.com/andyblackwell/adtech-js-monitoring/commits/master/data/connect.facebook.net/en_US/fbevents.pretty.js)
+
+[Criteo - https://static.criteo.net/js/ld/publishertag.js](https://github.com/andyblackwell/adtech-js-monitoring/commits/master/data/static.criteo.net/js/ld/publishertag.pretty.js)
+
+[Amazon TAM - https://c.amazon-adsystem.com/aax2/apstag.js](https://github.com/andyblackwell/adtech-js-monitoring/commits/master/data/c.amazon-adsystem.com/aax2/apstag.pretty.js)
+
+[Google Publisher Tools - https://www.googletagservices.com/tag/js/gpt.js](https://github.com/andyblackwell/adtech-js-monitoring/commits/master/data/www.googletagservices.com/tag/js/gpt.pretty.js)
+
+[Moat - https://z.moatads.com/px2/client.js](https://github.com/andyblackwell/adtech-js-monitoring/commits/master/data/z.moatads.com/px2/client.pretty.js)
+
+[PulsePoint - https://tag.contextweb.com/getjs.static.js](https://github.com/andyblackwell/adtech-js-monitoring/commits/master/data/tag.contextweb.com/getjs.static.pretty.js)
+
 ---
 
 Setup
