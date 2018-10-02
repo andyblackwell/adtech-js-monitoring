@@ -1,4 +1,4 @@
-/*1538403725,,JIT Construction: v4368315,en_US*/
+/*1538489501,,JIT Construction: v4373346,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -7120,10 +7120,15 @@ try {
 									this.loadMedia(a, this.$20[h], b, c, f, g);
 								this.updateAdText(a, b, "", e, g);
 							};
+							a.prototype.$50 = function(a) {
+								a = H(a.ownerDocument.body);
+								a.addEventListener("touchstart", function() {}, !1);
+							};
 							a.prototype.loadNativeAd = function(a, b, c, d, e, f, g) {
 								__p && __p();
 								if (!a || !b || b.loaded) return !1;
 								this.applyAdTypeClass(a, b, c);
+								this.$50(a);
 								b.loaded = !0;
 								var h = !1;
 								c = this.loadNativeAdInternal(a, b, c, "", d, e, f, g);
@@ -7220,24 +7225,24 @@ try {
 								b.src = a.adImage;
 								return b;
 							};
-							a.prototype.$50 = function() {
+							a.prototype.$51 = function() {
 								return this.$10 === "native";
 							};
 							a.prototype.$40 = function() {
-								return !this.$35() && !this.$50() && I[this.$10];
+								return !this.$35() && !this.$51() && I[this.$10];
 							};
 							a.prototype.$48 = function() {
 								this.$38().classList.add("fbVisibleOnce");
 								var a = this.$24.getCurrentViewabilityState(),
 									b = this.$24.getDimensions();
-								b = this.$51(b, a);
+								b = this.$52(b, a);
 								this.sendImpression(
 									E.appendToUrl(this.$22, b),
 									this.$23,
 									H(this.$1)
 								);
 							};
-							a.prototype.$51 = function(a, b) {
+							a.prototype.$52 = function(a, b) {
 								var c = {
 									web_ad_format: this.$10,
 									width: undefined,
@@ -7406,7 +7411,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4368315","namespace":"FB","message":"' +
+				'","revision":"4373346","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
