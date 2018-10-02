@@ -1,4 +1,4 @@
-/*1538432758,,JIT Construction: v4370234,en_US*/
+/*1538440704,,JIT Construction: v4370989,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4370234",
+						revision: "4370989",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2998,6 +2998,15 @@ try {
 							};
 							a.getGlobalMetadata = function() {
 								return g;
+							};
+							a.unsetGlobalMetadata = function(a, b) {
+								g = ES(g, "filter", !0, function(c) {
+									return !(
+										ES("Array", "isArray", !1, c) &&
+										c[0] === a &&
+										c[1] === b
+									);
+								});
 							};
 							e.exports = a;
 						},
@@ -11073,11 +11082,11 @@ try {
 									}
 								else b.length === 1 ? (b = b[0]) : (b = null);
 								b &&
-									((n.fetchTime = Number(b.duration)),
-									a && (n.fetchTime += Number(a.duration)),
+									((n.fetchTime = Math.round(b.duration)),
+									a && (n.fetchTime += Math.round(a.duration)),
 									"transferSize" in b &&
-										((n.transferSize = Number(b.transferSize)),
-										a && (n.transferSize += Number(a.transferSize))),
+										((n.transferSize = b.transferSize),
+										a && (n.transferSize += a.transferSize)),
 									g.debug(
 										"sdkperf: it took %s ms and %s bytes to load %s",
 										n.fetchTime,
@@ -11100,7 +11109,7 @@ try {
 							d = {
 								log: function(a) {
 									if (!l || !m) return;
-									n[a] = Number(k.now() - m);
+									n[a] = Math.round(k.now() - m);
 									g.debug("sdkperf: %s logged after %s ms", a, n[a]);
 								}
 							};
@@ -14214,7 +14223,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -14225,7 +14234,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4370234","namespace":"FB","message":"' +
+				'","revision":"4370989","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
