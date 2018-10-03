@@ -368,9 +368,9 @@
 		182: 1e3,
 		188: 0.02,
 		189: 0.5,
-		191: "001809272228320",
-		192: "021809142227020",
-		190: "011809142227020",
+		191: "001810021759000",
+		192: "021810021759000",
+		190: "011810021759000",
 		194: 1,
 		225: 0.95,
 		231: 0.95,
@@ -444,7 +444,7 @@
 	for (Ra in Qa) Pa[Ra] = Qa[Ra];
 	Oa._vars_ = Pa;
 	var Sa = function() {
-			return "259";
+			return "260";
 		},
 		Ta = B();
 	Ta.hasOwnProperty("getVersion") || (Ta.getVersion = Sa);
@@ -1550,12 +1550,12 @@
 					[
 						21062605,
 						null,
-						[12, null, null, null, 2, null, "today.line.me/.+/article"]
+						[12, null, null, null, 2, null, "today\\\\.line\\\\.me/.+/article"]
 					],
 					[
 						21062606,
 						[[23, null, null, [1]]],
-						[12, null, null, null, 2, null, "today.line.me/.+/article"]
+						[12, null, null, null, 2, null, "today\\\\.line\\\\.me/.+/article"]
 					]
 				]
 			],
@@ -1659,11 +1659,11 @@
 								e = l ? l[1] : "";
 							}
 						} catch (nb) {}
-					f = ["257", "259"];
-					g = f[0] || "259";
+					f = ["257", "260"];
+					g = f[0] || "260";
 					l = P(3, 5, "");
 					if (1 < f.length) {
-						n = ["21062607", "21062608"];
+						n = ["21062610", "21062611"];
 						var w = cc(n);
 						if (w) {
 							E(53, w);
