@@ -1,4 +1,4 @@
-/*1538522238,,JIT Construction: v4375269,en_US*/
+/*1538530128,,JIT Construction: v4376082,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4375269",
+						revision: "4376082",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2985,7 +2985,9 @@ try {
 									b = ES(this.metadata, "filter", !0, function(b) {
 										if (b == null) return !1;
 										var c = ES(b, "filter", !0, function(a) {
-											return a && ES(a, "indexOf", !0, ":") > -1;
+											return (
+												String(a) && ES(String(a), "indexOf", !0, ":") > -1
+											);
 										});
 										if (c.length > 0) {
 											a.push(b);
@@ -3000,6 +3002,15 @@ try {
 							};
 							a.getGlobalMetadata = function() {
 								return g;
+							};
+							a.unsetGlobalMetadata = function(a, b) {
+								g = ES(g, "filter", !0, function(c) {
+									return !(
+										ES("Array", "isArray", !1, c) &&
+										c[0] === a &&
+										c[1] === b
+									);
+								});
 							};
 							e.exports = a;
 						},
@@ -8213,380 +8224,6 @@ try {
 						3
 					);
 					__d(
-						"flattenPHPQueryData",
-						["invariant"],
-						function(a, b, c, d, e, f, g) {
-							__p && __p();
-							function a(a) {
-								return h(a, "", {});
-							}
-							function h(a, b, c) {
-								if (a === null || a === undefined) c[b] = undefined;
-								else if (typeof a === "object") {
-									typeof a.appendChild !== "function" || g(0, 2616);
-									for (var d in a)
-										d !== "$$typeof" &&
-											Object.prototype.hasOwnProperty.call(a, d) &&
-											a[d] !== undefined &&
-											h(a[d], b ? b + "[" + d + "]" : d, c);
-								} else c[b] = a;
-								return c;
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"PHPQuerySerializer",
-						["flattenPHPQueryData", "invariant"],
-						function(a, b, c, d, e, f, g, h) {
-							__p && __p();
-							function a(a) {
-								var b = [];
-								a = g(a);
-								for (var c in a)
-									if (Object.prototype.hasOwnProperty.call(a, c)) {
-										var d = i(c);
-										a[c] === undefined
-											? b.push(d)
-											: b.push(d + "=" + i(String(a[c])));
-									}
-								return b.join("&");
-							}
-							function i(a) {
-								return encodeURIComponent(a)
-									.replace(/%5D/g, "]")
-									.replace(/%5B/g, "[");
-							}
-							var j = /^([-_\w]+)((?:\[[-_\w]*\])+)=?(.*)/;
-							function k(a) {
-								return a === "hasOwnProperty" || a === "__proto__"
-									? "\ud83d\udf56"
-									: a;
-							}
-							function b(a) {
-								__p && __p();
-								if (!a) return {};
-								var b = {};
-								a = a.replace(/%5B/gi, "[").replace(/%5D/gi, "]");
-								a = a.split("&");
-								var c = Object.prototype.hasOwnProperty;
-								for (var d = 0, e = a.length; d < e; d++) {
-									var f = a[d].match(j);
-									if (!f) {
-										var g = a[d].split("=");
-										b[l(g[0])] = g[1] === undefined ? null : l(g[1]);
-									} else {
-										g = f[2].split(/\]\[|\[|\]/).slice(0, -1);
-										var h = f[1];
-										f = l(f[3] || "");
-										g[0] = h;
-										h = b;
-										for (var i = 0; i < g.length - 1; i++) {
-											var m = k(g[i]);
-											if (m) {
-												if (!c.call(h, m)) {
-													var n =
-														g[i + 1] && !g[i + 1].match(/^\d{1,3}$/) ? {} : [];
-													h[m] = n;
-													if (h[m] !== n) return b;
-												}
-												h = h[m];
-											} else
-												g[i + 1] && !g[i + 1].match(/^\d{1,3}$/)
-													? h.push({})
-													: h.push([]),
-													(h = h[h.length - 1]);
-										}
-										h instanceof Array && g[g.length - 1] === ""
-											? h.push(f)
-											: (h[k(g[g.length - 1])] = f);
-									}
-								}
-								return b;
-							}
-							function l(a) {
-								try {
-									return decodeURIComponent(a.replace(/\+/g, " "));
-								} catch (b) {
-									return a;
-								}
-							}
-							c = {
-								serialize: a,
-								encodeComponent: i,
-								deserialize: b,
-								decodeComponent: l
-							};
-							e.exports = c;
-						},
-						null
-					);
-					__d(
-						"ReloadPage",
-						[],
-						function(a, b, c, d, e, f) {
-							b = {
-								now: function(b) {
-									a.window.location.reload(b);
-								},
-								delay: function(b) {
-									a.setTimeout(ES(this.now, "bind", !0, this), b);
-								}
-							};
-							e.exports = b;
-						},
-						null
-					);
-					__d(
-						"areSameOrigin",
-						[],
-						function(a, b, c, d, e, f) {
-							function a(a, b) {
-								if (a.isEmpty() || b.isEmpty()) return !1;
-								if (a.getProtocol() && a.getProtocol() != b.getProtocol())
-									return !1;
-								if (a.getDomain() && a.getDomain() != b.getDomain()) return !1;
-								return a.getPort() &&
-									a.getPort().toString() !== b.getPort().toString()
-									? !1
-									: !0;
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ifRequired",
-						[],
-						function(a, b, c, d, e, f) {
-							function a(a, b, c) {
-								var e;
-								d &&
-									d.call(null, [a], function(a) {
-										e = a;
-									});
-								if (e && b) return b(e);
-								else if (!e && c) return c();
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"memoize",
-						["invariant"],
-						function(a, b, c, d, e, f, g) {
-							function a(a) {
-								var b = a,
-									c;
-								return function() {
-									arguments.length && g(0, 4494);
-									b && ((c = b()), (b = null));
-									return c;
-								};
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"unqualifyURI",
-						[],
-						function(a, b, c, d, e, f) {
-							function a(a) {
-								a.setProtocol(null)
-									.setDomain(null)
-									.setPort(null);
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"URI",
-						[
-							"PHPQuerySerializer",
-							"ReloadPage",
-							"URIBase",
-							"areSameOrigin",
-							"ifRequired",
-							"isFacebookURI",
-							"memoize",
-							"unqualifyURI"
-						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
-							__p && __p();
-							var o,
-								p = m(function() {
-									return new r(window.location.href);
-								});
-							function q() {
-								return k("PageTransitions", function(a) {
-									if (a.isInitialized()) return a;
-								});
-							}
-							b = babelHelpers.inherits(r, i);
-							o = b && b.prototype;
-							function r(a) {
-								"use strict";
-								o.constructor.call(this, a || "", g);
-							}
-							r.prototype.setPath = function(a) {
-								"use strict";
-								this.path = a;
-								return o.setPath.call(this, a);
-							};
-							r.prototype.getPath = function() {
-								"use strict";
-								var a = o.getPath.call(this);
-								return a ? a.replace(/^\/+/, "/") : a;
-							};
-							r.prototype.setProtocol = function(a) {
-								"use strict";
-								this.protocol = a;
-								return o.setProtocol.call(this, a);
-							};
-							r.prototype.setDomain = function(a) {
-								"use strict";
-								this.domain = a;
-								return o.setDomain.call(this, a);
-							};
-							r.prototype.setPort = function(a) {
-								"use strict";
-								this.port = a;
-								return o.setPort.call(this, a);
-							};
-							r.prototype.setFragment = function(a) {
-								"use strict";
-								this.fragment = a;
-								return o.setFragment.call(this, a);
-							};
-							r.prototype.stripTrailingSlash = function() {
-								"use strict";
-								this.setPath(this.getPath().replace(/\/$/, ""));
-								return this;
-							};
-							r.prototype.valueOf = function() {
-								"use strict";
-								return this.toString();
-							};
-							r.prototype.isSubdomainOfDomain = function(a) {
-								"use strict";
-								__p && __p();
-								var b = this.getDomain();
-								if (a === "" || b === "") return !1;
-								if (ES(b, "endsWith", !0, a)) {
-									var c = b.length,
-										d = a.length,
-										e = c - d - 1;
-									if (c === d || b[e] === ".") return r.isValidURI(a);
-								}
-								return !1;
-							};
-							r.prototype.getRegisteredDomain = function() {
-								"use strict";
-								if (!this.getDomain()) return "";
-								if (!l(this)) return null;
-								var a = this.getDomain().split("."),
-									b = ES(a, "indexOf", !0, "facebook");
-								b === -1 && (b = ES(a, "indexOf", !0, "workplace"));
-								return a.slice(b).join(".");
-							};
-							r.prototype.getUnqualifiedURI = function() {
-								"use strict";
-								var a = new r(this);
-								n(a);
-								return a;
-							};
-							r.prototype.getQualifiedURI = function() {
-								"use strict";
-								return new r(this).qualify();
-							};
-							r.prototype.isSameOrigin = function(a) {
-								"use strict";
-								a = a;
-								!a ? (a = p()) : a instanceof r || (a = new r(a.toString()));
-								return j(this, a);
-							};
-							r.go = function(a, b, c) {
-								"use strict";
-								r.goURIOnWindow(a, window, b, c);
-							};
-							r.goURIOnWindow = function(b, c, d, e) {
-								"use strict";
-								b = new r(b);
-								var f = b.toString();
-								b = c ? c : window;
-								k("PageNavigationStageLogger", function(b) {
-									d
-										? b.setNote("force")
-										: a.PageTransitions || b.setNote("no_pagetrans"),
-										b.setCookieForNavigation(f);
-								});
-								!d && a.PageTransitions
-									? a.PageTransitions.go(f, e)
-									: window.location.href === f
-										? h.now()
-										: e
-											? b.location.replace(f)
-											: (b.location.href = f);
-							};
-							r.prototype.go = function(a, b) {
-								"use strict";
-								r.go(this, a, b);
-							};
-							r.tryParseURI = function(a) {
-								"use strict";
-								a = i.tryParse(a, g);
-								return a ? new r(a) : null;
-							};
-							r.isValidURI = function(a) {
-								"use strict";
-								return i.isValid(a, g);
-							};
-							r.getRequestURI = function(a, b) {
-								"use strict";
-								a = a === undefined || a;
-								if (a) {
-									a = q();
-									if (a) return a.getCurrentURI(!!b).getQualifiedURI();
-								}
-								return new r(window.location.href);
-							};
-							r.getMostRecentURI = function() {
-								"use strict";
-								var a = q();
-								return a
-									? a.getMostRecentURI().getQualifiedURI()
-									: new r(window.location.href);
-							};
-							r.getNextURI = function() {
-								"use strict";
-								var a = q();
-								return a
-									? a.getNextURI().getQualifiedURI()
-									: new r(window.location.href);
-							};
-							r.encodeComponent = function(a) {
-								"use strict";
-								return encodeURIComponent(a)
-									.replace(/%5D/g, "]")
-									.replace(/%5B/g, "[");
-							};
-							r.decodeComponent = function(a) {
-								"use strict";
-								return decodeURIComponent(a.replace(/\+/g, " "));
-							};
-							ES("Object", "assign", !1, r, {
-								expression: /(((\w+):\/\/)([^\/:]*)(:(\d+))?)?([^#?]*)(\?([^#]*))?(#(.*))?/,
-								arrayQueryExpression: /^(\w+)((?:\[\w*\])+)=?(.*)/
-							});
-							e.exports = r;
-						},
-						null
-					);
-					__d(
 						"resolveURI",
 						[],
 						function(a, b, c, d, e, f) {
@@ -10104,12 +9741,12 @@ try {
 						[
 							"Assert",
 							"Log",
-							"URI",
 							"sdk.feature",
 							"sdk.Impressions",
 							"sdk.PlatformVersioning",
 							"sdk.Runtime",
-							"sdk.UIServer"
+							"sdk.UIServer",
+							"sdk.URI"
 						],
 						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
 							__p && __p();
@@ -10117,11 +9754,11 @@ try {
 								__p && __p();
 								g.isObject(a);
 								g.maybeFunction(b);
-								m.getIsVersioned() &&
-									(l.assertVersionIsSet(),
+								l.getIsVersioned() &&
+									(k.assertVersionIsSet(),
 									a.version
-										? l.assertValidVersion(a.version)
-										: (a.version = m.getVersion()));
+										? k.assertValidVersion(a.version)
+										: (a.version = l.getVersion()));
 								a = ES("Object", "assign", !1, {}, a);
 								if (!a.method) {
 									h.error('"method" is a required parameter for FB.ui().');
@@ -10135,26 +9772,26 @@ try {
 									),
 									delete a.redirect_uri);
 								if (!a.fallback_redirect_uri) {
-									var d = new i(document.location.href);
+									var d = new n(document.location.href);
 									d.setQueryData({}).setFragment();
 									a.fallback_redirect_uri = d.toString();
 								}
 								(c == "permissions.request" || c == "permissions.oauth") &&
 									(a.display == "iframe" || a.display == "dialog") &&
-									(a.display = n.checkOauthDisplay(a));
+									(a.display = m.checkOauthDisplay(a));
 								if (a.display === "native" && c !== "send") {
 									h.error('display type "native" not supported');
 									return null;
 								}
-								d = j("e2e_tracking", !0);
+								d = i("e2e_tracking", !0);
 								d && (a.e2e = {});
-								a = n.prepareCall(a, b || function() {});
+								a = m.prepareCall(a, b || function() {});
 								if (!a) return null;
 								var e = a.params.display;
 								e === "dialog"
 									? (e = "iframe")
 									: e === "none" && (e = "hidden");
-								b = n[e];
+								b = m[e];
 								if (!b) {
 									h.error(
 										'"display" must be one of "popup", "dialog", "iframe", "touch", "async", "hidden", or "none"'
@@ -10166,7 +9803,7 @@ try {
 										(a.method = c),
 											(a.display = e),
 											h.debug("e2e: %s", ES("JSON", "stringify", !1, a)),
-											k.log(114, { payload: a });
+											j.log(114, { payload: a });
 									});
 								b(a);
 								return a.dialog;
@@ -14155,7 +13792,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -14166,7 +13803,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4375269","namespace":"FB","message":"' +
+				'","revision":"4376082","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
