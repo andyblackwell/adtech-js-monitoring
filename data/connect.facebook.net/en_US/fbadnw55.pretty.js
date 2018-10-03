@@ -1,4 +1,4 @@
-/*1538489501,,JIT Construction: v4373346,en_US*/
+/*1538582628,,JIT Construction: v4378375,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4906,6 +4906,139 @@ try {
 						null
 					);
 					__d(
+						"AdQualityMeasurementResult.adquality",
+						["AdQualityViewabilityDetection"],
+						function(a, b, c, d, e, f, g) {
+							"use strict";
+							__p && __p();
+							h.unknownResult = function(a, b) {
+								a === void 0 && (a = g.NONE);
+								b === void 0 && (b = "");
+								return new h({ vd: a, r: b });
+							};
+							function h(a) {
+								var b = a.ar,
+									c = a.e,
+									d = a.vd,
+									e = a.r,
+									f = a.vr,
+									h = a.cont;
+								a = a.maa;
+								this.$3 = d;
+								this.$5 = f;
+								this.$1 = b;
+								this.$7 = a;
+								this.$2 = c || null;
+								this.$4 = d === g.NONE ? "" : e || d;
+								this.$6 = h || !1;
+							}
+							h.prototype.appendResult = function(a) {
+								this.$5 || (this.$5 = a.$5),
+									this.$1 || (this.$1 = a.$1),
+									(this.$4 = a.$4),
+									(this.$3 = a.$3),
+									(this.$6 = a.$6),
+									(this.$7 = this.$7 || a.$7);
+							};
+							h.prototype.getData = function() {
+								var a = null;
+								if (this.$2)
+									try {
+										a = this.$2.toString();
+									} catch (b) {
+										a = "Unknown error";
+									}
+								return {
+									error: a,
+									viewabilityDetection: this.$3,
+									reason: this.$4,
+									viewableRatio: this.getViewableRatio()
+								};
+							};
+							h.prototype.getAdRect = function() {
+								return this.$1;
+							};
+							h.prototype.getError = function() {
+								return this.$2;
+							};
+							h.prototype.getMaxAdArea = function() {
+								return this.$7;
+							};
+							h.prototype.getIsContinuous = function() {
+								return this.$6;
+							};
+							h.prototype.getViewableRect = function() {
+								return this.$5;
+							};
+							h.prototype.getViewableRatio = function() {
+								return this.$8(function(a) {
+									return a.area();
+								});
+							};
+							h.prototype.getViewableHeightRatio = function() {
+								return this.$8(function(a) {
+									return a.height;
+								});
+							};
+							h.prototype.getViewableWidthRatio = function() {
+								return this.$8(function(a) {
+									return a.width;
+								});
+							};
+							h.prototype.$8 = function(a) {
+								var b = this.$1,
+									c = this.$5;
+								return (c && a(c) === 0) || (b && a(b) === 0)
+									? 0
+									: c && b
+										? a(c) / a(b)
+										: null;
+							};
+							h.prototype.getViewabilityDetection = function() {
+								return this.$3;
+							};
+							h.prototype.getReason = function() {
+								return this.$4;
+							};
+							h.prototype.isConclusive = function() {
+								return typeof this.getViewableRatio() === "number";
+							};
+							e.exports = h;
+						},
+						null
+					);
+					__d(
+						"AdQualityMeasurement.adquality",
+						["AdQualityMeasurementResult.adquality"],
+						function(a, b, c, d, e, f, g) {
+							"use strict";
+							__p && __p();
+							function a(a, b) {
+								this.__parentWindow = b;
+							}
+							a.prototype.destroy = function() {};
+							a.prototype.getMeasurement = function(a) {
+								a(
+									g.unknownResult(
+										this.__viewabilityDetection,
+										this.__viewabilityDetection + "-na"
+									)
+								);
+							};
+							a.prototype.getViewabilityDetection = function() {
+								return this.__viewabilityDetection;
+							};
+							a.prototype.getParentWindow = function() {
+								return this.__parentWindow;
+							};
+							a.prototype.isAvailable = function(a) {
+								return !1;
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"AdQualityUtils.adquality",
 						[],
 						function(a, b, c, d, e, f) {
@@ -5064,139 +5197,6 @@ try {
 						null
 					);
 					__d(
-						"AdQualityMeasurementResult.adquality",
-						["AdQualityViewabilityDetection", "Rectangle.adquality"],
-						function(a, b, c, d, e, f, g, h) {
-							"use strict";
-							__p && __p();
-							i.unknownResult = function(a, b) {
-								a === void 0 && (a = g.NONE);
-								b === void 0 && (b = "");
-								return new i({ vd: a, r: b });
-							};
-							function i(a) {
-								var b = a.ar,
-									c = a.e,
-									d = a.vd,
-									e = a.r,
-									f = a.vr,
-									g = a.cont;
-								a = a.maa;
-								this.$3 = d;
-								this.$5 = f;
-								this.$1 = b;
-								this.$7 = a;
-								this.$2 = c || null;
-								this.$4 = e || d;
-								this.$6 = g || !1;
-							}
-							i.prototype.appendResult = function(a) {
-								this.$5 || (this.$5 = a.$5),
-									this.$1 || (this.$1 = a.$1),
-									(this.$4 = a.$4),
-									(this.$3 = a.$3),
-									(this.$6 = a.$6),
-									(this.$7 = this.$7 || a.$7);
-							};
-							i.prototype.getData = function() {
-								var a = null;
-								if (this.$2)
-									try {
-										a = this.$2.toString();
-									} catch (b) {
-										a = "Unknown error";
-									}
-								return {
-									error: a,
-									viewabilityDetection: this.$3,
-									reason: this.$4,
-									viewableRatio: this.getViewableRatio()
-								};
-							};
-							i.prototype.getAdRect = function() {
-								return this.$1;
-							};
-							i.prototype.getError = function() {
-								return this.$2;
-							};
-							i.prototype.getMaxAdArea = function() {
-								return this.$7;
-							};
-							i.prototype.getIsContinuous = function() {
-								return this.$6;
-							};
-							i.prototype.getViewableRect = function() {
-								return this.$5;
-							};
-							i.prototype.getViewableRatio = function() {
-								return this.$8(function(a) {
-									return a.area();
-								});
-							};
-							i.prototype.getViewableHeightRatio = function() {
-								return this.$8(function(a) {
-									return a.height;
-								});
-							};
-							i.prototype.getViewableWidthRatio = function() {
-								return this.$8(function(a) {
-									return a.width;
-								});
-							};
-							i.prototype.$8 = function(a) {
-								var b = this.$1,
-									c = this.$5;
-								return (c && a(c) === 0) || (b && a(b) === 0)
-									? 0
-									: c && b
-										? a(c) / a(b)
-										: null;
-							};
-							i.prototype.getViewabilityDetection = function() {
-								return this.$3;
-							};
-							i.prototype.getReason = function() {
-								return this.$4;
-							};
-							i.prototype.isConclusive = function() {
-								return typeof this.getViewableRatio() === "number";
-							};
-							e.exports = i;
-						},
-						null
-					);
-					__d(
-						"AdQualityMeasurement.adquality",
-						["AdQualityMeasurementResult.adquality"],
-						function(a, b, c, d, e, f, g) {
-							"use strict";
-							__p && __p();
-							function a(a, b) {
-								this.__parentWindow = b;
-							}
-							a.prototype.destroy = function() {};
-							a.prototype.getMeasurement = function(a) {
-								a(
-									g.unknownResult(
-										this.__viewabilityDetection,
-										this.__viewabilityDetection + "-na"
-									)
-								);
-							};
-							a.prototype.getViewabilityDetection = function() {
-								return this.__viewabilityDetection;
-							};
-							a.prototype.getParentWindow = function() {
-								return this.__parentWindow;
-							};
-							a.prototype.isAvailable = function(a) {
-								return !1;
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"AMPMeasurement.adquality",
 						[
 							"AdQualityMeasurement.adquality",
@@ -5278,11 +5278,8 @@ try {
 					);
 					__d(
 						"AdQualityMeasurementQueue.adquality",
-						[
-							"AdQualityMeasurementResult.adquality",
-							"AdQualityViewabilityDetection"
-						],
-						function(a, b, c, d, e, f, g, h) {
+						["AdQualityMeasurementResult.adquality"],
+						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
 							function a(a) {
@@ -5295,31 +5292,27 @@ try {
 									(this.$1 = []);
 							};
 							a.prototype.getMeasurement = function(a) {
-								this.$2(0, g.unknownResult(h.NONE, h.NONE), a);
+								this.$2(0, g.unknownResult(), a);
 							};
 							a.prototype.$2 = function(a, b, c) {
-								__p && __p();
+								b.appendResult(g.unknownResult());
 								if (a < this.$1.length) {
 									var d = this.$1[a];
-									if (!d.isAvailable(this.$1)) {
-										var e = d.getViewabilityDetection();
-										e = g.unknownResult(e, e + "-na");
-										b.appendResult(e);
-										this.$2(a + 1, b, c);
-									} else
-										d.getMeasurement(
-											ES(
-												function(d) {
-													b.appendResult(d),
-														b.isConclusive()
-															? this.$3(b, c)
-															: this.$2(a + 1, b, c);
-												},
-												"bind",
-												!0,
-												this
-											)
-										);
+									!d.isAvailable(this.$1)
+										? this.$2(a + 1, b, c)
+										: d.getMeasurement(
+												ES(
+													function(d) {
+														b.appendResult(d),
+															b.isConclusive()
+																? this.$3(b, c)
+																: this.$2(a + 1, b, c);
+													},
+													"bind",
+													!0,
+													this
+												)
+										  );
 								} else this.$3(b, c);
 							};
 							a.prototype.$3 = function(a, b) {
@@ -7411,7 +7404,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4373346","namespace":"FB","message":"' +
+				'","revision":"4378375","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
