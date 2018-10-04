@@ -1,4 +1,4 @@
-/*1538606110,,JIT Construction: v4379778,en_US*/
+/*1538616290,,JIT Construction: v4380607,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4379778",
+						revision: "4380607",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -7150,32 +7150,10 @@ try {
 						null
 					);
 					__d(
-						"sdk.Insights",
-						["sdk.Impressions"],
-						function(a, b, c, d, e, f, g) {
-							a = {
-								TYPE: { NOTICE: "notice", WARNING: "warn", ERROR: "error" },
-								CATEGORY: {
-									DEPRECATED: "deprecated",
-									APIERROR: "apierror",
-									HTTP_DEPRECATED: "httpdeprecated"
-								},
-								log: function(a, b, c) {
-									a = { source: "jssdk", type: a, category: b, payload: c };
-									g.log(113, a);
-								},
-								impression: g.impression
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"FB",
 						[
 							"DOMWrapper",
 							"GlobalCallback",
-							"JSSDKConfig",
 							"JSSDKCssConfig",
 							"Log",
 							"dotAccess",
@@ -7184,134 +7162,72 @@ try {
 							"sdk.DOM",
 							"sdk.domReady",
 							"sdk.ErrorHandling",
-							"sdk.Insights",
-							"sdk.Runtime",
-							"sdk.Scribe"
+							"sdk.Runtime"
 						],
-						function(
-							a,
-							b,
-							c,
-							d,
-							e,
-							f,
-							g,
-							h,
-							i,
-							j,
-							k,
-							l,
-							m,
-							n,
-							o,
-							p,
-							q,
-							r,
-							s,
-							t
-						) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q) {
 							__p && __p();
-							var u = (window.FB = {}),
-								v,
-								w = l(i, "api.mode"),
-								x = {};
+							var r = (window.FB = {});
 							b = {};
-							k.level = 0;
+							j.level = 0;
 							h.setPrefix("FB.__globalCallbacks");
-							var y = document.createElement("div");
-							g.setRoot(y);
-							p(function() {
-								k.info("domReady"),
-									n.appendHidden(y),
-									j.rules && o.addCssRules(j.rules, j.components);
+							var s = document.createElement("div");
+							g.setRoot(s);
+							o(function() {
+								j.info("domReady"),
+									m.appendHidden(s),
+									i.rules && n.addCssRules(i.rules, i.components);
 							});
-							s.subscribe("AccessToken.change", function(a) {
+							q.subscribe("AccessToken.change", function(a) {
 								!a &&
-									s.getLoginStatus() === "connected" &&
-									m.getLoginStatus(null, !0);
+									q.getLoginStatus() === "connected" &&
+									l.getLoginStatus(null, !0);
 							});
-							l(i, "api.whitelist.length") &&
-								((v = {}),
-								ES(i.api.whitelist, "forEach", !0, function(a) {
-									v[a] = 1;
-								}));
-							function z(a, b, c, d) {
+							function t(a, b, c, d) {
 								__p && __p();
-								var e;
-								/^_/.test(c) ? (e = "hide") : v && !v[b] && (e = w);
-								switch (e) {
-									case "hide":
-										return;
-									case "stub":
-										return function() {
-											k.warn(
-												"The method FB.%s has been removed from the JS SDK.",
-												b
-											);
-										};
-									default:
-										return q.guard(function() {
-											__p && __p();
-											e === "warn" &&
-												(k.warn(
-													"The method FB.%s is not officially supported by Facebook and access to it will soon be removed.",
-													b
-												),
-												Object.prototype.hasOwnProperty.call(x, b) ||
-													(r.log(
-														r.TYPE.WARNING,
-														r.CATEGORY.DEPRECATED,
-														"FB." + b
-													),
-													t.log("jssdk_error", {
-														appId: s.getClientID(),
-														error: "Private method used",
-														extra: { message: b }
-													}),
-													(x[b] = !0)));
-											function f(a) {
-												if (ES("Array", "isArray", !1, a))
-													return ES(a, "map", !0, f);
-												return a && typeof a === "object" && a.__wrapped
-													? a.__wrapped
-													: typeof a === "function" &&
-													  /^function/.test(a.toString())
-														? q.unguard(a)
-														: a;
-											}
-											var g = ES(
-													Array.prototype.slice.call(arguments),
-													"map",
-													!0,
-													f
-												),
-												h = a.apply(d, g),
-												i,
-												j = !0;
-											if (h && typeof h === "object") {
-												i = ES("Object", "create", !1, h);
-												i.__wrapped = h;
-												for (var c in h) {
-													var l = h[c];
-													if (typeof l !== "function" || c === "constructor")
-														continue;
-													j = !1;
-													i[c] = z(l, b + ":" + c, c, h);
-												}
-											}
-											return !j ? i : j ? h : i;
-										}, b);
-								}
+								return p.guard(function() {
+									__p && __p();
+									function e(a) {
+										if (ES("Array", "isArray", !1, a))
+											return ES(a, "map", !0, e);
+										return a && typeof a === "object" && a.__wrapped
+											? a.__wrapped
+											: typeof a === "function" &&
+											  /^function/.test(a.toString())
+												? p.unguard(a)
+												: a;
+									}
+									var f = ES(
+											Array.prototype.slice.call(arguments),
+											"map",
+											!0,
+											e
+										),
+										g = a.apply(d, f),
+										h,
+										i = !0;
+									if (g && typeof g === "object") {
+										h = ES("Object", "create", !1, g);
+										h.__wrapped = g;
+										for (var c in g) {
+											var j = g[c];
+											if (typeof j !== "function" || c === "constructor")
+												continue;
+											i = !1;
+											h[c] = t(j, b + ":" + c, c, g);
+										}
+									}
+									return !i ? h : i ? g : h;
+								}, b);
 							}
 							function a(a, b) {
-								var c = a ? l(u, a, !0) : u;
+								var c = a ? k(r, a, !0) : r;
 								ES(ES("Object", "keys", !1, b), "forEach", !0, function(d) {
 									var e = b[d];
 									if (typeof e === "function") {
-										var f = (a ? a + "." : "") + d,
-											g = z(e, f, d, b);
-										g && (c[d] = g);
-									} else (typeof e === "object" || typeof e === "number") && ((f = (a ? a + "." : "") + d), v && v[f] && (c[d] = e));
+										var f = (a ? a + "." : "") + d;
+										f = t(e, f, d, b);
+										f && (c[d] = f);
+									} else (typeof e === "object" || typeof e === "number") && (c[d] = e);
 								});
 							}
 							ES("Object", "assign", !1, b, { provide: a });
@@ -10667,10 +10583,7 @@ try {
 										setTimeout(function() {
 											var a = h("log_perf", !1),
 												b = j.getSDKAB();
-											b &&
-												((n.ab = b),
-												(b === "yn" || b === "ny") &&
-													(a = h("log_perf_devsite", !1)));
+											b && ((n.ab = b), (a = !0));
 											a && i.log(116, n);
 										}, 1e4));
 							}
@@ -13802,7 +13715,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4379778","namespace":"FB","message":"' +
+				'","revision":"4380607","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
