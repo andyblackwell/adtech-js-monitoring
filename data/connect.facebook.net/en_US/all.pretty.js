@@ -1,4 +1,4 @@
-/*1538681379,,JIT Construction: v4383738,en_US*/
+/*1538688235,,JIT Construction: v4384677,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4383738",
+						revision: "4384677",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -8003,7 +8003,6 @@ try {
 								l = h("https_only_learn_more", ""),
 								m = {};
 							function a(a) {
-								__p && __p();
 								if (
 									location.protocol !== "https:" &&
 									k &&
@@ -8018,25 +8017,15 @@ try {
 									);
 									return !0;
 								}
-								if (location.protocol !== "https:" && k) {
-									var b = Math.floor((k - ES("Date", "now", !1)) / 864e5) + 1;
-									b > 30
-										? g.log(
-												"warn",
-												-1,
-												"The method FB.%s will stop working when called from http pages in %s days.  Please update your site to use https for Facebook Login. %s",
-												a,
-												Math.floor((k - ES("Date", "now", !1)) / 864e5),
-												l
-										  )
-										: g.log(
-												"error",
-												-1,
-												"The method FB.%s will stop working when called from http pages in %s days.  Please update your site to use https for Facebook Login. %s",
-												a,
-												Math.floor((k - ES("Date", "now", !1)) / 864e5),
-												l
-										  );
+								location.protocol !== "https:" &&
+									k &&
+									(g.log(
+										"error",
+										-1,
+										"The method FB.%s will soon stop working when called from http pages. Please update your site to use https for Facebook Login. %s",
+										a,
+										l
+									),
 									h("https_only_scribe_logging", !0) &&
 										!Object.prototype.hasOwnProperty.call(m, a) &&
 										(j.log("jssdk_error", {
@@ -8044,8 +8033,7 @@ try {
 											error: "HttpsOnly",
 											extra: { message: a }
 										}),
-										(m[a] = !0));
-								}
+										(m[a] = !0)));
 								return !1;
 							}
 							e.exports = a;
@@ -13715,7 +13703,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4383738","namespace":"FB","message":"' +
+				'","revision":"4384677","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
