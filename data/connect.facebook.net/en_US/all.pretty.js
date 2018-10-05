@@ -1,4 +1,4 @@
-/*1538762838,,JIT Construction: v4388835,en_US*/
+/*1538771245,,JIT Construction: v4389246,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4388835",
+						revision: "4389246",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2815,1157 +2815,6 @@ try {
 								}
 							};
 							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ErrorConstants",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							a = {
-								ANONYMOUS_GUARD_TAG: "<anonymous guard>",
-								EVAL_FRAME_PATTERN_CHROME: /^at .*eval eval (at .*\:\d+\:\d+), .*$/,
-								GLOBAL_ERROR_HANDLER_TAG:
-									typeof window === "undefined"
-										? "<self.onerror>"
-										: "<window.onerror>",
-								GLOBAL_REACT_ERROR_HANDLER_TAG: "<global.react>",
-								IE_AND_OTHER_FRAME_PATTERN: /(.*)[@\s][^\s]+$/,
-								IE_STACK_TRACE_REFERENCES: [
-									"Unknown script code",
-									"Function code",
-									"eval code"
-								]
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"CometErrorUtils",
-						["ErrorConstants"],
-						function(a, b, c, d, e, f, g) {
-							"use strict";
-							__p && __p();
-							Error.stackTraceLimit != null &&
-								Error.stackTraceLimit < 40 &&
-								(Error.stackTraceLimit = 40);
-							var h = {
-								getColumn: function(a) {
-									a = (a = a.columnNumber) != null ? a : "";
-									return String(a);
-								},
-								getColumnFromStackData: function(a) {
-									return (a[0] && a[0].column) || "";
-								},
-								getIEFrame: function(a) {
-									for (var b = 0; b < g.IE_STACK_TRACE_REFERENCES.length; b++) {
-										var c = " " + g.IE_STACK_TRACE_REFERENCES[b];
-										if (ES(a, "endsWith", !0, c))
-											return [a, a.substring(0, a.length - c.length)];
-									}
-									return null;
-								},
-								getLine: function(a) {
-									a = (a = a.lineNumber) != null ? a : "";
-									return String(a);
-								},
-								getLineFromStackData: function(a) {
-									return (a[0] && a[0].line) || "";
-								},
-								getReactComponentStack: function(a) {
-									if (a == null || a === "") return null;
-									a = a.split("\n");
-									a.splice(0, 1);
-									return ES(a, "map", !0, function(a) {
-										return ES(a, "trim", !0);
-									});
-								},
-								getScript: function(a) {
-									a = (a = a.fileName) != null ? a : "";
-									return String(a);
-								},
-								getScriptFromStackData: function(a) {
-									return (a[0] && a[0].script) || "";
-								},
-								normalizeError: function(a) {
-									var b = h.normalizeErrorStack(a),
-										c = h.getReactComponentStack(
-											a.reactComponentStackForLogging
-										);
-									c = {
-										_originalError: a,
-										cerror: !0,
-										column: h.getColumn(a) || h.getColumnFromStackData(b),
-										deferredSource: null,
-										extra: {},
-										fbloggerMetadata: [],
-										guard: "",
-										guardList: [],
-										line: h.getLine(a) || h.getLineFromStackData(b),
-										message: a.message,
-										messageWithParams: [],
-										name: a.name,
-										reactComponentStack: c,
-										script: h.getScript(a) || h.getScriptFromStackData(b),
-										serverHash: null,
-										stack: ES(b, "map", !0, function(a) {
-											return a.text;
-										}).join("\n"),
-										stackFrames: b,
-										type: ""
-									};
-									typeof c.message === "string"
-										? (c.messageWithParams = [c.message])
-										: ((c.messageObject = c.message),
-										  (c.message =
-												String(c.message) + " (" + typeof c.message + ")"));
-									typeof window !== "undefined" &&
-										window &&
-										window.location &&
-										(c.windowLocationURL = window.location.href);
-									for (var d in c) c[d] == null && delete c[d];
-									return c;
-								},
-								normalizeErrorStack: function(a) {
-									__p && __p();
-									var b = a.stack;
-									if (b == null) return [];
-									a = a.message;
-									var c = b.replace(/^[\w \.\<\>:]+:\s/, "");
-									a =
-										a != null && ES(c, "startsWith", !0, a)
-											? c.substr(a.length + 1)
-											: c !== b
-												? c.replace(/^.*?\n/, "")
-												: b;
-									return ES(
-										a
-											.split(/\n\n/)[0]
-											.replace(/[\(\)]|\[.*?\]/g, "")
-											.split("\n"),
-										"map",
-										!0,
-										function(a) {
-											__p && __p();
-											a = ES(a, "trim", !0);
-											var b = a.match(g.EVAL_FRAME_PATTERN_CHROME);
-											b && (a = b[1]);
-											var c, d;
-											b = a.match(/:(\d+)(?::(\d+))?$/);
-											b &&
-												((c = b[1]),
-												(d = b[2]),
-												(a = a.slice(0, -b[0].length)));
-											var e;
-											b =
-												h.getIEFrame(a) ||
-												a.match(g.IE_AND_OTHER_FRAME_PATTERN);
-											if (b) {
-												a = a.substring(b[1].length + 1);
-												b = b[1].match(/(?:at)?\s*(.*)(?:[^\s]+|$)/);
-												e = b ? b[1] : "";
-											}
-											ES(a, "includes", !0, "charset=utf-8;base64,") &&
-												(a = "<inlined-file>");
-											b = { column: d, identifier: e, line: c, script: a };
-											var f = e != null && e !== "" ? " " + e + " (" : " ",
-												i = f.length > 1 ? ")" : "",
-												j = c != null && c !== "" ? ":" + c : "",
-												k = d != null && d !== "" ? ":" + d : "";
-											f = "    at" + f + a + j + k + i;
-											return babelHelpers["extends"]({}, b, { text: f });
-										}
-									);
-								}
-							};
-							e.exports = h;
-						},
-						null
-					);
-					__d(
-						"FBLoggerMetadata",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							__p && __p();
-							var g = [];
-							function a() {
-								this.metadata = [].concat(g);
-							}
-							a.prototype.addMetadata = function(a, b, c) {
-								this.metadata.push([a, b, c]);
-								return this;
-							};
-							a.prototype.isEmpty = function() {
-								return this.metadata.length === 0;
-							};
-							a.prototype.getAll = function() {
-								__p && __p();
-								var a = [],
-									b = ES(this.metadata, "filter", !0, function(b) {
-										if (b == null) return !1;
-										var c = ES(b, "filter", !0, function(a) {
-											return (
-												String(a) && ES(String(a), "indexOf", !0, ":") > -1
-											);
-										});
-										if (c.length > 0) {
-											a.push(b);
-											return !1;
-										}
-										return !0;
-									});
-								return { invalidMetadata: a, validMetadata: b };
-							};
-							a.addGlobalMetadata = function(a, b, c) {
-								g.push([a, b, c]);
-							};
-							a.getGlobalMetadata = function() {
-								return g;
-							};
-							a.unsetGlobalMetadata = function(a, b) {
-								g = ES(g, "filter", !0, function(c) {
-									return !(
-										ES("Array", "isArray", !1, c) &&
-										c[0] === a &&
-										c[1] === b
-									);
-								});
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"erx",
-						["ex"],
-						function(a, b, c, d, e, f, g) {
-							"use strict";
-							__p && __p();
-							function a(a) {
-								__p && __p();
-								if (typeof a !== "string") return a;
-								var b = ES(a, "indexOf", !0, g._prefix),
-									c = a.lastIndexOf(g._suffix);
-								if (b < 0 || c < 0) return [a];
-								var d = b + g._prefix.length,
-									e = c + g._suffix.length;
-								if (d >= c) return ["erx slice failure: %s", a];
-								b = a.substring(0, b);
-								e = a.substring(e);
-								a = a.substring(d, c);
-								try {
-									d = ES("JSON", "parse", !1, a);
-									d[0] = b + d[0] + e;
-									return d;
-								} catch (b) {
-									return ["erx parse failure: %s because %s", a, b.message];
-								}
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"removeFromArray",
-						[],
-						function(a, b, c, d, e, f) {
-							function a(a, b) {
-								b = ES(a, "indexOf", !0, b);
-								b !== -1 && a.splice(b, 1);
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ErrorUtils",
-						[
-							"CometErrorUtils",
-							"Env",
-							"ErrorConstants",
-							"FBLoggerMetadata",
-							"eprintf",
-							"erx",
-							"removeFromArray",
-							"sprintf"
-						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
-							"use strict";
-							__p && __p();
-							var o = "<generated guard>",
-								p = /^https?:\/\//i,
-								q = /^Type Mismatch for/,
-								r = [],
-								s,
-								t = [],
-								u = 50,
-								v = [],
-								w = !1,
-								x = !1,
-								y = !1,
-								z = /\bnocatch\b/.test(location.search);
-							function A(a) {
-								a = a.columnNumber || a.column;
-								return a != null ? String(a) : "";
-							}
-							function B(a) {
-								return (a[0] && a[0].column) || "";
-							}
-							function C(a) {
-								a = a.lineNumber || a.line;
-								return a != null ? String(a) : "";
-							}
-							function D(a) {
-								return (a[0] && a[0].line) || "";
-							}
-							function E(a) {
-								a = a.fileName || a.sourceURL;
-								return a != null ? String(a) : "";
-							}
-							function F(a) {
-								return (a[0] && a[0].script) || "";
-							}
-							function G(a) {
-								__p && __p();
-								var b = a.stackTrace || a.stack;
-								if (b == null) return [];
-								a = a.message;
-								var c = b.replace(/^[\w \.\<\>:]+:\s/, "");
-								a =
-									a != null && ES(c, "startsWith", !0, a)
-										? c.substr(a.length + 1)
-										: c !== b
-											? c.replace(/^.*?\n/, "")
-											: b;
-								return ES(
-									a
-										.split(/\n\n/)[0]
-										.replace(/[\(\)]|\[.*?\]/g, "")
-										.split("\n"),
-									"map",
-									!0,
-									function(a) {
-										__p && __p();
-										a = ES(a, "trim", !0);
-										var b = a.match(i.EVAL_FRAME_PATTERN_CHROME);
-										b && (a = b[1]);
-										var c, d;
-										b = a.match(/:(\d+)(?::(\d+))?$/);
-										b &&
-											((c = b[1]), (d = b[2]), (a = a.slice(0, -b[0].length)));
-										var e;
-										b =
-											g.getIEFrame(a) || a.match(i.IE_AND_OTHER_FRAME_PATTERN);
-										if (b) {
-											a = a.substring(b[1].length + 1);
-											b = b[1].match(/(?:at)?\s*(.*)(?:[^\s]+|$)/);
-											e = b ? b[1] : "";
-										}
-										ES(a, "includes", !0, "charset=utf-8;base64,") &&
-											(a = "<inlined-file>");
-										b = { column: d, identifier: e, line: c, script: a };
-										s && s(b);
-										a =
-											"    at" +
-											(b.identifier ? " " + b.identifier + " (" : " ") +
-											b.script +
-											(b.line ? ":" + b.line : "") +
-											(b.column ? ":" + b.column : "") +
-											(b.identifier ? ")" : "");
-										return babelHelpers["extends"]({}, b, { text: a });
-									}
-								);
-							}
-							function H(a) {
-								v.unshift(a), (w = !0);
-							}
-							function I() {
-								v.shift(), (w = v.length !== 0);
-							}
-							var J = {
-								ANONYMOUS_GUARD_TAG: i.ANONYMOUS_GUARD_TAG,
-								GENERATED_GUARD_TAG: o,
-								GLOBAL_ERROR_HANDLER_TAG: i.GLOBAL_ERROR_HANDLER_TAG,
-								history: t,
-								addListener: function(a, b) {
-									b === void 0 && (b = !1),
-										r.push(a),
-										b ||
-											ES(t, "forEach", !0, function(b) {
-												return a(b.error, b.loggingType);
-											});
-								},
-								removeListener: function(a) {
-									m(r, a);
-								},
-								setSourceResolver: function(a) {
-									s = a;
-								},
-								applyWithGuard: function(b, c, d, e, f, g) {
-									__p && __p();
-									H(f || i.ANONYMOUS_GUARD_TAG);
-									h.nocatch && (z = !0);
-									if (z) {
-										try {
-											f = b.apply(c, d || []);
-										} finally {
-											I();
-										}
-										return f;
-									}
-									try {
-										return Function.prototype.apply.call(b, c, d || []);
-									} catch (h) {
-										f = h;
-										if (f == null)
-											try {
-												var j = c,
-													k = function(a) {
-														__p && __p();
-														if (a == null) return "<unset>";
-														else if (typeof a === "object" && a.toString)
-															return a.toString();
-														else if (typeof a === "boolean" && a.toString)
-															return a.toString();
-														else if (typeof a === "number" && a.toString)
-															return a.toString();
-														else if (typeof a === "string") return a;
-														else if (typeof a === "symbol" && a.toString)
-															return a.toString();
-														else if (typeof a === "function" && a.toString)
-															return a.toString();
-														return "<unset>";
-													};
-												if (c != null)
-													if (c == window) j = "[The window object]";
-													else if (c == a) j = "[The global object]";
-													else {
-														var l = c,
-															m = {};
-														ES(ES("Object", "keys", !1, l), "map", !0, function(
-															a,
-															b
-														) {
-															b = l[a];
-															m[a] = k(b);
-														});
-														j = m;
-													}
-												c = ES(d || [], "map", !0, k);
-												var o =
-														"applyWithGuard threw null or undefined:\nFunc: %s\nContext: %s\nArgs: %s",
-													p = b.toString && b.toString().substr(0, 1024);
-												j = ES("JSON", "stringify", !1, j).substr(0, 1024);
-												c = ES("JSON", "stringify", !1, c).substr(0, 1024);
-												var q = n(
-													o,
-													p ? p : "this function does not support toString",
-													j,
-													c
-												);
-												f = new Error(q);
-												f.messageWithParams = [
-													o,
-													p ? p : "this function does not support toString",
-													j,
-													c
-												];
-											} catch (a) {
-												q =
-													"applyWithGuard threw null or undefined with unserializable data:\nFunc: %s\nMetaEx: %s";
-												o = b.toString && b.toString().substr(0, 1024);
-												p = n(
-													q,
-													o ? o : "this function does not support toString",
-													a.message
-												);
-												f = new Error(p);
-												f.messageWithParams = [
-													p,
-													o ? o : "this function does not support toString",
-													a.message
-												];
-											}
-										g &&
-											g.deferredSource &&
-											(f.deferredSource = g.deferredSource);
-										j = J.normalizeError(f);
-										e && e(j);
-										j.extra || (j.extra = {});
-										if (b)
-											try {
-												j.extra[b.toString().substring(0, 100)] = "function";
-											} catch (a) {}
-										d &&
-											(j.extra[
-												ES("Array", "from", !1, d)
-													.toString()
-													.substring(0, 100)
-											] = "args");
-										j.guard = v[0];
-										j.guardList = v.slice();
-										J.reportError(j, !1, "GUARDED");
-									} finally {
-										I();
-									}
-								},
-								guard: function(a, b, c) {
-									b = b || a.name || o;
-									function d() {
-										return J.applyWithGuard(
-											a,
-											c || this,
-											[].concat(Array.prototype.slice.call(arguments)),
-											null,
-											b
-										);
-									}
-									a.__SMmeta && (d.__SMmeta = a.__SMmeta);
-									return d;
-								},
-								inGuard: function() {
-									return w;
-								},
-								normalizeError: function(a) {
-									__p && __p();
-									var b = a;
-									a = a != null ? a : {};
-									if (Object.prototype.hasOwnProperty.call(a, "_originalError"))
-										return a;
-									var c = G(a),
-										d = !1;
-									if (a.framesToPop) {
-										var e = a.framesToPop,
-											f;
-										while (e > 0 && c.length > 0)
-											(f = c.shift()), e--, (d = !0);
-										q.test(a.message) &&
-											a.framesToPop === 2 &&
-											f &&
-											(p.test(f.script) &&
-												(a.message +=
-													" at " +
-													f.script +
-													(f.line ? ":" + f.line : "") +
-													(f.column ? ":" + f.column : "")));
-									}
-									e = g.getReactComponentStack(a.reactComponentStackForLogging);
-									var h = a.fbloggerMetadata ? a.fbloggerMetadata : [],
-										i = ES(j.getGlobalMetadata(), "map", !0, function(a) {
-											return a.join(":");
-										});
-									h = [].concat(h, i);
-									h.length === 0 && (h = undefined);
-									i = {
-										_originalError: b,
-										cerror: !1,
-										column: d ? B(c) : A(a) || B(c),
-										deferredSource: a.deferredSource,
-										extra: a.extra,
-										fbloggerMetadata: h,
-										guard: a.guard,
-										guardList: a.guardList,
-										line: d ? D(c) : C(a) || D(c),
-										message: a.message,
-										messageWithParams: a.messageWithParams,
-										name: a.name,
-										reactComponentStack: e,
-										script: d ? F(c) : E(a) || F(c),
-										serverHash: a.serverHash,
-										snapshot: a.snapshot,
-										stack: ES(c, "map", !0, function(a) {
-											return a.text;
-										}).join("\n"),
-										stackFrames: c,
-										type: a.type
-									};
-									typeof i.message === "string"
-										? (i.messageWithParams =
-												i.messageWithParams || l(i.message))
-										: ((i.messageObject = i.message),
-										  (i.message =
-												String(i.message) + " (" + typeof i.message + ")"));
-									i.messageWithParams &&
-										(i.message = k.apply(undefined, i.messageWithParams));
-									typeof window !== "undefined" &&
-										window &&
-										window.location &&
-										(i.windowLocationURL = window.location.href);
-									s && s(i);
-									for (var m in i) i[m] == null && delete i[m];
-									return i;
-								},
-								onerror: function(a, b, c, d, e) {
-									(e = e || {}),
-										(e.message = e.message || a),
-										(e.script = e.script || b),
-										(e.line = e.line || c),
-										(e.column = e.column || d),
-										(e.guard = i.GLOBAL_ERROR_HANDLER_TAG),
-										(e.guardList = [i.GLOBAL_ERROR_HANDLER_TAG]),
-										J.reportError(e, !0, "FATAL");
-								},
-								reportError: function(b, c, d) {
-									__p && __p();
-									c === void 0 && (c = !1);
-									d === void 0 && (d = "DEPRECATED");
-									if (x) {
-										!1;
-										return !1;
-									}
-									b.reactComponentStack && H(i.GLOBAL_REACT_ERROR_HANDLER_TAG);
-									v.length > 0 &&
-										((b.guard = b.guard || v[0]), (b.guardList = v.slice()));
-									b.reactComponentStack && I();
-									b = J.normalizeError(b);
-									if (!c) {
-										c = a.console;
-										var e = b._originalError;
-										e = e != null ? "" + e.message : "";
-										if ((!c[b.type] || b.type === "error") && !y) {
-											e = e.length > 80 ? e.slice(0, 77) + "..." : e;
-											c.error(
-												'ErrorUtils caught an error: "' +
-													e +
-													"\". Subsequent errors won't be logged; see https://fburl.com/debugjs."
-											);
-											y = !0;
-										}
-									}
-									t.length > u && t.splice(u / 2, 1);
-									t.push({ error: b, loggingType: d });
-									x = !0;
-									for (var c = 0; c < r.length; c++)
-										try {
-											r[c](b, d);
-										} catch (a) {
-											!1;
-										}
-									x = !1;
-									return !0;
-								}
-							};
-							a.onerror = J.onerror;
-							e.exports = a.ErrorUtils = J;
-							typeof __t === "function" &&
-								__t.setHandler &&
-								__t.setHandler(J.reportError);
-						},
-						3
-					);
-					__d(
-						"defaultTo",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							function a(a, b) {
-								return a == null
-									? b
-									: typeof a === "string" && a === ""
-										? b
-										: a;
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ErrorGuard",
-						["CometErrorUtils", "ErrorConstants", "defaultTo"],
-						function(a, b, c, d, e, f, g, h, i) {
-							"use strict";
-							__p && __p();
-							var j = !1,
-								k = !1,
-								l = [],
-								m = 50,
-								n = [],
-								o = {
-									guardList: [],
-									isGuarding: !1,
-									addListener: function(a, b) {
-										b === void 0 && (b = !1),
-											n.push(a),
-											b ||
-												ES(l, "forEach", !0, function(b) {
-													return a(b.error, b.loggingType);
-												});
-									},
-									applyWithGuard: function(a, b, c, d) {
-										__p && __p();
-										o.pushGuard(
-											d && d.name != null && d.name !== ""
-												? d.name
-												: h.ANONYMOUS_GUARD_TAG
-										);
-										try {
-											return Function.prototype.apply.call(a, b, c || []);
-										} catch (e) {
-											b = g.normalizeError(e);
-											d &&
-												d.deferredSource &&
-												(b.deferredSource = d.deferredSource);
-											d && d.onError && d.onError(b);
-											b.extra == null && (b.extra = {});
-											if (typeof b.extra === "object") {
-												if (a)
-													try {
-														b.extra[a.toString().substring(0, 100)] =
-															"function";
-													} catch (a) {}
-												c &&
-													(b.extra[
-														ES("Array", "from", !1, c)
-															.toString()
-															.substring(0, 100)
-													] = "args");
-											}
-											b.guard = o.guardList[0];
-											b.guardList = o.guardList.slice();
-											o.reportError(b, !1, "GUARDED");
-										} finally {
-											o.popGuard();
-										}
-										return null;
-									},
-									onerror: function(a, b, c, d, e) {
-										e = e || new Error(a);
-										e.message = e.message || a;
-										e.lineNumber = Number(i(String(e.lineNumber), c));
-										e.columnNumber = Number(i(String(e.columnNumber), d));
-										e = g.normalizeError(e);
-										e.script = i(e.script, b);
-										e.guard = h.GLOBAL_ERROR_HANDLER_TAG;
-										e.guardList = [h.GLOBAL_ERROR_HANDLER_TAG];
-										o.reportError(e, !0, "FATAL");
-									},
-									popGuard: function() {
-										o.guardList.shift(),
-											(o.isGuarding = o.guardList.length !== 0);
-									},
-									pushGuard: function(a) {
-										o.guardList.unshift(a), (o.isGuarding = !0);
-									},
-									removeListener: function(a) {
-										a = ES(l, "indexOf", !0, a);
-										a !== -1 && l.splice(a, 1);
-									},
-									reportError: function(b, c, d) {
-										__p && __p();
-										c === void 0 && (c = !1);
-										d === void 0 && (d = "DEPRECATED");
-										if (j) return !1;
-										b.cerror = !0;
-										b.reactComponentStack == null &&
-											o.pushGuard(h.GLOBAL_REACT_ERROR_HANDLER_TAG);
-										if (o.guardList.length > 0) {
-											var e;
-											b.guard = (e = b.guard) != null ? e : o.guardList[0];
-											b.guardList = o.guardList.slice();
-										}
-										b.reactComponentStack && o.popGuard();
-										if (!c) {
-											e = a.console;
-											c = "" + b.message;
-											if ((!e[b.type] || b.type === "error") && !k) {
-												c = c.length > 80 ? c.slice(0, 77) + "..." : c;
-												e.error(
-													'ErrorUtils caught an error: "' +
-														c +
-														"\". Subsequent errors won't be logged; see https://fburl.com/debugjs."
-												);
-												k = !0;
-											}
-										}
-										l.length > m && l.splice(m / 2, 1);
-										l.push({ error: b, loggingType: d });
-										j = !0;
-										for (var e = 0; e < n.length; e++)
-											try {
-												n[e](b, d);
-											} catch (a) {
-												!1;
-											}
-										j = !1;
-										return !0;
-									}
-								};
-							a.onerror = o.onerror;
-							e.exports = o;
-						},
-						null
-					);
-					__d(
-						"FBLogMessageCore",
-						["CometErrorUtils", "ErrorGuard"],
-						function(a, b, c, d, e, f, g, h) {
-							"use strict";
-							__p && __p();
-							var i = { info: "log", mustfix: "error", warn: "warn" };
-							function j(a) {
-								for (
-									var b = arguments.length,
-										c = new Array(b > 1 ? b - 1 : 0),
-										d = 1;
-									d < b;
-									d++
-								)
-									c[d - 1] = arguments[d];
-								return (
-									"<![EX[" +
-									ES(
-										"JSON",
-										"stringify",
-										!1,
-										[a].concat(
-											ES(c, "map", !0, function(a) {
-												return String(a);
-											})
-										)
-									) +
-									"]]"
-								);
-							}
-							function k(a) {
-								this.project = a;
-							}
-							k.prototype.$1 = function(a, b) {
-								__p && __p();
-								var c;
-								for (
-									var d = arguments.length,
-										e = new Array(d > 2 ? d - 2 : 0),
-										f = 2;
-									f < d;
-									f++
-								)
-									e[f - 2] = arguments[f];
-								if (this.error) {
-									c = this.error;
-									var l = b + " from %s: %s";
-									e.push(c.name);
-									e.push(c.message);
-									c.message = j.apply(undefined, [l].concat(e));
-								} else c = new Error(j.apply(undefined, [b].concat(e)));
-								if (this.error && ES(c.name, "startsWith", !0, "<level:")) {
-									var m = new k("fblogger");
-									m.warn("Double logging detected");
-								}
-								var n = "FBLogger" + (this.error ? " caught " + c.name : "");
-								c.name = "<level:" + a + "> <name:" + this.project + "> " + n;
-								var o = g.normalizeError(c);
-								o.type = i[a];
-								h.reportError(o, !1, "FBLOGGER");
-							};
-							k.prototype.mustfix = function(a) {
-								for (
-									var b = arguments.length,
-										c = new Array(b > 1 ? b - 1 : 0),
-										d = 1;
-									d < b;
-									d++
-								)
-									c[d - 1] = arguments[d];
-								this.$1.apply(this, ["mustfix", a].concat(c));
-							};
-							k.prototype.warn = function(a) {
-								for (
-									var b = arguments.length,
-										c = new Array(b > 1 ? b - 1 : 0),
-										d = 1;
-									d < b;
-									d++
-								)
-									c[d - 1] = arguments[d];
-								this.$1.apply(this, ["warn", a].concat(c));
-							};
-							k.prototype.info = function(a) {};
-							k.prototype.debug = function(a) {};
-							k.prototype.catching = function(a) {
-								!(a instanceof Error)
-									? new k("fblogger").warn(
-											"Catching non-Error object is not supported"
-									  )
-									: (this.error = a);
-								return this;
-							};
-							e.exports = k;
-						},
-						null
-					);
-					__d(
-						"FBLogMessage",
-						[
-							"ErrorUtils",
-							"FBLoggerMetadata",
-							"FBLogMessageCore",
-							"TAAL",
-							"TAALOpcodes",
-							"erx",
-							"ex",
-							"sprintf"
-						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
-							"use strict";
-							__p && __p();
-							var o,
-								p = { mustfix: "error", warn: "warn", info: "log" },
-								q = m,
-								r = function a(b) {
-									return function(c) {
-										b > 0 && (c(), a(b - 1)(c));
-									};
-								};
-							a = babelHelpers.inherits(s, i);
-							o = a && a.prototype;
-							function s(a) {
-								o.constructor.call(this, a),
-									(this.metadata = new h()),
-									(this.taalOpcodes = []);
-							}
-							s.prototype.$FBLogMessage1 = function(a, b) {
-								__p && __p();
-								var c = 2;
-								if (b === undefined) {
-									var d = new s("fblogger");
-									r(c)(function() {
-										return d.blameToPreviousFrame();
-									});
-									d.mustfix(
-										"You provided an undefined format string to FBLogger, dropping log line"
-									);
-									return;
-								}
-								var e;
-								for (
-									var f = arguments.length,
-										h = new Array(f > 2 ? f - 2 : 0),
-										i = 2;
-									i < f;
-									i++
-								)
-									h[i - 2] = arguments[i];
-								if (this.error) {
-									e = this.error;
-									var m = b + " from %s: %s";
-									h.push(e.name);
-									h.push(e.message ? n.apply(null, l(e.message)) : "");
-									e.message = q.apply(undefined, [m].concat(h));
-								} else {
-									r(c)(
-										ES(
-											function() {
-												return this.taalOpcodes.unshift(k.previousFrame());
-											},
-											"bind",
-											!0,
-											this
-										)
-									);
-									if (this.taalOpcodes) {
-										var o = j.applyOpcodes(b, this.taalOpcodes);
-										e = new Error(q.apply(undefined, [o].concat(h)));
-									} else e = new Error(q.apply(undefined, [b].concat(h)));
-								}
-								if (this.error && ES(e.name, "startsWith", !0, "<level:")) {
-									var t = new s("fblogger");
-									r(c)(function() {
-										return t.blameToPreviousFrame();
-									});
-									t.warn("Double logging detected");
-								}
-								var u = "FBLogger" + (this.error ? " caught " + e.name : "");
-								e.name = n("<level:%s> <name:%s> %s", a, this.project, u);
-								e = g.normalizeError(e);
-								if (!this.metadata.isEmpty()) {
-									var v = this.metadata.getAll(),
-										w = v.invalidMetadata,
-										x = v.validMetadata;
-									if (w.length > 0) {
-										var y = new s("fblogger");
-										r(c)(function() {
-											return y.blameToPreviousFrame();
-										});
-										y.warn(
-											"Metadata cannot contain colon %s",
-											ES(w, "map", !0, function(a) {
-												return a.join(":");
-											}).join(" ")
-										);
-									}
-									e.fbloggerMetadata = ES(x, "map", !0, function(a) {
-										return a.join(":");
-									});
-								}
-								var z = p[a];
-								e.type = z;
-								if (
-									this.error &&
-									(this.taalOpcodes && this.taalOpcodes.length)
-								) {
-									var A = new s("fblogger");
-									r(c)(function() {
-										return A.blameToPreviousFrame();
-									});
-									A.warn("Blame helpers do not work with catching");
-								}
-								g.reportError(e, !1, "FBLOGGER");
-							};
-							s.prototype.mustfix = function(a) {
-								for (
-									var b = arguments.length,
-										c = new Array(b > 1 ? b - 1 : 0),
-										d = 1;
-									d < b;
-									d++
-								)
-									c[d - 1] = arguments[d];
-								this.$FBLogMessage1.apply(this, ["mustfix", a].concat(c));
-							};
-							s.prototype.warn = function(a) {
-								for (
-									var b = arguments.length,
-										c = new Array(b > 1 ? b - 1 : 0),
-										d = 1;
-									d < b;
-									d++
-								)
-									c[d - 1] = arguments[d];
-								this.$FBLogMessage1.apply(this, ["warn", a].concat(c));
-							};
-							s.prototype.info = function(a) {};
-							s.prototype.debug = function(a) {};
-							s.prototype.catching = function(a) {
-								!(a instanceof Error)
-									? new s("fblogger")
-											.blameToPreviousFrame()
-											.warn("Catching non-Error object is not supported")
-									: o.catching.call(this, a);
-								return this;
-							};
-							s.prototype.blameToPreviousFile = function() {
-								this.taalOpcodes.push(k.previousFile());
-								return this;
-							};
-							s.prototype.blameToPreviousFrame = function() {
-								this.taalOpcodes.push(k.previousFrame());
-								return this;
-							};
-							s.prototype.blameToPreviousDirectory = function() {
-								this.taalOpcodes.push(k.previousDirectory());
-								return this;
-							};
-							s.prototype.addMetadata = function(a, b, c) {
-								this.metadata.addMetadata(a, b, c);
-								return this;
-							};
-							e.exports = s;
-						},
-						null
-					);
-					__d(
-						"FBLogger",
-						["FBLoggerMetadata", "FBLogMessage"],
-						function(a, b, c, d, e, f, g, h) {
-							"use strict";
-							a = function(a) {
-								return new h(a);
-							};
-							a.addGlobalMetadata = function(a, b, c) {
-								g.addGlobalMetadata(a, b, c);
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"WebStorage",
-						["FBLogger", "ex"],
-						function(a, b, c, d, e, f, g, h) {
-							"use strict";
-							__p && __p();
-							var i = {},
-								j = {};
-							function k(a, b, c) {
-								Object.prototype.hasOwnProperty.call(i, c) || (i[c] = b(c));
-								return i[c];
-							}
-							function l(a) {
-								try {
-									return window[a];
-								} catch (a) {
-									g("web_storage").warn(
-										"Failed to get storage for read %s",
-										a.message
-									);
-								}
-								return null;
-							}
-							function m(a) {
-								__p && __p();
-								try {
-									a = window[a];
-									if (a) {
-										var b = "__test__" + ES("Date", "now", !1);
-										a.setItem(b, "");
-										a.removeItem(b);
-									}
-									return a;
-								} catch (a) {
-									g("web_storage").warn("Failed to get storage %s", a.message);
-								}
-								return null;
-							}
-							function n(a) {
-								var b = [];
-								for (var c = 0; c < a.length; c++) b.push(a.key(c) || "");
-								return b;
-							}
-							function a(a, b, c) {
-								__p && __p();
-								if (a == null) return new Error("storage cannot be null");
-								var d = null;
-								try {
-									a.setItem(b, c);
-								} catch (f) {
-									var e = ES(n(a), "map", !0, function(b) {
-										var c = (a.getItem(b) || "").length;
-										return b + "(" + c + ")";
-									});
-									d = new Error(
-										h(
-											"%sStorage quota exceeded while setting %s(%s). Items(length) follows: %s",
-											f.name ? f.name + ": " : "",
-											b,
-											c.length,
-											e.join()
-										)
-									);
-									g("web_storage")
-										.catching(d)
-										.mustfix("Error set item");
-								}
-								return d;
-							}
-							b = {
-								getLocalStorage: function() {
-									return k(i, m, "localStorage");
-								},
-								getSessionStorage: function() {
-									return k(i, m, "sessionStorage");
-								},
-								getLocalStorageForRead: function() {
-									return k(j, l, "localStorage");
-								},
-								getSessionStorageForRead: function() {
-									return k(j, l, "sessionStorage");
-								},
-								setItemGuarded: a
-							};
-							e.exports = b;
 						},
 						null
 					);
@@ -5002,24 +3851,17 @@ try {
 					);
 					__d(
 						"URIBase",
-						[
-							"FBLogger",
-							"URIRFC3986",
-							"URISchemes",
-							"ex",
-							"invariant",
-							"setHostSubdomain"
-						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						["URIRFC3986", "URISchemes", "ex", "invariant", "setHostSubdomain"],
+						function(a, b, c, d, e, f, g, h, i, j, k) {
 							__p && __p();
-							var m = new RegExp(
+							var l = new RegExp(
 									"[\\x00-\\x2c\\x2f\\x3b-\\x40\\x5c\\x5e\\x60\\x7b-\\x7f\\uFDD0-\\uFDEF\\uFFF0-\\uFFFF\\u2047\\u2048\\uFE56\\uFE5F\\uFF03\\uFF0F\\uFF1F]"
 								),
-								n = new RegExp("^(?:[^/]*:|[\\x00-\\x1f]*/[\\x00-\\x1f]*/)");
-							function o(a, b, c, d) {
+								m = new RegExp("^(?:[^/]*:|[\\x00-\\x1f]*/[\\x00-\\x1f]*/)");
+							function n(a, b, c, d) {
 								__p && __p();
 								if (!b) return !0;
-								if (b instanceof q) {
+								if (b instanceof p) {
 									a.setProtocol(b.getProtocol());
 									a.setDomain(b.getDomain());
 									a.setPort(b.getPort());
@@ -5031,10 +3873,10 @@ try {
 									return !0;
 								}
 								b = ES(b.toString(), "trim", !0);
-								var e = h.parse(b) || { fragment: null, scheme: null };
-								if (!c && !i.isAllowed(e.scheme)) return !1;
+								var e = g.parse(b) || { fragment: null, scheme: null };
+								if (!c && !h.isAllowed(e.scheme)) return !1;
 								a.setProtocol(e.scheme || "");
-								if (!c && m.test(e.host || "")) return !1;
+								if (!c && l.test(e.host || "")) return !1;
 								a.setDomain(e.host || "");
 								a.setPort(e.port || "");
 								a.setPath(e.path || "");
@@ -5051,7 +3893,7 @@ try {
 								if (e.userinfo !== null)
 									if (c)
 										throw new Error(
-											j(
+											i(
 												"URI.parse: invalid URI (userinfo is not allowed in a URI): %s",
 												a.toString()
 											)
@@ -5063,16 +3905,16 @@ try {
 								)
 									if (c)
 										throw new Error(
-											j(
+											i(
 												"URI.parse: invalid URI (no domain but multiple back-slashes): %s",
 												a.toString()
 											)
 										);
 									else return !1;
-								if (!a.getProtocol() && n.test(b))
+								if (!a.getProtocol() && m.test(b))
 									if (c)
 										throw new Error(
-											j(
+											i(
 												"URI.parse: invalid URI (unsafe protocol-relative URLs): %s",
 												a.toString()
 											)
@@ -5085,7 +3927,7 @@ try {
 								)
 									if (c)
 										throw new Error(
-											j(
+											i(
 												"URI.parse: invalid URI (domain and path where path lacks leading slash): %s",
 												a.toString()
 											)
@@ -5093,19 +3935,19 @@ try {
 									else return !1;
 								return !0;
 							}
-							var p = [];
-							q.tryParse = function(a, b) {
+							var o = [];
+							p.tryParse = function(a, b) {
 								"use strict";
-								var c = new q(null, b);
-								return o(c, a, !1, b) ? c : null;
+								var c = new p(null, b);
+								return n(c, a, !1, b) ? c : null;
 							};
-							q.isValid = function(a, b) {
+							p.isValid = function(a, b) {
 								"use strict";
-								return !!q.tryParse(a, b);
+								return !!p.tryParse(a, b);
 							};
-							function q(a, b) {
+							function p(a, b) {
 								"use strict";
-								b || k(0, 2966),
+								b || j(0, 2966),
 									(this.$9 = b),
 									(this.$7 = ""),
 									(this.$1 = ""),
@@ -5115,36 +3957,31 @@ try {
 									(this.$4 = !1),
 									(this.$8 = {}),
 									(this.$2 = !1),
-									o(this, a, !0, b);
+									n(this, a, !0, b);
 							}
-							q.prototype.setProtocol = function(a) {
+							p.prototype.setProtocol = function(a) {
 								"use strict";
-								i.isAllowed(a) ||
-									(g("uri").mustfix(
-										"You attempted to set the protocol of a URI to `%s`. That protocol does not pass the `URISchemes.isAllowed` test.",
-										a
-									),
-									k(0, 587, a));
+								h.isAllowed(a) || j(0, 587, a);
 								this.$7 = a;
 								return this;
 							};
-							q.prototype.getProtocol = function() {
+							p.prototype.getProtocol = function() {
 								"use strict";
 								return (this.$7 || "").toLowerCase();
 							};
-							q.prototype.setSecure = function(a) {
+							p.prototype.setSecure = function(a) {
 								"use strict";
 								return this.setProtocol(a ? "https" : "http");
 							};
-							q.prototype.isSecure = function() {
+							p.prototype.isSecure = function() {
 								"use strict";
 								return this.getProtocol() === "https";
 							};
-							q.prototype.setDomain = function(a) {
+							p.prototype.setDomain = function(a) {
 								"use strict";
-								if (m.test(a))
+								if (l.test(a))
 									throw new Error(
-										j(
+										i(
 											"URI.setDomain: unsafe domain specified: %s for url %s",
 											a,
 											this.toString()
@@ -5153,79 +3990,79 @@ try {
 								this.$1 = a;
 								return this;
 							};
-							q.prototype.getDomain = function() {
+							p.prototype.getDomain = function() {
 								"use strict";
 								return this.$1;
 							};
-							q.prototype.setPort = function(a) {
+							p.prototype.setPort = function(a) {
 								"use strict";
 								this.$6 = a;
 								return this;
 							};
-							q.prototype.getPort = function() {
+							p.prototype.getPort = function() {
 								"use strict";
 								return this.$6;
 							};
-							q.prototype.setPath = function(a) {
+							p.prototype.setPath = function(a) {
 								"use strict";
 								this.$5 = a;
 								return this;
 							};
-							q.prototype.getPath = function() {
+							p.prototype.getPath = function() {
 								"use strict";
 								return this.$5;
 							};
-							q.prototype.addQueryData = function(a, b) {
+							p.prototype.addQueryData = function(a, b) {
 								"use strict";
 								Object.prototype.toString.call(a) === "[object Object]"
 									? ES("Object", "assign", !1, this.$8, a)
 									: (this.$8[a] = b);
 								return this;
 							};
-							q.prototype.setQueryData = function(a) {
+							p.prototype.setQueryData = function(a) {
 								"use strict";
 								this.$8 = a;
 								return this;
 							};
-							q.prototype.getQueryData = function() {
+							p.prototype.getQueryData = function() {
 								"use strict";
 								return this.$8;
 							};
-							q.prototype.removeQueryData = function(a) {
+							p.prototype.removeQueryData = function(a) {
 								"use strict";
 								ES("Array", "isArray", !1, a) || (a = [a]);
 								for (var b = 0, c = a.length; b < c; ++b) delete this.$8[a[b]];
 								return this;
 							};
-							q.prototype.setFragment = function(a) {
+							p.prototype.setFragment = function(a) {
 								"use strict";
 								this.$3 = a;
 								this.setForceFragmentSeparator(!1);
 								return this;
 							};
-							q.prototype.getFragment = function() {
+							p.prototype.getFragment = function() {
 								"use strict";
 								return this.$3;
 							};
-							q.prototype.setForceFragmentSeparator = function(a) {
+							p.prototype.setForceFragmentSeparator = function(a) {
 								"use strict";
 								this.$2 = a;
 								return this;
 							};
-							q.prototype.getForceFragmentSeparator = function() {
+							p.prototype.getForceFragmentSeparator = function() {
 								"use strict";
 								return this.$2;
 							};
-							q.prototype.setIsGeneric = function(a) {
+							p.prototype.setIsGeneric = function(a) {
 								"use strict";
 								this.$4 = a;
 								return this;
 							};
-							q.prototype.getIsGeneric = function() {
+							p.prototype.getIsGeneric = function() {
 								"use strict";
 								return this.$4;
 							};
-							q.prototype.isEmpty = function() {
+							p.prototype.isEmpty = function() {
 								"use strict";
 								return !(
 									this.getPath() ||
@@ -5236,13 +4073,13 @@ try {
 									this.getFragment()
 								);
 							};
-							q.prototype.toString = function() {
+							p.prototype.toString = function() {
 								"use strict";
 								var a = this;
-								for (var b = 0; b < p.length; b++) a = p[b](a);
+								for (var b = 0; b < o.length; b++) a = o[b](a);
 								return a.$10();
 							};
-							q.prototype.$10 = function() {
+							p.prototype.$10 = function() {
 								"use strict";
 								__p && __p();
 								var a = "",
@@ -5262,11 +4099,11 @@ try {
 									: this.getForceFragmentSeparator() && (a += "#");
 								return a;
 							};
-							q.registerFilter = function(a) {
+							p.registerFilter = function(a) {
 								"use strict";
-								p.push(a);
+								o.push(a);
 							};
-							q.prototype.getOrigin = function() {
+							p.prototype.getOrigin = function() {
 								"use strict";
 								var a = this.getPort();
 								return (
@@ -5276,33 +4113,33 @@ try {
 									(a ? ":" + a : "")
 								);
 							};
-							q.prototype.getQualifiedURIBase = function() {
+							p.prototype.getQualifiedURIBase = function() {
 								"use strict";
-								return new q(this, this.$9).qualify();
+								return new p(this, this.$9).qualify();
 							};
-							q.prototype.qualify = function() {
+							p.prototype.qualify = function() {
 								"use strict";
 								if (!this.getDomain()) {
-									var a = new q(window.location.href, this.$9);
+									var a = new p(window.location.href, this.$9);
 									this.setProtocol(a.getProtocol())
 										.setDomain(a.getDomain())
 										.setPort(a.getPort());
 								}
 								return this;
 							};
-							q.prototype.setSubdomain = function(a) {
+							p.prototype.setSubdomain = function(a) {
 								"use strict";
 								var b = this.qualify().getDomain();
-								return this.setDomain(l(b, a));
+								return this.setDomain(k(b, a));
 							};
-							q.prototype.getSubdomain = function() {
+							p.prototype.getSubdomain = function() {
 								"use strict";
 								if (!this.getDomain()) return "";
 								var a = this.getDomain().split(".");
 								if (a.length <= 2) return "";
 								else return a[0];
 							};
-							e.exports = q;
+							e.exports = p;
 						},
 						null
 					);
@@ -5339,6 +4176,41 @@ try {
 							a.isValidURI = function(a) {
 								"use strict";
 								return i.isValid(a, l);
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"sdk.WebStorage",
+						["Log"],
+						function(a, b, c, d, e, f, g) {
+							"use strict";
+							__p && __p();
+							a = {
+								getLocalStorage: function() {
+									try {
+										return window.localStorage;
+									} catch (a) {
+										g.warn("Failed to get local storage");
+									}
+									return null;
+								},
+								getLocalStorageForRead: function() {
+									__p && __p();
+									try {
+										var a = window.localStorage;
+										if (a) {
+											var b = "__test__" + ES("Date", "now", !1);
+											a.setItem(b, "");
+											a.removeItem(b);
+										}
+										return a;
+									} catch (a) {
+										g.warn("Failed to get local storage");
+									}
+									return null;
+								}
 							};
 							e.exports = a;
 						},
@@ -6616,7 +5488,6 @@ try {
 							"OAuthControllerParameterName",
 							"ObservableMixin",
 							"UrlMap",
-							"WebStorage",
 							"guid",
 							"sdk.Cookie",
 							"sdk.createIframe",
@@ -6627,6 +5498,7 @@ try {
 							"sdk.Scribe",
 							"sdk.SignedRequest",
 							"sdk.URI",
+							"sdk.WebStorage",
 							"sdk.XD"
 						],
 						function(
@@ -6663,25 +5535,25 @@ try {
 								C = new j();
 							function D(a, b) {
 								__p && __p();
-								var c = s.getUserID(),
+								var c = r.getUserID(),
 									d = "";
 								if (a)
 									if (a.userID) d = a.userID;
 									else if (a.signedRequest) {
-										var e = u.parse(a.signedRequest);
+										var e = t.parse(a.signedRequest);
 										e && e.user_id && (d = e.user_id);
 									}
-								e = s.getLoginStatus();
+								e = r.getLoginStatus();
 								var f =
 										(e === "unknown" && a) ||
-										(s.getUseCookie() && s.getCookieUserID() !== d),
+										(r.getUseCookie() && r.getCookieUserID() !== d),
 									g = c && !a;
 								c = a && c && c != d;
 								var h = a != A;
 								e = b != (e || "unknown");
-								s.setLoginStatus(b);
-								s.setAccessToken((a && a.accessToken) || null);
-								s.setUserID(d);
+								r.setLoginStatus(b);
+								r.setAccessToken((a && a.accessToken) || null);
+								r.setUserID(d);
 								A = a;
 								d = { authResponse: a, status: b };
 								(g || c) && C.inform("logout", d);
@@ -6699,7 +5571,7 @@ try {
 									__p && __p();
 									var e = !1;
 									if (d && d.access_token) {
-										var f = u.parse(d.signed_request);
+										var f = t.parse(d.signed_request);
 										b = {
 											accessToken: d.access_token,
 											userID: f.user_id,
@@ -6725,21 +5597,21 @@ try {
 											}));
 										d.enforce_https && (e = !0);
 										if (
-											s.getUseLocalStorage() &&
+											r.getUseLocalStorage() &&
 											location.protocol === "https:" &&
 											d.long_lived_token
 										) {
-											f = l.getLocalStorage();
-											f && f.setItem(x + s.getClientID(), d.long_lived_token);
+											f = v.getLocalStorage();
+											f && f.setItem(x + r.getClientID(), d.long_lived_token);
 										}
-										if (s.getUseCookie()) {
+										if (r.getUseCookie()) {
 											f =
 												b.expiresIn === 0
 													? 0
 													: ES("Date", "now", !1) + b.expiresIn * 1e3;
-											var g = n.getDomain();
-											!g && d.base_domain && n.setDomain("." + d.base_domain);
-											n.setSignedRequestCookie(d.signed_request, f, e);
+											var g = m.getDomain();
+											!g && d.base_domain && m.setDomain("." + d.base_domain);
+											m.setSignedRequestCookie(d.signed_request, f, e);
 										}
 										G();
 										g = "connected";
@@ -6751,33 +5623,33 @@ try {
 												: d && d.error && d.error === "authorization_expired"
 													? ((g = "authorization_expired"), D(null, g))
 													: ((g = "unknown"), D(null, g)),
-											s.getUseCookie() && n.clearSignedRequestCookie(),
+											r.getUseCookie() && m.clearSignedRequestCookie(),
 											c === "logout" &&
 												(H(),
-												t.log("jssdk_error", {
-													appId: s.getClientID(),
+												s.log("jssdk_error", {
+													appId: r.getClientID(),
 													error: "PLATFORM_AUTH_LOGOUT",
 													extra: { args: { fblo: !0 } }
 												})));
 									if (a) {
-										f = { authResponse: b, status: s.getLoginStatus() };
+										f = { authResponse: b, status: r.getLoginStatus() };
 										a(f);
 									}
 									return b;
 								};
 							}
 							function G() {
-								n.setRaw(y, "", 0, !1);
+								m.setRaw(y, "", 0, !1);
 							}
 							function H() {
-								n.setRaw(y, "y", ES("Date", "now", !1) + z, !1);
+								m.setRaw(y, "y", ES("Date", "now", !1) + z, !1);
 							}
 							function I(a) {
 								__p && __p();
 								var b,
 									c = ES("Date", "now", !1);
 								B && (clearTimeout(B), (B = null));
-								var d = n.getRaw(y) === "y";
+								var d = m.getRaw(y) === "y";
 								if (d) {
 									d = "unknown";
 									D(null, d);
@@ -6785,22 +5657,22 @@ try {
 									return;
 								}
 								var e = F(a, A, "login_status");
-								d = new v(k.resolve("www") + "/connect/ping")
-									.addQueryData(i.CLIENT_ID, s.getClientID())
+								d = new u(k.resolve("www") + "/connect/ping")
+									.addQueryData(i.CLIENT_ID, r.getClientID())
 									.addQueryData(i.RESPONSE_TYPE, "token,signed_request")
 									.addQueryData(i.DOMAIN, location.hostname)
-									.addQueryData(i.ORIGIN, q())
+									.addQueryData(i.ORIGIN, p())
 									.addQueryData(
 										i.REDIRECT_URI,
 										w.handler(function(a) {
-											if (p("e2e_ping_tracking", !0)) {
+											if (o("e2e_ping_tracking", !0)) {
 												var d = {
 													init: c,
 													close: ES("Date", "now", !1),
 													method: "ping"
 												};
 												h.debug("e2e: %s", ES("JSON", "stringify", !1, d));
-												r.log(114, { payload: d });
+												q.log(114, { payload: d });
 											}
 											b.parentNode.removeChild(b);
 											e(a) &&
@@ -6812,7 +5684,7 @@ try {
 									.addQueryData(i.SDK, "joey")
 									.addQueryData(
 										i.VERSION,
-										s.getIsVersioned() ? s.getVersion() : null
+										r.getIsVersioned() ? r.getVersion() : null
 									);
 								if (window.location.ancestorOrigins) {
 									a = window.location.ancestorOrigins;
@@ -6822,14 +5694,14 @@ try {
 										d.addQueryData(i.ANCESTOR_ORIGINS, f.slice(0, -1));
 									}
 								}
-								a = l.getLocalStorageForRead();
+								a = v.getLocalStorageForRead();
 								if (a) {
-									j = a.getItem(x + s.getClientID());
+									j = a.getItem(x + r.getClientID());
 									j && d.addQueryData(i.SAVED_TOKEN, j);
 								}
-								b = o({
+								b = n({
 									root: g.getRoot(),
-									name: m(),
+									name: l(),
 									url: d.toString(),
 									style: { display: "none" }
 								});
@@ -6837,7 +5709,7 @@ try {
 							var J;
 							function a(a, b) {
 								__p && __p();
-								if (!s.getClientID()) {
+								if (!r.getClientID()) {
 									h.warn(
 										"FB.getLoginStatus() called before calling FB.init()."
 									);
@@ -6845,7 +5717,7 @@ try {
 								}
 								if (a)
 									if (!b && J === "loaded") {
-										var c = { authResponse: E(), status: s.getLoginStatus() };
+										var c = { authResponse: E(), status: r.getLoginStatus() };
 										a(c);
 										return;
 									} else C.subscribe("FB.loginStatus", a);
@@ -6864,7 +5736,7 @@ try {
 								fetchLoginStatus: I,
 								setAuthResponse: D,
 								getAuthResponse: E,
-								parseSignedRequest: u.parse,
+								parseSignedRequest: t.parse,
 								xdResponseWrapper: F
 							});
 							e.exports = C;
@@ -13715,7 +12587,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -13726,7 +12598,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4388835","namespace":"FB","message":"' +
+				'","revision":"4389246","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
