@@ -1,4 +1,4 @@
-/*1538777085,,JIT Construction: v4390118,en_US*/
+/*1538783255,,JIT Construction: v4390695,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4390118",
+						revision: "4390695",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -10414,7 +10414,6 @@ try {
 								_allowReProcess: !1,
 								_fetchPreCachedLoader: !1,
 								_visibleAfter: "load",
-								_widgetPipeEnabled: !1,
 								_borderReset: !1,
 								getUrlBits: function() {
 									throw new Error(
@@ -10514,10 +10513,6 @@ try {
 										)
 									);
 								},
-								generateWidgetPipeIframeName: function() {
-									t++;
-									return "fb_iframe_" + t;
-								},
 								getFullyQualifiedURL: function() {
 									var a = this._getURL();
 									a += "?" + g.encode(this._getQS());
@@ -10535,9 +10530,6 @@ try {
 										this.subscribe("iframe.onload", b);
 									}
 									return a;
-								},
-								_getWidgetPipeShell: function() {
-									return h.resolve("www") + "/common/widget_pipe_shell.php";
 								},
 								_oneTimeSetup: function() {
 									this.subscribe(
@@ -10689,7 +10681,6 @@ try {
 									});
 								}
 							});
-							var t = 0;
 							e.exports = a;
 						},
 						null
@@ -11617,19 +11608,9 @@ try {
 								constructor: function(a, b, c, d) {
 									__p && __p();
 									if (location.protocol !== "https:" && o) {
-										var e = Math.floor((o - ES("Date", "now", !1)) / 864e5) + 1,
-											f =
-												"The Login Button plugin will stop working on http pages in %s days. Please update your site to use https for Facebook Login. %s";
-										e > 30
-											? h.log("warn", -1, f, e - 1, p)
-											: o - ES("Date", "now", !1) > 0
-												? h.log("error", -1, f, e - 1, p)
-												: h.log(
-														"error",
-														-1,
-														"The Login Button plugin can no longer be used on http pages. %s",
-														p
-												  );
+										var e =
+											"The Login Button plugin will soon stop working on http pages. Please update your site to use https for Facebook Login. %s";
+										h.log("error", -1, e, p);
 										i("https_only_scribe_logging", !0) &&
 											l.log("jssdk_error", {
 												appId: k.getClientID(),
@@ -11638,11 +11619,11 @@ try {
 											});
 									}
 									this.parent(a, b, c, d);
-									var q = g.getVal(d, "on_login"),
-										r = null,
-										s = this._iframeOptions.name;
-									q &&
-										((r = function(a) {
+									var f = g.getVal(d, "on_login"),
+										q = null,
+										r = this._iframeOptions.name;
+									f &&
+										((q = function(a) {
 											if (a.error_code) {
 												h.debug(
 													"Plugin Return Error (%s): %s",
@@ -11651,13 +11632,13 @@ try {
 												);
 												return;
 											}
-											j.invokeHandler(q, null, [a]);
+											j.invokeHandler(f, null, [a]);
 										}),
-										this.subscribe("login.status", r));
+										this.subscribe("login.status", q));
 									this.subscribe("xd.login_button_dialog_open", function(a) {
 										m(ES("JSON", "parse", !1, a.params), function(a) {
-											j.invokeHandler(r, null, [a]),
-												n.sendToFacebook(s, {
+											j.invokeHandler(q, null, [a]),
+												n.sendToFacebook(r, {
 													method: "loginReload",
 													params: ES("JSON", "stringify", !1, a)
 												});
@@ -12587,7 +12568,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -12598,7 +12579,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4390118","namespace":"FB","message":"' +
+				'","revision":"4390695","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
