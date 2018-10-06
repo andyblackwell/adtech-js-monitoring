@@ -1,4 +1,4 @@
-/*1538783255,,JIT Construction: v4390695,en_US*/
+/*1538790255,,JIT Construction: v4391596,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4390695",
+						revision: "4391596",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -2230,7 +2230,7 @@ try {
 							launch_payment_dialog_via_pac: { rate: 100 },
 							should_log_response_error: true,
 							popup_blocker_scribe_logging: { rate: 100 },
-							https_only_enforce_starting: 1538809200000,
+							https_only_enforce_starting: 2538809200000,
 							https_only_learn_more:
 								"https://developers.facebook.com/blog/post/2018/06/08/enforce-https-facebook-login/",
 							https_only_scribe_logging: { rate: 1 },
@@ -12579,7 +12579,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4390695","namespace":"FB","message":"' +
+				'","revision":"4391596","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
