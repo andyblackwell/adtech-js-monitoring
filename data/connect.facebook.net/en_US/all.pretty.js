@@ -1,4 +1,4 @@
-/*1538790255,,JIT Construction: v4391596,en_US*/
+/*1538797197,,JIT Construction: v4392138,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4391596",
+						revision: "4392138",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -2323,7 +2323,7 @@ try {
 					});
 					__d("JSSDKXDConfig", [], {
 						XdUrl: "/connect/xd_arbiter.php?version=42",
-						XdBundleUrl: "/connect/xd_arbiter/r/jeGFvz3E6vx.js?version=42",
+						XdBundleUrl: "/connect/xd_arbiter/r/trnHszv6jVd.js?version=42",
 						Flash: {
 							path:
 								"https://connect.facebook.net/rsrc.php/v2/yW/r/yOZN1vHw3Z_.swf"
@@ -2448,48 +2448,38 @@ try {
 						null
 					);
 					__d(
-						"sprintf",
+						"Log",
 						[],
 						function(a, b, c, d, e, f) {
-							function a(a) {
+							"use strict";
+							__p && __p();
+							a = { DEBUG: 3, INFO: 2, WARNING: 1, ERROR: 0 };
+							b = function(a, b, c) {
 								for (
-									var b = arguments.length,
-										c = new Array(b > 1 ? b - 1 : 0),
-										d = 1;
-									d < b;
-									d++
+									var d = arguments.length,
+										e = new Array(d > 3 ? d - 3 : 0),
+										f = 3;
+									f < d;
+									f++
 								)
-									c[d - 1] = arguments[d];
-								var e = 0;
-								return a.replace(/%s/g, function() {
-									return String(c[e++]);
-								});
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"Log",
-						["sprintf"],
-						function(a, b, c, d, e, f, g) {
-							b = { DEBUG: 3, INFO: 2, WARNING: 1, ERROR: 0 };
-							function a(a, b) {
-								var c = Array.prototype.slice.call(arguments, 2),
-									d = g.apply(null, c),
-									e = window.console;
-								e && h.level >= b && e[a in e ? a : "log"](d);
-							}
-							var h = {
-								level: -1,
-								Level: b,
-								debug: ES(a, "bind", !0, null, "debug", b.DEBUG),
-								info: ES(a, "bind", !0, null, "info", b.INFO),
-								warn: ES(a, "bind", !0, null, "warn", b.WARNING),
-								error: ES(a, "bind", !0, null, "error", b.ERROR),
-								log: a
+									e[f - 3] = arguments[f];
+								var h = 0,
+									i = c.replace(/%s/g, function() {
+										return String(e[h++]);
+									}),
+									j = window.console;
+								j && g.level >= b && j[a in j ? a : "log"](i);
 							};
-							e.exports = h;
+							var g = {
+								level: -1,
+								Level: a,
+								debug: ES(b, "bind", !0, null, "debug", a.DEBUG),
+								info: ES(b, "bind", !0, null, "info", a.INFO),
+								warn: ES(b, "bind", !0, null, "warn", a.WARNING),
+								error: ES(b, "bind", !0, null, "error", a.ERROR),
+								log: b
+							};
+							e.exports = g;
 						},
 						null
 					);
@@ -2734,6 +2724,28 @@ try {
 							h._prefix = "<![EX[";
 							h._suffix = "]]>";
 							e.exports = h;
+						},
+						null
+					);
+					__d(
+						"sprintf",
+						[],
+						function(a, b, c, d, e, f) {
+							function a(a) {
+								for (
+									var b = arguments.length,
+										c = new Array(b > 1 ? b - 1 : 0),
+										d = 1;
+									d < b;
+									d++
+								)
+									c[d - 1] = arguments[d];
+								var e = 0;
+								return a.replace(/%s/g, function() {
+									return String(c[e++]);
+								});
+							}
+							e.exports = a;
 						},
 						null
 					);
@@ -12579,7 +12591,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4391596","namespace":"FB","message":"' +
+				'","revision":"4392138","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
