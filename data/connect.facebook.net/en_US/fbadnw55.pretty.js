@@ -1,4 +1,4 @@
-/*1538901218,,JIT Construction: v4393324,en_US*/
+/*1539011665,,JIT Construction: v4394250,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -5413,7 +5413,6 @@ try {
 								__p && __p();
 								this.$14 += a;
 								var c = b.getViewableRatio() || 0;
-								b.getViewableWidthRatio() || 0;
 								this.$20 = b.getViewabilityDetection();
 								this.$21 = b.getReason();
 								this.$8 = c;
@@ -5477,57 +5476,17 @@ try {
 						null
 					);
 					__d(
-						"AdQualityTest.adquality",
-						["AdQualityStatistics.adquality"],
-						function(a, b, c, d, e, f, g) {
-							"use strict";
-							__p && __p();
-							function a(a) {
-								(this.$1 = !1),
-									(this.$2 = a),
-									(this.$3 = new g(a.viewableRatio));
-							}
-							a.prototype.registerProgress = function(a, b, c, d) {
-								__p && __p();
-								if (this.$1) return;
-								this.$3.registerProgress(a, b);
-								c = b.getViewableRatio() || 0;
-								if (
-									this.$2.continuous &&
-									(!b.getIsContinuous() || c < this.$2.viewableRatio)
-								) {
-									this.$3 = new g(this.$2.viewableRatio);
-									return;
-								}
-								d = this.$3.getData().viewableSeconds || 0;
-								d >= this.$2.viewableSeconds && b.isConclusive() && this.$4(b);
-							};
-							a.prototype.$4 = function(a) {
-								(this.$1 = !0),
-									this.$2.adQualityTestConditionTrueCallback({
-										measurementResult: a,
-										statistics: this.$3.getData(),
-										lastLoggingTime: 0,
-										currentLoggingTime: 0
-									});
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"AdQualityManager.adquality",
 						[
 							"AdQualityMeasurementQueue.adquality",
 							"AdQualityMeasurementResult.adquality",
 							"AdQualityPlayerSizeMonitor.adquality",
-							"AdQualityStatistics.adquality",
-							"AdQualityTest.adquality"
+							"AdQualityStatistics.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k) {
+						function(a, b, c, d, e, f, g, h, i, j) {
 							"use strict";
 							__p && __p();
-							var l = 0.5;
+							var k = 0.5;
 							function a(a) {
 								__p && __p();
 								var b = a.element,
@@ -5539,7 +5498,7 @@ try {
 								this.$4 = new i();
 								this.$5 = c;
 								this.$8 = d;
-								this.$6 = new j(l);
+								this.$6 = new j(k);
 								this.$7 = ES(this.$8, "map", !0, function(a) {
 									return a.createTest(a);
 								});
@@ -5577,23 +5536,28 @@ try {
 									g && g(this.getStatistics());
 									return;
 								}
-								this.$6.registerVolume(a, b, e);
-								this.$6.registerPlaybackRate(a, c);
 								this.$3.getMeasurement(
 									ES(
-										function(b) {
+										function(i) {
 											if (this.$1) {
-												var c = b.getAdRect();
-												b = new h({
-													ar: c,
-													e: b.getError(),
-													vd: b.getViewabilityDetection(),
-													r: d ? "fullscreen" : b.getReason(),
-													vr: d ? c : b.getViewableRect(),
+												var j = i.getAdRect();
+												j = new h({
+													ar: j,
+													e: i.getError(),
+													vd: i.getViewabilityDetection(),
+													r: d ? "fullscreen" : i.getReason(),
+													vr: d ? j : i.getViewableRect(),
 													cont: e,
-													maa: this.$4.getMaxAdAreaForScreenOrientation(b)
+													maa: this.$4.getMaxAdAreaForScreenOrientation(i)
 												});
-												this.$9(b, parseFloat(a), this.getStatistics(), f);
+												this.$9(
+													j,
+													parseFloat(a),
+													this.getStatistics(),
+													f,
+													b,
+													c
+												);
 												g && g(this.getStatistics());
 											}
 										},
@@ -5609,8 +5573,10 @@ try {
 							a.prototype.addRule = function(a) {
 								this.$8.push(a), this.$7.push(a.createTest(a));
 							};
-							a.prototype.$9 = function(a, b, c, d) {
-								this.$6.registerProgress(b, a),
+							a.prototype.$9 = function(a, b, c, d, e, f) {
+								this.$6.registerVolume(b, e, a.getIsContinuous()),
+									this.$6.registerPlaybackRate(b, f),
+									this.$6.registerProgress(b, a),
 									ES(this.$7, "forEach", !0, function(e) {
 										e.registerProgress(b, a, c, d);
 									});
@@ -7404,7 +7370,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4393324","namespace":"FB","message":"' +
+				'","revision":"4394250","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
