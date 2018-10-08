@@ -1,4 +1,4 @@
-/*1539028122,,JIT Construction: v4394786,en_US*/
+/*1539032926,,JIT Construction: v4395378,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4394786",
+						revision: "4395378",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2236,89 +2236,6 @@ try {
 							https_only_scribe_logging: { rate: 1 },
 							log_perf: { rate: 0.001 },
 							plugin_tags_blacklist: ["name"]
-						},
-						api: {
-							mode: "warn",
-							https_only: [
-								"api",
-								"getAccessToken",
-								"getAuthResponse",
-								"getLoginStatus",
-								"getUserID",
-								"login"
-							],
-							whitelist: [
-								"AppEvents",
-								"AppEvents.EventNames",
-								"AppEvents.ParameterNames",
-								"AppEvents.activateApp",
-								"AppEvents.logEvent",
-								"AppEvents.logPageView",
-								"AppEvents.logPurchase",
-								"AppEvents.setUserID",
-								"AppEvents.getUserID",
-								"AppEvents.clearUserID",
-								"AppEvents.updateUserProperties",
-								"Canvas",
-								"Canvas.Prefetcher",
-								"Canvas.Prefetcher.addStaticResource",
-								"Canvas.Prefetcher.setCollectionMode",
-								"Canvas.getPageInfo",
-								"Canvas.hideFlashElement",
-								"Canvas.scrollTo",
-								"Canvas.setAutoGrow",
-								"Canvas.setDoneLoading",
-								"Canvas.setSize",
-								"Canvas.setUrlHandler",
-								"Canvas.showFlashElement",
-								"Canvas.startTimer",
-								"Canvas.stopTimer",
-								"Event",
-								"Event.subscribe",
-								"Event.unsubscribe",
-								"Music.flashCallback",
-								"Music.init",
-								"Music.send",
-								"Payment",
-								"Payment.cancelFlow",
-								"Payment.continueFlow",
-								"Payment.init",
-								"Payment.lockForProcessing",
-								"Payment.parse",
-								"Payment.setSize",
-								"Payment.unlockForProcessing",
-								"ThirdPartyProvider",
-								"ThirdPartyProvider.init",
-								"ThirdPartyProvider.sendData",
-								"UA",
-								"UA.nativeApp",
-								"XFBML",
-								"XFBML.RecommendationsBar",
-								"XFBML.RecommendationsBar.markRead",
-								"XFBML.parse",
-								"addFriend",
-								"api",
-								"getAccessToken",
-								"getAuthResponse",
-								"getLoginStatus",
-								"getUserID",
-								"init",
-								"login",
-								"logout",
-								"publish",
-								"share",
-								"ui",
-								"AppEvents.setAppVersion",
-								"AppEvents.getAppVersion",
-								"AppEvents.clearAppVersion",
-								"RankingService.hidePlugin",
-								"RankingService.showPlugin",
-								"CustomerChat.hideDialog",
-								"CustomerChat.showDialog",
-								"CustomerChat.hide",
-								"CustomerChat.show",
-								"CustomerChat.update"
-							]
 						}
 					});
 					__d("JSSDKXDConfig", [], {
@@ -12580,7 +12497,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -12591,7 +12508,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4394786","namespace":"FB","message":"' +
+				'","revision":"4395378","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
