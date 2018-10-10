@@ -1,4 +1,4 @@
-/*1539178754,,JIT Construction: v4404124,en_US*/
+/*1539180811,,JIT Construction: v4404223,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2188,12 +2188,12 @@ try {
 						a.Set = i;
 					})(typeof global === "undefined" ? this : global);
 					__d("UrlMapConfig", [], {
-						www: "web.facebook.com",
-						m: "mobile.facebook.com",
+						www: "www.facebook.com",
+						m: "m.facebook.com",
 						connect: "connect.facebook.net",
 						business: "business.facebook.com",
 						api: "api.facebook.com",
-						api_read: "api.facebook.com",
+						api_read: "api-read.facebook.com",
 						graph: "graph.facebook.com",
 						an: "an.facebook.com",
 						fbcdn: "static.xx.fbcdn.net",
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4404124",
+						revision: "4404223",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -12150,7 +12150,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -12161,7 +12161,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4404124","namespace":"FB","message":"' +
+				'","revision":"4404223","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
