@@ -1,4 +1,4 @@
-/*1539125227,,JIT Construction: v4400672,en_US*/
+/*1539181559,,JIT Construction: v4404223,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -3804,7 +3804,7 @@ try {
 											position: "initial"
 									  });
 								this.$1.applyChanges();
-								this.$8();
+								this.$8(c);
 								this.$1.applyChanges();
 							};
 							a.prototype.$7 = function(a, b, c, d) {
@@ -3826,9 +3826,9 @@ try {
 							a.prototype.restoreOriginalStyles = function() {
 								this.$1.restoreOriginalStyles();
 							};
-							a.prototype.$8 = function() {
-								this.$1.addChanges(this.$2, { "max-width": "none" });
-								var a = this.$2.parentElement;
+							a.prototype.$8 = function(a) {
+								this.$1.addChanges(a, { "max-width": "none" });
+								a = a.parentElement;
 								if (!a) return;
 								var b = this.$6 - a.getBoundingClientRect().left;
 								this.$1.addChanges(a, { "margin-left": h.cssSize(b) });
@@ -3957,13 +3957,14 @@ try {
 								__p && __p();
 								var a = this.$15();
 								if (!a) return !1;
-								if (a.ownerDocument.defaultView.frameElement) {
+								var b = i.isA9Container(this.$2);
+								if (a.ownerDocument.defaultView.frameElement && !b) {
 									this.$6.event(m, "iframe");
 									return !1;
 								}
 								if (!i.screenIsPortrait()) return !1;
-								var b = 0,
-									c = "";
+								b = 0;
+								var c = "";
 								while (a && this.$16(a))
 									(c = c || this.$17(a, b)),
 										(a.dataset[this.$9] = i.getElementHeight(a) + ""),
@@ -7370,7 +7371,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4400672","namespace":"FB","message":"' +
+				'","revision":"4404223","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
