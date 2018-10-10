@@ -1,4 +1,4 @@
-/*1539128193,,JIT Construction: v4400672,en_US*/
+/*1539139121,,JIT Construction: v4402578,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4400672",
+						revision: "4402578",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -2249,7 +2249,7 @@ try {
 					});
 					__d("JSSDKCssConfig", [], {
 						rules:
-							'.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}\u0040keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}\n.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f5f6f7;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100\u0025}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100\u0025;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50\u0025;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100\u0025;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100\u0025}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50\u0025 50\u0025;min-height:100\u0025;min-width:100\u0025;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100\u0025}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100\u0025;min-height:100\u0025;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:-webkit-sticky;top:0}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0\u0025 0\u0025, 0\u0025 100\u0025, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100\u0025}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0\u0025 0\u0025, 0\u0025 100\u0025, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50\u0025 50\u0025;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50\u0025 50\u0025;height:24px;width:24px}\u0040keyframes rotateSpinner{0\u0025{transform:rotate(0deg)}100\u0025{transform:rotate(360deg)}}\n.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100\u0025}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100\u0025}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50\u0025;z-index:4}\n.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_in_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_out_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bubble_pop_in{animation-duration:250ms;animation-name:fb_customer_chat_bubble_bounce_in_animation}.fb_customer_chat_bubble_animated_no_badge{box-shadow:0 3px 12px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_no_badge:hover{box-shadow:0 5px 24px rgba(0, 0, 0, .3)}.fb_customer_chat_bubble_animated_with_badge{box-shadow:-5px 4px 14px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_with_badge:hover{box-shadow:-5px 8px 24px rgba(0, 0, 0, .2)}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100\u0025;overflow:hidden;position:fixed;visibility:hidden;width:100\u0025}\u0040keyframes fb_bounce_in_v2{0\u0025{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50\u0025{transform:scale(1.03, 1.03);transform-origin:bottom right}100\u0025{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}\u0040keyframes fb_bounce_in_v2_mobile_chat_started{0\u0025{opacity:0;top:20px}100\u0025{opacity:1;top:0}}\u0040keyframes fb_bounce_out_v2{0\u0025{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100\u0025{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}\u0040keyframes fb_bounce_out_v2_mobile_chat_started{0\u0025{opacity:1;top:0}100\u0025{opacity:0;top:20px}}\u0040keyframes fb_customer_chat_bubble_bounce_in_animation{0\u0025{bottom:6pt;opacity:0;transform:scale(0, 0);transform-origin:center}70\u0025{bottom:18pt;opacity:1;transform:scale(1.2, 1.2)}100\u0025{transform:scale(1, 1)}}',
+							'.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}\u0040keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}\n.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f5f6f7;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100\u0025}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100\u0025;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50\u0025;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100\u0025;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100\u0025}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50\u0025 50\u0025;min-height:100\u0025;min-width:100\u0025;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100\u0025}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100\u0025;min-height:100\u0025;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:-webkit-sticky;top:0}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0\u0025 0\u0025, 0\u0025 100\u0025, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100\u0025}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0\u0025 0\u0025, 0\u0025 100\u0025, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50\u0025 50\u0025;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50\u0025 50\u0025;height:24px;width:24px}\u0040keyframes rotateSpinner{0\u0025{transform:rotate(0deg)}100\u0025{transform:rotate(360deg)}}\n.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100\u0025}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100\u0025}\n.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_in_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_out_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bubble_pop_in{animation-duration:250ms;animation-name:fb_customer_chat_bubble_bounce_in_animation}.fb_customer_chat_bubble_animated_no_badge{box-shadow:0 3px 12px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_no_badge:hover{box-shadow:0 5px 24px rgba(0, 0, 0, .3)}.fb_customer_chat_bubble_animated_with_badge{box-shadow:-5px 4px 14px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_with_badge:hover{box-shadow:-5px 8px 24px rgba(0, 0, 0, .2)}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100\u0025;overflow:hidden;position:fixed;visibility:hidden;width:100\u0025}\u0040keyframes fb_bounce_in_v2{0\u0025{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50\u0025{transform:scale(1.03, 1.03);transform-origin:bottom right}100\u0025{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}\u0040keyframes fb_bounce_in_v2_mobile_chat_started{0\u0025{opacity:0;top:20px}100\u0025{opacity:1;top:0}}\u0040keyframes fb_bounce_out_v2{0\u0025{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100\u0025{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}\u0040keyframes fb_bounce_out_v2_mobile_chat_started{0\u0025{opacity:1;top:0}100\u0025{opacity:0;top:20px}}\u0040keyframes fb_customer_chat_bubble_bounce_in_animation{0\u0025{bottom:6pt;opacity:0;transform:scale(0, 0);transform-origin:center}70\u0025{bottom:18pt;opacity:1;transform:scale(1.2, 1.2)}100\u0025{transform:scale(1, 1)}}',
 						components: [
 							"css:fb.css.base",
 							"css:fb.css.dialog",
@@ -7698,7 +7698,6 @@ try {
 					__d(
 						"sdk.UIServer",
 						[
-							"JSSDKConfig",
 							"Log",
 							"QueryString",
 							"UrlMap",
@@ -7756,44 +7755,43 @@ try {
 							B,
 							C,
 							D,
-							E,
-							F
+							E
 						) {
 							__p && __p();
-							var G = {
+							var F = {
 								transform: function(a) {
 									if (
 										a.params.display === "touch" &&
-										N.canIframe(a.params) &&
+										M.canIframe(a.params) &&
 										window.postMessage
 									) {
-										a.params.channel = N._xdChannelHandler(a.id, "parent");
-										E.nativeApp() || (a.params.in_iframe = 1);
+										a.params.channel = M._xdChannelHandler(a.id, "parent");
+										D.nativeApp() || (a.params.in_iframe = 1);
 										return a;
-									} else return N.genericTransform(a);
+									} else return M.genericTransform(a);
 								},
 								getXdRelation: function(a) {
 									var b = a.display;
 									return b === "touch" && window.postMessage && a.in_iframe
 										? "parent"
-										: N.getXdRelation(a);
+										: M.getXdRelation(a);
 								}
 							};
-							function H(a) {
+							function G(a) {
 								return (
 									a.method == "permissions.oauth" ||
 									a.method == "permissions.request" ||
 									a.method == "oauth"
 								);
 							}
-							function I(a) {
-								return H(a) && u.supportsDialog("oauth");
+							function H(a) {
+								return G(a) && t.supportsDialog("oauth");
 							}
-							function J(a) {
+							function I(a) {
 								return (
-									H(a) &&
+									G(a) &&
 									(a.is_account_link === !0 || a.is_account_link === "true") &&
-									u.supportsDialog("accountLink")
+									t.supportsDialog("accountLink")
 								);
 							}
 							a = {
@@ -7808,43 +7806,43 @@ try {
 								},
 								apprequests: {
 									transform: function(a) {
-										a = G.transform(a);
-										a.params.frictionless = x && x._useFrictionless;
+										a = F.transform(a);
+										a.params.frictionless = w && w._useFrictionless;
 										a.params.frictionless &&
-											(x.isAllowed(a.params.to) &&
+											(w.isAllowed(a.params.to) &&
 												((a.params.display = "iframe"),
 												(a.params.in_iframe = !0),
 												(a.hideLoader = !0)),
-											(a.cb = x._processRequestResponse(a.cb, a.hideLoader)));
+											(a.cb = w._processRequestResponse(a.cb, a.hideLoader)));
 										a.closeIcon = !1;
 										return a;
 									},
-									getXdRelation: G.getXdRelation
+									getXdRelation: F.getXdRelation
 								},
 								"permissions.oauth": {
 									url: "dialog/oauth",
 									size: {
-										width: E.mobile() ? null : 600,
-										height: E.mobile() ? null : 679
+										width: D.mobile() ? null : 600,
+										height: D.mobile() ? null : 679
 									},
 									transform: function(a) {
 										__p && __p();
-										if (!C.getClientID()) {
-											h.error("FB.login() called before FB.init().");
+										if (!B.getClientID()) {
+											g.error("FB.login() called before FB.init().");
 											return;
 										}
 										if (
-											p.getAuthResponse() &&
+											o.getAuthResponse() &&
 											!a.params.scope &&
 											!a.params.auth_type
 										) {
-											h.error(
+											g.error(
 												"FB.login() called when user is already connected."
 											);
 											a.cb &&
 												a.cb({
-													status: C.getLoginStatus(),
-													authResponse: p.getAuthResponse()
+													status: B.getLoginStatus(),
+													authResponse: o.getAuthResponse()
 												});
 											return;
 										}
@@ -7861,25 +7859,25 @@ try {
 													"assign",
 													!1,
 													a.params.response_type
-														? k(a.params.response_type.split(","))
+														? j(a.params.response_type.split(","))
 														: {},
 													{ token: !0, signed_request: !0 }
 												)
 											).join(",");
 										a.params.display === "async"
 											? (ES("Object", "assign", !1, a.params, {
-													client_id: C.getClientID(),
-													origin: y(),
+													client_id: B.getClientID(),
+													origin: x(),
 													response_type: e,
 													domain: location.hostname
 											  }),
-											  (a.cb = p.xdResponseWrapper(
+											  (a.cb = o.xdResponseWrapper(
 													b,
-													p.getAuthResponse(),
+													o.getAuthResponse(),
 													"permissions.oauth"
 											  )))
 											: (d &&
-													N._xdNextHandler(
+													M._xdNextHandler(
 														function(a) {
 															b({
 																authResponse: null,
@@ -7891,18 +7889,18 @@ try {
 														!0
 													),
 											  ES("Object", "assign", !1, a.params, {
-													client_id: C.getClientID(),
-													redirect_uri: o(
-														N.xdHandler(
+													client_id: B.getClientID(),
+													redirect_uri: n(
+														M.xdHandler(
 															b,
 															c,
 															"opener",
-															p.getAuthResponse(),
+															o.getAuthResponse(),
 															"permissions.oauth",
 															!d
 														)
 													),
-													origin: y(),
+													origin: x(),
 													response_type: e,
 													domain: location.hostname
 											  }));
@@ -7912,16 +7910,16 @@ try {
 								"auth.logout": {
 									url: "logout.php",
 									transform: function(a) {
-										if (!C.getClientID())
-											h.error("FB.logout() called before calling FB.init().");
-										else if (!p.getAuthResponse())
-											h.error("FB.logout() called without an access token.");
+										if (!B.getClientID())
+											g.error("FB.logout() called before calling FB.init().");
+										else if (!o.getAuthResponse())
+											g.error("FB.logout() called without an access token.");
 										else {
-											a.params.next = N.xdHandler(
+											a.params.next = M.xdHandler(
 												a.cb,
 												a.id,
 												"parent",
-												p.getAuthResponse(),
+												o.getAuthResponse(),
 												"logout",
 												!0
 											);
@@ -7936,16 +7934,16 @@ try {
 											c = a.id;
 										delete a.cb;
 										ES("Object", "assign", !1, a.params, {
-											client_id: C.getClientID(),
-											redirect_uri: N.xdHandler(
+											client_id: B.getClientID(),
+											redirect_uri: M.xdHandler(
 												b,
 												c,
 												"parent",
-												p.getAuthResponse(),
+												o.getAuthResponse(),
 												"login_status",
 												!0
 											),
-											origin: y(),
+											origin: x(),
 											response_type: "token,signed_request",
 											domain: location.hostname
 										});
@@ -7974,19 +7972,18 @@ try {
 									}
 								}
 							};
-							var K = {};
-							function L(a, b) {
-								K[b] = !0;
+							var J = {};
+							function K(a, b) {
+								J[b] = !0;
 								return function(c) {
-									delete K[b], a(c);
+									delete J[b], a(c);
 								};
 							}
-							function M(a) {
-								if (!w("should_force_single_dialog_instance", !0)) return !1;
+							function L(a) {
 								var b = a.method.toLowerCase();
 								return b === "pay" && a.display === "async" ? !0 : !1;
 							}
-							var N = {
+							var M = {
 								Methods: a,
 								_loadedNodes: {},
 								_defaultCb: {},
@@ -8001,69 +7998,69 @@ try {
 											a.params,
 											{
 												display: "iframe",
-												channel: N._xdChannelHandler(a.id, "parent.parent")
+												channel: M._xdChannelHandler(a.id, "parent.parent")
 											},
 											!0
 										);
 									return a;
 								},
 								checkOauthDisplay: function(a) {
-									var b = a.scope || a.perms || C.getScope();
+									var b = a.scope || a.perms || B.getScope();
 									return !b ? a.display : "popup";
 								},
 								prepareCall: function(a, b) {
 									__p && __p();
 									var c = a.method.toLowerCase(),
-										d = Object.prototype.hasOwnProperty.call(N.Methods, c)
-											? ES("Object", "assign", !1, {}, N.Methods[c])
+										d = Object.prototype.hasOwnProperty.call(M.Methods, c)
+											? ES("Object", "assign", !1, {}, M.Methods[c])
 											: {},
-										e = m(),
+										e = l(),
 										f = !0;
 									ES("Object", "assign", !1, a, {
-										app_id: C.getClientID(),
-										locale: C.getLocale(),
+										app_id: B.getClientID(),
+										locale: B.getLocale(),
 										sdk: "joey",
-										access_token: (f && C.getAccessToken()) || undefined
+										access_token: (f && B.getAccessToken()) || undefined
 									});
 									(c === "share" || c === "share_open_graph") &&
 										((a.mobile_iframe =
-											E.mobile() && (a.mobile_iframe || a.iframe_test)),
-										a.mobile_iframe && (d = ES("Object", "assign", !1, {}, G)));
-									a.display = N.getDisplayMode(d, a);
+											D.mobile() && (a.mobile_iframe || a.iframe_test)),
+										a.mobile_iframe && (d = ES("Object", "assign", !1, {}, F)));
+									a.display = M.getDisplayMode(d, a);
 									d.url || (d.url = "dialog/" + c);
 									(d.url == "dialog/oauth" ||
 										d.url == "dialog/permissions.request") &&
 										(a.display == "iframe" ||
 											(a.display == "touch" && a.in_iframe)) &&
-										(a.display = N.checkOauthDisplay(a));
+										(a.display = M.checkOauthDisplay(a));
 									a.display == "popup" &&
 										!d.require_access_token &&
 										delete a.access_token;
-									C.getIsVersioned() &&
+									B.getIsVersioned() &&
 										d.url.substring(0, 7) === "dialog/" &&
 										(d.url = a.version + "/" + d.url);
-									if (M(a)) {
-										if (K[c]) {
+									if (L(a)) {
+										if (J[c]) {
 											f = 'Dialog "' + c + '" is trying to run more than once.';
-											h.warn(f);
+											g.warn(f);
 											b({ error_code: -100, error_message: f });
 											return;
 										}
-										b = L(b, c);
+										b = K(b, c);
 									}
 									f = {
 										cb: b,
 										id: e,
-										size: d.size || N.getDefaultSize(),
+										size: d.size || M.getDefaultSize(),
 										url:
-											j.resolve(a.display == "touch" ? "m" : "www") +
+											i.resolve(a.display == "touch" ? "m" : "www") +
 											"/" +
 											d.url,
 										params: a,
 										name: c,
-										dialog: r.newInstance(e, a.display)
+										dialog: q.newInstance(e, a.display)
 									};
-									b = d.transform ? d.transform : N.genericTransform;
+									b = d.transform ? d.transform : M.genericTransform;
 									if (b) {
 										f = b(f);
 										if (!f) return;
@@ -8071,12 +8068,12 @@ try {
 									a.display === "touch" &&
 										a.in_iframe &&
 										(f.params.parent_height = window.innerHeight);
-									c = d.getXdRelation || N.getXdRelation;
+									c = d.getXdRelation || M.getXdRelation;
 									b = c(f.params);
-									!(f.id in N._defaultCb) &&
+									!(f.id in M._defaultCb) &&
 										!("next" in f.params) &&
 										!("redirect_uri" in f.params) &&
-										(f.params.next = N._xdResult(f.cb, f.id, b, !0));
+										(f.params.next = M._xdResult(f.cb, f.id, b, !0));
 									(b === "parent" || b === "opener") &&
 										ES(
 											"Object",
@@ -8084,29 +8081,29 @@ try {
 											!1,
 											f.params,
 											{
-												channel_url: N._xdChannelHandler(
+												channel_url: M._xdChannelHandler(
 													e,
 													b === "parent" ? "parent.parent" : "opener"
 												)
 											},
 											!0
 										);
-									f = N.prepareParams(f);
+									f = M.prepareParams(f);
 									return f;
 								},
 								prepareParams: function(a) {
 									a.params.display !== "async" && delete a.params.method;
 									a.params.kid_directed_site =
-										C.getKidDirectedSite() || a.params.kid_directed_site;
-									a.params = l(a.params);
-									var b = i.encode(a.params);
-									!E.nativeApp() && N.urlTooLongForIE(a.url + "?" + b)
+										B.getKidDirectedSite() || a.params.kid_directed_site;
+									a.params = k(a.params);
+									var b = h.encode(a.params);
+									!D.nativeApp() && M.urlTooLongForIE(a.url + "?" + b)
 										? (a.post = !0)
 										: b && (a.url += "?" + b);
 									return a;
 								},
 								urlTooLongForIE: function(a) {
-									return E.ie() && E.ie() <= 8 && a.length > 2048;
+									return D.ie() && D.ie() <= 8 && a.length > 2048;
 								},
 								getDisplayMode: function(a, b) {
 									__p && __p();
@@ -8117,27 +8114,27 @@ try {
 									)
 										return b.display;
 									var c =
-										C.isEnvironment(C.ENVIRONMENTS.CANVAS) ||
-										C.isEnvironment(C.ENVIRONMENTS.PAGETAB);
+										B.isEnvironment(B.ENVIRONMENTS.CANVAS) ||
+										B.isEnvironment(B.ENVIRONMENTS.PAGETAB);
 									if (c && !b.display) return "async";
-									if (I(b) || J(b)) return "async";
-									if (E.mobile() || b.display === "touch") return "touch";
+									if (H(b) || I(b)) return "async";
+									if (D.mobile() || b.display === "touch") return "touch";
 									if (
 										(b.display == "iframe" || b.display == "dialog") &&
-										!N.canIframe(b)
+										!M.canIframe(b)
 									) {
-										h.error(
+										g.error(
 											'"dialog" mode can only be used when the user is connected.'
 										);
 										return "popup";
 									}
 									return a.connectDisplay && !c
 										? a.connectDisplay
-										: b.display || (N.canIframe(b) ? "dialog" : "popup");
+										: b.display || (M.canIframe(b) ? "dialog" : "popup");
 								},
 								canIframe: function(a) {
-									if (C.getAccessToken()) return !0;
-									return E.mobile() && C.getLoggedIntoFacebook()
+									if (B.getAccessToken()) return !0;
+									return D.mobile() && B.getLoggedIntoFacebook()
 										? !!a.mobile_iframe
 										: !1;
 								},
@@ -8151,32 +8148,21 @@ try {
 										a === "none"
 									)
 										return "parent";
-									if (a === "async")
-										return "parent.frames[" + window.name + "]";
+									return a === "async"
+										? "parent.frames[" + window.name + "]"
+										: "";
 								},
 								popup: function(a) {
 									__p && __p();
-									var b =
-											typeof window.screenX !== "undefined"
-												? window.screenX
-												: window.screenLeft,
-										c =
-											typeof window.screenY !== "undefined"
-												? window.screenY
-												: window.screenTop,
-										d =
-											typeof window.outerWidth !== "undefined"
-												? window.outerWidth
-												: document.documentElement.clientWidth,
-										e =
-											typeof window.outerHeight !== "undefined"
-												? window.outerHeight
-												: document.documentElement.clientHeight - 22,
-										f = E.mobile() ? null : a.size.width,
-										g = E.mobile() ? null : a.size.height;
+									var b = window.screenX,
+										c = window.screenY,
+										d = window.outerWidth,
+										e = window.outerHeight,
+										f = D.mobile() ? null : a.size.width,
+										g = D.mobile() ? null : a.size.height;
 									b = b < 0 ? window.screen.width + b : b;
-									b = parseInt(b + (d - f) / 2, 10);
-									d = parseInt(c + (e - g) / 2.5, 10);
+									b = b + (d - f) / 2;
+									d = c + (e - g) / 2.5;
 									c = [];
 									f !== null && c.push("width=" + f);
 									g !== null && c.push("height=" + g);
@@ -8186,89 +8172,89 @@ try {
 									(a.name == "permissions.request" ||
 										a.name == "permissions.oauth") &&
 										(c.push("toolbar=0"),
-										(!E.chrome() || E.chrome() < 59) && c.push("location=1"));
-									c = c.join(",");
+										(!D.chrome() || D.chrome() < 59) && c.push("location=1"));
+									e = c.join(",");
 									a.post
-										? ((e = window.open("about:blank", a.id, c)),
-										  e &&
-												(N.setLoadedNode(a, e, "popup"),
-												q.submitToTarget({
+										? ((f = window.open("about:blank", a.id, e)),
+										  f &&
+												(M.setLoadedNode(a, f, "popup"),
+												p.submitToTarget({
 													url: a.url,
 													target: a.id,
 													params: a.params
 												})))
-										: ((e = window.open(a.url, a.id, c)),
-										  e && N.setLoadedNode(a, e, "popup"));
-									if (!e) {
-										w("popup_blocker_scribe_logging", !0) &&
-											D.log("jssdk_error", {
-												appId: C.getClientID(),
+										: ((f = window.open(a.url, a.id, e)),
+										  f && M.setLoadedNode(a, f, "popup"));
+									if (!f) {
+										v("popup_blocker_scribe_logging", !0) &&
+											C.log("jssdk_error", {
+												appId: B.getClientID(),
 												error: "POPUP_MAYBE_BLOCKED",
 												extra: { call: a.name }
 											});
 										return;
 									}
-									a.id in N._defaultCb && N._popupMonitor();
+									a.id in M._defaultCb && M._popupMonitor();
 								},
 								setLoadedNode: function(a, b, c) {
 									c === "iframe" && (b.fbCallID = a.id),
 										(b = { node: b, type: c, fbCallID: a.id }),
-										(N._loadedNodes[a.id] = b);
+										(M._loadedNodes[a.id] = b);
 								},
 								getLoadedNode: function(a) {
 									a = typeof a === "object" ? a.id : a;
-									a = N._loadedNodes[a];
+									a = M._loadedNodes[a];
 									return a ? a.node : null;
 								},
 								hidden: function(a) {
 									(a.className = "FB_UI_Hidden"),
-										(a.root = q.appendHidden("")),
-										N._insertIframe(a);
+										(a.root = p.appendHidden("")),
+										M._insertIframe(a);
 								},
 								iframe: function(a) {
 									__p && __p();
 									a.className = "FB_UI_Dialog";
 									a.params.mobile_iframe &&
-										(r.setForceTabletStyle(!0),
-										r.setCloseOnOverlayTap(!0),
-										r.setPositionDialogAtTopWhenPortrait(!0));
+										(q.setForceTabletStyle(!0),
+										q.setCloseOnOverlayTap(!0),
+										q.setPositionDialogAtTopWhenPortrait(!0));
 									var b = function() {
 											var b = ES("JSON", "stringify", !1, {
 												error_code: 4201,
-												error_message: v._("User canceled the Dialog flow")
+												error_message: u._("User canceled the Dialog flow")
 											});
-											N._triggerDefault(a.id, b);
+											M._triggerDefault(a.id, b);
 										},
 										c = {
 											onClose: b,
 											closeIcon: a.closeIcon === undefined ? !0 : a.closeIcon,
-											classes: r.isTabletStyle() ? "centered" : ""
+											classes: q.isTabletStyle() ? "centered" : ""
 										};
 									a.params.mobile_iframe &&
 										(c.styles = { "border-radius": "8px" });
-									a.root = r.create(c);
-									a.hideLoader || r.showLoader(b, a.size.width);
-									s.addCss(a.root, "fb_dialog_iframe");
-									N._insertIframe(a);
+									a.root = q.create(c);
+									a.hideLoader || q.showLoader(b, a.size.width);
+									r.addCss(a.root, "fb_dialog_iframe");
+									M._insertIframe(a);
 								},
 								touch: function(a) {
 									a.params && a.params.in_iframe
 										? a.ui_created
-											? r.showLoader(function() {
-													N._triggerDefault(a.id, null);
+											? q.showLoader(function() {
+													M._triggerDefault(a.id, null);
 											  }, 0)
-											: N.iframe(a)
-										: E.nativeApp() && !a.ui_created
+											: M.iframe(a)
+										: D.nativeApp() && !a.ui_created
 											? ((a.frame = a.id),
-											  z.onready(function() {
-													N.setLoadedNode(
+											  y.onready(function() {
+													M.setLoadedNode(
 														a,
-														z.open(a.url + "#cb=" + a.frameName),
+														y.open(a.url + "#cb=" + a.frameName),
 														"native"
 													);
 											  }),
-											  N._popupMonitor())
-											: a.ui_created || N.popup(a);
+											  M._popupMonitor())
+											: a.ui_created || M.popup(a);
 								},
 								async: function(a) {
 									__p && __p();
@@ -8281,32 +8267,32 @@ try {
 									var b = function(b) {
 										b = b.result;
 										if (b && b.e2e) {
-											var c = r.get(a.id);
+											var c = q.get(a.id);
 											c.trackEvents(b.e2e);
 											c.trackEvent("close");
 											delete b.e2e;
 										}
 										a.cb(b);
 									};
-									I(a.params) || J(a.params)
+									H(a.params) || I(a.params)
 										? ((a.params.method = "oauth"),
 										  (a.params.redirect_uri = a.params.next),
-										  u.remote.showDialog(a.params, b))
-										: B.remote.showDialog(a.params, b);
+										  t.remote.showDialog(a.params, b))
+										: A.remote.showDialog(a.params, b);
 								},
 								native: function(a) {
-									A(a.params);
+									z(a.params);
 								},
 								getDefaultSize: function() {
-									return r.getDefaultSize();
+									return q.getDefaultSize();
 								},
 								_insertIframe: function(a) {
-									N._loadedNodes[a.id] = !1;
+									M._loadedNodes[a.id] = !1;
 									var b = function(b) {
-										a.id in N._loadedNodes && N.setLoadedNode(a, b, "iframe");
+										a.id in M._loadedNodes && M.setLoadedNode(a, b, "iframe");
 									};
 									a.post
-										? n({
+										? m({
 												url: "about:blank",
 												root: a.root,
 												className: a.className,
@@ -8315,14 +8301,14 @@ try {
 												id: a.id,
 												onInsert: b,
 												onload: function(b) {
-													q.submitToTarget({
+													p.submitToTarget({
 														url: a.url,
 														target: b.name,
 														params: a.params
 													});
 												}
 										  })
-										: n({
+										: m({
 												url: a.url,
 												root: a.root,
 												className: a.className,
@@ -8334,57 +8320,57 @@ try {
 										  });
 								},
 								_handleResizeMessage: function(a, b) {
-									a = N.getLoadedNode(a);
+									a = M.getLoadedNode(a);
 									if (!a) return;
 									b.height && (a.style.height = b.height + "px");
 									b.width && (a.style.width = b.width + "px");
-									F.inform(
+									E.inform(
 										"resize.ack",
 										b || {},
 										"parent.frames[" + a.name + "]"
 									);
-									!r.isActive(a) ? r.show(a) : r._centerActive();
+									!q.isActive(a) ? q.show(a) : q._centerActive();
 								},
 								_triggerDefault: function(a, b) {
 									var c = { frame: a };
 									b && (c.result = b);
-									N._xdRecv(c, N._defaultCb[a] || function() {});
+									M._xdRecv(c, M._defaultCb[a] || function() {});
 								},
 								_popupMonitor: function() {
 									__p && __p();
 									var a;
-									for (var b in N._loadedNodes)
+									for (var b in M._loadedNodes)
 										if (
-											Object.prototype.hasOwnProperty.call(N._loadedNodes, b) &&
-											b in N._defaultCb
+											Object.prototype.hasOwnProperty.call(M._loadedNodes, b) &&
+											b in M._defaultCb
 										) {
-											var c = N._loadedNodes[b];
+											var c = M._loadedNodes[b];
 											if (c.type != "popup" && c.type != "native") continue;
 											c = c.node;
 											try {
-												c.closed ? N._triggerDefault(b, null) : (a = !0);
+												c.closed ? M._triggerDefault(b, null) : (a = !0);
 											} catch (a) {}
 										}
-									a && !N._popupInterval
-										? (N._popupInterval = setInterval(N._popupMonitor, 100))
+									a && !M._popupInterval
+										? (M._popupInterval = setInterval(M._popupMonitor, 100))
 										: !a &&
-										  N._popupInterval &&
-										  (clearInterval(N._popupInterval),
-										  (N._popupInterval = null));
+										  M._popupInterval &&
+										  (clearInterval(M._popupInterval),
+										  (M._popupInterval = null));
 								},
 								_xdChannelHandler: function(a, b) {
 									__p && __p();
-									return F.handler(
+									return E.handler(
 										function(b) {
 											__p && __p();
-											var c = N.getLoadedNode(a);
+											var c = M.getLoadedNode(a);
 											if (!c) return;
-											if (b.type == "resize") N._handleResizeMessage(a, b);
-											else if (b.type == "hide") r.hide(c);
+											if (b.type == "resize") M._handleResizeMessage(a, b);
+											else if (b.type == "hide") q.hide(c);
 											else if (b.type == "rendered") {
-												c = r._findRoot(c);
-												r.show(c);
-											} else b.type == "fireevent" && t.fire(b.event, b);
+												c = q._findRoot(c);
+												q.show(c);
+											} else b.type == "fireevent" && s.fire(b.event, b);
 										},
 										b,
 										!0,
@@ -8392,10 +8378,10 @@ try {
 									);
 								},
 								_xdNextHandler: function(a, b, c, d) {
-									d && (N._defaultCb[b] = a);
+									d && (M._defaultCb[b] = a);
 									return (
-										F.handler(function(b) {
-											N._xdRecv(b, a);
+										E.handler(function(b) {
+											M._xdRecv(b, a);
 										}, c) +
 										"&frame=" +
 										b
@@ -8403,7 +8389,7 @@ try {
 								},
 								_xdRecv: function(a, b) {
 									__p && __p();
-									var c = N.getLoadedNode(a.frame);
+									var c = M.getLoadedNode(a.frame);
 									if (c)
 										if (c.close)
 											try {
@@ -8411,18 +8397,18 @@ try {
 													/iPhone.*Version\/(5|6)/.test(navigator.userAgent) &&
 														RegExp.$1 !== "5" &&
 														window.focus(),
-													N._popupCount--;
+													M._popupCount--;
 											} catch (a) {}
 										else
-											s.containsCss(c, "FB_UI_Hidden")
+											r.containsCss(c, "FB_UI_Hidden")
 												? setTimeout(function() {
 														c.parentNode.parentNode.removeChild(c.parentNode);
 												  }, 3e3)
-												: s.containsCss(c, "FB_UI_Dialog") && r.remove(c);
-									delete N._loadedNodes[a.frame];
-									delete N._defaultCb[a.frame];
+												: r.containsCss(c, "FB_UI_Dialog") && q.remove(c);
+									delete M._loadedNodes[a.frame];
+									delete M._defaultCb[a.frame];
 									if (a.e2e) {
-										var d = r.get(a.frame);
+										var d = q.get(a.frame);
 										d.trackEvents(a.e2e);
 										d.trackEvent("close");
 										delete a.e2e;
@@ -8431,12 +8417,12 @@ try {
 								},
 								_xdResult: function(a, b, c, d) {
 									return (
-										N._xdNextHandler(
+										M._xdNextHandler(
 											function(b) {
 												a &&
 													a(
 														b.result &&
-															b.result != N._resultToken &&
+															b.result != M._resultToken &&
 															ES("JSON", "parse", !1, b.result)
 													);
 											},
@@ -8445,21 +8431,21 @@ try {
 											d
 										) +
 										"&result=" +
-										encodeURIComponent(N._resultToken)
+										encodeURIComponent(M._resultToken)
 									);
 								},
 								xdHandler: function(a, b, c, d, e, f) {
-									return N._xdNextHandler(
-										p.xdResponseWrapper(a, d, e),
+									return M._xdNextHandler(
+										o.xdResponseWrapper(a, d, e),
 										b,
 										c,
 										f
 									);
 								}
 							};
-							u.stub("showDialog");
-							B.stub("showDialog");
-							e.exports = N;
+							t.stub("showDialog");
+							A.stub("showDialog");
+							e.exports = M;
 						},
 						null
 					);
@@ -10251,14 +10237,97 @@ try {
 						null
 					);
 					__d(
-						"sdk.Arbiter",
-						[],
-						function(a, b, c, d, e, f) {
-							a = {
-								BEHAVIOR_EVENT: "e",
-								BEHAVIOR_PERSISTENT: "p",
-								BEHAVIOR_STATE: "s"
-							};
+						"sdk.XFBML.Comments",
+						[
+							"IframePlugin",
+							"QueryString",
+							"UrlMap",
+							"sdk.Event",
+							"sdk.Runtime",
+							"sdk.UA"
+						],
+						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+							__p && __p();
+							var m = 320;
+							function n(a) {
+								__p && __p();
+								l.mobile() && a.mobile !== !1 && (a.mobile = !0);
+								a.skin || (a.skin = a.colorscheme);
+								if (!a.href) {
+									a.title = a.title || document.title;
+									a.url = a.url || document.URL;
+									if (!a.xid) {
+										var b = ES(document.URL, "indexOf", !0, "#");
+										b > 0
+											? (a.xid = encodeURIComponent(
+													document.URL.substring(0, b)
+											  ))
+											: (a.xid = encodeURIComponent(document.URL));
+									}
+									a.migrated &&
+										(a.href =
+											i.resolve("www") +
+											"/plugins/comments_v1.php?app_id=" +
+											k.getClientID() +
+											"&xid=" +
+											encodeURIComponent(a.xid) +
+											"&url=" +
+											encodeURIComponent(a.url));
+								} else {
+									b = a.fb_comment_id;
+									b ||
+										((b = h.decode(
+											document.URL.substring(
+												ES(document.URL, "indexOf", !0, "?") + 1
+											)
+										).fb_comment_id),
+										b &&
+											ES(b, "indexOf", !0, "#") > 0 &&
+											(b = b.substring(0, ES(b, "indexOf", !0, "#"))));
+									b && (a.fb_comment_id = b);
+								}
+								a.version || (a.version = k.getVersion());
+								a.permalink ||
+									((a.width =
+										a.mobile || a.width === "auto" || a.width === "100%"
+											? ""
+											: a.width
+												? Math.max(a.width, m)
+												: 550),
+									(a.height = 100));
+								return a;
+							}
+							a = g.extend({
+								constructor: function(a, b, c, d) {
+									(d = n(d)),
+										this.parent(a, b, c, d),
+										this.subscribe("xd.sdk_event", function(a) {
+											j.fire(a.event, ES("JSON", "parse", !1, a.data));
+										});
+								},
+								getConfig: function() {
+									return { fluid: !0, full_width: !0 };
+								},
+								getParams: function() {
+									return {
+										numposts: "string",
+										href: "url",
+										permalink: "bool",
+										order_by: "string",
+										mobile: "bool",
+										version: "string",
+										migrated: "string",
+										xid: "string",
+										title: "string",
+										url: "string",
+										quiet: "string",
+										reverse: "string",
+										simple: "string",
+										css: "string",
+										notify: "string"
+									};
+								}
+							});
 							e.exports = a;
 						},
 						null
@@ -10313,422 +10382,6 @@ try {
 								},
 								g
 							);
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"sdk.XFBML.IframeWidget",
-						[
-							"QueryString",
-							"UrlMap",
-							"guid",
-							"insertIframe",
-							"sdk.Arbiter",
-							"sdk.Auth",
-							"sdk.Content",
-							"sdk.DOM",
-							"sdk.Event",
-							"sdk.Runtime",
-							"sdk.ui",
-							"sdk.XD",
-							"sdk.XFBML.Element"
-						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s) {
-							__p && __p();
-							a = s.extend({
-								_iframeName: null,
-								_showLoader: !0,
-								_refreshOnAuthChange: !1,
-								_allowReProcess: !1,
-								_fetchPreCachedLoader: !1,
-								_visibleAfter: "load",
-								_borderReset: !1,
-								getUrlBits: function() {
-									throw new Error(
-										"Inheriting class needs to implement getUrlBits()."
-									);
-								},
-								setupAndValidate: function() {
-									return !0;
-								},
-								oneTimeSetup: function() {},
-								getSize: function() {},
-								getIframeName: function() {
-									return this._iframeName;
-								},
-								getIframeTitle: function() {
-									return "Facebook Social Plugin";
-								},
-								getChannelUrl: function() {
-									if (!this._channelUrl) {
-										var a = this;
-										this._channelUrl = r.handler(
-											function(b) {
-												a.fire("xd." + b.type, b);
-											},
-											"parent.parent",
-											!0
-										);
-									}
-									return this._channelUrl;
-								},
-								getIframeNode: function() {
-									return this.dom.getElementsByTagName("iframe")[0];
-								},
-								arbiterInform: function(event, a, b) {
-									r.sendToFacebook(this.getIframeName(), {
-										method: event,
-										params: ES("JSON", "stringify", !1, a || {}),
-										behavior: b || "persistent"
-									});
-								},
-								_arbiterInform: function(event, a, b) {
-									var c = 'parent.frames["' + this.getIframeNode().name + '"]';
-									r.inform(event, a, c, b);
-								},
-								getDefaultWebDomain: function() {
-									return h.resolve("www");
-								},
-								process: function(a) {
-									__p && __p();
-									if (this._done) {
-										if (!this._allowReProcess && !a) return;
-										this.clear();
-									} else this._oneTimeSetup();
-									this._done = !0;
-									this._iframeName =
-										this.getIframeName() || this._iframeName || i();
-									if (!this.setupAndValidate()) {
-										this.fire("render");
-										return;
-									}
-									this._showLoader && this._addLoader();
-									n.addCss(this.dom, "fb_iframe_widget");
-									this._visibleAfter != "immediate"
-										? n.addCss(this.dom, "fb_hide_iframes")
-										: this.subscribe(
-												"iframe.onload",
-												ES(this.fire, "bind", !0, this, "render")
-										  );
-									a = this.getSize() || {};
-									var b = this.getFullyQualifiedURL();
-									a.width == "100%" &&
-										n.addCss(this.dom, "fb_iframe_widget_fluid");
-									this.clear();
-									j({
-										url: b,
-										root: this.dom.appendChild(document.createElement("span")),
-										name: this._iframeName,
-										title: this.getIframeTitle(),
-										className: p.getRtl() ? "fb_rtl" : "fb_ltr",
-										height: a.height,
-										width: a.width,
-										onload: ES(this.fire, "bind", !0, this, "iframe.onload")
-									});
-									this._resizeFlow(a);
-									this.loaded = !1;
-									this.subscribe(
-										"iframe.onload",
-										ES(
-											function() {
-												(this.loaded = !0),
-													this._isResizeHandled ||
-														n.addCss(this.dom, "fb_hide_iframes");
-											},
-											"bind",
-											!0,
-											this
-										)
-									);
-								},
-								getFullyQualifiedURL: function() {
-									var a = this._getURL();
-									a += "?" + g.encode(this._getQS());
-									if (a.length > 2e3) {
-										a = "about:blank";
-										var b = ES(
-											function() {
-												this._postRequest(),
-													this.unsubscribe("iframe.onload", b);
-											},
-											"bind",
-											!0,
-											this
-										);
-										this.subscribe("iframe.onload", b);
-									}
-									return a;
-								},
-								_oneTimeSetup: function() {
-									this.subscribe(
-										"xd.resize",
-										ES(this._handleResizeMsg, "bind", !0, this)
-									),
-										this.subscribe(
-											"xd.resize",
-											ES(this._bubbleResizeEvent, "bind", !0, this)
-										),
-										this.subscribe(
-											"xd.resize.iframe",
-											ES(this._resizeIframe, "bind", !0, this)
-										),
-										this.subscribe(
-											"xd.resize.flow",
-											ES(this._resizeFlow, "bind", !0, this)
-										),
-										this.subscribe(
-											"xd.resize.flow",
-											ES(this._bubbleResizeEvent, "bind", !0, this)
-										),
-										this.subscribe("xd.refreshLoginStatus", function() {
-											l.getLoginStatus(function() {}, !0);
-										}),
-										this.subscribe("xd.logout", function() {
-											q(
-												{ method: "auth.logout", display: "hidden" },
-												function() {}
-											);
-										}),
-										this._refreshOnAuthChange && this._setupAuthRefresh(),
-										this._visibleAfter == "load" &&
-											this.subscribe(
-												"iframe.onload",
-												ES(this._makeVisible, "bind", !0, this)
-											),
-										this.subscribe(
-											"xd.verify",
-											ES(
-												function(a) {
-													this.arbiterInform("xd/verify", a.token);
-												},
-												"bind",
-												!0,
-												this
-											)
-										),
-										this.oneTimeSetup();
-								},
-								_makeVisible: function() {
-									this._removeLoader(),
-										n.removeCss(this.dom, "fb_hide_iframes"),
-										this.fire("render");
-								},
-								_setupAuthRefresh: function() {
-									l.getLoginStatus(
-										ES(
-											function(a) {
-												var b = a.status;
-												o.subscribe(
-													"auth.statusChange",
-													ES(
-														function(a) {
-															if (!this.isValid()) return;
-															(b == "unknown" || a.status == "unknown") &&
-																this.process(!0);
-															b = a.status;
-														},
-														"bind",
-														!0,
-														this
-													)
-												);
-											},
-											"bind",
-											!0,
-											this
-										)
-									);
-								},
-								_handleResizeMsg: function(a) {
-									if (!this.isValid()) return;
-									this._resizeIframe(a);
-									this._resizeFlow(a);
-									this._borderReset ||
-										((this.getIframeNode().style.border = "none"),
-										(this._borderReset = !0));
-									this._isResizeHandled = !0;
-									this._makeVisible();
-								},
-								_bubbleResizeEvent: function(a) {
-									a = {
-										height: a.height,
-										width: a.width,
-										pluginID: this.getAttribute("plugin-id")
-									};
-									o.fire("xfbml.resize", a);
-								},
-								_resizeIframe: function(a) {
-									var b = this.getIframeNode();
-									a.height && (b.style.height = a.height + "px");
-									a.width && (b.style.width = a.width + "px");
-								},
-								_resizeFlow: function(a) {
-									var b = this.dom.getElementsByTagName("span")[0];
-									a.height && (b.style.height = a.height + "px");
-									a.width && (b.style.width = a.width + "px");
-								},
-								_addLoader: function() {
-									this._loaderDiv ||
-										(n.addCss(this.dom, "fb_iframe_widget_loader"),
-										(this._loaderDiv = document.createElement("div")),
-										(this._loaderDiv.className = "FB_Loader"),
-										this.dom.appendChild(this._loaderDiv));
-								},
-								_removeLoader: function() {
-									this._loaderDiv &&
-										(n.removeCss(this.dom, "fb_iframe_widget_loader"),
-										this._loaderDiv.parentNode &&
-											this._loaderDiv.parentNode.removeChild(this._loaderDiv),
-										(this._loaderDiv = null));
-								},
-								_getQS: function() {
-									return ES(
-										"Object",
-										"assign",
-										!1,
-										{
-											api_key: p.getClientID(),
-											locale: p.getLocale(),
-											sdk: "joey",
-											kid_directed_site: p.getKidDirectedSite(),
-											ref: this.getAttribute("ref")
-										},
-										this.getUrlBits().params
-									);
-								},
-								_getURL: function() {
-									var a = this.getDefaultWebDomain(),
-										b = "";
-									return a + "/plugins/" + b + this.getUrlBits().name + ".php";
-								},
-								_postRequest: function() {
-									m.submitToTarget({
-										url: this._getURL(),
-										target: this.getIframeNode().name,
-										params: this._getQS()
-									});
-								}
-							});
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"sdk.XFBML.Comments",
-						[
-							"QueryString",
-							"UrlMap",
-							"sdk.Event",
-							"sdk.Runtime",
-							"sdk.UA",
-							"sdk.XFBML.IframeWidget"
-						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
-							__p && __p();
-							var m = 320;
-							a = l.extend({
-								_visibleAfter: "immediate",
-								_refreshOnAuthChange: !0,
-								setupAndValidate: function() {
-									__p && __p();
-									var a = {
-										channel_url: this.getChannelUrl(),
-										colorscheme: this.getAttribute("colorscheme"),
-										skin: this.getAttribute("skin"),
-										numposts: this.getAttribute("num-posts", 10),
-										width: this._getLengthAttribute("width"),
-										href: this.getAttribute("href"),
-										permalink: this.getAttribute("permalink"),
-										publish_feed: this.getAttribute("publish_feed"),
-										order_by: this.getAttribute("order_by"),
-										mobile: this._getBoolAttribute("mobile"),
-										version: this.getAttribute("version")
-									};
-									!a.width && !a.permalink && (a.width = 550);
-									k.mobile() && a.mobile !== !1 && (a.mobile = !0);
-									a.skin || (a.skin = a.colorscheme);
-									if (!a.href) {
-										a.migrated = this.getAttribute("migrated");
-										a.xid = this.getAttribute("xid");
-										a.title = this.getAttribute("title", document.title);
-										a.url = this.getAttribute("url", document.URL);
-										a.quiet = this.getAttribute("quiet");
-										a.reverse = this.getAttribute("reverse");
-										a.simple = this.getAttribute("simple");
-										a.css = this.getAttribute("css");
-										a.notify = this.getAttribute("notify");
-										if (!a.xid) {
-											var b = ES(document.URL, "indexOf", !0, "#");
-											b > 0
-												? (a.xid = encodeURIComponent(
-														document.URL.substring(0, b)
-												  ))
-												: (a.xid = encodeURIComponent(document.URL));
-										}
-										a.migrated &&
-											(a.href =
-												h.resolve("www") +
-												"/plugins/comments_v1.php?app_id=" +
-												j.getClientID() +
-												"&xid=" +
-												encodeURIComponent(a.xid) +
-												"&url=" +
-												encodeURIComponent(a.url));
-									} else {
-										b = this.getAttribute("fb_comment_id");
-										b ||
-											((b = g.decode(
-												document.URL.substring(
-													ES(document.URL, "indexOf", !0, "?") + 1
-												)
-											).fb_comment_id),
-											b &&
-												ES(b, "indexOf", !0, "#") > 0 &&
-												(b = b.substring(0, ES(b, "indexOf", !0, "#"))));
-										b &&
-											((a.fb_comment_id = b),
-											this.subscribe(
-												"render",
-												ES(
-													function() {
-														window.location.hash ||
-															(window.location.hash = this.getIframeNode().id);
-													},
-													"bind",
-													!0,
-													this
-												)
-											));
-									}
-									a.version || (a.version = j.getVersion());
-									this._attr = a;
-									return !0;
-								},
-								oneTimeSetup: function() {
-									this.subscribe("xd.sdk_event", function(a) {
-										i.fire(a.event, ES("JSON", "parse", !1, a.data));
-									});
-								},
-								getSize: function() {
-									if (!this._attr.permalink)
-										return {
-											width:
-												this._attr.mobile ||
-												this._attr.width === "auto" ||
-												this._attr.width === "100%"
-													? "100%"
-													: Math.max(this._attr.width, m),
-											height: 100
-										};
-								},
-								getUrlBits: function() {
-									return { name: "comments", params: this._attr };
-								},
-								getDefaultWebDomain: function() {
-									return h.resolve("www");
-								}
-							});
 							e.exports = a;
 						},
 						null
@@ -12497,7 +12150,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -12508,7 +12161,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4400672","namespace":"FB","message":"' +
+				'","revision":"4402578","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
