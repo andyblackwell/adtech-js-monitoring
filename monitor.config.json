@@ -14,14 +14,14 @@
 			"name": "Facebook Main",
 			"tags": ["Facebook"],
 			"url": "https://connect.facebook.net/en_US/all.js",
-			"version": "4408673",
+			"version": "4409275",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
 			"diffIgnorePatterns": [
 				"JIT Construction",
 				"revision",
 				"\"http(s)?:\\/\\/www\\.facebook\\.com\\/\""
 			],
-			"etag": "\"e474430ea443cd713fa2174b1ee756a5\""
+			"etag": "\"9fb089583d40c4768a04b3bcfaf756c8\""
 		},
 		{
 			"name": "Facebook Events",
@@ -51,9 +51,9 @@
 			"name": "Google Publisher Tools",
 			"tags": ["Google", "DFP", "GAM"],
 			"url": "https://www.googletagservices.com/tag/js/gpt.js",
-			"version": "263",
+			"version": "264",
 			"versionRegex": "\\{return\"([0-9]+)\"\\}",
-			"etag": "\"8 / 646 of 1000 / last-modified: 1539012770\""
+			"etag": "\"8 / 646 of 1000 / last-modified: 1539271971\""
 		},
 		{
 			"name": "Moat",
