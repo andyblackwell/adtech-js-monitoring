@@ -1,4 +1,4 @@
-/*1539218594,,JIT Construction: v4406674,en_US*/
+/*1539226343,,JIT Construction: v4407681,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4406674",
+						revision: "4407681",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -11258,222 +11258,6 @@ try {
 						null
 					);
 					__d(
-						"escapeHTML",
-						[],
-						function(a, b, c, d, e, f) {
-							var g = /[&<>\"\'\/]/g,
-								h = {
-									"&": "&amp;",
-									"<": "&lt;",
-									">": "&gt;",
-									'"': "&quot;",
-									"'": "&#039;",
-									"/": "&#x2F;"
-								};
-							function a(a) {
-								return a.replace(g, function(a) {
-									return h[a];
-								});
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"sdk.XFBML.Name",
-						[
-							"ApiClient",
-							"Log",
-							"escapeHTML",
-							"sdk.Event",
-							"sdk.Helper",
-							"sdk.Runtime",
-							"sdk.Scribe",
-							"sdk.XFBML.Element"
-						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
-							__p && __p();
-							var o = {}.hasOwnProperty;
-							a = n.extend({
-								process: function() {
-									__p && __p();
-									h.error(
-										"##########################\n#  <fb:name> has been deprecated.\n#  Please use FB.api().\n#  https://developers.facebook.com/docs/javascript/reference/FB.api/\n##########################"
-									);
-									m.log("jssdk_error", {
-										appId: l.getClientID(),
-										error: "<fb:name>"
-									});
-									ES("Object", "assign", !1, this, {
-										_uid: this.getAttribute("uid"),
-										_firstnameonly: this._getBoolAttribute("first-name-only"),
-										_lastnameonly: this._getBoolAttribute("last-name-only"),
-										_possessive: this._getBoolAttribute("possessive"),
-										_reflexive: this._getBoolAttribute("reflexive"),
-										_objective: this._getBoolAttribute("objective"),
-										_linked: this._getBoolAttribute("linked", !0),
-										_subjectId: this.getAttribute("subject-id")
-									});
-									if (!this._uid) {
-										h.error('"uid" is a required attribute for <fb:name>');
-										this.fire("render");
-										return;
-									}
-									var a = [];
-									this._firstnameonly
-										? a.push("first_name")
-										: this._lastnameonly
-											? a.push("last_name")
-											: a.push("name");
-									this._subjectId &&
-										(a.push("gender"),
-										this._subjectId == l.getUserID() && (this._reflexive = !0));
-									j.monitor(
-										"auth.statusChange",
-										ES(
-											function() {
-												__p && __p();
-												if (!this.isValid()) {
-													this.fire("render");
-													return !0;
-												}
-												(!this._uid || this._uid == "loggedinuser") &&
-													(this._uid = l.getUserID());
-												if (!this._uid) return;
-												g.scheduleBatchCall(
-													"/v1.0/" + this._uid,
-													{ fields: a.join(",") },
-													ES(
-														function(a) {
-															if (o.call(a, "error")) {
-																h.warn(
-																	"The name is not found for ID: " + this._uid
-																);
-																return;
-															}
-															this._subjectId == this._uid
-																? this._renderPronoun(a)
-																: this._renderOther(a);
-															this.fire("render");
-														},
-														"bind",
-														!0,
-														this
-													)
-												);
-											},
-											"bind",
-											!0,
-											this
-										)
-									);
-								},
-								_renderPronoun: function(a) {
-									__p && __p();
-									var b = "",
-										c = this._objective;
-									this._subjectId &&
-										((c = !0),
-										this._subjectId === this._uid && (this._reflexive = !0));
-									if (
-										this._uid == l.getUserID() &&
-										this._getBoolAttribute("use-you", !0)
-									)
-										this._possessive
-											? this._reflexive
-												? (b = "your own")
-												: (b = "your")
-											: this._reflexive
-												? (b = "yourself")
-												: (b = "you");
-									else
-										switch (a.gender) {
-											case "male":
-												this._possessive
-													? (b = this._reflexive ? "his own" : "his")
-													: this._reflexive
-														? (b = "himself")
-														: c
-															? (b = "him")
-															: (b = "he");
-												break;
-											case "female":
-												this._possessive
-													? (b = this._reflexive ? "her own" : "her")
-													: this._reflexive
-														? (b = "herself")
-														: c
-															? (b = "her")
-															: (b = "she");
-												break;
-											default:
-												this._getBoolAttribute("use-they", !0)
-													? this._possessive
-														? this._reflexive
-															? (b = "their own")
-															: (b = "their")
-														: this._reflexive
-															? (b = "themselves")
-															: c
-																? (b = "them")
-																: (b = "they")
-													: this._possessive
-														? this._reflexive
-															? (b = "his/her own")
-															: (b = "his/her")
-														: this._reflexive
-															? (b = "himself/herself")
-															: c
-																? (b = "him/her")
-																: (b = "he/she");
-												break;
-										}
-									this._getBoolAttribute("capitalize", !1) &&
-										(b = k.upperCaseFirstChar(b));
-									this.dom.innerHTML = b;
-								},
-								_renderOther: function(a) {
-									var b = "",
-										c = "";
-									this._uid == l.getUserID() &&
-									this._getBoolAttribute("use-you", !0)
-										? this._reflexive
-											? this._possessive
-												? (b = "your own")
-												: (b = "yourself")
-											: this._possessive
-												? (b = "your")
-												: (b = "you")
-										: a &&
-										  (null === a.first_name && (a.first_name = ""),
-										  null === a.last_name && (a.last_name = ""),
-										  this._firstnameonly && a.first_name !== undefined
-												? (b = i(a.first_name))
-												: this._lastnameonly &&
-												  a.last_name !== undefined &&
-												  (b = i(a.last_name)),
-										  b || (b = i(a.name)),
-										  b !== "" && this._possessive && (b += "'s"));
-									b ||
-										(b = i(this.getAttribute("if-cant-see", "Facebook User")));
-									b &&
-										(this._getBoolAttribute("capitalize", !1) &&
-											(b = k.upperCaseFirstChar(b)),
-										a && this._linked
-											? (c = k.getProfileLink(
-													a,
-													b,
-													this.getAttribute("href", null)
-											  ))
-											: (c = b));
-									this.dom.innerHTML = c;
-								}
-							});
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"UnicodeUtils",
 						["invariant"],
 						function(a, b, c, d, e, f, g) {
@@ -12107,7 +11891,6 @@ try {
 							"sdk.XFBML.Comments",
 							"sdk.XFBML.CommentsCount",
 							"sdk.XFBML.LoginButton",
-							"sdk.XFBML.Name",
 							"sdk.XFBML.Quote",
 							"sdk.XFBML.Save",
 							"sdk.XFBML.ShareButton",
@@ -12119,7 +11902,6 @@ try {
 									comments: b("sdk.XFBML.Comments"),
 									comments_count: b("sdk.XFBML.CommentsCount"),
 									login_button: b("sdk.XFBML.LoginButton"),
-									name: b("sdk.XFBML.Name"),
 									quote: b("sdk.XFBML.Quote"),
 									save: b("sdk.XFBML.Save"),
 									share_button: b("sdk.XFBML.ShareButton"),
@@ -12161,7 +11943,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4406674","namespace":"FB","message":"' +
+				'","revision":"4407681","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
