@@ -1,4 +1,4 @@
-/*1539306081,,JIT Construction: v4411558,en_US*/
+/*1539312400,,JIT Construction: v4412782,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4411558",
+						revision: "4412782",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						bustCache: true,
@@ -10242,90 +10242,104 @@ try {
 							"IframePlugin",
 							"QueryString",
 							"UrlMap",
+							"sdk.DOM",
 							"sdk.Event",
 							"sdk.Runtime",
 							"sdk.UA"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
 							__p && __p();
-							var m = 320;
-							function n(a) {
+							var n = 320,
+								o = {
+									numposts: "string",
+									href: "url",
+									permalink: "bool",
+									order_by: "string",
+									mobile: "bool",
+									version: "string",
+									hide_post_profile: "bool",
+									limit: "string",
+									offset: "string",
+									view: "string",
+									fb_comment_id: "string",
+									from_mod_tool: "bool",
+									width: "string",
+									height: "string",
+									migrated: "string",
+									xid: "string",
+									title: "string",
+									url: "string",
+									quiet: "string",
+									reverse: "string",
+									simple: "string",
+									css: "string",
+									notify: "string"
+								};
+							function p(a, b) {
 								__p && __p();
-								l.mobile() && a.mobile !== !1 && (a.mobile = !0);
-								a.skin || (a.skin = a.colorscheme);
-								if (!a.href) {
-									a.title = a.title || document.title;
-									a.url = a.url || document.URL;
-									if (!a.xid) {
-										var b = ES(document.URL, "indexOf", !0, "#");
-										b > 0
-											? (a.xid = encodeURIComponent(
-													document.URL.substring(0, b)
+								ES(ES("Object", "keys", !1, o), "forEach", !0, function(c) {
+									var d = j.getAttr(a, c);
+									d !== null && (b[c] = d);
+								});
+								m.mobile() && b.mobile !== !1 && (b.mobile = !0);
+								b.skin || (b.skin = b.colorscheme);
+								if (!b.href) {
+									b.title = b.title || document.title;
+									b.url = b.url || document.URL;
+									if (!b.xid) {
+										var c = ES(document.URL, "indexOf", !0, "#");
+										c > 0
+											? (b.xid = encodeURIComponent(
+													document.URL.substring(0, c)
 											  ))
-											: (a.xid = encodeURIComponent(document.URL));
+											: (b.xid = encodeURIComponent(document.URL));
 									}
-									a.migrated &&
-										(a.href =
+									b.migrated &&
+										(b.href =
 											i.resolve("www") +
 											"/plugins/comments_v1.php?app_id=" +
-											k.getClientID() +
+											l.getClientID() +
 											"&xid=" +
-											encodeURIComponent(a.xid) +
+											encodeURIComponent(b.xid) +
 											"&url=" +
-											encodeURIComponent(a.url));
+											encodeURIComponent(b.url));
 								} else {
-									b = a.fb_comment_id;
-									b ||
-										((b = h.decode(
+									c = b.fb_comment_id;
+									c ||
+										((c = h.decode(
 											document.URL.substring(
 												ES(document.URL, "indexOf", !0, "?") + 1
 											)
 										).fb_comment_id),
-										b &&
-											ES(b, "indexOf", !0, "#") > 0 &&
-											(b = b.substring(0, ES(b, "indexOf", !0, "#"))));
-									b && (a.fb_comment_id = b);
+										c &&
+											ES(c, "indexOf", !0, "#") > 0 &&
+											(c = c.substring(0, ES(c, "indexOf", !0, "#"))));
+									c && (b.fb_comment_id = c);
 								}
-								a.version || (a.version = k.getVersion());
-								a.permalink ||
-									((a.width =
-										a.mobile || a.width === "auto" || a.width === "100%"
+								b.version || (b.version = l.getVersion());
+								b.permalink ||
+									((b.width =
+										b.mobile || b.width === "auto" || b.width === "100%"
 											? ""
-											: a.width
-												? Math.max(a.width, m)
+											: b.width
+												? Math.max(b.width, n)
 												: 550),
-									(a.height = 100));
-								return a;
+									(b.height = 100));
+								return b;
 							}
 							a = g.extend({
 								constructor: function(a, b, c, d) {
-									(d = n(d)),
+									(d = p(a, d)),
 										this.parent(a, b, c, d),
 										this.subscribe("xd.sdk_event", function(a) {
-											j.fire(a.event, ES("JSON", "parse", !1, a.data));
+											k.fire(a.event, ES("JSON", "parse", !1, a.data));
 										});
 								},
 								getConfig: function() {
 									return { fluid: !0, full_width: !0 };
 								},
 								getParams: function() {
-									return {
-										numposts: "string",
-										href: "url",
-										permalink: "bool",
-										order_by: "string",
-										mobile: "bool",
-										version: "string",
-										migrated: "string",
-										xid: "string",
-										title: "string",
-										url: "string",
-										quiet: "string",
-										reverse: "string",
-										simple: "string",
-										css: "string",
-										notify: "string"
-									};
+									return o;
 								}
 							});
 							e.exports = a;
@@ -11932,7 +11946,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -11943,7 +11957,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4411558","namespace":"FB","message":"' +
+				'","revision":"4412782","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
