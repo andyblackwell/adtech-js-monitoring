@@ -1,4 +1,4 @@
-/*1539401991,,JIT Construction: v4417506,en_US*/
+/*1539406143,,JIT Construction: v4418184,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4417506",
+						revision: "4418184",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -10281,6 +10281,9 @@ try {
 									var d = j.getAttr(a, c);
 									d !== null && (b[c] = d);
 								});
+								ES(ES("Object", "keys", !1, b), "forEach", !0, function(a) {
+									ES(a, "startsWith", !0, "data-") && delete b[a];
+								});
 								m.mobile() && b.mobile !== !1 && (b.mobile = !0);
 								b.skin || (b.skin = b.colorscheme);
 								if (!b.href) {
@@ -10347,92 +10350,43 @@ try {
 						null
 					);
 					__d(
-						"sdk.XFBML.Element",
-						["ObservableMixin", "Type", "sdk.DOM"],
-						function(a, b, c, d, e, f, g, h, i) {
-							__p && __p();
-							a = h.extend(
-								{
-									constructor: function(a) {
-										this.parent(), (this.dom = a);
-									},
-									fire: function() {
-										this.inform.apply(this, arguments);
-									},
-									getAttribute: function(a, b, c) {
-										a = i.getAttr(this.dom, a);
-										return a ? (c ? c(a) : a) : b;
-									},
-									_getBoolAttribute: function(a, b) {
-										a = i.getBoolAttr(this.dom, a);
-										return a === null ? b : a;
-									},
-									_getPxAttribute: function(a, b) {
-										return this.getAttribute(a, b, function(a) {
-											a = parseInt(a, 10);
-											return isNaN(a) ? b : a;
-										});
-									},
-									_getLengthAttribute: function(a, b) {
-										return this.getAttribute(a, b, function(a) {
-											if (a === "100%" || a === "auto") return a;
-											a = parseInt(a, 10);
-											return isNaN(a) ? b : a;
-										});
-									},
-									_getAttributeFromList: function(a, b, c) {
-										return this.getAttribute(a, b, function(a) {
-											a = a.toLowerCase();
-											return ES(c, "indexOf", !0, a) > -1 ? a : b;
-										});
-									},
-									isValid: function() {
-										for (var a = this.dom; a; a = a.parentNode)
-											if (a == document.body) return !0;
-									},
-									clear: function() {
-										i.html(this.dom, "");
-									}
-								},
-								g
-							);
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"sdk.XFBML.CommentsCount",
-						["ApiClient", "Log", "sdk.DOM", "sdk.XFBML.Element", "sprintf"],
-						function(a, b, c, d, e, f, g, h, i, j, k) {
+						["ApiClient", "ObservableMixin", "sdk.DOM", "sprintf"],
+						function(a, b, c, d, e, f, g, h, i, j) {
 							__p && __p();
-							a = j.extend({
-								process: function() {
-									h.error(
-										"##########################\n#  <fb:comments-count> has been deprecated.\n#  Please use FB.api().\n#  https://developers.facebook.com/docs/javascript/reference/FB.api/\n##########################"
-									);
-									i.addCss(this.dom, "fb_comments_count_zero");
-									var a = this.getAttribute("href", window.location.href);
+							var k;
+							b = babelHelpers.inherits(a, h);
+							k = b && b.prototype;
+							function a(a, b, c, d) {
+								"use strict";
+								k.constructor.call(this),
+									(this.__observableEvents = {}),
+									(this.dom = a),
+									(this.href = d.href || window.location.href);
+							}
+							a.prototype.process = function() {
+								"use strict";
+								i.addCss(this.dom, "fb_comments_count_zero"),
 									g.scheduleBatchCall(
-										"/v2.1/" + encodeURIComponent(a),
+										"/v2.1/" + encodeURIComponent(this.href),
 										{ fields: "share" },
 										ES(
 											function(a) {
 												a = (a.share && a.share.comment_count) || 0;
 												i.html(
 													this.dom,
-													k('<span class="fb_comments_count">%s</span>', a)
+													j('<span class="fb_comments_count">%s</span>', a)
 												);
 												a > 0 &&
 													i.removeCss(this.dom, "fb_comments_count_zero");
-												this.fire("render");
+												this.inform("render");
 											},
 											"bind",
 											!0,
 											this
 										)
 									);
-								}
-							});
+							};
 							e.exports = a;
 						},
 						null
@@ -11957,7 +11911,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4417506","namespace":"FB","message":"' +
+				'","revision":"4418184","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
