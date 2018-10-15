@@ -1,4 +1,4 @@
-/*1539507177,,JIT Construction: v4418913,en_US*/
+/*1539609493,,JIT Construction: v4419665,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -6637,9 +6637,7 @@ try {
 									return;
 								}
 								this.$13.rp && this.$33.enable();
-								this.$22 = E.appendToUrl(a.nativeImpURL, {
-									hosturl: this.$15.getTopURL()
-								});
+								this.$22 = a.nativeImpURL;
 								var e = 0,
 									f = !!a.creativeMarkupBackup;
 								!a.nativeAd
@@ -6822,21 +6820,24 @@ try {
 								a = this.getAspectRatio(a);
 								t.resizeElement(b, this.$19, Math.round(this.$19 / a));
 							};
-							a.prototype.sendImpression = function(a, b, c) {
+							a.prototype.sendImpression = function() {
 								__p && __p();
 								if (this.$2) {
 									this.$29.error("Multiple ADIMPRESSION attempted.");
 									return;
 								}
-								c = G();
-								this.$2 = c;
-								this.sendToFacebook("impress", { nmv: this.$21 });
-								this.sendToFacebook("signal", { signalUrl: a });
-								this.$29.eventWithParams("ADNW_ADIMPRESSION", b);
+								this.$2 = G();
+								var a = this.$47();
+								this.sendToFacebook("impress", a);
+								this.$22 &&
+									this.sendToFacebook("signal", {
+										signalUrl: E.appendToUrl(this.$22, a)
+									});
+								this.$29.eventWithParams("ADNW_ADIMPRESSION", this.$23);
 								this.$37() && this.$29.event(x.HAS_INLINE_XOUT);
 								this.$33.rewardCompleted();
 							};
-							a.prototype.$47 = function() {
+							a.prototype.$48 = function() {
 								var a = this.$15.getSafeFrameAPI();
 								if (this.$15.isCrossDomain() && !a)
 									return i.isAMP() ? "AMP" : "CROSS_DOMAIN_IFRAME";
@@ -6856,7 +6857,7 @@ try {
 								this.$24.attachBehaviorManager(this.$26);
 								var a = new g(
 									function() {
-										return this.$48();
+										return this.$49();
 									}.bind(this),
 									function() {
 										return this.$29.event("ADNW_PARTIAL_ADIMPRESSION");
@@ -7056,7 +7057,7 @@ try {
 								if (this.$8 == null) return;
 								this.$36(this.$38());
 								if (this.$8 == null) return;
-								this.$49(
+								this.$50(
 									this.$8,
 									a.nativeAd,
 									a.nativeCarouselAds,
@@ -7069,7 +7070,7 @@ try {
 									((this.$24 = new h(this.$15, this.$8)),
 									this.$24.attachBehaviorManager(this.$26));
 							};
-							a.prototype.$49 = function(a, b, c, d, e, f, g) {
+							a.prototype.$50 = function(a, b, c, d, e, f, g) {
 								b.loaded = !0;
 								var h;
 								d = a.getElementsByClassName("fbAdIcon");
@@ -7080,7 +7081,7 @@ try {
 									this.loadMedia(a, this.$20[h], b, c, f, g);
 								this.updateAdText(a, b, "", e, g);
 							};
-							a.prototype.$50 = function(a) {
+							a.prototype.$51 = function(a) {
 								a = H(a.ownerDocument.body);
 								a.addEventListener("touchstart", function() {}, !1);
 							};
@@ -7088,7 +7089,7 @@ try {
 								__p && __p();
 								if (!a || !b || b.loaded) return !1;
 								this.applyAdTypeClass(a, b, c);
-								this.$50(a);
+								this.$51(a);
 								b.loaded = !0;
 								var h = !1;
 								c = this.loadNativeAdInternal(a, b, c, "", d, e, f, g);
@@ -7185,51 +7186,39 @@ try {
 								b.src = a.adImage;
 								return b;
 							};
-							a.prototype.$51 = function() {
+							a.prototype.$52 = function() {
 								return this.$10 === "native";
 							};
 							a.prototype.$40 = function() {
-								return !this.$35() && !this.$51() && I[this.$10];
+								return !this.$35() && !this.$52() && I[this.$10];
 							};
-							a.prototype.$48 = function() {
-								this.$38().classList.add("fbVisibleOnce");
+							a.prototype.$49 = function() {
+								this.$38().classList.add("fbVisibleOnce"),
+									this.sendImpression();
+							};
+							a.prototype.$47 = function() {
+								__p && __p();
 								var a = this.$24.getCurrentViewabilityState(),
-									b = this.$24.getDimensions();
-								b = this.$52(b, a);
-								this.sendImpression(
-									E.appendToUrl(this.$22, b),
-									this.$23,
-									H(this.$1)
-								);
-							};
-							a.prototype.$52 = function(a, b) {
-								var c = {
-									web_ad_format: this.$10,
-									width: undefined,
-									height: undefined,
-									width_in_view: undefined,
-									height_in_view: undefined,
-									top: undefined,
-									left: undefined,
-									scroll_top: undefined,
-									scroll_left: undefined
-								};
-								a && ((c.width = a.width), (c.height = a.height));
-								b &&
-									((c.width_in_view = b.widthInView || 0),
-									(c.height_in_view = b.heightInView || 0),
-									(c.top = b.pageTop || 0),
-									(c.left = b.pageLeft || 0),
-									(c.scroll_top = b.scrollTop || 0),
-									(c.scroll_left = b.scrollLeft || 0),
-									(c.page_width = b.pageWidth || 0),
-									(c.page_height = b.pageHeight || 0));
-								c.iframe_status = this.$47();
+									b = this.$24.getDimensions(),
+									c = {};
+								b && ((c.width = b.width), (c.height = b.height));
+								a &&
+									((c.width_in_view = a.widthInView || 0),
+									(c.height_in_view = a.heightInView || 0),
+									(c.top = a.pageTop || 0),
+									(c.left = a.pageLeft || 0),
+									(c.scroll_top = a.scrollTop || 0),
+									(c.scroll_left = a.scrollLeft || 0),
+									(c.page_width = a.pageWidth || 0),
+									(c.page_height = a.pageHeight || 0));
+								c.hosturl = this.$15.getTopURL();
+								c.iframe_status = this.$48();
 								c.nest_level = this.$15.getNestLevel();
 								c.iframe_urls = JSON.stringify(
 									this.$15.ancestorURLs.slice(0, -1)
 								);
 								c.mediation_service = new B(this.$15).getMediator();
+								c.nmv = this.$21;
 								return c;
 							};
 							e.exports = a;
@@ -7371,7 +7360,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4418913","namespace":"FB","message":"' +
+				'","revision":"4419665","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
