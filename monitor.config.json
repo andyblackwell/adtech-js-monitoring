@@ -5,23 +5,23 @@
 			"name": "Facebook Audience Network",
 			"tags": ["Facebook", "prebid"],
 			"url": "https://connect.facebook.net/en_US/fbadnw55.js",
-			"version": "4419665",
+			"version": "4420020",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
 			"diffIgnorePatterns": ["JIT Construction", "revision"],
-			"etag": "\"9b457666163f227c28ccdfcddc7fb670\""
+			"etag": "\"99161d4ef860c68a6a99d22cd27a6740\""
 		},
 		{
 			"name": "Facebook Main",
 			"tags": ["Facebook"],
 			"url": "https://connect.facebook.net/en_US/all.js",
-			"version": "4419801",
+			"version": "4420020",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
 			"diffIgnorePatterns": [
 				"JIT Construction",
 				"revision",
 				"\"http(s)?:\\/\\/www\\.facebook\\.com\\/\""
 			],
-			"etag": "\"3eda995a3089a37e6fa5cf9cbda573c1\""
+			"etag": "\"1df523995a3efdcb70b127aa6aab5140\""
 		},
 		{
 			"name": "Facebook Events",
@@ -51,9 +51,9 @@
 			"name": "Google Publisher Tools",
 			"tags": ["Google", "DFP", "GAM"],
 			"url": "https://www.googletagservices.com/tag/js/gpt.js",
-			"version": "264",
+			"version": "265",
 			"versionRegex": "\\{return\"([0-9]+)\"\\}",
-			"etag": "\"8 / 646 of 1000 / last-modified: 1539271971\""
+			"etag": "\"8 / 646 of 1000 / last-modified: 1539625410\""
 		},
 		{
 			"name": "Moat",
