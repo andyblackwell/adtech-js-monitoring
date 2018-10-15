@@ -1,4 +1,4 @@
-/*1539637932,,JIT Construction: v4420762,en_US*/
+/*1539645097,,JIT Construction: v4421569,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4420762",
+						revision: "4421569",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -9113,14 +9113,13 @@ try {
 							"UrlMap",
 							"sdk.DOM",
 							"sdk.fbt",
-							"sdk.feature",
 							"sdk.Runtime",
 							"sdk.UA",
 							"sdk.URI"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l) {
 							__p && __p();
-							var n = function() {
+							var m = function() {
 								__p && __p();
 								function a(a) {
 									__p && __p();
@@ -9128,10 +9127,10 @@ try {
 									var b = a.parentNode;
 									if (!b) return;
 									var c = h.getAttr(a, "href") || window.location.href,
-										d = new m(g.resolve("m"));
+										d = new l(g.resolve("m"));
 									d.setPath("/dialog/share");
 									d.addQueryData("href", encodeURI(c));
-									d.addQueryData("app_id", k.getClientID());
+									d.addQueryData("app_id", j.getClientID());
 									d.addQueryData("mbasic_link", 1);
 									c = document.createElement("a");
 									c.style = "display:inline-block; zoom:1;";
@@ -9141,7 +9140,6 @@ try {
 									b.insertBefore(c, a);
 									b.removeChild(a);
 								}
-								if (!j("js_sdk_mbasic_share_plugin_init", !1)) return;
 								ES(
 									ES(
 										"Array",
@@ -9170,8 +9168,8 @@ try {
 								);
 							};
 							function a() {
-								if (!l.mBasic()) return;
-								n();
+								if (!k.mBasic()) return;
+								m();
 							}
 							e.exports = { init: a };
 						},
@@ -10076,6 +10074,9 @@ try {
 								h
 							);
 							E.getVal = A;
+							E.getBaseParams = function() {
+								return w;
+							};
 							E.withParams = function(a, b) {
 								return E.extend({
 									getParams: function() {
@@ -10251,31 +10252,35 @@ try {
 						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
 							__p && __p();
 							var n = 320,
-								o = {
-									numposts: "string",
-									href: "url",
-									permalink: "bool",
-									order_by: "string",
-									mobile: "bool",
-									version: "string",
-									hide_post_profile: "bool",
-									limit: "string",
-									offset: "string",
-									view: "string",
-									fb_comment_id: "string",
-									from_mod_tool: "bool",
-									width: "string",
-									height: "string",
-									migrated: "string",
-									xid: "string",
-									title: "string",
-									url: "string",
-									quiet: "string",
-									reverse: "string",
-									simple: "string",
-									css: "string",
-									notify: "string"
-								};
+								o = ES(
+									"Object",
+									"assign",
+									!1,
+									{
+										numposts: "string",
+										href: "url",
+										permalink: "bool",
+										order_by: "string",
+										mobile: "bool",
+										version: "string",
+										hide_post_profile: "bool",
+										limit: "string",
+										offset: "string",
+										view: "string",
+										fb_comment_id: "string",
+										from_mod_tool: "bool",
+										migrated: "string",
+										xid: "string",
+										title: "string",
+										url: "string",
+										quiet: "string",
+										reverse: "string",
+										simple: "string",
+										css: "string",
+										notify: "string"
+									},
+									g.getBaseParams()
+								);
 							function p(a, b) {
 								__p && __p();
 								ES(ES("Object", "keys", !1, o), "forEach", !0, function(c) {
@@ -11912,7 +11917,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4420762","namespace":"FB","message":"' +
+				'","revision":"4421569","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
