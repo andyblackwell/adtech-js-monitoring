@@ -1,4 +1,4 @@
-/*1539712535,,JIT Construction: v4425123,en_US*/
+/*1539727919,,JIT Construction: v4426318,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,41 +2201,26 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4425123",
+						revision: "4426318",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
-						bustCache: true,
-						tagCountLogRate: 0.01,
-						errorHandling: { rate: 4 },
-						usePluginPipe: true,
 						features: {
-							dialog_resize_refactor: true,
-							one_comment_controller: true,
 							allow_non_canvas_app_events: false,
-							prefer_cors_as_transport: { rate: 100 },
-							should_force_single_dialog_instance: true,
-							js_sdk_force_status_on_load: true,
-							js_sdk_mbasic_share_plugin_init: true,
-							kill_fragment: true,
-							xfbml_profile_pic_server: true,
 							error_handling: { rate: 4 },
 							e2e_ping_tracking: { rate: 1.0e-6 },
-							getloginstatus_tracking: { rate: 0.001 },
 							xd_timeout: { rate: 1, value: 60000 },
 							use_bundle: true,
-							launch_payment_dialog_via_pac: { rate: 100 },
 							should_log_response_error: true,
 							popup_blocker_scribe_logging: { rate: 100 },
 							https_only_enforce_starting: 2538809200000,
 							https_only_learn_more:
 								"https://developers.facebook.com/blog/post/2018/06/08/enforce-https-facebook-login/",
 							https_only_scribe_logging: { rate: 1 },
-							log_perf: { rate: 0.001 },
-							plugin_tags_blacklist: ["name"]
+							log_perf: { rate: 0.001 }
 						}
 					});
 					__d("JSSDKXDConfig", [], {
@@ -11905,7 +11890,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -11916,7 +11901,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4425123","namespace":"FB","message":"' +
+				'","revision":"4426318","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
