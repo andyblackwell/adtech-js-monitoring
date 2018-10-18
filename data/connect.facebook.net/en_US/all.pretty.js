@@ -1,4 +1,4 @@
-/*1539875198,,JIT Construction: v4435423,en_US*/
+/*1539884955,,JIT Construction: v4435593,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4435423",
+						revision: "4435593",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -2220,7 +2220,7 @@ try {
 							https_only_learn_more:
 								"https://developers.facebook.com/blog/post/2018/06/08/enforce-https-facebook-login/",
 							https_only_scribe_logging: { rate: 1 },
-							log_perf: { rate: 0.001 }
+							log_perf: { rate: 0 }
 						}
 					});
 					__d("JSSDKXDConfig", [], {
@@ -11854,7 +11854,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4435423","namespace":"FB","message":"' +
+				'","revision":"4435593","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
