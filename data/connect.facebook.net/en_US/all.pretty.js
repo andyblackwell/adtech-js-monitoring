@@ -1,4 +1,4 @@
-/*1539909954,,JIT Construction: v4437606,en_US*/
+/*1539922469,,JIT Construction: v4438968,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4437606",
+						revision: "4438968",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -9330,7 +9330,7 @@ try {
 								if (b.length > 1)
 									if (b > 2) b = null;
 									else {
-										c = b.findIndex(function(a) {
+										c = ES(b, "findIndex", !0, function(a) {
 											return ES(a.name, "startsWith", !0, o + "?hash=");
 										});
 										!c ? (b = null) : ((a = b.splice(c)[0]), (b = b[0]));
@@ -11854,7 +11854,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4437606","namespace":"FB","message":"' +
+				'","revision":"4438968","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
