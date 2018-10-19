@@ -1,4 +1,4 @@
-/*1539922469,,JIT Construction: v4438968,en_US*/
+/*1539930206,,JIT Construction: v4439560,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4438968",
+						revision: "4439560",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "https://connect.facebook.net/en_US/all.js"
+						sdkurl: "http://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						features: {
@@ -10445,6 +10445,7 @@ try {
 						"sdk.XFBML.CustomerChat",
 						[
 							"IframePlugin",
+							"Log",
 							"QueryString",
 							"getDocumentScrollElement",
 							"sdk.Content",
@@ -10454,39 +10455,71 @@ try {
 							"sdk.DOM",
 							"sdk.DOMEventListener",
 							"sdk.Event",
+							"sdk.Runtime",
+							"sdk.Scribe",
 							"sdk.UA",
 							"sdk.XD"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r) {
+						function(
+							a,
+							b,
+							c,
+							d,
+							e,
+							f,
+							g,
+							h,
+							i,
+							j,
+							k,
+							l,
+							m,
+							n,
+							o,
+							p,
+							q,
+							r,
+							s,
+							t,
+							u
+						) {
 							"use strict";
 							__p && __p();
-							var s = [
+							var v = [
 									"animationend",
 									"mozAnimationEnd",
 									"MSAnimationEnd",
 									"oAnimationEnd",
 									"webkitAnimationEnd"
 								],
-								t = null,
-								u = !(q.ie() <= 9),
-								v = null,
-								w = !1,
-								x = null,
-								y = "",
+								w = null,
+								x = !(t.ie() <= 9),
+								y = null,
 								z = !1,
-								A = 0,
-								B = 0,
+								A = null,
+								B = "",
 								C = !1,
-								D = null;
+								D = 0,
+								E = 0,
+								F = !1,
+								G = null;
 							a = g.extend({
 								constructor: function(a, b, c, d) {
-									n.addCss(a, "fb_invisible_flow"),
-										n.remove(a),
-										j.append(a),
+									o.addCss(a, "fb_invisible_flow"),
+										o.remove(a),
+										k.append(a),
 										this.parent(a, b, c, d),
 										(this._iframeOptions.title = ""),
-										p.fire("customerchat.load"),
-										this._setUpSubscriptions();
+										q.fire("customerchat.load"),
+										this._setUpSubscriptions(),
+										ES(r.getSDKUrl(), "indexOf", !0, "customerchat") === -1 &&
+											(h.error(
+												"##########################\n#  The CustomerChat plugin will soon be removed from the main Facebook SDK.\n#  To continue using it please use the correct SDK URL.\n#  For more details see https://fburl.com/customer-chat-sdk\n##########################"
+											),
+											s.log("jssdk_error", {
+												appId: r.getClientID(),
+												error: "customerchat"
+											}));
 								},
 								_setUpSubscriptions: function() {
 									__p && __p();
@@ -10505,7 +10538,7 @@ try {
 											"xd.liveChatPluginPrepareAnchorIframe",
 											ES(
 												function(a) {
-													(z = ES(
+													(C = ES(
 														"JSON",
 														"parse",
 														!1,
@@ -10610,7 +10643,7 @@ try {
 												this
 											)
 										),
-										q.iphone() &&
+										t.iphone() &&
 											(this.subscribe(
 												"xd.liveChatPluginFocusComposer",
 												ES(
@@ -10638,15 +10671,15 @@ try {
 									(this._bubbleDialog = this._setupNewIframeDialog(
 										a.fromIframe
 									)),
-										(v = this._bubbleDialog),
-										j.append(this._bubbleDialog),
+										(y = this._bubbleDialog),
+										k.append(this._bubbleDialog),
 										this.subscribe(
 											"xd.liveChatPluginShowBubbleIframe",
 											ES(
 												function(a) {
-													n.setStyle(this._bubbleDialog, "display", "inline"),
-														u &&
-															(n.addCss(
+													o.setStyle(this._bubbleDialog, "display", "inline"),
+														x &&
+															(o.addCss(
 																this._bubbleDialog,
 																"fb_customer_chat_bubble_pop_in"
 															),
@@ -10654,7 +10687,7 @@ try {
 																setTimeout(
 																	ES(
 																		function() {
-																			(D = !1), G(this._iframe, w, q.mobile());
+																			(G = !1), J(this._iframe, z, t.mobile());
 																		},
 																		"bind",
 																		!0,
@@ -10684,19 +10717,19 @@ try {
 											width: "288pt",
 											zIndex: "2147483647"
 										}),
-										n.setStyle(
+										o.setStyle(
 											this._iframe,
 											"maxHeight",
-											ES("JSON", "parse", !1, a.dialogHidden) || u
+											ES("JSON", "parse", !1, a.dialogHidden) || x
 												? "0"
 												: "100%"
 										),
 										ES("JSON", "parse", !1, a.chatStarted) &&
-											((w = !0),
+											((z = !0),
 											ES("Object", "assign", !1, this._iframe.style, {
 												height: "378pt"
 											})),
-										(x = this._iframe));
+										(A = this._iframe));
 								},
 								_handlePrepareMobileAnchorIframe: function(a) {
 									__p && __p();
@@ -10707,16 +10740,16 @@ try {
 											position: "fixed",
 											zIndex: "2147483647"
 										});
-										n.setStyle(
+										o.setStyle(
 											this._iframe,
 											"maxHeight",
-											ES("JSON", "parse", !1, a.dialogHidden) || u
+											ES("JSON", "parse", !1, a.dialogHidden) || x
 												? "0"
 												: "100%"
 										);
 										var b = ES("JSON", "parse", !1, a.chatStarted);
 										if (b)
-											(w = !0),
+											(z = !0),
 												ES("Object", "assign", !1, this._iframe.style, {
 													boxShadow: "none",
 													height: "100%",
@@ -10724,8 +10757,8 @@ try {
 													top: "0",
 													width: "100%"
 												}),
-												ES("JSON", "parse", !1, a.dialogHidden) || E();
-										else if (z)
+												ES("JSON", "parse", !1, a.dialogHidden) || H();
+										else if (C)
 											if (!ES("JSON", "parse", !1, a.showInterstitialOnPage)) {
 												b = screen.width - 120;
 												ES("Object", "assign", !1, this._iframe.style, {
@@ -10734,7 +10767,7 @@ try {
 													top: "auto",
 													width: b + "px"
 												});
-											} else this._makeDialogIframeFullScreen(), (C = !0);
+											} else this._makeDialogIframeFullScreen(), (F = !0);
 										else
 											ES("Object", "assign", !1, this._iframe.style, {
 												borderRadius: "9pt",
@@ -10743,33 +10776,33 @@ try {
 												top: "auto",
 												width: "288pt"
 											});
-										x = this._iframe;
+										A = this._iframe;
 									}
 								},
 								_handleResizeAnchorIframe: function(a) {
 									this._iframe &&
-										n.setStyle(
+										o.setStyle(
 											this._iframe,
 											"height",
 											ES("JSON", "parse", !1, a.height) + "px"
 										);
 								},
 								_handleExpandDesktopDialogIframe: function() {
-									(w = !0),
-										this._iframe && n.setStyle(this._iframe, "height", "378pt");
+									(z = !0),
+										this._iframe && o.setStyle(this._iframe, "height", "378pt");
 								},
 								_handleExpandMobileDialogIframe: function() {
-									(w = !0), this._makeDialogIframeFullScreen(), E();
+									(z = !0), this._makeDialogIframeFullScreen(), H();
 								},
 								_handleShowDialogIframe: function(a) {
-									G(
+									J(
 										this._iframe,
 										ES("JSON", "parse", !1, a.chatStarted),
 										ES("JSON", "parse", !1, a.isMobile)
 									);
 								},
 								_handleHideDialogIframe: function(a) {
-									H(
+									K(
 										this._iframe,
 										ES("JSON", "parse", !1, a.chatStarted),
 										ES("JSON", "parse", !1, a.isMobile)
@@ -10777,14 +10810,14 @@ try {
 								},
 								_handleShowInterstitialOnPage: function(a) {
 									!ES("JSON", "parse", !1, a.dialogHidden)
-										? (H(this._iframe, !1, !0, !1),
+										? (K(this._iframe, !1, !0, !1),
 										  setTimeout(
 												ES(
 													function() {
 														this._makeDialogIframeFullScreen(),
-															(C = !0),
-															G(this._iframe, !1, !0, !0),
-															E();
+															(F = !0),
+															J(this._iframe, !1, !0, !0),
+															H();
 													},
 													"bind",
 													!0,
@@ -10793,18 +10826,18 @@ try {
 												500
 										  ))
 										: (this._makeDialogIframeFullScreen(),
-										  (C = !0),
-										  G(this._iframe, !1, !0, !0));
+										  (F = !0),
+										  J(this._iframe, !1, !0, !0));
 								},
 								_handleShadowUpdate: function(a) {
 									ES("JSON", "parse", !1, a.resetShadow) && this._bubbleDialog
-										? (n.setStyle(this._bubbleDialog, "borderRadius", "50%"),
-										  u
-												? n.addCss(
+										? (o.setStyle(this._bubbleDialog, "borderRadius", "50%"),
+										  x
+												? o.addCss(
 														this._bubbleDialog,
 														"fb_customer_chat_bubble_animated_no_badge"
 												  )
-												: n.setStyle(
+												: o.setStyle(
 														this._bubbleDialog,
 														"boxShadow",
 														"0px 3px 12px rgba(0, 0, 0, 0.15)"
@@ -10813,9 +10846,9 @@ try {
 										  this._setBubbleBadgeStyle();
 								},
 								_handleUpdatePageTitle: function(a) {
-									!t && a.titleText
-										? ((t = m.blink(a.titleText)),
-										  o.add(
+									!w && a.titleText
+										? ((w = n.blink(a.titleText)),
+										  p.add(
 												window,
 												"focus",
 												ES(
@@ -10827,15 +10860,15 @@ try {
 													this
 												)
 										  ))
-										: t && !a.titleText && this._stopBlinking();
+										: w && !a.titleText && this._stopBlinking();
 								},
 								_handleFocusComposer: function() {
 									setTimeout(
 										ES(
 											function() {
-												var a = i();
+												var a = j();
 												a &&
-													(n.setStyle(
+													(o.setStyle(
 														this._iframe,
 														"maxHeight",
 														a.scrollHeight - a.scrollTop + "px"
@@ -10850,15 +10883,15 @@ try {
 									);
 								},
 								_handleBlurComposer: function() {
-									n.setStyle(this._iframe, "maxHeight", "100%");
+									o.setStyle(this._iframe, "maxHeight", "100%");
 								},
 								_setupNewIframeDialog: function(a) {
-									a = "#" + h.encode({ forIframe: a });
-									var b = l.setupNewDialog();
-									n.setStyle(b.contentRoot, "background", "none");
-									y = this._iframeOptions.name;
-									k({
-										url: r.getXDArbiterURL() + a,
+									a = "#" + i.encode({ forIframe: a });
+									var b = m.setupNewDialog();
+									o.setStyle(b.contentRoot, "background", "none");
+									B = this._iframeOptions.name;
+									l({
+										url: u.getXDArbiterURL() + a,
 										name: "blank_" + this._iframeOptions.name,
 										root: b.contentRoot,
 										tabindex: -1,
@@ -10878,16 +10911,16 @@ try {
 										width: "45pt",
 										zIndex: "2147483646"
 									});
-									u
-										? (n.removeCss(
+									x
+										? (o.removeCss(
 												b.dialogElement,
 												"fb_customer_chat_bubble_animated_with_badge"
 										  ),
-										  n.addCss(
+										  o.addCss(
 												b.dialogElement,
 												"fb_customer_chat_bubble_animated_no_badge"
 										  ))
-										: n.setStyle(
+										: o.setStyle(
 												b.dialogElement,
 												"boxShadow",
 												"0px 3px 12px rgba(0, 0, 0, 0.15)"
@@ -10896,37 +10929,37 @@ try {
 								},
 								_setBubbleBadgeStyle: function() {
 									this._bubbleDialog &&
-										(n.setStyle(
+										(o.setStyle(
 											this._bubbleDialog,
 											"borderRadius",
 											"50% 0% 50% 50%"
 										),
-										u
-											? (n.removeCss(
+										x
+											? (o.removeCss(
 													this._bubbleDialog,
 													"fb_customer_chat_bubble_animated_no_badge"
 											  ),
-											  n.addCss(
+											  o.addCss(
 													this._bubbleDialog,
 													"fb_customer_chat_bubble_animated_with_badge"
 											  ))
-											: n.setStyle(
+											: o.setStyle(
 													this._bubbleDialog,
 													"boxShadow",
 													"-5px 4px 14px rgba(0, 0, 0, 0.15)"
 											  ));
 								},
 								_stopBlinking: function() {
-									t && (t.stop(), (t = null));
+									w && (w.stop(), (w = null));
 								},
 								_makeDialogIframeFullScreen: function() {
 									this._iframe &&
-										(n.setStyle(this._iframe, "boxShadow", "none"),
-										n.setStyle(this._iframe, "border-radius", "0"),
-										n.setStyle(this._iframe, "height", "100%"),
-										n.setStyle(this._iframe, "right", "0"),
-										n.setStyle(this._iframe, "top", "0"),
-										n.setStyle(this._iframe, "width", "100%"));
+										(o.setStyle(this._iframe, "boxShadow", "none"),
+										o.setStyle(this._iframe, "border-radius", "0"),
+										o.setStyle(this._iframe, "height", "100%"),
+										o.setStyle(this._iframe, "right", "0"),
+										o.setStyle(this._iframe, "top", "0"),
+										o.setStyle(this._iframe, "width", "100%"));
 								},
 								getParams: function() {
 									return {
@@ -10941,114 +10974,114 @@ try {
 									};
 								}
 							});
-							function E() {
-								(A =
+							function H() {
+								(D =
 									window.pageXOffset !== undefined
 										? window.pageXOffset
 										: document.documentElement &&
 										  document.documentElement.scrollLeft),
-									(B =
+									(E =
 										window.pageYOffset !== undefined
 											? window.pageYOffset
 											: document.documentElement &&
 											  document.documentElement.scrollTop),
-									n.addCss(document.body, "fb_mobile_overlay_active");
+									o.addCss(document.body, "fb_mobile_overlay_active");
 							}
-							function F() {
-								n.removeCss(document.body, "fb_mobile_overlay_active"),
-									window.scrollTo(A, B);
+							function I() {
+								o.removeCss(document.body, "fb_mobile_overlay_active"),
+									window.scrollTo(D, E);
 							}
-							function G(a, b, c, d) {
+							function J(a, b, c, d) {
 								__p && __p();
 								d === void 0 && (d = !0);
 								if (!a) return;
-								if (D === null || D === !1) {
-									c && (b || (z && C)) && E();
-									if (u) {
-										c && (b || (z && C))
+								if (G === null || G === !1) {
+									c && (b || (C && F)) && H();
+									if (x) {
+										c && (b || (C && F))
 											? ((c =
 													"fb_customer_chat_bounce_in_v2_mobile_chat_started"),
 											  (b =
 													"fb_customer_chat_bounce_out_v2_mobile_chat_started"))
 											: ((c = "fb_customer_chat_bounce_in_v2"),
 											  (b = "fb_customer_chat_bounce_out_v2"));
-										n.removeCss(a, b);
-										n.addCss(a, c);
+										o.removeCss(a, b);
+										o.addCss(a, c);
 									}
-									n.setStyle(a, "maxHeight", "100%");
-									r.sendToFacebook(y, {
+									o.setStyle(a, "maxHeight", "100%");
+									u.sendToFacebook(B, {
 										method: "CustomerChat.isDialogHidden",
 										params: ES("JSON", "stringify", !1, {
 											is_dialog_hidden: !1
 										})
 									});
-									D = !0;
+									G = !0;
 								}
-								d && p.fire("customerchat.dialogShow");
+								d && q.fire("customerchat.dialogShow");
 							}
-							function H(a, b, c, d) {
+							function K(a, b, c, d) {
 								__p && __p();
 								d === void 0 && (d = !0);
 								var e = a;
 								if (!e) return;
-								if (D === null || D === !0) {
-									c && (b || (z && C)) && F();
-									if (!u) n.setStyle(e, "maxHeight", "0");
+								if (G === null || G === !0) {
+									c && (b || (C && F)) && I();
+									if (!x) o.setStyle(e, "maxHeight", "0");
 									else {
 										var f = function a(d) {
 												var f;
-												c && (b || (z && C))
+												c && (b || (C && F))
 													? (f = "fb_bounce_out_v2_mobile_chat_started")
 													: (f = "fb_bounce_out_v2");
 												d.animationName === f &&
-													(n.setStyle(e, "maxHeight", "0"),
-													ES(s, "forEach", !0, function(event) {
-														o.remove(e, event, a);
+													(o.setStyle(e, "maxHeight", "0"),
+													ES(v, "forEach", !0, function(event) {
+														p.remove(e, event, a);
 													}));
 											},
 											g;
-										c && (b || (z && C))
+										c && (b || (C && F))
 											? ((a =
 													"fb_customer_chat_bounce_in_v2_mobile_chat_started"),
 											  (g =
 													"fb_customer_chat_bounce_out_v2_mobile_chat_started"))
 											: ((a = "fb_customer_chat_bounce_in_v2"),
 											  (g = "fb_customer_chat_bounce_out_v2"));
-										n.removeCss(e, a);
-										n.addCss(e, g);
-										ES(s, "forEach", !0, function(event) {
-											o.add(e, event, f);
+										o.removeCss(e, a);
+										o.addCss(e, g);
+										ES(v, "forEach", !0, function(event) {
+											p.add(e, event, f);
 										});
 									}
-									r.sendToFacebook(y, {
+									u.sendToFacebook(B, {
 										method: "CustomerChat.isDialogHidden",
 										params: ES("JSON", "stringify", !1, {
 											is_dialog_hidden: !0
 										})
 									});
-									D = !1;
+									G = !1;
 								}
-								d && p.fire("customerchat.dialogHide");
+								d && q.fire("customerchat.dialogHide");
 							}
 							a.show = function(a) {
 								a === void 0 && (a = !0),
-									n.setStyle(v, "display", "inline"),
-									a && G(x, w, q.mobile(), !1),
-									p.fire("customerchat.show");
+									o.setStyle(y, "display", "inline"),
+									a && J(A, z, t.mobile(), !1),
+									q.fire("customerchat.show");
 							};
 							a.hide = function() {
-								n.setStyle(v, "display", "none"),
-									H(x, w, q.mobile(), !1),
-									p.fire("customerchat.hide");
+								o.setStyle(y, "display", "none"),
+									K(A, z, t.mobile(), !1),
+									q.fire("customerchat.hide");
 							};
 							a.showDialog = function() {
-								n.setStyle(v, "display", "inline"), G(x, w, q.mobile());
+								o.setStyle(y, "display", "inline"), J(A, z, t.mobile());
 							};
 							a.hideDialog = function() {
-								H(x, w, q.mobile());
+								K(A, z, t.mobile());
 							};
 							a.update = function(a) {
-								r.sendToFacebook(y, {
+								u.sendToFacebook(B, {
 									method: "updateCustomerChat",
 									params: ES("JSON", "stringify", !1, a || {})
 								});
@@ -11843,7 +11876,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"https://www.facebook.com/" +
+		"http://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -11854,7 +11887,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4438968","namespace":"FB","message":"' +
+				'","revision":"4439560","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
