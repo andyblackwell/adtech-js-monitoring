@@ -1,4 +1,4 @@
-/*1539982336,,JIT Construction: v4441279,en_US*/
+/*1539987140,,JIT Construction: v4442008,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4441279",
+						revision: "4442008",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						features: {
@@ -9220,38 +9220,31 @@ try {
 					);
 					__d(
 						"XFBML",
-						[
-							"Assert",
-							"Log",
-							"ObservableMixin",
-							"runOnce",
-							"sdk.DOM",
-							"sdk.UA"
-						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						["Assert", "Log", "ObservableMixin", "runOnce"],
+						function(a, b, c, d, e, f, g, h, i, j) {
 							__p && __p();
-							var m = {},
-								n = {},
-								o = 0,
-								p = new i();
-							function q(a, b) {
+							var k = {},
+								l = {},
+								m = 0,
+								n = new i();
+							function o(a, b) {
 								return ES(a[b] + "", "trim", !0);
 							}
-							function r(a) {
+							function p(a) {
 								return a.scopeName ? a.scopeName + ":" + a.nodeName : "";
 							}
-							function s(a) {
+							function q(a) {
 								return (
-									m[q(a, "nodeName").toLowerCase()] || m[r(a).toLowerCase()]
+									k[o(a, "nodeName").toLowerCase()] || k[p(a).toLowerCase()]
 								);
 							}
-							function t(a) {
+							function r(a) {
 								var b = ES(
-									q(a, "className").split(/\s+/),
+									o(a, "className").split(/\s+/),
 									"filter",
 									!0,
 									function(a) {
-										return Object.prototype.hasOwnProperty.call(n, a);
+										return Object.prototype.hasOwnProperty.call(l, a);
 									}
 								);
 								if (b.length === 0) return undefined;
@@ -9262,45 +9255,23 @@ try {
 									(a.childNodes.length === 1 &&
 										a.childNodes[0].nodeType === 3) ||
 									(a.children.length === 1 &&
-										q(a.children[0], "className") === "fb-xfbml-parse-ignore")
+										o(a.children[0], "className") === "fb-xfbml-parse-ignore")
 								)
-									return n[b[0]];
+									return l[b[0]];
 							}
-							function u(a) {
+							function s(a) {
 								var b = {};
 								ES(
 									ES("Array", "from", !1, a.attributes),
 									"forEach",
 									!0,
 									function(a) {
-										b[q(a, "name")] = q(a, "value");
+										b[o(a, "name")] = o(a, "value");
 									}
 								);
 								return b;
 							}
-							function v(a, b, c) {
-								var d = document.createElement("div");
-								k.addCss(a, b + "-" + c);
-								ES(
-									ES("Array", "from", !1, a.childNodes),
-									"forEach",
-									!0,
-									function(a) {
-										d.appendChild(a);
-									}
-								);
-								ES(
-									ES("Array", "from", !1, a.attributes),
-									"forEach",
-									!0,
-									function(a) {
-										d.setAttribute(a.name, a.value);
-									}
-								);
-								a.parentNode.replaceChild(d, a);
-								return d;
-							}
-							function w(a, b, c) {
+							function t(a, b, c) {
 								__p && __p();
 								g.isTrue(
 									a &&
@@ -9310,7 +9281,7 @@ try {
 									"Invalid DOM node passed to FB.XFBML.parse()"
 								);
 								g.isFunction(b, "Invalid callback passed to FB.XFBML.parse()");
-								var d = ++o;
+								var d = ++m;
 								h.info("XFBML Parsing Start %s", d);
 								var e = 1,
 									f = 0,
@@ -9319,7 +9290,7 @@ try {
 											e === 0 &&
 												(h.info("XFBML Parsing Finish %s, %s tags found", d, f),
 												b(),
-												p.inform("render", d, f)),
+												n.inform("render", d, f)),
 											g.isTrue(
 												e >= 0,
 												"onrender() has been called too many times"
@@ -9333,14 +9304,11 @@ try {
 										__p && __p();
 										if (!c && a.getAttribute("fb-xfbml-state")) return;
 										if (a.nodeType !== 1) return;
-										var b = s(a) || t(a);
+										var b = q(a) || r(a);
 										if (!b) return;
-										l.ie() < 9 &&
-											a.scopeName &&
-											(a = v(a, b.xmlns, b.localName));
 										e++;
 										f++;
-										var d = new b.ctor(a, b.xmlns, b.localName, u(a));
+										var d = new b.ctor(a, b.xmlns, b.localName, s(a));
 										d.subscribe(
 											"render",
 											j(function() {
@@ -9349,42 +9317,42 @@ try {
 										);
 										b = function b() {
 											a.getAttribute("fb-xfbml-state") == "parsed"
-												? p.subscribe("render.queue", b)
+												? n.subscribe("render.queue", b)
 												: (a.setAttribute("fb-xfbml-state", "parsed"),
 												  d.process());
 										};
 										b();
 									}
 								);
-								p.inform("parse", d, f);
+								n.inform("parse", d, f);
 								var k = 3e4;
 								setTimeout(function() {
 									e > 0 && h.warn("%s tags failed to render in %s ms", e, k);
 								}, k);
 								i();
 							}
-							p.subscribe("render", function() {
-								var a = p.getSubscribers("render.queue");
-								p.clearSubscribers("render.queue");
+							n.subscribe("render", function() {
+								var a = n.getSubscribers("render.queue");
+								n.clearSubscribers("render.queue");
 								ES(a, "forEach", !0, function(a) {
 									a();
 								});
 							});
-							ES("Object", "assign", !1, p, {
+							ES("Object", "assign", !1, n, {
 								registerTag: function(a) {
 									var b = a.xmlns + ":" + a.localName;
-									g.isUndefined(m[b], b + " already registered");
-									m[b] = a;
-									n[a.xmlns + "-" + a.localName] = a;
+									g.isUndefined(k[b], b + " already registered");
+									k[b] = a;
+									l[a.xmlns + "-" + a.localName] = a;
 								},
 								parse: function(a, b) {
-									w(a || document.body, b || function() {}, !0);
+									t(a || document.body, b || function() {}, !0);
 								},
 								parseNew: function() {
-									w(document.body, function() {}, !1);
+									t(document.body, function() {}, !1);
 								}
 							});
-							e.exports = p;
+							e.exports = n;
 						},
 						null
 					);
@@ -11673,7 +11641,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -11684,7 +11652,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4441279","namespace":"FB","message":"' +
+				'","revision":"4442008","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
