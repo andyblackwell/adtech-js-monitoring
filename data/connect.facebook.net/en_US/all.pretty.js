@@ -1,4 +1,4 @@
-/*1539930206,,JIT Construction: v4439560,en_US*/
+/*1539948891,,JIT Construction: v4440460,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4439560",
+						revision: "4440460",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -2225,7 +2225,7 @@ try {
 					});
 					__d("JSSDKXDConfig", [], {
 						XdUrl: "/connect/xd_arbiter.php?version=42",
-						XdBundleUrl: "/connect/xd_arbiter/r/trnHszv6jVd.js?version=42",
+						XdBundleUrl: "/connect/xd_arbiter/r/__Bz3h5RzMx.js?version=42",
 						Flash: {
 							path:
 								"https://connect.facebook.net/rsrc.php/v2/yW/r/yOZN1vHw3Z_.swf"
@@ -4339,33 +4339,6 @@ try {
 						null
 					);
 					__d(
-						"htmlSpecialChars",
-						[],
-						function(a, b, c, d, e, f) {
-							__p && __p();
-							var g = /&/g,
-								h = /</g,
-								i = />/g,
-								j = /\"/g,
-								k = /\'/g;
-							function a(a) {
-								if (typeof a === "undefined" || a === null || !a.toString)
-									return "";
-								if (a === !1) return "0";
-								else if (a === !0) return "1";
-								return a
-									.toString()
-									.replace(g, "&amp;")
-									.replace(j, "&quot;")
-									.replace(k, "&#039;")
-									.replace(h, "&lt;")
-									.replace(i, "&gt;");
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"emptyFunction",
 						[],
 						function(a, b, c, d, e, f) {
@@ -4443,125 +4416,9 @@ try {
 						null
 					);
 					__d(
-						"Flash",
-						[
-							"DOMWrapper",
-							"QueryString",
-							"UserAgent_DEPRECATED",
-							"guid",
-							"htmlSpecialChars",
-							"sdk.DOMEventListener"
-						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
-							__p && __p();
-							var m = {},
-								n,
-								o = g.getWindow().document;
-							function p(a) {
-								var b = o.getElementById(a);
-								b && b.parentNode.removeChild(b);
-								delete m[a];
-							}
-							function q() {
-								for (var a in m)
-									Object.prototype.hasOwnProperty.call(m, a) && p(a);
-							}
-							function r(a) {
-								return a.replace(/\d+/g, function(a) {
-									return "000".substring(a.length) + a;
-								});
-							}
-							function s(a) {
-								n || (i.ie() >= 9 && l.add(window, "unload", q), (n = !0)),
-									(m[a] = a);
-							}
-							var t = {
-								embed: function(a, b, c, d) {
-									__p && __p();
-									var e = j();
-									a = k(a).replace(/&amp;/g, "&");
-									c = babelHelpers["extends"](
-										{ allowscriptaccess: "always", flashvars: d, movie: a },
-										c
-									);
-									typeof c.flashvars === "object" &&
-										(c.flashvars = h.encode(c.flashvars));
-									d = [];
-									for (var f in c)
-										Object.prototype.hasOwnProperty.call(c, f) &&
-											c[f] &&
-											d.push(
-												'<param name="' + k(f) + '" value="' + k(c[f]) + '">'
-											);
-									b = b.appendChild(o.createElement("span"));
-									a =
-										"<object " +
-										(i.ie()
-											? 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" '
-											: 'type="application/x-shockwave-flash"') +
-										'data="' +
-										a +
-										'" ' +
-										(c.height ? 'height="' + c.height + '" ' : "") +
-										(c.width ? 'width="' + c.width + '" ' : "") +
-										'id="' +
-										e +
-										'">' +
-										d.join("") +
-										"</object>";
-									b.innerHTML = a;
-									c = b.firstChild;
-									s(e);
-									return c;
-								},
-								remove: p,
-								getVersion: function() {
-									var a = "Shockwave Flash",
-										b = "application/x-shockwave-flash",
-										c = "ShockwaveFlash.ShockwaveFlash",
-										d;
-									if (
-										navigator.plugins &&
-										typeof navigator.plugins[a] === "object"
-									) {
-										a = navigator.plugins[a].description;
-										a &&
-											navigator.mimeTypes &&
-											navigator.mimeTypes[b] &&
-											navigator.mimeTypes[b].enabledPlugin &&
-											(d = a.match(/\d+/g));
-									}
-									if (!d)
-										try {
-											(d = new ActiveXObject(c)
-												.GetVariable("$version")
-												.match(/(\d+),(\d+),(\d+),(\d+)/)),
-												(d = Array.prototype.slice.call(d, 1));
-										} catch (a) {}
-									return d;
-								},
-								getVersionString: function() {
-									var a = t.getVersion();
-									return a ? a.join(".") : "";
-								},
-								checkMinVersion: function(a) {
-									var b = t.getVersion();
-									return !b ? !1 : r(b.join(".")) >= r(a);
-								},
-								isAvailable: function() {
-									return !!t.getVersion();
-								}
-							};
-							e.exports = t;
-						},
-						null
-					);
-					__d(
 						"XDM",
 						[
 							"DOMWrapper",
-							"Flash",
-							"GlobalCallback",
 							"Log",
 							"UserAgent_DEPRECATED",
 							"emptyFunction",
@@ -4569,114 +4426,55 @@ try {
 							"sdk.DOMEventListener",
 							"wrapFunction"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
 							__p && __p();
-							var p = {},
-								q = { transports: [] },
-								r = g.getWindow();
-							function s(a) {
+							var n = {},
+								o = { transports: [] },
+								p = g.getWindow();
+							function q(a) {
 								__p && __p();
 								var b = {},
 									c = a.length,
-									d = q.transports;
+									d = o.transports;
 								while (c--) b[a[c]] = 1;
 								c = d.length;
 								while (c--) {
 									a = d[c];
-									var e = p[a];
+									var e = n[a];
 									if (!b[a] && e.isAvailable()) return a;
 								}
+								return null;
 							}
 							a = {
 								register: function(a, b) {
-									j.debug("Registering %s as XDM provider", a),
-										q.transports.push(a),
-										(p[a] = b);
+									h.debug("Registering %s as XDM provider", a),
+										o.transports.push(a),
+										(n[a] = b);
 								},
 								create: function(a) {
 									__p && __p();
 									if (!a.whenReady && !a.onMessage) {
-										j.error(
-											"An instance without whenReady or onMessage makes no sense"
-										);
-										throw new Error(
-											"An instance without whenReady or onMessage makes no sense"
-										);
+										var b =
+											"An instance without whenReady or onMessage makes no sense";
+										h.error(b);
+										throw new Error(b);
 									}
 									a.channel ||
-										(j.warn("Missing channel name, selecting at random"),
-										(a.channel = m()));
-									a.whenReady || (a.whenReady = l);
-									a.onMessage || (a.onMessage = l);
-									var b = a.transport || s(a.blacklist || []),
-										c = p[b];
+										(h.warn("Missing channel name, selecting at random"),
+										(a.channel = k()));
+									a.whenReady || (a.whenReady = j);
+									a.onMessage || (a.onMessage = j);
+									b = a.transport || q(a.blacklist || []);
+									var c = n[b];
 									if (c && c.isAvailable()) {
-										j.debug("%s is available", b);
+										h.debug("%s is available", b);
 										c.init(a);
 										return b;
 									}
+									return null;
 								}
 							};
-							a.register(
-								"flash",
-								(function() {
-									__p && __p();
-									var a = !1,
-										b,
-										c = !1,
-										d = 15e3,
-										e;
-									return {
-										isAvailable: function() {
-											return h.checkMinVersion("8.0.24");
-										},
-										init: function(f) {
-											__p && __p();
-											j.debug("init flash: " + f.channel);
-											var g = {
-												send: function(a, c, d, e) {
-													j.debug("sending to: %s (%s)", c, e),
-														b.postMessage(a, c, e);
-												}
-											};
-											if (a) {
-												f.whenReady(g);
-												return;
-											}
-											var k = f.root.appendChild(
-													r.document.createElement("div")
-												),
-												l = i.create(function() {
-													i.remove(l);
-													clearTimeout(e);
-													j.info("xdm.swf called the callback");
-													var a = i.create(function(a, b) {
-														(a = decodeURIComponent(a)),
-															(b = decodeURIComponent(b)),
-															j.debug("received message %s from %s", a, b),
-															f.onMessage(a, b);
-													}, "xdm.swf:onMessage");
-													b.init(f.channel, a);
-													f.whenReady(g);
-												}, "xdm.swf:load");
-											b = h.embed(f.flashUrl, k, null, {
-												protocol: location.protocol.replace(":", ""),
-												host: location.host,
-												callback: l,
-												log: c
-											});
-											e = setTimeout(function() {
-												j.warn(
-													"The Flash component did not load within %s ms - verify that the container is not set to hidden or invisible using CSS as this will cause some browsers to not load the components",
-													d
-												);
-											}, d);
-											a = !0;
-										}
-									};
-								})()
-							);
-							var t = /\.facebook\.com(\/|$)/;
+							var r = /\.facebook\.com(\/|$)/;
 							a.register(
 								"postmessage",
 								(function() {
@@ -4684,25 +4482,25 @@ try {
 									var a = !1;
 									return {
 										isAvailable: function() {
-											return !!r.postMessage;
+											return !!p.postMessage;
 										},
 										init: function(b) {
 											__p && __p();
-											j.debug("init postMessage: " + b.channel);
+											h.debug("init postMessage: " + b.channel);
 											var c = "_FB_" + b.channel,
 												d = {
 													send: function(a, b, c, d) {
-														if (r === c) {
-															j.error(
+														if (p === c) {
+															h.error(
 																"Invalid windowref, equal to window (self)"
 															);
 															throw new Error();
 														}
-														j.debug("sending to: %s (%s)", b, d);
+														h.debug("sending to: %s (%s)", b, d);
 														var e = function() {
 															c.postMessage("_FB_" + d + a, b);
 														};
-														k.ie() == 8 || k.ieCompatibilityMode()
+														i.ie() == 8 || i.ieCompatibilityMode()
 															? setTimeout(e, 0)
 															: e();
 													}
@@ -4711,16 +4509,16 @@ try {
 												b.whenReady(d);
 												return;
 											}
-											n.add(
-												r,
+											l.add(
+												p,
 												"message",
-												o(
+												m(
 													function(event) {
 														__p && __p();
 														var a = event.data,
 															d = event.origin || "native";
 														if (!/^(https?:\/\/|native$)/.test(d)) {
-															j.debug(
+															h.debug(
 																"Received message from invalid origin type: %s",
 																d
 															);
@@ -4729,20 +4527,20 @@ try {
 														if (
 															d !== "native" &&
 															!(
-																t.test(location.hostname) ||
-																t.test(event.origin)
+																r.test(location.hostname) ||
+																r.test(event.origin)
 															)
 														)
 															return;
 														if (typeof a !== "string") {
-															j.warn(
+															h.warn(
 																"Received message of type %s from %s, expected a string",
 																typeof a,
 																d
 															);
 															return;
 														}
-														j.debug("received message %s from %s", a, d);
+														h.debug("received message %s from %s", a, d);
 														a.substring(0, c.length) == c &&
 															(a = a.substring(c.length));
 														b.onMessage(a, d);
@@ -5297,7 +5095,6 @@ try {
 										blacklist: null,
 										root: b,
 										channel: B,
-										flashUrl: g.Flash.path,
 										whenReady: function(d) {
 											D = d;
 											d = { channel: B, origin: C, transport: c, xd_name: a };
@@ -11887,7 +11684,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4439560","namespace":"FB","message":"' +
+				'","revision":"4440460","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
