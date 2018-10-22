@@ -1,4 +1,4 @@
-/*1540202406,,JIT Construction: v4446168,en_US*/
+/*1540231951,,JIT Construction: v4446823,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -5684,37 +5684,35 @@ try {
 									)
 								);
 							};
-							a.prototype.registerProgress = function(a, b, c, d, e, f, g) {
+							a.prototype.registerProgress = function(a, b) {
 								__p && __p();
-								b === void 0 && (b = 0);
-								c === void 0 && (c = 1);
 								if (!this.$1) {
-									g && g(this.getStatistics());
+									b && b(this.getStatistics());
 									return;
 								}
 								this.$3.getMeasurement(
 									ES(
-										function(i) {
+										function(c) {
 											if (this.$1) {
-												var j = i.getAdRect();
-												j = new h({
-													ar: j,
-													e: i.getError(),
-													vd: i.getViewabilityDetection(),
-													r: d ? "fullscreen" : i.getReason(),
-													vr: d ? j : i.getViewableRect(),
-													cont: e,
-													maa: this.$4.getMaxAdAreaForScreenOrientation(i)
+												var d = c.getAdRect();
+												d = new h({
+													ar: d,
+													e: c.getError(),
+													vd: c.getViewabilityDetection(),
+													r: a.isFullScreen ? "fullscreen" : c.getReason(),
+													vr: a.isFullScreen ? d : c.getViewableRect(),
+													cont: a.isContinuous,
+													maa: this.$4.getMaxAdAreaForScreenOrientation(c)
 												});
 												this.$9(
-													j,
-													parseFloat(a),
+													d,
+													parseFloat(a.loggingTimeInterval),
 													this.getStatistics(),
-													f,
-													b,
-													c
+													a,
+													a.volume,
+													a.playbackRate
 												);
-												g && g(this.getStatistics());
+												b && b(this.getStatistics());
 											}
 										},
 										"bind",
@@ -7197,15 +7195,24 @@ try {
 											this.$1 + f > b &&
 											!this.$3 &&
 											((this.$3 = !0), (e = K.FAST_CLICK_GUARD));
+										f = this.$32().$37.clickGuardElements || [
+											"fbAdTitle",
+											"fbAdBody",
+											"fbAdSubtitle",
+											"fbAdIcon",
+											"fbAdMedia",
+											"UNKNOWN"
+										];
 										if (
-											d !== "CTA" &&
-											this.$32().$37.resizeMediaView === !0 &&
+											f.includes(d) &&
+											this.$14 &&
+											!this.$15 &&
 											this.$32().$37.useTwoStepClick === !0 &&
 											!this.$26
 										) {
 											e === K.BILLABLE && (e = K.TWO_STEP_OPEN_DIALOG);
-											f = this.$5.data.nativeAd;
-											u.openDialog(this.$35(), f.adSubtitle, f.adIcon)
+											b = this.$5.data.nativeAd;
+											u.openDialog(this.$35(), b.adSubtitle, b.adIcon)
 												.onConfirm(
 													function(event) {
 														(this.$26 = !0), c(K.BILLABLE, "UNKNOWN", event);
@@ -7414,18 +7421,17 @@ try {
 							a.prototype.$53 = function(a) {
 								__p && __p();
 								var b = [
-										{ className: "fbAdMedia", category: "MEDIA" },
-										{ className: "fbAdCallToAction", category: "CTA" },
-										{ className: "fbAdTitle", category: "TEXT" },
-										{ className: "fbAdBody", category: "TEXT" },
-										{ className: "fbAdSubtitle", category: "TEXT" }
+										"fbAdCallToAction",
+										"fbAdTitle",
+										"fbAdBody",
+										"fbAdSubtitle",
+										"fbAdIcon",
+										"fbAdMedia"
 									],
 									c = this.$35();
 								for (var d = 0; d < b.length; d++) {
 									var e = b[d],
-										f = e.className;
-									e = e.category;
-									f = c.getElementsByClassName(f);
+										f = c.getElementsByClassName(e);
 									for (
 										var f = f,
 											g = Array.isArray(f),
@@ -7567,7 +7573,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4446168","namespace":"FB","message":"' +
+				'","revision":"4446823","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
