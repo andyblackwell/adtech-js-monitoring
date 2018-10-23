@@ -1,4 +1,4 @@
-/*1540290580,,JIT Construction: v4451685,en_US*/
+/*1540297587,,JIT Construction: v4451795,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4451685",
+						revision: "4451795",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -10279,7 +10279,7 @@ try {
 										this._setUpSubscriptions(),
 										ES(r.getSDKUrl(), "indexOf", !0, "customerchat") === -1 &&
 											(h.error(
-												"##########################\n#  The CustomerChat plugin will soon be removed from the main Facebook SDK.\n#  To continue using it please use the correct SDK URL.\n#  For more details see https://fburl.com/customer-chat-sdk\n##########################"
+												"##########################\n#  The CustomerChat plugin will soon be removed from the main Facebook SDK.\n#  To continue using it please use the correct SDK URL.\n#  For more details see https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin/sdk\n##########################"
 											),
 											s.log("jssdk_error", {
 												appId: r.getClientID(),
@@ -11652,7 +11652,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4451685","namespace":"FB","message":"' +
+				'","revision":"4451795","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
