@@ -1,4 +1,4 @@
-/*1540374464,,JIT Construction: v4456903,en_US*/
+/*1540396082,,JIT Construction: v4457262,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4090,10 +4090,19 @@ try {
 								ES(ES("Object", "keys", !1, a).sort(), "forEach", !0, function(
 									c
 								) {
+									__p && __p();
 									var d = a[c];
 									if (d === undefined) return;
 									if (d === null) {
 										b.push(c);
+										return;
+									}
+									if (typeof d === "object") {
+										b.push(
+											encodeURIComponent(c) +
+												"=" +
+												encodeURIComponent(ES("JSON", "stringify", !1, d))
+										);
 										return;
 									}
 									b.push(encodeURIComponent(c) + "=" + encodeURIComponent(d));
@@ -6398,16 +6407,37 @@ try {
 						null
 					);
 					__d(
+						"ANMWebMediator",
+						[],
+						function(a, b, c, d, e, f) {
+							e.exports = Object.freeze({
+								AMP: "AMP",
+								APPNEXUS: "APPNEXUS",
+								APPNEXUS_ASYNC: "APPNEXUS_ASYNC",
+								FIRSTIMPRESSION_IO: "FIRSTIMPRESSION.IO",
+								GOOGLE_FRIENDLY_IFRAME: "GOOGLE_FRIENDLY_IFRAME",
+								GOOGLE_SAFE_FRAME: "GOOGLE_SAFE_FRAME",
+								NONE: "NONE",
+								SHARETHROUGH: "SHARETHROUGH",
+								SMART_ADSERVER_ASYNC: "SMART_ADSERVER_ASYNC",
+								SMART_ADSERVER_SYNC: "SMART_ADSERVER_SYNC",
+								UNKNOWN: "UNKNOWN",
+								UNKNOWN_SAFE_FRAME: "UNKNOWN_SAFE_FRAME"
+							});
+						},
+						null
+					);
+					__d(
 						"MediationDetector",
-						["AMPContextLoader", "ANUtils", "nullthrows"],
-						function(a, b, c, d, e, f, g, h, i) {
+						["AMPContextLoader", "ANMWebMediator", "ANUtils", "nullthrows"],
+						function(a, b, c, d, e, f, g, h, i, j) {
 							"use strict";
 							__p && __p();
 							function a(a) {
 								__p && __p();
 								(this.$2 = function() {
 									__p && __p();
-									if (this.$1.getNestLevel() === 0) return "NONE";
+									if (this.$1.getNestLevel() === 0) return h.NONE;
 									for (
 										var a = this.$1.ancestorIframes,
 											b = Array.isArray(a),
@@ -6433,8 +6463,8 @@ try {
 										}
 										d = d;
 										if (d.src) {
-											d = h.extractDomain(d.src);
-											if (d === this.$1.pageDomain) return "NONE";
+											d = i.extractDomain(d.src);
+											if (d === this.$1.pageDomain) return h.NONE;
 										}
 									}
 									return null;
@@ -6442,10 +6472,10 @@ try {
 									(this.$4 = function() {
 										var a = this.$1.ancestorURLs;
 										if (a.length > 0 && this.$1.getSafeFrameAPI()) {
-											a = h.extractDomain(a[0]);
+											a = i.extractDomain(a[0]);
 											if (window.googletag && a === "tpc.googlesyndication.com")
-												return "GOOGLE_SAFE_FRAME";
-											else return "UNKNOWN_SAFE_FRAME";
+												return h.GOOGLE_SAFE_FRAME;
+											else return h.UNKNOWN_SAFE_FRAME;
 										}
 										return null;
 									}.bind(this)),
@@ -6453,15 +6483,15 @@ try {
 										var a = this.$1.ancestorIframes;
 										return a.length > 0 &&
 											a[0].id.indexOf("google_ads_iframe_") === 0
-											? "GOOGLE_FRIENDLY_IFRAME"
+											? h.GOOGLE_FRIENDLY_IFRAME
 											: null;
 									}.bind(this)),
 									(this.$8 = function() {
 										var a = this.$1.ancestorIframes;
 										return a.length > 0 &&
 											(a[0].classList.contains("str-fan-iframe") ||
-												i(a[0].parentElement).id === "str-fan-placeholder")
-											? "SHARETHROUGH"
+												j(a[0].parentElement).id === "str-fan-placeholder")
+											? h.SHARETHROUGH
 											: null;
 									}.bind(this)),
 									(this.$9 = function() {
@@ -6469,7 +6499,7 @@ try {
 										return a.length > 0 &&
 											a[0].classList.contains("fiSafeFrame") &&
 											window.parent.fiQuery
-											? "FIRSTIMPRESSION.IO"
+											? h.FIRSTIMPRESSION_IO
 											: null;
 									}.bind(this)),
 									(this.$1 = a);
@@ -6492,7 +6522,7 @@ try {
 										if (c) return c;
 									} catch (a) {}
 								}
-								return "UNKNOWN";
+								return h.UNKNOWN;
 							};
 							a.prototype.$6 = function() {
 								return window.sas &&
@@ -6500,19 +6530,19 @@ try {
 										'script[src*="www.smartadserver.com/"]'
 									)
 									? window.sas_ajax
-										? "SMART_ADSERVER_ASYNC"
-										: "SMART_ADSERVER_SYNC"
+										? h.SMART_ADSERVER_ASYNC
+										: h.SMART_ADSERVER_SYNC
 									: null;
 							};
 							a.prototype.$7 = function() {
 								if (window.ADNXSMediation && window.ADNXSMediation.adFilled)
 									if (window.ADNXSAsync || window.ADNXSMediation.isAsync())
-										return "APPNEXUS_ASYNC";
-									else return "APPNEXUS";
+										return h.APPNEXUS_ASYNC;
+									else return h.APPNEXUS;
 								return null;
 							};
 							a.prototype.$3 = function() {
-								return g.isAMP() ? "AMP" : null;
+								return g.isAMP() ? h.AMP : null;
 							};
 							e.exports = a;
 						},
@@ -7008,7 +7038,7 @@ try {
 								}
 								this.$2 = H();
 								var a = this.$52();
-								this.sendToFacebook("impress", a);
+								this.sendToFacebook("impress", { payload: a });
 								var b = this.$32().$41;
 								b &&
 									this.sendToFacebook("signal", {
@@ -7391,30 +7421,27 @@ try {
 									this.sendImpression();
 							};
 							a.prototype.$52 = function() {
-								__p && __p();
 								var a = this.$19.getDimensions(),
-									b = {};
-								a && ((b.width = a.width), (b.height = a.height));
-								if (this.$19) {
-									a = this.$19.getCurrentViewabilityState();
-									b.width_in_view = a.widthInView || 0;
-									b.height_in_view = a.heightInView || 0;
-									b.top = a.pageTop || 0;
-									b.left = a.pageLeft || 0;
-									b.scroll_top = a.scrollTop || 0;
-									b.scroll_left = a.scrollLeft || 0;
-									b.page_width = a.pageWidth || 0;
-									b.page_height = a.pageHeight || 0;
-								}
-								b.hosturl = this.$12.getTopURL();
-								b.iframe_status = this.$53();
-								b.nest_level = this.$12.getNestLevel();
-								b.iframe_urls = JSON.stringify(
-									this.$12.ancestorURLs.slice(0, -1)
-								);
-								b.mediation_service = new C(this.$12).getMediator();
-								b.nmv = this.$18;
-								return b;
+									b =
+										(this.$19 && this.$19.getCurrentViewabilityState()) || null;
+								return {
+									width: a ? a.width : null,
+									height: a ? a.height : null,
+									width_in_view: (b && b.widthInView) || null,
+									height_in_view: (b && b.heightInView) || null,
+									top: (b && b.pageTop) || null,
+									left: (b && b.pageLeft) || null,
+									scroll_top: (b && b.scrollTop) || null,
+									scroll_left: (b && b.scrollLeft) || null,
+									page_width: (b && b.pageWidth) || null,
+									page_height: (b && b.pageHeight) || null,
+									hosturl: this.$12.getTopURL(),
+									iframe_status: this.$53(),
+									nest_level: this.$12.getNestLevel(),
+									iframe_urls: this.$12.ancestorURLs.slice(0, -1),
+									mediation_service: new C(this.$12).getMediator(),
+									nmv: this.$18
+								};
 							};
 							a.prototype.$55 = function(a) {
 								__p && __p();
@@ -7571,7 +7598,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4456903","namespace":"FB","message":"' +
+				'","revision":"4457262","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
