@@ -1,4 +1,4 @@
-/*1540391051,,JIT Construction: v4456924,en_US*/
+/*1540397056,,JIT Construction: v4457262,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,11 +2201,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4456924",
+						revision: "4457262",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						features: {
@@ -2225,7 +2225,7 @@ try {
 					});
 					__d("JSSDKXDConfig", [], {
 						XdUrl: "/connect/xd_arbiter.php?version=42",
-						XdBundleUrl: "/connect/xd_arbiter/r/__Bz3h5RzMx.js?version=42",
+						XdBundleUrl: "/connect/xd_arbiter/r/etLyasxFx7o.js?version=42",
 						Flash: {
 							path:
 								"https://connect.facebook.net/rsrc.php/v2/yW/r/yOZN1vHw3Z_.swf"
@@ -2743,10 +2743,19 @@ try {
 								ES(ES("Object", "keys", !1, a).sort(), "forEach", !0, function(
 									c
 								) {
+									__p && __p();
 									var d = a[c];
 									if (d === undefined) return;
 									if (d === null) {
 										b.push(c);
+										return;
+									}
+									if (typeof d === "object") {
+										b.push(
+											encodeURIComponent(c) +
+												"=" +
+												encodeURIComponent(ES("JSON", "stringify", !1, d))
+										);
 										return;
 									}
 									b.push(encodeURIComponent(c) + "=" + encodeURIComponent(d));
@@ -11641,7 +11650,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -11652,7 +11661,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4456924","namespace":"FB","message":"' +
+				'","revision":"4457262","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
