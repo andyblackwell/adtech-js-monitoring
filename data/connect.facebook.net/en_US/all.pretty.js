@@ -1,4 +1,4 @@
-/*1540499782,,JIT Construction: v4462973,en_US*/
+/*1540515218,,JIT Construction: v4465301,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -20,7 +20,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 try {
-	window.FB ||
+	(window.FB && !window.FB.__buffer) ||
 		(function(window, fb_fif_window) {
 			var apply = Function.prototype.apply;
 			function bindContext(fn, thisArg) {
@@ -51,6 +51,7 @@ try {
 				function emptyFunction() {}
 				var __transform_includes = {};
 				var __annotator, __bodyWrapper;
+				var __buffer = window.FB && window.FB.__buffer;
 				var __w, __t;
 				var undefined;
 				var __p;
@@ -2201,7 +2202,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4462973",
+						revision: "4465301",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -9072,9 +9073,13 @@ try {
 					);
 					__d(
 						"legacy:fb.init",
-						["FB", "sdk.init"],
-						function(a, b, c, d, e, f, g, h) {
-							g.provide("", { init: h });
+						["FB", "sdk.Event", "sdk.init"],
+						function(a, b, c, d, e, f, g, h, i) {
+							"use strict";
+							g.provide("", { init: i }),
+								h.subscribe("init:post", function() {
+									__buffer && __buffer.replay();
+								});
 						},
 						3
 					);
@@ -11662,7 +11667,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4462973","namespace":"FB","message":"' +
+				'","revision":"4465301","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
