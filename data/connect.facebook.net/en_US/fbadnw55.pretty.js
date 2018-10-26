@@ -1,4 +1,4 @@
-/*1540515314,,JIT Construction: v4465301,en_US*/
+/*1540577767,,JIT Construction: v4467791,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4091,19 +4091,10 @@ try {
 								ES(ES("Object", "keys", !1, a).sort(), "forEach", !0, function(
 									c
 								) {
-									__p && __p();
 									var d = a[c];
 									if (d === undefined) return;
 									if (d === null) {
 										b.push(c);
-										return;
-									}
-									if (typeof d === "object") {
-										b.push(
-											encodeURIComponent(c) +
-												"=" +
-												encodeURIComponent(ES("JSON", "stringify", !1, d))
-										);
 										return;
 									}
 									b.push(encodeURIComponent(c) + "=" + encodeURIComponent(d));
@@ -6108,114 +6099,6 @@ try {
 						null
 					);
 					__d(
-						"OnScreenDefinition.anweb",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							__p && __p();
-							a.prototype.getState = function(a, b) {
-								if (b < 0.01) return "off-screen";
-								else if (a < 0.99) return "invalid";
-								else if (b < 0.5) return "partially-on-screen";
-								else if (b < 0.99) return "mostly-on-screen";
-								else return "completely-on-screen";
-							};
-							function a() {}
-							e.exports = { MOBILE_FEED: new a() };
-						},
-						null
-					);
-					__d(
-						"OnScreenBehaviorManager.anweb",
-						["OnScreenBehavior.anweb", "OnScreenDefinition.anweb"],
-						function(a, b, c, d, e, f, g, h) {
-							"use strict";
-							__p && __p();
-							var i = Object.freeze({
-								invalid: -1,
-								"off-screen": 0,
-								"partially-on-screen": 1,
-								"mostly-on-screen": 2,
-								"completely-on-screen": 3
-							});
-							function j(a) {
-								return i[a];
-							}
-							function k(a, b, c) {
-								__p && __p();
-								switch (b) {
-									case 3:
-										a.onCompletelyEntered();
-										break;
-									case 2:
-										c ? a.onMostlyEntered() : a.onPartiallyLeft();
-										break;
-									case 1:
-										c ? a.onPartiallyEntered() : a.onMostlyLeft();
-										break;
-									case 0:
-										c ? a.onBecameValid() : a.onCompletelyLeft();
-										break;
-									case -1:
-										a.onBecameInvalid();
-										break;
-								}
-							}
-							function l(a, b, c) {
-								for (var d = b + 1; d <= c; d++) k(a, d, !0);
-								for (var d = b - 1; d >= c; d--) k(a, d, !1);
-							}
-							function a(a) {
-								a === void 0 && (a = h.MOBILE_FEED),
-									(this.$3 = a),
-									(this.$1 = "off-screen"),
-									(this.$2 = []);
-							}
-							a.prototype.updateView = function(a, b) {
-								a = this.$3.getState(a, b);
-								this.$4(a);
-							};
-							a.prototype.$4 = function(a) {
-								__p && __p();
-								if (a === this.$1) return;
-								var b = j(this.$1),
-									c = j(a);
-								for (
-									var d = this.$2,
-										e = Array.isArray(d),
-										f = 0,
-										d = e
-											? d
-											: d[
-													typeof Symbol === "function"
-														? Symbol.iterator
-														: "@@iterator"
-											  ]();
-									;
-
-								) {
-									var g;
-									if (e) {
-										if (f >= d.length) break;
-										g = d[f++];
-									} else {
-										f = d.next();
-										if (f.done) break;
-										g = f.value;
-									}
-									g = g;
-									l(g, b, c);
-								}
-								this.$1 = a;
-							};
-							a.prototype.addBehavior = function(a) {
-								this.$2.push(a), l(a, j("off-screen"), j(this.$1));
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"SafeframeMeasurement.adquality",
 						[
 							"AdQualityMeasurement.adquality",
@@ -6267,13 +6150,12 @@ try {
 							"AdViewability",
 							"AMPMeasurement.adquality",
 							"GeometricMeasurement.adquality",
-							"OnScreenBehaviorManager.anweb",
 							"SafeframeMeasurement.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f, g, h, i, j, k) {
 							"use strict";
 							__p && __p();
-							var m = 100;
+							var l = 100;
 							function a(a, b) {
 								this.$4 = [];
 								this.$5 = [];
@@ -6287,7 +6169,7 @@ try {
 									element: b,
 									parentWindow: a,
 									rules: [],
-									measurementTests: [new j(b, a), new l(b, a), new i(b, a)]
+									measurementTests: [new j(b, a), new k(b, a), new i(b, a)]
 								});
 							}
 							a.prototype.pause = function() {
@@ -6380,7 +6262,7 @@ try {
 											}.bind(this)
 										);
 									}.bind(this),
-									m
+									l
 								);
 							};
 							a.prototype.getCurrentViewabilityState = function() {
@@ -6544,6 +6426,114 @@ try {
 							};
 							a.prototype.$3 = function() {
 								return g.isAMP() ? h.AMP : null;
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"OnScreenDefinition.anweb",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							__p && __p();
+							a.prototype.getState = function(a, b) {
+								if (b < 0.01) return "off-screen";
+								else if (a < 0.99) return "invalid";
+								else if (b < 0.5) return "partially-on-screen";
+								else if (b < 0.99) return "mostly-on-screen";
+								else return "completely-on-screen";
+							};
+							function a() {}
+							e.exports = { MOBILE_FEED: new a() };
+						},
+						null
+					);
+					__d(
+						"OnScreenBehaviorManager.anweb",
+						["OnScreenDefinition.anweb"],
+						function(a, b, c, d, e, f, g) {
+							"use strict";
+							__p && __p();
+							var h = Object.freeze({
+								invalid: -1,
+								"off-screen": 0,
+								"partially-on-screen": 1,
+								"mostly-on-screen": 2,
+								"completely-on-screen": 3
+							});
+							function i(a) {
+								return h[a];
+							}
+							function j(a, b, c) {
+								__p && __p();
+								switch (b) {
+									case 3:
+										a.onCompletelyEntered();
+										break;
+									case 2:
+										c ? a.onMostlyEntered() : a.onPartiallyLeft();
+										break;
+									case 1:
+										c ? a.onPartiallyEntered() : a.onMostlyLeft();
+										break;
+									case 0:
+										c ? a.onBecameValid() : a.onCompletelyLeft();
+										break;
+									case -1:
+										a.onBecameInvalid();
+										break;
+								}
+							}
+							function k(a, b, c) {
+								for (var d = b + 1; d <= c; d++) j(a, d, !0);
+								for (var d = b - 1; d >= c; d--) j(a, d, !1);
+							}
+							function a(a) {
+								a === void 0 && (a = g.MOBILE_FEED),
+									(this.$3 = a),
+									(this.$1 = "off-screen"),
+									(this.$2 = []);
+							}
+							a.prototype.updateView = function(a, b) {
+								a = this.$3.getState(a, b);
+								this.$4(a);
+							};
+							a.prototype.$4 = function(a) {
+								__p && __p();
+								if (a === this.$1) return;
+								var b = i(this.$1),
+									c = i(a);
+								for (
+									var d = this.$2,
+										e = Array.isArray(d),
+										f = 0,
+										d = e
+											? d
+											: d[
+													typeof Symbol === "function"
+														? Symbol.iterator
+														: "@@iterator"
+											  ]();
+									;
+
+								) {
+									var g;
+									if (e) {
+										if (f >= d.length) break;
+										g = d[f++];
+									} else {
+										f = d.next();
+										if (f.done) break;
+										g = f.value;
+									}
+									g = g;
+									k(g, b, c);
+								}
+								this.$1 = a;
+							};
+							a.prototype.addBehavior = function(a) {
+								this.$2.push(a), k(a, i("off-screen"), i(this.$1));
 							};
 							e.exports = a;
 						},
@@ -7043,7 +7033,12 @@ try {
 								var b = this.$32().$41;
 								b &&
 									this.sendToFacebook("signal", {
-										signalUrl: F.appendToUrl(b, a)
+										signalUrl: F.appendToUrl(
+											b,
+											Object.assign({}, a, {
+												iframe_urls: JSON.stringify(a.iframe_urls)
+											})
+										)
 									});
 								this.$24.eventWithParams("ADNW_ADIMPRESSION", this.$49());
 								this.$33() && this.$24.event(y.HAS_INLINE_XOUT);
@@ -7599,7 +7594,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4465301","namespace":"FB","message":"' +
+				'","revision":"4467791","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
