@@ -1,4 +1,4 @@
-/*1540396082,,JIT Construction: v4457262,en_US*/
+/*1540515314,,JIT Construction: v4465301,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -20,7 +20,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 try {
-	window.FB ||
+	(window.FB && !window.FB.__buffer) ||
 		(function(window, fb_fif_window) {
 			var apply = Function.prototype.apply;
 			function bindContext(fn, thisArg) {
@@ -51,6 +51,7 @@ try {
 				function emptyFunction() {}
 				var __transform_includes = {};
 				var __annotator, __bodyWrapper;
+				var __buffer = window.FB && window.FB.__buffer;
 				var __w, __t;
 				var undefined;
 				var __p;
@@ -7598,7 +7599,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4457262","namespace":"FB","message":"' +
+				'","revision":"4465301","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
