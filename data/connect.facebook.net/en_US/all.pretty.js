@@ -1,4 +1,4 @@
-/*1540553768,,JIT Construction: v4467340,en_US*/
+/*1540576717,,JIT Construction: v4467791,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2202,7 +2202,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4467340",
+						revision: "4467791",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -2226,7 +2226,7 @@ try {
 					});
 					__d("JSSDKXDConfig", [], {
 						XdUrl: "/connect/xd_arbiter.php?version=42",
-						XdBundleUrl: "/connect/xd_arbiter/r/etLyasxFx7o.js?version=42",
+						XdBundleUrl: "/connect/xd_arbiter/r/__Bz3h5RzMx.js?version=42",
 						Flash: {
 							path:
 								"https://connect.facebook.net/rsrc.php/v2/yW/r/yOZN1vHw3Z_.swf"
@@ -2745,19 +2745,10 @@ try {
 								ES(ES("Object", "keys", !1, a).sort(), "forEach", !0, function(
 									c
 								) {
-									__p && __p();
 									var d = a[c];
 									if (d === undefined) return;
 									if (d === null) {
 										b.push(c);
-										return;
-									}
-									if (typeof d === "object") {
-										b.push(
-											encodeURIComponent(c) +
-												"=" +
-												encodeURIComponent(ES("JSON", "stringify", !1, d))
-										);
 										return;
 									}
 									b.push(encodeURIComponent(c) + "=" + encodeURIComponent(d));
@@ -11667,7 +11658,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4467340","namespace":"FB","message":"' +
+				'","revision":"4467791","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
