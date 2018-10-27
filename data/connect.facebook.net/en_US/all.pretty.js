@@ -1,4 +1,4 @@
-/*1540592330,,JIT Construction: v4468652,en_US*/
+/*1540607854,,JIT Construction: v4470784,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2202,7 +2202,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4468652",
+						revision: "4470784",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -2391,17 +2391,23 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							e.exports = ES("Object", "freeze", !1, {
+								ANCESTOR_ORIGINS: "ancestor_origins",
 								ANDROID_KEY: "android_key",
 								API_KEY: "api_key",
 								APP_ID: "app_id",
-								AUTH_TOKEN: "auth_token",
+								AUTH_NONCE: "auth_nonce",
 								AUTH_TYPE: "auth_type",
 								CLIENT_ID: "client_id",
+								CONTEXT: "context",
+								DEFAULT_AUDIENCE: "default_audience",
 								DISPLAY: "display",
 								DOMAIN: "domain",
+								E2E: "e2e",
 								FORCE_CONFIRMATION: "force_confirmation",
 								NEXT: "next",
+								NONCE: "nonce",
 								ORIGIN: "origin",
+								ORIGINAL_REDIRECT_URI: "original_redirect_uri",
 								PERMS: "perms",
 								REDIRECT_URI: "redirect_uri",
 								REF: "ref",
@@ -2413,9 +2419,13 @@ try {
 								STATE: "state",
 								SSO: "sso",
 								SSO_KEY: "sso_key",
+								USER_CODE: "user_code",
 								VERSION: "version",
-								ANCESTOR_ORIGINS: "ancestor_origins",
-								USER_CODE: "user_code"
+								WINDOWS_STORE_ID: "windows_store_id",
+								AUTH_TOKEN: "auth_token",
+								RETURN_SESSION: "return_session",
+								SESSION_VERSION: "session_version",
+								TYPE: "type"
 							});
 						},
 						null
@@ -11658,7 +11668,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4468652","namespace":"FB","message":"' +
+				'","revision":"4470784","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
