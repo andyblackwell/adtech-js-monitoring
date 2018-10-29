@@ -1,4 +1,4 @@
-/*1540577767,,JIT Construction: v4467791,en_US*/
+/*1540829964,,JIT Construction: v4472820,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2190,12 +2190,11 @@ try {
 					})(typeof global === "undefined" ? this : global);
 					__d("JSSDKCssConfig", [], {
 						rules:
-							"._6qhj{height:34px;position:absolute;right:0;top:0;width:34px}._6qhi{background-color:rgba(255, 255, 255, .8);background-position:center center;background-repeat:no-repeat;background-size:15px 15px;border-radius:50\u0025;content:'';height:24px;margin-left:5px;margin-top:5px;width:24px}\n._2vfx{font-size:100px;overflow:hidden}._2vfy{overflow:hidden}._2vf-{overflow:hidden;transition:transform .3s cubic-bezier(.14, 1, 1, 1);will-change:transform}._11u9{float:left;overflow:hidden;position:relative;text-decoration:none}._11u-{background:linear-gradient(rgba(0,0,0,0) 0\u0025, rgba(0,0,0,.2) 100\u0025);bottom:0;left:0;position:absolute;right:0;top:60\u0025}._11u- ._11u_{bottom:8px;color:#fff;left:0;margin-top:0;padding-left:8px;padding-right:8px;position:absolute;right:0;text-shadow:0 1px 3px black}._11u_{color:#606770;font-size:12\u0025;font-weight:normal;margin-top:4.023\u0025}._41-w ._11u_{font-size:13px}._41-w ._11vj{height:18px;line-height:18px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._11v0,._11vj{line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._11v0{font-weight:500}._11vj{font-weight:normal}._11us{background-position:center center;background-repeat:no-repeat;background-size:cover;border-radius:10px;width:100\u0025}._11ur{border-radius:10px;overflow:hidden;position:relative}._11vk{border:1px solid #3578e5;border-radius:4px;color:#3578e5;font-size:12\u0025;font-weight:normal;line-height:1;margin-bottom:4.023\u0025;margin-top:4.023\u0025;padding-bottom:3.448\u0025;padding-top:3.448\u0025;text-align:center}\n._727b{align-items:center;background-color:rgba(0, 0, 0, .6);display:flex;height:100\u0025;justify-content:center;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity .3s;width:100\u0025}._727i{align-items:center;background-color:#fff;border-radius:12px;display:flex;flex-direction:column;font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;justify-content:center;margin:10px;padding:12px 12px;text-align:center;width:200px}._727l{background-size:contain;border-radius:50\u0025;height:60px;margin-right:4px;margin-top:24px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:60px}._727m{margin:4px 4px 0 0}._727k{margin-right:4px;margin-top:4px}._727n{background-color:#3578e5;border-radius:4px;box-sizing:border-box;color:#fff;font-weight:normal;margin-top:24px;padding:6px;width:80\u0025}._727o{opacity:1}._727j{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/jEwNOnngB02.png);background-size:contain;height:16px;margin-left:auto;text-align:right;width:16px}\n._1xj7{background-color:#000;height:100\u0025;overflow:hidden;position:relative;width:100\u0025}._1xj8{height:100\u0025;left:0;position:absolute;top:0;width:100\u0025}._1xj9{background-position:center;background-repeat:no-repeat;bottom:12px;cursor:pointer;height:20px;position:absolute;right:12px;width:20px}._1xj9._1xja{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._1xj9._1xjb{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/ZwUyODcSYJ2.png)}._3c3s{background-color:rgba(0, 0, 0, .6);background-image:url(https://www.facebook.com/images/marketing/video/play-medium.png);background-position:center;background-repeat:no-repeat;height:100\u0025;opacity:1;position:absolute;transition:opacity .3s;visibility:visible;width:100\u0025}._3c3s._2a06{opacity:0;transition:opacity .3s, visibility 0s linear .3s;visibility:hidden}._6pfr{background-position:center center;background-repeat:no-repeat;background-size:cover;bottom:-30px;filter:blur(20px);left:-30px;pointer-events:none;position:absolute;right:-30px;top:-30px}\n._6qhh{font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;font-weight:normal;text-align:left}._6qhd{align-items:center;animation:fadeIn .3s ease-in-out both;background:#dadde1;bottom:0;display:flex;justify-content:center;left:0;padding:5px;position:absolute;right:0;top:0;z-index:100}._6wfr ._6qhd{bottom:-0.5px;left:-0.5px;right:-0.5px;top:-0.5px}._6qhe{animation:fadeIn .3s ease-in-out both;background:white;border-radius:10px;box-shadow:0 2px 8px 0 rgba(0, 0, 0, .3);box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;max-width:320px;position:relative}._6qha{overflow-x:hidden;overflow-y:auto;padding-top:10px}._6qhg{height:34px;position:absolute;right:30px;top:0;width:34px}._6qhg:after{background-color:rgba(255, 255, 255, .8);background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yu/r/4l2RpWw-PLG.png);background-position:center center;background-repeat:no-repeat;background-size:12px 12px;border-radius:50\u0025;content:'';display:block;height:24px;margin-left:5px;margin-top:5px;width:24px}._6r2w{height:23px;right:0;width:auto}._6r2w:after{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png);background-position:27px 3px;background-size:12px 12px;border-radius:0 0 0 6px;box-shadow:0 0 4px 0 rgba(0, 0, 0, .15);height:18px;margin-top:0;width:42px}._6r2w:before{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yu/r/4l2RpWw-PLG.png);background-position:0 4px;background-repeat:no-repeat;background-size:10px 10px;border-right:1px solid rgba(0, 0, 0, .2);content:'';height:18px;left:11px;position:absolute;top:0;width:15px}._6qhb{box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;padding:10px 16px}._6qhc{padding-bottom:0}._6qhk,._6qgi{background-repeat:no-repeat;background-size:18px 18px;display:inline-block;height:18px;width:18px}._6qhh ._6qho{align-items:center;display:flex;flex-direction:row;margin:10px 0;text-decoration:none}._6qhk{flex-shrink:0;margin-right:10px}._6qhm{color:#1c1e21;font-weight:normal}._6qhl{font-size:16px;line-height:19px}._6qhn{color:#606770;font-size:14px;line-height:16px}._6qgk{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/NOeCWD5no4s.png)}._6qgl{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/BKiZzia0l7j.png)}._6qhp{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png)}._6qi1{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/PITveVN_6ro.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:20px;vertical-align:middle;width:20px}._6qhz{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/kS3NV5igXMY.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:11px;margin-right:6px;width:15px}._6qh6{font-weight:normal;padding-bottom:4px;position:relative}._6qh6:after{background:linear-gradient(white, rgba(255, 255, 255, 0));content:'';height:10px;left:0;position:absolute;right:0;top:100\u0025}._6qgh{border-bottom:1px solid #ccc;font-size:16px;line-height:20px;margin-bottom:6px;padding-bottom:6px;text-align:center}._6qh5{align-items:center;display:flex;flex-direction:row}._6qh4{color:#606770}._6qgi{flex-shrink:0;margin-right:10px}._6qh9{margin:0 -8px}._6qh9 ._6qh7{display:inline-block;margin-bottom:20px;margin-left:8px;margin-right:8px;vertical-align:middle}._6qh7{background:#ebedf0;border:none;border-radius:20px;color:#606770;font-size:14px;line-height:14px;padding:13px 16px;white-space:nowrap}._6qh7:focus,._6qh7:active{border:none;outline:none}._6qh7:active,._6qh8{background:#3578e5;color:#fff}._6qi4{align-items:center;display:flex;flex-direction:column}._6qhx{color:#1c1e21;font-size:16px;line-height:24px;margin-top:6px}._6qhy{color:#606770;font-size:14px;line-height:19px;margin:10px 0;text-align:center}._6qhu{background-position:center center;background-repeat:no-repeat;background-size:16px 16px;border-radius:50\u0025;height:42px;width:42px}._6qhv{background-color:#3578e5;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yE/r/oy4B7rSgGV0.png)}._6qhw{background-color:#f7923b;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/TQU64J6qQUe.png)}._6qi2{display:flex;flex-direction:row;margin-bottom:20px}._6qhh ._6qi0{align-items:center;color:#3578e5;display:flex;flex-direction:row;margin-top:auto;text-decoration:none;width:auto}._6qi1{margin-right:6px}._6qh-{border-radius:50\u0025;height:40px;margin-right:5px;width:40px}._6qhh ._6qi3{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/tlUefGrS_4W.png);background-position:center center;background-repeat:no-repeat;background-size:13px 13px;height:13px;margin-right:-10px;margin-top:-10px;padding:10px;position:absolute;right:16px;top:15px;width:13px}._6qhf{align-self:flex-start;color:#8d949e;font-size:16px;margin-top:20px}\u0040keyframes fadeIn{0\u0025{opacity:0}100\u0025{opacity:1}}",
+							"._2vfx{font-size:100px;overflow:hidden}._2vfy{overflow:hidden}._2vf-{overflow:hidden;transition:transform .3s cubic-bezier(.14, 1, 1, 1);will-change:transform}._11u9{float:left;overflow:hidden;position:relative;text-decoration:none}._11u-{background:linear-gradient(rgba(0,0,0,0) 0\u0025, rgba(0,0,0,.2) 100\u0025);bottom:0;left:0;position:absolute;right:0;top:60\u0025}._11u- ._11u_{bottom:8px;color:#fff;left:0;margin-top:0;padding-left:8px;padding-right:8px;position:absolute;right:0;text-shadow:0 1px 3px black}._11u_{color:#606770;font-size:12\u0025;font-weight:normal;margin-top:4.023\u0025}._41-w ._11u_{font-size:13px}._41-w ._11vj{height:18px;line-height:18px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._11v0,._11vj{line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._11v0{font-weight:500}._11vj{font-weight:normal}._11us{background-position:center center;background-repeat:no-repeat;background-size:cover;border-radius:10px;width:100\u0025}._11ur{border-radius:10px;overflow:hidden;position:relative}._11vk{border:1px solid #3578e5;border-radius:4px;color:#3578e5;font-size:12\u0025;font-weight:normal;line-height:1;margin-bottom:4.023\u0025;margin-top:4.023\u0025;padding-bottom:3.448\u0025;padding-top:3.448\u0025;text-align:center}\n._1xj7{background-color:#000;height:100\u0025;overflow:hidden;position:relative;width:100\u0025}._1xj8{height:100\u0025;left:0;position:absolute;top:0;width:100\u0025}._1xj9{background-position:center;background-repeat:no-repeat;bottom:12px;cursor:pointer;height:20px;position:absolute;right:12px;width:20px}._73wr ._1xj9{background-color:rgba(0, 0, 0, .3);border-radius:30px;padding:5px;right:5px;top:50px}._1xj9._1xja{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._1xj9._1xjb{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/ZwUyODcSYJ2.png)}._3c3s{background-color:rgba(0, 0, 0, .6);background-image:url(https://www.facebook.com/images/marketing/video/play-medium.png);background-position:center;background-repeat:no-repeat;height:100\u0025;opacity:1;position:absolute;transition:opacity .3s;visibility:visible;width:100\u0025}._3c3s._2a06{opacity:0;transition:opacity .3s, visibility 0s linear .3s;visibility:hidden}._6pfr{background-position:center center;background-repeat:no-repeat;background-size:cover;bottom:-30px;filter:blur(20px);left:-30px;pointer-events:none;position:absolute;right:-30px;top:-30px}\n._727b{align-items:center;background-color:rgba(0, 0, 0, .6);display:flex;height:100\u0025;justify-content:center;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity .3s;width:100\u0025}._727i{align-items:center;background-color:#fff;border-radius:12px;display:flex;flex-direction:column;font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;justify-content:center;margin:10px;padding:12px 12px;text-align:center;width:200px}._727l{background-size:contain;border-radius:50\u0025;height:60px;margin-right:4px;margin-top:24px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:60px}._727m{margin:4px 4px 0 0}._727k{margin-right:4px;margin-top:4px}._727n{background-color:#3578e5;border-radius:4px;box-sizing:border-box;color:#fff;font-weight:normal;margin-top:24px;padding:6px;width:80\u0025}._727o{opacity:1}._727j{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/jEwNOnngB02.png);background-size:contain;height:16px;margin-left:auto;text-align:right;width:16px}\n._6qhh{font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;font-weight:normal;text-align:left}._6qhd{align-items:center;animation:fadeIn .3s ease-in-out both;background:#dadde1;bottom:0;display:flex;justify-content:center;left:0;padding:5px;position:absolute;right:0;top:0;z-index:100}._6wfr ._6qhd{bottom:-0.5px;left:-0.5px;right:-0.5px;top:-0.5px}._6qhe{animation:fadeIn .3s ease-in-out both;background:white;border-radius:10px;box-shadow:0 2px 8px 0 rgba(0, 0, 0, .3);box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;max-width:320px;position:relative}._6qha{overflow-x:hidden;overflow-y:auto;padding-top:10px}._6qhg{height:23px;position:absolute;right:0;top:0}._6qhg:after{background-color:rgba(255, 255, 255, .8);background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png);background-position:27px 3px;background-repeat:no-repeat;background-size:12px 12px;border-radius:0 0 0 6px;box-shadow:0 0 4px 0 rgba(0, 0, 0, .15);content:'';display:block;height:18px;margin-left:5px;margin-top:0;width:42px}._6qhg:before{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yu/r/4l2RpWw-PLG.png);background-position:0 4px;background-repeat:no-repeat;background-size:10px 10px;border-right:1px solid rgba(0, 0, 0, .2);content:'';height:18px;left:11px;position:absolute;top:0;width:15px}._6qhb{box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;padding:10px 16px}._6qhc{padding-bottom:0}._6qhk,._6qgi{background-repeat:no-repeat;background-size:18px 18px;display:inline-block;height:18px;width:18px}._6qhh ._6qho{align-items:center;display:flex;flex-direction:row;margin:10px 0;text-decoration:none}._6qhk{flex-shrink:0;margin-right:10px}._6qhm{color:#1c1e21;font-weight:normal}._6qhl{font-size:16px;line-height:19px}._6qhn{color:#606770;font-size:14px;line-height:16px}._6qgk{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/NOeCWD5no4s.png)}._6qgl{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/BKiZzia0l7j.png)}._6qhp{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png)}._6qi1{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/PITveVN_6ro.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:20px;vertical-align:middle;width:20px}._6qhz{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/kS3NV5igXMY.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:11px;margin-right:6px;width:15px}._6qh6{font-weight:normal;padding-bottom:4px;position:relative}._6qh6:after{background:linear-gradient(white, rgba(255, 255, 255, 0));content:'';height:10px;left:0;position:absolute;right:0;top:100\u0025}._6qgh{border-bottom:1px solid #ccc;font-size:16px;line-height:20px;margin-bottom:6px;padding-bottom:6px;text-align:center}._6qh5{align-items:center;display:flex;flex-direction:row}._6qh4{color:#606770}._6qgi{flex-shrink:0;margin-right:10px}._6qh9{margin:0 -8px}._6qh9 ._6qh7{display:inline-block;margin-bottom:20px;margin-left:8px;margin-right:8px;vertical-align:middle}._6qh7{background:#ebedf0;border:none;border-radius:20px;color:#606770;font-size:14px;line-height:14px;padding:13px 16px;white-space:nowrap}._6qh7:focus,._6qh7:active{border:none;outline:none}._6qh7:active,._6qh8{background:#3578e5;color:#fff}._6qi4{align-items:center;display:flex;flex-direction:column}._6qhx{color:#1c1e21;font-size:16px;line-height:24px;margin-top:6px}._6qhy{color:#606770;font-size:14px;line-height:19px;margin:10px 0;text-align:center}._6qhu{background-position:center center;background-repeat:no-repeat;background-size:16px 16px;border-radius:50\u0025;height:42px;width:42px}._6qhv{background-color:#3578e5;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yE/r/oy4B7rSgGV0.png)}._6qhw{background-color:#f7923b;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/TQU64J6qQUe.png)}._6qi2{display:flex;flex-direction:row;margin-bottom:20px}._6qhh ._6qi0{align-items:center;color:#3578e5;display:flex;flex-direction:row;margin-top:auto;text-decoration:none;width:auto}._6qi1{margin-right:6px}._6qh-{border-radius:50\u0025;height:40px;margin-right:5px;width:40px}._6qhh ._6qi3{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/tlUefGrS_4W.png);background-position:center center;background-repeat:no-repeat;background-size:13px 13px;height:13px;margin-right:-10px;margin-top:-10px;padding:10px;position:absolute;right:16px;top:15px;width:13px}._6qhf{align-self:flex-start;color:#8d949e;font-size:16px;margin-top:20px}\u0040keyframes fadeIn{0\u0025{opacity:0}100\u0025{opacity:1}}",
 						components: [
-							"css:ANAdChoicesWithXOut",
 							"css:ANCarousel",
-							"css:ANWebTwoStepClickDialog",
 							"css:ANWebVideoPlayer",
+							"css:ANWebTwoStepClickDialog",
 							"css:ANXOut"
 						]
 					});
@@ -2803,15 +2802,15 @@ try {
 						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
-							function a(a, b, c) {
-								(this.$1 = a), (this.$2 = b), (this.$3 = c);
+							function a(a, b) {
+								(this.$1 = a), (this.$2 = b);
 							}
-							a.prototype.$4 = function(a) {
+							a.prototype.$3 = function(a) {
 								__p && __p();
-								var b = this.$5(),
-									c = this.$6();
+								var b = this.$4(),
+									c = this.$5();
 								b.appendChild(c);
-								var d = this.$7();
+								var d = this.$6();
 								b.appendChild(d);
 								d.addEventListener("click", function() {
 									c.style.paddingRight = "1px";
@@ -2829,7 +2828,7 @@ try {
 								});
 								return b;
 							};
-							a.prototype.$5 = function() {
+							a.prototype.$4 = function() {
 								__p && __p();
 								var a = document.createElement("div");
 								a.className = "fbAdChoices";
@@ -2844,7 +2843,7 @@ try {
 								a.style.top = "0";
 								return a;
 							};
-							a.prototype.$6 = function() {
+							a.prototype.$5 = function() {
 								__p && __p();
 								var a = document.createElement("a");
 								a.innerText = "AdChoices";
@@ -2865,7 +2864,7 @@ try {
 								a.target = "_blank";
 								return a;
 							};
-							a.prototype.$7 = function() {
+							a.prototype.$6 = function() {
 								var a = document.createElement("img");
 								a.src = this.$2.adChoicesIcon;
 								a.style.backgroundColor = "#ccc";
@@ -2883,55 +2882,17 @@ try {
 								a.style.top = "0";
 								a.style.right = "0";
 								a.style.border = "0";
-								this.$3
-									? ((a.style.height = "23px"), (a.style.width = "47px"))
-									: ((a.style.height = "16px"), (a.style.width = "18px"));
+								a.style.height = "16px";
+								a.style.width = "18px";
 								this.$1.appendChild(a);
 								a.contentDocument.open();
 								a.contentDocument.close();
-								var b = this.$4(a);
+								var b = this.$3(a);
 								a = g(a.contentDocument.body);
 								a.style.margin = "0";
 								a.style.padding = "0";
 								a.style.overflow = "hidden";
 								a.appendChild(b);
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"cx",
-						[],
-						function(a, b, c, d, e, f) {
-							function a(a) {
-								throw new Error("cx: Unexpected class transformation.");
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ANAdChoicesWithXOut",
-						["cx"],
-						function(a, b, c, d, e, f, g) {
-							"use strict";
-							__p && __p();
-							function a(a, b) {
-								(this.$1 = a), (this.$2 = b);
-							}
-							a.prototype.render = function() {
-								var a = document.createElement("a"),
-									b = document.createElement("div");
-								b.className = "_6qhi";
-								a.className = "_6qhj";
-								a.href = this.$2.adChoicesHref;
-								a.target = "_blank";
-								b.style.backgroundImage =
-									"url(" + this.$2.adChoicesXOutIcon + ")";
-								a.appendChild(b);
-								this.$1.appendChild(a);
-								return a;
 							};
 							e.exports = a;
 						},
@@ -3138,6 +3099,17 @@ try {
 								throw new Error(
 									"csx: Unexpected class selector transformation."
 								);
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"cx",
+						[],
+						function(a, b, c, d, e, f) {
+							function a(a) {
+								throw new Error("cx: Unexpected class transformation.");
 							}
 							e.exports = a;
 						},
@@ -4221,35 +4193,148 @@ try {
 						null
 					);
 					__d(
+						"ANRewardedVideoPlayer",
+						["ANUtils", "cx", "nullthrows"],
+						function(a, b, c, d, e, f, g, h, i) {
+							"use strict";
+							__p && __p();
+							var j = 2,
+								k = 4;
+							function a(a, b, c) {
+								(this.$1 = a),
+									(this.$2 = b),
+									(this.$3 = c),
+									(this.$4 = !1),
+									(this.$5 = !1),
+									(this.$9 = i(b.querySelector(".adnwRVFooterInfo"))),
+									(this.$6 = i(b.querySelector(".skipProgressWheel"))),
+									(this.$7 = i(
+										this.$6.querySelector(
+											".skipProgressWheelLeft .skipProgressWheelCircle"
+										)
+									)),
+									(this.$8 = i(
+										this.$6.querySelector(
+											".skipProgressWheelRight .skipProgressWheelCircle"
+										)
+									));
+							}
+							a.prototype.makeRewarded = function() {
+								var a = this.$3.getVideoElement();
+								a.loop = !1;
+								this.$3.setMuted(!1);
+								this.$10();
+								this.$3.getElement().classList.add("_73wr");
+							};
+							a.prototype.$11 = function() {
+								this.$3.pause(!1);
+								var a = i(
+									this.$2.getElementsByClassName("adnwEndCardOverlay")[0]
+								);
+								a.classList.add("fadeIn");
+								a.classList.add("adnwEndCardOverlayShow");
+								a = i(this.$2.getElementsByClassName("closeArea")[0]);
+								a.addEventListener(
+									"click",
+									g.once(
+										function() {
+											return this.$1.adClosed();
+										}.bind(this)
+									)
+								);
+								this.$1.rewardCompleted();
+							};
+							a.prototype.$12 = function() {
+								if (this.$4) return;
+								this.$4 = !0;
+								this.$9.classList.add("fadeIn");
+							};
+							a.prototype.$13 = function() {
+								if (!this.$4) return;
+								this.$4 = !1;
+								this.$9.classList.remove("fadeIn");
+							};
+							a.prototype.$14 = function() {
+								var a = this.$3.getVideoElement();
+								if (a.duration <= j || this.$5) return;
+								if (a.currentTime >= j) this.$15();
+								else {
+									this.$6.classList.add("skipProgressWheelShow");
+									a = Math.ceil((360 * a.currentTime) / j);
+									a <= 180
+										? ((this.$7.style.transform =
+												"rotate(0deg) translate(100%, 0)"),
+										  (this.$8.style.transform =
+												"rotate(" + a + "deg) translate(-100%, 0)"))
+										: ((this.$8.style.transform =
+												"rotate(180deg) translate(-100%, 0)"),
+										  (this.$7.style.transform =
+												"rotate(" + (a - 180) + "deg) translate(100%, 0)"));
+								}
+							};
+							a.prototype.$15 = function() {
+								this.$5 = !0;
+								this.$6.classList.remove("skipProgressWheelShow");
+								var a = i(this.$2.getElementsByClassName("skipButton")[0]);
+								a.classList.add("skipButtonShow");
+								a.addEventListener("click", g.once(this.$11.bind(this)));
+							};
+							a.prototype.$16 = function() {
+								var a = this.$3.getVideoElement();
+								a = a.duration - a.currentTime;
+								return a < k;
+							};
+							a.prototype.$10 = function() {
+								__p && __p();
+								var a = this.$2.getElementsByClassName("adnwRVProgressBar")[0],
+									b = this.$3.getVideoElement(),
+									c = function() {
+										var d = 100 * (b.currentTime / b.duration);
+										d = Math.min(d, 100);
+										this.$14();
+										a && (a.style.width = d + "%");
+										(b.paused || this.$16()) && this.$12();
+										d >= 100
+											? this.$11()
+											: b.paused || window.requestAnimationFrame(c);
+										b.currentTime >= j && this.$15();
+									}.bind(this);
+								b.addEventListener(
+									"play",
+									function() {
+										this.$16() || this.$13(), window.requestAnimationFrame(c);
+									}.bind(this)
+								);
+								!b.paused ? window.requestAnimationFrame(c) : this.$12();
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"ANRewardsManager",
 						["ANUtils"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
-							function a(a) {
-								(this.$2 = a ? g.once(a) : function() {}), (this.$1 = !1);
+							function a(a, b) {
+								(this.$2 = a ? g.once(a) : function() {}),
+									(this.$3 = b ? g.once(b) : function() {}),
+									(this.$1 = !1);
 							}
-							a.prototype.attachVideo = function(a) {
-								if (!this.$1) return;
-								a.addEventListener(
-									"loadedmetadata",
-									function() {
-										(a.loop = !1),
-											a.addEventListener(
-												"ended",
-												function() {
-													this.rewardCompleted();
-												}.bind(this)
-											);
-									}.bind(this)
-								);
-							};
 							a.prototype.enable = function() {
 								this.$1 = !0;
+							};
+							a.prototype.isEnabled = function() {
+								return this.$1;
 							};
 							a.prototype.rewardCompleted = function() {
 								if (!this.$1) return;
 								this.$2();
+							};
+							a.prototype.adClosed = function() {
+								if (!this.$1) return;
+								this.$3();
 							};
 							e.exports = a;
 						},
@@ -4830,59 +4915,58 @@ try {
 									(this.$9 = a.onXOutCancel),
 									(this.$10 = a.onXOutOption),
 									(this.$11 = a.onXOutFinish),
-									(this.$13 = !!a.isCondensed),
 									(this.$4 = a.buttonEl),
-									(this.$14 = a.endURL);
+									(this.$13 = a.endURL);
 							}
-							a.prototype.$15 = function() {
+							a.prototype.$14 = function() {
 								this.$3 == null &&
 									((this.$3 = m("_6qhd")), this.$2.appendChild(this.$3));
 								return l(this.$3);
 							};
-							a.prototype.$16 = function() {
+							a.prototype.$15 = function() {
 								this.$3 != null &&
 									(this.$2.removeChild(this.$3), (this.$3 = null));
 							};
-							a.prototype.$17 = function() {
+							a.prototype.$16 = function() {
 								return m("_6qhe");
 							};
-							a.prototype.$18 = function(a) {
-								var b = this.$15(),
-									c = this.$17();
-								this.$19();
+							a.prototype.$17 = function(a) {
+								var b = this.$14(),
+									c = this.$16();
+								this.$18();
 								c.appendChild(a);
 								b.appendChild(c);
 							};
-							a.prototype.$19 = function() {
-								var a = this.$15();
+							a.prototype.$18 = function() {
+								var a = this.$14();
 								while (a.firstChild) a.removeChild(a.firstChild);
 							};
-							a.prototype.$20 = function() {
-								var a = this.$15(),
+							a.prototype.$19 = function() {
+								var a = this.$14(),
 									b = m("_6qhf");
-								this.$19();
+								this.$18();
 								b.innerText = this.$7.ad_removed;
 								a.appendChild(b);
 							};
 							a.prototype.onInitialStepDone = function() {
-								this.$12 != null && this.$21();
+								this.$12 != null && this.$20();
 							};
-							a.prototype.$21 = function() {
+							a.prototype.$20 = function() {
 								var a = new i(
 									this.$7,
 									l(this.$12),
 									function(a) {
-										this.$22(a);
+										this.$21(a);
 									}.bind(this)
 								);
-								this.$18(a.render());
+								this.$17(a.render());
 							};
-							a.prototype.$22 = function(a) {
+							a.prototype.$21 = function(a) {
 								__p && __p();
 								this.$10(a.option_type);
 								if (a.option_type === this.$7.follow_up_report) {
 									this.$12 = "report";
-									this.$21();
+									this.$20();
 									return;
 								}
 								this.$11();
@@ -4892,13 +4976,13 @@ try {
 									this.$5,
 									l(this.$12),
 									function() {
-										this.$20();
+										this.$19();
 									}.bind(this),
-									this.$14
+									this.$13
 								);
-								this.$18(a.render());
+								this.$17(a.render());
 							};
-							a.prototype.$23 = function() {
+							a.prototype.$22 = function() {
 								var a = new h(
 									this.$7,
 									this.$6,
@@ -4909,10 +4993,10 @@ try {
 											this.onInitialStepDone();
 									}.bind(this),
 									function() {
-										this.$9(), this.$16();
+										this.$9(), this.$15();
 									}.bind(this)
 								);
-								this.$18(a.render());
+								this.$17(a.render());
 							};
 							a.prototype.getButton = function() {
 								return l(this.$4);
@@ -4926,14 +5010,14 @@ try {
 								if (this.$4 == null) {
 									var a = document.createElement("a");
 									a.href = "#";
-									a.className = "_6qhg" + (this.$13 ? " _6r2w" : "");
+									a.className = "_6qhg";
 									this.$2.appendChild(a);
 									this.$4 = a;
 								}
 								this.$4.addEventListener(
 									"click",
 									function(a) {
-										a.preventDefault(), this.$23(), this.$8();
+										a.preventDefault(), this.$22(), this.$8();
 									}.bind(this)
 								);
 								this.$1.appendChild(this.$2);
@@ -6614,13 +6698,13 @@ try {
 							"AdViewability",
 							"AMPContextLoader",
 							"ANAdChoices",
-							"ANAdChoicesWithXOut",
 							"ANBounceBackManager",
 							"ANCarousel",
 							"ANEventCounter",
 							"ANFullWidthLoader",
 							"ANLinkOpener",
 							"ANLogger",
+							"ANRewardedVideoPlayer",
 							"ANRewardsManager",
 							"ANUtils",
 							"ANWebTwoStepClickDialog",
@@ -6697,11 +6781,11 @@ try {
 								this.sendSignal = function(a) {
 									this.sendToFacebook("signal", { signalUrl: a });
 								}.bind(this);
-								this.$28 = new s(a.onRewardCompleted);
+								this.$28 = new s(a.onRewardCompleted, a.onAdClosed);
 								this.$4 = !1;
 								this.$22 = !1;
 								this.$5 = a;
-								this.$23 = new o();
+								this.$23 = new n();
 								this.$14 = !1;
 								this.$15 = !1;
 								this.$26 = !1;
@@ -6714,7 +6798,7 @@ try {
 										b.performance.timing &&
 										b.performance.timing.navigationStart) ||
 									0;
-								this.$24 = new r(B.ERROR, a.tagJsInitTime, b, this.sendSignal);
+								this.$24 = new q(B.ERROR, a.tagJsInitTime, b, this.sendSignal);
 								this.$11 = a.rootElement;
 								this.$12 = new z(this.$11, this.$29());
 								this.$2 = null;
@@ -6726,7 +6810,7 @@ try {
 									}.bind(this)
 								);
 								this.$21 = new D();
-								this.$25 = new q(this.$11);
+								this.$25 = new p(this.$11);
 							}
 							a.prototype.sendToFacebook = function(a, b) {
 								(b = b || {}),
@@ -6759,44 +6843,33 @@ try {
 							a.prototype.$36 = function(a) {
 								__p && __p();
 								var b = this.$35();
-								if (this.$33()) {
-									var c = !!this.$32().$37.inlineXOutCondensed,
-										d;
-									if (!c) {
-										var e = new l(b, a);
-										d = e.render();
-									}
-									var f = c ? "inline-condensed" : "inline";
-									e = new x({
-										parentEl: b,
-										adIcon: a.adIcon,
-										adChoicesLink: a.adChoicesHref,
-										content: this.$32().$38,
-										onXOutStart: function() {
-											this.$24.event(y.START, f);
-										}.bind(this),
-										onXOutCancel: function() {
-											this.$24.event(y.CANCEL, f);
-										}.bind(this),
-										onXOutOption: function(a) {
-											this.sendToFacebook("xout", { reason: a, type: f }),
-												this.$24.event(y.SELECT_OPTION, a);
-										}.bind(this),
-										onXOutFinish: function() {
-											this.$24.event(y.FINISH);
-										}.bind(this),
-										isCondensed: c
-									});
-									e.render();
-									!c &&
-										this.$14 &&
-										!this.$15 &&
-										((e.getButton().style.marginTop = "7px"),
-										d && (d.style.marginTop = "7px"));
+								if (!this.$33()) {
+									var c = new k(b, a);
+									c.render();
 									return;
 								}
-								c = new k(b, a, !!this.$32().$37.adChoicesBiggerClickArea);
+								var d = "inline-condensed";
+								c = new x({
+									parentEl: b,
+									adIcon: a.adIcon,
+									adChoicesLink: a.adChoicesHref,
+									content: this.$32().$37,
+									onXOutStart: function() {
+										this.$24.event(y.START, d);
+									}.bind(this),
+									onXOutCancel: function() {
+										this.$24.event(y.CANCEL, d);
+									}.bind(this),
+									onXOutOption: function(a) {
+										this.sendToFacebook("xout", { reason: a, type: d }),
+											this.$24.event(y.SELECT_OPTION, a);
+									}.bind(this),
+									onXOutFinish: function() {
+										this.$24.event(y.FINISH);
+									}.bind(this)
+								});
 								c.render();
+								return;
 							};
 							a.prototype.adLoaded = function(a, b, c, d) {
 								__p && __p();
@@ -6806,13 +6879,13 @@ try {
 								}
 								var e = a.features || {};
 								this.$27 = {
-									$39: !!e.clickOpenNewTab,
-									$40: !!e.enableWhiteops,
-									$37: e,
+									$38: !!e.clickOpenNewTab,
+									$39: !!e.enableWhiteops,
+									$40: e,
 									$34: e.inlineXOut,
 									$13: e.isDesktopDisplayFormat,
 									$41: a.nativeImpURL,
-									$38: a.xout,
+									$37: a.xout,
 									$42: e.clickGuardElements || [
 										"fbAdTitle",
 										"fbAdBody",
@@ -6823,7 +6896,7 @@ try {
 									],
 									$43: a.unifiedLoggingURL
 								};
-								this.$24.setLogLevel(this.$32().$37.logLevel || B.ERROR);
+								this.$24.setLogLevel(this.$32().$40.logLevel || B.ERROR);
 								this.$24.setClientEventURL(a.clientEventURL);
 								this.$1 = H();
 								this.$4 = !0;
@@ -6832,14 +6905,14 @@ try {
 									d(a.errorCode, a.errorMsg, a.placementId);
 									return;
 								}
-								this.$32().$37.rp && this.$28.enable();
+								this.$32().$40.rp && this.$28.enable();
 								var f = 0,
 									g = !!a.creativeMarkupBackup;
 								!a.nativeAd
 									? (this.$11.style.display = "")
 									: (a.creativeMarkup &&
 											(this.$44() ? this.$45() : this.$46(),
-											this.$32().$37.resizeMediaView &&
+											this.$32().$40.resizeMediaView &&
 												((this.$11.style.visibility = "hidden"),
 												(f = this.$47()))),
 									  this.loadCreative(
@@ -6847,15 +6920,15 @@ try {
 											a.creativeMarkup,
 											this.$11,
 											b,
-											!!this.$32().$37.resizeMediaView
+											!!this.$32().$40.resizeMediaView
 									  ));
 								this.$35().classList.add("fbAdLoaded");
 								c(a.placementId);
-								this.$32().$37.resizeMediaView
+								this.$32().$40.resizeMediaView
 									? window.setTimeout(
 											function() {
 												__p && __p();
-												var c = new p(
+												var c = new o(
 														g,
 														this.$30(),
 														this.$11,
@@ -6879,7 +6952,7 @@ try {
 																a,
 																a.creativeMarkupBackup,
 																b,
-																!!this.$32().$37.resizeMediaView
+																!!this.$32().$40.resizeMediaView
 															),
 															(this.$14 = !1),
 															(this.$15 = !1),
@@ -6925,7 +6998,7 @@ try {
 								};
 							};
 							a.prototype.$51 = function() {
-								var a = this.$32().$37.forceIframeSize;
+								var a = this.$32().$40.forceIframeSize;
 								if (a) {
 									var b = this.$30();
 									b &&
@@ -7004,7 +7077,7 @@ try {
 										a.nativeCarouselAds,
 										e,
 										b && b.dfp,
-										!!this.$32().$37.autoplayEnabled
+										!!this.$32().$40.autoplayEnabled
 									)),
 									a.nativeAd.primaryColor &&
 										c &&
@@ -7042,7 +7115,6 @@ try {
 									});
 								this.$24.eventWithParams("ADNW_ADIMPRESSION", this.$49());
 								this.$33() && this.$24.event(y.HAS_INLINE_XOUT);
-								this.$28.rewardCompleted();
 							};
 							a.prototype.$53 = function() {
 								var a = this.$12.getSafeFrameAPI();
@@ -7091,7 +7163,7 @@ try {
 							a.prototype.loadCarousel = function(a, b) {
 								__p && __p();
 								this.$22 = !0;
-								var c = new n({
+								var c = new m({
 									parent: a,
 									ads: b,
 									onCriticalAnimationStart: function() {
@@ -7128,7 +7200,7 @@ try {
 								var d = new w(
 									I(b.adVideo),
 									b.adImage,
-									this.$32().$37.videoBlendedBackground,
+									this.$32().$40.videoBlendedBackground,
 									function() {
 										this.$23.requiredEventFired();
 									}.bind(this),
@@ -7139,14 +7211,16 @@ try {
 										return this.$24.event("VIDEO_CLICK");
 									}.bind(this)
 								);
-								this.$21.addBehavior(new E(d, c));
+								this.$28.isEnabled()
+									? (new r(this.$28, this.$11, d).makeRewarded(),
+									  this.$8 && (this.$8.style.maxWidth = ""))
+									: this.$21.addBehavior(new E(d, c));
 								new v(
 									d.getVideoElement(),
 									this.sendSignal,
 									b.videoPlayLink,
 									b.videoTimeLink
 								).startLogging();
-								this.$28.attachVideo(d.getVideoElement());
 								a.appendChild(d.getElement());
 							};
 							a.prototype.installLink = function(a, b) {
@@ -7181,7 +7255,7 @@ try {
 										}
 										h = {
 											clktm: Math.round(e / 1e3),
-											clknutab: this.$32().$39,
+											clknutab: this.$32().$38,
 											touch: JSON.stringify(g)
 										};
 										this.$2 && (h.clkdel = e - this.$2);
@@ -7199,13 +7273,13 @@ try {
 											action: a
 										});
 										d = t.isAppStoreURL(f);
-										this.$32().$39 &&
+										this.$32().$38 &&
 											f &&
 											!d &&
 											a === K.BILLABLE &&
 											this.$25.openNewTab(f);
-										if (this.$32().$39 || d) {
-											i = new m(window.document);
+										if (this.$32().$38 || d) {
+											i = new l(window.document);
 											var j = H();
 											i.onBounceBack(
 												function(a) {
@@ -7236,17 +7310,17 @@ try {
 										var b = H(),
 											e = t.maybeHTMLElement(a.target);
 										e = e ? this.$55(e) : "UNKNOWN";
-										var f = this.$32().$37.minClickDelay;
+										var f = this.$32().$40.minClickDelay;
 										f && this.$1 && this.$1 + f > b && !this.$3
 											? ((this.$3 = !0),
 											  c(K.FAST_CLICK_GUARD, e, a),
 											  this.$14 &&
-													this.$32().$37.useTwoStepOnFastClicks === !0 &&
+													this.$32().$40.useTwoStepOnFastClicks === !0 &&
 													d())
 											: this.$32().$42.includes(e) &&
 											  this.$14 &&
 											  !this.$15 &&
-											  this.$32().$37.useTwoStepClick === !0 &&
+											  this.$32().$40.useTwoStepClick === !0 &&
 											  !this.$26
 												? (c(K.TWO_STEP_OPEN_DIALOG, e, a), d())
 												: c(K.BILLABLE, e, a);
@@ -7258,7 +7332,7 @@ try {
 									return;
 								}
 								var f = this.$8.querySelector(".adnwTwoClickBlocker");
-								if (f && !!this.$32().$37.clickConfirmation) {
+								if (f && !!this.$32().$40.clickConfirmation) {
 									var g = I(f.querySelector(".adnwCancelLink"));
 									g.addEventListener("click", function(event) {
 										f.style.display = "none";
@@ -7293,7 +7367,7 @@ try {
 									a.nativeCarouselAds,
 									d,
 									b && b.dfp,
-									!!this.$32().$37.autoplayEnabled
+									!!this.$32().$40.autoplayEnabled
 								);
 								this.$8 &&
 									((this.$19 = new h(this.$12, this.$8)),
@@ -7322,7 +7396,7 @@ try {
 								b.loaded = !0;
 								var g = !1;
 								c = this.loadNativeAdInternal(a, b, c, "", d, e, f);
-								if (this.$32().$40 === !0) {
+								if (this.$32().$39 === !0) {
 									d = new G();
 									d.run(b.requestId, "AN_MWEB", b.topDomain, a);
 								}
@@ -7594,7 +7668,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4467791","namespace":"FB","message":"' +
+				'","revision":"4472820","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
