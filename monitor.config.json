@@ -19,8 +19,8 @@
 			"diffIgnorePatterns": [
 				"JIT Construction",
 				"revision",
-				"^\s+\"http(s)?:\\/\\/www\\.facebook\\.com\\/\"",
-				"^\s+(www|m|connect|business|api|api_read|graph|an|fbcdn|cdn|sdkurl):"
+				"^\\s+\"http(s)?:\\/\\/www\\.facebook\\.com\\/\"",
+				"^\\s+(www|m|connect|business|api|api_read|graph|an|fbcdn|cdn|sdkurl):"
 			],
 			"etag": "\"061b6256b7e1e503e7ad2291a8cba0fa\""
 		},
