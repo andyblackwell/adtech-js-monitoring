@@ -1,4 +1,4 @@
-/*1540829964,,JIT Construction: v4472820,en_US*/
+/*1540837182,,JIT Construction: v4473059,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -7101,15 +7101,20 @@ try {
 									return;
 								}
 								this.$2 = H();
-								var a = this.$52();
-								this.sendToFacebook("impress", { payload: a });
-								var b = this.$32().$41;
-								b &&
+								var a = this.$27 && this.$27.$43,
+									b = this.$52();
+								this.sendToFacebook("impress", {
+									unifiedLoggingURL: a,
+									payload: b
+								});
+								var c = this.$32().$41;
+								!a &&
+									c &&
 									this.sendToFacebook("signal", {
 										signalUrl: F.appendToUrl(
-											b,
-											Object.assign({}, a, {
-												iframe_urls: JSON.stringify(a.iframe_urls)
+											c,
+											Object.assign({}, b, {
+												iframe_urls: JSON.stringify(b.iframe_urls)
 											})
 										)
 									});
@@ -7668,7 +7673,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4472820","namespace":"FB","message":"' +
+				'","revision":"4473059","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
