@@ -19,7 +19,8 @@
 			"diffIgnorePatterns": [
 				"JIT Construction",
 				"revision",
-				"\"http(s)?:\\/\\/www\\.facebook\\.com\\/\""
+				"\"http(s)?:\\/\\/www\\.facebook\\.com\\/\"",
+				"sdkurl: \"https?"
 			],
 			"etag": "\"061b6256b7e1e503e7ad2291a8cba0fa\""
 		},
