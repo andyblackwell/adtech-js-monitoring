@@ -1,4 +1,4 @@
-/*1541003574,,JIT Construction: v4483173,en_US*/
+/*1541013105,,JIT Construction: v4483524,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2202,7 +2202,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4483173",
+						revision: "4483524",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -5336,7 +5336,7 @@ try {
 											!g && d.base_domain && m.setDomain("." + d.base_domain);
 											m.setSignedRequestCookie(d.signed_request, f, e);
 										}
-										G();
+										H();
 										g = "connected";
 										D(b, g);
 									} else
@@ -5347,8 +5347,9 @@ try {
 													? ((g = "authorization_expired"), D(null, g))
 													: ((g = "unknown"), D(null, g)),
 											r.getUseCookie() && m.clearSignedRequestCookie(),
+											r.getUseLocalStorage() && G(),
 											c === "logout" &&
-												(H(),
+												(I(),
 												s.log("jssdk_error", {
 													appId: r.getClientID(),
 													error: "PLATFORM_AUTH_LOGOUT",
@@ -5362,16 +5363,20 @@ try {
 								};
 							}
 							function G() {
-								m.setRaw(y, "", 0, !1);
+								var a = v.getLocalStorage();
+								a && a.removeItem(x + r.getClientID());
 							}
 							function H() {
+								m.setRaw(y, "", 0, !1);
+							}
+							function I() {
 								m.setRaw(y, "y", ES("Date", "now", !1) + z, !1);
 							}
-							function I(a) {
+							function J(a) {
 								__p && __p();
 								var b,
 									c = ES("Date", "now", !1);
-								B && (clearTimeout(B), (B = null));
+								B && (window.clearTimeout(B), (B = null));
 								var d = m.getRaw(y) === "y";
 								if (d) {
 									d = "unknown";
@@ -5399,8 +5404,8 @@ try {
 											}
 											b.parentNode.removeChild(b);
 											e(a) &&
-												(B = setTimeout(function() {
-													I(function() {});
+												(B = window.setTimeout(function() {
+													J(function() {});
 												}, 12e5));
 										}, "parent")
 									)
@@ -5429,7 +5434,7 @@ try {
 									style: { display: "none" }
 								});
 							}
-							var J;
+							var K;
 							function a(a, b) {
 								__p && __p();
 								if (!r.getClientID()) {
@@ -5439,24 +5444,24 @@ try {
 									return;
 								}
 								if (a)
-									if (!b && J === "loaded") {
+									if (!b && K === "loaded") {
 										var c = { authResponse: E(), status: r.getLoginStatus() };
 										a(c);
 										return;
 									} else C.subscribe("FB.loginStatus", a);
-								if (!b && J === "loading") return;
-								J = "loading";
+								if (!b && K === "loading") return;
+								K = "loading";
 								c = function(a) {
-									(J = "loaded"),
+									(K = "loaded"),
 										C.inform("FB.loginStatus", a),
 										C.clearSubscribers("FB.loginStatus");
 								};
-								I(c);
+								J(c);
 							}
 							ES("Object", "assign", !1, C, {
-								removeLogoutState: G,
+								removeLogoutState: H,
 								getLoginStatus: a,
-								fetchLoginStatus: I,
+								fetchLoginStatus: J,
 								setAuthResponse: D,
 								getAuthResponse: E,
 								parseSignedRequest: t.parse,
@@ -11668,7 +11673,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4483173","namespace":"FB","message":"' +
+				'","revision":"4483524","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
