@@ -1,4 +1,4 @@
-/*1541127451,,JIT Construction: v4490662,en_US*/
+/*1541134661,,JIT Construction: v4492561,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2202,11 +2202,11 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4490662",
+						revision: "4492561",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
-						sdkurl: "http://connect.facebook.net/en_US/all.js"
+						sdkurl: "https://connect.facebook.net/en_US/all.js"
 					});
 					__d("JSSDKConfig", [], {
 						features: {
@@ -10018,12 +10018,13 @@ try {
 							"sdk.DOM",
 							"sdk.Event",
 							"sdk.Runtime",
-							"sdk.UA"
+							"sdk.UA",
+							"sdk.URI"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
 							__p && __p();
-							var n = 320,
-								o = ES(
+							var o = 320,
+								p = ES(
 									"Object",
 									"assign",
 									!1,
@@ -10052,9 +10053,9 @@ try {
 									},
 									g.getBaseParams()
 								);
-							function p(a, b) {
+							function q(a, b) {
 								__p && __p();
-								ES(ES("Object", "keys", !1, o), "forEach", !0, function(c) {
+								ES(ES("Object", "keys", !1, p), "forEach", !0, function(c) {
 									var d = j.getAttr(a, c);
 									d !== null && (b[c] = d);
 								});
@@ -10102,14 +10103,16 @@ try {
 										b.mobile || b.width === "auto" || b.width === "100%"
 											? ""
 											: b.width
-												? Math.max(b.width, n)
+												? Math.max(b.width, o)
 												: 550),
 									(b.height = 100));
+								c = new n(b.href);
+								c.getProtocol() || (b.href = c.setProtocol("http").toString());
 								return b;
 							}
 							a = g.extend({
 								constructor: function(a, b, c, d) {
-									(d = p(a, d)),
+									(d = q(a, d)),
 										this.parent(a, b, c, d),
 										this.subscribe("xd.sdk_event", function(a) {
 											k.fire(a.event, ES("JSON", "parse", !1, a.data));
@@ -10119,7 +10122,7 @@ try {
 									return { fluid: !0, full_width: !0 };
 								},
 								getParams: function() {
-									return o;
+									return p;
 								}
 							});
 							e.exports = a;
@@ -11663,7 +11666,7 @@ try {
 		})(window.inDapIF ? parent.window : window, window);
 } catch (e) {
 	new Image().src =
-		"http://www.facebook.com/" +
+		"https://www.facebook.com/" +
 		"common/scribe_endpoint.php?c=jssdk_error&m=" +
 		encodeURIComponent(
 			'{"error":"LOAD", "extra": {"name":"' +
@@ -11674,7 +11677,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4490662","namespace":"FB","message":"' +
+				'","revision":"4492561","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
