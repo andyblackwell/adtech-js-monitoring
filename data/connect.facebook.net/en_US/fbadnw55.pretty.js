@@ -1,4 +1,4 @@
-/*1541405139,,JIT Construction: v4498639,en_US*/
+/*1541424245,,JIT Construction: v4498880,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -7408,7 +7408,18 @@ try {
 											href: e,
 											clickParams: h,
 											adElementType: f,
-											action: a
+											action: a,
+											pos: {
+												element: f,
+												width: g.width,
+												height: g.height,
+												visibleWidth: g.visibleWidth,
+												visibleHeight: g.visibleHeight,
+												clickX: g.clickX,
+												clickY: g.clickY,
+												relClickX: g.relClickX,
+												relClickY: g.relClickX
+											}
 										});
 										c = y.isAppStoreURL(e);
 										this.$33().$39 &&
@@ -7810,7 +7821,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4498639","namespace":"FB","message":"' +
+				'","revision":"4498880","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
