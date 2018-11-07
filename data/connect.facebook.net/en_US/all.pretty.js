@@ -1,4 +1,4 @@
-/*1541540302,,JIT Construction: v4504855,en_US*/
+/*1541560981,,JIT Construction: v4507806,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -21,11 +21,19 @@
  */
 (function _(a, b, c, d) {
 	if (window[c]) return;
+	if (!window.JSON) return;
 	var e = (window[c] = {
 		__buffer: {
 			replay: function() {
-				for (var a = 0; a < this.calls.length; a++)
-					window[c][this.calls[a][0]].apply(null, this.calls[a][1]);
+				var a = this,
+					b = function(d) {
+						var b = window[c];
+						a.calls[d][0].split(".").forEach(function(a) {
+							return (b = b[a]);
+						});
+						b.apply(null, a.calls[d][1]);
+					};
+				for (var d = 0; d < this.calls.length; d++) b(d);
 				this.calls = [];
 			},
 			calls: []
@@ -83,8 +91,8 @@
 	);
 	b.close();
 })(
-	"https://connect.facebook.net/en_US/all.js?hash=c4741c5252808b9764c7fe3be2e4cad4",
-	1541540302,
+	"https://connect.facebook.net/en_US/all.js?hash=d2f8b72c8438a8681005654af9a55d03",
+	1541560981,
 	"FB",
 	[
 		"AppEvents.EventNames",
