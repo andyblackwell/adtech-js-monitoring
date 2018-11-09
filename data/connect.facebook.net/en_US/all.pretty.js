@@ -1,4 +1,4 @@
-/*1541788278,,JIT Construction: v4520735,en_US*/
+/*1541795507,,JIT Construction: v4521133,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -36,7 +36,8 @@
 				for (var d = 0; d < this.calls.length; d++) b(d);
 				this.calls = [];
 			},
-			calls: []
+			calls: [],
+			opts: {}
 		},
 		getUserID: function() {
 			return "";
@@ -46,6 +47,9 @@
 		},
 		getAccessToken: function() {
 			return null;
+		},
+		init: function(a) {
+			e.__buffer.opts = a;
 		}
 	});
 	for (var b = 0; b < d.length; b++) {
@@ -56,6 +60,7 @@
 			i = e;
 		for (var j = 0; j < g.length; j++) i = i[g[j]] || (i[g[j]] = {});
 		i[h] = (function(a) {
+			if (a === "init") return;
 			return function() {
 				e.__buffer.calls.push([a, Array.prototype.slice.call(arguments)]);
 			};
@@ -91,8 +96,8 @@
 	);
 	b.close();
 })(
-	"https://connect.facebook.net/en_US/all.js?hash=e2a1a78807bb6a061228c5c0c457bdec",
-	1541788278,
+	"https://connect.facebook.net/en_US/all.js?hash=65febd798096eb006564b5db531c1ad6",
+	1541795507,
 	"FB",
 	[
 		"AppEvents.EventNames",
