@@ -1,4 +1,4 @@
-/*1541758893,,JIT Construction: v4520223,en_US*/
+/*1541795446,,JIT Construction: v4521133,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4241,7 +4241,7 @@ try {
 										(c.latency_since_navigation_start = b - this.$2),
 									(c.latency_since_sdk_init = b - this.$3),
 									window.$8 && (c.visibility_changed = !0),
-									this.$4(h.appendToUrl(this.$6, c));
+									this.$4(this.$6, c);
 							};
 							e.exports = a;
 						},
@@ -6929,6 +6929,17 @@ try {
 								this.sendSignal = function(a) {
 									this.sendToFacebook("signal", { signalUrl: a });
 								}.bind(this);
+								this.sendClientEvent = function(a, b) {
+									var c = this.$32().$41.useUnifiedLogging === !0;
+									!c
+										? this.sendToFacebook("signal", {
+												signalUrl: J.appendToUrl(a, b)
+										  })
+										: this.sendToFacebook("client_event", {
+												clientEventUrl: a,
+												payload: b
+										  });
+								}.bind(this);
 								this.$27 = new n(
 									a.rootElement,
 									a.onMediaLoaded,
@@ -6956,7 +6967,12 @@ try {
 										b.performance.timing &&
 										b.performance.timing.navigationStart) ||
 									0;
-								this.$23 = new s(F.ERROR, a.tagJsInitTime, b, this.sendSignal);
+								this.$23 = new s(
+									F.ERROR,
+									a.tagJsInitTime,
+									b,
+									this.sendClientEvent
+								);
 								this.$11 = a.rootElement;
 								this.$12 = new D(this.$11, this.$29());
 								this.$2 = null;
@@ -7861,7 +7877,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4520223","namespace":"FB","message":"' +
+				'","revision":"4521133","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
