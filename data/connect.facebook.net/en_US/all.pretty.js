@@ -1,4 +1,4 @@
-/*1541963545,,JIT Construction: v4525422,en_US*/
+/*1541968729,,JIT Construction: v4525484,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -37,7 +37,7 @@
 				this.calls = [];
 			},
 			calls: [],
-			opts: {}
+			opts: null
 		},
 		getUserID: function() {
 			return "";
@@ -96,8 +96,8 @@
 	);
 	b.close();
 })(
-	"https://connect.facebook.net/en_US/all.js?hash=77fab6e0af7c738d95d9f8384145992b",
-	1541963545,
+	"https://connect.facebook.net/en_US/all.js?hash=8c58382f8d2d23a3936e21d403f12c7f",
+	1541968729,
 	"FB",
 	[
 		"AppEvents.EventNames",
