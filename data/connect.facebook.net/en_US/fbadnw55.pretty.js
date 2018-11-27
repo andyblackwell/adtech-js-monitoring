@@ -1,4 +1,4 @@
-/*1543320880,,JIT Construction: v4565780,en_US*/
+/*1543350318,,JIT Construction: v4566816,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2985,10 +2985,10 @@ try {
 							}
 							a.prototype.$5 = function() {
 								__p && __p();
-								var a = Date.now() - this.$2;
+								var a = ES("Date", "now", !1) - this.$2;
 								for (
 									var b = this.$3,
-										c = Array.isArray(b),
+										c = ES("Array", "isArray", !1, b),
 										d = 0,
 										b = c
 											? b
@@ -3015,13 +3015,18 @@ try {
 								this.$3 = [];
 							};
 							a.prototype.$6 = function() {
-								this.$2 = Date.now();
+								this.$2 = ES("Date", "now", !1);
 								var a = new g(this.$4);
 								a.addVisibilityListener(
-									function() {
-										var b = a.getVisibilityState();
-										b === "visible" && this.$5();
-									}.bind(this)
+									ES(
+										function() {
+											var b = a.getVisibilityState();
+											b === "visible" && this.$5();
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								this.$1 = !0;
 							};
@@ -3186,7 +3191,7 @@ try {
 									c.className = a;
 									for (
 										var a = b,
-											b = Array.isArray(a),
+											b = ES("Array", "isArray", !1, a),
 											d = 0,
 											a = b
 												? a
@@ -3270,7 +3275,7 @@ try {
 								},
 								h = 0;
 							b = function(a) {
-								var b = Date.now(),
+								var b = ES("Date", "now", !1),
 									c = Math.max(0, 16 - (b - h));
 								h = b + c;
 								return setTimeout(a, c);
@@ -3318,7 +3323,7 @@ try {
 									this.$14(),
 									(this.$4 = this.$5 = a),
 									(this.$1 = this.$8 - a.x * l),
-									(this.$3 = Date.now()),
+									(this.$3 = ES("Date", "now", !1)),
 									(this.$2 = !1),
 									(this.$6 = !1);
 							};
@@ -3336,11 +3341,16 @@ try {
 								if (this.$6)
 									this.$2 &&
 										(this.$9 = i(
-											function() {
-												this.scrollTo(this.$16(this.$1 + b.x * l));
-											}.bind(this)
+											ES(
+												function() {
+													this.scrollTo(this.$16(this.$1 + b.x * l));
+												},
+												"bind",
+												!0,
+												this
+											)
 										));
-								else if (Date.now() - this.$3 > 2 * (1e3 / 60)) {
+								else if (ES("Date", "now", !1) - this.$3 > 2 * (1e3 / 60)) {
 									var d = a.x - c.x;
 									a = a.y - c.y;
 									d === 0 ? (c = Infinity) : (c = a / d);
@@ -3362,9 +3372,14 @@ try {
 									c = Math.round(m * this.$11.getItemWidthRatio());
 								a === "right" ? (b += c) : (b -= c);
 								this.$7 = setTimeout(
-									function() {
-										this.$11.onCriticalAnimationEnd();
-									}.bind(this),
+									ES(
+										function() {
+											this.$11.onCriticalAnimationEnd();
+										},
+										"bind",
+										!0,
+										this
+									),
 									n
 								);
 								this.$15(b, a);
@@ -3380,9 +3395,14 @@ try {
 								this.$13(),
 									(this.$8 = a),
 									(this.$9 = i(
-										function() {
-											this.scrollTo(a, b);
-										}.bind(this)
+										ES(
+											function() {
+												this.scrollTo(a, b);
+											},
+											"bind",
+											!0,
+											this
+										)
 									));
 							};
 							a.prototype.getCurrentOffset = function() {
@@ -3436,28 +3456,46 @@ try {
 									(this.$3 = m(this.$1, "._2vf-")),
 									(this.$2 = m(this.$1, "._2vfy")),
 									this.$12.addRequiredEvent(),
-									this.$4.forEach(
-										function(a, b) {
-											a = new g(
-												a,
-												b === 0
-													? function() {
-															return this.$12.requiredEventFired();
-													  }.bind(this)
-													: null
-											);
-											this.$5.push(a);
-											this.$3.appendChild(a.getElement());
-										}.bind(this)
+									ES(
+										this.$4,
+										"forEach",
+										!0,
+										ES(
+											function(a, b) {
+												a = new g(
+													a,
+													b === 0
+														? ES(
+																function() {
+																	return this.$12.requiredEventFired();
+																},
+																"bind",
+																!0,
+																this
+														  )
+														: null
+												);
+												this.$5.push(a);
+												this.$3.appendChild(a.getElement());
+											},
+											"bind",
+											!0,
+											this
+										)
 									),
 									(this.$11 = new h(
 										this,
-										function(a, b) {
-											this.$7("AN_CAROUSEL_EVENT_SWIPE", {
-												index: a,
-												direction: b
-											});
-										}.bind(this)
+										ES(
+											function(a, b) {
+												this.$7("AN_CAROUSEL_EVENT_SWIPE", {
+													index: a,
+													direction: b
+												});
+											},
+											"bind",
+											!0,
+											this
+										)
 									)),
 									this.ensureSizes(),
 									this.$14();
@@ -3468,21 +3506,36 @@ try {
 							a.prototype.$14 = function() {
 								this.$3.addEventListener(
 									"touchstart",
-									function(a) {
-										this.$11.onMoveStart(o(a));
-									}.bind(this)
+									ES(
+										function(a) {
+											this.$11.onMoveStart(o(a));
+										},
+										"bind",
+										!0,
+										this
+									)
 								),
 									this.$3.addEventListener(
 										"touchmove",
-										function(a) {
-											this.$11.onMove(a, o(a));
-										}.bind(this)
+										ES(
+											function(a) {
+												this.$11.onMove(a, o(a));
+											},
+											"bind",
+											!0,
+											this
+										)
 									),
 									this.$3.addEventListener(
 										"touchend",
-										function(a) {
-											this.$11.onMoveEnd();
-										}.bind(this)
+										ES(
+											function(a) {
+												this.$11.onMoveEnd();
+											},
+											"bind",
+											!0,
+											this
+										)
 									);
 							};
 							a.prototype.$16 = function(a) {
@@ -3502,7 +3555,7 @@ try {
 								return (this.$8 + this.$9) * a + this.$9;
 							};
 							a.prototype.getLinks = function() {
-								return this.$5.map(function(a) {
+								return ES(this.$5, "map", !0, function(a) {
 									return a.getElement();
 								});
 							};
@@ -3550,14 +3603,22 @@ try {
 									(this.$9 = this.$18()),
 									(this.$1.style.fontSize = this.$19() * 100 + "px"),
 									(this.$3.style.width = this.getFullWidth() + "px"),
-									this.$5.forEach(
-										function(a, b) {
-											var c = a.getElement();
-											a.setImageSize(this.$8);
-											b < this.$5.length - 1 &&
-												(c.style.marginRight = this.$9 + "px");
-											b === 0 && (c.style.marginLeft = this.$9 + "px");
-										}.bind(this)
+									ES(
+										this.$5,
+										"forEach",
+										!0,
+										ES(
+											function(a, b) {
+												var c = a.getElement();
+												a.setImageSize(this.$8);
+												b < this.$5.length - 1 &&
+													(c.style.marginRight = this.$9 + "px");
+												b === 0 && (c.style.marginLeft = this.$9 + "px");
+											},
+											"bind",
+											!0,
+											this
+										)
 									);
 							};
 							e.exports = a;
@@ -3590,7 +3651,7 @@ try {
 								__p && __p();
 								for (
 									var a = this.$3,
-										b = Array.isArray(a),
+										b = ES("Array", "isArray", !1, a),
 										c = 0,
 										a = b
 											? a
@@ -3662,7 +3723,7 @@ try {
 									(this.$1.set(c, new Map()), this.$2.set(c, new Map()));
 								var d = h(this.$1.get(c));
 								c = h(this.$2.get(c));
-								var e = Object.keys(b);
+								var e = ES("Object", "keys", !1, b);
 								for (var f = 0; f < e.length; f++) {
 									var g = e[f];
 									d.set(g, b[g]);
@@ -3673,7 +3734,7 @@ try {
 								__p && __p();
 								for (
 									var a = this.$1,
-										b = Array.isArray(a),
+										b = ES("Array", "isArray", !1, a),
 										c = 0,
 										a = b
 											? a
@@ -3700,7 +3761,7 @@ try {
 									e = h(this.$3.get(e));
 									for (
 										var d = d,
-											f = Array.isArray(d),
+											f = ES("Array", "isArray", !1, d),
 											g = 0,
 											d = f
 												? d
@@ -3732,7 +3793,7 @@ try {
 								__p && __p();
 								for (
 									var a = this.$2,
-										b = Array.isArray(a),
+										b = ES("Array", "isArray", !1, a),
 										c = 0,
 										a = b
 											? a
@@ -3759,7 +3820,7 @@ try {
 									e = h(this.$3.get(e));
 									for (
 										var d = d,
-											f = Array.isArray(d),
+											f = ES("Array", "isArray", !1, d),
 											g = 0,
 											d = f
 												? d
@@ -4011,7 +4072,7 @@ try {
 									if (c === "relative")
 										for (
 											var c = a.children,
-												a = Array.isArray(c),
+												a = ES("Array", "isArray", !1, c),
 												d = 0,
 												c = a
 													? c
@@ -4103,7 +4164,11 @@ try {
 						"LogLevels",
 						[],
 						function(a, b, c, d, e, f) {
-							e.exports = Object.freeze({ DEBUG: 1, WARNING: 2, ERROR: 3 });
+							e.exports = ES("Object", "freeze", !1, {
+								DEBUG: 1,
+								WARNING: 2,
+								ERROR: 3
+							});
 						},
 						null
 					);
@@ -4161,7 +4226,7 @@ try {
 						function(a, b, c, d, e, f) {
 							"use strict";
 							function a() {
-								return Date.now();
+								return ES("Date", "now", !1);
 							}
 							e.exports = a;
 						},
@@ -4188,7 +4253,7 @@ try {
 								this.$6 = a;
 								for (
 									var a = this.$5,
-										b = Array.isArray(a),
+										b = ES("Array", "isArray", !1, a),
 										c = 0,
 										a = b
 											? a
@@ -4251,7 +4316,7 @@ try {
 						"ANMWebAdElement",
 						[],
 						function(a, b, c, d, e, f) {
-							e.exports = Object.freeze({
+							e.exports = ES("Object", "freeze", !1, {
 								FB_AD_BODY: "fbAdBody",
 								FB_AD_CALL_TO_ACTION: "fbAdCallToAction",
 								FB_AD_ICON: "fbAdIcon",
@@ -4268,7 +4333,7 @@ try {
 						"ANMWebUnifiedLoggingXOutType",
 						[],
 						function(a, b, c, d, e, f) {
-							e.exports = Object.freeze({
+							e.exports = ES("Object", "freeze", !1, {
 								INLINE: "inline",
 								INLINE_CONDENSED: "inline-condensed"
 							});
@@ -4279,7 +4344,7 @@ try {
 						"ANMWebXOutClientEvent",
 						[],
 						function(a, b, c, d, e, f) {
-							e.exports = Object.freeze({
+							e.exports = ES("Object", "freeze", !1, {
 								CANCEL: "ADNW_XOUT_CANCEL",
 								FINISH: "ADNW_XOUT_FINISH",
 								HAS_INLINE_XOUT: "ADNW_HAS_INLINE_XOUT",
@@ -4328,9 +4393,14 @@ try {
 								this.$2.appendChild(this.$11);
 								this.$11.addEventListener(
 									"click",
-									function() {
-										this.$3.pause(!0);
-									}.bind(this)
+									ES(
+										function() {
+											this.$3.pause(!0);
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 							};
 							a.prototype.getXoutButton = function() {
@@ -4341,9 +4411,14 @@ try {
 								a.addEventListener(
 									"click",
 									g.once(
-										function() {
-											return this.$1.adClosed();
-										}.bind(this)
+										ES(
+											function() {
+												return this.$1.adClosed();
+											},
+											"bind",
+											!0,
+											this
+										)
 									)
 								);
 								this.$3.pause();
@@ -4386,7 +4461,10 @@ try {
 								this.$6.classList.remove("skipProgressWheelShow");
 								var a = j(this.$2.querySelector(".skipButton"));
 								a.classList.add("skipButtonShow");
-								a.addEventListener("click", g.once(this.$13.bind(this)));
+								a.addEventListener(
+									"click",
+									g.once(ES(this.$13, "bind", !0, this))
+								);
 							};
 							a.prototype.$18 = function() {
 								var a = this.$3.getVideoElement();
@@ -4397,22 +4475,32 @@ try {
 								__p && __p();
 								var a = j(this.$2.querySelector(".adnwRVProgressBar")),
 									b = this.$3.getVideoElement(),
-									c = function() {
-										var d = 100 * (b.currentTime / b.duration);
-										d = Math.min(d, 100);
-										this.$16();
-										a.style.width = d + "%";
-										(b.paused || this.$18()) && this.$15();
-										d >= 100
-											? this.$13()
-											: b.paused || window.requestAnimationFrame(c);
-										b.currentTime >= l && this.$17();
-									}.bind(this);
+									c = ES(
+										function() {
+											var d = 100 * (b.currentTime / b.duration);
+											d = Math.min(d, 100);
+											this.$16();
+											a.style.width = d + "%";
+											(b.paused || this.$18()) && this.$15();
+											d >= 100
+												? this.$13()
+												: b.paused || window.requestAnimationFrame(c);
+											b.currentTime >= l && this.$17();
+										},
+										"bind",
+										!0,
+										this
+									);
 								b.addEventListener(
 									"play",
-									function() {
-										this.$18() || this.$14(), window.requestAnimationFrame(c);
-									}.bind(this)
+									ES(
+										function() {
+											this.$18() || this.$14(), window.requestAnimationFrame(c);
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								!b.paused ? window.requestAnimationFrame(c) : this.$15();
 							};
@@ -4424,7 +4512,7 @@ try {
 						"ANUnifiedLoggingClickEvent",
 						[],
 						function(a, b, c, d, e, f) {
-							e.exports = Object.freeze({
+							e.exports = ES("Object", "freeze", !1, {
 								BILLABLE_CLICK: 0,
 								CLOSE: 1,
 								NON_STORE_CLICK: 3,
@@ -4497,41 +4585,46 @@ try {
 										"url(" + this.$2 + ")"),
 									a.addEventListener(
 										"click",
-										function(event) {
-											__p && __p();
-											var b = k(m(event.target)),
-												c = k(k(a).querySelector("._727i")),
-												d = k(k(a).querySelector("._727j"));
-											if (b === d) this.$8(event);
-											else if (b === c || c.contains(b))
-												for (
-													var d = this.$4,
-														c = Array.isArray(d),
-														b = 0,
-														d = c
-															? d
-															: d[
-																	typeof Symbol === "function"
-																		? Symbol.iterator
-																		: "@@iterator"
-															  ]();
-													;
+										ES(
+											function(event) {
+												__p && __p();
+												var b = k(m(event.target)),
+													c = k(k(a).querySelector("._727i")),
+													d = k(k(a).querySelector("._727j"));
+												if (b === d) this.$8(event);
+												else if (b === c || ES(c, "contains", !0, b))
+													for (
+														var d = this.$4,
+															c = ES("Array", "isArray", !1, d),
+															b = 0,
+															d = c
+																? d
+																: d[
+																		typeof Symbol === "function"
+																			? Symbol.iterator
+																			: "@@iterator"
+																  ]();
+														;
 
-												) {
-													var e;
-													if (c) {
-														if (b >= d.length) break;
-														e = d[b++];
-													} else {
-														b = d.next();
-														if (b.done) break;
-														e = b.value;
+													) {
+														var e;
+														if (c) {
+															if (b >= d.length) break;
+															e = d[b++];
+														} else {
+															b = d.next();
+															if (b.done) break;
+															e = b.value;
+														}
+														e = e;
+														e(event);
 													}
-													e = e;
-													e(event);
-												}
-											else this.$8(event);
-										}.bind(this)
+												else this.$8(event);
+											},
+											"bind",
+											!0,
+											this
+										)
 									));
 								this.$3 = a;
 							};
@@ -4541,45 +4634,55 @@ try {
 								a.classList.remove("_727o");
 								k(this.$3).style.opacity = "0";
 								window.setTimeout(
-									function() {
-										__p && __p();
-										a.parentNode && a.parentNode.removeChild(a);
-										for (
-											var b = this.$5,
-												c = Array.isArray(b),
-												d = 0,
-												b = c
-													? b
-													: b[
-															typeof Symbol === "function"
-																? Symbol.iterator
-																: "@@iterator"
-													  ]();
-											;
+									ES(
+										function() {
+											__p && __p();
+											a.parentNode && a.parentNode.removeChild(a);
+											for (
+												var b = this.$5,
+													c = ES("Array", "isArray", !1, b),
+													d = 0,
+													b = c
+														? b
+														: b[
+																typeof Symbol === "function"
+																	? Symbol.iterator
+																	: "@@iterator"
+														  ]();
+												;
 
-										) {
-											var e;
-											if (c) {
-												if (d >= b.length) break;
-												e = b[d++];
-											} else {
-												d = b.next();
-												if (d.done) break;
-												e = d.value;
+											) {
+												var e;
+												if (c) {
+													if (d >= b.length) break;
+													e = b[d++];
+												} else {
+													d = b.next();
+													if (d.done) break;
+													e = d.value;
+												}
+												e = e;
+												e(event);
 											}
-											e = e;
-											e(event);
-										}
-									}.bind(this),
+										},
+										"bind",
+										!0,
+										this
+									),
 									300
 								);
 							};
 							r.prototype.$7 = function(a) {
 								a.appendChild(k(this.$3)),
 									window.setTimeout(
-										function() {
-											k(this.$3).classList.add("_727o");
-										}.bind(this)
+										ES(
+											function() {
+												k(this.$3).classList.add("_727o");
+											},
+											"bind",
+											!0,
+											this
+										)
 									);
 							};
 							e.exports = r;
@@ -4595,11 +4698,16 @@ try {
 							var h = 10,
 								i = 0.97;
 							function a(a, b, c, d) {
-								(this.$7 = function() {
-									!this.$5 && this.$1.currentTime >= h && this.$8();
-									var a = this.$1.currentTime / this.$1.duration;
-									!this.$6 && a >= i && this.$9();
-								}.bind(this)),
+								(this.$7 = ES(
+									function() {
+										!this.$5 && this.$1.currentTime >= h && this.$8();
+										var a = this.$1.currentTime / this.$1.duration;
+										!this.$6 && a >= i && this.$9();
+									},
+									"bind",
+									!0,
+									this
+								)),
 									(this.$1 = a),
 									(this.$4 = b),
 									(this.$2 = c !== null ? c : null),
@@ -4663,9 +4771,14 @@ try {
 									var b = new Image();
 									b.addEventListener(
 										"load",
-										function() {
-											this.$5 && this.$5();
-										}.bind(this)
+										ES(
+											function() {
+												this.$5 && this.$5();
+											},
+											"bind",
+											!0,
+											this
+										)
 									);
 									b.src = this.$2;
 								}
@@ -4696,33 +4809,53 @@ try {
 							};
 							a.prototype.$15 = function() {
 								__p && __p();
-								var a = function(event) {
-										this.setMuted(!this.$13), event.stopPropagation();
-									}.bind(this),
-									b = function(event) {
-										this.$10.paused ? this.play(!0) : this.pause(!0),
-											this.$4 && this.$4(),
-											event.stopPropagation();
-									}.bind(this);
+								var a = ES(
+										function(event) {
+											this.setMuted(!this.$13), event.stopPropagation();
+										},
+										"bind",
+										!0,
+										this
+									),
+									b = ES(
+										function(event) {
+											this.$10.paused ? this.play(!0) : this.pause(!0),
+												this.$4 && this.$4(),
+												event.stopPropagation();
+										},
+										"bind",
+										!0,
+										this
+									);
 								this.$9.addEventListener(
 									"click",
-									function(event) {
-										if (event.target === this.$11) {
-											a(event);
-											return;
-										}
-										if (
-											event.target === this.$10 ||
-											event.target === this.$12
-										) {
-											b(event);
-											return;
-										}
-									}.bind(this)
+									ES(
+										function(event) {
+											if (event.target === this.$11) {
+												a(event);
+												return;
+											}
+											if (
+												event.target === this.$10 ||
+												event.target === this.$12
+											) {
+												b(event);
+												return;
+											}
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
-								var c = function(event) {
-									return this.pause(!0);
-								}.bind(this);
+								var c = ES(
+									function(event) {
+										return this.pause(!0);
+									},
+									"bind",
+									!0,
+									this
+								);
 								this.$10.addEventListener("webkitendfullscreen", c);
 								this.$10.addEventListener("fullscreenchange", c);
 								this.$10.addEventListener("webkitfullscreenchange", c);
@@ -4743,13 +4876,23 @@ try {
 								a = this.$10.play();
 								a && a.then instanceof Function
 									? a.then(
-											function() {
-												this.$12.classList.add("_2a06");
-											}.bind(this),
-											function() {
-												this.$12.classList.remove("_2a06"),
-													this.$3 && this.$3();
-											}.bind(this)
+											ES(
+												function() {
+													this.$12.classList.add("_2a06");
+												},
+												"bind",
+												!0,
+												this
+											),
+											ES(
+												function() {
+													this.$12.classList.remove("_2a06"),
+														this.$3 && this.$3();
+												},
+												"bind",
+												!0,
+												this
+											)
 									  )
 									: this.$12.classList.add("_2a06");
 							};
@@ -4820,9 +4963,14 @@ try {
 								this.$6 == null &&
 									e.addEventListener(
 										"click",
-										function(a) {
-											this.$5();
-										}.bind(this)
+										ES(
+											function(a) {
+												this.$5();
+											},
+											"bind",
+											!0,
+											this
+										)
 									);
 								return i("_6qi4", [a, b, c, f, g, e]);
 							};
@@ -4893,34 +5041,54 @@ try {
 										this.$2.hide_ad,
 										"_6qgk",
 										this.$2.hide_ad_description,
-										function() {
-											this.$3("hide");
-										}.bind(this)
+										ES(
+											function() {
+												this.$3("hide");
+											},
+											"bind",
+											!0,
+											this
+										)
 									),
 									b = this.$5(
 										this.$2.report_ad,
 										"_6qgl",
 										this.$2.report_ad_description,
-										function() {
-											this.$3("report");
-										}.bind(this)
+										ES(
+											function() {
+												this.$3("report");
+											},
+											"bind",
+											!0,
+											this
+										)
 									),
 									c = this.$5(
 										this.$2.why_am_i_seeing_this,
 										"_6qhp",
 										null,
-										function() {
-											this.$3();
-										}.bind(this),
+										ES(
+											function() {
+												this.$3();
+											},
+											"bind",
+											!0,
+											this
+										),
 										this.$1
 									),
 									d = document.createElement("a");
 								d.className = "_6qi3";
 								d.addEventListener(
 									"click",
-									function(a) {
-										a.preventDefault(), this.$4();
-									}.bind(this)
+									ES(
+										function(a) {
+											a.preventDefault(), this.$4();
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								return j("_6qhb _6qhq", [a, b, c, d]);
 							};
@@ -4962,19 +5130,32 @@ try {
 									this.$2 === "hide"
 										? this.$3.hide_ad_options
 										: this.$3.report_ad_options;
-								a = a.map(
-									function(a) {
-										var b = document.createElement("button");
-										b.className = "_6qh7";
-										b.textContent = a.title;
-										b.addEventListener(
-											"click",
-											function() {
-												b.classList.add("_6qh8"), this.$1(a);
-											}.bind(this)
-										);
-										return b;
-									}.bind(this)
+								a = ES(
+									a,
+									"map",
+									!0,
+									ES(
+										function(a) {
+											var b = document.createElement("button");
+											b.className = "_6qh7";
+											b.textContent = a.title;
+											b.addEventListener(
+												"click",
+												ES(
+													function() {
+														b.classList.add("_6qh8"), this.$1(a);
+													},
+													"bind",
+													!0,
+													this
+												)
+											);
+											return b;
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								a = i("_6qh9", a);
 								return i("_6qha", [a]);
@@ -5054,9 +5235,14 @@ try {
 								var a = new i(
 									this.$7,
 									l(this.$12),
-									function(a) {
-										this.$21(a);
-									}.bind(this)
+									ES(
+										function(a) {
+											this.$21(a);
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								this.$17(a.render());
 							};
@@ -5074,9 +5260,14 @@ try {
 									a,
 									this.$5,
 									l(this.$12),
-									function() {
-										this.$19();
-									}.bind(this),
+									ES(
+										function() {
+											this.$19();
+										},
+										"bind",
+										!0,
+										this
+									),
 									this.$13
 								);
 								this.$17(a.render());
@@ -5085,15 +5276,25 @@ try {
 								var a = new h(
 									this.$7,
 									this.$6,
-									function(a) {
-										a === "hide" && this.$10(this.$7.dislike_option),
-											a === "report" && this.$10(this.$7.follow_up_report),
-											(this.$12 = a),
-											this.onInitialStepDone();
-									}.bind(this),
-									function() {
-										this.$9(), this.$15();
-									}.bind(this)
+									ES(
+										function(a) {
+											a === "hide" && this.$10(this.$7.dislike_option),
+												a === "report" && this.$10(this.$7.follow_up_report),
+												(this.$12 = a),
+												this.onInitialStepDone();
+										},
+										"bind",
+										!0,
+										this
+									),
+									ES(
+										function() {
+											this.$9(), this.$15();
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								this.$17(a.render());
 							};
@@ -5115,9 +5316,14 @@ try {
 								}
 								this.$4.addEventListener(
 									"click",
-									function(a) {
-										a.preventDefault(), this.$22(), this.$8();
-									}.bind(this)
+									ES(
+										function(a) {
+											a.preventDefault(), this.$22(), this.$8();
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								this.$1.appendChild(this.$2);
 							};
@@ -5229,9 +5435,14 @@ try {
 								this.$AdMostlyViewableImpressionBehavior1 &&
 									this.$AdMostlyViewableImpressionBehavior4 === null &&
 									(this.$AdMostlyViewableImpressionBehavior4 = window.setTimeout(
-										function() {
-											this.$AdMostlyViewableImpressionBehavior5();
-										}.bind(this),
+										ES(
+											function() {
+												this.$AdMostlyViewableImpressionBehavior5();
+											},
+											"bind",
+											!0,
+											this
+										),
 										i
 									)),
 									(this.$AdMostlyViewableImpressionBehavior1 = !1);
@@ -5962,7 +6173,7 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							a = Object.freeze({
+							a = ES("Object", "freeze", !1, {
 								PARTIALLY_VISIBLE: "PARTIALLY_VISIBLE",
 								FULLY_VISIBLE: "FULLY_VISIBLE",
 								HIDDEN_TAB: "HIDDEN_TAB",
@@ -6405,11 +6616,11 @@ try {
 								this.$11 = !1;
 								var a = this.getDimensions(),
 									b = this.getCurrentViewabilityState();
-								this.$4.forEach(function(c) {
+								ES(this.$4, "forEach", !0, function(c) {
 									c(a, b);
 								});
 								this.$4 = [];
-								this.$5.forEach(function(c) {
+								ES(this.$5, "forEach", !0, function(c) {
 									c(a, b);
 								});
 							};
@@ -6420,11 +6631,11 @@ try {
 								this.$11 = !0;
 								var a = this.getDimensions(),
 									b = this.getCurrentViewabilityState();
-								this.$4.forEach(function(c) {
+								ES(this.$4, "forEach", !0, function(c) {
 									c(a, b);
 								});
 								this.$4 = [];
-								this.$6.forEach(function(c) {
+								ES(this.$6, "forEach", !0, function(c) {
 									c(a, b);
 								});
 							};
@@ -6434,7 +6645,7 @@ try {
 								this.$11 = !1;
 								var a = this.getDimensions(),
 									b = this.getCurrentViewabilityState();
-								this.$7.forEach(function(c) {
+								ES(this.$7, "forEach", !0, function(c) {
 									c(a, b);
 								});
 							};
@@ -6457,28 +6668,38 @@ try {
 								__p && __p();
 								if (this.$9 !== undefined) return;
 								this.$9 = window.setInterval(
-									function() {
-										if (this.$1) return;
-										this.$2.getViewableRatio(
-											!1,
-											function(a) {
-												this.$8 = a;
-												var b = this.getCurrentViewabilityState()
-													.viewabilityLevels;
-												b.indexOf(h.FULLY_VISIBLE) >= 0
-													? this.$14()
-													: b.indexOf(h.PARTIALLY_VISIBLE) >= 0
-														? this.$13()
-														: this.$15();
-												b = a.getViewableWidthRatio();
-												a = a.getViewableHeightRatio();
-												this.$3 != null &&
-													b != null &&
-													a != null &&
-													this.$3.updateView(b, a);
-											}.bind(this)
-										);
-									}.bind(this),
+									ES(
+										function() {
+											if (this.$1) return;
+											this.$2.getViewableRatio(
+												!1,
+												ES(
+													function(a) {
+														this.$8 = a;
+														var b = this.getCurrentViewabilityState()
+															.viewabilityLevels;
+														ES(b, "indexOf", !0, h.FULLY_VISIBLE) >= 0
+															? this.$14()
+															: ES(b, "indexOf", !0, h.PARTIALLY_VISIBLE) >= 0
+																? this.$13()
+																: this.$15();
+														b = a.getViewableWidthRatio();
+														a = a.getViewableHeightRatio();
+														this.$3 != null &&
+															b != null &&
+															a != null &&
+															this.$3.updateView(b, a);
+													},
+													"bind",
+													!0,
+													this
+												)
+											);
+										},
+										"bind",
+										!0,
+										this
+									),
 									l
 								);
 							};
@@ -6510,7 +6731,7 @@ try {
 						"ANMWebMediator",
 						[],
 						function(a, b, c, d, e, f) {
-							e.exports = Object.freeze({
+							e.exports = ES("Object", "freeze", !1, {
 								AMP: "AMP",
 								APPNEXUS: "APPNEXUS",
 								APPNEXUS_ASYNC: "APPNEXUS_ASYNC",
@@ -6535,73 +6756,101 @@ try {
 							__p && __p();
 							function a(a) {
 								__p && __p();
-								(this.$2 = function() {
-									__p && __p();
-									if (this.$1.getNestLevel() === 0) return h.NONE;
-									for (
-										var a = this.$1.ancestorIframes,
-											b = Array.isArray(a),
-											c = 0,
-											a = b
-												? a
-												: a[
-														typeof Symbol === "function"
-															? Symbol.iterator
-															: "@@iterator"
-												  ]();
-										;
+								(this.$2 = ES(
+									function() {
+										__p && __p();
+										if (this.$1.getNestLevel() === 0) return h.NONE;
+										for (
+											var a = this.$1.ancestorIframes,
+												b = ES("Array", "isArray", !1, a),
+												c = 0,
+												a = b
+													? a
+													: a[
+															typeof Symbol === "function"
+																? Symbol.iterator
+																: "@@iterator"
+													  ]();
+											;
 
-									) {
-										var d;
-										if (b) {
-											if (c >= a.length) break;
-											d = a[c++];
-										} else {
-											c = a.next();
-											if (c.done) break;
-											d = c.value;
-										}
-										d = d;
-										if (d.src) {
-											d = i.extractDomain(d.src);
-											if (d === this.$1.pageDomain) return h.NONE;
-										}
-									}
-									return null;
-								}.bind(this)),
-									(this.$4 = function() {
-										var a = this.$1.ancestorURLs;
-										if (a.length > 0 && this.$1.getSafeFrameAPI()) {
-											a = i.extractDomain(a[0]);
-											if (window.googletag && a === "tpc.googlesyndication.com")
-												return h.GOOGLE_SAFE_FRAME;
-											else return h.UNKNOWN_SAFE_FRAME;
+										) {
+											var d;
+											if (b) {
+												if (c >= a.length) break;
+												d = a[c++];
+											} else {
+												c = a.next();
+												if (c.done) break;
+												d = c.value;
+											}
+											d = d;
+											if (d.src) {
+												d = i.extractDomain(d.src);
+												if (d === this.$1.pageDomain) return h.NONE;
+											}
 										}
 										return null;
-									}.bind(this)),
-									(this.$5 = function() {
-										var a = this.$1.ancestorIframes;
-										return a.length > 0 &&
-											a[0].id.indexOf("google_ads_iframe_") === 0
-											? h.GOOGLE_FRIENDLY_IFRAME
-											: null;
-									}.bind(this)),
-									(this.$8 = function() {
-										var a = this.$1.ancestorIframes;
-										return a.length > 0 &&
-											(a[0].classList.contains("str-fan-iframe") ||
-												j(a[0].parentElement).id === "str-fan-placeholder")
-											? h.SHARETHROUGH
-											: null;
-									}.bind(this)),
-									(this.$9 = function() {
-										var a = this.$1.ancestorIframes;
-										return a.length > 0 &&
-											a[0].classList.contains("fiSafeFrame") &&
-											window.parent.fiQuery
-											? h.FIRSTIMPRESSION_IO
-											: null;
-									}.bind(this)),
+									},
+									"bind",
+									!0,
+									this
+								)),
+									(this.$4 = ES(
+										function() {
+											var a = this.$1.ancestorURLs;
+											if (a.length > 0 && this.$1.getSafeFrameAPI()) {
+												a = i.extractDomain(a[0]);
+												if (
+													window.googletag &&
+													a === "tpc.googlesyndication.com"
+												)
+													return h.GOOGLE_SAFE_FRAME;
+												else return h.UNKNOWN_SAFE_FRAME;
+											}
+											return null;
+										},
+										"bind",
+										!0,
+										this
+									)),
+									(this.$5 = ES(
+										function() {
+											var a = this.$1.ancestorIframes;
+											return a.length > 0 &&
+												ES(a[0].id, "indexOf", !0, "google_ads_iframe_") === 0
+												? h.GOOGLE_FRIENDLY_IFRAME
+												: null;
+										},
+										"bind",
+										!0,
+										this
+									)),
+									(this.$8 = ES(
+										function() {
+											var a = this.$1.ancestorIframes;
+											return a.length > 0 &&
+												(ES(a[0].classList, "contains", !0, "str-fan-iframe") ||
+													j(a[0].parentElement).id === "str-fan-placeholder")
+												? h.SHARETHROUGH
+												: null;
+										},
+										"bind",
+										!0,
+										this
+									)),
+									(this.$9 = ES(
+										function() {
+											var a = this.$1.ancestorIframes;
+											return a.length > 0 &&
+												ES(a[0].classList, "contains", !0, "fiSafeFrame") &&
+												window.parent.fiQuery
+												? h.FIRSTIMPRESSION_IO
+												: null;
+										},
+										"bind",
+										!0,
+										this
+									)),
 									(this.$1 = a);
 							}
 							a.prototype.getMediator = function() {
@@ -6672,7 +6921,7 @@ try {
 						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
-							var h = Object.freeze({
+							var h = ES("Object", "freeze", !1, {
 								invalid: -1,
 								"off-screen": 0,
 								"partially-on-screen": 1,
@@ -6723,7 +6972,7 @@ try {
 									c = i(a);
 								for (
 									var d = this.$2,
-										e = Array.isArray(d),
+										e = ES("Array", "isArray", !1, d),
 										f = 0,
 										d = e
 											? d
@@ -6926,20 +7175,30 @@ try {
 								];
 							function a(a) {
 								__p && __p();
-								this.sendSignal = function(a) {
-									this.sendToFacebook("signal", { signalUrl: a });
-								}.bind(this);
-								this.sendClientEvent = function(a, b) {
-									var c = this.$32().$41.useUnifiedLogging === !0;
-									!c
-										? this.sendToFacebook("signal", {
-												signalUrl: J.appendToUrl(a, b)
-										  })
-										: this.sendToFacebook("client_event", {
-												clientEventUrl: a,
-												payload: b
-										  });
-								}.bind(this);
+								this.sendSignal = ES(
+									function(a) {
+										this.sendToFacebook("signal", { signalUrl: a });
+									},
+									"bind",
+									!0,
+									this
+								);
+								this.sendClientEvent = ES(
+									function(a, b) {
+										var c = this.$32().$41.useUnifiedLogging === !0;
+										!c
+											? this.sendToFacebook("signal", {
+													signalUrl: J.appendToUrl(a, b)
+											  })
+											: this.sendToFacebook("client_event", {
+													clientEventUrl: a,
+													payload: b
+											  });
+									},
+									"bind",
+									!0,
+									this
+								);
 								this.$27 = new n(
 									a.rootElement,
 									a.onMediaLoaded,
@@ -6955,9 +7214,14 @@ try {
 								this.$25 = !1;
 								this.$3 = !1;
 								this.$22.addListener(
-									function() {
-										return this.$27.mediaLoaded();
-									}.bind(this)
+									ES(
+										function() {
+											return this.$27.mediaLoaded();
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								this.$10 = a.displayFormat || a.format || "300x250";
 								this.tagJsIframeAppendedTime = a.tagJsIframeAppendedTime;
@@ -6979,9 +7243,14 @@ try {
 								this.$4 = !1;
 								window.addEventListener(
 									"pagehide",
-									function() {
-										this.$4 || this.$23.event("ADNW_UNLOAD_BEFORE_ADLOADED");
-									}.bind(this)
+									ES(
+										function() {
+											this.$4 || this.$23.event("ADNW_UNLOAD_BEFORE_ADLOADED");
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								this.$20 = new H();
 								this.$24 = new r(this.$11);
@@ -7032,19 +7301,39 @@ try {
 									adChoicesLink: a.adChoicesHref,
 									content: this.$32().$38,
 									buttonEl: c,
-									onXOutStart: function() {
-										this.$23.event(v.START, d);
-									}.bind(this),
-									onXOutCancel: function() {
-										this.$23.event(v.CANCEL, d);
-									}.bind(this),
-									onXOutOption: function(a) {
-										this.sendToFacebook("xout", { reason: a, type: d }),
-											this.$23.event(v.SELECT_OPTION, a);
-									}.bind(this),
-									onXOutFinish: function() {
-										this.$23.event(v.FINISH);
-									}.bind(this)
+									onXOutStart: ES(
+										function() {
+											this.$23.event(v.START, d);
+										},
+										"bind",
+										!0,
+										this
+									),
+									onXOutCancel: ES(
+										function() {
+											this.$23.event(v.CANCEL, d);
+										},
+										"bind",
+										!0,
+										this
+									),
+									onXOutOption: ES(
+										function(a) {
+											this.sendToFacebook("xout", { reason: a, type: d }),
+												this.$23.event(v.SELECT_OPTION, a);
+										},
+										"bind",
+										!0,
+										this
+									),
+									onXOutFinish: ES(
+										function() {
+											this.$23.event(v.FINISH);
+										},
+										"bind",
+										!0,
+										this
+									)
 								});
 								b.render();
 								return;
@@ -7096,53 +7385,64 @@ try {
 								c(a.placementId);
 								this.$32().$41.resizeMediaView
 									? window.setTimeout(
-											function() {
-												__p && __p();
-												var c = new q(
-														g,
-														this.$30(),
-														this.$11,
-														this.$9,
-														this.$15,
-														this.$23,
-														f
-													),
-													d = this.$35();
-												d.style.width = y.cssSize(this.$15);
-												this.$6 && this.$6.ensureSizes();
-												d = c.resize(this.$15, d.offsetHeight);
-												d &&
-													((this.$13 = !0), (this.$14 = !!a.nativeCarouselAds));
-												this.$37(a.nativeAd);
-												if (g) {
-													var e = function() {
-														(a.nativeCarouselAds = null),
-															c.restoreOriginalStyles(),
-															this.$49(
-																a,
-																a.creativeMarkupBackup,
-																b,
-																!!this.$32().$41.resizeMediaView
-															),
-															(this.$13 = !1),
-															(this.$14 = !1),
-															this.$37(a.nativeAd),
-															(this.$11.style.visibility = "visible");
-													}.bind(this);
-													if (!d) e();
-													else {
-														d = function a() {
-															y.screenIsPortrait() ||
-																(window.removeEventListener(
-																	"orientationchange",
-																	a
-																),
-																e());
-														};
-														window.addEventListener("orientationchange", d);
+											ES(
+												function() {
+													__p && __p();
+													var c = new q(
+															g,
+															this.$30(),
+															this.$11,
+															this.$9,
+															this.$15,
+															this.$23,
+															f
+														),
+														d = this.$35();
+													d.style.width = y.cssSize(this.$15);
+													this.$6 && this.$6.ensureSizes();
+													d = c.resize(this.$15, d.offsetHeight);
+													d &&
+														((this.$13 = !0),
+														(this.$14 = !!a.nativeCarouselAds));
+													this.$37(a.nativeAd);
+													if (g) {
+														var e = ES(
+															function() {
+																(a.nativeCarouselAds = null),
+																	c.restoreOriginalStyles(),
+																	this.$49(
+																		a,
+																		a.creativeMarkupBackup,
+																		b,
+																		!!this.$32().$41.resizeMediaView
+																	),
+																	(this.$13 = !1),
+																	(this.$14 = !1),
+																	this.$37(a.nativeAd),
+																	(this.$11.style.visibility = "visible");
+															},
+															"bind",
+															!0,
+															this
+														);
+														if (!d) e();
+														else {
+															d = function a() {
+																y.screenIsPortrait() ||
+																	(window.removeEventListener(
+																		"orientationchange",
+																		a
+																	),
+																	e());
+															};
+															window.addEventListener("orientationchange", d);
+														}
 													}
-												}
-											}.bind(this),
+												},
+												"bind",
+												!0,
+												this
+											),
 											0
 									  )
 									: this.$37(a.nativeAd);
@@ -7284,8 +7584,8 @@ try {
 									this.sendToFacebook("signal", {
 										signalUrl: J.appendToUrl(
 											b,
-											Object.assign({}, a, {
-												iframe_urls: JSON.stringify(a.iframe_urls)
+											ES("Object", "assign", !1, {}, a, {
+												iframe_urls: ES("JSON", "stringify", !1, a.iframe_urls)
 											})
 										)
 									});
@@ -7311,12 +7611,22 @@ try {
 								this.$18 = new i(this.$12, this.$19);
 								this.$18.attachBehaviorManager(this.$20);
 								var a = new g(
-									function() {
-										return this.$56();
-									}.bind(this),
-									function() {
-										return this.$23.event("ADNW_PARTIAL_ADIMPRESSION");
-									}.bind(this)
+									ES(
+										function() {
+											return this.$56();
+										},
+										"bind",
+										!0,
+										this
+									),
+									ES(
+										function() {
+											return this.$23.event("ADNW_PARTIAL_ADIMPRESSION");
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								this.$21 || a.mediaLoaded();
 								this.$20.addBehavior(a);
@@ -7325,9 +7635,14 @@ try {
 								});
 								if (this.$32().$41.useMostlyViewableImp) {
 									var b = new h(
-										function() {
-											return this.$53();
-										}.bind(this)
+										ES(
+											function() {
+												return this.$53();
+											},
+											"bind",
+											!0,
+											this
+										)
 									);
 									this.$21 || b.mediaLoaded();
 									this.$20.addBehavior(b);
@@ -7355,26 +7670,49 @@ try {
 								var c = new o({
 									parent: a,
 									ads: b,
-									onCriticalAnimationStart: function() {
-										this.$18.pause();
-									}.bind(this),
-									onCriticalAnimationEnd: function() {
-										this.$18.resume();
-									}.bind(this),
-									onEvent: function(a, b) {
-										switch (a) {
-											case "AN_CAROUSEL_EVENT_SWIPE":
-												this.$23.eventWithParams("CAROUSEL_SWIPE", b);
-										}
-									}.bind(this),
+									onCriticalAnimationStart: ES(
+										function() {
+											this.$18.pause();
+										},
+										"bind",
+										!0,
+										this
+									),
+									onCriticalAnimationEnd: ES(
+										function() {
+											this.$18.resume();
+										},
+										"bind",
+										!0,
+										this
+									),
+									onEvent: ES(
+										function(a, b) {
+											switch (a) {
+												case "AN_CAROUSEL_EVENT_SWIPE":
+													this.$23.eventWithParams("CAROUSEL_SWIPE", b);
+											}
+										},
+										"bind",
+										!0,
+										this
+									),
 									onLoadEventCounter: this.$22
 								});
 								a.appendChild(c.getElement());
 								c.ensureSizes();
-								c.getLinks().forEach(
-									function(a, c) {
-										this.installLink(a, b[c]);
-									}.bind(this)
+								ES(
+									c.getLinks(),
+									"forEach",
+									!0,
+									ES(
+										function(a, c) {
+											this.installLink(a, b[c]);
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								this.$6 = c;
 							};
@@ -7390,15 +7728,30 @@ try {
 									N(b.adVideo),
 									b.adImage,
 									this.$32().$41.videoBlendedBackground,
-									function() {
-										this.$22.requiredEventFired();
-									}.bind(this),
-									function() {
-										return this.$23.event("PLAY_FAILED");
-									}.bind(this),
-									function() {
-										return this.$23.event("VIDEO_CLICK");
-									}.bind(this)
+									ES(
+										function() {
+											this.$22.requiredEventFired();
+										},
+										"bind",
+										!0,
+										this
+									),
+									ES(
+										function() {
+											return this.$23.event("PLAY_FAILED");
+										},
+										"bind",
+										!0,
+										this
+									),
+									ES(
+										function() {
+											return this.$23.event("VIDEO_CLICK");
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								if (this.$36() && this.$27.isRewardEnabled()) {
 									var e = N(this.$8);
@@ -7417,120 +7770,151 @@ try {
 							};
 							a.prototype.installLink = function(a, b) {
 								__p && __p();
-								var c = function(a, c) {
-										__p && __p();
-										var d = M(),
-											e = b.href,
-											f = y.maybeHTMLElement(c.target);
-										f = f ? this.$57(f) : t.UNKNOWN;
-										var g = {};
-										if (this.$18) {
-											var h = this.$18.getDimensions(),
-												i = this.$18.getCurrentViewabilityState();
-											h != null &&
-												((g.height = h.height),
-												(g.width = h.width),
-												i.widthInView != null &&
-													i.heightInView != null &&
-													((g.visibleWidth = Math.round(
-														i.widthInView * h.width
-													)),
-													(g.visibleHeight = Math.round(
-														i.heightInView * h.height
-													))));
-											this.$12.getSafeFrameAPI()
-												? ((g.relClickX = c.clientX), (g.relClickY = c.clientY))
-												: ((g.clickX = c.clientX),
-												  (g.clickY = c.clientY),
-												  i.viewportLeft != null &&
-														i.viewportTop != null &&
-														((g.relClickX = c.clientX - i.viewportLeft),
-														(g.relClickY = c.clientY - i.viewportTop)));
-										}
-										h = {
-											clktm: Math.round(d / 1e3),
-											clknutab: this.$32().$39,
-											touch: JSON.stringify(g)
-										};
-										this.$2 && (h.clkdel = d - this.$2);
-										g.height &&
-											g.width &&
-											g.visibleWidth &&
-											g.visibleHeight &&
-											(h.vp =
-												(g.visibleWidth * g.visibleHeight) /
-												(g.height * g.width));
-										this.sendToFacebook("click", {
-											href: e,
-											clickParams: h,
-											adElementType: f,
-											action: a,
-											pos: {
-												element: f,
-												width: g.width,
-												height: g.height,
-												visibleWidth: g.visibleWidth,
-												visibleHeight: g.visibleHeight,
-												clickX: g.clickX,
-												clickY: g.clickY,
-												relClickX: g.relClickX,
-												relClickY: g.relClickX
+								var c = ES(
+										function(a, c) {
+											__p && __p();
+											var d = M(),
+												e = b.href,
+												f = y.maybeHTMLElement(c.target);
+											f = f ? this.$57(f) : t.UNKNOWN;
+											var g = {};
+											if (this.$18) {
+												var h = this.$18.getDimensions(),
+													i = this.$18.getCurrentViewabilityState();
+												h != null &&
+													((g.height = h.height),
+													(g.width = h.width),
+													i.widthInView != null &&
+														i.heightInView != null &&
+														((g.visibleWidth = Math.round(
+															i.widthInView * h.width
+														)),
+														(g.visibleHeight = Math.round(
+															i.heightInView * h.height
+														))));
+												this.$12.getSafeFrameAPI()
+													? ((g.relClickX = c.clientX),
+													  (g.relClickY = c.clientY))
+													: ((g.clickX = c.clientX),
+													  (g.clickY = c.clientY),
+													  i.viewportLeft != null &&
+															i.viewportTop != null &&
+															((g.relClickX = c.clientX - i.viewportLeft),
+															(g.relClickY = c.clientY - i.viewportTop)));
 											}
-										});
-										c = y.isAppStoreURL(e);
-										this.$32().$39 &&
-											e &&
-											!c &&
-											a === x.BILLABLE_CLICK &&
-											this.$24.openNewTab(e);
-										if (this.$32().$39 || c) {
-											i = new m(window.document);
-											var j = M();
-											i.onBounceBack(
-												function(a) {
-													this.sendToFacebook("bounce", {
-														leaveTime: j,
-														backTime: M()
-													}),
-														this.$23.event("ADNW_BOUNCEBACK", "" + a);
-												}.bind(this)
-											);
-										}
-									}.bind(this),
-									d = function() {
-										z.openDialog(this.$35(), b.adSubtitle, b.adIcon)
-											.onConfirm(
-												function(event) {
-													(this.$25 = !0), c(x.BILLABLE_CLICK, event);
-												}.bind(this)
-											)
-											.onDismiss(
-												function(event) {
-													(this.$25 = !1), c(x.TWO_STEP_CANCEL, event);
-												}.bind(this)
-											);
-									}.bind(this),
-									e = function(a) {
-										var b = M(),
-											e = y.maybeHTMLElement(a.target);
-										e = e ? this.$57(e) : t.UNKNOWN;
-										var f = this.$32().$41.minClickDelay;
-										f && this.$1 && this.$1 + f > b && !this.$3
-											? ((this.$3 = !0),
-											  c(x.CLICK_GUARD, a),
-											  this.$13 &&
-													this.$32().$41.useTwoStepOnFastClicks === !0 &&
-													d())
-											: this.$32().$44.includes(e) &&
-											  this.$13 &&
-											  !this.$14 &&
-											  this.$32().$41.useTwoStepClick === !0 &&
-											  !this.$25
-												? (c(x.TWO_STEP_DIALOG, a), d())
-												: c(x.BILLABLE_CLICK, a);
-										a.preventDefault();
-										a.stopPropagation();
-									}.bind(this);
+											h = {
+												clktm: Math.round(d / 1e3),
+												clknutab: this.$32().$39,
+												touch: ES("JSON", "stringify", !1, g)
+											};
+											this.$2 && (h.clkdel = d - this.$2);
+											g.height &&
+												g.width &&
+												g.visibleWidth &&
+												g.visibleHeight &&
+												(h.vp =
+													(g.visibleWidth * g.visibleHeight) /
+													(g.height * g.width));
+											this.sendToFacebook("click", {
+												href: e,
+												clickParams: h,
+												adElementType: f,
+												action: a,
+												pos: {
+													element: f,
+													width: g.width,
+													height: g.height,
+													visibleWidth: g.visibleWidth,
+													visibleHeight: g.visibleHeight,
+													clickX: g.clickX,
+													clickY: g.clickY,
+													relClickX: g.relClickX,
+													relClickY: g.relClickX
+												}
+											});
+											c = y.isAppStoreURL(e);
+											this.$32().$39 &&
+												e &&
+												!c &&
+												a === x.BILLABLE_CLICK &&
+												this.$24.openNewTab(e);
+											if (this.$32().$39 || c) {
+												i = new m(window.document);
+												var j = M();
+												i.onBounceBack(
+													ES(
+														function(a) {
+															this.sendToFacebook("bounce", {
+																leaveTime: j,
+																backTime: M()
+															}),
+																this.$23.event("ADNW_BOUNCEBACK", "" + a);
+														},
+														"bind",
+														!0,
+														this
+													)
+												);
+											}
+										},
+										"bind",
+										!0,
+										this
+									),
+									d = ES(
+										function() {
+											z.openDialog(this.$35(), b.adSubtitle, b.adIcon)
+												.onConfirm(
+													ES(
+														function(event) {
+															(this.$25 = !0), c(x.BILLABLE_CLICK, event);
+														},
+														"bind",
+														!0,
+														this
+													)
+												)
+												.onDismiss(
+													ES(
+														function(event) {
+															(this.$25 = !1), c(x.TWO_STEP_CANCEL, event);
+														},
+														"bind",
+														!0,
+														this
+													)
+												);
+										},
+										"bind",
+										!0,
+										this
+									),
+									e = ES(
+										function(a) {
+											var b = M(),
+												e = y.maybeHTMLElement(a.target);
+											e = e ? this.$57(e) : t.UNKNOWN;
+											var f = this.$32().$41.minClickDelay;
+											f && this.$1 && this.$1 + f > b && !this.$3
+												? ((this.$3 = !0),
+												  c(x.CLICK_GUARD, a),
+												  this.$13 &&
+														this.$32().$41.useTwoStepOnFastClicks === !0 &&
+														d())
+												: ES(this.$32().$44, "includes", !0, e) &&
+												  this.$13 &&
+												  !this.$14 &&
+												  this.$32().$41.useTwoStepClick === !0 &&
+												  !this.$25
+													? (c(x.TWO_STEP_DIALOG, a), d())
+													: c(x.BILLABLE_CLICK, a);
+											a.preventDefault();
+											a.stopPropagation();
+										},
+										"bind",
+										!0,
+										this
+									);
 								if (!this.$8) {
 									a.addEventListener("click", e);
 									return;
@@ -7646,9 +8030,14 @@ try {
 								this.$22.addRequiredEvent();
 								b.addEventListener(
 									"load",
-									function() {
-										this.$22.requiredEventFired();
-									}.bind(this)
+									ES(
+										function() {
+											this.$22.requiredEventFired();
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								b.src = a.adIcon;
 								return b;
@@ -7662,24 +8051,34 @@ try {
 								this.$22.addRequiredEvent();
 								b.addEventListener(
 									"load",
-									function() {
-										this.$22.requiredEventFired(),
-											b.naturalWidth === 1 &&
-												b.naturalHeight === 1 &&
-												this.$23.eventWithParams("ADNW_ADERROR", {
-													error_message: "Image loading error (1x1)",
-													error_stack_trace: b.src
-												});
-									}.bind(this)
+									ES(
+										function() {
+											this.$22.requiredEventFired(),
+												b.naturalWidth === 1 &&
+													b.naturalHeight === 1 &&
+													this.$23.eventWithParams("ADNW_ADERROR", {
+														error_message: "Image loading error (1x1)",
+														error_stack_trace: b.src
+													});
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								b.addEventListener(
 									"error",
-									function() {
-										this.$23.eventWithParams("ADNW_ADERROR", {
-											error_message: "Image loading error (uncaught)",
-											error_stack_trace: b.src
-										});
-									}.bind(this)
+									ES(
+										function() {
+											this.$23.eventWithParams("ADNW_ADERROR", {
+												error_message: "Image loading error (uncaught)",
+												error_stack_trace: b.src
+											});
+										},
+										"bind",
+										!0,
+										this
+									)
 								);
 								b.src = a.adImage;
 								return b;
@@ -7738,7 +8137,7 @@ try {
 									var e = c.getElementsByClassName(d);
 									for (
 										var e = e,
-											f = Array.isArray(e),
+											f = ES("Array", "isArray", !1, e),
 											g = 0,
 											e = f
 												? e
@@ -7760,7 +8159,7 @@ try {
 											h = g.value;
 										}
 										h = h;
-										if (a === h || h.contains(a)) return b[d];
+										if (a === h || ES(h, "contains", !0, a)) return b[d];
 									}
 								}
 								return t.UNKNOWN;
@@ -7777,6 +8176,7 @@ try {
 							__p && __p();
 							var k = window;
 							function l(a, b) {
+								__p && __p();
 								var c = function(a) {
 										k.setTimeout(function() {
 											return b(a);
@@ -7786,9 +8186,32 @@ try {
 								a.push = function(b) {
 									c(b), d.call(a, b);
 								};
-								[].forEach.call(a, function(a) {
-									return c(a);
-								});
+								for (
+									var e = a,
+										f = ES("Array", "isArray", !1, e),
+										g = 0,
+										e = f
+											? e
+											: e[
+													typeof Symbol === "function"
+														? Symbol.iterator
+														: "@@iterator"
+											  ]();
+									;
+
+								) {
+									var h;
+									if (f) {
+										if (g >= e.length) break;
+										h = e[g++];
+									} else {
+										g = e.next();
+										if (g.done) break;
+										h = g.value;
+									}
+									h = h;
+									c(h);
+								}
 							}
 							var m = function(a, b) {
 								__p && __p();
@@ -7822,7 +8245,7 @@ try {
 											function() {
 												a.onAdLoaded(a.rootElement);
 											},
-											a.onAdError.bind(a)
+											ES(a.onAdError, "bind", !0, a)
 										);
 									},
 									d = function(b, event) {
@@ -7877,7 +8300,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4565780","namespace":"FB","message":"' +
+				'","revision":"4566816","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
