@@ -1,4 +1,4 @@
-/*1543350318,,JIT Construction: v4566816,en_US*/
+/*1543380773,,JIT Construction: v4571087,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4173,54 +4173,6 @@ try {
 						null
 					);
 					__d(
-						"QueryString",
-						[],
-						function(a, b, c, d, e, f) {
-							__p && __p();
-							function a(a) {
-								__p && __p();
-								var b = [];
-								ES(ES("Object", "keys", !1, a).sort(), "forEach", !0, function(
-									c
-								) {
-									var d = a[c];
-									if (d === undefined) return;
-									if (d === null) {
-										b.push(c);
-										return;
-									}
-									b.push(encodeURIComponent(c) + "=" + encodeURIComponent(d));
-								});
-								return b.join("&");
-							}
-							function b(a, b) {
-								__p && __p();
-								b === void 0 && (b = !1);
-								var c = {};
-								if (a === "") return c;
-								a = a.split("&");
-								for (var d = 0; d < a.length; d++) {
-									var e = a[d].split("=", 2),
-										f = decodeURIComponent(e[0]);
-									if (b && Object.prototype.hasOwnProperty.call(c, f))
-										throw new URIError("Duplicate key: " + f);
-									c[f] = e.length === 2 ? decodeURIComponent(e[1]) : null;
-								}
-								return c;
-							}
-							function c(a, b) {
-								return (
-									a +
-									(ES(a, "indexOf", !0, "?") !== -1 ? "&" : "?") +
-									(typeof b === "string" ? b : g.encode(b))
-								);
-							}
-							var g = { encode: a, decode: b, appendToUrl: c };
-							e.exports = g;
-						},
-						null
-					);
-					__d(
 						"getTime",
 						[],
 						function(a, b, c, d, e, f) {
@@ -4234,8 +4186,8 @@ try {
 					);
 					__d(
 						"ANLogger",
-						["LogLevels", "QueryString", "getTime"],
-						function(a, b, c, d, e, f, g, h, i) {
+						["LogLevels", "getTime"],
+						function(a, b, c, d, e, f, g, h) {
 							"use strict";
 							__p && __p();
 							function a(a, b, c, d) {
@@ -4275,7 +4227,7 @@ try {
 										d = c.value;
 									}
 									var event = d;
-									this.$7(event.name, event.timestamp, event.params);
+									this.$7(event.timestamp, event.params);
 								}
 								this.$5 = [];
 							};
@@ -4286,27 +4238,26 @@ try {
 								this.$1 <= g.ERROR && this.event("ADNW_ADERROR", a);
 							};
 							a.prototype.event = function(a, b, c) {
-								var d = {};
-								b != null && (d.error_message = "" + b);
-								c != null && (d.error_stack_trace = c);
-								this.eventWithParams(a, d);
+								a = { event_name: a };
+								b != null && (a.error_message = "" + b);
+								c != null && (a.error_stack_trace = c);
+								this.eventWithParams(a);
 							};
-							a.prototype.eventWithParams = function(a, b) {
-								var c = i();
+							a.prototype.eventWithParams = function(a) {
+								var b = h();
 								if (!this.$6) {
-									this.$5.push({ name: a, timestamp: c, params: b });
+									this.$5.push({ timestamp: b, params: a });
 									return;
 								}
-								this.$7(a, c, b);
+								this.$7(b, a);
 							};
-							a.prototype.$7 = function(a, b, c) {
-								(c.client_ts = b),
-									(c.event_name = a),
+							a.prototype.$7 = function(a, b) {
+								(b.client_ts = a),
 									this.$2 > 0 &&
-										(c.latency_since_navigation_start = b - this.$2),
-									(c.latency_since_sdk_init = b - this.$3),
-									window.$8 && (c.visibility_changed = !0),
-									this.$4(this.$6, c);
+										(b.latency_since_navigation_start = a - this.$2),
+									(b.latency_since_sdk_init = a - this.$3),
+									window.$8 && (b.visibility_changed = !0),
+									this.$4(this.$6, b);
 							};
 							e.exports = a;
 						},
@@ -4330,7 +4281,7 @@ try {
 						null
 					);
 					__d(
-						"ANMWebUnifiedLoggingXOutType",
+						"ANMWebUnifiedLoggingXOutOrigin",
 						[],
 						function(a, b, c, d, e, f) {
 							e.exports = ES("Object", "freeze", !1, {
@@ -4686,6 +4637,54 @@ try {
 									);
 							};
 							e.exports = r;
+						},
+						null
+					);
+					__d(
+						"QueryString",
+						[],
+						function(a, b, c, d, e, f) {
+							__p && __p();
+							function a(a) {
+								__p && __p();
+								var b = [];
+								ES(ES("Object", "keys", !1, a).sort(), "forEach", !0, function(
+									c
+								) {
+									var d = a[c];
+									if (d === undefined) return;
+									if (d === null) {
+										b.push(c);
+										return;
+									}
+									b.push(encodeURIComponent(c) + "=" + encodeURIComponent(d));
+								});
+								return b.join("&");
+							}
+							function b(a, b) {
+								__p && __p();
+								b === void 0 && (b = !1);
+								var c = {};
+								if (a === "") return c;
+								a = a.split("&");
+								for (var d = 0; d < a.length; d++) {
+									var e = a[d].split("=", 2),
+										f = decodeURIComponent(e[0]);
+									if (b && Object.prototype.hasOwnProperty.call(c, f))
+										throw new URIError("Duplicate key: " + f);
+									c[f] = e.length === 2 ? decodeURIComponent(e[1]) : null;
+								}
+								return c;
+							}
+							function c(a, b) {
+								return (
+									a +
+									(ES(a, "indexOf", !0, "?") !== -1 ? "&" : "?") +
+									(typeof b === "string" ? b : g.encode(b))
+								);
+							}
+							var g = { encode: a, decode: b, appendToUrl: c };
+							e.exports = g;
 						},
 						null
 					);
@@ -7089,7 +7088,7 @@ try {
 							"ANLinkOpener",
 							"ANLogger",
 							"ANMWebAdElement",
-							"ANMWebUnifiedLoggingXOutType",
+							"ANMWebUnifiedLoggingXOutOrigin",
 							"ANMWebXOutClientEvent",
 							"ANRewardedVideoPlayer",
 							"ANUnifiedLoggingClickEvent",
@@ -7177,7 +7176,13 @@ try {
 								__p && __p();
 								this.sendSignal = ES(
 									function(a) {
-										this.sendToFacebook("signal", { signalUrl: a });
+										this.sendToFacebook({
+											name: "signal",
+											params: {
+												key: this.stringify(this.$5.data.key),
+												signalUrl: a
+											}
+										});
 									},
 									"bind",
 									!0,
@@ -7187,12 +7192,20 @@ try {
 									function(a, b) {
 										var c = this.$32().$41.useUnifiedLogging === !0;
 										!c
-											? this.sendToFacebook("signal", {
-													signalUrl: J.appendToUrl(a, b)
+											? this.sendToFacebook({
+													name: "signal",
+													params: {
+														key: this.stringify(this.$5.data.key),
+														signalUrl: J.appendToUrl(a, b)
+													}
 											  })
-											: this.sendToFacebook("client_event", {
-													clientEventUrl: a,
-													payload: b
+											: this.sendToFacebook({
+													name: "client_event",
+													params: {
+														key: this.stringify(this.$5.data.key),
+														clientEventUrl: a,
+														payload: b
+													}
 											  });
 									},
 									"bind",
@@ -7255,13 +7268,12 @@ try {
 								this.$20 = new H();
 								this.$24 = new r(this.$11);
 							}
-							a.prototype.sendToFacebook = function(a, b) {
-								(b = b || {}),
-									(b.key = this.$5.data.key),
-									this.$5.iframe.contentWindow.postMessage(
-										{ name: a, params: b },
-										this.$5.domain
-									);
+							a.prototype.stringify = function(a) {
+								if (typeof a === "string") return "" + a;
+								else return "";
+							};
+							a.prototype.sendToFacebook = function(a) {
+								this.$5.iframe.contentWindow.postMessage(a, this.$5.domain);
 							};
 							a.prototype.$29 = function() {
 								return this.$11.ownerDocument.defaultView;
@@ -7319,7 +7331,14 @@ try {
 									),
 									onXOutOption: ES(
 										function(a) {
-											this.sendToFacebook("xout", { reason: a, type: d }),
+											this.sendToFacebook({
+												name: "xout",
+												params: {
+													key: this.stringify(this.$5.data.key),
+													reason: a,
+													type: d
+												}
+											}),
 												this.$23.event(v.SELECT_OPTION, a);
 										},
 										"bind",
@@ -7447,24 +7466,25 @@ try {
 									  )
 									: this.$37(a.nativeAd);
 								this.setupViewability();
-								this.$23.eventWithParams("ADNW_ADLOADED", this.$50());
+								this.$23.eventWithParams(this.$50("ADNW_ADLOADED"));
 								this.$51();
 								this.$52();
 							};
-							a.prototype.$50 = function() {
-								var a = this.$18;
-								if (!a) return { viewability: j.UNKNOWN };
-								a = this.$18.getCurrentViewabilityState();
+							a.prototype.$50 = function(a) {
+								var b = this.$18;
+								if (!b) return { event_name: a, viewability: j.UNKNOWN };
+								b = this.$18.getCurrentViewabilityState();
 								return {
-									viewability: a.viewabilityLevels.join(","),
-									width_in_view: a.widthInView || 0,
-									height_in_view: a.heightInView || 0,
-									left: a.pageLeft || 0,
-									top: a.pageTop || 0,
-									scroll_left: a.scrollLeft || 0,
-									scroll_top: a.scrollTop || 0,
-									page_width: a.pageWidth || 0,
-									page_height: a.pageHeight || 0
+									event_name: a,
+									viewability: b.viewabilityLevels.join(","),
+									width_in_view: b.widthInView || 0,
+									height_in_view: b.heightInView || 0,
+									left: b.pageLeft || 0,
+									top: b.pageTop || 0,
+									scroll_left: b.scrollLeft || 0,
+									scroll_top: b.scrollTop || 0,
+									page_width: b.pageWidth || 0,
+									page_height: b.pageHeight || 0
 								};
 							};
 							a.prototype.$52 = function() {
@@ -7566,8 +7586,7 @@ try {
 							};
 							a.prototype.$53 = function() {
 								this.$23.eventWithParams(
-									"ADNW_MOSTLY_VIEWABLE_FOR_1S",
-									this.$50()
+									this.$50("ADNW_MOSTLY_VIEWABLE_FOR_1S")
 								);
 							};
 							a.prototype.sendImpression = function() {
@@ -7578,18 +7597,30 @@ try {
 								}
 								this.$2 = M();
 								var a = this.$54();
-								this.sendToFacebook("impress", { payload: a });
+								this.sendToFacebook({
+									name: "impress",
+									params: { key: this.stringify(this.$5.data.key), payload: a }
+								});
 								var b = this.$32().$43;
 								b &&
-									this.sendToFacebook("signal", {
-										signalUrl: J.appendToUrl(
-											b,
-											ES("Object", "assign", !1, {}, a, {
-												iframe_urls: ES("JSON", "stringify", !1, a.iframe_urls)
-											})
-										)
+									this.sendToFacebook({
+										name: "signal",
+										params: {
+											key: this.stringify(this.$5.data.key),
+											signalUrl: J.appendToUrl(
+												b,
+												ES("Object", "assign", !1, {}, a, {
+													iframe_urls: ES(
+														"JSON",
+														"stringify",
+														!1,
+														a.iframe_urls
+													)
+												})
+											)
+										}
 									});
-								this.$23.eventWithParams("ADNW_ADIMPRESSION", this.$50());
+								this.$23.eventWithParams(this.$50("ADNW_ADIMPRESSION"));
 								this.$33() && this.$23.event(v.HAS_INLINE_XOUT);
 							};
 							a.prototype.$55 = function() {
@@ -7690,7 +7721,11 @@ try {
 										function(a, b) {
 											switch (a) {
 												case "AN_CAROUSEL_EVENT_SWIPE":
-													this.$23.eventWithParams("CAROUSEL_SWIPE", b);
+													this.$23.eventWithParams({
+														event_name: "CAROUSEL_SWIPE",
+														index: b.index,
+														direction: b.direction
+													});
 											}
 										},
 										"bind",
@@ -7815,21 +7850,25 @@ try {
 												(h.vp =
 													(g.visibleWidth * g.visibleHeight) /
 													(g.height * g.width));
-											this.sendToFacebook("click", {
-												href: e,
-												clickParams: h,
-												adElementType: f,
-												action: a,
-												pos: {
-													element: f,
-													width: g.width,
-													height: g.height,
-													visibleWidth: g.visibleWidth,
-													visibleHeight: g.visibleHeight,
-													clickX: g.clickX,
-													clickY: g.clickY,
-													relClickX: g.relClickX,
-													relClickY: g.relClickX
+											this.sendToFacebook({
+												name: "click",
+												params: {
+													key: this.stringify(this.$5.data.key),
+													href: e,
+													clickParams: h,
+													adElementType: f,
+													action: a,
+													pos: {
+														element: f,
+														width: g.width,
+														height: g.height,
+														visibleWidth: g.visibleWidth,
+														visibleHeight: g.visibleHeight,
+														clickX: g.clickX,
+														clickY: g.clickY,
+														relClickX: g.relClickX,
+														relClickY: g.relClickX
+													}
 												}
 											});
 											c = y.isAppStoreURL(e);
@@ -7844,9 +7883,13 @@ try {
 												i.onBounceBack(
 													ES(
 														function(a) {
-															this.sendToFacebook("bounce", {
-																leaveTime: j,
-																backTime: M()
+															this.sendToFacebook({
+																name: "bounce",
+																params: {
+																	key: this.stringify(this.$5.data.key),
+																	leaveTime: j,
+																	backTime: M()
+																}
 															}),
 																this.$23.event("ADNW_BOUNCEBACK", "" + a);
 														},
@@ -8056,7 +8099,8 @@ try {
 											this.$22.requiredEventFired(),
 												b.naturalWidth === 1 &&
 													b.naturalHeight === 1 &&
-													this.$23.eventWithParams("ADNW_ADERROR", {
+													this.$23.eventWithParams({
+														event_name: "ADNW_ADERROR",
 														error_message: "Image loading error (1x1)",
 														error_stack_trace: b.src
 													});
@@ -8070,7 +8114,8 @@ try {
 									"error",
 									ES(
 										function() {
-											this.$23.eventWithParams("ADNW_ADERROR", {
+											this.$23.eventWithParams({
+												event_name: "ADNW_ADERROR",
 												error_message: "Image loading error (uncaught)",
 												error_stack_trace: b.src
 											});
@@ -8223,16 +8268,19 @@ try {
 								var c = function(b) {
 										if (a.isAdLoaded) return;
 										a.isAdLoaded = !0;
-										var c = j(b.iframeData),
-											d = b.data.flags || [],
-											e = b.data.features || {},
-											f = b.data.clientEventURL || "";
+										var c = j(b.iframeData);
+										b.data.flags || [];
+										var d = b.data.features || {},
+											e = b.data.clientEventURL || "";
 										c.result === "valid"
 											? ((a.data.result = c.result),
-											  a.core.sendToFacebook("init", {
-													flags: d,
-													features: e,
-													clientEventUrl: f
+											  a.core.sendToFacebook({
+													name: "init",
+													params: {
+														key: a.core.stringify(a.data.key),
+														features: d,
+														clientEventUrl: a.core.stringify(e)
+													}
 											  }))
 											: (b.data = {
 													errorCode: "1007",
@@ -8300,7 +8348,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4566816","namespace":"FB","message":"' +
+				'","revision":"4571087","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
