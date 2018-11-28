@@ -1,4 +1,4 @@
-/*1543365725,,JIT Construction: v4568769,en_US*/
+/*1543381437,,JIT Construction: v4571087,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -84,7 +84,7 @@
 	f = document.createElement("iframe");
 	f.id = "facebook-jssdk-iframe";
 	f.style.cssText = "width: 0; height: 0; border: 0";
-	f.src = "javascript:false";
+	f.src = "about:blank";
 	d = document.getElementsByTagName("script")[0];
 	if (!d.parentNode) return;
 	d.parentNode.insertBefore(f, d);
@@ -96,8 +96,8 @@
 	);
 	b.close();
 })(
-	"https://connect.facebook.net/en_US/all.js?hash=49581092edb86bb1f1e6df21b42c692d",
-	1543365725,
+	"https://connect.facebook.net/en_US/all.js?hash=9b6a1ab98ef1abbc0b68efb456eb5317",
+	1543381437,
 	"FB",
 	[
 		"AppEvents.EventNames",
