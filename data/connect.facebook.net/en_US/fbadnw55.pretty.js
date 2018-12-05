@@ -1,4 +1,4 @@
-/*1544004448,,JIT Construction: v4600972,en_US*/
+/*1544029669,,JIT Construction: v4601494,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -6525,6 +6525,150 @@ try {
 						null
 					);
 					__d(
+						"IntersectionObserverMeasurement.adquality",
+						[
+							"AdQualityMeasurement.adquality",
+							"AdQualityMeasurementResult.adquality",
+							"AdQualityViewabilityDetection",
+							"HTMLElementFrameContext.adquality",
+							"PageVisibility.adquality",
+							"Rectangle.adquality",
+							"SimplePromise.adquality"
+						],
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
+							"use strict";
+							__p && __p();
+							var n,
+								o = 300,
+								p = [];
+							for (var b = 0; b <= 10; b += 1) p.push(b / 10);
+							c = babelHelpers.inherits(a, g);
+							n = c && c.prototype;
+							function a(a, b) {
+								__p && __p();
+								n.constructor.call(this, a, b),
+									(this.$IntersectionObserverMeasurement2 = a),
+									this.isAvailable() &&
+										(this.$IntersectionObserverMeasurement4 = new m(
+											ES(
+												function(c, d) {
+													__p && __p();
+													var e = setTimeout(function() {
+															return d();
+														}, o),
+														f = new j(a, b),
+														g = f.offsetRect;
+													f = f.topWindow;
+													var h = a;
+													if (g && f) {
+														var i = l.RectangleFromWindow(f);
+														i &&
+															(g.y < i.y ||
+																g.x < i.x ||
+																g.height > i.height ||
+																g.width > i.width) &&
+															(h = f.document.documentElement || a);
+													}
+													this.$IntersectionObserverMeasurement3 = new IntersectionObserver(
+														ES(
+															function(a) {
+																var b = !!this
+																	.$IntersectionObserverMeasurement1;
+																this.$IntersectionObserverMeasurement1 =
+																	a[a.length - 1];
+																b || (clearTimeout(e), c());
+															},
+															"bind",
+															!0,
+															this
+														),
+														{ threshold: p }
+													);
+													this.$IntersectionObserverMeasurement3.observe(h);
+													this.$IntersectionObserverMeasurement5 = new k(
+														a.ownerDocument
+													);
+												},
+												"bind",
+												!0,
+												this
+											)
+										)),
+									(this.__viewabilityDetection = i.INTERSECTION_OBSERVER);
+							}
+							a.prototype.destroy = function() {
+								this.$IntersectionObserverMeasurement3 &&
+									this.$IntersectionObserverMeasurement3.disconnect();
+							};
+							a.prototype.isAvailable = function() {
+								return "IntersectionObserver" in window;
+							};
+							a.prototype.getMeasurement = function(a) {
+								__p && __p();
+								if (this.$IntersectionObserverMeasurement1) {
+									this.$IntersectionObserverMeasurement6(a);
+									return;
+								}
+								if (!this.$IntersectionObserverMeasurement4) {
+									this.$IntersectionObserverMeasurement7(a);
+									return;
+								}
+								this.$IntersectionObserverMeasurement4.then(
+									ES(
+										function() {
+											return this.$IntersectionObserverMeasurement6(a);
+										},
+										"bind",
+										!0,
+										this
+									),
+									ES(
+										function() {
+											return this.$IntersectionObserverMeasurement7(a);
+										},
+										"bind",
+										!0,
+										this
+									)
+								);
+							};
+							a.prototype.$IntersectionObserverMeasurement6 = function(a) {
+								__p && __p();
+								if (!this.$IntersectionObserverMeasurement1) {
+									this.$IntersectionObserverMeasurement7(a);
+									return;
+								}
+								var b = this.$IntersectionObserverMeasurement1,
+									c = b.boundingClientRect;
+								b = b.intersectionRect;
+								var d = !this.$IntersectionObserverMeasurement5.isHidden(),
+									e = new j(
+										this.$IntersectionObserverMeasurement2,
+										this.__parentWindow
+									);
+								e.focus !== null && (d = d && Boolean(e.focus));
+								e = d ? l.RectangleFromClientRect(b) : l.RectangleZero();
+								a(
+									new h({
+										ar: l.RectangleFromClientRect(c),
+										vd: this.__viewabilityDetection,
+										vr: e
+									})
+								);
+							};
+							a.prototype.$IntersectionObserverMeasurement7 = function(a) {
+								a(
+									h.unknownResult(
+										this.__viewabilityDetection,
+										this.__viewabilityDetection + "-na"
+									)
+								);
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"SafeframeMeasurement.adquality",
 						[
 							"AdQualityMeasurement.adquality",
@@ -6576,13 +6720,16 @@ try {
 							"AdViewability",
 							"AMPMeasurement.adquality",
 							"GeometricMeasurement.adquality",
+							"IntersectionObserverMeasurement.adquality",
 							"SafeframeMeasurement.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k) {
+						function(a, b, c, d, e, f, g, h, i, j, k, l) {
 							"use strict";
 							__p && __p();
-							var l = 100;
-							function a(a, b) {
+							var m = 100;
+							function a(a, b, c) {
+								__p && __p();
+								c === void 0 && (c = !1);
 								this.$4 = [];
 								this.$5 = [];
 								this.$6 = [];
@@ -6591,11 +6738,13 @@ try {
 								this.$11 = !1;
 								this.$3 = null;
 								a = b.ownerDocument.defaultView;
+								c = c ? [new k(b, a)] : [];
+								c.push(new j(b, a), new l(b, a), new i(b, a));
 								this.$2 = new g({
 									element: b,
 									parentWindow: a,
 									rules: [],
-									measurementTests: [new j(b, a), new k(b, a), new i(b, a)]
+									measurementTests: c
 								});
 							}
 							a.prototype.pause = function() {
@@ -6698,7 +6847,7 @@ try {
 										!0,
 										this
 									),
-									l
+									m
 								);
 							};
 							a.prototype.getCurrentViewabilityState = function() {
@@ -7373,8 +7522,9 @@ try {
 									$34: e.inlineXOut,
 									$43: e.isDesktopDisplayFormat,
 									$44: a.nativeImpURL,
+									$45: !!e.useIntersectionObserver,
 									$38: a.xout,
-									$45: e.clickGuardElements || P
+									$46: e.clickGuardElements || P
 								};
 								this.$23.setLogLevel(this.$32().$42.logLevel || F.ERROR);
 								this.$23.setClientEventURL(a.clientEventURL);
@@ -7391,10 +7541,10 @@ try {
 								!a.nativeAd
 									? (this.$11.style.display = "")
 									: (a.creativeMarkup &&
-											(this.$46() ? this.$47() : this.$48(),
+											(this.$47() ? this.$48() : this.$49(),
 											this.$32().$42.resizeMediaView &&
 												((this.$11.style.visibility = "hidden"),
-												(f = this.$49()))),
+												(f = this.$50()))),
 									  this.loadCreative(
 											a,
 											a.creativeMarkup,
@@ -7431,7 +7581,7 @@ try {
 															function() {
 																(a.nativeCarouselAds = null),
 																	c.restoreOriginalStyles(),
-																	this.$50(
+																	this.$51(
 																		a,
 																		a.creativeMarkupBackup,
 																		b,
@@ -7468,11 +7618,11 @@ try {
 									  )
 									: this.$37(a.nativeAd);
 								this.setupViewability();
-								this.$23.eventWithParams(this.$51("ADNW_ADLOADED"));
-								this.$52();
+								this.$23.eventWithParams(this.$52("ADNW_ADLOADED"));
 								this.$53();
+								this.$54();
 							};
-							a.prototype.$51 = function(a) {
+							a.prototype.$52 = function(a) {
 								var b = this.$18;
 								if (!b) return { event_name: a, viewability: j.UNKNOWN };
 								b = this.$18.getCurrentViewabilityState();
@@ -7489,7 +7639,7 @@ try {
 									page_height: b.pageHeight || 0
 								};
 							};
-							a.prototype.$53 = function() {
+							a.prototype.$54 = function() {
 								var a = this.$32().$42.forceIframeSize;
 								if (a) {
 									var b = this.$30();
@@ -7498,14 +7648,14 @@ try {
 										(b.style.height = y.cssSize(a.h)));
 								}
 							};
-							a.prototype.$52 = function() {
+							a.prototype.$53 = function() {
 								var a = this.$35().querySelectorAll(
 									"[data-auto-fit-text=true]"
 								);
 								for (var b = 0; b < a.length; b++)
 									y.truncateTextToFitElement(a[b]);
 							};
-							a.prototype.$49 = function() {
+							a.prototype.$50 = function() {
 								var a = 300,
 									b = y.getScreenWidth(),
 									c = this.$30() || this.$11;
@@ -7516,7 +7666,7 @@ try {
 									((this.$15 = a), (d = c.getBoundingClientRect().right - a));
 								return d;
 							};
-							a.prototype.$47 = function() {
+							a.prototype.$48 = function() {
 								__p && __p();
 								var a = O[this.$10],
 									b = a[0];
@@ -7535,7 +7685,7 @@ try {
 								this.$8 = b;
 								this.$9 = c;
 							};
-							a.prototype.$48 = function() {
+							a.prototype.$49 = function() {
 								__p && __p();
 								var a = document.createElement("div");
 								a.style.textAlign = "center";
@@ -7551,7 +7701,7 @@ try {
 								this.$8 = b;
 							};
 							a.prototype.$35 = function() {
-								var a = this.$46() ? this.$8 || this.$11 : this.$11;
+								var a = this.$47() ? this.$8 || this.$11 : this.$11;
 								return (
 									a.getElementsByClassName("fbANRoot")[0] ||
 									a.getElementsByClassName("thirdPartyRoot")[0] ||
@@ -7586,9 +7736,9 @@ try {
 								a = this.getAspectRatio(a);
 								y.resizeElement(b, this.$15, Math.round(this.$15 / a));
 							};
-							a.prototype.$54 = function() {
+							a.prototype.$55 = function() {
 								this.$23.eventWithParams(
-									this.$51("ADNW_MOSTLY_VIEWABLE_FOR_1S")
+									this.$52("ADNW_MOSTLY_VIEWABLE_FOR_1S")
 								);
 							};
 							a.prototype.sendImpression = function() {
@@ -7598,7 +7748,7 @@ try {
 									return;
 								}
 								this.$2 = M();
-								var a = this.$55();
+								var a = this.$56();
 								this.sendToFacebook({
 									name: "impress",
 									params: { key: this.stringify(this.$5.data.key), payload: a }
@@ -7622,10 +7772,10 @@ try {
 											)
 										}
 									});
-								this.$23.eventWithParams(this.$51("ADNW_ADIMPRESSION"));
+								this.$23.eventWithParams(this.$52("ADNW_ADIMPRESSION"));
 								this.$33() && this.$23.event(v.HAS_INLINE_XOUT);
 							};
-							a.prototype.$56 = function() {
+							a.prototype.$57 = function() {
 								var a = this.$12.getSafeFrameAPI();
 								if (this.$12.isCrossDomain() && !a)
 									return k.isAMP() ? "AMP" : "CROSS_DOMAIN_IFRAME";
@@ -7641,12 +7791,12 @@ try {
 							};
 							a.prototype.setupViewability = function() {
 								__p && __p();
-								this.$18 = new i(this.$12, this.$19);
+								this.$18 = new i(this.$12, this.$19, this.$32().$45);
 								this.$18.attachBehaviorManager(this.$20);
 								var a = new g(
 									ES(
 										function() {
-											return this.$57();
+											return this.$58();
 										},
 										"bind",
 										!0,
@@ -7670,7 +7820,7 @@ try {
 									var b = new h(
 										ES(
 											function() {
-												return this.$54();
+												return this.$55();
 											},
 											"bind",
 											!0,
@@ -7816,7 +7966,7 @@ try {
 											var d = M(),
 												e = b.href,
 												f = y.maybeHTMLElement(c.target);
-											f = f ? this.$58(f) : t.UNKNOWN;
+											f = f ? this.$59(f) : t.UNKNOWN;
 											var g = {};
 											if (this.$18) {
 												var h = this.$18.getDimensions(),
@@ -7941,7 +8091,7 @@ try {
 										function(a) {
 											var b = M(),
 												e = y.maybeHTMLElement(a.target);
-											e = e ? this.$58(e) : t.UNKNOWN;
+											e = e ? this.$59(e) : t.UNKNOWN;
 											var f = this.$32().$42.minClickDelay;
 											f && this.$1 && this.$1 + f > b && !this.$3
 												? ((this.$3 = !0),
@@ -7949,7 +8099,7 @@ try {
 												  this.$13 &&
 														this.$32().$42.useTwoStepOnFastClicks === !0 &&
 														d())
-												: ES(this.$32().$45, "includes", !0, e) &&
+												: ES(this.$32().$46, "includes", !0, e) &&
 												  this.$13 &&
 												  !this.$14 &&
 												  this.$32().$42.useTwoStepClick === !0 &&
@@ -7989,7 +8139,7 @@ try {
 										? (a.className += " fbVideoType")
 										: (a.className += " fbDisplayType");
 							};
-							a.prototype.$50 = function(a, b, c, d) {
+							a.prototype.$51 = function(a, b, c, d) {
 								__p && __p();
 								this.$18.pause();
 								a.nativeAd.loaded = !1;
@@ -7997,7 +8147,7 @@ try {
 								if (this.$8 == null) return;
 								this.$31(this.$35());
 								if (this.$8 == null) return;
-								this.$59(
+								this.$60(
 									this.$8,
 									a.nativeAd,
 									a.nativeCarouselAds,
@@ -8009,7 +8159,7 @@ try {
 									((this.$18 = new i(this.$12, this.$8)),
 									this.$18.attachBehaviorManager(this.$20));
 							};
-							a.prototype.$59 = function(a, b, c, d, e, f) {
+							a.prototype.$60 = function(a, b, c, d, e, f) {
 								b.loaded = !0;
 								var g;
 								d = a.getElementsByClassName(t.FB_AD_ICON);
@@ -8020,14 +8170,14 @@ try {
 									this.loadMedia(a, this.$16[g], b, c, f);
 								this.updateAdText(a, b, "", e);
 							};
-							a.prototype.$60 = function(a) {
+							a.prototype.$61 = function(a) {
 								a = N(a.ownerDocument.body);
 								a.addEventListener("touchstart", function() {}, !1);
 							};
 							a.prototype.loadNativeAd = function(a, b, c, d, e, f) {
 								if (!a || !b || b.loaded) return !1;
 								this.applyAdTypeClass(a, b, c);
-								this.$60(a);
+								this.$61(a);
 								b.loaded = !0;
 								var g = !1;
 								c = this.loadNativeAdInternal(a, b, c, "", d, e, f);
@@ -8130,20 +8280,20 @@ try {
 								b.src = a.adImage;
 								return b;
 							};
-							a.prototype.$61 = function() {
+							a.prototype.$62 = function() {
 								return this.$10 === "native";
 							};
 							a.prototype.$36 = function() {
 								return this.$10 === "rewarded_video";
 							};
-							a.prototype.$46 = function() {
-								return !this.$30() && !this.$61() && O[this.$10];
+							a.prototype.$47 = function() {
+								return !this.$30() && !this.$62() && O[this.$10];
 							};
-							a.prototype.$57 = function() {
+							a.prototype.$58 = function() {
 								this.$35().classList.add("fbVisibleOnce"),
 									this.sendImpression();
 							};
-							a.prototype.$55 = function() {
+							a.prototype.$56 = function() {
 								var a = this.$18.getDimensions(),
 									b =
 										(this.$18 && this.$18.getCurrentViewabilityState()) || null;
@@ -8159,14 +8309,14 @@ try {
 									page_width: (b && b.pageWidth) || null,
 									page_height: (b && b.pageHeight) || null,
 									hosturl: this.$12.getTopURL(),
-									iframe_status: this.$56(),
+									iframe_status: this.$57(),
 									nest_level: this.$12.getNestLevel(),
 									iframe_urls: this.$12.ancestorURLs.slice(0, -1),
 									mediation_service: new G(this.$12).getMediator(),
 									nmv: this.$17
 								};
 							};
-							a.prototype.$58 = function(a) {
+							a.prototype.$59 = function(a) {
 								__p && __p();
 								var b;
 								b = ((b = {
@@ -8350,7 +8500,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4600972","namespace":"FB","message":"' +
+				'","revision":"4601494","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
