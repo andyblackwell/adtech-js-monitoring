@@ -445,7 +445,7 @@
 					var e = l.BID_KEY_PREFIX + t.toString(),
 						n = this.localStorageHelper.getItem(e),
 						o = n && tryParseJson(n);
-					return o && "bids" in o
+					return o && "object" == typeof o && "bids" in o
 						? ((o.bids = o.bids.filter(function(t) {
 								return t.expiration > now();
 						  })),
@@ -701,7 +701,7 @@
 			"number" == typeof window.PREBID_TIMEOUT ? window.PREBID_TIMEOUT : void 0;
 		return t && e ? Math.min(t, e) : t || e || void 0;
 	}
-	var PublisherTagVersion = 62,
+	var PublisherTagVersion = 63,
 		DirectBiddingMetric = function(t, e, n, o, i, r, a, s, d, c, l, u) {
 			(this.publisherTagVersion = t),
 				(this.slots = e),
