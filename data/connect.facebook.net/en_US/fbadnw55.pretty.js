@@ -1,4 +1,4 @@
-/*1544438378,,JIT Construction: v4617780,en_US*/
+/*1544466524,,JIT Construction: v4618302,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4748,24 +4748,22 @@ try {
 							function m(a, b) {
 								return j(a.querySelector(b));
 							}
-							function a(a, b, c, d, e, f) {
+							function a(a, b, c, d, e) {
 								(this.$6 = !1),
 									(this.$7 = !1),
-									(this.$8 = !1),
 									(this.$1 = a),
 									(this.$2 = b),
-									(this.$8 = !!c),
-									(this.$5 = d),
-									(this.$3 = e),
-									(this.$4 = f),
-									(this.$13 = !0),
-									this.$14(),
-									this.$15();
+									(this.$5 = c),
+									(this.$3 = d),
+									(this.$4 = e),
+									(this.$12 = !0),
+									this.$13(),
+									this.$14();
 							}
-							a.prototype.$14 = function() {
+							a.prototype.$13 = function() {
 								__p && __p();
 								var a = k("_6pfr");
-								this.$8 && (a.style.backgroundImage = "url(" + this.$2 + ")");
+								a.style.backgroundImage = "url(" + this.$2 + ")";
 								if (this.$5) {
 									var b = new Image();
 									b.addEventListener(
@@ -4781,7 +4779,7 @@ try {
 									);
 									b.src = this.$2;
 								}
-								this.$9 = k("_1xj7", [
+								this.$8 = k("_1xj7", [
 									a,
 									l(
 										"video",
@@ -4797,20 +4795,20 @@ try {
 									k("_3c3s"),
 									k("_1xj9")
 								]);
-								this.$10 = m(this.$9, "._1xj8");
-								this.$11 = m(this.$9, "._1xj9");
-								this.$12 = m(this.$9, "._3c3s");
-								this.$10.poster = this.$2;
-								this.$10.setAttribute("webkit-playsinline", "true");
-								this.$10.setAttribute("playsinline", "true");
-								this.$10.setAttribute("muted", "true");
-								this.$16();
+								this.$9 = m(this.$8, "._1xj8");
+								this.$10 = m(this.$8, "._1xj9");
+								this.$11 = m(this.$8, "._3c3s");
+								this.$9.poster = this.$2;
+								this.$9.setAttribute("webkit-playsinline", "true");
+								this.$9.setAttribute("playsinline", "true");
+								this.$9.setAttribute("muted", "true");
+								this.$15();
 							};
-							a.prototype.$15 = function() {
+							a.prototype.$14 = function() {
 								__p && __p();
 								var a = ES(
 										function(event) {
-											this.setMuted(!this.$13), event.stopPropagation();
+											this.setMuted(!this.$12), event.stopPropagation();
 										},
 										"bind",
 										!0,
@@ -4818,7 +4816,7 @@ try {
 									),
 									b = ES(
 										function(event) {
-											this.$10.paused ? this.play(!0) : this.pause(!0),
+											this.$9.paused ? this.play(!0) : this.pause(!0),
 												this.$4 && this.$4(),
 												event.stopPropagation();
 										},
@@ -4826,17 +4824,17 @@ try {
 										!0,
 										this
 									);
-								this.$9.addEventListener(
+								this.$8.addEventListener(
 									"click",
 									ES(
 										function(event) {
-											if (event.target === this.$11) {
+											if (event.target === this.$10) {
 												a(event);
 												return;
 											}
 											if (
-												event.target === this.$10 ||
-												event.target === this.$12
+												event.target === this.$9 ||
+												event.target === this.$11
 											) {
 												b(event);
 												return;
@@ -4855,29 +4853,29 @@ try {
 									!0,
 									this
 								);
-								this.$10.addEventListener("webkitendfullscreen", c);
-								this.$10.addEventListener("fullscreenchange", c);
-								this.$10.addEventListener("webkitfullscreenchange", c);
+								this.$9.addEventListener("webkitendfullscreen", c);
+								this.$9.addEventListener("fullscreenchange", c);
+								this.$9.addEventListener("webkitfullscreenchange", c);
 							};
 							a.prototype.getElement = function() {
-								return this.$9;
+								return this.$8;
 							};
 							a.prototype.setMuted = function(a) {
-								(this.$13 = a), (this.$10.muted = a), this.$16();
+								(this.$12 = a), (this.$9.muted = a), this.$15();
 							};
-							a.prototype.$16 = function() {
-								this.$11.classList.toggle("_1xja", this.$13),
-									this.$11.classList.toggle("_1xjb", !this.$13);
+							a.prototype.$15 = function() {
+								this.$10.classList.toggle("_1xja", this.$12),
+									this.$10.classList.toggle("_1xjb", !this.$12);
 							};
 							a.prototype.play = function(a) {
 								this.$7 = !0;
 								this.$6 = this.$6 && !a;
-								a = this.$10.play();
+								a = this.$9.play();
 								a && a.then instanceof Function
 									? a.then(
 											ES(
 												function() {
-													this.$12.classList.add("_2a06");
+													this.$11.classList.add("_2a06");
 												},
 												"bind",
 												!0,
@@ -4885,7 +4883,7 @@ try {
 											),
 											ES(
 												function() {
-													this.$12.classList.remove("_2a06"),
+													this.$11.classList.remove("_2a06"),
 														this.$3 && this.$3();
 												},
 												"bind",
@@ -4893,12 +4891,12 @@ try {
 												this
 											)
 									  )
-									: this.$12.classList.add("_2a06");
+									: this.$11.classList.add("_2a06");
 							};
 							a.prototype.pause = function(a) {
 								(this.$6 = this.$6 || !!a),
-									this.$10.pause(),
-									this.$12.classList.remove("_2a06");
+									this.$9.pause(),
+									this.$11.classList.remove("_2a06");
 							};
 							a.prototype.wasManuallyPaused = function() {
 								return this.$6;
@@ -4907,7 +4905,7 @@ try {
 								return this.$7;
 							};
 							a.prototype.getVideoElement = function() {
-								return this.$10;
+								return this.$9;
 							};
 							e.exports = a;
 						},
@@ -7915,7 +7913,6 @@ try {
 								var d = new B(
 									N(b.adVideo),
 									b.adImage,
-									this.$32().$42.videoBlendedBackground,
 									ES(
 										function() {
 											this.$22.requiredEventFired();
@@ -8502,7 +8499,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4617780","namespace":"FB","message":"' +
+				'","revision":"4618302","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
