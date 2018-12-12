@@ -1,4 +1,4 @@
-/*1544466524,,JIT Construction: v4618302,en_US*/
+/*1544642503,,JIT Construction: v4628100,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4314,13 +4314,13 @@ try {
 							var k = h.div,
 								l = 31,
 								m = 4;
-							function a(a, b, c) {
+							function a(a, b, c, d) {
 								(this.$1 = a),
 									(this.$2 = b),
 									(this.$3 = c),
 									(this.$4 = !1),
 									(this.$5 = !1),
-									(this.$11 = k("_74hs")),
+									d && (this.$11 = k("_74hs")),
 									(this.$9 = j(b.querySelector(".adnwRVFooterInfo"))),
 									(this.$6 = j(b.querySelector(".skipProgressWheel"))),
 									(this.$7 = j(
@@ -4336,23 +4336,27 @@ try {
 									(this.$10 = j(b.querySelector(".skipButton")));
 							}
 							a.prototype.makeRewarded = function() {
+								__p && __p();
 								var a = this.$3.getVideoElement();
 								a.loop = !1;
 								this.$3.setMuted(!1);
 								this.$12();
 								this.$3.getElement().classList.add("_73wr");
-								this.$2.appendChild(this.$11);
-								this.$11.addEventListener(
-									"click",
-									ES(
-										function() {
-											this.$3.pause(!0);
-										},
-										"bind",
-										!0,
-										this
-									)
-								);
+								if (this.$11) {
+									a = this.$11;
+									this.$2.appendChild(a);
+									a.addEventListener(
+										"click",
+										ES(
+											function() {
+												this.$3.pause(!0);
+											},
+											"bind",
+											!0,
+											this
+										)
+									);
+								}
 							};
 							a.prototype.getXoutButton = function() {
 								return this.$11;
@@ -7496,7 +7500,7 @@ try {
 									),
 									onXOutFinish: ES(
 										function() {
-											this.$23.event(v.FINISH);
+											this.$27.adClosed(), this.$23.event(v.FINISH);
 										},
 										"bind",
 										!0,
@@ -7940,7 +7944,7 @@ try {
 								);
 								if (this.$36() && this.$27.isRewardEnabled()) {
 									var e = N(this.$8);
-									this.$28 = new w(this.$27, e, d);
+									this.$28 = new w(this.$27, e, d, this.$32().$34);
 									this.$28.makeRewarded();
 									e.style.maxWidth = "";
 									this.$9 &&
@@ -8499,7 +8503,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4618302","namespace":"FB","message":"' +
+				'","revision":"4628100","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
