@@ -1,4 +1,4 @@
-/*1544699174,,JIT Construction: v4632116,en_US*/
+/*1544712624,,JIT Construction: v4632417,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -7987,27 +7987,32 @@ try {
 														(g.visibleHeight = Math.round(
 															i.heightInView * h.height
 														))));
-												this.$12.getSafeFrameAPI()
-													? ((g.relClickX = c.clientX),
-													  (g.relClickY = c.clientY))
-													: ((g.clickX = c.clientX),
-													  (g.clickY = c.clientY),
-													  i.viewportLeft != null &&
-															i.viewportTop != null &&
-															((g.relClickX = c.clientX - i.viewportLeft),
-															(g.relClickY = c.clientY - i.viewportTop)));
+												if (this.$12.getSafeFrameAPI())
+													(g.relClickX = c.clientX), (g.relClickY = c.clientY);
+												else {
+													g.clickX = c.clientX;
+													g.clickY = c.clientY;
+													if (i.viewportLeft != null && i.viewportTop != null)
+														(g.relClickX = c.clientX - i.viewportLeft),
+															(g.relClickY = c.clientY - i.viewportTop);
+													else {
+														h = this.$35().getBoundingClientRect();
+														g.relClickX = c.clientX - h.left;
+														g.relClickY = c.clientY - h.top;
+													}
+												}
 											}
-											h = {
+											i = {
 												clktm: Math.round(d / 1e3),
 												clknutab: this.$32().$39,
 												touch: ES("JSON", "stringify", !1, g)
 											};
-											this.$2 && (h.clkdel = d - this.$2);
+											this.$2 && (i.clkdel = d - this.$2);
 											g.height &&
 												g.width &&
 												g.visibleWidth &&
 												g.visibleHeight &&
-												(h.vp =
+												(i.vp =
 													(g.visibleWidth * g.visibleHeight) /
 													(g.height * g.width));
 											this.sendToFacebook({
@@ -8015,7 +8020,7 @@ try {
 												params: {
 													key: this.stringify(this.$5.data.key),
 													href: e,
-													clickParams: h,
+													clickParams: i,
 													adElementType: f,
 													action: a,
 													pos: {
@@ -8038,9 +8043,9 @@ try {
 												a === x.BILLABLE_CLICK &&
 												this.$24.openNewTab(e);
 											if (this.$32().$39 || c) {
-												i = new m(window.document);
+												h = new m(window.document);
 												var j = M();
-												i.onBounceBack(
+												h.onBounceBack(
 													ES(
 														function(a) {
 															this.sendToFacebook({
@@ -8506,7 +8511,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4632116","namespace":"FB","message":"' +
+				'","revision":"4632417","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
