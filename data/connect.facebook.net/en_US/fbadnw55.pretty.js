@@ -1,4 +1,4 @@
-/*1544809778,,JIT Construction: v4637137,en_US*/
+/*1544829765,,JIT Construction: v4638768,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4226,8 +4226,8 @@ try {
 										if (c.done) break;
 										d = c.value;
 									}
-									var event = d;
-									this.$7(event.timestamp, event.params);
+									d = d;
+									this.$7(d.timestamp, d.params);
 								}
 								this.$5 = [];
 							};
@@ -4542,20 +4542,20 @@ try {
 									a.addEventListener(
 										"click",
 										ES(
-											function(event) {
+											function(b) {
 												__p && __p();
-												var b = k(m(event.target)),
-													c = k(k(a).querySelector("._727i")),
-													d = k(k(a).querySelector("._727j"));
-												if (b === d) this.$8(event);
-												else if (b === c || ES(c, "contains", !0, b))
+												var c = k(m(b.target)),
+													d = k(k(a).querySelector("._727i")),
+													e = k(k(a).querySelector("._727j"));
+												if (c === e) this.$8(b);
+												else if (c === d || ES(d, "contains", !0, c))
 													for (
-														var d = this.$4,
-															c = ES("Array", "isArray", !1, d),
-															b = 0,
-															d = c
-																? d
-																: d[
+														var e = this.$4,
+															d = ES("Array", "isArray", !1, e),
+															c = 0,
+															e = d
+																? e
+																: e[
 																		typeof Symbol === "function"
 																			? Symbol.iterator
 																			: "@@iterator"
@@ -4563,19 +4563,19 @@ try {
 														;
 
 													) {
-														var e;
-														if (c) {
-															if (b >= d.length) break;
-															e = d[b++];
+														var f;
+														if (d) {
+															if (c >= e.length) break;
+															f = e[c++];
 														} else {
-															b = d.next();
-															if (b.done) break;
-															e = b.value;
+															c = e.next();
+															if (c.done) break;
+															f = c.value;
 														}
-														e = e;
-														e(event);
+														f = f;
+														f(b);
 													}
-												else this.$8(event);
+												else this.$8(b);
 											},
 											"bind",
 											!0,
@@ -4584,23 +4584,23 @@ try {
 									));
 								this.$3 = a;
 							};
-							r.prototype.$8 = function(event) {
+							r.prototype.$8 = function(a) {
 								__p && __p();
-								var a = k(this.$3);
-								a.classList.remove("_727o");
+								var b = k(this.$3);
+								b.classList.remove("_727o");
 								k(this.$3).style.opacity = "0";
 								window.setTimeout(
 									ES(
 										function() {
 											__p && __p();
-											a.parentNode && a.parentNode.removeChild(a);
+											b.parentNode && b.parentNode.removeChild(b);
 											for (
-												var b = this.$5,
-													c = ES("Array", "isArray", !1, b),
-													d = 0,
-													b = c
-														? b
-														: b[
+												var c = this.$5,
+													d = ES("Array", "isArray", !1, c),
+													e = 0,
+													c = d
+														? c
+														: c[
 																typeof Symbol === "function"
 																	? Symbol.iterator
 																	: "@@iterator"
@@ -4608,17 +4608,17 @@ try {
 												;
 
 											) {
-												var e;
-												if (c) {
-													if (d >= b.length) break;
-													e = b[d++];
+												var f;
+												if (d) {
+													if (e >= c.length) break;
+													f = c[e++];
 												} else {
-													d = b.next();
-													if (d.done) break;
-													e = d.value;
+													e = c.next();
+													if (e.done) break;
+													f = e.value;
 												}
-												e = e;
-												e(event);
+												f = f;
+												f(a);
 											}
 										},
 										"bind",
@@ -4812,18 +4812,18 @@ try {
 							a.prototype.$14 = function() {
 								__p && __p();
 								var a = ES(
-										function(event) {
-											this.setMuted(!this.$12), event.stopPropagation();
+										function(a) {
+											this.setMuted(!this.$12), a.stopPropagation();
 										},
 										"bind",
 										!0,
 										this
 									),
 									b = ES(
-										function(event) {
+										function(a) {
 											this.$9.paused ? this.play(!0) : this.pause(!0),
 												this.$4 && this.$4(),
-												event.stopPropagation();
+												a.stopPropagation();
 										},
 										"bind",
 										!0,
@@ -4832,16 +4832,13 @@ try {
 								this.$8.addEventListener(
 									"click",
 									ES(
-										function(event) {
-											if (event.target === this.$10) {
-												a(event);
+										function(c) {
+											if (c.target === this.$10) {
+												a(c);
 												return;
 											}
-											if (
-												event.target === this.$9 ||
-												event.target === this.$11
-											) {
-												b(event);
+											if (c.target === this.$9 || c.target === this.$11) {
+												b(c);
 												return;
 											}
 										},
@@ -4851,7 +4848,7 @@ try {
 									)
 								);
 								var c = ES(
-									function(event) {
+									function(a) {
 										return this.pause(!0);
 									},
 									"bind",
@@ -8074,8 +8071,8 @@ try {
 											z.openDialog(this.$35(), b.adSubtitle, b.adIcon)
 												.onConfirm(
 													ES(
-														function(event) {
-															(this.$25 = !0), c(x.BILLABLE_CLICK, event);
+														function(a) {
+															(this.$25 = !0), c(x.BILLABLE_CLICK, a);
 														},
 														"bind",
 														!0,
@@ -8084,8 +8081,8 @@ try {
 												)
 												.onDismiss(
 													ES(
-														function(event) {
-															(this.$25 = !1), c(x.TWO_STEP_CANCEL, event);
+														function(a) {
+															(this.$25 = !1), c(x.TWO_STEP_CANCEL, a);
 														},
 														"bind",
 														!0,
@@ -8130,14 +8127,14 @@ try {
 								var f = this.$8.querySelector(".adnwTwoClickBlocker");
 								if (f && !!this.$32().$42.clickConfirmation) {
 									var g = N(f.querySelector(".adnwCancelLink"));
-									g.addEventListener("click", function(event) {
+									g.addEventListener("click", function(a) {
 										f.style.display = "none";
 									});
 									g = N(f.querySelector(".adnwContinueLink"));
-									g.addEventListener("click", function(event) {
-										(f.style.display = "none"), e(event);
+									g.addEventListener("click", function(a) {
+										(f.style.display = "none"), e(a);
 									});
-									a.addEventListener("click", function(event) {
+									a.addEventListener("click", function(a) {
 										f.style.display = "block";
 									});
 								} else a.addEventListener("click", e);
@@ -8459,28 +8456,28 @@ try {
 											ES(a.onAdError, "bind", !0, a)
 										);
 									},
-									d = function(b, event) {
+									d = function(b, d) {
 										__p && __p();
-										if (event.source !== b.iframe.contentWindow) return;
+										if (d.source !== b.iframe.contentWindow) return;
 										b = j(b.iframeData);
-										switch (event.name) {
+										switch (d.name) {
 											case "iframeLoaded":
 												b.result ||
-													((b.result = event.data.result),
-													(b.pluginPerf = event.data.pluginPerf));
+													((b.result = d.data.result),
+													(b.pluginPerf = d.data.pluginPerf));
 												a.xhrLoaded && c(a);
 												break;
 											case "xhrLoaded":
 												a.xhrLoaded = !0;
-												var d = event.data;
+												d = d.data;
 												for (var e in d) a.data[e] = d[e];
 												(a.data.code || b.result) && c(a);
 												break;
 										}
 									};
 								a.core.sdkJSComplete = i();
-								l(a.events, function(event) {
-									return d(a, event);
+								l(a.events, function(b) {
+									return d(a, b);
 								});
 							};
 							a = function() {
@@ -8511,7 +8508,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4637137","namespace":"FB","message":"' +
+				'","revision":"4638768","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
