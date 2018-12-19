@@ -14,7 +14,7 @@
 			"name": "Facebook Main",
 			"tags": ["Facebook"],
 			"url": "https://connect.facebook.net/en_US/all.js",
-			"version": "4646846",
+			"version": "4647209",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
 			"diffIgnorePatterns": [
 				"JIT Construction",
@@ -22,7 +22,7 @@
 				"^\\s+\"http(s)?:\\/\\/www\\.facebook\\.com\\/\"",
 				"^\\s+(www|m|connect|business|api|api_read|graph|an|fbcdn|cdn|sdkurl):"
 			],
-			"etag": "\"febb4e9128d435ffe597966c0ab11e14\""
+			"etag": "\"63b23c87e54972537a31782562bd758d\""
 		},
 		{
 			"name": "Facebook Events",
