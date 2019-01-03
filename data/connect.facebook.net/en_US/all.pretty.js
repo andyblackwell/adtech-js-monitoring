@@ -1,4 +1,4 @@
-/*1546472382,,JIT Construction: v4660334,en_US*/
+/*1546485593,,JIT Construction: v4661626,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2201,7 +2201,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4660334",
+						revision: "4661626",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -2417,7 +2417,6 @@ try {
 								SSO: "sso",
 								SSO_KEY: "sso_key",
 								USER_CODE: "user_code",
-								VERSION: "version",
 								WINDOWS_STORE_ID: "windows_store_id",
 								AUTH_TOKEN: "auth_token",
 								RETURN_SESSION: "return_session",
@@ -5360,9 +5359,7 @@ try {
 										c === "logout" || c === "login_status"
 											? (d && d.error === "not_authorized"
 													? ((g = "not_authorized"), E(null, g))
-													: d && d.error === "authorization_expired"
-														? ((g = "authorization_expired"), E(null, g))
-														: ((g = "unknown"), E(null, g)),
+													: ((g = "unknown"), E(null, g)),
 											  s.getUseCookie() && n.clearSignedRequestCookie(),
 											  s.getUseLocalStorage() && H(),
 											  c === "logout" &&
@@ -5444,11 +5441,7 @@ try {
 												}, 12e5));
 										}, "parent")
 									)
-									.addQueryData(i.SDK, "joey")
-									.addQueryData(
-										i.VERSION,
-										s.getIsVersioned() ? s.getVersion() : null
-									);
+									.addQueryData(i.SDK, "joey");
 								if (window.location.ancestorOrigins) {
 									f = window.location.ancestorOrigins;
 									if (f.length > 0) {
@@ -11674,7 +11667,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4660334","namespace":"FB","message":"' +
+				'","revision":"4661626","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
