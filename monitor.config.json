@@ -28,7 +28,7 @@
 			"name": "Facebook Events",
 			"tags": ["Facebook", "analytics", "conversions"],
 			"url": "https://connect.facebook.net/en_US/fbevents.js",
-			"version": "2.8.35",
+			"version": "2.8.37",
 			"versionRegex": "fbq.version=\"([0-9.]+)\"",
 			"etag": ""
 		},

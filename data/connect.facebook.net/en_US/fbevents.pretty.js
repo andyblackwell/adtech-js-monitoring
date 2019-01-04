@@ -18,7 +18,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-fbq.version = "2.8.35";
+fbq.version = "2.8.37";
 fbq._releaseSegment = "canary";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -817,17 +817,25 @@ fbq.pendingConfigs = ["global_config"];
 					};
 					var h = {
 							PageView: {},
-							ViewContent: {},
-							Search: {},
+							PixelInitialized: {},
+							CustomEvent: { validationSchema: { event: { isRequired: !0 } } },
+							AddPaymentInfo: {},
 							AddToCart: {},
 							AddToWishlist: {},
-							InitiateCheckout: {},
-							PixelInitialized: {},
-							AddPaymentInfo: {},
-							Purchase: { validationSchema: a },
-							Lead: {},
+							Contact: {},
 							CompleteRegistration: {},
-							CustomEvent: { validationSchema: { event: { isRequired: !0 } } }
+							CustomizeProduct: {},
+							Donate: {},
+							FindLocation: {},
+							InitiateCheckout: {},
+							Lead: {},
+							Purchase: { validationSchema: a },
+							Schedule: {},
+							Search: {},
+							StartTrial: {},
+							SubmitApplication: {},
+							Subscribe: {},
+							ViewContent: {}
 						},
 						i = { agent: !0, automaticmatchingconfig: !0, codeless: !0 },
 						j = Object.prototype.hasOwnProperty;
@@ -1557,21 +1565,23 @@ fbq.pendingConfigs = ["global_config"];
 					function j() {
 						i = !1;
 					}
-					a = "console";
-					var l = "warn",
-						m = g[a] && g[a][l] ? g[a][l].bind(g[a]) : function() {},
-						n = !1;
-					function o() {
-						n = !0;
+					var l = "console",
+						m = "warn";
+					function n(a) {
+						g[l] && g[l][m] && g[l][m](a);
 					}
-					function p(a) {
-						if (n) return;
-						m("[Facebook Pixel] - " + a);
+					var o = !1;
+					function p() {
+						o = !0;
 					}
-					var q = "Facebook Pixel Error",
-						r = g.postMessage ? g.postMessage.bind(g) : function() {},
-						s = {};
-					function t(a) {
+					function q(a) {
+						if (o) return;
+						n("[Facebook Pixel] - " + a);
+					}
+					var r = "Facebook Pixel Error",
+						s = g.postMessage ? g.postMessage.bind(g) : function() {},
+						t = {};
+					function u(a) {
 						switch (a.type) {
 							case "FBQ_NO_METHOD_NAME":
 								return "You must provide an argument to fbq().";
@@ -1674,7 +1684,7 @@ fbq.pendingConfigs = ["global_config"];
 								b = a.pixelID;
 								return "Pixel " + b + " not found";
 							default:
-								w(
+								x(
 									new Error(
 										"INVALID_USER_ERROR - " + a.type + " - " + JSON.stringify(a)
 									)
@@ -1682,7 +1692,7 @@ fbq.pendingConfigs = ["global_config"];
 								return "Invalid User Error.";
 						}
 					}
-					function u(a, e) {
+					function v(a, e) {
 						try {
 							var f = Math.random(),
 								h =
@@ -1706,27 +1716,27 @@ fbq.pendingConfigs = ["global_config"];
 							}
 						} catch (a) {}
 					}
-					function v(a) {
-						var b = JSON.stringify(a);
-						if (!Object.prototype.hasOwnProperty.call(s, b)) s[b] = !0;
-						else return;
-						b = t(a);
-						p(b);
-						r({ action: "FB_LOG", logType: q, logMessage: b }, "*");
-						u(new Error(b), !0);
-					}
 					function w(a) {
-						u(a, !1), e && p(a.toString());
+						var b = JSON.stringify(a);
+						if (!Object.prototype.hasOwnProperty.call(t, b)) t[b] = !0;
+						else return;
+						b = u(a);
+						q(b);
+						s({ action: "FB_LOG", logType: r, logMessage: b }, "*");
+						v(new Error(b), !0);
 					}
-					l = {
-						consoleWarn: m,
-						logError: w,
-						logUserError: v,
+					function x(a) {
+						v(a, !1), e && q(a.toString());
+					}
+					a = {
+						consoleWarn: n,
+						logError: x,
+						logUserError: w,
 						enableVerboseDebugLogging: h,
-						disableAllLogging: o,
+						disableAllLogging: p,
 						disableSampling: j
 					};
-					k.exports = l;
+					k.exports = a;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -2180,23 +2190,23 @@ fbq.pendingConfigs = ["global_config"];
 								? g.fbq._releaseSegment
 								: "unknown",
 						i = e < b || h === "canary";
-					function j(event) {
-						var b =
+					function j(b) {
+						var e =
 								arguments.length > 1 && arguments[1] !== void 0
 									? arguments[1]
 									: 0,
-							e =
+							f =
 								arguments.length > 2 && arguments[2] !== void 0
 									? arguments[2]
 									: !1;
-						if (!e && !i) return;
+						if (!f && !i) return;
 						try {
-							var f = new d(null);
-							f.append("v", g.fbq && g.fbq.version ? g.fbq.version : "unknown");
-							f.append("rs", h);
-							f.append("e", event);
-							f.append("p", b);
-							c(f, "https://connect.facebook.net/log/fbevents_telemetry/");
+							var j = new d(null);
+							j.append("v", g.fbq && g.fbq.version ? g.fbq.version : "unknown");
+							j.append("rs", h);
+							j.append("e", b);
+							j.append("p", e);
+							c(j, "https://connect.facebook.net/log/fbevents_telemetry/");
 						} catch (b) {
 							a.logError(b);
 						}
