@@ -1,4 +1,4 @@
-/*1546812263,,JIT Construction: v4666897,en_US*/
+/*1546878716,,JIT Construction: v4667293,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -5103,10 +5103,14 @@ try {
 							"use strict";
 							__p && __p();
 							var i = g.div;
-							function a(a, b, c) {
-								(this.$3 = a), (this.$2 = b), (this.$1 = c);
+							function a(a, b, c, d, e) {
+								(this.$3 = a),
+									(this.$2 = b),
+									(this.$1 = c),
+									(this.$4 = d),
+									(this.$5 = e);
 							}
-							a.prototype.$4 = function() {
+							a.prototype.$6 = function() {
 								var a = i("_6qgh"),
 									b = i(
 										"_6qgi" +
@@ -5124,7 +5128,7 @@ try {
 										: this.$3.report_ad_follow_up_heading;
 								return b;
 							};
-							a.prototype.$5 = function() {
+							a.prototype.$7 = function() {
 								__p && __p();
 								var a =
 									this.$2 === "hide"
@@ -5158,12 +5162,29 @@ try {
 									)
 								);
 								a = i("_6qh9", a);
-								return i("_6qha", [a]);
+								a = i("_6qha", [a]);
+								if (this.$5) {
+									var b = document.createElement("a");
+									b.className = "_6qi3";
+									b.addEventListener(
+										"click",
+										ES(
+											function(a) {
+												a.preventDefault(), this.$4();
+											},
+											"bind",
+											!0,
+											this
+										)
+									);
+									a.appendChild(b);
+								}
+								return a;
 							};
 							a.prototype.render = function() {
 								var a = i("_6qhb _6qhc"),
-									b = this.$4(),
-									c = this.$5();
+									b = this.$6(),
+									c = this.$7();
 								a.appendChild(b);
 								a.appendChild(c);
 								return a;
@@ -5196,62 +5217,72 @@ try {
 									(this.$10 = a.onXOutOption),
 									(this.$11 = a.onXOutFinish),
 									(this.$4 = a.buttonEl),
-									(this.$13 = a.endURL);
+									(this.$13 = a.endURL),
+									(this.$14 = !!a.allowOptionStepClose);
 							}
-							a.prototype.$14 = function() {
+							a.prototype.$15 = function() {
 								this.$3 == null &&
 									((this.$3 = m("_6qhd")), this.$2.appendChild(this.$3));
 								return l(this.$3);
 							};
-							a.prototype.$15 = function() {
+							a.prototype.$16 = function() {
 								this.$3 != null &&
 									(this.$2.removeChild(this.$3), (this.$3 = null));
 							};
-							a.prototype.$16 = function() {
+							a.prototype.$17 = function() {
 								return m("_6qhe");
 							};
-							a.prototype.$17 = function(a) {
-								var b = this.$14(),
-									c = this.$16();
-								this.$18();
+							a.prototype.$18 = function(a) {
+								var b = this.$15(),
+									c = this.$17();
+								this.$19();
 								c.appendChild(a);
 								b.appendChild(c);
 							};
-							a.prototype.$18 = function() {
-								var a = this.$14();
+							a.prototype.$19 = function() {
+								var a = this.$15();
 								while (a.firstChild) a.removeChild(a.firstChild);
 							};
-							a.prototype.$19 = function() {
-								var a = this.$14(),
+							a.prototype.$20 = function() {
+								var a = this.$15(),
 									b = m("_6qhf");
-								this.$18();
+								this.$19();
 								b.innerText = this.$7.ad_removed;
 								a.appendChild(b);
 							};
 							a.prototype.onInitialStepDone = function() {
-								this.$12 != null && this.$20();
+								this.$12 != null && this.$21();
 							};
-							a.prototype.$20 = function() {
+							a.prototype.$21 = function() {
 								var a = new i(
 									this.$7,
 									l(this.$12),
 									ES(
 										function(a) {
-											this.$21(a);
+											this.$22(a);
 										},
 										"bind",
 										!0,
 										this
-									)
+									),
+									ES(
+										function() {
+											this.$9(), this.$16();
+										},
+										"bind",
+										!0,
+										this
+									),
+									this.$14
 								);
-								this.$17(a.render());
+								this.$18(a.render());
 							};
-							a.prototype.$21 = function(a) {
+							a.prototype.$22 = function(a) {
 								__p && __p();
 								this.$10(a.option_type);
 								if (a.option_type === this.$7.follow_up_report) {
 									this.$12 = "report";
-									this.$20();
+									this.$21();
 									return;
 								}
 								this.$11();
@@ -5262,7 +5293,7 @@ try {
 									l(this.$12),
 									ES(
 										function() {
-											this.$19();
+											this.$20();
 										},
 										"bind",
 										!0,
@@ -5270,9 +5301,9 @@ try {
 									),
 									this.$13
 								);
-								this.$17(a.render());
+								this.$18(a.render());
 							};
-							a.prototype.$22 = function() {
+							a.prototype.$23 = function() {
 								var a = new h(
 									this.$7,
 									this.$6,
@@ -5289,14 +5320,14 @@ try {
 									),
 									ES(
 										function() {
-											this.$9(), this.$15();
+											this.$9(), this.$16();
 										},
 										"bind",
 										!0,
 										this
 									)
 								);
-								this.$17(a.render());
+								this.$18(a.render());
 							};
 							a.prototype.getButton = function() {
 								return l(this.$4);
@@ -5318,7 +5349,7 @@ try {
 									"click",
 									ES(
 										function(a) {
-											a.preventDefault(), this.$22(), this.$8();
+											a.preventDefault(), this.$23(), this.$8();
 										},
 										"bind",
 										!0,
@@ -7342,7 +7373,7 @@ try {
 								);
 								this.sendClientEvent = ES(
 									function(a, b) {
-										var c = this.$32().$42.useUnifiedLogging === !0;
+										var c = this.$32().$39.useUnifiedLogging === !0;
 										!c
 											? this.sendToFacebook({
 													name: "signal",
@@ -7465,6 +7496,7 @@ try {
 									adChoicesLink: a.adChoicesHref,
 									content: this.$32().$38,
 									buttonEl: c,
+									allowOptionStepClose: this.$32().$39.allowOptionStepClose,
 									onXOutStart: ES(
 										function() {
 											this.$23.event(v.START, d);
@@ -7517,10 +7549,10 @@ try {
 								}
 								var e = a.features || {};
 								this.$26 = {
-									$39: !!e.clickOpenNewTab,
-									$40: !!e.enableWhiteops,
-									$41: e.appIDHashed,
-									$42: e,
+									$40: !!e.clickOpenNewTab,
+									$41: !!e.enableWhiteops,
+									$42: e.appIDHashed,
+									$39: e,
 									$34: e.inlineXOut,
 									$43: e.isDesktopDisplayFormat,
 									$44: a.nativeImpURL,
@@ -7528,7 +7560,7 @@ try {
 									$38: a.xout,
 									$46: e.clickGuardElements || P
 								};
-								this.$23.setLogLevel(this.$32().$42.logLevel || F.ERROR);
+								this.$23.setLogLevel(this.$32().$39.logLevel || F.ERROR);
 								this.$23.setClientEventURL(a.clientEventURL);
 								this.$1 = M();
 								this.$4 = !0;
@@ -7537,14 +7569,14 @@ try {
 									d(a.errorCode, a.errorMsg, a.placementId);
 									return;
 								}
-								this.$32().$42.rp && this.$27.enableReward();
+								this.$32().$39.rp && this.$27.enableReward();
 								var f = 0,
 									g = !!a.creativeMarkupBackup;
 								!a.nativeAd
 									? (this.$11.style.display = "")
 									: (a.creativeMarkup &&
 											(this.$47() ? this.$48() : this.$49(),
-											this.$32().$42.resizeMediaView &&
+											this.$32().$39.resizeMediaView &&
 												((this.$11.style.visibility = "hidden"),
 												(f = this.$50()))),
 									  this.loadCreative(
@@ -7552,11 +7584,11 @@ try {
 											a.creativeMarkup,
 											this.$11,
 											b,
-											!!this.$32().$42.resizeMediaView
+											!!this.$32().$39.resizeMediaView
 									  ));
 								this.$35().classList.add("fbAdLoaded");
 								c(a.placementId);
-								this.$32().$42.resizeMediaView
+								this.$32().$39.resizeMediaView
 									? window.setTimeout(
 											ES(
 												function() {
@@ -7587,7 +7619,7 @@ try {
 																		a,
 																		a.creativeMarkupBackup,
 																		b,
-																		!!this.$32().$42.resizeMediaView
+																		!!this.$32().$39.resizeMediaView
 																	),
 																	(this.$13 = !1),
 																	(this.$14 = !1),
@@ -7642,7 +7674,7 @@ try {
 								};
 							};
 							a.prototype.$54 = function() {
-								var a = this.$32().$42.forceIframeSize;
+								var a = this.$32().$39.forceIframeSize;
 								if (a) {
 									var b = this.$30();
 									b &&
@@ -7723,7 +7755,7 @@ try {
 										a.nativeCarouselAds,
 										e,
 										b && b.dfp,
-										!!this.$32().$42.autoplayEnabled
+										!!this.$32().$39.autoplayEnabled
 									)),
 									a.nativeAd.primaryColor &&
 										c &&
@@ -7820,7 +7852,7 @@ try {
 								this.$22.addListener(function() {
 									return a.mediaLoaded();
 								});
-								if (this.$32().$42.useMostlyViewableImp) {
+								if (this.$32().$39.useMostlyViewableImp) {
 									var b = new h(
 										ES(
 											function() {
@@ -8002,7 +8034,7 @@ try {
 											}
 											i = {
 												clktm: Math.round(d / 1e3),
-												clknutab: this.$32().$39,
+												clknutab: this.$32().$40,
 												touch: ES("JSON", "stringify", !1, g)
 											};
 											this.$2 && (i.clkdel = d - this.$2);
@@ -8035,12 +8067,12 @@ try {
 												}
 											});
 											c = y.isAppStoreURL(e);
-											this.$32().$39 &&
+											this.$32().$40 &&
 												e &&
 												!c &&
 												a === x.BILLABLE_CLICK &&
 												this.$24.openNewTab(e);
-											if (this.$32().$39 || c) {
+											if (this.$32().$40 || c) {
 												h = new m(window.document);
 												var j = M();
 												h.onBounceBack(
@@ -8100,17 +8132,17 @@ try {
 											var b = M(),
 												e = y.maybeHTMLElement(a.target);
 											e = e ? this.$59(e) : t.UNKNOWN;
-											var f = this.$32().$42.minClickDelay;
+											var f = this.$32().$39.minClickDelay;
 											f && this.$1 && this.$1 + f > b && !this.$3
 												? ((this.$3 = !0),
 												  c(x.CLICK_GUARD, a),
 												  this.$13 &&
-														this.$32().$42.useTwoStepOnFastClicks === !0 &&
+														this.$32().$39.useTwoStepOnFastClicks === !0 &&
 														d())
 												: ES(this.$32().$46, "includes", !0, e) &&
 												  this.$13 &&
 												  !this.$14 &&
-												  this.$32().$42.useTwoStepClick === !0 &&
+												  this.$32().$39.useTwoStepClick === !0 &&
 												  !this.$25
 													? (c(x.TWO_STEP_DIALOG, a), d())
 													: c(x.BILLABLE_CLICK, a);
@@ -8126,7 +8158,7 @@ try {
 									return;
 								}
 								var f = this.$8.querySelector(".adnwTwoClickBlocker");
-								if (f && !!this.$32().$42.clickConfirmation) {
+								if (f && !!this.$32().$39.clickConfirmation) {
 									var g = N(f.querySelector(".adnwCancelLink"));
 									g.addEventListener("click", function(a) {
 										f.style.display = "none";
@@ -8161,7 +8193,7 @@ try {
 									a.nativeCarouselAds,
 									d,
 									b && b.dfp,
-									!!this.$32().$42.autoplayEnabled
+									!!this.$32().$39.autoplayEnabled
 								);
 								this.$8 &&
 									((this.$18 = new i(this.$12, this.$8)),
@@ -8189,8 +8221,8 @@ try {
 								b.loaded = !0;
 								var g = !1;
 								c = this.loadNativeAdInternal(a, b, c, "", d, e, f);
-								this.$32().$40 === !0 &&
-									K.run(b.requestId, "AN_MWEB", b.topDomain, this.$32().$41, a);
+								this.$32().$41 === !0 &&
+									K.run(b.requestId, "AN_MWEB", b.topDomain, this.$32().$42, a);
 								return g || c;
 							};
 							a.prototype.loadNativeAdInternal = function(a, b, c, d, e, f, g) {
@@ -8509,7 +8541,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4666897","namespace":"FB","message":"' +
+				'","revision":"4667293","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
