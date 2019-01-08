@@ -1,4 +1,4 @@
-/*1546934070,,JIT Construction: v4669180,en_US*/
+/*1546967734,,JIT Construction: v4669510,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -7357,7 +7357,7 @@ try {
 								];
 							function a(a) {
 								__p && __p();
-								this.sendSignal = ES(
+								this.$66 = ES(
 									function(a) {
 										this.sendToFacebook({
 											name: "signal",
@@ -7371,9 +7371,9 @@ try {
 									!0,
 									this
 								);
-								this.sendClientEvent = ES(
+								this.$29 = ES(
 									function(a, b) {
-										var c = this.$32().$39.useUnifiedLogging === !0;
+										var c = this.$33().$40.useUnifiedLogging === !0;
 										!c
 											? this.sendToFacebook({
 													name: "signal",
@@ -7427,14 +7427,9 @@ try {
 										b.performance.timing &&
 										b.performance.timing.navigationStart) ||
 									0;
-								this.$23 = new s(
-									F.ERROR,
-									a.tagJsInitTime,
-									b,
-									this.sendClientEvent
-								);
+								this.$23 = new s(F.ERROR, a.tagJsInitTime, b, this.$29);
 								this.$11 = a.rootElement;
-								this.$12 = new D(this.$11, this.$29());
+								this.$12 = new D(this.$11, this.$30());
 								this.$2 = null;
 								this.$4 = !1;
 								window.addEventListener(
@@ -7458,32 +7453,32 @@ try {
 							a.prototype.sendToFacebook = function(a) {
 								this.$5.iframe.contentWindow.postMessage(a, this.$5.domain);
 							};
-							a.prototype.$29 = function() {
+							a.prototype.$30 = function() {
 								return this.$11.ownerDocument.defaultView;
 							};
-							a.prototype.$30 = function() {
-								return this.$29().frameElement;
+							a.prototype.$31 = function() {
+								return this.$30().frameElement;
 							};
-							a.prototype.$31 = function(a) {
+							a.prototype.$32 = function(a) {
 								a = a.ownerDocument;
 								var b = a.createElement("style");
 								b.innerText = E.rules;
 								a.body && a.body.appendChild(b);
 							};
-							a.prototype.$32 = function() {
+							a.prototype.$33 = function() {
 								return N(this.$26);
 							};
-							a.prototype.$33 = function() {
-								if (!this.$32().$34) return !1;
-								var a = this.$35();
+							a.prototype.$34 = function() {
+								if (!this.$33().$35) return !1;
+								var a = this.$36();
 								return (
-									(a.clientWidth >= 300 && a.clientHeight >= 250) || this.$36()
+									(a.clientWidth >= 300 && a.clientHeight >= 250) || this.$37()
 								);
 							};
-							a.prototype.$37 = function(a) {
+							a.prototype.$38 = function(a) {
 								__p && __p();
-								var b = this.$35();
-								if (!this.$33()) {
+								var b = this.$36();
+								if (!this.$34()) {
 									var c = new l(b, a);
 									c.render();
 									return;
@@ -7494,9 +7489,9 @@ try {
 									parentEl: b,
 									adIcon: a.adIcon,
 									adChoicesLink: a.adChoicesHref,
-									content: this.$32().$38,
+									content: this.$33().$39,
 									buttonEl: c,
-									allowOptionStepClose: this.$32().$39.allowOptionStepClose,
+									allowOptionStepClose: this.$33().$40.allowOptionStepClose,
 									onXOutStart: ES(
 										function() {
 											this.$23.event(v.START, d);
@@ -7549,18 +7544,18 @@ try {
 								}
 								var e = a.features || {};
 								this.$26 = {
-									$40: !!e.clickOpenNewTab,
-									$41: !!e.enableWhiteops,
-									$42: e.appIDHashed,
-									$39: e,
-									$34: e.inlineXOut,
-									$43: e.isDesktopDisplayFormat,
-									$44: a.nativeImpURL,
-									$45: !!e.useIntersectionObserver,
-									$38: a.xout,
-									$46: e.clickGuardElements || P
+									$41: !!e.clickOpenNewTab,
+									$42: !!e.enableWhiteops,
+									$43: e.appIDHashed,
+									$40: e,
+									$35: e.inlineXOut,
+									$44: e.isDesktopDisplayFormat,
+									$45: a.nativeImpURL,
+									$46: !!e.useIntersectionObserver,
+									$39: a.xout,
+									$47: e.clickGuardElements || P
 								};
-								this.$23.setLogLevel(this.$32().$39.logLevel || F.ERROR);
+								this.$23.setLogLevel(this.$33().$40.logLevel || F.ERROR);
 								this.$23.setClientEventURL(a.clientEventURL);
 								this.$1 = M();
 								this.$4 = !0;
@@ -7569,61 +7564,61 @@ try {
 									d(a.errorCode, a.errorMsg, a.placementId);
 									return;
 								}
-								this.$32().$39.rp && this.$27.enableReward();
+								this.$33().$40.rp && this.$27.enableReward();
 								var f = 0,
 									g = !!a.creativeMarkupBackup;
 								!a.nativeAd
 									? (this.$11.style.display = "")
 									: (a.creativeMarkup &&
-											(this.$47() ? this.$48() : this.$49(),
-											this.$32().$39.resizeMediaView &&
+											(this.$48() ? this.$49() : this.$50(),
+											this.$33().$40.resizeMediaView &&
 												((this.$11.style.visibility = "hidden"),
-												(f = this.$50()))),
-									  this.loadCreative(
+												(f = this.$51()))),
+									  this.$52(
 											a,
 											a.creativeMarkup,
 											this.$11,
 											b,
-											!!this.$32().$39.resizeMediaView
+											!!this.$33().$40.resizeMediaView
 									  ));
-								this.$35().classList.add("fbAdLoaded");
+								this.$36().classList.add("fbAdLoaded");
 								c(a.placementId);
-								this.$32().$39.resizeMediaView
+								this.$33().$40.resizeMediaView
 									? window.setTimeout(
 											ES(
 												function() {
 													__p && __p();
 													var c = new q(
 															g,
-															this.$30(),
+															this.$31(),
 															this.$11,
 															this.$9,
 															this.$15,
 															this.$23,
 															f
 														),
-														d = this.$35();
+														d = this.$36();
 													d.style.width = y.cssSize(this.$15);
 													this.$6 && this.$6.ensureSizes();
 													d = c.resize(this.$15, d.offsetHeight);
 													d &&
 														((this.$13 = !0),
 														(this.$14 = !!a.nativeCarouselAds));
-													this.$37(a.nativeAd);
+													this.$38(a.nativeAd);
 													if (g) {
 														var e = ES(
 															function() {
 																(a.nativeCarouselAds = null),
 																	c.restoreOriginalStyles(),
-																	this.$51(
+																	this.$53(
 																		a,
 																		a.creativeMarkupBackup,
 																		b,
-																		!!this.$32().$39.resizeMediaView
+																		!!this.$33().$40.resizeMediaView
 																	),
 																	(this.$13 = !1),
 																	(this.$14 = !1),
-																	this.$37(a.nativeAd),
+																	this.$38(a.nativeAd),
 																	(this.$11.style.visibility = "visible");
 															},
 															"bind",
@@ -7650,13 +7645,13 @@ try {
 											),
 											0
 									  )
-									: this.$37(a.nativeAd);
-								this.setupViewability();
-								this.$23.eventWithParams(this.$52("ADNW_ADLOADED"));
-								this.$53();
+									: this.$38(a.nativeAd);
 								this.$54();
+								this.$23.eventWithParams(this.$55("ADNW_ADLOADED"));
+								this.$56();
+								this.$57();
 							};
-							a.prototype.$52 = function(a) {
+							a.prototype.$55 = function(a) {
 								var b = this.$18;
 								if (!b) return { event_name: a, viewability: j.UNKNOWN };
 								b = this.$18.getCurrentViewabilityState();
@@ -7673,26 +7668,26 @@ try {
 									page_height: b.pageHeight || 0
 								};
 							};
-							a.prototype.$54 = function() {
-								var a = this.$32().$39.forceIframeSize;
+							a.prototype.$57 = function() {
+								var a = this.$33().$40.forceIframeSize;
 								if (a) {
-									var b = this.$30();
+									var b = this.$31();
 									b &&
 										((b.style.width = y.cssSize(a.w)),
 										(b.style.height = y.cssSize(a.h)));
 								}
 							};
-							a.prototype.$53 = function() {
-								var a = this.$35().querySelectorAll(
+							a.prototype.$56 = function() {
+								var a = this.$36().querySelectorAll(
 									"[data-auto-fit-text=true]"
 								);
 								for (var b = 0; b < a.length; b++)
 									y.truncateTextToFitElement(a[b]);
 							};
-							a.prototype.$50 = function() {
+							a.prototype.$51 = function() {
 								var a = 300,
 									b = y.getScreenWidth(),
-									c = this.$30() || this.$11;
+									c = this.$31() || this.$11;
 								c = y.findWidestParentElement(c);
 								var d = y.calculateLargestMargin(c);
 								this.$15 = b - d * 2;
@@ -7700,7 +7695,7 @@ try {
 									((this.$15 = a), (d = c.getBoundingClientRect().right - a));
 								return d;
 							};
-							a.prototype.$48 = function() {
+							a.prototype.$49 = function() {
 								__p && __p();
 								var a = O[this.$10],
 									b = a[0];
@@ -7721,7 +7716,7 @@ try {
 								this.$8 = b;
 								this.$9 = c;
 							};
-							a.prototype.$49 = function() {
+							a.prototype.$50 = function() {
 								__p && __p();
 								var a = document.createElement("div");
 								a.style.textAlign = "center";
@@ -7736,26 +7731,26 @@ try {
 								a.appendChild(b);
 								this.$8 = b;
 							};
-							a.prototype.$35 = function() {
-								var a = this.$47() ? this.$8 || this.$11 : this.$11;
+							a.prototype.$36 = function() {
+								var a = this.$48() ? this.$8 || this.$11 : this.$11;
 								return (
 									a.getElementsByClassName("fbANRoot")[0] ||
 									a.getElementsByClassName("thirdPartyRoot")[0] ||
 									a
 								);
 							};
-							a.prototype.loadCreative = function(a, b, c, d, e) {
+							a.prototype.$52 = function(a, b, c, d, e) {
 								(a.nativeAd.loaded = !1),
 									b && b.raw && ((this.$8.innerHTML = b.raw), (c = this.$8)),
-									c && ((c = this.$35()), this.$31(c)),
+									c && ((c = this.$36()), this.$32(c)),
 									(this.$19 = a.nativeAd && c ? c : d),
-									(this.$17 = this.loadNativeAd(
+									(this.$17 = this.$58(
 										c,
 										a.nativeAd,
 										a.nativeCarouselAds,
 										e,
 										b && b.dfp,
-										!!this.$32().$39.autoplayEnabled
+										!!this.$33().$40.autoplayEnabled
 									)),
 									a.nativeAd.primaryColor &&
 										c &&
@@ -7768,28 +7763,28 @@ try {
 											a.nativeAd.textColor
 										));
 							};
-							a.prototype.adjustMediaViewSize = function(a, b) {
-								a = this.getAspectRatio(a);
+							a.prototype.$59 = function(a, b) {
+								a = this.$60(a);
 								y.resizeElement(b, this.$15, Math.round(this.$15 / a));
 							};
-							a.prototype.$55 = function() {
+							a.prototype.$61 = function() {
 								this.$23.eventWithParams(
-									this.$52("ADNW_MOSTLY_VIEWABLE_FOR_1S")
+									this.$55("ADNW_MOSTLY_VIEWABLE_FOR_1S")
 								);
 							};
-							a.prototype.sendImpression = function() {
+							a.prototype.$62 = function() {
 								__p && __p();
 								if (this.$2) {
 									this.$23.error("Multiple ADIMPRESSION attempted.");
 									return;
 								}
 								this.$2 = M();
-								var a = this.$56();
+								var a = this.$63();
 								this.sendToFacebook({
 									name: "impress",
 									params: { key: this.stringify(this.$5.data.key), payload: a }
 								});
-								var b = this.$32().$44;
+								var b = this.$33().$45;
 								b &&
 									this.sendToFacebook({
 										name: "signal",
@@ -7808,10 +7803,10 @@ try {
 											)
 										}
 									});
-								this.$23.eventWithParams(this.$52("ADNW_ADIMPRESSION"));
-								this.$33() && this.$23.event(v.HAS_INLINE_XOUT);
+								this.$23.eventWithParams(this.$55("ADNW_ADIMPRESSION"));
+								this.$34() && this.$23.event(v.HAS_INLINE_XOUT);
 							};
-							a.prototype.$57 = function() {
+							a.prototype.$64 = function() {
 								var a = this.$12.getSafeFrameAPI();
 								if (this.$12.isCrossDomain() && !a)
 									return k.isAMP() ? "AMP" : "CROSS_DOMAIN_IFRAME";
@@ -7825,14 +7820,14 @@ try {
 										? "SAFE_FRAME"
 										: "FRIENDLY_IFRAME";
 							};
-							a.prototype.setupViewability = function() {
+							a.prototype.$54 = function() {
 								__p && __p();
-								this.$18 = new i(this.$12, this.$19, this.$32().$45);
+								this.$18 = new i(this.$12, this.$19, this.$33().$46);
 								this.$18.attachBehaviorManager(this.$20);
 								var a = new g(
 									ES(
 										function() {
-											return this.$58();
+											return this.$65();
 										},
 										"bind",
 										!0,
@@ -7852,11 +7847,11 @@ try {
 								this.$22.addListener(function() {
 									return a.mediaLoaded();
 								});
-								if (this.$32().$39.useMostlyViewableImp) {
+								if (this.$33().$40.useMostlyViewableImp) {
 									var b = new h(
 										ES(
 											function() {
-												return this.$55();
+												return this.$61();
 											},
 											"bind",
 											!0,
@@ -7870,20 +7865,20 @@ try {
 									});
 								}
 							};
-							a.prototype.getAspectRatio = function(a) {
+							a.prototype.$60 = function(a) {
 								if (a.adImageAspectRatio != null && a.adImageAspectRatio > 0)
 									return Math.max(a.adImageAspectRatio, 1.5);
 								else if (a.adVideo) return 1.75;
 								else return 1.9;
 							};
-							a.prototype.loadMedia = function(a, b, c, d, e) {
+							a.prototype.$67 = function(a, b, c, d, e) {
 								d
-									? this.loadCarousel(b, d)
+									? this.$68(b, d)
 									: c.adVideo
-										? this.loadVideo(b, c, e)
-										: this.loadImage(b, c);
+										? this.$69(b, c, e)
+										: this.$70(b, c);
 							};
-							a.prototype.loadCarousel = function(a, b) {
+							a.prototype.$68 = function(a, b) {
 								__p && __p();
 								this.$21 = !0;
 								var c = new o({
@@ -7930,7 +7925,7 @@ try {
 									!0,
 									ES(
 										function(a, c) {
-											this.installLink(a, b[c]);
+											this.$71(a, b[c]);
 										},
 										"bind",
 										!0,
@@ -7939,10 +7934,10 @@ try {
 								);
 								this.$6 = c;
 							};
-							a.prototype.loadImage = function(a, b) {
-								a.appendChild(this.createAdImage(b));
+							a.prototype.$70 = function(a, b) {
+								a.appendChild(this.$72(b));
 							};
-							a.prototype.loadVideo = function(a, b, c) {
+							a.prototype.$69 = function(a, b, c) {
 								__p && __p();
 								if (!b.adVideo) throw new Error("No video for Ad.");
 								this.$21 = !0;
@@ -7975,9 +7970,9 @@ try {
 										this
 									)
 								);
-								if (this.$36() && this.$27.isRewardEnabled()) {
+								if (this.$37() && this.$27.isRewardEnabled()) {
 									var e = N(this.$8);
-									this.$28 = new w(this.$27, e, d, this.$32().$34);
+									this.$28 = new w(this.$27, e, d, this.$33().$35);
 									this.$28.makeRewarded();
 									e.style.maxWidth = "";
 									this.$9 &&
@@ -7986,14 +7981,14 @@ try {
 								} else this.$20.addBehavior(new I(d, c));
 								new A(
 									d.getVideoElement(),
-									this.sendSignal,
+									this.$66,
 									b.videoPlayLink,
 									b.videoTimeLink
 								).startLogging();
 								a.appendChild(d.getElement());
 								this.$27.setVideo(d);
 							};
-							a.prototype.installLink = function(a, b) {
+							a.prototype.$71 = function(a, b) {
 								__p && __p();
 								var c = ES(
 										function(a, c) {
@@ -8001,7 +7996,7 @@ try {
 											var d = M(),
 												e = b.href,
 												f = y.maybeHTMLElement(c.target);
-											f = f ? this.$59(f) : t.UNKNOWN;
+											f = f ? this.$73(f) : t.UNKNOWN;
 											var g = {};
 											if (this.$18) {
 												var h = this.$18.getDimensions(),
@@ -8026,7 +8021,7 @@ try {
 														(g.relClickX = c.clientX - i.viewportLeft),
 															(g.relClickY = c.clientY - i.viewportTop);
 													else {
-														h = this.$35().getBoundingClientRect();
+														h = this.$36().getBoundingClientRect();
 														g.relClickX = c.clientX - h.left;
 														g.relClickY = c.clientY - h.top;
 													}
@@ -8034,7 +8029,7 @@ try {
 											}
 											i = {
 												clktm: Math.round(d / 1e3),
-												clknutab: this.$32().$40,
+												clknutab: this.$33().$41,
 												touch: ES("JSON", "stringify", !1, g)
 											};
 											this.$2 && (i.clkdel = d - this.$2);
@@ -8067,12 +8062,12 @@ try {
 												}
 											});
 											c = y.isAppStoreURL(e);
-											this.$32().$40 &&
+											this.$33().$41 &&
 												e &&
 												!c &&
 												a === x.BILLABLE_CLICK &&
 												this.$24.openNewTab(e);
-											if (this.$32().$40 || c) {
+											if (this.$33().$41 || c) {
 												h = new m(window.document);
 												var j = M();
 												h.onBounceBack(
@@ -8101,7 +8096,7 @@ try {
 									),
 									d = ES(
 										function() {
-											z.openDialog(this.$35(), b.adSubtitle, b.adIcon)
+											z.openDialog(this.$36(), b.adSubtitle, b.adIcon)
 												.onConfirm(
 													ES(
 														function(a) {
@@ -8131,18 +8126,18 @@ try {
 										function(a) {
 											var b = M(),
 												e = y.maybeHTMLElement(a.target);
-											e = e ? this.$59(e) : t.UNKNOWN;
-											var f = this.$32().$39.minClickDelay;
+											e = e ? this.$73(e) : t.UNKNOWN;
+											var f = this.$33().$40.minClickDelay;
 											f && this.$1 && this.$1 + f > b && !this.$3
 												? ((this.$3 = !0),
 												  c(x.CLICK_GUARD, a),
 												  this.$13 &&
-														this.$32().$39.useTwoStepOnFastClicks === !0 &&
+														this.$33().$40.useTwoStepOnFastClicks === !0 &&
 														d())
-												: ES(this.$32().$46, "includes", !0, e) &&
+												: ES(this.$33().$47, "includes", !0, e) &&
 												  this.$13 &&
 												  !this.$14 &&
-												  this.$32().$39.useTwoStepClick === !0 &&
+												  this.$33().$40.useTwoStepClick === !0 &&
 												  !this.$25
 													? (c(x.TWO_STEP_DIALOG, a), d())
 													: c(x.BILLABLE_CLICK, a);
@@ -8158,7 +8153,7 @@ try {
 									return;
 								}
 								var f = this.$8.querySelector(".adnwTwoClickBlocker");
-								if (f && !!this.$32().$39.clickConfirmation) {
+								if (f && !!this.$33().$40.clickConfirmation) {
 									var g = N(f.querySelector(".adnwCancelLink"));
 									g.addEventListener("click", function(a) {
 										f.style.display = "none";
@@ -8179,67 +8174,65 @@ try {
 										? (a.className += " fbVideoType")
 										: (a.className += " fbDisplayType");
 							};
-							a.prototype.$51 = function(a, b, c, d) {
+							a.prototype.$53 = function(a, b, c, d) {
 								__p && __p();
 								this.$18.pause();
 								a.nativeAd.loaded = !1;
 								this.$8.innerHTML = b.raw;
 								if (this.$8 == null) return;
-								this.$31(this.$35());
+								this.$32(this.$36());
 								if (this.$8 == null) return;
-								this.$60(
+								this.$74(
 									this.$8,
 									a.nativeAd,
 									a.nativeCarouselAds,
 									d,
 									b && b.dfp,
-									!!this.$32().$39.autoplayEnabled
+									!!this.$33().$40.autoplayEnabled
 								);
 								this.$8 &&
 									((this.$18 = new i(this.$12, this.$8)),
 									this.$18.attachBehaviorManager(this.$20));
 							};
-							a.prototype.$60 = function(a, b, c, d, e, f) {
+							a.prototype.$74 = function(a, b, c, d, e, f) {
 								b.loaded = !0;
 								var g;
 								d = a.getElementsByClassName(t.FB_AD_ICON);
-								for (g = 0; g < d.length; g++)
-									d[g].appendChild(this.createAdIcon(b));
+								for (g = 0; g < d.length; g++) d[g].appendChild(this.$75(b));
 								this.$16 = a.getElementsByClassName(t.FB_AD_MEDIA);
 								for (g = 0; g < this.$16.length; g++)
-									this.loadMedia(a, this.$16[g], b, c, f);
-								this.updateAdText(a, b, "", e);
+									this.$67(a, this.$16[g], b, c, f);
+								this.$76(a, b, "", e);
 							};
-							a.prototype.$61 = function(a) {
+							a.prototype.$77 = function(a) {
 								a = N(a.ownerDocument.body);
 								a.addEventListener("touchstart", function() {}, !1);
 							};
-							a.prototype.loadNativeAd = function(a, b, c, d, e, f) {
+							a.prototype.$58 = function(a, b, c, d, e, f) {
 								if (!a || !b || b.loaded) return !1;
 								this.applyAdTypeClass(a, b, c);
-								this.$61(a);
+								this.$77(a);
 								b.loaded = !0;
 								var g = !1;
-								c = this.loadNativeAdInternal(a, b, c, "", d, e, f);
-								this.$32().$41 === !0 &&
-									K.run(b.requestId, "AN_MWEB", b.topDomain, this.$32().$42, a);
+								c = this.$78(a, b, c, "", d, e, f);
+								this.$33().$42 === !0 &&
+									K.run(b.requestId, "AN_MWEB", b.topDomain, this.$33().$43, a);
 								return g || c;
 							};
-							a.prototype.loadNativeAdInternal = function(a, b, c, d, e, f, g) {
+							a.prototype.$78 = function(a, b, c, d, e, f, g) {
 								var h,
 									i = a.getElementsByClassName(t.FB_AD_ICON + d);
-								for (h = 0; h < i.length; h++)
-									i[h].appendChild(this.createAdIcon(b));
+								for (h = 0; h < i.length; h++) i[h].appendChild(this.$75(b));
 								i = !1;
 								this.$16 = a.getElementsByClassName(t.FB_AD_MEDIA + d);
 								for (h = 0; h < this.$16.length; h++)
 									(i = !0),
-										e && !c && this.adjustMediaViewSize(b, this.$16[h]),
-										this.loadMedia(a, this.$16[h], b, c, g);
-								this.updateAdText(a, b, d, f);
+										e && !c && this.$59(b, this.$16[h]),
+										this.$67(a, this.$16[h], b, c, g);
+								this.$76(a, b, d, f);
 								return i;
 							};
-							a.prototype.updateAdText = function(a, b, c, d) {
+							a.prototype.$76 = function(a, b, c, d) {
 								__p && __p();
 								var e;
 								d = a.getElementsByClassName(t.FB_AD_TITLE + c);
@@ -8255,9 +8248,9 @@ try {
 								for (e = 0; e < d.length; e++)
 									d[e].textContent = b.adSocialContext;
 								d = a.getElementsByClassName("fbAdLink" + c);
-								for (e = 0; e < d.length; e++) this.installLink(d[e], b);
+								for (e = 0; e < d.length; e++) this.$71(d[e], b);
 							};
-							a.prototype.createAdIcon = function(a) {
+							a.prototype.$75 = function(a) {
 								var b = document.createElement("img");
 								b.style.height = "100%";
 								b.style.width = "100%";
@@ -8277,7 +8270,7 @@ try {
 								b.src = a.adIcon;
 								return b;
 							};
-							a.prototype.createAdImage = function(a) {
+							a.prototype.$72 = function(a) {
 								__p && __p();
 								var b = document.createElement("img");
 								b.style.height = "100%";
@@ -8320,20 +8313,19 @@ try {
 								b.src = a.adImage;
 								return b;
 							};
-							a.prototype.$62 = function() {
+							a.prototype.$79 = function() {
 								return this.$10 === "native";
 							};
-							a.prototype.$36 = function() {
+							a.prototype.$37 = function() {
 								return this.$10 === "rewarded_video";
 							};
-							a.prototype.$47 = function() {
-								return !this.$30() && !this.$62() && O[this.$10];
+							a.prototype.$48 = function() {
+								return !this.$31() && !this.$79() && O[this.$10];
 							};
-							a.prototype.$58 = function() {
-								this.$35().classList.add("fbVisibleOnce"),
-									this.sendImpression();
+							a.prototype.$65 = function() {
+								this.$36().classList.add("fbVisibleOnce"), this.$62();
 							};
-							a.prototype.$56 = function() {
+							a.prototype.$63 = function() {
 								var a = this.$18.getDimensions(),
 									b =
 										(this.$18 && this.$18.getCurrentViewabilityState()) || null;
@@ -8349,14 +8341,14 @@ try {
 									page_width: (b && b.pageWidth) || null,
 									page_height: (b && b.pageHeight) || null,
 									hosturl: this.$12.getTopURL(),
-									iframe_status: this.$57(),
+									iframe_status: this.$64(),
 									nest_level: this.$12.getNestLevel(),
 									iframe_urls: this.$12.ancestorURLs.slice(0, -1),
 									mediation_service: new G(this.$12).getMediator(),
 									nmv: this.$17
 								};
 							};
-							a.prototype.$59 = function(a) {
+							a.prototype.$73 = function(a) {
 								__p && __p();
 								var b;
 								b = ((b = {
@@ -8370,7 +8362,7 @@ try {
 								}),
 								(b._74vg = "fbTwoStepDialog"),
 								b);
-								var c = this.$35();
+								var c = this.$36();
 								for (var d in b) {
 									var e = c.getElementsByClassName(d);
 									for (
@@ -8541,7 +8533,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4669180","namespace":"FB","message":"' +
+				'","revision":"4669510","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
