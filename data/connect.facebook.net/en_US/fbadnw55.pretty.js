@@ -1,4 +1,4 @@
-/*1547108341,,JIT Construction: v4675059,en_US*/
+/*1547141570,,JIT Construction: v4675356,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -6761,23 +6761,17 @@ try {
 							__p && __p();
 							var m = 100;
 							function a(a, b, c) {
-								__p && __p();
 								c === void 0 && (c = !1);
-								this.$4 = [];
-								this.$5 = [];
-								this.$6 = [];
-								this.$7 = [];
-								this.$10 = !1;
-								this.$11 = !1;
+								this.$1 = !1;
 								this.$3 = null;
 								a = b.ownerDocument.defaultView;
-								c = c ? [new k(b, a)] : [];
-								c.push(new j(b, a), new l(b, a), new i(b, a));
+								var d = [new j(b, a), new l(b, a), new i(b, a)];
+								c && d.push(new k(b, a));
 								this.$2 = new g({
 									element: b,
 									parentWindow: a,
 									rules: [],
-									measurementTests: c
+									measurementTests: d
 								});
 							}
 							a.prototype.pause = function() {
@@ -6786,68 +6780,16 @@ try {
 							a.prototype.resume = function() {
 								this.$1 = !1;
 							};
-							a.prototype.addViewableCallback = function(a) {
-								this.$4.push(a), this.$12();
-							};
-							a.prototype.$13 = function() {
-								__p && __p();
-								if (this.$10) return;
-								this.$10 = !0;
-								this.$11 = !1;
-								var a = this.getDimensions(),
-									b = this.getCurrentViewabilityState();
-								ES(this.$4, "forEach", !0, function(c) {
-									c(a, b);
-								});
-								this.$4 = [];
-								ES(this.$5, "forEach", !0, function(c) {
-									c(a, b);
-								});
-							};
-							a.prototype.$14 = function() {
-								__p && __p();
-								if (this.$11) return;
-								this.$10 = !1;
-								this.$11 = !0;
-								var a = this.getDimensions(),
-									b = this.getCurrentViewabilityState();
-								ES(this.$4, "forEach", !0, function(c) {
-									c(a, b);
-								});
-								this.$4 = [];
-								ES(this.$6, "forEach", !0, function(c) {
-									c(a, b);
-								});
-							};
-							a.prototype.$15 = function() {
-								if (!this.$10 && !this.$11) return;
-								this.$10 = !1;
-								this.$11 = !1;
-								var a = this.getDimensions(),
-									b = this.getCurrentViewabilityState();
-								ES(this.$7, "forEach", !0, function(c) {
-									c(a, b);
-								});
-							};
-							a.prototype.addFullyViewableAlwaysCallback = function(a) {
-								this.$6.push(a), this.$12();
-							};
-							a.prototype.addNonViewableAlwaysCallback = function(a) {
-								this.$7.push(a), this.$12();
-							};
-							a.prototype.addPartiallyViewableAlwaysCallback = function(a) {
-								this.$5.push(a), this.$12();
-							};
 							a.prototype.getDimensions = function() {
-								return !this.$8 ? null : this.$8.getAdRect();
+								return !this.$4 ? null : this.$4.getAdRect();
 							};
 							a.prototype.attachBehaviorManager = function(a) {
-								(this.$3 = a), this.$12();
+								(this.$3 = a), this.$6();
 							};
-							a.prototype.$12 = function() {
+							a.prototype.$6 = function() {
 								__p && __p();
-								if (this.$9 !== void 0) return;
-								this.$9 = window.setInterval(
+								if (this.$5 !== void 0) return;
+								this.$5 = window.setInterval(
 									ES(
 										function() {
 											if (this.$1) return;
@@ -6855,15 +6797,8 @@ try {
 												!1,
 												ES(
 													function(a) {
-														this.$8 = a;
-														var b = this.getCurrentViewabilityState()
-															.viewabilityLevels;
-														ES(b, "indexOf", !0, h.FULLY_VISIBLE) >= 0
-															? this.$14()
-															: ES(b, "indexOf", !0, h.PARTIALLY_VISIBLE) >= 0
-																? this.$13()
-																: this.$15();
-														b = a.getViewableWidthRatio();
+														this.$4 = a;
+														var b = a.getViewableWidthRatio();
 														a = a.getViewableHeightRatio();
 														this.$3 != null &&
 															b != null &&
@@ -6885,8 +6820,8 @@ try {
 							};
 							a.prototype.getCurrentViewabilityState = function() {
 								__p && __p();
-								if (!this.$8) return { viewabilityLevels: [h.UNKNOWN] };
-								var a = this.$8,
+								if (!this.$4) return { viewabilityLevels: [h.UNKNOWN] };
+								var a = this.$4,
 									b = a.getViewableRatio(),
 									c = a.getViewableWidthRatio();
 								a = a.getViewableHeightRatio();
@@ -8533,7 +8468,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4675059","namespace":"FB","message":"' +
+				'","revision":"4675356","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
