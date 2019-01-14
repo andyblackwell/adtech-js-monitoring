@@ -1,4 +1,4 @@
-/*1547423485,,JIT Construction: v4681682,en_US*/
+/*1547431394,,JIT Construction: v4681709,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -77,31 +77,14 @@
 		"assign" in Object &&
 		"findIndex" in [] &&
 		(j += "&ua=modern_es6");
-	if (window.inDapIF) {
-		i = document.createElement("script");
-		i.src = j;
-		i.async = !0;
-		h = document.getElementsByTagName("script")[0];
-		h.parentNode && h.parentNode.insertBefore(i, h);
-		return;
-	}
-	e = document.createElement("iframe");
-	e.id = "facebook-jssdk-iframe";
-	e.style.cssText = "width: 0; height: 0; border: 0";
-	e.src = "about:blank";
-	d = document.getElementsByTagName("script")[0];
-	if (!d.parentNode) return;
-	d.parentNode.insertBefore(e, d);
-	b = e.contentWindow.document;
-	b.open().write(
-		"<body onload=\"var js=document.createElement('script');js.src='" +
-			j +
-			"';document.body.appendChild(js);\">"
-	);
-	b.close();
+	i = document.createElement("script");
+	i.src = j;
+	i.async = !0;
+	h = document.getElementsByTagName("script")[0];
+	h.parentNode && h.parentNode.insertBefore(i, h);
 })(
-	"https://connect.facebook.net/en_US/all.js?hash=a54ffc9f0164c1eab4e7a44e401755ae",
-	1547423485,
+	"https://connect.facebook.net/en_US/all.js?hash=1eae8555ba36da97a4ad5589ae1c211c",
+	1547431394,
 	"FB",
 	[
 		"AppEvents.EventNames",
