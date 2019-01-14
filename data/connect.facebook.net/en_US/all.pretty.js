@@ -1,4 +1,4 @@
-/*1547455568,,JIT Construction: v4681796,en_US*/
+/*1547467424,,JIT Construction: v4681869,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -584,33 +584,16 @@ try {
 						"ES6Number",
 						[],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							a = Math.pow(2, -52);
 							b = Math.pow(2, 53) - 1;
 							c = -1 * b;
 							d = {
-								isFinite: (function(a) {
-									function b(b) {
-										return a.apply(this, arguments);
-									}
-									b.toString = function() {
-										return a.toString();
-									};
-									return b;
-								})(function(a) {
+								isFinite: function(a) {
 									return typeof a === "number" && isFinite(a);
-								}),
-								isNaN: (function(a) {
-									function b(b) {
-										return a.apply(this, arguments);
-									}
-									b.toString = function() {
-										return a.toString();
-									};
-									return b;
-								})(function(a) {
+								},
+								isNaN: function(a) {
 									return typeof a === "number" && isNaN(a);
-								}),
+								},
 								isInteger: function(a) {
 									return this.isFinite(a) && Math.floor(a) === a;
 								},
@@ -2201,7 +2184,7 @@ try {
 					});
 					__d("JSSDKRuntimeConfig", [], {
 						locale: "en_US",
-						revision: "4681796",
+						revision: "4681869",
 						rtl: false,
 						sdkab: null,
 						sdkns: "FB",
@@ -10983,7 +10966,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4681796","namespace":"FB","message":"' +
+				'","revision":"4681869","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
