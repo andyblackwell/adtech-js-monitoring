@@ -5,10 +5,10 @@
 			"name": "Facebook Audience Network",
 			"tags": ["Facebook", "prebid"],
 			"url": "https://connect.facebook.net/en_US/fbadnw55.js",
-			"version": "4685988",
+			"version": "4686176",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
 			"diffIgnorePatterns": ["JIT Construction", "revision"],
-			"etag": "\"8394e2d10f3f226f1fe17f1a40e2a159\""
+			"etag": "\"ad9f3c86928cb1107b335636dae7dfd8\""
 		},
 		{
 			"name": "Facebook Main",
