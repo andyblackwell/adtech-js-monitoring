@@ -1,4 +1,4 @@
-/*1548195768,,JIT Construction: v4701632,en_US*/
+/*1548270540,,JIT Construction: v4704508,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -6569,7 +6569,7 @@ try {
 											ES(
 												function(c, d) {
 													__p && __p();
-													var e = setTimeout(function() {
+													var e = window.setTimeout(function() {
 															return d();
 														}, o),
 														f = new j(a, b),
@@ -6592,7 +6592,7 @@ try {
 																	.$IntersectionObserverMeasurement1;
 																this.$IntersectionObserverMeasurement1 =
 																	a[a.length - 1];
-																b || (clearTimeout(e), c());
+																b || (window.clearTimeout(e), c());
 															},
 															"bind",
 															!0,
@@ -6744,16 +6744,18 @@ try {
 							__p && __p();
 							var m = 100;
 							function a(a, b, c) {
-								c === void 0;
+								c === void 0 && (c = !1);
 								this.$1 = !1;
 								this.$3 = null;
 								a = b.ownerDocument.defaultView;
-								c = [new j(b, a), new l(b, a), new i(b, a), new k(b, a)];
+								var d = [new j(b, a), new l(b, a), new i(b, a)],
+									e = new k(b, a);
+								c ? (d = [e].concat(d)) : d.push(e);
 								this.$2 = new g({
 									element: b,
 									parentWindow: a,
 									rules: [],
-									measurementTests: c
+									measurementTests: d
 								});
 							}
 							a.prototype.pause = function() {
@@ -8466,7 +8468,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4701632","namespace":"FB","message":"' +
+				'","revision":"4704508","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
