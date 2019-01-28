@@ -352,9 +352,9 @@
 		197: 0.001,
 		152: [],
 		172: null,
-		191: "001901222107370",
-		192: "021901081935550",
-		190: "011901081935550",
+		191: "001901242049580",
+		192: "021901222107370",
+		190: "011901222107370",
 		245: {},
 		180: null,
 		219: [],
@@ -412,7 +412,7 @@
 		return Ma("0") || 0;
 	};
 	Pa("getVersion", function() {
-		return "295";
+		return "297";
 	});
 	var E = function() {},
 		Va = "function" == typeof Uint8Array,
@@ -1274,7 +1274,7 @@
 		}),
 		(a[4] = Ua),
 		(a[2] = function() {
-			return 295;
+			return 297;
 		}),
 		(a[5] = function() {
 			var a = bb();
@@ -1687,6 +1687,11 @@
 				],
 				9
 			],
+			[
+				1,
+				[[21063011], [21063012, [[117, null, null, [1]]]]],
+				[2, [[8, null, null, 2, null, 297], [7, null, null, 2, null, 1e3]]]
+			],
 			[50, [[21063015], [21063016, [[97, null, null, [1]]]]]],
 			[
 				10,
@@ -1718,9 +1723,8 @@
 				9
 			],
 			[
-				250,
+				400,
 				[
-					[21063063],
 					[
 						21063064,
 						[
@@ -1803,7 +1807,9 @@
 						[[96, null, null, [1]], [8, null, null, [1]], [55, null, null, [1]]]
 					]
 				]
-			]
+			],
+			[null, [[21063037], [21063038, [[105, null, null, [1]]]]]],
+			[null, [[21063039], [21063040, [[70, null, null, [1]]]]]]
 		],
 		5: [
 			[
@@ -1917,97 +1923,28 @@
 				8
 			],
 			[
-				null,
+				1,
 				[
 					[
-						21063067,
+						21063092,
 						[
 							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063067"]],
-							[null, 12, null, [null, 294]],
-							[null, null, 7, [null, null, "21063067"]],
-							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063067"]]
-						]
-					],
-					[
-						21063068,
-						[
-							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063068"]],
-							[null, 12, null, [null, 295]],
-							[null, null, 7, [null, null, "21063068"]],
-							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063068"]]
-						]
-					]
-				],
-				null,
-				1
-			],
-			[
-				100,
-				[
-					[
-						21063082,
-						[
-							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063082"]],
-							[null, 12, null, [null, 295]],
-							[null, null, 7, [null, null, "21063082"]],
-							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063082"]]
-						]
-					],
-					[
-						21063083,
-						[
-							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063083"]],
+							[null, null, 5, [null, null, "21063092"]],
 							[null, 12, null, [null, 297]],
-							[null, null, 7, [null, null, "21063083"]],
+							[null, null, 7, [null, null, "21063092"]],
 							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063083"]]
+							[null, null, 6, [null, null, "21063092"]]
 						]
 					],
 					[
-						21063084,
+						21063093,
 						[
 							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063084"]],
-							[null, 12, null, [null, 298]],
-							[null, null, 7, [null, null, "21063084"]],
+							[null, null, 5, [null, null, "21063093"]],
+							[null, 12, null, [null, 299]],
+							[null, null, 7, [null, null, "21063093"]],
 							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063084"]]
-						]
-					]
-				],
-				null,
-				1
-			],
-			[
-				50,
-				[
-					[
-						21063087,
-						[
-							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063087"]],
-							[null, 12, null, [null, 294]],
-							[null, null, 7, [null, null, "21063087"]],
-							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063087"]]
-						]
-					],
-					[
-						21063088,
-						[
-							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063088"]],
-							[null, 12, null, [null, 296]],
-							[null, null, 7, [null, null, "21063088"]],
-							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063088"]]
+							[null, null, 6, [null, null, "21063093"]]
 						]
 					]
 				],
@@ -2109,7 +2046,7 @@
 			if (a) return a;
 			a = Z();
 			var b = Cb(4, "/gpt/pubads_impl_"),
-				c = lc() || R(2, 12, 0) || "295",
+				c = lc() || R(2, 12, 0) || "297",
 				d = Cb(5);
 			a = a + b + c + ".js";
 			d && (a += "?" + d);
@@ -2193,7 +2130,7 @@
 					R(1, 16, !1) && S(a, b, "preload", "script"),
 					R(1, 108, !1) &&
 						((d = Cb(6)),
-						(e = lc() || R(2, 12, 0) || "295"),
+						(e = lc() || R(2, 12, 0) || "297"),
 						(d =
 							Z() +
 							"/gpt/" +
