@@ -1,4 +1,4 @@
-/*1548482357,,JIT Construction: v4714879,en_US*/
+/*1548685375,,JIT Construction: v4715778,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4727,39 +4727,48 @@ try {
 						null
 					);
 					__d(
+						"NativePromise",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							a = Promise;
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"ANWebVideoPlayer.anweb",
-						["VPAIDDomUtils", "csx", "cx", "nullthrows"],
-						function(a, b, c, d, e, f, g, h, i, j) {
+						["NativePromise", "VPAIDDomUtils", "csx", "cx", "nullthrows"],
+						function(a, b, c, d, e, f, g, h, i, j, k) {
 							"use strict";
 							__p && __p();
-							var k = g.div,
-								l = g.dom;
-							function m(a, b) {
-								return j(a.querySelector(b));
+							var l = h.div,
+								m = h.dom;
+							function n(a, b) {
+								return k(a.querySelector(b));
 							}
-							function a(a, b, c, d, e) {
-								(this.$6 = !1),
-									(this.$7 = !1),
+							function a(a, b, c, d) {
+								(this.$5 = !1),
+									(this.$6 = !1),
 									(this.$1 = a),
 									(this.$2 = b),
-									(this.$5 = c),
+									(this.$4 = c),
 									(this.$3 = d),
-									(this.$4 = e),
-									(this.$12 = !0),
-									this.$13(),
-									this.$14();
+									(this.$11 = !0),
+									this.$12(),
+									this.$13();
 							}
-							a.prototype.$13 = function() {
+							a.prototype.$12 = function() {
 								__p && __p();
-								var a = k("_6pfr");
+								var a = l("_6pfr");
 								a.style.backgroundImage = "url(" + this.$2 + ")";
-								if (this.$5) {
+								if (this.$4) {
 									var b = new Image();
 									b.addEventListener(
 										"load",
 										ES(
 											function() {
-												this.$5 && this.$5();
+												this.$4 && this.$4();
 											},
 											"bind",
 											!0,
@@ -4768,9 +4777,9 @@ try {
 									);
 									b.src = this.$2;
 								}
-								this.$8 = k("_1xj7", [
+								this.$7 = l("_1xj7", [
 									a,
-									l(
+									m(
 										"video",
 										{
 											className: "_1xj8",
@@ -4781,23 +4790,23 @@ try {
 										},
 										[]
 									),
-									k("_3c3s"),
-									k("_1xj9")
+									l("_3c3s"),
+									l("_1xj9")
 								]);
-								this.$9 = m(this.$8, "._1xj8");
-								this.$10 = m(this.$8, "._1xj9");
-								this.$11 = m(this.$8, "._3c3s");
-								this.$9.poster = this.$2;
-								this.$9.setAttribute("webkit-playsinline", "true");
-								this.$9.setAttribute("playsinline", "true");
-								this.$9.setAttribute("muted", "true");
-								this.$15();
+								this.$8 = n(this.$7, "._1xj8");
+								this.$9 = n(this.$7, "._1xj9");
+								this.$10 = n(this.$7, "._3c3s");
+								this.$8.poster = this.$2;
+								this.$8.setAttribute("webkit-playsinline", "true");
+								this.$8.setAttribute("playsinline", "true");
+								this.$8.setAttribute("muted", "true");
+								this.$14();
 							};
-							a.prototype.$14 = function() {
+							a.prototype.$13 = function() {
 								__p && __p();
 								var a = ES(
 										function(a) {
-											this.setMuted(!this.$12), a.stopPropagation();
+											this.setMuted(!this.$11), a.stopPropagation();
 										},
 										"bind",
 										!0,
@@ -4805,23 +4814,23 @@ try {
 									),
 									b = ES(
 										function(a) {
-											this.$9.paused ? this.play(!0) : this.pause(!0),
-												this.$4 && this.$4(),
+											this.$8.paused ? this.play(!0) : this.pause(!0),
+												this.$3 && this.$3(),
 												a.stopPropagation();
 										},
 										"bind",
 										!0,
 										this
 									);
-								this.$8.addEventListener(
+								this.$7.addEventListener(
 									"click",
 									ES(
 										function(c) {
-											if (c.target === this.$10) {
+											if (c.target === this.$9) {
 												a(c);
 												return;
 											}
-											if (c.target === this.$9 || c.target === this.$11) {
+											if (c.target === this.$8 || c.target === this.$10) {
 												b(c);
 												return;
 											}
@@ -4839,59 +4848,66 @@ try {
 									!0,
 									this
 								);
-								this.$9.addEventListener("webkitendfullscreen", c);
-								this.$9.addEventListener("fullscreenchange", c);
-								this.$9.addEventListener("webkitfullscreenchange", c);
+								this.$8.addEventListener("webkitendfullscreen", c);
+								this.$8.addEventListener("fullscreenchange", c);
+								this.$8.addEventListener("webkitfullscreenchange", c);
 							};
 							a.prototype.getElement = function() {
-								return this.$8;
+								return this.$7;
 							};
 							a.prototype.setMuted = function(a) {
-								(this.$12 = a), (this.$9.muted = a), this.$15();
+								(this.$11 = a), (this.$8.muted = a), this.$14();
 							};
-							a.prototype.$15 = function() {
-								this.$10.classList.toggle("_1xja", this.$12),
-									this.$10.classList.toggle("_1xjb", !this.$12);
+							a.prototype.$14 = function() {
+								this.$9.classList.toggle("_1xja", this.$11),
+									this.$9.classList.toggle("_1xjb", !this.$11);
 							};
 							a.prototype.play = function(a) {
-								this.$7 = !0;
-								this.$6 = this.$6 && !a;
-								a = this.$9.play();
-								a && a.then instanceof Function
-									? a.then(
+								__p && __p();
+								this.$6 = !0;
+								this.$5 = this.$5 && !a;
+								a = this.$8.play();
+								if (a instanceof Promise)
+									return a
+										.then(
 											ES(
 												function() {
-													this.$11.classList.add("_2a06");
-												},
-												"bind",
-												!0,
-												this
-											),
-											ES(
-												function() {
-													this.$11.classList.remove("_2a06"),
-														this.$3 && this.$3();
+													this.$10.classList.add("_2a06");
 												},
 												"bind",
 												!0,
 												this
 											)
-									  )
-									: this.$11.classList.add("_2a06");
+										)
+										["catch"](
+											ES(
+												function(a) {
+													this.$10.classList.remove("_2a06");
+													throw a;
+												},
+												"bind",
+												!0,
+												this
+											)
+										);
+								else {
+									this.$10.classList.add("_2a06");
+									return g.resolve();
+								}
 							};
 							a.prototype.pause = function(a) {
-								(this.$6 = this.$6 || !!a),
-									this.$9.pause(),
-									this.$11.classList.remove("_2a06");
+								(this.$5 = this.$5 || !!a),
+									this.$8.pause(),
+									this.$10.classList.remove("_2a06");
 							};
 							a.prototype.wasManuallyPaused = function() {
-								return this.$6;
+								return this.$5;
 							};
 							a.prototype.hasPlayed = function() {
-								return this.$7;
+								return this.$6;
 							};
 							a.prototype.getVideoElement = function() {
-								return this.$9;
+								return this.$8;
 							};
 							e.exports = a;
 						},
@@ -7105,23 +7121,66 @@ try {
 						null
 					);
 					__d(
+						"promiseDone.anweb",
+						[],
+						function(a, b, c, d, e, f) {
+							function a(a, b, c) {
+								var d = arguments.length > 1 ? a.then(b, c) : a;
+								d.then(null, function(a) {
+									window.setTimeout(function() {
+										throw a;
+									});
+								});
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"PlayVideoWhenOnScreenBehavior.anweb",
-						["OnScreenBehavior.anweb"],
-						function(a, b, c, d, e, f, g) {
+						["OnScreenBehavior.anweb", "promiseDone.anweb"],
+						function(a, b, c, d, e, f, g, h) {
 							"use strict";
 							__p && __p();
-							var h;
+							var i;
 							b = babelHelpers.inherits(a, g);
-							h = b && b.prototype;
-							function a(a, b) {
-								h.constructor.call(this),
+							i = b && b.prototype;
+							function a(a, b, c) {
+								i.constructor.call(this),
 									(this.$PlayVideoWhenOnScreenBehavior1 = a),
-									(this.$PlayVideoWhenOnScreenBehavior2 = b);
+									(this.$PlayVideoWhenOnScreenBehavior2 = b),
+									(this.$PlayVideoWhenOnScreenBehavior3 = c),
+									(this.$PlayVideoWhenOnScreenBehavior4 = !1);
 							}
 							a.prototype.onCompletelyEntered = function() {
-								this.$PlayVideoWhenOnScreenBehavior2 &&
+								!this.$PlayVideoWhenOnScreenBehavior4 &&
+									this.$PlayVideoWhenOnScreenBehavior2 &&
 									!this.$PlayVideoWhenOnScreenBehavior1.wasManuallyPaused() &&
-									this.$PlayVideoWhenOnScreenBehavior1.play();
+									((this.$PlayVideoWhenOnScreenBehavior4 = !0),
+									h(
+										this.$PlayVideoWhenOnScreenBehavior1.play().then(
+											ES(
+												function() {
+													return this.$PlayVideoWhenOnScreenBehavior3.event(
+														"VIDEO_AUTOPLAY_SUCCEEDED"
+													);
+												},
+												"bind",
+												!0,
+												this
+											),
+											ES(
+												function() {
+													return this.$PlayVideoWhenOnScreenBehavior3.event(
+														"VIDEO_AUTOPLAY_FAILED"
+													);
+												},
+												"bind",
+												!0,
+												this
+											)
+										)
+									));
 							};
 							a.prototype.onMostlyLeft = function() {
 								this.$PlayVideoWhenOnScreenBehavior1.pause();
@@ -7875,6 +7934,9 @@ try {
 							a.prototype.$71 = function(a, b, c) {
 								__p && __p();
 								if (!b.adVideo) throw new Error("No video for Ad.");
+								this.$23.event(
+									c ? "VIDEO_AUTOPLAY_ENABLED" : "VIDEO_AUTOPLAY_DISABLED"
+								);
 								this.$21 = !0;
 								this.$22.addRequiredEvent();
 								var d = new B(
@@ -7883,14 +7945,6 @@ try {
 									ES(
 										function() {
 											this.$22.requiredEventFired();
-										},
-										"bind",
-										!0,
-										this
-									),
-									ES(
-										function() {
-											return this.$23.event("PLAY_FAILED");
 										},
 										"bind",
 										!0,
@@ -7913,7 +7967,7 @@ try {
 									this.$9 &&
 										((this.$9.style.maxWidth = "100vw"),
 										(this.$9.style.maxHeight = "100vh"));
-								} else this.$20.addBehavior(new I(d, c));
+								} else this.$20.addBehavior(new I(d, c, this.$23));
 								new A(
 									d.getVideoElement(),
 									this.$68,
@@ -8468,7 +8522,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4714879","namespace":"FB","message":"' +
+				'","revision":"4715778","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
