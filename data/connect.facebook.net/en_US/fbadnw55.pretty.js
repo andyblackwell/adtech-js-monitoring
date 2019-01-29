@@ -1,4 +1,4 @@
-/*1548777259,,JIT Construction: v4719894,en_US*/
+/*1548784686,,JIT Construction: v4720021,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -7644,12 +7644,14 @@ try {
 											0
 									  )
 									: this.$39(a.nativeAd);
-								this.$56();
-								this.$23.eventWithParams(this.$57("ADNW_ADLOADED"));
-								this.$58();
+								this.$34().$48 === !0 &&
+									(this.$19 = this.$56(a.nativeAd, this.$11, b));
+								this.$57();
+								this.$23.eventWithParams(this.$58("ADNW_ADLOADED"));
 								this.$59();
+								this.$60();
 							};
-							a.prototype.$57 = function(a) {
+							a.prototype.$58 = function(a) {
 								var b = this.$18;
 								if (!b) return { event_name: a, viewability: j.UNKNOWN };
 								b = this.$18.getCurrentViewabilityState();
@@ -7666,7 +7668,7 @@ try {
 									page_height: b.pageHeight || 0
 								};
 							};
-							a.prototype.$59 = function() {
+							a.prototype.$60 = function() {
 								var a = this.$34().$41.forceIframeSize;
 								if (a) {
 									var b = this.$32();
@@ -7675,7 +7677,7 @@ try {
 										(b.style.height = y.cssSize(a.h)));
 								}
 							};
-							a.prototype.$58 = function() {
+							a.prototype.$59 = function() {
 								var a = this.$37().querySelectorAll(
 									"[data-auto-fit-text=true]"
 								);
@@ -7741,7 +7743,8 @@ try {
 								(a.nativeAd.loaded = !1),
 									b && b.raw && ((this.$8.innerHTML = b.raw), (c = this.$8)),
 									c && ((c = this.$37()), this.$33(c)),
-									(this.$19 = this.$60(a.nativeAd, c, d)),
+									this.$34().$48 !== !0 &&
+										(this.$19 = this.$56(a.nativeAd, c, d)),
 									(this.$17 = this.$61(
 										c,
 										a.nativeAd,
@@ -7767,7 +7770,7 @@ try {
 							};
 							a.prototype.$64 = function() {
 								this.$23.eventWithParams(
-									this.$57("ADNW_MOSTLY_VIEWABLE_FOR_1S")
+									this.$58("ADNW_MOSTLY_VIEWABLE_FOR_1S")
 								);
 							};
 							a.prototype.$65 = function() {
@@ -7801,7 +7804,7 @@ try {
 											)
 										}
 									});
-								this.$23.eventWithParams(this.$57("ADNW_ADIMPRESSION"));
+								this.$23.eventWithParams(this.$58("ADNW_ADIMPRESSION"));
 								this.$35() && this.$23.event(v.HAS_INLINE_XOUT);
 							};
 							a.prototype.$67 = function() {
@@ -7818,7 +7821,7 @@ try {
 										? "SAFE_FRAME"
 										: "FRIENDLY_IFRAME";
 							};
-							a.prototype.$60 = function(a, b, c) {
+							a.prototype.$56 = function(a, b, c) {
 								__p && __p();
 								if (this.$34().$48 !== !0) return a && b ? b : c;
 								a = a && b;
@@ -7833,7 +7836,7 @@ try {
 								}
 								return c;
 							};
-							a.prototype.$56 = function() {
+							a.prototype.$57 = function() {
 								__p && __p();
 								this.$18 = new i(this.$12, this.$19, this.$34().$47);
 								this.$18.attachBehaviorManager(this.$20);
@@ -8539,7 +8542,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4719894","namespace":"FB","message":"' +
+				'","revision":"4720021","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
