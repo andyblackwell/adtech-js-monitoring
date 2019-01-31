@@ -412,7 +412,7 @@
 		return Ma("0") || 0;
 	};
 	Pa("getVersion", function() {
-		return "297";
+		return "299";
 	});
 	var E = function() {},
 		Va = "function" == typeof Uint8Array,
@@ -896,7 +896,7 @@
 				return;
 			}
 			d && "preload" == c && (f.as = d);
-			e && (f.nonce = e);
+			e && f.setAttribute("nonce", e);
 			if ((a = a.getElementsByTagName("head")[0]))
 				try {
 					a.appendChild(f);
@@ -1197,6 +1197,7 @@
 		[38, null, null, [1]],
 		[null, 7, null, [null, 0.1]],
 		[40, null, null, [1]],
+		[72, null, null, [1]],
 		[61, null, null, [1]],
 		[46, null, null, [1]],
 		[null, null, 8, [null, null, "/pagead/js/rum.js"]],
@@ -1210,12 +1211,12 @@
 		[15, null, null, [1]],
 		[null, 11, null, [null, 10]],
 		[null, 2, null, [null, 1e3]],
+		[106, null, null, [1]],
 		[45, null, null, []],
 		[null, null, 2, [null, null, "1-0-31"]],
 		[21, null, null, [1]],
 		[7, null, null, [1]],
-		[94, null, null, [1]],
-		[103, null, null, [1]]
+		[94, null, null, [1]]
 	];
 	var cc = function() {
 		Eb.call(this, A(210), { u: A(211), A: A(227), D: A(226) });
@@ -1274,7 +1275,7 @@
 		}),
 		(a[4] = Ua),
 		(a[2] = function() {
-			return 297;
+			return 299;
 		}),
 		(a[5] = function() {
 			var a = bb();
@@ -1565,8 +1566,7 @@
 				3
 			],
 			[1, [[21062693], [21062694, [[65, null, null, [1]]]]]],
-			[10, [[21062697], [21062698, [[72, null, null, [1]]]]]],
-			[50, [[21062722], [21062723, [[69, null, null, [1]]]]], null, 9],
+			[50, [[21062722], [21062723, [[69, null, null, [1]]]]]],
 			[10, [[21062724], [21062725, [[67, null, null, [1]]]]]],
 			[
 				null,
@@ -1615,7 +1615,7 @@
 				8
 			],
 			[10, [[21062844], [21062845]]],
-			[40, [[21062854], [21062855, [[100, null, null, [1]]]]]],
+			[50, [[21062854], [21062855, [[100, null, null, [1]]]]]],
 			[
 				1,
 				[[21062856], [21062857, [[99, null, null, [1]]]]],
@@ -1659,34 +1659,12 @@
 			],
 			[1, [[21062949], [21062950, [[108, null, null, [1]]]]]],
 			[10, [[21062957], [21062958, [[102, null, null, [1]]]]]],
-			[50, [[21062959], [21062960, [[106, null, null, [1]]]]]],
 			[
 				1,
 				[[21062970], [21062971, [[109, null, null, [1]]]]],
 				[2, [[8, null, null, 2, null, 289], [7, null, null, 2, null, 1e3]]]
 			],
-			[
-				10,
-				[
-					[21062975],
-					[21062976, [[100, null, null, [1]]]],
-					[21062977, [[104, null, null, [1]]]],
-					[21062978, [[100, null, null, [1]], [104, null, null, [1]]]]
-				]
-			],
-			[
-				1,
-				[[21063003], [21063004]],
-				[
-					2,
-					[
-						[4, null, 7],
-						[8, null, null, 2, null, 278],
-						[7, null, null, 2, null, 1e3]
-					]
-				],
-				9
-			],
+			[10, [[21062975], [21062977, [[104, null, null, [1]]]]]],
 			[
 				1,
 				[[21063011], [21063012, [[117, null, null, [1]]]]],
@@ -1708,9 +1686,9 @@
 					[21063043, [[107, null, null, [1]]]]
 				]
 			],
-			[10, [[21063044], [21063045, [[110, null, null, [1]]]]], null, 9],
+			[10, [[21063044], [21063045, [[110, null, null, [1]]]]]],
 			[
-				1,
+				5,
 				[[21063046], [21063047], [21063048]],
 				[
 					2,
@@ -1723,7 +1701,7 @@
 				9
 			],
 			[
-				400,
+				500,
 				[
 					[
 						21063064,
@@ -1743,9 +1721,41 @@
 				4
 			],
 			[
-				1,
+				10,
 				[[21063065], [21063066, [[116, null, null, [1]]]]],
 				[2, [[8, null, null, 2, null, 294], [7, null, null, 2, null, 1e3]]]
+			],
+			[
+				1,
+				[
+					[21063090],
+					[
+						21063091,
+						[[null, null, null, [null, null, null, ["cb", "1"]], null, 1]]
+					]
+				]
+			],
+			[
+				10,
+				[[21063094], [21063095], [21063096]],
+				[
+					2,
+					[
+						[4, null, 7],
+						[8, null, null, 2, null, 278],
+						[7, null, null, 2, null, 1e3]
+					]
+				],
+				9
+			],
+			[50, [[21063101], [21063102, [[72, null, null, []]]]]],
+			[
+				1,
+				[
+					[21063105],
+					[21063106, [[65, null, null, [1]]]],
+					[21063107, [[65, null, null, [1]], [71, null, null, [1]]]]
+				]
 			],
 			[
 				1e3,
@@ -1847,7 +1857,7 @@
 				1
 			],
 			[
-				1,
+				10,
 				[
 					[
 						21062549,
@@ -1861,7 +1871,6 @@
 				null,
 				1
 			],
-			[50, [[21062749], [21062750, [[95, null, null, [1]]]]]],
 			[
 				1e3,
 				[
@@ -1926,25 +1935,69 @@
 				1,
 				[
 					[
-						21063092,
+						21063120,
 						[
 							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063092"]],
+							[null, 14, null, [null, 1]],
+							[null, null, 5, [null, null, "21063120"]],
 							[null, 12, null, [null, 297]],
-							[null, null, 7, [null, null, "21063092"]],
+							[null, null, 7, [null, null, "21063120"]],
 							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063092"]]
+							[null, null, 6, [null, null, "21063120"]]
 						]
 					],
 					[
-						21063093,
+						21063121,
 						[
 							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063093"]],
-							[null, 12, null, [null, 299]],
-							[null, null, 7, [null, null, "21063093"]],
+							[null, 14, null, [null, 1]],
+							[null, null, 5, [null, null, "21063121"]],
+							[null, 12, null, [null, 300]],
+							[null, null, 7, [null, null, "21063121"]],
 							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063093"]]
+							[null, null, 6, [null, null, "21063121"]]
+						]
+					],
+					[
+						21063122,
+						[
+							[null, 7, null, [null, 1]],
+							[null, 14, null, [null, 1]],
+							[null, null, 5, [null, null, "21063122"]],
+							[null, 12, null, [null, 300]],
+							[null, null, 7, [null, null, "21063122"]],
+							[60, null, null, [1]],
+							[null, null, 6, [null, null, "21063122"]],
+							[121, null, null, [1]]
+						]
+					]
+				],
+				null,
+				1
+			],
+			[
+				1,
+				[
+					[
+						21063123,
+						[
+							[null, 7, null, [null, 1]],
+							[null, null, 5, [null, null, "21063123"]],
+							[null, 12, null, [null, 299]],
+							[null, null, 7, [null, null, "21063123"]],
+							[60, null, null, [1]],
+							[null, null, 6, [null, null, "21063123"]]
+						]
+					],
+					[
+						21063124,
+						[
+							[null, 7, null, [null, 1]],
+							[null, null, 5, [null, null, "21063124"]],
+							[null, 12, null, [null, 301]],
+							[null, null, 7, [null, null, "21063124"]],
+							[60, null, null, [1]],
+							[null, null, 6, [null, null, "21063124"]]
 						]
 					]
 				],
@@ -2046,7 +2099,7 @@
 			if (a) return a;
 			a = Z();
 			var b = Cb(4, "/gpt/pubads_impl_"),
-				c = lc() || R(2, 12, 0) || "297",
+				c = lc() || R(2, 12, 0) || "299",
 				d = Cb(5);
 			a = a + b + c + ".js";
 			d && (a += "?" + d);
@@ -2130,7 +2183,7 @@
 					R(1, 16, !1) && S(a, b, "preload", "script"),
 					R(1, 108, !1) &&
 						((d = Cb(6)),
-						(e = lc() || R(2, 12, 0) || "297"),
+						(e = lc() || R(2, 12, 0) || "299"),
 						(d =
 							Z() +
 							"/gpt/" +
