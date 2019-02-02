@@ -18,7 +18,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-fbq.version = "2.8.38";
+fbq.version = "2.8.39";
 fbq._releaseSegment = "stable";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -606,6 +606,110 @@ fbq.pendingConfigs = ["global_config"];
 			(f.ensureModuleRegistered = function(b, a) {
 				f.fbIsModuleLoaded(b) || (f.__fbeventsModules[b] = a);
 			}));
+		f.ensureModuleRegistered("SignalsEvents", function() {
+			return (function(g, h, j, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsLogging");
+					a = a.logError;
+					var b = f.getFbeventsModules("SignalsFBEventsUtils"),
+						c = b.keys,
+						d = 0;
+					b = (function() {
+						function b() {
+							var a = this;
+							k(this, b);
+							this._listeners = {};
+							this.on = function() {
+								return a._on.apply(a, arguments);
+							};
+							this.once = function() {
+								return a._once.apply(a, arguments);
+							};
+							this.trigger = function(b) {
+								for (
+									var c = arguments.length, d = Array(c > 1 ? c - 1 : 0), e = 1;
+									e < c;
+									e++
+								)
+									d[e - 1] = arguments[e];
+								return a._trigger.apply(a, [b].concat(d));
+							};
+							this.unsubscribe = function() {
+								return a._unsubscribe.apply(a, arguments);
+							};
+						}
+						i(b, [
+							{
+								key: "_on",
+								value: function(a, b) {
+									var c = this,
+										e = d++;
+									this._listeners[a] || (this._listeners[a] = {});
+									this._listeners[a][e.toString()] = b;
+									return function() {
+										c.unsubscribe(a, e.toString());
+									};
+								}
+							},
+							{
+								key: "_once",
+								value: function(a, b) {
+									var c = arguments,
+										d = this.on(a, function() {
+											d();
+											return b.apply(null, c);
+										});
+									return d;
+								}
+							},
+							{
+								key: "_trigger",
+								value: function(b) {
+									var d = this;
+									for (
+										var e = arguments.length,
+											f = Array(e > 1 ? e - 1 : 0),
+											g = 1;
+										g < e;
+										g++
+									)
+										f[g - 1] = arguments[g];
+									return !this._listeners[b]
+										? []
+										: c(this._listeners[b]).map(function(c) {
+												try {
+													return !d._listeners[b][c]
+														? []
+														: d._listeners[b][c].apply(null, f);
+												} catch (b) {
+													a(b);
+												}
+												return null;
+										  });
+								}
+							},
+							{
+								key: "_unsubscribe",
+								value: function(a, b) {
+									var d = this._listeners[a];
+									d &&
+										d[b] &&
+										(delete d[b],
+										c(d).length === 0 && delete this._listeners[a]);
+								}
+							}
+						]);
+						return b;
+					})();
+					b = new b();
+					e.exports = b;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
 		f.ensureModuleRegistered("SignalsEventValidation", function() {
 			return (function(g, h, i, j) {
 				var k = { exports: {} };
@@ -787,110 +891,6 @@ fbq.pendingConfigs = ["global_config"];
 					};
 				})();
 				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsEvents", function() {
-			return (function(g, h, j, d) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsLogging");
-					a = a.logError;
-					var b = f.getFbeventsModules("SignalsFBEventsUtils"),
-						c = b.keys,
-						d = 0;
-					b = (function() {
-						function b() {
-							var a = this;
-							k(this, b);
-							this._listeners = {};
-							this.on = function() {
-								return a._on.apply(a, arguments);
-							};
-							this.once = function() {
-								return a._once.apply(a, arguments);
-							};
-							this.trigger = function(b) {
-								for (
-									var c = arguments.length, d = Array(c > 1 ? c - 1 : 0), e = 1;
-									e < c;
-									e++
-								)
-									d[e - 1] = arguments[e];
-								return a._trigger.apply(a, [b].concat(d));
-							};
-							this.unsubscribe = function() {
-								return a._unsubscribe.apply(a, arguments);
-							};
-						}
-						i(b, [
-							{
-								key: "_on",
-								value: function(a, b) {
-									var c = this,
-										e = d++;
-									this._listeners[a] || (this._listeners[a] = {});
-									this._listeners[a][e.toString()] = b;
-									return function() {
-										c.unsubscribe(a, e.toString());
-									};
-								}
-							},
-							{
-								key: "_once",
-								value: function(a, b) {
-									var c = arguments,
-										d = this.on(a, function() {
-											d();
-											return b.apply(null, c);
-										});
-									return d;
-								}
-							},
-							{
-								key: "_trigger",
-								value: function(b) {
-									var d = this;
-									for (
-										var e = arguments.length,
-											f = Array(e > 1 ? e - 1 : 0),
-											g = 1;
-										g < e;
-										g++
-									)
-										f[g - 1] = arguments[g];
-									return !this._listeners[b]
-										? []
-										: c(this._listeners[b]).map(function(c) {
-												try {
-													return !d._listeners[b][c]
-														? []
-														: d._listeners[b][c].apply(null, f);
-												} catch (b) {
-													a(b);
-												}
-												return null;
-										  });
-								}
-							},
-							{
-								key: "_unsubscribe",
-								value: function(a, b) {
-									var d = this._listeners[a];
-									d &&
-										d[b] &&
-										(delete d[b],
-										c(d).length === 0 && delete this._listeners[a]);
-								}
-							}
-						]);
-						return b;
-					})();
-					b = new b();
-					e.exports = b;
-				})();
-				return e.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsConfigStore", function() {
@@ -1384,6 +1384,27 @@ fbq.pendingConfigs = ["global_config"];
 				return e.exports;
 			})(a, b, c, d);
 		});
+		f.ensureModuleRegistered("signalsFBEventsInjectMethod", function() {
+			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("signalsFBEventsMakeSafe");
+					function b(b, c, d) {
+						var e = b[c],
+							f = a(d);
+						b[c] = function() {
+							var a = e.apply(this, arguments);
+							f.apply(this, arguments);
+							return a;
+						};
+					}
+					k.exports = b;
+				})();
+				return k.exports;
+			})(a, b, c, d);
+		});
 		f.ensureModuleRegistered("SignalsFBEventsJSLoader", function() {
 			return (function(f, g, h, i) {
 				var j = { exports: {} };
@@ -1603,6 +1624,31 @@ fbq.pendingConfigs = ["global_config"];
 						disableSampling: j
 					};
 					k.exports = a;
+				})();
+				return k.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("signalsFBEventsMakeSafe", function() {
+			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsLogging");
+					a = a.logError;
+					function b(b) {
+						return typeof b !== "function"
+							? b
+							: function() {
+									try {
+										return b.apply(this, arguments);
+									} catch (b) {
+										a(b);
+									}
+									return void 0;
+							  };
+					}
+					k.exports = b;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -2580,52 +2626,6 @@ fbq.pendingConfigs = ["global_config"];
 						sendEvent: r,
 						setIsChrome: a
 					};
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("signalsFBEventsInjectMethod", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("signalsFBEventsMakeSafe");
-					function b(b, c, d) {
-						var e = b[c],
-							f = a(d);
-						b[c] = function() {
-							var a = e.apply(this, arguments);
-							f.apply(this, arguments);
-							return a;
-						};
-					}
-					k.exports = b;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("signalsFBEventsMakeSafe", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsLogging");
-					a = a.logError;
-					function b(b) {
-						return typeof b !== "function"
-							? b
-							: function() {
-									try {
-										return b.apply(this, arguments);
-									} catch (b) {
-										a(b);
-									}
-									return void 0;
-							  };
-					}
-					k.exports = b;
 				})();
 				return k.exports;
 			})(a, b, c, d);
