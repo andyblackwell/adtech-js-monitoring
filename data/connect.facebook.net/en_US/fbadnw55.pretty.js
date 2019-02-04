@@ -1,4 +1,4 @@
-/*1549236614,,JIT Construction: v4734934,en_US*/
+/*1549286181,,JIT Construction: v4735204,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -8485,26 +8485,35 @@ try {
 								a.data = {};
 								a.core = new g(a);
 								var c = function(b) {
+										__p && __p();
 										if (a.isAdLoaded) return;
 										a.isAdLoaded = !0;
 										var c = j(b.iframeData),
 											d = b.data.features || {},
 											e = b.data.clientEventURL || "";
-										c.result === "valid"
-											? ((a.data.result = c.result),
-											  a.core.sendToFacebook({
-													name: "init",
-													params: {
-														key: h.onlyString(a.data.key),
-														features: d,
-														clientEventUrl: h.onlyString(e)
-													}
-											  }))
-											: (b.data = {
-													errorCode: "1007",
-													errorMsg: "Incorrect Domain",
-													placementId: b.placementId
-											  });
+										if (c.result === "valid") {
+											a.data.result = c.result;
+											c = !!d.useClickUrlFromAdResponse;
+											var f = null;
+											if (c) {
+												c = b.data.nativeAd;
+												f = c && c.href;
+											}
+											a.core.sendToFacebook({
+												name: "init",
+												params: {
+													key: h.onlyString(a.data.key),
+													features: d,
+													clientEventUrl: h.onlyString(e),
+													clickUrl: f
+												}
+											});
+										} else
+											b.data = {
+												errorCode: "1007",
+												errorMsg: "Incorrect Domain",
+												placementId: b.placementId
+											};
 										a.core.adLoaded(
 											b.data,
 											a.iframe,
@@ -8566,7 +8575,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4734934","namespace":"FB","message":"' +
+				'","revision":"4735204","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
