@@ -1,4 +1,4 @@
-/*1549286181,,JIT Construction: v4735204,en_US*/
+/*1549292811,,JIT Construction: v4735306,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4929,10 +4929,12 @@ try {
 								return this.$8;
 							};
 							a.prototype.getDuration = function() {
-								return this.$8 == null ? 0 : this.$8.duration;
+								return this.$8 == null ? 0 : Math.round(this.$8.duration * 1e3);
 							};
 							a.prototype.getCurrentTime = function() {
-								return this.$8 == null ? 0 : this.$8.currentTime;
+								return this.$8 == null
+									? 0
+									: Math.round(this.$8.currentTime * 1e3);
 							};
 							e.exports = a;
 						},
@@ -8575,7 +8577,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4735204","namespace":"FB","message":"' +
+				'","revision":"4735306","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
