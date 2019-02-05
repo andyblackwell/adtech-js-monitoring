@@ -18,7 +18,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-fbq.version = "2.8.39";
+fbq.version = "2.8.40";
 fbq._releaseSegment = "stable";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -1228,11 +1228,7 @@ fbq.pendingConfigs = ["global_config"];
 								key: "getDefaultSendData",
 								value: function(a, b, c) {
 									var d = this.getPixel(a);
-									c = {
-										eventData: c || { eventID: "" },
-										eventName: b,
-										pixelId: a
-									};
+									c = { eventData: c || {}, eventName: b, pixelId: a };
 									d &&
 										(d.userData && (c.userData = d.userData),
 										d.agent != null && d.agent !== ""
