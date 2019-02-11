@@ -1,4 +1,4 @@
-/*1549577752,,JIT Construction: v4747275,en_US*/
+/*1549891609,,JIT Construction: v4753477,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2226,12 +2226,13 @@ try {
 					})(typeof global === "undefined" ? this : global);
 					__d("JSSDKCssConfig", [], {
 						rules:
-							"._2vfx{font-size:100px;overflow:hidden}._2vfy{overflow:hidden}._2vf-{overflow:hidden;transition:transform .3s cubic-bezier(.14, 1, 1, 1);will-change:transform}._11u9{float:left;overflow:hidden;position:relative;text-decoration:none}._11u-{background:linear-gradient(rgba(0,0,0,0) 0\u0025, rgba(0,0,0,.2) 100\u0025);bottom:0;left:0;position:absolute;right:0;top:60\u0025}._11u- ._11u_{bottom:8px;color:#fff;left:0;margin-top:0;padding-left:8px;padding-right:8px;position:absolute;right:0;text-shadow:0 1px 3px black}._11u_{color:#606770;font-size:12\u0025;font-weight:normal;margin-top:4.023\u0025}._41-w ._11u_{font-size:13px}._41-w ._11vj{height:18px;line-height:18px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._11v0,._11vj{line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._11v0{font-weight:500}._11vj{font-weight:normal}._11us{background-position:center center;background-repeat:no-repeat;background-size:cover;border-radius:10px;width:100\u0025}._11ur{border-radius:10px;overflow:hidden;position:relative}._11vk{border:1px solid #3578e5;border-radius:4px;color:#3578e5;font-size:12\u0025;font-weight:normal;line-height:1;margin-bottom:4.023\u0025;margin-top:4.023\u0025;padding-bottom:3.448\u0025;padding-top:3.448\u0025;text-align:center}\n._1xj7{background-color:#000;height:100\u0025;overflow:hidden;position:relative;width:100\u0025}._1xj8{height:100\u0025;left:0;position:absolute;top:0;width:100\u0025}._1xj9{background-position:center;background-repeat:no-repeat;bottom:12px;cursor:pointer;height:20px;position:absolute;right:12px;width:20px}._73wr ._1xj9{background-color:rgba(0, 0, 0, .3);background-size:16px 16px;border-radius:30px;padding:14px;right:8px;top:50px}._1xj9._1xja{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._1xj9._1xjb{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/ZwUyODcSYJ2.png)}._3c3s{background-color:rgba(0, 0, 0, .6);background-image:url(https://www.facebook.com/images/marketing/video/play-medium.png);background-position:center;background-repeat:no-repeat;height:100\u0025;opacity:1;position:absolute;transition:opacity .3s;visibility:visible;width:100\u0025}._3c3s._2a06{opacity:0;transition:opacity .3s, visibility 0s linear .3s;visibility:hidden}._6pfr{background-position:center center;background-repeat:no-repeat;background-size:cover;bottom:-30px;filter:blur(20px);left:-30px;pointer-events:none;position:absolute;right:-30px;top:-30px}._7462 ._3c3s,._7462 ._1xj9,._7462 ._1xj8{display:none}\n._74hs{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y0/r/1W8xR-TQBLS.png);background-position:center;background-repeat:no-repeat;background-size:cover;height:24px;position:absolute;right:16px;top:16px;width:52px}\n._74vg{align-items:center;background-color:rgba(0, 0, 0, .6);display:flex;height:100\u0025;justify-content:center;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity .3s;width:100\u0025;z-index:100}._727i{align-items:center;background-color:#fff;border-radius:12px;display:flex;flex-direction:column;font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;justify-content:center;margin:10px;padding:12px 12px;text-align:center;width:200px}._727l{background-size:contain;border-radius:50\u0025;height:60px;margin-right:4px;margin-top:24px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:60px}._727m{margin:4px 4px 0 0}._727k{margin-right:4px;margin-top:4px}._727n{background-color:#3578e5;border-radius:4px;box-sizing:border-box;color:#fff;font-weight:normal;margin-top:24px;padding:6px;width:80\u0025}._727o{opacity:1}._727j{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/jEwNOnngB02.png);background-size:contain;height:16px;margin-left:auto;text-align:right;width:16px}\n._6qhh{font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;font-weight:normal;text-align:left}._6qhd{align-items:center;animation:fadeIn .3s ease-in-out both;background:#dadde1;bottom:0;display:flex;justify-content:center;left:0;padding:5px;position:absolute;right:0;top:0;z-index:100}._6wfr ._6qhd{bottom:-0.5px;left:-0.5px;right:-0.5px;top:-0.5px}._6qhe{animation:fadeIn .3s ease-in-out both;background:white;border-radius:10px;box-shadow:0 2px 8px 0 rgba(0, 0, 0, .3);box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;max-width:320px;position:relative}._6qha{overflow-x:hidden;overflow-y:auto;padding-top:10px}._6qhg{height:23px;position:absolute;right:0;-webkit-tap-highlight-color:transparent;top:0}._6qhg:after{background-color:rgba(255, 255, 255, .8);background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png);background-position:27px 3px;background-repeat:no-repeat;background-size:12px 12px;border-radius:0 0 0 6px;box-shadow:0 0 4px 0 rgba(0, 0, 0, .15);content:'';display:block;height:18px;margin-left:5px;margin-top:0;width:42px}._6qhg:before{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yu/r/4l2RpWw-PLG.png);background-position:0 4px;background-repeat:no-repeat;background-size:10px 10px;border-right:1px solid rgba(0, 0, 0, .2);content:'';height:18px;left:11px;position:absolute;top:0;width:15px}._6qhb{box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;padding:10px 16px}._6qhc{padding-bottom:0}._6qhk,._6qgi{background-repeat:no-repeat;background-size:18px 18px;display:inline-block;height:18px;width:18px}._6qhh ._6qho{align-items:center;display:flex;flex-direction:row;margin:10px 0;text-decoration:none}._6qhk{flex-shrink:0;margin-right:10px}._6qhm{color:#1c1e21;font-weight:normal}._6qhl{font-size:16px;line-height:19px}._6qhn{color:#606770;font-size:14px;line-height:16px}._6qgk{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/NOeCWD5no4s.png)}._6qgl{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/BKiZzia0l7j.png)}._6qhp{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png)}._6qi1{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/PITveVN_6ro.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:20px;vertical-align:middle;width:20px}._6qhz{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/kS3NV5igXMY.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:11px;margin-right:6px;width:15px}._6qh6{font-weight:normal;padding-bottom:4px;position:relative}._6qh6:after{background:linear-gradient(white, rgba(255, 255, 255, 0));content:'';height:10px;left:0;position:absolute;right:0;top:100\u0025}._6qgh{border-bottom:1px solid #ccc;font-size:16px;line-height:20px;margin-bottom:6px;padding-bottom:6px;text-align:center}._6qh5{align-items:center;display:flex;flex-direction:row}._6qh4{color:#606770}._6qgi{flex-shrink:0;margin-right:10px}._6qh9{margin:0 -8px}._6qh9 ._6qh7{display:inline-block;margin-bottom:20px;margin-left:8px;margin-right:8px;vertical-align:middle}._6qh7{background:#ebedf0;border:none;border-radius:20px;color:#606770;font-size:14px;line-height:14px;padding:13px 16px;white-space:nowrap}._6qh7:focus,._6qh7:active{border:none;outline:none}._6qh7:active,._6qh8{background:#3578e5;color:#fff}._6qi4{align-items:center;display:flex;flex-direction:column}._6qhx{color:#1c1e21;font-size:16px;line-height:24px;margin-top:6px}._6qhy{color:#606770;font-size:14px;line-height:19px;margin:10px 0;text-align:center}._6qhu{background-position:center center;background-repeat:no-repeat;background-size:16px 16px;border-radius:50\u0025;height:42px;width:42px}._6qhv{background-color:#3578e5;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yE/r/oy4B7rSgGV0.png)}._6qhw{background-color:#f7923b;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/TQU64J6qQUe.png)}._6qi2{display:flex;flex-direction:row;margin-bottom:20px}._6qhh ._6qi0{align-items:center;color:#3578e5;display:flex;flex-direction:row;margin-top:auto;text-decoration:none;width:auto}._6qi1{margin-right:6px}._6qh-{border-radius:50\u0025;height:40px;margin-right:5px;width:40px}._6qhh ._6qi3{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/tlUefGrS_4W.png);background-position:center center;background-repeat:no-repeat;background-size:13px 13px;height:13px;margin-right:-10px;margin-top:-10px;padding:10px;position:absolute;right:16px;top:15px;width:13px}._6qhf{align-self:flex-start;color:#8d949e;font-size:16px;margin-top:20px}\u0040keyframes fadeIn{0\u0025{opacity:0}100\u0025{opacity:1}}",
+							"._2vfx{font-size:100px;overflow:hidden}._2vfy{overflow:hidden}._2vf-{overflow:hidden;transition:transform .3s cubic-bezier(.14, 1, 1, 1);will-change:transform}._11u9{float:left;overflow:hidden;position:relative;text-decoration:none}._11u-{background:linear-gradient(rgba(0,0,0,0) 0\u0025, rgba(0,0,0,.2) 100\u0025);bottom:0;left:0;position:absolute;right:0;top:60\u0025}._11u- ._11u_{bottom:8px;color:#fff;left:0;margin-top:0;padding-left:8px;padding-right:8px;position:absolute;right:0;text-shadow:0 1px 3px black}._11u_{color:#606770;font-size:12\u0025;font-weight:normal;margin-top:4.023\u0025}._41-w ._11u_{font-size:13px}._41-w ._11vj{height:18px;line-height:18px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._11v0,._11vj{line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._11v0{font-weight:500}._11vj{font-weight:normal}._11us{background-position:center center;background-repeat:no-repeat;background-size:cover;border-radius:10px;width:100\u0025}._11ur{border-radius:10px;overflow:hidden;position:relative}._11vk{border:1px solid #3578e5;border-radius:4px;color:#3578e5;font-size:12\u0025;font-weight:normal;line-height:1;margin-bottom:4.023\u0025;margin-top:4.023\u0025;padding-bottom:3.448\u0025;padding-top:3.448\u0025;text-align:center}\n._1xj7{background-color:#000;height:100\u0025;overflow:hidden;position:relative;width:100\u0025}._1xj8{height:100\u0025;left:0;position:absolute;top:0;width:100\u0025}._1xj9{background-position:center;background-repeat:no-repeat;bottom:12px;cursor:pointer;height:20px;position:absolute;right:12px;width:20px}._73wr ._1xj9{background-color:rgba(0, 0, 0, .3);background-size:16px 16px;border-radius:30px;padding:14px;right:8px;top:50px}._7jun ._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/ZwUyODcSYJ2.png)}._7juo ._3c3s{background-color:rgba(0, 0, 0, .6);background-image:url(https://www.facebook.com/images/marketing/video/play-medium.png);background-position:center;background-repeat:no-repeat;height:100\u0025;opacity:1;position:absolute;transition:opacity .3s;visibility:visible;width:100\u0025}._3c3s{opacity:0;transition:opacity .3s, visibility 0s linear .3s;visibility:hidden}._6pfr{background-position:center center;background-repeat:no-repeat;background-size:cover;bottom:-30px;filter:blur(20px);left:-30px;pointer-events:none;position:absolute;right:-30px;top:-30px}._7462 ._3c3s,._7462 ._1xj9,._7462 ._1xj8{display:none}\n._74hs{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y0/r/1W8xR-TQBLS.png);background-position:center;background-repeat:no-repeat;background-size:cover;height:24px;position:absolute;right:16px;top:16px;width:52px}\n._74vg{align-items:center;background-color:rgba(0, 0, 0, .6);display:flex;height:100\u0025;justify-content:center;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity .3s;width:100\u0025;z-index:100}._727i{align-items:center;background-color:#fff;border-radius:12px;display:flex;flex-direction:column;font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;justify-content:center;margin:10px;padding:12px 12px;text-align:center;width:200px}._727l{background-size:contain;border-radius:50\u0025;height:60px;margin-right:4px;margin-top:24px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:60px}._727m{margin:4px 4px 0 0}._727k{margin-right:4px;margin-top:4px}._727n{background-color:#3578e5;border-radius:4px;box-sizing:border-box;color:#fff;font-weight:normal;margin-top:24px;padding:6px;width:80\u0025}._727o{opacity:1}._727j{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/jEwNOnngB02.png);background-size:contain;height:16px;margin-left:auto;text-align:right;width:16px}\n._7juk{align-items:center;bottom:0;display:flex;flex-direction:row;font-size:14px;font-weight:normal;left:0;padding:12px 16px;position:absolute;right:0}._7jum ._7jul,._7jum ._7jue{opacity:0}._7jui{color:#fff;display:inline-block;flex-grow:0;min-width:40px;padding:0 8px;padding-left:0;text-align:center}._7jul{background-color:rgba(255, 255, 255, .6);border-radius:2px;display:inline-block;flex-grow:1;height:2px;margin:0 8px;overflow:hidden;transition:opacity 1s}._7jue{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ym/r/7Ri190UbT7O.png);background-position:center;background-repeat:no-repeat;cursor:pointer;height:24px;padding-left:0;transition:opacity 1s;width:24px}._7juo ._7jue{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/8qlISslWDk2.png)}._7juj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/ZwUyODcSYJ2.png);background-position:center;background-repeat:no-repeat;cursor:pointer;height:20px;width:20px}._7jun ._7juj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._7juh{background-color:#3578e5;height:2px;transition:width .5s}\n._6qhh{font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;font-weight:normal;text-align:left}._6qhd{align-items:center;animation:fadeIn .3s ease-in-out both;background:#dadde1;bottom:0;display:flex;justify-content:center;left:0;padding:5px;position:absolute;right:0;top:0;z-index:100}._6wfr ._6qhd{bottom:-0.5px;left:-0.5px;right:-0.5px;top:-0.5px}._6qhe{animation:fadeIn .3s ease-in-out both;background:white;border-radius:10px;box-shadow:0 2px 8px 0 rgba(0, 0, 0, .3);box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;max-width:320px;position:relative}._6qha{overflow-x:hidden;overflow-y:auto;padding-top:10px}._6qhg{height:23px;position:absolute;right:0;-webkit-tap-highlight-color:transparent;top:0}._6qhg:after{background-color:rgba(255, 255, 255, .8);background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png);background-position:27px 3px;background-repeat:no-repeat;background-size:12px 12px;border-radius:0 0 0 6px;box-shadow:0 0 4px 0 rgba(0, 0, 0, .15);content:'';display:block;height:18px;margin-left:5px;margin-top:0;width:42px}._6qhg:before{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yu/r/4l2RpWw-PLG.png);background-position:0 4px;background-repeat:no-repeat;background-size:10px 10px;border-right:1px solid rgba(0, 0, 0, .2);content:'';height:18px;left:11px;position:absolute;top:0;width:15px}._6qhb{box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;padding:10px 16px}._6qhc{padding-bottom:0}._6qhk,._6qgi{background-repeat:no-repeat;background-size:18px 18px;display:inline-block;height:18px;width:18px}._6qhh ._6qho{align-items:center;display:flex;flex-direction:row;margin:10px 0;text-decoration:none}._6qhk{flex-shrink:0;margin-right:10px}._6qhm{color:#1c1e21;font-weight:normal}._6qhl{font-size:16px;line-height:19px}._6qhn{color:#606770;font-size:14px;line-height:16px}._6qgk{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/NOeCWD5no4s.png)}._6qgl{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/BKiZzia0l7j.png)}._6qhp{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png)}._6qi1{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/PITveVN_6ro.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:20px;vertical-align:middle;width:20px}._6qhz{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/kS3NV5igXMY.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:11px;margin-right:6px;width:15px}._6qh6{font-weight:normal;padding-bottom:4px;position:relative}._6qh6:after{background:linear-gradient(white, rgba(255, 255, 255, 0));content:'';height:10px;left:0;position:absolute;right:0;top:100\u0025}._6qgh{border-bottom:1px solid #ccc;font-size:16px;line-height:20px;margin-bottom:6px;padding-bottom:6px;text-align:center}._6qh5{align-items:center;display:flex;flex-direction:row}._6qh4{color:#606770}._6qgi{flex-shrink:0;margin-right:10px}._6qh9{margin:0 -8px}._6qh9 ._6qh7{display:inline-block;margin-bottom:20px;margin-left:8px;margin-right:8px;vertical-align:middle}._6qh7{background:#ebedf0;border:none;border-radius:20px;color:#606770;font-size:14px;line-height:14px;padding:13px 16px;white-space:nowrap}._6qh7:focus,._6qh7:active{border:none;outline:none}._6qh7:active,._6qh8{background:#3578e5;color:#fff}._6qi4{align-items:center;display:flex;flex-direction:column}._6qhx{color:#1c1e21;font-size:16px;line-height:24px;margin-top:6px}._6qhy{color:#606770;font-size:14px;line-height:19px;margin:10px 0;text-align:center}._6qhu{background-position:center center;background-repeat:no-repeat;background-size:16px 16px;border-radius:50\u0025;height:42px;width:42px}._6qhv{background-color:#3578e5;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yE/r/oy4B7rSgGV0.png)}._6qhw{background-color:#f7923b;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/TQU64J6qQUe.png)}._6qi2{display:flex;flex-direction:row;margin-bottom:20px}._6qhh ._6qi0{align-items:center;color:#3578e5;display:flex;flex-direction:row;margin-top:auto;text-decoration:none;width:auto}._6qi1{margin-right:6px}._6qh-{border-radius:50\u0025;height:40px;margin-right:5px;width:40px}._6qhh ._6qi3{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/tlUefGrS_4W.png);background-position:center center;background-repeat:no-repeat;background-size:13px 13px;height:13px;margin-right:-10px;margin-top:-10px;padding:10px;position:absolute;right:16px;top:15px;width:13px}._6qhf{align-self:flex-start;color:#8d949e;font-size:16px;margin-top:20px}\u0040keyframes fadeIn{0\u0025{opacity:0}100\u0025{opacity:1}}",
 						components: [
 							"css:ANCarousel",
 							"css:ANWebVideoPlayer",
 							"css:ANXOutRewardedVideo",
 							"css:ANWebTwoStepClickDialog",
+							"css:ANWebVideoPlayerControls",
 							"css:ANXOut"
 						]
 					});
@@ -4809,30 +4810,258 @@ try {
 						null
 					);
 					__d(
+						"joinClasses",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							function a(a) {
+								var b = a || "",
+									c = arguments.length <= 1 ? 0 : arguments.length - 1;
+								for (var d = 0; d < c; d++) {
+									var e =
+										d + 1 < 1 || arguments.length <= d + 1
+											? void 0
+											: arguments[d + 1];
+									e != null && e !== "" && (b = (b ? b + " " : "") + e);
+								}
+								return b;
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"ANWebVideoPlayer.anweb",
-						["NativePromise", "VPAIDDomUtils", "csx", "cx", "nullthrows"],
-						function(a, b, c, d, e, f, g, h, i, j, k) {
+						[
+							"NativePromise",
+							"VPAIDDomUtils",
+							"csx",
+							"cx",
+							"joinClasses",
+							"nullthrows"
+						],
+						function(a, b, c, d, e, f, g, h, i, j, k, l) {
 							"use strict";
 							__p && __p();
-							var l = h.div,
-								m = h.dom;
-							function n(a, b) {
-								return k(a.querySelector(b));
+							var m = h.div,
+								n = h.dom;
+							function o(a, b, c) {
+								c === void 0 && (c = HTMLElement);
+								a = l(a.querySelector(b));
+								if (a instanceof c) return a;
+								throw new Error("Invalid element type");
 							}
-							function a(a, b, c, d) {
-								(this.$5 = !1),
-									(this.$6 = !1),
-									(this.$1 = a),
-									(this.$2 = b),
-									(this.$4 = c),
-									(this.$3 = d),
-									(this.$11 = !0),
-									this.$12(),
-									this.$13();
+							function p() {
+								__p && __p();
+								this.$10 = ES(
+									function(a) {
+										a = l(this.$7);
+										a.setMuted(!a.isMuted());
+									},
+									"bind",
+									!0,
+									this
+								);
+								this.$11 = ES(
+									function(a) {
+										var b = l(this.$7);
+										b.getVideoElement().paused ? b.play() : b.pause();
+										a.stopPropagation();
+									},
+									"bind",
+									!0,
+									this
+								);
+								this.$15 = ES(
+									function() {
+										this.$16();
+									},
+									"bind",
+									!0,
+									this
+								);
+								this.$12 = ES(
+									function(a) {
+										this.$18(), this.$19(), a.stopPropagation();
+									},
+									"bind",
+									!0,
+									this
+								);
+								this.$14 = ES(
+									function() {
+										this.$18();
+									},
+									"bind",
+									!0,
+									this
+								);
+								this.$13 = ES(
+									function() {
+										this.$19();
+									},
+									"bind",
+									!0,
+									this
+								);
+								var a = this.$9(),
+									b = a[0],
+									c = a[1],
+									d = a[2],
+									e = a[3];
+								a = a[4];
+								this.$2 = b;
+								this.$3 = c;
+								this.$4 = d;
+								this.$5 = e;
+								this.$6 = a;
+								this.$8 = null;
+							}
+							p.prototype.$9 = function() {
+								var a = m("_7juh"),
+									b = m("_7jue"),
+									c = m("_7jui"),
+									d = m("_7juj"),
+									e = m("_7juk", [m("_7jul", [a]), b, c, d]);
+								d.addEventListener("click", this.$10);
+								b.addEventListener("click", this.$11);
+								return [e, a, b, c, d];
+							};
+							p.prototype.attach = function(a) {
+								__p && __p();
+								this.$7 != null && (this.detach(), (this.$7 = null));
+								this.$7 = a;
+								a.getElement().appendChild(this.$2);
+								this.$2.addEventListener("click", this.$12);
+								a = a.getVideoElement();
+								a.addEventListener("click", this.$12);
+								a.addEventListener("play", this.$13);
+								a.addEventListener("pause", this.$14);
+								a.addEventListener("timeupdate", this.$15);
+								this.$16();
+							};
+							p.prototype.detach = function() {
+								this.$2.parentNode &&
+									(this.$2.parentNode.removeChild(this.$2),
+									this.$2.removeEventListener("click", this.$12));
+								var a = this.$7;
+								if (a) {
+									a = a.getVideoElement();
+									a.removeEventListener("click", this.$12);
+									a.removeEventListener("play", this.$13);
+									a.removeEventListener("pause", this.$14);
+									a.removeEventListener("timeupdate", this.$15);
+								}
+							};
+							p.prototype.$17 = function() {
+								this.$8 != null &&
+									(window.clearTimeout(this.$8), (this.$8 = null));
+							};
+							p.prototype.$18 = function() {
+								this.$2.classList.remove("_7jum"), this.$17();
+							};
+							p.prototype.$19 = function() {
+								this.$17(),
+									(this.$8 = window.setTimeout(
+										ES(
+											function() {
+												this.$2.classList.add("_7jum");
+											},
+											"bind",
+											!0,
+											this
+										),
+										p.$1
+									));
+							};
+							p.prototype.$16 = function() {
+								var a = l(this.$7),
+									b = a.getDuration();
+								a = a.getCurrentTime();
+								var c = "0";
+								b > 0 && (c = (a / b) * 100 + "%");
+								this.$3.style.width = c;
+								c = (b - a) / 1e3;
+								b = Math.floor(c / 60);
+								a = Math.floor(c % 60);
+								this.$5.textContent = "- " + b + ":" + (a < 10 ? "0" + a : a);
+							};
+							p.$1 = 3e3;
+							function q() {
+								(this.$4 = ES(
+									function(a) {
+										var b = l(this.$2);
+										b.setMuted(!b.isMuted());
+										a.stopPropagation();
+									},
+									"bind",
+									!0,
+									this
+								)),
+									(this.$1 = this.$3());
+							}
+							q.prototype.$3 = function() {
+								var a = m("_1xj9");
+								a.addEventListener("click", this.$4, !1);
+								return a;
+							};
+							q.prototype.attach = function(a) {
+								this.$2 != null && (this.detach(), (this.$2 = null)),
+									(this.$2 = a),
+									a.getElement().appendChild(this.$1);
+							};
+							q.prototype.detach = function() {
+								this.$1.parentNode && this.$1.parentNode.removeChild(this.$1);
+							};
+							function r() {
+								(this.$4 = ES(
+									function(a) {
+										a = l(this.$2);
+										a.getVideoElement().paused ? a.play(!0) : a.pause(!0);
+									},
+									"bind",
+									!0,
+									this
+								)),
+									(this.$1 = this.$3());
+							}
+							r.prototype.$3 = function() {
+								return m("_3c3s");
+							};
+							r.prototype.attach = function(a) {
+								this.$2 != null && (this.detach(), (this.$2 = null)),
+									(this.$2 = a),
+									a.getElement().appendChild(this.$1),
+									a.getElement().addEventListener("click", this.$4);
+							};
+							r.prototype.detach = function() {
+								this.$1.parentNode && this.$1.parentNode.removeChild(this.$1);
+							};
+							var s = { autoplay: !1, controls: "mute_only" };
+							function a(a, b, c, d, e) {
+								__p && __p();
+								c === void 0 && (c = s);
+								this.$5 = !1;
+								this.$6 = !1;
+								this.$1 = a;
+								this.$2 = b;
+								this.$4 = d;
+								this.$3 = e;
+								this.$11 = !0;
+								this.$7 = c.controls === "full" ? new p() : new q();
+								this.$8 = new r();
+								a = this.$12();
+								b = a[0];
+								d = a[1];
+								this.$9 = b;
+								this.$10 = d;
+								this.$13();
+								this.$8.attach(this);
+								this.$7.attach(this);
 							}
 							a.prototype.$12 = function() {
 								__p && __p();
-								var a = l("_6pfr");
+								var a = m("_6pfr");
 								a.style.backgroundImage = "url(" + this.$2 + ")";
 								if (this.$4) {
 									var b = new Image();
@@ -4849,9 +5078,9 @@ try {
 									);
 									b.src = this.$2;
 								}
-								this.$7 = l("_1xj7", [
+								b = m(k("_1xj7", "_7jun", "_7juo"), [
 									a,
-									m(
+									n(
 										"video",
 										{
 											className: "_1xj8",
@@ -4861,58 +5090,28 @@ try {
 											src: this.$1
 										},
 										[]
-									),
-									l("_3c3s"),
-									l("_1xj9")
+									)
 								]);
-								this.$8 = n(this.$7, "._1xj8");
-								this.$9 = n(this.$7, "._1xj9");
-								this.$10 = n(this.$7, "._3c3s");
-								this.$8.poster = this.$2;
-								this.$8.setAttribute("webkit-playsinline", "true");
-								this.$8.setAttribute("playsinline", "true");
-								this.$8.setAttribute("muted", "true");
-								this.$14();
+								a = document.defaultView.HTMLVideoElement;
+								a = o(b, "._1xj8", a);
+								a.poster = this.$2;
+								a.setAttribute("webkit-playsinline", "true");
+								a.setAttribute("playsinline", "true");
+								return [b, a];
 							};
 							a.prototype.$13 = function() {
-								__p && __p();
-								var a = ES(
-										function(a) {
-											this.setMuted(!this.$11), a.stopPropagation();
-										},
-										"bind",
-										!0,
-										this
-									),
-									b = ES(
-										function(a) {
-											this.$8.paused ? this.play(!0) : this.pause(!0),
-												this.$3 && this.$3(),
-												a.stopPropagation();
-										},
-										"bind",
-										!0,
-										this
-									);
-								this.$7.addEventListener(
+								this.$9.addEventListener(
 									"click",
 									ES(
-										function(c) {
-											if (c.target === this.$9) {
-												a(c);
-												return;
-											}
-											if (c.target === this.$8 || c.target === this.$10) {
-												b(c);
-												return;
-											}
+										function(a) {
+											this.$3 && this.$3(), a.stopPropagation();
 										},
 										"bind",
 										!0,
 										this
 									)
 								);
-								var c = ES(
+								var a = ES(
 									function(a) {
 										return this.pause(!0);
 									},
@@ -4920,31 +5119,32 @@ try {
 									!0,
 									this
 								);
-								this.$8.addEventListener("webkitendfullscreen", c);
-								this.$8.addEventListener("fullscreenchange", c);
-								this.$8.addEventListener("webkitfullscreenchange", c);
+								this.$10.addEventListener("webkitendfullscreen", a);
+								this.$10.addEventListener("fullscreenchange", a);
+								this.$10.addEventListener("webkitfullscreenchange", a);
 							};
 							a.prototype.getElement = function() {
-								return this.$7;
+								return this.$9;
 							};
 							a.prototype.setMuted = function(a) {
-								(this.$11 = a), (this.$8.muted = a), this.$14();
+								(this.$11 = a),
+									(this.$10.muted = a),
+									this.$9.classList.toggle("_7jun", this.$11);
 							};
-							a.prototype.$14 = function() {
-								this.$9.classList.toggle("_1xja", this.$11),
-									this.$9.classList.toggle("_1xjb", !this.$11);
+							a.prototype.isMuted = function() {
+								return this.$11;
 							};
 							a.prototype.play = function(a) {
 								__p && __p();
 								this.$6 = !0;
 								this.$5 = this.$5 && !a;
-								a = this.$8.play();
+								a = this.$10.play();
 								if (a instanceof Promise)
 									return a
 										.then(
 											ES(
 												function() {
-													this.$10.classList.add("_2a06");
+													this.$9.classList.remove("_7juo");
 												},
 												"bind",
 												!0,
@@ -4954,7 +5154,7 @@ try {
 										["catch"](
 											ES(
 												function(a) {
-													this.$10.classList.remove("_2a06");
+													this.$9.classList.add("_7juo");
 													throw a;
 												},
 												"bind",
@@ -4963,14 +5163,14 @@ try {
 											)
 										);
 								else {
-									this.$10.classList.add("_2a06");
+									this.$9.classList.remove("_7juo");
 									return g.resolve();
 								}
 							};
 							a.prototype.pause = function(a) {
 								(this.$5 = this.$5 || !!a),
-									this.$8.pause(),
-									this.$10.classList.remove("_2a06");
+									this.$10.pause(),
+									this.$9.classList.add("_7juo");
 							};
 							a.prototype.wasManuallyPaused = function() {
 								return this.$5;
@@ -4979,15 +5179,17 @@ try {
 								return this.$6;
 							};
 							a.prototype.getVideoElement = function() {
-								return this.$8;
+								return this.$10;
 							};
 							a.prototype.getDuration = function() {
-								return this.$8 == null ? 0 : Math.round(this.$8.duration * 1e3);
+								return this.$10 == null
+									? 0
+									: Math.round(this.$10.duration * 1e3) || 0;
 							};
 							a.prototype.getCurrentTime = function() {
-								return this.$8 == null
+								return this.$10 == null
 									? 0
-									: Math.round(this.$8.currentTime * 1e3);
+									: Math.round(this.$10.currentTime * 1e3);
 							};
 							e.exports = a;
 						},
@@ -5059,27 +5261,6 @@ try {
 								a.appendChild(b);
 								return a;
 							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"joinClasses",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							function a(a) {
-								var b = a || "",
-									c = arguments.length <= 1 ? 0 : arguments.length - 1;
-								for (var d = 0; d < c; d++) {
-									var e =
-										d + 1 < 1 || arguments.length <= d + 1
-											? void 0
-											: arguments[d + 1];
-									e != null && e !== "" && (b = (b ? b + " " : "") + e);
-								}
-								return b;
-							}
 							e.exports = a;
 						},
 						null
@@ -7413,7 +7594,7 @@ try {
 									"UNKNOWN"
 								];
 							function a(a) {
-								(this.$66 = ES(
+								(this.$68 = ES(
 									function(a) {
 										this.sendToFacebook({
 											name: "signal",
@@ -7442,7 +7623,7 @@ try {
 										!0,
 										this
 									)),
-									(this.$73 = ES(
+									(this.$75 = ES(
 										function() {
 											var a = M(this.$26);
 											this.$21.eventWithParams({
@@ -7580,7 +7761,8 @@ try {
 							};
 							a.prototype.renderAd = function(a, b, c, d) {
 								__p && __p();
-								var e = a.features || {};
+								var e = a.features || {},
+									f = e.video || {};
 								this.$24 = {
 									$40: !!e.clickOpenNewTab,
 									$41: !!e.enableWhiteops,
@@ -7591,7 +7773,12 @@ try {
 									$44: !!e.useIntersectionObserver,
 									$45: !!e.useCtaFallback,
 									$38: a.xout,
-									$46: e.clickGuardElements || O
+									$46: e.clickGuardElements || O,
+									$47: {
+										autoplay: f.autoplay === !0 || e.autoplayEnabled === !0,
+										controls: f.controls === "full" ? "full" : "mute_only"
+									},
+									$48: e.fullwidthMinAspectRatio || 1.5
 								};
 								this.$21.setLogLevel(this.$32().$39.logLevel || F.ERROR);
 								this.$21.setClientEventURL(a.clientEventURL);
@@ -7602,16 +7789,16 @@ try {
 									return;
 								}
 								this.$32().$39.rp && this.$25.enableReward();
-								var f = 0,
-									g = !!a.creativeMarkupBackup;
+								var g = 0,
+									h = !!a.creativeMarkupBackup;
 								!a.nativeAd
 									? (this.$9.style.display = "")
 									: (a.creativeMarkup &&
-											(this.$47() ? this.$48() : this.$49(),
+											(this.$49() ? this.$50() : this.$51(),
 											this.$32().$39.resizeMediaView &&
 												((this.$9.style.visibility = "hidden"),
-												(f = this.$50()))),
-									  this.$51(
+												(g = this.$52()))),
+									  this.$53(
 											a,
 											a.creativeMarkup,
 											this.$9,
@@ -7626,13 +7813,13 @@ try {
 												function() {
 													__p && __p();
 													var c = new q(
-															g,
+															h,
 															this.$30(),
 															this.$9,
 															this.$7,
 															this.$13,
 															this.$21,
-															f
+															g
 														),
 														d = this.$35();
 													d.style.width = y.cssSize(this.$13);
@@ -7642,12 +7829,12 @@ try {
 														((this.$11 = !0),
 														(this.$12 = !!a.nativeCarouselAds));
 													this.$37(a.nativeAd);
-													if (g) {
+													if (h) {
 														var e = ES(
 															function() {
 																(a.nativeCarouselAds = null),
 																	c.restoreOriginalStyles(),
-																	this.$52(
+																	this.$54(
 																		a,
 																		a.creativeMarkupBackup,
 																		b,
@@ -7684,13 +7871,13 @@ try {
 									  )
 									: this.$37(a.nativeAd);
 								this.$32().$45 === !0 &&
-									(this.$17 = this.$53(a.nativeAd, this.$9, b));
-								this.$54();
-								this.$21.eventWithParams(this.$55("ADNW_ADLOADED"));
+									(this.$17 = this.$55(a.nativeAd, this.$9, b));
 								this.$56();
-								this.$57();
+								this.$21.eventWithParams(this.$57("ADNW_ADLOADED"));
+								this.$58();
+								this.$59();
 							};
-							a.prototype.$55 = function(a) {
+							a.prototype.$57 = function(a) {
 								var b = this.$16;
 								if (!b) return { event_name: a, viewability: j.UNKNOWN };
 								b = this.$16.getCurrentViewabilityState();
@@ -7707,7 +7894,7 @@ try {
 									page_height: b.pageHeight || 0
 								};
 							};
-							a.prototype.$57 = function() {
+							a.prototype.$59 = function() {
 								var a = this.$32().$39.forceIframeSize;
 								if (a) {
 									var b = this.$30();
@@ -7716,14 +7903,14 @@ try {
 										(b.style.height = y.cssSize(a.h)));
 								}
 							};
-							a.prototype.$56 = function() {
+							a.prototype.$58 = function() {
 								var a = this.$35().querySelectorAll(
 									"[data-auto-fit-text=true]"
 								);
 								for (var b = 0; b < a.length; b++)
 									y.truncateTextToFitElement(a[b]);
 							};
-							a.prototype.$50 = function() {
+							a.prototype.$52 = function() {
 								var a = 300,
 									b = y.getScreenWidth(),
 									c = this.$30() || this.$9;
@@ -7734,7 +7921,7 @@ try {
 									((this.$13 = a), (d = c.getBoundingClientRect().right - a));
 								return d;
 							};
-							a.prototype.$48 = function() {
+							a.prototype.$50 = function() {
 								__p && __p();
 								var a = N[this.$8],
 									b = a[0];
@@ -7755,7 +7942,7 @@ try {
 								this.$6 = b;
 								this.$7 = c;
 							};
-							a.prototype.$49 = function() {
+							a.prototype.$51 = function() {
 								__p && __p();
 								var a = document.createElement("div");
 								a.style.textAlign = "center";
@@ -7771,26 +7958,25 @@ try {
 								this.$6 = b;
 							};
 							a.prototype.$35 = function() {
-								var a = this.$47() ? this.$6 || this.$9 : this.$9;
+								var a = this.$49() ? this.$6 || this.$9 : this.$9;
 								return (
 									a.getElementsByClassName("fbANRoot")[0] ||
 									a.getElementsByClassName("thirdPartyRoot")[0] ||
 									a
 								);
 							};
-							a.prototype.$51 = function(a, b, c, d, e) {
+							a.prototype.$53 = function(a, b, c, d, e) {
 								(a.nativeAd.loaded = !1),
 									b && b.raw && ((this.$6.innerHTML = b.raw), (c = this.$6)),
 									c && ((c = this.$35()), this.$31(c)),
 									this.$32().$45 !== !0 &&
-										(this.$17 = this.$53(a.nativeAd, c, d)),
-									(this.$15 = this.$58(
+										(this.$17 = this.$55(a.nativeAd, c, d)),
+									(this.$15 = this.$60(
 										c,
 										a.nativeAd,
 										a.nativeCarouselAds,
 										e,
-										b && b.dfp,
-										!!this.$32().$39.autoplayEnabled
+										b && b.dfp
 									)),
 									a.nativeAd.primaryColor &&
 										c &&
@@ -7803,30 +7989,30 @@ try {
 											a.nativeAd.textColor
 										));
 							};
-							a.prototype.$59 = function(a, b) {
-								a = this.$60(a);
+							a.prototype.$61 = function(a, b) {
+								a = this.$62(a);
 								y.resizeElement(b, this.$13, Math.round(this.$13 / a));
 							};
-							a.prototype.$61 = function() {
+							a.prototype.$63 = function() {
 								this.$21.eventWithParams(
-									this.$55("ADNW_MOSTLY_VIEWABLE_FOR_1S")
+									this.$57("ADNW_MOSTLY_VIEWABLE_FOR_1S")
 								);
 							};
-							a.prototype.$62 = function() {
+							a.prototype.$64 = function() {
 								if (this.$2) {
 									this.$21.error("Multiple ADIMPRESSION attempted.");
 									return;
 								}
 								this.$2 = L();
-								var a = this.$63();
+								var a = this.$65();
 								this.sendToFacebook({
 									name: "impress",
 									params: { key: y.onlyString(this.$4.data.key), payload: a }
 								});
-								this.$21.eventWithParams(this.$55("ADNW_ADIMPRESSION"));
+								this.$21.eventWithParams(this.$57("ADNW_ADIMPRESSION"));
 								this.$33() && this.$21.event(v.HAS_INLINE_XOUT);
 							};
-							a.prototype.$64 = function() {
+							a.prototype.$66 = function() {
 								var a = this.$10.getSafeFrameAPI();
 								if (this.$10.isCrossDomain() && !a)
 									return k.isAMP() ? "AMP" : "CROSS_DOMAIN_IFRAME";
@@ -7840,7 +8026,7 @@ try {
 										? "SAFE_FRAME"
 										: "FRIENDLY_IFRAME";
 							};
-							a.prototype.$53 = function(a, b, c) {
+							a.prototype.$55 = function(a, b, c) {
 								__p && __p();
 								if (this.$32().$45 !== !0) return a && b ? b : c;
 								a = a && b;
@@ -7855,14 +8041,14 @@ try {
 								}
 								return c;
 							};
-							a.prototype.$54 = function() {
+							a.prototype.$56 = function() {
 								__p && __p();
 								this.$16 = new i(this.$10, this.$17, this.$32().$44);
 								this.$16.attachBehaviorManager(this.$18);
 								var a = new g(
 									ES(
 										function() {
-											return this.$65();
+											return this.$67();
 										},
 										"bind",
 										!0,
@@ -7886,7 +8072,7 @@ try {
 									var b = new h(
 										ES(
 											function() {
-												return this.$61();
+												return this.$63();
 											},
 											"bind",
 											!0,
@@ -7900,20 +8086,20 @@ try {
 									});
 								}
 							};
-							a.prototype.$60 = function(a) {
+							a.prototype.$62 = function(a) {
 								if (a.adImageAspectRatio != null && a.adImageAspectRatio > 0)
-									return Math.max(a.adImageAspectRatio, 1.5);
+									return Math.max(a.adImageAspectRatio, this.$32().$48);
 								else if (a.adVideo) return 1.75;
 								else return 1.9;
 							};
-							a.prototype.$67 = function(a, b, c, d, e) {
+							a.prototype.$69 = function(a, b, c, d) {
 								d
-									? this.$68(b, d)
+									? this.$70(b, d)
 									: c.adVideo
-										? this.$69(b, c, e)
-										: this.$70(b, c);
+										? this.$71(b, c)
+										: this.$72(b, c);
 							};
-							a.prototype.$68 = function(a, b) {
+							a.prototype.$70 = function(a, b) {
 								__p && __p();
 								this.$19 = !0;
 								var c = new o({
@@ -7960,7 +8146,7 @@ try {
 									!0,
 									ES(
 										function(a, c) {
-											this.$71(a, b[c]);
+											this.$73(a, b[c]);
 										},
 										"bind",
 										!0,
@@ -7969,12 +8155,13 @@ try {
 								);
 								this.$5 = c;
 							};
-							a.prototype.$70 = function(a, b) {
-								a.appendChild(this.$72(b));
+							a.prototype.$72 = function(a, b) {
+								a.appendChild(this.$74(b));
 							};
-							a.prototype.$69 = function(a, b, c) {
+							a.prototype.$71 = function(a, b) {
 								__p && __p();
 								if (!b.adVideo) throw new Error("No video for Ad.");
+								var c = this.$32().$47.autoplay;
 								this.$21.event(
 									c ? "VIDEO_AUTOPLAY_ENABLED" : "VIDEO_AUTOPLAY_DISABLED"
 								);
@@ -7983,6 +8170,7 @@ try {
 								var d = new B(
 									M(b.adVideo),
 									b.adImage,
+									this.$32().$47,
 									ES(
 										function() {
 											this.$20.requiredEventFired();
@@ -7991,7 +8179,7 @@ try {
 										!0,
 										this
 									),
-									this.$73
+									this.$75
 								);
 								if (this.$36() && this.$25.isRewardEnabled()) {
 									var e = M(this.$6);
@@ -8004,7 +8192,7 @@ try {
 								} else this.$18.addBehavior(new I(d, c, this.$21));
 								new A(
 									d.getVideoElement(),
-									this.$66,
+									this.$68,
 									b.videoPlayLink,
 									b.videoTimeLink
 								).startLogging();
@@ -8012,7 +8200,7 @@ try {
 								this.$26 = d;
 								this.$25.setVideo(d);
 							};
-							a.prototype.$71 = function(a, b) {
+							a.prototype.$73 = function(a, b) {
 								__p && __p();
 								var c = ES(
 										function(a, c) {
@@ -8020,7 +8208,7 @@ try {
 											var d = L(),
 												e = b.href,
 												f = y.maybeHTMLElement(c.target);
-											f = f ? this.$74(f) : t.UNKNOWN;
+											f = f ? this.$76(f) : t.UNKNOWN;
 											var g = {};
 											if (this.$16) {
 												var h = this.$16.getDimensions(),
@@ -8154,7 +8342,7 @@ try {
 										function(a) {
 											var b = L(),
 												e = y.maybeHTMLElement(a.target);
-											e = e ? this.$74(e) : t.UNKNOWN;
+											e = e ? this.$76(e) : t.UNKNOWN;
 											var f = this.$32().$39.minClickDelay;
 											f && this.$1 && this.$1 + f > b && !this.$3
 												? ((this.$3 = !0),
@@ -8202,7 +8390,7 @@ try {
 										? (a.className += " fbVideoType")
 										: (a.className += " fbDisplayType");
 							};
-							a.prototype.$52 = function(a, b, c, d) {
+							a.prototype.$54 = function(a, b, c, d) {
 								__p && __p();
 								this.$16.pause();
 								a.nativeAd.loaded = !1;
@@ -8210,57 +8398,56 @@ try {
 								if (this.$6 == null) return;
 								this.$31(this.$35());
 								if (this.$6 == null) return;
-								this.$75(
+								this.$77(
 									this.$6,
 									a.nativeAd,
 									a.nativeCarouselAds,
 									d,
-									b && b.dfp,
-									!!this.$32().$39.autoplayEnabled
+									b && b.dfp
 								);
 								this.$6 &&
 									((this.$16 = new i(this.$10, this.$6)),
 									this.$16.attachBehaviorManager(this.$18));
 							};
-							a.prototype.$75 = function(a, b, c, d, e, f) {
+							a.prototype.$77 = function(a, b, c, d, e) {
 								b.loaded = !0;
-								var g;
+								var f;
 								d = a.getElementsByClassName(t.FB_AD_ICON);
-								for (g = 0; g < d.length; g++) d[g].appendChild(this.$76(b));
+								for (f = 0; f < d.length; f++) d[f].appendChild(this.$78(b));
 								this.$14 = a.getElementsByClassName(t.FB_AD_MEDIA);
-								for (g = 0; g < this.$14.length; g++)
-									this.$67(a, this.$14[g], b, c, f);
-								this.$77(a, b, "", e);
+								for (f = 0; f < this.$14.length; f++)
+									this.$69(a, this.$14[f], b, c);
+								this.$79(a, b, "", e);
 							};
-							a.prototype.$78 = function(a) {
+							a.prototype.$80 = function(a) {
 								a = M(a.ownerDocument.body);
 								a.addEventListener("touchstart", function() {}, !1);
 							};
-							a.prototype.$58 = function(a, b, c, d, e, f) {
+							a.prototype.$60 = function(a, b, c, d, e) {
 								if (!a || !b || b.loaded) return !1;
 								this.applyAdTypeClass(a, b, c);
-								this.$78(a);
+								this.$80(a);
 								b.loaded = !0;
-								var g = !1;
-								c = this.$79(a, b, c, "", d, e, f);
+								var f = !1;
+								c = this.$81(a, b, c, "", d, e);
 								this.$32().$41 === !0 &&
 									J.run(b.requestId, "AN_MWEB", b.topDomain, this.$32().$42, a);
-								return g || c;
+								return f || c;
 							};
-							a.prototype.$79 = function(a, b, c, d, e, f, g) {
-								var h,
-									i = a.getElementsByClassName(t.FB_AD_ICON + d);
-								for (h = 0; h < i.length; h++) i[h].appendChild(this.$76(b));
-								i = !1;
+							a.prototype.$81 = function(a, b, c, d, e, f) {
+								var g,
+									h = a.getElementsByClassName(t.FB_AD_ICON + d);
+								for (g = 0; g < h.length; g++) h[g].appendChild(this.$78(b));
+								h = !1;
 								this.$14 = a.getElementsByClassName(t.FB_AD_MEDIA + d);
-								for (h = 0; h < this.$14.length; h++)
-									(i = !0),
-										e && !c && this.$59(b, this.$14[h]),
-										this.$67(a, this.$14[h], b, c, g);
-								this.$77(a, b, d, f);
-								return i;
+								for (g = 0; g < this.$14.length; g++)
+									(h = !0),
+										e && !c && this.$61(b, this.$14[g]),
+										this.$69(a, this.$14[g], b, c);
+								this.$79(a, b, d, f);
+								return h;
 							};
-							a.prototype.$77 = function(a, b, c, d) {
+							a.prototype.$79 = function(a, b, c, d) {
 								__p && __p();
 								var e;
 								d = a.getElementsByClassName(t.FB_AD_TITLE + c);
@@ -8276,9 +8463,9 @@ try {
 								for (e = 0; e < d.length; e++)
 									d[e].textContent = b.adSocialContext;
 								d = a.getElementsByClassName("fbAdLink" + c);
-								for (e = 0; e < d.length; e++) this.$71(d[e], b);
+								for (e = 0; e < d.length; e++) this.$73(d[e], b);
 							};
-							a.prototype.$76 = function(a) {
+							a.prototype.$78 = function(a) {
 								var b = document.createElement("img");
 								b.style.height = "100%";
 								b.style.width = "100%";
@@ -8298,7 +8485,7 @@ try {
 								b.src = a.adIcon;
 								return b;
 							};
-							a.prototype.$72 = function(a) {
+							a.prototype.$74 = function(a) {
 								__p && __p();
 								var b = document.createElement("img");
 								b.style.height = "100%";
@@ -8341,19 +8528,19 @@ try {
 								b.src = a.adImage;
 								return b;
 							};
-							a.prototype.$80 = function() {
+							a.prototype.$82 = function() {
 								return this.$8 === "native";
 							};
 							a.prototype.$36 = function() {
 								return this.$8 === "rewarded_video";
 							};
-							a.prototype.$47 = function() {
-								return !this.$30() && !this.$80() && N[this.$8];
+							a.prototype.$49 = function() {
+								return !this.$30() && !this.$82() && N[this.$8];
+							};
+							a.prototype.$67 = function() {
+								this.$35().classList.add("fbVisibleOnce"), this.$64();
 							};
 							a.prototype.$65 = function() {
-								this.$35().classList.add("fbVisibleOnce"), this.$62();
-							};
-							a.prototype.$63 = function() {
 								var a = this.$16.getDimensions(),
 									b =
 										(this.$16 && this.$16.getCurrentViewabilityState()) || null;
@@ -8369,14 +8556,14 @@ try {
 									page_width: (b && b.pageWidth) || null,
 									page_height: (b && b.pageHeight) || null,
 									hosturl: this.$10.getTopURL(),
-									iframe_status: this.$64(),
+									iframe_status: this.$66(),
 									nest_level: this.$10.getNestLevel(),
 									iframe_urls: this.$10.ancestorURLs.slice(0, -1),
 									mediation_service: new G(this.$10).getMediator(),
 									nmv: this.$15
 								};
 							};
-							a.prototype.$74 = function(a) {
+							a.prototype.$76 = function(a) {
 								__p && __p();
 								var b;
 								b = ((b = {
@@ -8630,7 +8817,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4747275","namespace":"FB","message":"' +
+				'","revision":"4753477","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
