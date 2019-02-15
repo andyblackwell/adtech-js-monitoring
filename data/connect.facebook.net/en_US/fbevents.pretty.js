@@ -18,8 +18,8 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-fbq.version = "2.8.40";
-fbq._releaseSegment = "stable";
+fbq.version = "2.8.41";
+fbq._releaseSegment = "canary";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
 	var e = { exports: {} };
@@ -473,6 +473,165 @@ fbq.pendingConfigs = ["global_config"];
 		f.registerPlugin &&
 			f.registerPlugin("fbevents.plugins.opttracking", e.exports);
 		f.ensureModuleRegistered("fbevents.plugins.opttracking", function() {
+			return e.exports;
+		});
+	})();
+})(window, document, location, history);
+(function(a, b, c, d) {
+	var e = { exports: {} };
+	e.exports;
+	(function() {
+		var f = a.fbq;
+		f.execStart = a.performance && a.performance.now && a.performance.now();
+		if (
+			!(function() {
+				var b = a.postMessage || function() {};
+				if (!f) {
+					b(
+						{
+							action: "FB_LOG",
+							logType: "Facebook Pixel Error",
+							logMessage: "Pixel code is not installed correctly on this page"
+						},
+						"*"
+					);
+					"error" in console &&
+						console.error(
+							"Facebook Pixel Error: Pixel code is not installed correctly on this page"
+						);
+					return !1;
+				}
+				return !0;
+			})()
+		)
+			return;
+		var g = (function() {
+			function a(a, b) {
+				for (var c = 0; c < b.length; c++) {
+					var d = b[c];
+					d.enumerable = d.enumerable || !1;
+					d.configurable = !0;
+					"value" in d && (d.writable = !0);
+					Object.defineProperty(a, d.key, d);
+				}
+			}
+			return function(b, c, d) {
+				c && a(b.prototype, c);
+				d && a(b, d);
+				return b;
+			};
+		})();
+		function h(a, b) {
+			if (!(a instanceof b))
+				throw new TypeError("Cannot call a class as a function");
+		}
+		f.__fbeventsModules ||
+			((f.__fbeventsModules = {}),
+			(f.__fbeventsResolvedModules = {}),
+			(f.getFbeventsModules = function(a) {
+				f.__fbeventsResolvedModules[a] ||
+					(f.__fbeventsResolvedModules[a] = f.__fbeventsModules[a]());
+				return f.__fbeventsResolvedModules[a];
+			}),
+			(f.fbIsModuleLoaded = function(a) {
+				return !!f.__fbeventsModules[a];
+			}),
+			(f.ensureModuleRegistered = function(b, a) {
+				f.fbIsModuleLoaded(b) || (f.__fbeventsModules[b] = a);
+			}));
+		f.ensureModuleRegistered("SignalsFBEventsPerformanceTiming", function() {
+			return (function(a, b, c, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var b = (function() {
+						function b(c) {
+							var d = this;
+							h(this, b);
+							this._execEnd = null;
+							this._fires = [];
+							this._pageStartTime = a.performance.timing.fetchStart;
+							this._startOffset =
+								this._pageStartTime - a.performance.timing.navigationStart;
+							if (c.execStart != null)
+								this._execStart = c.execStart - this._startOffset;
+							else
+								throw new Error("fbq.execStart must be set in the base code.");
+							c.on("pluginLoaded", function() {
+								return d.execEnd();
+							});
+							c.on("execEnd", function() {
+								return d.execEnd();
+							});
+							c.on("getCustomParameters", function() {
+								return d.fire();
+							});
+						}
+						g(b, [
+							{
+								key: "execEnd",
+								value: function() {
+									this._execEnd = a.performance.now() - this._startOffset;
+								}
+							},
+							{
+								key: "fire",
+								value: function() {
+									this._fires.unshift(a.performance.now() - this._startOffset);
+									return {
+										ttf: this._fires[0].toString(),
+										tts: this._execStart.toString(),
+										ttse:
+											this._execEnd != null ? this._execEnd.toString() : null
+									};
+								}
+							}
+						]);
+						return b;
+					})();
+					b.supported =
+						a.performance && a.performance.now && !!a.performance.timing;
+					e.exports = b;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsPlugin", function() {
+			return (function(f, g, h, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					function a(a) {
+						this.plugin = a;
+						this.__fbEventsPlugin = 1;
+						return this;
+					}
+					e.exports = a;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEvents.plugins.performance", function() {
+			return (function(g, h, c, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsPerformanceTiming"),
+						b = f.getFbeventsModules("SignalsFBEventsPlugin");
+					e.exports = new b(function(b) {
+						a.supported && !b.__performance && (b.__performance = new a(b));
+					});
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		e.exports = f.getFbeventsModules("SignalsFBEvents.plugins.performance");
+		f.registerPlugin &&
+			f.registerPlugin("fbevents.plugins.performance", e.exports);
+		f.ensureModuleRegistered("fbevents.plugins.performance", function() {
 			return e.exports;
 		});
 	})();
@@ -3078,6 +3237,7 @@ fbq.registerPlugin("global_config", {
 	__fbEventsPlugin: 1,
 	plugin: function(fbq, instance, config) {
 		fbq.loadPlugin("opttracking");
+		fbq.loadPlugin("performance");
 		fbq.set("experiments", {
 			"0": { name: "beacon", range: [0, 0], code: "b", passRate: 0.5 },
 			"1": { name: "logDataLayer", range: [0, 0], code: "d", passRate: 0 },
