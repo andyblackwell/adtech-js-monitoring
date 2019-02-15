@@ -1,4 +1,4 @@
-/*1550216366,,JIT Construction: v4769083,en_US*/
+/*1550242344,,JIT Construction: v4769743,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -7698,7 +7698,7 @@ try {
 									"fbTwoStepDialog",
 									"UNKNOWN"
 								];
-							function a(a) {
+							function a(a, b) {
 								(this.$68 = ES(
 									function(a) {
 										this.sendToFacebook({
@@ -7742,7 +7742,7 @@ try {
 										this
 									)),
 									(this.$25 = new n(
-										a.rootElement,
+										b,
 										a.onMediaLoaded,
 										a.onRewardCompleted,
 										a.onAdClosed
@@ -7772,7 +7772,7 @@ try {
 										y.getNavigationStart(),
 										this.$28
 									)),
-									(this.$9 = a.rootElement),
+									(this.$9 = b),
 									(this.$10 = new D(this.$9, this.$29())),
 									(this.$2 = null),
 									(this.$18 = new H()),
@@ -7866,45 +7866,40 @@ try {
 							};
 							a.prototype.renderAd = function(a, b, c, d) {
 								__p && __p();
-								var e = a.features || {},
-									f = e.video || {};
+								d = a.features || {};
+								var e = d.video || {};
 								this.$24 = {
-									$40: !!e.clickOpenNewTab,
-									$41: !!e.enableWhiteops,
-									$42: e.appIDHashed,
-									$39: e,
-									$34: e.inlineXOut,
-									$43: e.isDesktopDisplayFormat,
-									$44: !!e.useIntersectionObserver,
-									$45: !!e.useCtaFallback,
+									$40: !!d.clickOpenNewTab,
+									$41: !!d.enableWhiteops,
+									$42: d.appIDHashed,
+									$39: d,
+									$34: d.inlineXOut,
+									$43: d.isDesktopDisplayFormat,
+									$44: !!d.useIntersectionObserver,
+									$45: !!d.useCtaFallback,
 									$38: a.xout,
-									$46: e.clickGuardElements || O,
+									$46: d.clickGuardElements || O,
 									$47: {
-										autoplay: f.autoplay === !0 || e.autoplayEnabled === !0,
-										controls: f.controls === "full" ? "full" : "mute_only",
-										endCard: f.endCard || "none",
-										pauseCard: f.pauseCard || "play"
+										autoplay: e.autoplay === !0 || d.autoplayEnabled === !0,
+										controls: e.controls === "full" ? "full" : "mute_only",
+										endCard: e.endCard || "none",
+										pauseCard: e.pauseCard || "play"
 									},
-									$48: e.fullwidthMinAspectRatio || 1.5
+									$48: d.fullwidthMinAspectRatio || 1.5
 								};
 								this.$21.setLogLevel(this.$32().$39.logLevel || F.ERROR);
 								this.$21.setClientEventURL(a.clientEventURL);
 								this.$1 = L();
-								if (!a.success) {
-									this.$21.error();
-									d(a.errorCode, a.errorMsg, a.placementId);
-									return;
-								}
 								this.$32().$39.rp && this.$25.enableReward();
-								var g = 0,
-									h = !!a.creativeMarkupBackup;
+								var f = 0,
+									g = !!a.creativeMarkupBackup;
 								!a.nativeAd
 									? (this.$9.style.display = "")
 									: (a.creativeMarkup &&
 											(this.$49() ? this.$50() : this.$51(),
 											this.$32().$39.resizeMediaView &&
 												((this.$9.style.visibility = "hidden"),
-												(g = this.$52()))),
+												(f = this.$52()))),
 									  this.$53(
 											a,
 											a.creativeMarkup,
@@ -7920,13 +7915,13 @@ try {
 												function() {
 													__p && __p();
 													var c = new q(
-															h,
+															g,
 															this.$30(),
 															this.$9,
 															this.$7,
 															this.$13,
 															this.$21,
-															g
+															f
 														),
 														d = this.$35();
 													d.style.width = y.cssSize(this.$13);
@@ -7936,7 +7931,7 @@ try {
 														((this.$11 = !0),
 														(this.$12 = !!a.nativeCarouselAds));
 													this.$37(a.nativeAd);
-													if (h) {
+													if (g) {
 														var e = ES(
 															function() {
 																(a.nativeCarouselAds = null),
@@ -8772,8 +8767,36 @@ try {
 								var e = a.features || {};
 								this.$3.setLogLevel(e.logLevel || j.ERROR);
 								this.$3.setClientEventURL(a.clientEventURL);
-								e = new g(this.$2);
-								e.renderAd(a, b, c, d);
+								if (!a.success) {
+									this.$3.error();
+									d(a.errorCode, a.errorMsg, a.placementId);
+									return;
+								}
+								e = [];
+								if (a.nativeAd) e = [a];
+								else if (a.nativeAds)
+									for (var f = 0; f < a.nativeAds.length; f++) {
+										var h = ES("Object", "assign", !1, {}, a, {
+											key: a.keys[f],
+											nativeAd: a.nativeAds[f]
+										});
+										delete h.keys;
+										delete h.nativeAds;
+										e.push(h);
+									}
+								h = e.length > 1;
+								a = this.$2.rootElement;
+								for (var f = 0; f < e.length; f++) {
+									var i = e[f],
+										k = a;
+									h &&
+										((k = document.createElement("div")),
+										(k.className = "fbSlot-" + f),
+										a.appendChild(k));
+									var l = ES("Object", "assign", !1, {}, this.$2, { data: i });
+									l = new g(l, k);
+									l.renderAd(i, b, c, d);
+								}
 								this.$1 = !0;
 							};
 							e.exports = a;
@@ -8842,20 +8865,30 @@ try {
 										if (c.result === "valid") {
 											a.data.result = c.result;
 											c = !!d.useClickUrlFromAdResponse;
-											var f = null;
-											if (c) {
-												c = b.data.nativeAd;
-												f = c && c.href;
+											var f = [],
+												g = [];
+											if (a.data.keys) {
+												f = a.data.keys;
+												var i = b.data.nativeAds;
+												i &&
+													(g = ES(i, "map", !0, function(a) {
+														return a.href;
+													}));
+											} else {
+												i = b.data.nativeAd;
+												g.push(i && i.href);
+												f.push(a.data.key);
 											}
-											a.core.sendToFacebook({
-												name: "init",
-												params: {
-													key: h.onlyString(a.data.key),
-													features: d,
-													clientEventUrl: h.onlyString(e),
-													clickUrl: f
-												}
-											});
+											for (var i = 0; i < f.length; i++)
+												a.core.sendToFacebook({
+													name: "init",
+													params: {
+														key: h.onlyString(f[i]),
+														features: d,
+														clientEventUrl: h.onlyString(e),
+														clickUrl: c ? h.onlyString(g[i]) : null
+													}
+												});
 										} else
 											b.data = {
 												errorCode: "1007",
@@ -8923,7 +8956,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4769083","namespace":"FB","message":"' +
+				'","revision":"4769743","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
