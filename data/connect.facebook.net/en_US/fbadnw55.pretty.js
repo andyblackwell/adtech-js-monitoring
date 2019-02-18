@@ -1,4 +1,4 @@
-/*1550249550,,JIT Construction: v4769865,en_US*/
+/*1550522103,,JIT Construction: v4774083,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -8739,15 +8739,18 @@ try {
 								var a = this,
 									b = this.$2.querySelectorAll(".fbSlotArticle"),
 									c = function(c) {
+										__p && __p();
 										var d = a.$1[c];
 										c = b[c];
 										c.innerHTML = a.$3;
 										var e = c.querySelector(".fbArticleImage"),
 											f = c.querySelector(".fbArticleTitle"),
-											g = c.querySelector(".fbArticleSubtitle");
+											g = c.querySelector(".fbArticleSubtitle"),
+											h = c.querySelector(".fbArticleSource");
 										e && (e.src = d.image);
 										f && (f.textContent = d.title);
 										g && (g.textContent = d.summary);
+										h && (h.textContent = d.link);
 										c.addEventListener(
 											"click",
 											ES(
@@ -9035,7 +9038,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4769865","namespace":"FB","message":"' +
+				'","revision":"4774083","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
