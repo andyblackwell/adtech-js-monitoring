@@ -1,4 +1,4 @@
-/*1550522103,,JIT Construction: v4774083,en_US*/
+/*1550592990,,JIT Construction: v4774854,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -8716,56 +8716,100 @@ try {
 					);
 					__d(
 						"ANRecirculationUnit",
-						["ANLinkOpener"],
-						function(a, b, c, d, e, f, g) {
+						[
+							"AdImpressionBehavior.anweb",
+							"AdQualityViewabilityMonitor",
+							"ANLinkOpener",
+							"OnScreenBehaviorManager.anweb"
+						],
+						function(a, b, c, d, e, f, g, h, i, j) {
 							"use strict";
 							__p && __p();
-							function h(a, b, c) {
+							function k(a, b, c, d, e, f, g) {
 								(this.$1 = a),
 									(this.$2 = b),
 									(this.$3 = c),
-									(this.$4 = new g(b));
+									(this.$4 = d),
+									(this.$5 = f),
+									(this.$6 = g),
+									(this.$7 = e),
+									(this.$8 = []),
+									(this.$9 = new i(c));
 							}
-							h.render = function(a, b, c) {
-								a = new h(a, b, c);
-								a.$5();
+							k.render = function(a, b, c, d, e, f, g) {
+								a = new k(a, b, c, d, e, f, g);
+								a.$10();
 								return a;
 							};
-							h.prototype.$6 = function(a) {
-								this.$4.openNewTab(a);
+							k.prototype.$11 = function(a, b) {
+								var c = b.querySelector(".fbArticleImage"),
+									d = new j();
+								b = new h(b);
+								b.attachBehaviorManager(d);
+								var e = new g(
+									ES(
+										function() {
+											this.$5(a);
+										},
+										"bind",
+										!0,
+										this
+									),
+									function() {}
+								);
+								c &&
+									(c.complete && e.mediaLoaded(),
+									c.addEventListener("load", function() {
+										e.mediaLoaded();
+									}));
+								d.addBehavior(e);
 							};
-							h.prototype.$5 = function() {
+							k.prototype.$12 = function(a, b, c) {
+								this.$11(a, c),
+									c.addEventListener(
+										"click",
+										ES(
+											function() {
+												this.$6(a), this.$9.openNewTab(b.link);
+											},
+											"bind",
+											!0,
+											this
+										)
+									);
+							};
+							k.prototype.$13 = function(a, b) {
+								b.innerHTML = this.$4;
+								var c = b.querySelector(".fbArticleImage"),
+									d = b.querySelector(".fbArticleTitle"),
+									e = b.querySelector(".fbArticleSubtitle");
+								b = b.querySelector(".fbArticleSource");
+								c && (c.src = a.image);
+								d && (d.textContent = a.title);
+								e && (e.textContent = a.summary);
+								b && (b.textContent = a.link);
+							};
+							k.prototype.$10 = function() {
 								__p && __p();
-								var a = this,
-									b = this.$2.querySelectorAll(".fbSlotArticle"),
-									c = function(c) {
-										__p && __p();
-										var d = a.$1[c];
-										c = b[c];
-										c.innerHTML = a.$3;
-										var e = c.querySelector(".fbArticleImage"),
-											f = c.querySelector(".fbArticleTitle"),
-											g = c.querySelector(".fbArticleSubtitle"),
-											h = c.querySelector(".fbArticleSource");
-										e && (e.src = d.image);
-										f && (f.textContent = d.title);
-										g && (g.textContent = d.summary);
-										h && (h.textContent = d.link);
-										c.addEventListener(
-											"click",
-											ES(
-												function() {
-													this.$6(d.link);
-												},
-												"bind",
-												!0,
-												a
-											)
-										);
-									};
-								for (var d = 0; d < b.length && d < this.$1.length; d++) c(d);
+								var a = this.$3.querySelectorAll(".fbSlot"),
+									b = 0,
+									c = 0;
+								for (var d = 0; d < a.length; d++) {
+									var e = a[d];
+									if (ES(e.classList, "contains", !0, "fbSlotAd")) {
+										var f = this.$2[b++];
+										this.$8.push(f);
+										this.$7(f, e);
+									} else if (ES(e.classList, "contains", !0, "fbSlotArticle")) {
+										f = this.$1[c++];
+										e = e;
+										this.$8.push(f);
+										this.$13(f, e);
+										this.$12(d, f, e);
+									}
+								}
 							};
-							e.exports = h;
+							e.exports = k;
 						},
 						null
 					);
@@ -8793,7 +8837,7 @@ try {
 												j.sendToFacebook(this.$2, {
 													name: "client_event",
 													params: {
-														key: j.onlyString(this.$2.data.key),
+														key: this.$4(),
 														clientEventUrl: a,
 														payload: b
 													}
@@ -8816,6 +8860,12 @@ try {
 										)
 									);
 							}
+							a.prototype.$4 = function() {
+								return j.onlyString(
+									this.$2.data.key ||
+										(this.$2.data.keys && this.$2.data.keys[0])
+								);
+							};
 							a.prototype.sendToFacebook = function(a) {
 								j.sendToFacebook(this.$2, a);
 							};
@@ -8824,7 +8874,7 @@ try {
 								f = new g(f, b);
 								f.renderAd(a, c, d, e);
 							};
-							a.prototype.$4 = function(a) {
+							a.prototype.$5 = function(a) {
 								__p && __p();
 								var b = [];
 								if (a.nativeAd) b = [a];
@@ -8840,28 +8890,65 @@ try {
 									}
 								return b;
 							};
-							a.prototype.$5 = function(a, b, c, d) {
+							a.prototype.$6 = function(a, b, c, d) {
 								__p && __p();
-								var e = this.$4(a),
+								var e = this.$5(a),
 									f = !!a.recommendedContent,
 									g = e.length > 1,
-									h = this.$2.rootElement,
-									j = !!a.wrapperMarkup;
+									h = this.$2.rootElement;
 								a.wrapperMarkup && (h.innerHTML = a.wrapperMarkup);
-								if (j) {
-									j = h.querySelectorAll(".fbSlotAd");
-									for (var k = 0; k < j.length && k < e.length; k++)
-										this.renderAd(e[k], j[k], b, c, d);
-									f && i.render(a.recommendedContent, h, a.wrapperItemMarkup);
-								} else
-									for (var k = 0; k < e.length; k++) {
-										j = e[k];
-										f = h;
+								if (f)
+									i.render(
+										a.recommendedContent,
+										e,
+										h,
+										a.wrapperItemMarkup,
+										ES(
+											function(a, e) {
+												this.renderAd(a, e, b, c, d);
+											},
+											"bind",
+											!0,
+											this
+										),
+										ES(
+											function(a) {
+												j.sendToFacebook(this.$2, {
+													name: "recirc",
+													params: {
+														key: this.$4(),
+														payload: { type: "impression", index: a }
+													}
+												});
+											},
+											"bind",
+											!0,
+											this
+										),
+										ES(
+											function(a) {
+												j.sendToFacebook(this.$2, {
+													name: "recirc",
+													params: {
+														key: this.$4(),
+														payload: { type: "click", index: a }
+													}
+												});
+											},
+											"bind",
+											!0,
+											this
+										)
+									);
+								else
+									for (var f = 0; f < e.length; f++) {
+										a = e[f];
+										var k = h;
 										g &&
-											((f = document.createElement("div")),
-											(f.className = "fbAdSlot-" + k),
-											h.appendChild(f));
-										this.renderAd(j, f, b, c, d);
+											((k = document.createElement("div")),
+											(k.className = "fbAdSlot-" + f),
+											h.appendChild(k));
+										this.renderAd(a, k, b, c, d);
 									}
 							};
 							a.prototype.adLoaded = function(a, b, c, d) {
@@ -8878,7 +8965,7 @@ try {
 									d(a.errorCode, a.errorMsg, a.placementId);
 									return;
 								}
-								this.$5(a, b, c, d);
+								this.$6(a, b, c, d);
 								this.$1 = !0;
 							};
 							e.exports = a;
@@ -9038,7 +9125,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4774083","namespace":"FB","message":"' +
+				'","revision":"4774854","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
