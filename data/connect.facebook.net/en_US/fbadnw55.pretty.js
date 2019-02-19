@@ -1,4 +1,4 @@
-/*1550592990,,JIT Construction: v4774854,en_US*/
+/*1550605587,,JIT Construction: v4775314,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -8787,7 +8787,7 @@ try {
 								c && (c.src = a.image);
 								d && (d.textContent = a.title);
 								e && (e.textContent = a.summary);
-								b && (b.textContent = a.link);
+								b && (b.textContent = a.source);
 							};
 							k.prototype.$10 = function() {
 								__p && __p();
@@ -8890,7 +8890,10 @@ try {
 									}
 								return b;
 							};
-							a.prototype.$6 = function(a, b, c, d) {
+							a.prototype.$6 = function() {
+								return j.onlyString(this.$2.data.requestId);
+							};
+							a.prototype.$7 = function(a, b, c, d) {
 								__p && __p();
 								var e = this.$5(a),
 									f = !!a.recommendedContent,
@@ -8916,7 +8919,7 @@ try {
 												j.sendToFacebook(this.$2, {
 													name: "recirc",
 													params: {
-														key: this.$4(),
+														reqId: this.$6(),
 														payload: { type: "impression", index: a }
 													}
 												});
@@ -8930,7 +8933,7 @@ try {
 												j.sendToFacebook(this.$2, {
 													name: "recirc",
 													params: {
-														key: this.$4(),
+														reqId: this.$6(),
 														payload: { type: "click", index: a }
 													}
 												});
@@ -8965,7 +8968,7 @@ try {
 									d(a.errorCode, a.errorMsg, a.placementId);
 									return;
 								}
-								this.$6(a, b, c, d);
+								this.$7(a, b, c, d);
 								this.$1 = !0;
 							};
 							e.exports = a;
@@ -9125,7 +9128,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4774854","namespace":"FB","message":"' +
+				'","revision":"4775314","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
