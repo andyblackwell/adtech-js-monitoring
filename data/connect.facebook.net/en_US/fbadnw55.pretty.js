@@ -1,4 +1,4 @@
-/*1550837061,,JIT Construction: v4787535,en_US*/
+/*1550851473,,JIT Construction: v4787693,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -8835,7 +8835,6 @@ try {
 										this.$7(f, e);
 									} else if (ES(e.classList, "contains", !0, "fbSlotArticle")) {
 										f = this.$1[c++];
-										e = e;
 										this.$8.push(f);
 										this.$13(f, e);
 										this.$12(d, f, e);
@@ -9161,7 +9160,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4787535","namespace":"FB","message":"' +
+				'","revision":"4787693","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
