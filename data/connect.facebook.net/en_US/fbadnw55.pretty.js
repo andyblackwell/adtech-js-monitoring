@@ -1,4 +1,4 @@
-/*1550875128,,JIT Construction: v4789234,en_US*/
+/*1550937406,,JIT Construction: v4791527,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4218,16 +4218,23 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
+							__p && __p();
 							function a(a) {
 								(this.$1 = a),
 									(this.$2 = document.createElement("a")),
 									(this.$2.rel = "noopener noreferrer"),
 									this.$1.appendChild(this.$2);
 							}
-							a.prototype.openNewTab = function(a) {
+							a.prototype.$3 = function(a, b) {
 								(this.$2.href = a),
-									(this.$2.target = "_blank"),
+									(this.$2.target = b ? "_blank" : ""),
 									this.$2.click();
+							};
+							a.prototype.openNewTab = function(a) {
+								this.$3(a, !0);
+							};
+							a.prototype.open = function(a) {
+								this.$3(a, !1);
 							};
 							e.exports = a;
 						},
@@ -8802,7 +8809,7 @@ try {
 										"click",
 										ES(
 											function() {
-												this.$6(a), this.$9.openNewTab(b.link);
+												this.$6(a), this.$9.open(b.link);
 											},
 											"bind",
 											!0,
@@ -9160,7 +9167,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4789234","namespace":"FB","message":"' +
+				'","revision":"4791527","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
