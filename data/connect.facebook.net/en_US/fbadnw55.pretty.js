@@ -1,4 +1,4 @@
-/*1551144690,,JIT Construction: v4795245,en_US*/
+/*1551205941,,JIT Construction: v4797465,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -7655,6 +7655,7 @@ try {
 							"MediationDetector",
 							"OnScreenBehaviorManager.anweb",
 							"PlayVideoWhenOnScreenBehavior.anweb",
+							"QueryString",
 							"Whiteops",
 							"cx",
 							"getTime",
@@ -7699,11 +7700,12 @@ try {
 							J,
 							K,
 							L,
-							M
+							M,
+							N
 						) {
 							"use strict";
 							__p && __p();
-							var N = {
+							var O = {
 									"300x250": [300, 250],
 									"320x50": [320, 50],
 									"300x600": [300, 600],
@@ -7712,7 +7714,7 @@ try {
 									fullwidth: [300, 250],
 									rewarded_video: ["100%", "100%"]
 								},
-								O = [
+								P = [
 									"fbAdBody",
 									"fbAdCallToAction",
 									"fbAdIcon",
@@ -7722,7 +7724,7 @@ try {
 									"fbTwoStepDialog",
 									"UNKNOWN"
 								];
-							function P(a) {
+							function Q(a) {
 								return {
 									controls: a.controls === "full" ? "full" : "mute_only",
 									endCard: a.endCard || "none",
@@ -7761,7 +7763,7 @@ try {
 									)),
 									(this.$77 = ES(
 										function() {
-											var a = M(this.$26);
+											var a = N(this.$26);
 											this.$21.eventWithParams({
 												event_name: "VIDEO_CLICK",
 												video_playback_time: a.getCurrentTime(),
@@ -7825,7 +7827,7 @@ try {
 								a.body && a.body.appendChild(b);
 							};
 							a.prototype.$32 = function() {
-								return M(this.$24);
+								return N(this.$24);
 							};
 							a.prototype.$33 = function() {
 								if (!this.$32().$34) return !1;
@@ -7908,15 +7910,15 @@ try {
 									$44: !!d.useIntersectionObserver,
 									$45: !!d.useCtaFallback,
 									$38: a.xout,
-									$46: d.clickGuardElements || O,
-									$47: P(d.video || {}),
+									$46: d.clickGuardElements || P,
+									$47: Q(d.video || {}),
 									$48: d.fullwidthMinAspectRatio || 1.5,
 									$49: d.autoplayEnabled === !0,
 									$50: d.separateVideoViewability === !0
 								};
 								this.$21.setLogLevel(this.$32().$39.logLevel || F.ERROR);
 								this.$21.setClientEventURL(a.clientEventURL);
-								this.$1 = L();
+								this.$1 = M();
 								this.$32().$39.rp && this.$25.enableReward();
 								var e = 0,
 									f = !!a.creativeMarkupBackup;
@@ -8045,7 +8047,7 @@ try {
 							};
 							a.prototype.$52 = function() {
 								__p && __p();
-								var a = N[this.$8],
+								var a = O[this.$8],
 									b = a[0];
 								a = a[1];
 								var c = document.createElement("iframe");
@@ -8056,7 +8058,7 @@ try {
 								this.$9.appendChild(c);
 								c.contentDocument.open();
 								c.contentDocument.close();
-								b = M(c.contentDocument.body);
+								b = N(c.contentDocument.body);
 								b.style.overflow = "hidden";
 								b.style.margin = "0";
 								b.style.padding = "0";
@@ -8088,7 +8090,7 @@ try {
 								);
 							};
 							a.prototype.$61 = function(a) {
-								return a && a.video ? P(a.video) : this.$32().$47;
+								return a && a.video ? Q(a.video) : this.$32().$47;
 							};
 							a.prototype.$55 = function(a, b, c, d, e) {
 								(a.nativeAd.loaded = !1),
@@ -8129,7 +8131,7 @@ try {
 									this.$21.error("Multiple ADIMPRESSION attempted.");
 									return;
 								}
-								this.$2 = L();
+								this.$2 = M();
 								var a = this.$67();
 								this.sendToFacebook({
 									name: "impress",
@@ -8295,7 +8297,7 @@ try {
 								this.$19 = !0;
 								this.$20.addRequiredEvent();
 								c = new B(
-									M(b.adVideo),
+									N(b.adVideo),
 									b.adImage,
 									d,
 									c,
@@ -8311,7 +8313,7 @@ try {
 								);
 								var e = this.$36() && this.$25.isRewardEnabled();
 								if (e) {
-									var f = M(this.$6);
+									var f = N(this.$6);
 									this.$27 = new w(this.$25, f, c, this.$32().$34);
 									this.$27.makeRewarded();
 									f.style.maxWidth = "";
@@ -8344,7 +8346,7 @@ try {
 								var c = ES(
 										function(a, c) {
 											__p && __p();
-											var d = L(),
+											var d = M(),
 												e = b.href,
 												f = y.maybeHTMLElement(c.target);
 											f = f ? this.$78(f) : t.UNKNOWN;
@@ -8391,6 +8393,9 @@ try {
 												(i.vp =
 													(g.visibleWidth * g.visibleHeight) /
 													(g.height * g.width));
+											c = y.isAppStoreURL(e);
+											h =
+												!c && a === x.BILLABLE_CLICK && this.$32().$39.useShim;
 											this.sendToFacebook({
 												name: "click",
 												params: {
@@ -8413,19 +8418,34 @@ try {
 														clickY: g.clickY,
 														relClickX: g.relClickX,
 														relClickY: g.relClickX
-													}
+													},
+													onlyClickClientEvent: h
 												}
 											});
-											c = y.isAppStoreURL(e);
-											this.$32().$40 &&
-												e &&
-												!c &&
-												a === x.BILLABLE_CLICK &&
-												this.$22.openNewTab(e);
-											if (this.$32().$40 || c) {
-												h = new m(window.document);
-												var j = L();
-												h.onBounceBack(
+											if (h) {
+												d = J.appendToUrl(e, {
+													ts: i.clktm,
+													dl: i.clkdel,
+													w: g.width,
+													h: g.height,
+													vw: g.visibleWidth,
+													vh: g.visibleHeight,
+													cx: g.clickX,
+													cy: g.clickY,
+													rcx: g.relClickX,
+													rcy: g.relClickY
+												});
+												this.$22.openNewTab(d);
+											} else
+												this.$32().$40 &&
+													e &&
+													!c &&
+													a === x.BILLABLE_CLICK &&
+													this.$22.openNewTab(e);
+											if (this.$32().$39.useShim || this.$32().$40 || c) {
+												f = new m(window.document);
+												var j = M();
+												f.onBounceBack(
 													ES(
 														function(a) {
 															this.sendToFacebook({
@@ -8433,7 +8453,7 @@ try {
 																params: {
 																	key: y.onlyString(this.$4.data.key),
 																	leaveTime: j,
-																	backTime: L()
+																	backTime: M()
 																}
 															}),
 																this.$21.event("ADNW_BOUNCEBACK", "" + a);
@@ -8479,7 +8499,7 @@ try {
 									),
 									e = ES(
 										function(a) {
-											var b = L(),
+											var b = M(),
 												e = y.maybeHTMLElement(a.target);
 											e = e ? this.$78(e) : t.UNKNOWN;
 											var f = this.$32().$39.minClickDelay;
@@ -8509,11 +8529,11 @@ try {
 								}
 								var f = this.$6.querySelector(".adnwTwoClickBlocker");
 								if (f && !!this.$32().$39.clickConfirmation) {
-									var g = M(f.querySelector(".adnwCancelLink"));
+									var g = N(f.querySelector(".adnwCancelLink"));
 									g.addEventListener("click", function(a) {
 										f.style.display = "none";
 									});
-									g = M(f.querySelector(".adnwContinueLink"));
+									g = N(f.querySelector(".adnwContinueLink"));
 									g.addEventListener("click", function(a) {
 										(f.style.display = "none"), e(a);
 									});
@@ -8559,7 +8579,7 @@ try {
 								for (d = 0; d < c.length; d++) c[d].appendChild(this.$81(b));
 							};
 							a.prototype.$82 = function(a) {
-								a = M(a.ownerDocument.body);
+								a = N(a.ownerDocument.body);
 								a.addEventListener("touchstart", function() {}, !1);
 							};
 							a.prototype.$62 = function(a, b, c, d, e, f) {
@@ -8570,7 +8590,7 @@ try {
 								var g = !1;
 								c = this.$83(a, b, c, "", d, e, f);
 								this.$32().$41 === !0 &&
-									J.run(b.requestId, "AN_MWEB", b.topDomain, this.$32().$42, a);
+									K.run(b.requestId, "AN_MWEB", b.topDomain, this.$32().$42, a);
 								return g || c;
 							};
 							a.prototype.$83 = function(a, b, c, d, e, f, g) {
@@ -8674,7 +8694,7 @@ try {
 								return this.$8 === "rewarded_video";
 							};
 							a.prototype.$51 = function() {
-								return !this.$30() && !this.$84() && N[this.$8];
+								return !this.$30() && !this.$84() && O[this.$8];
 							};
 							a.prototype.$69 = function() {
 								this.$35().classList.add("fbVisibleOnce"), this.$66();
@@ -9169,7 +9189,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4795245","namespace":"FB","message":"' +
+				'","revision":"4797465","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
