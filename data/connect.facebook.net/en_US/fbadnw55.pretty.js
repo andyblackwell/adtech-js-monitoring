@@ -1,4 +1,4 @@
-/*1550965099,,JIT Construction: v4791646,en_US*/
+/*1551144690,,JIT Construction: v4795245,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -8968,12 +8968,14 @@ try {
 											this
 										),
 										ES(
-											function(a) {
+											function(b) {
+												var c = a.features || {};
+												if (c.skipRecircClickEvent === !0) return;
 												j.sendToFacebook(this.$2, {
 													name: "recirc",
 													params: {
 														reqId: this.$6(),
-														payload: { type: "click", index: a }
+														payload: { type: "click", index: b }
 													}
 												});
 											},
@@ -8984,13 +8986,13 @@ try {
 									);
 								else
 									for (var f = 0; f < e.length; f++) {
-										a = e[f];
-										var k = h;
+										var k = e[f],
+											l = h;
 										g &&
-											((k = document.createElement("div")),
-											(k.className = "fbAdSlot-" + f),
-											h.appendChild(k));
-										this.renderAd(a, k, b, c, d);
+											((l = document.createElement("div")),
+											(l.className = "fbAdSlot-" + f),
+											h.appendChild(l));
+										this.renderAd(k, l, b, c, d);
 									}
 							};
 							a.prototype.adLoaded = function(a, b, c, d) {
@@ -9167,7 +9169,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4791646","namespace":"FB","message":"' +
+				'","revision":"4795245","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
