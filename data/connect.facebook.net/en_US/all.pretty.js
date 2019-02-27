@@ -1,4 +1,4 @@
-/*1551273389,,JIT Construction: v4801725,en_US*/
+/*1551298486,,JIT Construction: v4802385,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -19,14 +19,14 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-(function _(a, b, c, d) {
-	var e = window.console;
-	e &&
+(function _(a, b, c, d, e) {
+	var f = window.console;
+	f &&
 		Math.floor(new Date().getTime() / 1e3) - b > 7 * 24 * 60 * 60 &&
-		e.warn("The Facebook JSSDK is more than 7 days old.");
+		f.warn("The Facebook JSSDK is more than 7 days old.");
 	if (window[c]) return;
 	if (!window.JSON) return;
-	var f = (window[c] = {
+	var g = (window[c] = {
 		__buffer: {
 			replay: function() {
 				var a = this,
@@ -53,38 +53,39 @@
 			return null;
 		},
 		init: function(a) {
-			f.__buffer.opts = a;
+			g.__buffer.opts = a;
 		}
 	});
 	for (var b = 0; b < d.length; b++) {
-		e = d[b];
-		if (e in f) continue;
-		var g = e.split("."),
-			h = g.pop(),
-			i = f;
-		for (var j = 0; j < g.length; j++) i = i[g[j]] || (i[g[j]] = {});
-		i[h] = (function(a) {
+		f = d[b];
+		if (f in g) continue;
+		var h = f.split("."),
+			i = h.pop(),
+			j = g;
+		for (var k = 0; k < h.length; k++) j = j[h[k]] || (j[h[k]] = {});
+		j[i] = (function(a) {
 			if (a === "init") return;
 			return function() {
-				f.__buffer.calls.push([a, Array.prototype.slice.call(arguments)]);
+				g.__buffer.calls.push([a, Array.prototype.slice.call(arguments)]);
 			};
-		})(e);
+		})(f);
 	}
-	j = a;
-	g = /Chrome\/(\d+)/.exec(navigator.userAgent);
-	g &&
-		Number(g[1]) >= 55 &&
+	k = a;
+	h = /Chrome\/(\d+)/.exec(navigator.userAgent);
+	h &&
+		Number(h[1]) >= 55 &&
 		"assign" in Object &&
 		"findIndex" in [] &&
-		(j += "&ua=modern_es6");
-	i = document.createElement("script");
-	i.src = j;
-	i.async = !0;
-	h = document.getElementsByTagName("script")[0];
-	h.parentNode && h.parentNode.insertBefore(i, h);
+		(k += "&ua=modern_es6");
+	j = document.createElement("script");
+	j.src = k;
+	j.async = !0;
+	e && (j.crossOrigin = "anonymous");
+	i = document.getElementsByTagName("script")[0];
+	i.parentNode && i.parentNode.insertBefore(j, i);
 })(
-	"https://connect.facebook.net/en_US/all.js?hash=8af666ec2354b914c90477ff2f62e18c",
-	1551273389,
+	"https://connect.facebook.net/en_US/all.js?hash=08a3e82c734dbaf6375018c4ff43afdc",
+	1551298486,
 	"FB",
 	[
 		"AppEvents.EventNames",
@@ -127,5 +128,6 @@
 		"publish",
 		"share",
 		"ui"
-	]
+	],
+	false
 );
