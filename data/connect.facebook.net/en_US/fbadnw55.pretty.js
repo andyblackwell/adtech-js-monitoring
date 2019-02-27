@@ -1,4 +1,4 @@
-/*1551205941,,JIT Construction: v4797465,en_US*/
+/*1551272019,,JIT Construction: v4801725,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -8100,6 +8100,7 @@ try {
 										(this.$17 = this.$57(a.nativeAd, c, d)),
 									(this.$15 = this.$62(
 										c,
+										a.requestId,
 										a.nativeAd,
 										a.nativeCarouselAds,
 										e,
@@ -8582,16 +8583,16 @@ try {
 								a = N(a.ownerDocument.body);
 								a.addEventListener("touchstart", function() {}, !1);
 							};
-							a.prototype.$62 = function(a, b, c, d, e, f) {
-								if (!a || !b || b.loaded) return !1;
-								this.applyAdTypeClass(a, b, c);
+							a.prototype.$62 = function(a, b, c, d, e, f, g) {
+								if (!a || !c || c.loaded) return !1;
+								this.applyAdTypeClass(a, c, d);
 								this.$82(a);
-								b.loaded = !0;
-								var g = !1;
-								c = this.$83(a, b, c, "", d, e, f);
+								c.loaded = !0;
+								var h = !1;
+								d = this.$83(a, c, d, "", e, f, g);
 								this.$32().$41 === !0 &&
-									K.run(b.requestId, "AN_MWEB", b.topDomain, this.$32().$42, a);
-								return g || c;
+									K.run(b, "AN_MWEB", c.topDomain, this.$32().$42, a);
+								return h || d;
 							};
 							a.prototype.$83 = function(a, b, c, d, e, f, g) {
 								var h,
@@ -9189,7 +9190,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4797465","namespace":"FB","message":"' +
+				'","revision":"4801725","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
