@@ -1,4 +1,4 @@
-/*1551340732,,JIT Construction: v4805889,en_US*/
+/*1551389059,,JIT Construction: v4807158,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2399,44 +2399,55 @@ try {
 								);
 							}
 							function u(a) {
+								return a.ownerDocument.defaultView.frameElement;
+							}
+							function v(a) {
+								return !!(a && a.id && a.id.match(/^google_ads_iframe_/));
+							}
+							function w(a) {
+								var b = u(a);
+								if (!v(b)) return;
+								y(b, "100%", a.clientHeight);
+							}
+							function x(a) {
 								return a == null ? "" : typeof a === "string" ? a : a + "px";
 							}
-							function v(a, b, c) {
+							function y(a, b, c) {
 								b === void 0 && (b = null);
 								c === void 0 && (c = null);
 								if (!a) return;
-								a.style.width = u(b);
-								a.style.height = u(c);
+								a.style.width = x(b);
+								a.style.height = x(c);
 							}
-							function w(a) {
+							function z(a) {
 								return !!(a && a.id && a.id.match(/^apstag-f-iframe-/));
 							}
-							function x(a) {
-								w(a) && (a = a.ownerDocument.defaultView.frameElement);
+							function A(a) {
+								z(a) && (a = a.ownerDocument.defaultView.frameElement);
 								a = a.parentElement && a.parentElement.parentElement;
 								return t(a) ? a : null;
 							}
-							function y(a) {
+							function B(a) {
 								var b = a.ownerDocument.defaultView;
 								return parseInt(b.getComputedStyle(a).width, 10);
 							}
-							function z(a) {
+							function C(a) {
 								var b = a.ownerDocument.defaultView;
 								return parseInt(b.getComputedStyle(a).height, 10);
 							}
-							function A() {
+							function D() {
 								return window.screen.width;
 							}
-							function B() {
+							function E() {
 								return window.screen.height;
 							}
-							function C() {
+							function F() {
 								return (
 									b("ScreenOrientation.adquality").getScreenOrientation() ==
 									b("AdQualityScreenOrientation").VERTICAL
 								);
 							}
-							function D(a) {
+							function G(a) {
 								if (!a) return !1;
 								for (var b = 0; b < j.length; b++) {
 									var c = j[b];
@@ -2444,7 +2455,7 @@ try {
 								}
 								return !1;
 							}
-							function E(a, b, c) {
+							function H(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2501,7 +2512,7 @@ try {
 									}
 								}
 							}
-							function F(a, b, c) {
+							function I(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2557,7 +2568,7 @@ try {
 									}
 								}
 							}
-							function G(a, b, c) {
+							function J(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2613,10 +2624,10 @@ try {
 									}
 								}
 							}
-							function H(a) {
+							function K(a) {
 								a = a;
 								while (a) {
-									w(a) && (a = a.ownerDocument.defaultView.frameElement);
+									z(a) && (a = a.ownerDocument.defaultView.frameElement);
 									if (
 										window.getComputedStyle(a).overflowX !== "visible" ||
 										!a.parentElement
@@ -2626,92 +2637,93 @@ try {
 								}
 								return a;
 							}
-							function I(a) {
+							function L(a) {
 								a = a.getBoundingClientRect();
 								var b = a.left;
-								a = A() - a.right;
+								a = D() - a.right;
 								return Math.max(a, b);
 							}
-							function J(a) {
+							function M(a) {
 								return a.scrollHeight > a.clientHeight + 3;
 							}
-							function K(a, b, c) {
+							function N(a, b, c) {
 								__p && __p();
 								var d = c.slice(0, b).join(" ") + "\u2026";
 								a.textContent = d;
-								if (J(a)) return i;
+								if (M(a)) return i;
 								if (b >= c.length) return h;
 								a.textContent = c.slice(0, b + 1).join(" ") + "\u2026";
-								if (J(a)) {
+								if (M(a)) {
 									a.textContent = d;
 									return h;
 								}
 								a.textContent = d;
 								return g;
 							}
-							function L(a) {
-								if (!J(a)) return;
+							function O(a) {
+								if (!M(a)) return;
 								var b = a.textContent.split(" "),
 									c = 0,
 									d = b.length - 1;
 								while (c <= d) {
 									var e = Math.floor((c + d) / 2),
-										f = K(a, e, b);
+										f = N(a, e, b);
 									if (f === h) break;
 									f === i ? (d = e - 1) : (c = e + 1);
 								}
 							}
-							function M(a) {
+							function P(a) {
 								a = a.querySelectorAll("[data-auto-fit-text=true]");
-								for (var b = 0; b < a.length; b++) L(a[b]);
+								for (var b = 0; b < a.length; b++) O(a[b]);
 							}
-							function N(a) {
+							function Q(a) {
 								var b = !1;
 								return function() {
 									b || ((b = !0), a.apply(void 0, arguments));
 								};
 							}
-							function O(a) {
+							function R(a) {
 								if (typeof a === "string") return a;
 								else return "";
 							}
-							function P(a, b) {
+							function S(a, b) {
 								a.iframe.contentWindow.postMessage(b, a.domain);
 							}
 							e.exports = {
-								calculateLargestMargin: I,
-								cssSize: u,
+								autofitIfInDfpIframe: w,
+								calculateLargestMargin: L,
+								cssSize: x,
 								extractOrigin: k,
 								extractDomain: a,
 								extractHostname: l,
-								findWidestParentElement: H,
-								getDFPRoot: x,
-								getElementWidth: y,
-								getElementHeight: z,
-								getScreenHeight: B,
-								getScreenWidth: A,
+								findWidestParentElement: K,
+								getDFPRoot: A,
+								getElementWidth: B,
+								getElementHeight: C,
+								getScreenHeight: E,
+								getScreenWidth: D,
 								getNavigationStart: d,
 								getTopMostAccessibleWindow: n,
 								getV55TagStateContainer: f,
 								getV60TagStateContainer: p,
 								getWindowHierarchy: m,
-								isA9Container: w,
-								isAppStoreURL: D,
+								isA9Container: z,
+								isAppStoreURL: G,
 								isDfpContainer: t,
 								isSameRootDomain: c,
 								maybeHTMLElement: r,
 								maybeHTMLBodyElement: s,
 								maybeNode: q,
-								once: N,
-								onlyString: O,
-								resizeElement: v,
-								restoreElementStyles: F,
-								removeStoredData: G,
-								screenIsPortrait: C,
-								sendToFacebook: P,
-								storeElementStyles: E,
-								truncateTextToFitElement: L,
-								autofitTextWhereNeeded: M
+								once: Q,
+								onlyString: R,
+								resizeElement: y,
+								restoreElementStyles: I,
+								removeStoredData: J,
+								screenIsPortrait: F,
+								sendToFacebook: S,
+								storeElementStyles: H,
+								truncateTextToFitElement: O,
+								autofitTextWhereNeeded: P
 							};
 						},
 						null
@@ -8990,21 +9002,22 @@ try {
 							g.prototype.$10 = function() {
 								__p && __p();
 								var a = this.$3.querySelectorAll(".fbSlot"),
-									b = 0,
-									c = 0;
-								for (var d = 0; d < a.length; d++) {
-									var e = a[d];
-									if (ES(e.classList, "contains", !0, "fbSlotAd")) {
-										var f = this.$2[b++];
-										this.$8.push(f);
-										this.$7(f, e);
-									} else if (ES(e.classList, "contains", !0, "fbSlotArticle")) {
-										f = this.$1[c++];
-										this.$8.push(f);
-										this.$13(f, e);
-										this.$12(d, f, e);
+									c = 0,
+									d = 0;
+								for (var e = 0; e < a.length; e++) {
+									var f = a[e];
+									if (ES(f.classList, "contains", !0, "fbSlotAd")) {
+										var g = this.$2[c++];
+										this.$8.push(g);
+										this.$7(g, f);
+									} else if (ES(f.classList, "contains", !0, "fbSlotArticle")) {
+										g = this.$1[d++];
+										this.$8.push(g);
+										this.$13(g, f);
+										this.$12(e, g, f);
 									}
 								}
+								b("ANUtils").autofitIfInDfpIframe(this.$3);
 							};
 							e.exports = g;
 						},
@@ -9327,7 +9340,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4805889","namespace":"FB","message":"' +
+				'","revision":"4807158","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
