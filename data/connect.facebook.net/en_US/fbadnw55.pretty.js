@@ -1,4 +1,4 @@
-/*1551721188,,JIT Construction: v4815871,en_US*/
+/*1551756987,,JIT Construction: v4818733,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -3181,57 +3181,79 @@ try {
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							function g(a, b, c) {
+							function g(a) {
 								__p && __p();
-								b === void 0 && (b = {});
-								c === void 0 && (c = []);
-								a = document.createElement(a);
-								ES("Object", "assign", !1, a, b);
-								for (
-									var b = c,
-										c = ES("Array", "isArray", !1, b),
-										d = 0,
-										b = c
-											? b
-											: b[
-													typeof Symbol === "function"
-														? Symbol.iterator
-														: "@@iterator"
-											  ]();
-									;
+								(this.dom = function(a, b, c) {
+									__p && __p();
+									b === void 0 && (b = {});
+									c === void 0 && (c = []);
+									a = document.createElement(a);
+									ES("Object", "assign", !1, a, b);
+									for (
+										var b = c,
+											c = ES("Array", "isArray", !1, b),
+											d = 0,
+											b = c
+												? b
+												: b[
+														typeof Symbol === "function"
+															? Symbol.iterator
+															: "@@iterator"
+												  ]();
+										;
 
-								) {
-									var e;
-									if (c) {
-										if (d >= b.length) break;
-										e = b[d++];
-									} else {
-										d = b.next();
-										if (d.done) break;
-										e = d.value;
+									) {
+										var e;
+										if (c) {
+											if (d >= b.length) break;
+											e = b[d++];
+										} else {
+											d = b.next();
+											if (d.done) break;
+											e = d.value;
+										}
+										e = e;
+										a.appendChild(e);
 									}
-									e = e;
-									a.appendChild(e);
-								}
-								return a;
+									return a;
+								}),
+									(this.div = ES(
+										function(a, b) {
+											return this.dom("div", { className: a }, b || []);
+										},
+										"bind",
+										!0,
+										this
+									)),
+									(this.anchor = ES(
+										function(a, b) {
+											return this.dom("a", {
+												className: a,
+												href: b || "#",
+												target: "_blank"
+											});
+										},
+										"bind",
+										!0,
+										this
+									)),
+									(this.span = ES(
+										function(a, b) {
+											return this.dom("span", { className: a, textContent: b });
+										},
+										"bind",
+										!0,
+										this
+									)),
+									(this.find = function(a, c) {
+										return b("nullthrows")(a.querySelector(c));
+									}),
+									(this.withDocument = function(a) {
+										return new g(a);
+									}),
+									(this.$1 = a);
 							}
-							function a(a, b) {
-								return g("div", { className: a }, b || []);
-							}
-							function c(a, b) {
-								return g("a", {
-									className: a,
-									href: b || "#",
-									target: "_blank"
-								});
-							}
-							function d(a, b) {
-								return g("span", { className: a, textContent: b });
-							}
-							function f(a, c) {
-								return b("nullthrows")(a.querySelector(c));
-							}
-							e.exports = { anchor: c, dom: g, div: a, find: f, span: d };
+							e.exports = new g(document);
 						},
 						null
 					);
@@ -4455,18 +4477,15 @@ try {
 								]);
 							};
 							a.prototype.$12 = function(a) {
-								if (window.navigator && window.navigator.sendBeacon) {
-									window.navigator.sendBeacon(
-										b("nullthrows")(this.$8),
-										ES("JSON", "stringify", !1, a)
-									);
-									return;
-								}
-								var c = new XMLHttpRequest();
-								c.open("POST", b("nullthrows")(this.$8), !0);
-								c.withCredentials = !0;
-								c.setRequestHeader("Content-Type", "text/plain");
-								c.send(ES("JSON", "stringify", !1, a));
+								if (!this.isPublisherSideLoggingSupported())
+									throw new Error("unsupported_pub_side_logging");
+								window.navigator.sendBeacon(
+									b("nullthrows")(this.$8),
+									ES("JSON", "stringify", !1, a)
+								);
+							};
+							a.prototype.isPublisherSideLoggingSupported = function() {
+								return window.navigator && window.navigator.sendBeacon;
 							};
 							e.exports = a;
 						},
@@ -8591,6 +8610,7 @@ try {
 												this.$31().$38.useShim;
 											e =
 												this.$31().$50 &&
+												this.$21.isPublisherSideLoggingSupported() &&
 												a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK;
 											e &&
 												f === "" &&
@@ -9428,7 +9448,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4815871","namespace":"FB","message":"' +
+				'","revision":"4818733","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
