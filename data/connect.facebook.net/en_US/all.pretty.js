@@ -1,4 +1,4 @@
-/*1551810878,,JIT Construction: v4820858,en_US*/
+/*1551816706,,JIT Construction: v4821161,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -84,8 +84,8 @@
 	i = document.getElementsByTagName("script")[0];
 	i.parentNode && i.parentNode.insertBefore(j, i);
 })(
-	"https://connect.facebook.net/en_US/all.js?hash=82c0b68e77df172710804e64bb23ea42",
-	1551810878,
+	"https://connect.facebook.net/en_US/all.js?hash=603a9dc655e0d393080c498aa6b1086f",
+	1551816706,
 	"FB",
 	[
 		"AppEvents.EventNames",
@@ -129,5 +129,5 @@
 		"share",
 		"ui"
 	],
-	true
+	false
 );
