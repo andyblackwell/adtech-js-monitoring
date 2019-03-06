@@ -706,7 +706,7 @@
 			"number" == typeof window.PREBID_TIMEOUT ? window.PREBID_TIMEOUT : void 0;
 		return t && e ? Math.min(t, e) : t || e || void 0;
 	}
-	var PublisherTagVersion = 64,
+	var PublisherTagVersion = 65,
 		DirectBiddingMetric = function(t, e, n, o, i, r, a, s, d, c, l, u) {
 			(this.publisherTagVersion = t),
 				(this.slots = e),
@@ -1273,45 +1273,49 @@
 				a
 			);
 		})();
-	function retrieveGoogleTagPlacements(u) {
+	function retrieveGoogleTagPlacements(e) {
 		(window.googletag = window.googletag || {}),
 			(window.googletag.cmd = window.googletag.cmd || []),
 			window.googletag.cmd.push(function() {
-				for (
-					var t = [],
-						e =
-							window.innerWidth ||
-							document.documentElement.clientWidth ||
-							document.body.clientWidth,
-						n =
-							window.innerHeight ||
-							document.documentElement.clientHeight ||
-							document.body.clientHeight,
-						o = 0,
-						i = window.googletag.pubads().getSlots();
-					o < i.length;
-					o++
-				) {
-					for (
-						var r = i[o],
-							a = r.getSlotElementId(),
-							s = [],
-							d = 0,
-							c = r.getSizes(e, n) || r.getSizes();
-						d < c.length;
-						d++
-					) {
-						var l = c[d];
-						"function" == typeof l.getWidth &&
-							l.getWidth() &&
-							"function" == typeof l.getHeight &&
-							l.getHeight() &&
-							s.push(l.getWidth() + "x" + l.getHeight());
-					}
-					a && 0 < s.length && t.push({ slotId: a, sizes: s });
-				}
-				u(t);
+				var t = googleSlotsToDynamicSlots(window.googletag.pubads().getSlots());
+				e(t);
 			});
+	}
+	function googleSlotsToDynamicSlots(t) {
+		for (
+			var e = [],
+				n =
+					window.innerWidth ||
+					document.documentElement.clientWidth ||
+					document.body.clientWidth,
+				o =
+					window.innerHeight ||
+					document.documentElement.clientHeight ||
+					document.body.clientHeight,
+				i = 0,
+				r = t;
+			i < r.length;
+			i++
+		) {
+			for (
+				var a = r[i],
+					s = a.getSlotElementId(),
+					d = [],
+					c = 0,
+					l = a.getSizes(n, o) || a.getSizes();
+				c < l.length;
+				c++
+			) {
+				var u = l[c];
+				"function" == typeof u.getWidth &&
+					u.getWidth() &&
+					"function" == typeof u.getHeight &&
+					u.getHeight() &&
+					d.push(u.getWidth() + "x" + u.getHeight());
+			}
+			s && 0 < d.length && e.push({ slotId: s, sizes: d });
+		}
+		return e;
 	}
 	function createEmptyDFPTargeting() {
 		return createDFPTargeting(null, null);
@@ -1382,9 +1386,12 @@
 			Log.Error("The passed value is not a function");
 		} else Log.Error("Cannot execute an empty function");
 	}
+	function getParam(t, e, n) {
+		return typeof t[e] === n ? t[e] : void 0;
+	}
 	var BidEventTarget = function() {},
-		__extends$4 = ((Nh = function(t, e) {
-			return (Nh =
+		__extends$4 = ((Sh = function(t, e) {
+			return (Sh =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1398,13 +1405,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Nh(t, e),
+			Sh(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Nh,
+		Sh,
 		BidEventContainerTarget = (function(_super) {
 			function BidEventContainerTarget(t, e) {
 				var n = _super.call(this) || this;
@@ -1438,8 +1445,8 @@
 				BidEventContainerTarget
 			);
 		})(BidEventTarget),
-		__extends$5 = ((di = function(t, e) {
-			return (di =
+		__extends$5 = ((ii = function(t, e) {
+			return (ii =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1453,13 +1460,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			di(t, e),
+			ii(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		di,
+		ii,
 		BidEventDocumentTarget = (function(n) {
 			function t(t) {
 				var e = n.call(this) || this;
@@ -1487,8 +1494,8 @@
 				t
 			);
 		})(BidEventTarget),
-		__extends$6 = ((xi = function(t, e) {
-			return (xi =
+		__extends$6 = ((Ci = function(t, e) {
+			return (Ci =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1502,13 +1509,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			xi(t, e),
+			Ci(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		xi,
+		Ci,
 		Custom = (function(n) {
 			function o(t) {
 				var e = n.call(this, o.NAME) || this;
@@ -1543,8 +1550,8 @@
 				t
 			);
 		})(),
-		__extends$7 = ((Ui = function(t, e) {
-			return (Ui =
+		__extends$7 = ((Zi = function(t, e) {
+			return (Zi =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1558,13 +1565,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Ui(t, e),
+			Zi(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Ui,
+		Zi,
 		DisplayUrlBidResponseSlot = (function(d) {
 			function t(t, e, n, o, i, r, a) {
 				var s = d.call(this, t, e, n, o, i, r) || this;
@@ -1587,8 +1594,8 @@
 				t
 			);
 		})(BidResponseSlot),
-		__extends$8 = ((pj = function(t, e) {
-			return (pj =
+		__extends$8 = ((uj = function(t, e) {
+			return (uj =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1602,13 +1609,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			pj(t, e),
+			uj(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		pj,
+		uj,
 		HtmlCreativeBidResponseSlot = (function(d) {
 			function t(t, e, n, o, i, r, a) {
 				var s = d.call(this, t, e, n, o, i, r) || this;
@@ -1709,8 +1716,8 @@
 				f
 			);
 		})(),
-		__extends$9 = ((sk = function(t, e) {
-			return (sk =
+		__extends$9 = ((xk = function(t, e) {
+			return (xk =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1724,13 +1731,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			sk(t, e),
+			xk(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		sk,
+		xk,
 		NativeBidResponseSlot = (function(c) {
 			function t(t, e, n, o, i, r, a, s) {
 				var d = c.call(this, t, e, n, o, i, r) || this;
@@ -1785,8 +1792,8 @@
 				t
 			);
 		})(),
-		__extends$10 = ((Yk = function(t, e) {
-			return (Yk =
+		__extends$10 = ((bl = function(t, e) {
+			return (bl =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1800,13 +1807,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Yk(t, e),
+			bl(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Yk,
+		bl,
 		RenderAdInputParameters = (function(n) {
 			function t(t) {
 				var e = n.call(this) || this;
@@ -1852,8 +1859,8 @@
 				(this.sizes = i),
 				(this.publisherSubId = r);
 		},
-		__extends$11 = ((yl = function(t, e) {
-			return (yl =
+		__extends$11 = ((Dl = function(t, e) {
+			return (Dl =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1867,13 +1874,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			yl(t, e),
+			Dl(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		yl,
+		Dl,
 		PlacementInputParameters = (function(e) {
 			function t(t) {
 				var i = e.call(this) || this;
@@ -1907,8 +1914,8 @@
 			}
 			return __extends$11(t, e), t;
 		})(InputParameters),
-		__extends$12 = ((Wl = function(t, e) {
-			return (Wl =
+		__extends$12 = ((_l = function(t, e) {
+			return (_l =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1922,13 +1929,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Wl(t, e),
+			_l(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Wl,
+		_l,
 		StandaloneInputParameters = (function(n) {
 			function t(t) {
 				var e = n.call(this) || this;
@@ -1971,7 +1978,7 @@
 	function RequestBids(t, e, n) {
 		RequestBidsWithProfileId(t, standaloneProfileId, e, n);
 	}
-	function RequestBidsOnGoogleTagSlots(e, n, o) {
+	function DiscoverTagsAndRequestBids(e, n, o) {
 		retrieveGoogleTagPlacements(function(t) {
 			t.length <= 0
 				? Log.Warning(
@@ -1984,6 +1991,24 @@
 						o
 				  );
 		});
+	}
+	function RequestBidsOnGoogleTagSlots(t, e, n) {
+		if ("number" == typeof t) {
+			DiscoverTagsAndRequestBids((o = t), e, n);
+		} else {
+			var o = getParam(t, "networkId", "number"),
+				i = getParam(t, "placements", "object"),
+				r = getParam(t, "callback", "function"),
+				a = getParam(t, "timeout", "function");
+			void 0 === i
+				? DiscoverTagsAndRequestBids(o, r, a)
+				: RequestBidsWithProfileId(
+						{ networkId: o, placements: googleSlotsToDynamicSlots(i) },
+						standaloneProfileId,
+						r,
+						a
+				  );
+		}
 	}
 	var metricBuilders = {},
 		bidCaches = {};
@@ -2520,8 +2545,8 @@
 				a
 			);
 		})(),
-		__extends$13 = ((Up = function(t, e) {
-			return (Up =
+		__extends$13 = ((eq = function(t, e) {
+			return (eq =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -2535,13 +2560,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Up(t, e),
+			eq(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Up,
+		eq,
 		ConditionalEvent = (function(r) {
 			function a(t, e, n, o) {
 				var i = r.call(this, a.NAME) || this;
@@ -2571,11 +2596,11 @@
 			);
 		})(AbstractEvent),
 		AdFormatType,
-		lq;
-	(lq = AdFormatType || (AdFormatType = {})),
-		(lq[(lq.Classic = 0)] = "Classic"),
-		(lq[(lq.StickyFooter = 1)] = "StickyFooter"),
-		(lq[(lq.ScrollingBanner = 2)] = "ScrollingBanner");
+		xq;
+	(xq = AdFormatType || (AdFormatType = {})),
+		(xq[(xq.Classic = 0)] = "Classic"),
+		(xq[(xq.StickyFooter = 1)] = "StickyFooter"),
+		(xq[(xq.ScrollingBanner = 2)] = "ScrollingBanner");
 	var CookieHelper = (function() {
 			function f() {}
 			return (
@@ -2735,11 +2760,11 @@
 			);
 		})(),
 		DisplayContext,
-		gr;
-	(gr = DisplayContext || (DisplayContext = {})),
-		(gr[(gr.InFriendlyIframe = 1)] = "InFriendlyIframe"),
-		(gr[(gr.InUnfriendlyIframe = 2)] = "InUnfriendlyIframe"),
-		(gr[(gr.DirectIntegration = 3)] = "DirectIntegration");
+		sr;
+	(sr = DisplayContext || (DisplayContext = {})),
+		(sr[(sr.InFriendlyIframe = 1)] = "InFriendlyIframe"),
+		(sr[(sr.InUnfriendlyIframe = 2)] = "InUnfriendlyIframe"),
+		(sr[(sr.DirectIntegration = 3)] = "DirectIntegration");
 	var DomManipulationTools = (function() {
 			function t() {}
 			return (
@@ -2818,8 +2843,8 @@
 				r
 			);
 		})(),
-		__extends$14 = ((Gr = function(t, e) {
-			return (Gr =
+		__extends$14 = ((Sr = function(t, e) {
+			return (Sr =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -2833,13 +2858,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Gr(t, e),
+			Sr(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Gr,
+		Sr,
 		DisplayEvent = (function(i) {
 			function t(t, e, n) {
 				var o = i.call(this, t) || this;
@@ -2865,12 +2890,12 @@
 			);
 		})(AbstractEvent),
 		HandlerType,
-		ds;
-	(ds = HandlerType || (HandlerType = {})),
-		(ds[(ds.AFR = 0)] = "AFR"),
-		(ds[(ds.AJS = 1)] = "AJS");
-	var __extends$15 = ((es = function(t, e) {
-			return (es =
+		ps;
+	(ps = HandlerType || (HandlerType = {})),
+		(ps[(ps.AFR = 0)] = "AFR"),
+		(ps[(ps.AJS = 1)] = "AJS");
+	var __extends$15 = ((qs = function(t, e) {
+			return (qs =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -2884,13 +2909,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			es(t, e),
+			qs(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		es,
+		qs,
 		DisplayEventAFR = (function(a) {
 			function i(t, e, n) {
 				var o = a.call(this, i.NAME, t, e) || this;
@@ -2938,8 +2963,8 @@
 				i
 			);
 		})(DisplayEvent),
-		__extends$16 = ((Hs = function(t, e) {
-			return (Hs =
+		__extends$16 = ((Ts = function(t, e) {
+			return (Ts =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -2953,13 +2978,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Hs(t, e),
+			Ts(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Hs,
+		Ts,
 		DisplayEventAsync = (function(_super) {
 			function DisplayEventAsync(t, e) {
 				return _super.call(this, DisplayEventAsync.NAME, t, e) || this;
@@ -3040,8 +3065,8 @@
 				DisplayEventAsync
 			);
 		})(DisplayEvent),
-		__extends$17 = ((pt = function(t, e) {
-			return (pt =
+		__extends$17 = ((Bt = function(t, e) {
+			return (Bt =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -3055,13 +3080,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			pt(t, e),
+			Bt(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		pt,
+		Bt,
 		DisplayEventSync = (function(n) {
 			function o(t, e) {
 				return n.call(this, o.NAME, t, e) || this;
@@ -3084,8 +3109,8 @@
 				o
 			);
 		})(DisplayEvent),
-		__extends$18 = ((It = function(t, e) {
-			return (It =
+		__extends$18 = ((Ut = function(t, e) {
+			return (Ut =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -3099,13 +3124,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			It(t, e),
+			Ut(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		It,
+		Ut,
 		DisplayInputParameters = (function(n) {
 			function t(t) {
 				var e = n.call(this) || this;
@@ -3444,55 +3469,57 @@
 		return isVisible(t.parentNode);
 	}
 	var Polyfills = (function() {
-		function t() {}
-		return (
-			(t.LoadPolyfills = function() {
-				t.DefineIsArray(), t.DefineIndexOf(), t.DefineFilter();
-			}),
-			(t.DefineIsArray = function() {
-				Array.isArray ||
-					(Array.isArray = function(t) {
-						return "[object Array]" === Object.prototype.toString.call(t);
-					});
-			}),
-			(t.DefineIndexOf = function() {
-				Array.prototype.indexOf ||
-					(Array.prototype.indexOf = function(t, e) {
-						if ((void 0 === e && (e = 0), void 0 === this))
-							throw new TypeError("'this' is null or not defined");
-						var n = this.length;
-						if (0 === n) return -1;
-						if (n <= e) return -1;
-						for (var o = Math.max(0 <= e ? e : n - Math.abs(e), 0); o < n; ) {
-							if (o in this && this[o] === t) return o;
-							o++;
-						}
-						return -1;
-					});
-			}),
-			(t.DefineFilter = function() {
-				Array.prototype.filter ||
-					(Array.prototype.filter = function(t) {
-						if (void 0 === this || void 0 === this) throw new TypeError();
-						var e = this.length;
-						if ("function" != typeof t) throw new TypeError();
-						for (
-							var n = [],
-								o = 2 <= arguments.length ? arguments[1] : void 0,
-								i = 0;
-							i < e;
-							i++
-						)
-							if (i in this) {
-								var r = this[i];
-								t.call(o, r, i, this) && n.push(r);
+			function t() {}
+			return (
+				(t.LoadPolyfills = function() {
+					t.DefineIsArray(), t.DefineIndexOf(), t.DefineFilter();
+				}),
+				(t.DefineIsArray = function() {
+					Array.isArray ||
+						(Array.isArray = function(t) {
+							return "[object Array]" === Object.prototype.toString.call(t);
+						});
+				}),
+				(t.DefineIndexOf = function() {
+					Array.prototype.indexOf ||
+						(Array.prototype.indexOf = function(t, e) {
+							if ((void 0 === e && (e = 0), void 0 === this))
+								throw new TypeError("'this' is null or not defined");
+							var n = this.length;
+							if (0 === n) return -1;
+							if (n <= e) return -1;
+							for (var o = Math.max(0 <= e ? e : n - Math.abs(e), 0); o < n; ) {
+								if (o in this && this[o] === t) return o;
+								o++;
 							}
-						return n;
-					});
-			}),
-			t
-		);
-	})();
+							return -1;
+						});
+				}),
+				(t.DefineFilter = function() {
+					Array.prototype.filter ||
+						(Array.prototype.filter = function(t) {
+							if (void 0 === this || void 0 === this) throw new TypeError();
+							var e = this.length;
+							if ("function" != typeof t) throw new TypeError();
+							for (
+								var n = [],
+									o = 2 <= arguments.length ? arguments[1] : void 0,
+									i = 0;
+								i < e;
+								i++
+							)
+								if (i in this) {
+									var r = this[i];
+									t.call(o, r, i, this) && n.push(r);
+								}
+							return n;
+						});
+				}),
+				t
+			);
+		})(),
+		StorageOrigin,
+		Pv;
 	function tryDecodeURIComponent(e, n) {
 		try {
 			return decodeURIComponent(e);
@@ -3514,6 +3541,10 @@
 			}
 		);
 	}
+	(Pv = StorageOrigin || (StorageOrigin = {})),
+		(Pv[(Pv.None = 0)] = "None"),
+		(Pv[(Pv.Cookie = 1)] = "Cookie"),
+		(Pv[(Pv.LocalStorage = 2)] = "LocalStorage");
 	var CookieSynchronizer = (function() {
 			function o(t, e, n) {
 				(this.isDebug = e),
@@ -3596,7 +3627,7 @@
 				}),
 				(o.prototype.getClientSideOptOut = function() {
 					var t = this.getFromAllStorages(o.OPTOUT_COOKIE_NAME);
-					return Boolean(t);
+					return { value: "1" === t.value, origin: t.origin };
 				}),
 				(o.prototype.setClientSideOptOut = function() {
 					this.writeOnAllStorages(
@@ -3633,17 +3664,17 @@
 				}),
 				(o.prototype.getLocalWebId = function() {
 					var t = this.getFromAllStorages(o.LOCAL_WEB_ID_COOKIE_NAME);
-					return (
-						this.canWriteCookies &&
-							(t || (t = generateUuid()),
+					if (this.canWriteCookies) {
+						var e = t.value;
+						e || (e = generateUuid()),
 							this.writeOnAllStorages(
 								o.LOCAL_WEB_ID_COOKIE_NAME,
-								t,
+								String(e),
 								o.GUID_RETENTION_TIME_HOUR
 							),
-							(t = this.getFromAllStorages(o.LOCAL_WEB_ID_COOKIE_NAME))),
-						t || "NA"
-					);
+							(t = this.getFromAllStorages(o.LOCAL_WEB_ID_COOKIE_NAME));
+					}
+					return (t.value && t) || { value: "NA", origin: StorageOrigin.None };
 				}),
 				(o.prototype.checkCookiesAreWriteable = function() {
 					var t = "cto_writeable";
@@ -3668,7 +3699,11 @@
 					return (
 						this.localStorageEnabled &&
 							(e = this.localStorageHelper.getItem(t) || void 0),
-						n || e
+						{
+							value: n || e,
+							origin:
+								(n && StorageOrigin.Cookie) | (e && StorageOrigin.LocalStorage)
+						}
 					);
 				}),
 				(o.prototype.deleteFromAllStorage = function(t) {
@@ -3779,10 +3814,10 @@
 				(t.prototype.synchronizeCriteoUid = function(t, e) {
 					var n = t.topFrame,
 						o = new CookieSynchronizer(n, this.debugMode, e);
-					(this.ctoIdOnPublisherDomain = o.getClientSideUid()),
-						(this.isOptOut = o.getClientSideOptOut()),
-						(this.idfs = o.getClientSideIdfs()),
-						(this.secureId = o.getClientSideSecureId()),
+					(this.ctoIdOnPublisherDomain = o.getClientSideUid().value),
+						(this.isOptOut = o.getClientSideOptOut().value),
+						(this.idfs = o.getClientSideIdfs().value),
+						(this.secureId = o.getClientSideSecureId().value),
 						o.synchronizeCriteoUid();
 				}),
 				(t.prototype.getIdfs = function() {
@@ -3879,8 +3914,8 @@
 		};
 		return t && Array.isArray(t) && e.push.apply(e, t), e;
 	}
-	var __extends$19 = ((jx = function(t, e) {
-			return (jx =
+	var __extends$19 = ((zx = function(t, e) {
+			return (zx =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -3894,13 +3929,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			jx(t, e),
+			zx(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		jx,
+		zx,
 		DefaultCrtgContentName = "crtg_content",
 		DefaultCrtgRtaCookieName = "crtg_rta",
 		RtaInputParameters = (function(n) {
@@ -3929,8 +3964,8 @@
 			}
 			return __extends$19(t, n), t;
 		})(InputParameters),
-		__extends$20 = ((Cx = function(t, e) {
-			return (Cx =
+		__extends$20 = ((Sx = function(t, e) {
+			return (Sx =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -3944,13 +3979,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Cx(t, e),
+			Sx(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Cx,
+		Sx,
 		RtaEvent = (function(_super) {
 			function RtaEvent(t, e) {
 				var n = _super.call(this, RtaEvent.NAME) || this;
@@ -3991,8 +4026,8 @@
 		}
 		return e;
 	}
-	var __extends$21 = ((dy = function(t, e) {
-			return (dy =
+	var __extends$21 = ((ty = function(t, e) {
+			return (ty =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -4006,13 +4041,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			dy(t, e),
+			ty(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		dy,
+		ty,
 		RtaTargetingEvent = (function(o) {
 			function i(t, e) {
 				var n = o.call(this, i.NAME) || this;
@@ -4145,9 +4180,6 @@
 					  }))
 					: Log.Error("A passback callback should be provided")
 				: Log.Error("An adUnit string parameter should be provided");
-	}
-	function getParam(t, e, n) {
-		return typeof t[e] === n ? t[e] : void 0;
 	}
 	window.criteo_pubtag ||
 		(Polyfills.LoadPolyfills(), (window.criteo_pubtag = new PublisherTag())),
