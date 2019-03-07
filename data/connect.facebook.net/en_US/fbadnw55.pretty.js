@@ -1,4 +1,4 @@
-/*1551822496,,JIT Construction: v4821470,en_US*/
+/*1551968442,,JIT Construction: v4830178,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -5726,12 +5726,13 @@ try {
 							}
 							a.prototype.$15 = function() {
 								this.$3 == null &&
-									((this.$3 = m("_6qhd")), this.$2.appendChild(this.$3));
+									((this.$3 = m("_6qhd")),
+									this.getRoot().appendChild(l(this.$3)));
 								return l(this.$3);
 							};
 							a.prototype.$16 = function() {
 								this.$3 != null &&
-									(this.$2.removeChild(this.$3), (this.$3 = null));
+									(this.getRoot().removeChild(l(this.$3)), (this.$3 = null));
 							};
 							a.prototype.$17 = function() {
 								return m("_6qhe");
@@ -5837,7 +5838,7 @@ try {
 								return l(this.$4);
 							};
 							a.prototype.getRoot = function() {
-								return this.$2;
+								return l(this.$2);
 							};
 							a.prototype.render = function() {
 								__p && __p();
@@ -5846,7 +5847,7 @@ try {
 									var a = document.createElement("a");
 									a.href = "#";
 									a.className = "_6qhg";
-									this.$2.appendChild(a);
+									this.getRoot().appendChild(a);
 									this.$4 = a;
 								}
 								this.$4.addEventListener(
@@ -5860,7 +5861,7 @@ try {
 										this
 									)
 								);
-								this.$1.appendChild(this.$2);
+								this.$1.appendChild(this.getRoot());
 							};
 							e.exports = a;
 						},
@@ -9297,7 +9298,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4821470","namespace":"FB","message":"' +
+				'","revision":"4830178","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
