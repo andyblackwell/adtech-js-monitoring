@@ -435,9 +435,7 @@
 		var c = void 0 === c ? {} : c;
 		this.error = a;
 		this.context = b.context;
-		this.line = b.line || -1;
 		this.msg = b.message || "";
-		this.file = b.file || "";
 		this.id = b.id || "jserror";
 		this.meta = c;
 	};
@@ -1269,9 +1267,9 @@
 		211: !1,
 		152: [],
 		172: null,
-		191: "001903070012530",
-		192: "021902271810270",
-		190: "011902271810270",
+		191: "001903080058260",
+		192: "021903070012530",
+		190: "011903070012530",
 		245: {},
 		180: null,
 		219: [],
@@ -1360,7 +1358,7 @@
 		return Ta("0") || 0;
 	};
 	rc("getVersion", function() {
-		return "318";
+		return "320";
 	});
 	var Cc = function() {
 		var a = {};
@@ -1387,7 +1385,7 @@
 		}),
 		(a[4] = Bc),
 		(a[2] = function() {
-			return 318;
+			return 320;
 		}),
 		(a[5] = function() {
 			var a = Va();
@@ -1746,15 +1744,7 @@
 				],
 				9
 			],
-			[
-				1,
-				[
-					[21063105],
-					[21063106, [[65, null, null, [1]]]],
-					[21063107, [[65, null, null, [1]], [71, null, null, [1]]]]
-				]
-			],
-			[10, [[21063115], [21063116, [[115, null, null, [1]]]]]],
+			[50, [[21063115], [21063116, [[115, null, null, [1]]]]]],
 			[
 				1e3,
 				[
@@ -1845,6 +1835,14 @@
 					]
 				],
 				[4, null, 3]
+			],
+			[
+				null,
+				[
+					[21063340],
+					[21063341, [[65, null, null, [1]]]],
+					[21063342, [[65, null, null, [1]], [71, null, null, [1]]]]
+				]
 			],
 			[
 				1e3,
@@ -2164,86 +2162,28 @@
 				]
 			],
 			[
-				50,
-				[
-					[
-						21063279,
-						[
-							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063279"]],
-							[null, 12, null, [null, 313]],
-							[null, null, 7, [null, null, "21063279"]],
-							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063279"]]
-						]
-					],
-					[
-						21063280,
-						[
-							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063280"]],
-							[null, 12, null, [null, 312]],
-							[null, null, 7, [null, null, "21063280"]],
-							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063280"]]
-						]
-					]
-				],
-				null,
-				1
-			],
-			[
-				100,
-				[
-					[
-						21063328,
-						[
-							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063328"]],
-							[null, 12, null, [null, 318]],
-							[null, null, 7, [null, null, "21063328"]],
-							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063328"]]
-						]
-					],
-					[
-						21063329,
-						[
-							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063329"]],
-							[null, 12, null, [null, 316]],
-							[null, null, 7, [null, null, "21063329"]],
-							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063329"]]
-						]
-					]
-				],
-				null,
-				1
-			],
-			[
 				1,
 				[
 					[
-						21063330,
+						21063343,
 						[
 							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063330"]],
-							[null, 12, null, [null, 318]],
-							[null, null, 7, [null, null, "21063330"]],
+							[null, null, 5, [null, null, "21063343"]],
+							[null, 12, null, [null, 319]],
+							[null, null, 7, [null, null, "21063343"]],
 							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063330"]]
+							[null, null, 6, [null, null, "21063343"]]
 						]
 					],
 					[
-						21063331,
+						21063344,
 						[
 							[null, 7, null, [null, 1]],
-							[null, null, 5, [null, null, "21063331"]],
-							[null, 12, null, [null, 319]],
-							[null, null, 7, [null, null, "21063331"]],
+							[null, null, 5, [null, null, "21063344"]],
+							[null, 12, null, [null, 320]],
+							[null, null, 7, [null, null, "21063344"]],
 							[60, null, null, [1]],
-							[null, null, 6, [null, null, "21063331"]]
+							[null, null, 6, [null, null, "21063344"]]
 						]
 					]
 				],
@@ -2370,7 +2310,7 @@
 			if (a) return a;
 			a = Gc();
 			var b = Ub(4, "/gpt/pubads_impl_"),
-				c = Ic() || Tb(12) || "318",
+				c = Ic() || Tb(12) || "320",
 				d = Ub(5);
 			a = a + b + c + ".js";
 			d && (a += "?" + d);
@@ -2471,7 +2411,7 @@
 					Q(16) && R(b, a, "preload", "script"),
 					Q(108) &&
 						((c = Ub(6)),
-						(e = Ic() || Tb(12) || "318"),
+						(e = Ic() || Tb(12) || "320"),
 						(c =
 							Gc() +
 							"/gpt/" +
