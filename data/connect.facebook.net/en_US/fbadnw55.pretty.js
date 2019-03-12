@@ -1,4 +1,4 @@
-/*1552413765,,JIT Construction: v4844882,en_US*/
+/*1552434475,,JIT Construction: v4846235,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -5684,7 +5684,8 @@ try {
 										"pause",
 										ES(
 											function(a) {
-												this.$7();
+												this.$1.getDuration() !== this.$1.getCurrentTime() &&
+													this.$7();
 											},
 											"bind",
 											!0,
@@ -9512,33 +9513,15 @@ try {
 						null
 					);
 					__d(
-						"javascript_shared_TAAL_OpCode",
+						"TAALOpcodes",
 						[],
 						function(a, b, c, d, e, f) {
-							e.exports = ES("Object", "freeze", !1, {
+							"use strict";
+							a = {
 								PREVIOUS_FILE: 1,
 								PREVIOUS_FRAME: 2,
 								PREVIOUS_DIR: 3,
-								FORCED_KEY: 4
-							});
-						},
-						null
-					);
-					__d(
-						"TAALOpcodes",
-						["javascript_shared_TAAL_OpCode"],
-						function(a, b, c, d, e, f, g) {
-							"use strict";
-							a = {
-								previousFile: function() {
-									return g.PREVIOUS_FILE;
-								},
-								previousFrame: function() {
-									return g.PREVIOUS_FRAME;
-								},
-								previousDirectory: function() {
-									return g.PREVIOUS_DIR;
-								},
+								FORCED_KEY: 4,
 								getString: function(a) {
 									return a && a.length ? " TAAL[" + a.join(";") + "]" : "";
 								}
@@ -9554,13 +9537,13 @@ try {
 							"use strict";
 							a = {
 								blameToPreviousFile: function(a) {
-									return this.applyOpcodes(a, [g.previousFile()]);
+									return this.applyOpcodes(a, [g.PREVIOUS_FILE]);
 								},
 								blameToPreviousFrame: function(a) {
-									return this.applyOpcodes(a, [g.previousFrame()]);
+									return this.applyOpcodes(a, [g.PREVIOUS_FRAME]);
 								},
 								blameToPreviousDirectory: function(a) {
-									return this.applyOpcodes(a, [g.previousDirectory()]);
+									return this.applyOpcodes(a, [g.PREVIOUS_DIR]);
 								},
 								applyOpcodes: function(a, b) {
 									return a + g.getString(b);
@@ -10566,7 +10549,18 @@ try {
 									(this.$10 = new G(this.$9, this.$28())),
 									(this.$2 = null),
 									(this.$18 = new K()),
-									(this.$22 = new r(this.$9));
+									(this.$22 = new r(this.$9)),
+									this.$28().addEventListener(
+										"beforeunload",
+										ES(
+											function() {
+												this.$21.event("ADNW_PAGE_UNLOADED");
+											},
+											"bind",
+											!0,
+											this
+										)
+									);
 							}
 							a.prototype.sendToFacebook = function(a) {
 								y.sendToFacebook(this.$4.iframe, this.$4.domain, a);
@@ -11974,7 +11968,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4844882","namespace":"FB","message":"' +
+				'","revision":"4846235","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
