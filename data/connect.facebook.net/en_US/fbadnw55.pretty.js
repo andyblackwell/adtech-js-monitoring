@@ -1,4 +1,4 @@
-/*1552372931,,JIT Construction: v4843906,en_US*/
+/*1552397403,,JIT Construction: v4844449,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -8391,7 +8391,10 @@ try {
 								this.$5 = c;
 							};
 							a.prototype.$74 = function(a, b) {
-								a.appendChild(this.$76(b));
+								b = this.$76(b);
+								a.firstChild
+									? a.insertBefore(b, a.firstChild)
+									: a.appendChild(b);
 							};
 							a.prototype.$73 = function(a, b, c) {
 								__p && __p();
@@ -9298,7 +9301,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4843906","namespace":"FB","message":"' +
+				'","revision":"4844449","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
