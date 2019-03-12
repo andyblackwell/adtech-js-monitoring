@@ -1,4 +1,4 @@
-/*1552397403,,JIT Construction: v4844449,en_US*/
+/*1552413765,,JIT Construction: v4844882,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2224,6 +2224,10 @@ try {
 						a.Map = h;
 						a.Set = b;
 					})(typeof global === "undefined" ? this : global);
+					__d("ViewabilitySettings", [], {
+						fl_test: true,
+						raf_safari_fix: true
+					});
 					__d("JSSDKCssConfig", [], {
 						rules:
 							"._2vfx{font-size:100px;overflow:hidden}._2vfy{overflow:hidden}._2vf-{overflow:hidden;transition:transform .3s cubic-bezier(.14, 1, 1, 1);will-change:transform}._11u9{float:left;overflow:hidden;position:relative;text-decoration:none}._11u-{background:linear-gradient(rgba(0,0,0,0) 0\u0025, rgba(0,0,0,.2) 100\u0025);bottom:0;left:0;position:absolute;right:0;top:60\u0025}._11u- ._11u_{bottom:8px;color:#fff;left:0;margin-top:0;padding-left:8px;padding-right:8px;position:absolute;right:0;text-shadow:0 1px 3px black}._11u_{color:#606770;font-size:12\u0025;font-weight:normal;margin-top:4.023\u0025}._41-w ._11u_{font-size:13px}._41-w ._11vj{height:18px;line-height:18px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._11v0,._11vj{line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._11v0{font-weight:500}._11vj{font-weight:normal}._11us{background-position:center center;background-repeat:no-repeat;background-size:cover;border-radius:10px;width:100\u0025}._11ur{border-radius:10px;overflow:hidden;position:relative}._11vk{border:1px solid #3578e5;border-radius:4px;color:#3578e5;font-size:12\u0025;font-weight:normal;line-height:1;margin-bottom:4.023\u0025;margin-top:4.023\u0025;padding-bottom:3.448\u0025;padding-top:3.448\u0025;text-align:center}._11vk._7m01{background-color:#1479fb;color:#fff}\n._1xj7{background-color:#000;height:100\u0025;overflow:hidden;position:relative;width:100\u0025}._1xj8{height:100\u0025;left:0;position:absolute;top:0;width:100\u0025}._1xj9{background-position:center;background-repeat:no-repeat;bottom:12px;cursor:pointer;height:20px;position:absolute;right:12px;width:20px}._73wr ._1xj9{background-color:rgba(0, 0, 0, .3);background-size:16px 16px;border-radius:30px;padding:14px;right:8px;top:50px}._7jun ._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/ZwUyODcSYJ2.png)}._3c3s{background-color:rgba(0, 0, 0, .6);background-image:url(https://www.facebook.com/images/marketing/video/play-medium.png);background-position:center;background-repeat:no-repeat;height:100\u0025;opacity:0;position:absolute;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden;width:100\u0025}._7juo ._3c3s._7kbt,._7kc3 ._3c3s._7kbu{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._6pfr{background-position:center center;background-repeat:no-repeat;background-size:cover;bottom:-30px;filter:blur(20px);left:-30px;pointer-events:none;position:absolute;right:-30px;top:-30px}._7462 ._3c3s,._7462 ._1xj9,._7462 ._1xj8{display:none}\n._74hs{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y0/r/1W8xR-TQBLS.png);background-position:center;background-repeat:no-repeat;background-size:cover;height:24px;position:absolute;right:16px;top:16px;width:52px}\n._74vg{align-items:center;background-color:rgba(0, 0, 0, .6);display:flex;height:100\u0025;justify-content:center;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity .3s;width:100\u0025;z-index:100}._727i{align-items:center;background-color:#fff;border-radius:12px;display:flex;flex-direction:column;font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;justify-content:center;margin:10px;padding:12px 12px;text-align:center;width:200px}._727l{background-size:contain;border-radius:50\u0025;height:60px;margin-right:4px;margin-top:24px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:60px}._727m{margin:4px 4px 0 0}._727k{margin-right:4px;margin-top:4px}._727n{background-color:#3578e5;border-radius:4px;box-sizing:border-box;color:#fff;font-weight:normal;margin-top:24px;padding:6px;width:80\u0025}._727o{opacity:1}._727j{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/jEwNOnngB02.png);background-size:contain;height:16px;margin-left:auto;text-align:right;width:16px}\n._7kc0{opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._7kb_{background-color:#000;background-position:center;background-repeat:no-repeat;background-size:contain;filter:blur(8px) brightness(.5);transform:scale3d(1.05, 1.05, 1)}._7kc1,._7kb_{bottom:0;left:0;position:absolute;right:0;top:0}._7kc1{align-items:center;display:flex;justify-content:center}._7juo ._7kc0{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._7kb-{align-items:center;display:flex;flex-direction:column;justify-content:center;padding:20px}._7kc0 .fbAdCallToAction{background-color:rgba(255, 255, 255, .9);border-radius:6px;color:#23272f;padding:10px 20px}._7kc0 .fbAdSubtitle{color:#fff;margin-bottom:20px;text-shadow:0 0 1px black}._7kc0 .fbAdIcon{border-radius:50\u0025;height:48px;margin-bottom:8px;overflow:hidden;width:48px}\n._7kby{opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._7kbx{background-color:#000;background-position:center;background-repeat:no-repeat;background-size:contain;filter:blur(8px) brightness(.5);transform:scale3d(1.05, 1.05, 1)}._7kbz,._7kbx{bottom:0;left:0;position:absolute;right:0;top:0}._7kbz{align-items:center;display:flex;justify-content:center}._7kc2 ._7kby{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._7kbv{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yJ/r/VfZ9LmofHmb.png);bottom:12px;height:24px;left:12px;position:absolute;width:24px}._7kbw{align-items:center;display:flex;flex-direction:column;justify-content:center;padding:20px}._7kby .fbAdCallToAction{background-color:rgba(255, 255, 255, .9);border-radius:6px;color:#23272f;padding:10px 20px}._7kby .fbAdSubtitle{color:#fff;margin-bottom:20px;text-shadow:0 0 1px black}._7kby .fbAdIcon{border-radius:50\u0025;height:48px;margin-bottom:8px;overflow:hidden;width:48px}\n._7juk,._7lkn,._7lkm{bottom:0;left:0;position:absolute;right:0}._7lkn{align-items:center;display:flex;flex-direction:row;font-size:14px;font-weight:normal;padding:12px 16px;position:absolute}._7lkm{background:linear-gradient( transparent, rgba(0, 0, 0, .2), rgba(0, 0, 0, .4) );height:60px;opacity:1;transition:opacity 1s}._7jum ._7jul,._7jum ._7jue,._7jum ._7lkm{opacity:0}._7jui{color:#fff;display:inline-block;flex-grow:0;min-width:40px;padding:0 12px;padding-left:0;text-align:center;text-shadow:0 0 1px rgba(0, 0, 0, .4)}._7jul{background-color:rgba(255, 255, 255, .6);border-radius:2px;display:inline-block;flex-grow:1;height:2px;margin:0 12px;overflow:hidden;transition:opacity 1s}._7jue{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ym/r/7Ri190UbT7O.png);background-position:center;background-repeat:no-repeat;cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:24px;padding-left:0;transition:opacity 1s;width:24px}._7juo ._7jue{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/8qlISslWDk2.png)}._7juj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/ZwUyODcSYJ2.png);background-position:center;background-repeat:no-repeat;cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:20px;width:20px}._7jun ._7juj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._7juh{background-color:#3578e5;height:2px;transition:width .5s}\n._6qhh{font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;font-weight:normal;text-align:left}._6qhd{align-items:center;animation:fadeIn .3s ease-in-out both;background:#dadde1;bottom:0;display:flex;justify-content:center;left:0;padding:5px;position:absolute;right:0;top:0;z-index:100}._6wfr ._6qhd{bottom:-0.5px;left:-0.5px;right:-0.5px;top:-0.5px}._6qhe{animation:fadeIn .3s ease-in-out both;background:white;border-radius:10px;box-shadow:0 2px 8px 0 rgba(0, 0, 0, .3);box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;max-width:320px;position:relative}._6qha{overflow-x:hidden;overflow-y:auto;padding-top:10px}._6qhg{height:23px;position:absolute;right:0;-webkit-tap-highlight-color:transparent;top:0}._6qhg:after{background-color:rgba(255, 255, 255, .8);background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png);background-position:27px 3px;background-repeat:no-repeat;background-size:12px 12px;border-radius:0 0 0 6px;box-shadow:0 0 4px 0 rgba(0, 0, 0, .15);content:'';display:block;height:18px;margin-left:5px;margin-top:0;width:42px}._6qhg:before{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yu/r/4l2RpWw-PLG.png);background-position:0 4px;background-repeat:no-repeat;background-size:10px 10px;border-right:1px solid rgba(0, 0, 0, .2);content:'';height:18px;left:11px;position:absolute;top:0;width:15px}._6qhb{box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;padding:10px 16px}._6qhc{padding-bottom:0}._6qhk,._6qgi{background-repeat:no-repeat;background-size:18px 18px;display:inline-block;height:18px;width:18px}._6qhh ._6qho{align-items:center;display:flex;flex-direction:row;margin:10px 0;text-decoration:none}._6qhk{flex-shrink:0;margin-right:10px}._6qhm{color:#1c1e21;font-weight:normal}._6qhl{font-size:16px;line-height:19px}._6qhn{color:#606770;font-size:14px;line-height:16px}._6qgk{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/NOeCWD5no4s.png)}._6qgl{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/BKiZzia0l7j.png)}._6qhp{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png)}._6qi1{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/PITveVN_6ro.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:20px;vertical-align:middle;width:20px}._6qhz{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/kS3NV5igXMY.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:11px;margin-right:6px;width:15px}._6qh6{font-weight:normal;padding-bottom:4px;position:relative}._6qh6:after{background:linear-gradient(white, rgba(255, 255, 255, 0));content:'';height:10px;left:0;position:absolute;right:0;top:100\u0025}._6qgh{border-bottom:1px solid #ccc;font-size:16px;line-height:20px;margin-bottom:6px;padding-bottom:6px;text-align:center}._6qh5{align-items:center;display:flex;flex-direction:row}._6qh4{color:#606770}._6qgi{flex-shrink:0;margin-right:10px}._6qh9{margin:0 -8px}._6qh9 ._6qh7{display:inline-block;margin-bottom:20px;margin-left:8px;margin-right:8px;vertical-align:middle}._6qh7{background:#ebedf0;border:none;border-radius:20px;color:#606770;font-size:14px;line-height:14px;padding:13px 16px;white-space:nowrap}._6qh7:focus,._6qh7:active{border:none;outline:none}._6qh7:active,._6qh8{background:#3578e5;color:#fff}._6qi4{align-items:center;display:flex;flex-direction:column}._6qhx{color:#1c1e21;font-size:16px;line-height:24px;margin-top:6px}._6qhy{color:#606770;font-size:14px;line-height:19px;margin:10px 0;text-align:center}._6qhu{background-position:center center;background-repeat:no-repeat;background-size:16px 16px;border-radius:50\u0025;height:42px;width:42px}._6qhv{background-color:#3578e5;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yE/r/oy4B7rSgGV0.png)}._6qhw{background-color:#f7923b;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/TQU64J6qQUe.png)}._6qi2{display:flex;flex-direction:row;margin-bottom:20px}._6qhh ._6qi0{align-items:center;color:#3578e5;display:flex;flex-direction:row;margin-top:auto;text-decoration:none;width:auto}._6qi1{margin-right:6px}._6qh-{border-radius:50\u0025;height:40px;margin-right:5px;width:40px}._6qhh ._6qi3{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/tlUefGrS_4W.png);background-position:center center;background-repeat:no-repeat;background-size:13px 13px;height:13px;margin-right:-10px;margin-top:-10px;padding:10px;position:absolute;right:16px;top:15px;width:13px}._6qhf{align-self:flex-start;color:#8d949e;font-size:16px;margin-top:20px}\u0040keyframes fadeIn{0\u0025{opacity:0}100\u0025{opacity:1}}",
@@ -4842,97 +4846,959 @@ try {
 						null
 					);
 					__d(
-						"QueryString",
+						"AdNetworkVideoEventType",
 						[],
 						function(a, b, c, d, e, f) {
+							e.exports = ES("Object", "freeze", !1, {
+								VIDEO_PLAY: 0,
+								VIDEO_SKIP: 1,
+								VIDEO_TIME: 2,
+								VIDEO_MRC: 3,
+								VIDEO_PAUSE: 4,
+								VIDEO_UNPAUSE: 5,
+								VIDEO_MUTE: 6,
+								VIDEO_UNMUTE: 7,
+								VIDEO_FULLSCREEN: 8,
+								VIDEO_LEAVE_FULLSCREEN: 9,
+								VIDEO_VIEWABLE_IMPRESSION: 10,
+								VIDEO_FIRST_QUARTILE: 11,
+								VIDEO_MID_POINT: 12,
+								VIDEO_THIRD_QUARTILE: 13,
+								VIDEO_COMPLETE: 14,
+								VIDEO_IMPRESSION_IAB: 16
+							});
+						},
+						null
+					);
+					__d(
+						"AdNetworkFocusState",
+						[],
+						function(a, b, c, d, e, f) {
+							e.exports = ES("Object", "freeze", !1, {
+								UNKNOWN: 0,
+								FOCUSED: 1,
+								UNFOCUSED: 2
+							});
+						},
+						null
+					);
+					__d(
+						"AudienceNetworkVideoLoggingUtils",
+						["AdNetworkFocusState"],
+						function(a, b, c, d, e, f, g) {
+							"use strict";
 							__p && __p();
+							var h = 1e3,
+								i = 100;
+							function j(a) {
+								return Math.floor(a * h);
+							}
 							function a(a) {
+								var b;
+								return {
+									vla: a.avgVolume,
+									vlm: a.minVolume,
+									vlmax: a.maxVolume,
+									vwa: (b = a.avgViewableRatio) != null ? b : 0,
+									vwm: (b = a.minViewableRatio) != null ? b : 0,
+									vwmax: (b = a.maxViewableRatio) != null ? b : 0,
+									vtime_ms: j(a.viewableSeconds),
+									atime_ms: j(a.audibleSeconds),
+									mcat_ms: j(a.maxContinuousAudibleSeconds),
+									mcpt_ms: j(a.maxContinuousPlaySeconds),
+									mcvt_ms: j(a.maxContinuousViewableSeconds),
+									spt_ms: j(a.stickyAdSeconds),
+									maa: a.maxAdArea.maxAdAreaNotFullscreen,
+									ortn: a.maxAdArea.screenOrientation,
+									vw_d: a.viewableDetection,
+									vw_rsn: a.viewableReason,
+									pbra: a.avgPlaybackRate === null ? void 0 : a.avgPlaybackRate
+								};
+							}
+							function b() {
 								__p && __p();
-								var b = [];
-								ES(ES("Object", "keys", !1, a).sort(), "forEach", !0, function(
-									c
-								) {
-									var d = a[c];
-									if (d === void 0) return;
-									if (d === null) {
-										b.push(c);
-										return;
+								var a = i,
+									b = [],
+									c = window;
+								while (a > 0) {
+									try {
+										b.push(c.document.hasFocus() ? g.FOCUSED : g.UNFOCUSED);
+									} catch (a) {
+										b.push(g.UNKNOWN);
 									}
-									b.push(encodeURIComponent(c) + "=" + encodeURIComponent(d));
-								});
-								return b.join("&");
-							}
-							function b(a, b) {
-								__p && __p();
-								b === void 0 && (b = !1);
-								var c = {};
-								if (a === "") return c;
-								a = a.split("&");
-								for (var d = 0; d < a.length; d++) {
-									var e = a[d].split("=", 2),
-										f = decodeURIComponent(e[0]);
-									if (b && Object.prototype.hasOwnProperty.call(c, f))
-										throw new URIError("Duplicate key: " + f);
-									c[f] = e.length === 2 ? decodeURIComponent(e[1]) : null;
+									if (c === window.top) break;
+									c = c.parent;
+									a--;
 								}
-								return c;
+								return b;
 							}
-							function c(a, b) {
+							function c(a) {
+								return /iPhone|iPod/.test(a);
+							}
+							e.exports = {
+								getStatsFields: a,
+								getFocus: b,
+								isIPhoneOrIPod: c,
+								MAX_LAYERS: i
+							};
+						},
+						null
+					);
+					__d(
+						"BrowserDetectionFeature",
+						[],
+						function(a, b, c, d, e, f) {
+							e.exports = ES("Object", "freeze", !1, {
+								UA: "ua",
+								VERSION: "version",
+								PLATFORM: "platform",
+								IS_IFRAME: "isIframe",
+								REFERER: "ref",
+								URL: "url",
+								SCREEN_WIDTH: "width",
+								SCREEN_HEIGHT: "height",
+								AVAILABLE_WIDTH: "awidth",
+								AVAILABLE_HEIGHT: "aheight",
+								SCREEN_LEFT: "left",
+								SCREEN_TOP: "top",
+								CSS_ALL: "css_all",
+								CSS_FEATURE_QUERIES: "cfq",
+								CSS_VAR: "cssvar",
+								SCOPED_CSS: "scope",
+								STICKY: "sticky",
+								HAS_SCROLL: "scroll",
+								PLUGIN_COUNT: "plugins",
+								PHANTOM_MODE: "pmode",
+								COLOR_DEPTH: "colorDepth",
+								WEBSQL: "websql",
+								DRAG_AND_DROP: "dnd",
+								CUSTOM_ELEMENT: "ce",
+								HAS_IMPORTS: "imp",
+								TIME_ZONE: "tz",
+								OGG: "ogg",
+								DIALOG: "dialog",
+								VIDEO: "video",
+								AUDIO: "audio",
+								AUDIO_CONTEXT: "ac",
+								ANCESTOR: "ancestor",
+								CHROME: "chrome",
+								CHROME_WEB_STORE: "chromewebstore",
+								RANDOM: "random",
+								IE: "ie",
+								USERDATA: "userdata",
+								SRCSET: "srcset",
+								HAS_CANVAS: "canvas",
+								EMOJI: "emoji",
+								HAS_PIC_ELEMENT: "pic",
+								WC: "wc",
+								CHROME_EXTENSION: "ext",
+								FOCUS: "focus",
+								IS_POPUP: "pop",
+								HREF: "href",
+								DEVORIENT: "devorient",
+								DEVMOTION: "devmotion",
+								CANVAS_HASH: "canvasfp",
+								TIME: "time",
+								FEATURE_TIMES: "feature_times",
+								AVAIL_DIMENSIONS: "avail_dimensions",
+								COLOR_AND_PIXEL_DEPTH: "colorPixelDepth",
+								DIMENSIONS: "dimensions",
+								TOP_WINDOW_DRIVER: "topWindowDriver",
+								DOM_AUTOMATION: "domAutomation",
+								WEBDRIVER_CACHE: "webdriverCache",
+								EXTERNAL_URL: "externalUrl",
+								OPERA_A: "operaA",
+								OPERA_B: "operaB",
+								WEB_DRIVER: "webDriver",
+								ENGINE: "engine",
+								IE_EXTERNAL: "ieExternal",
+								FONT_DIFF: "fontDiff",
+								FONTS: "fonts"
+							});
+						},
+						null
+					);
+					__d(
+						"FastBrowserDetectionFeature",
+						[],
+						function(a, b, c, d, e, f) {
+							e.exports = ES("Object", "freeze", !1, {
+								UA: "ua",
+								CSS_ALL: "css_all",
+								CSS_FEATURE_QUERIES: "cfq",
+								CSS_VAR: "cssvar",
+								SCOPED_CSS: "scope",
+								STICKY: "sticky",
+								HAS_SCROLL: "scroll",
+								PLUGIN_COUNT: "plugins",
+								PHANTOM_MODE: "pmode",
+								COLOR_DEPTH: "colorDepth",
+								WEBSQL: "websql",
+								DRAG_AND_DROP: "dnd",
+								CUSTOM_ELEMENT: "ce",
+								HAS_IMPORTS: "imp",
+								TIME_ZONE: "tz",
+								OGG: "ogg",
+								DIALOG: "dialog",
+								VIDEO: "video",
+								AUDIO: "audio",
+								CHROME: "chrome",
+								CHROME_WEB_STORE: "chromewebstore",
+								RANDOM: "random",
+								IE: "ie",
+								USERDATA: "userdata",
+								SRCSET: "srcset",
+								HAS_CANVAS: "canvas",
+								HAS_PIC_ELEMENT: "pic",
+								WC: "wc",
+								CHROME_EXTENSION: "ext",
+								DEVORIENT: "devorient",
+								DEVMOTION: "devmotion",
+								TIME: "time"
+							});
+						},
+						null
+					);
+					__d(
+						"PluginBrowserFeatures",
+						["BrowserDetectionFeature", "FastBrowserDetectionFeature"],
+						function(a, b, c, d, e, f, g, h) {
+							"use strict";
+							__p && __p();
+							a = {
+								getBrowserFeaturesMap: function(a) {
+									__p && __p();
+									var b = j(),
+										c = {},
+										d = {},
+										e = a ? h : g;
+									ES(ES("Object", "keys", !1, e), "forEach", !0, function(a) {
+										a = e[a];
+										var b = j();
+										try {
+											a in k ? (c[a] = k[a]()) : (c[a] = "Not implemented");
+										} catch (b) {
+											c[a] = b.message;
+										}
+										d[a] = j() - b;
+									});
+									c[e.TIME] = j() - b;
+									a || (c[g.FEATURE_TIMES] = d);
+									return c;
+								},
+								getAllBrowserFeatures: function() {
+									return ES(
+										"JSON",
+										"stringify",
+										!1,
+										this.getBrowserFeaturesMap(!1)
+									);
+								},
+								getFastBrowserFeatures: function() {
+									return ES(
+										"JSON",
+										"stringify",
+										!1,
+										this.getBrowserFeaturesMap(!0)
+									);
+								}
+							};
+							function i(a) {
+								var b = 0,
+									c = a.length;
+								if (c === 0) return b;
+								for (var d = 0; d < c; d++) {
+									var e = a.charCodeAt(d);
+									b = b * 32 - b + e;
+									b |= 0;
+								}
+								return b;
+							}
+							function j() {
+								if (!!window.performance && !!window.performance.now)
+									return window.performance.now();
+								else if (ES("Date", "now", !1)) return ES("Date", "now", !1);
+								else return new Date();
+							}
+							var k = ((b = {}),
+							(b[g.CSS_ALL] = function() {
+								return "all" in document.documentElement.style;
+							}),
+							(b[g.CSS_FEATURE_QUERIES] = function() {
+								var a = "CSS" in window && "supports" in window.CSS;
+								return a || "supportsCSS" in window;
+							}),
+							(b[g.DRAG_AND_DROP] = function() {
+								var a = document.createElement("div");
 								return (
-									a +
-									(ES(a, "indexOf", !0, "?") !== -1 ? "&" : "?") +
-									(typeof b === "string" ? b : g.encode(b))
+									"draggable" in a || ("ondragstart" in a && "ondrop" in a)
 								);
-							}
-							var g = { encode: a, decode: b, appendToUrl: c };
-							e.exports = g;
+							}),
+							(b[g.OGG] = function() {
+								var a = document.createElement("video"),
+									b = !1;
+								try {
+									if ((b = !!a.canPlayType)) {
+										a = a
+											.canPlayType('video/ogg; codecs="theora"')
+											.replace(/^no$/, "");
+										b = a != "";
+									}
+								} catch (a) {}
+								return b;
+							}),
+							(b[g.CSS_VAR] = function() {
+								return (
+									window.CSS != null &&
+									window.CSS.supports != null &&
+									window.CSS.supports("--fake-var", 0)
+								);
+							}),
+							(b[g.SCOPED_CSS] = function() {
+								var a = document.createElement("style");
+								a.setAttribute("scoped", "true");
+								return a.scoped === !0;
+							}),
+							(b[g.STICKY] = function() {
+								var a = "position:",
+									b = "sticky",
+									c = ["-webkit-", "-moz-", "-o-", "-ms-"],
+									d = document.createElement("a");
+								d = d.style;
+								d.cssText = a + c.join(b + ";" + a).slice(0, -a.length);
+								return ES(d.position, "indexOf", !0, b) !== -1;
+							}),
+							(b[g.TIME_ZONE] = function() {
+								var a = new Date();
+								return a.getTimezoneOffset();
+							}),
+							(b[g.DIALOG] = function() {
+								var a = document.createElement("dialog");
+								return !!a.show;
+							}),
+							(b[g.VIDEO] = function() {
+								var a = document.createElement("video");
+								return !!a.canPlayType;
+							}),
+							(b[g.AUDIO] = function() {
+								var a = document.createElement("audio");
+								return !!a.canPlayType;
+							}),
+							(b[g.AUDIO_CONTEXT] = function() {
+								try {
+									var a = new window.AudioContext();
+									a = a.createOscillator();
+									a.frequency.value = 10;
+									return a.frequency.value == 10;
+								} catch (a) {
+									return !1;
+								}
+							}),
+							(b[g.ANCESTOR] = function() {
+								var a = "";
+								if (
+									!!window.location &&
+									!!location.ancestorOrigins &&
+									location.ancestorOrigins.length > 0
+								) {
+									a = location.ancestorOrigins.item(0);
+									for (var b = 1; b < location.ancestorOrigins.length; ++b)
+										a = a + "," + location.ancestorOrigins.item(b);
+								}
+								return a;
+							}),
+							(b[g.RANDOM] = function() {
+								return (
+									(!!window.crypto && !!window.crypto.getRandomValues) ||
+									(!!window.msCrypto && !!window.msCrypto.getRandomValues)
+								);
+							}),
+							(b[g.USERDATA] = function() {
+								var a = document.createElement("div");
+								return !a.addBehavior;
+							}),
+							(b[g.CHROME_EXTENSION] = function() {
+								return (
+									!!window.chrome &&
+									!!window.chrome.runtime &&
+									!!window.chrome.runtime.id
+								);
+							}),
+							(b[g.IS_POPUP] = function() {
+								return !!window.opener && window.opener !== window;
+							}),
+							(b[g.HREF] = function() {
+								if (
+									!!window.opener &&
+									!!window.opener.location &&
+									!!window.opener.location.href
+								)
+									return window.opener.location.href;
+								return !!window.location && !!window.location.href
+									? window.location.href
+									: "";
+							}),
+							(b[g.HAS_CANVAS] = function() {
+								var a = document.createElement("canvas");
+								return !!(a.getContext && a.getContext("2d"));
+							}),
+							(b[g.EMOJI] = function() {
+								__p && __p();
+								if (!k[g.HAS_CANVAS]()) return !1;
+								var a = window.devicePixelRatio || 1;
+								a = 12 * a;
+								var b = document.createElement("canvas");
+								b = b.getContext("2d");
+								b.fillStyle = "#f00";
+								b.textBaseline = "top";
+								b.font = "32px Arial";
+								b.fillText("\ud83d\udc28", 0, 0);
+								return b.getImageData(a, a, 1, 1).data[0] !== 0;
+							}),
+							(b[g.CANVAS_HASH] = function() {
+								__p && __p();
+								if (!k[g.HAS_CANVAS]()) return 0;
+								var a = document.createElement("canvas"),
+									b = a.getContext("2d"),
+									c = "text";
+								b.textBaseline = "top";
+								b.font = "14px Arial";
+								b.textBaseline = "alphabetic";
+								b.fillStyle = "#f60";
+								b.fillRect(125, 1, 62, 20);
+								b.fillStyle = "#069";
+								b.fillText(c, 2, 15);
+								b.fillStyle = "rgba(102, 204, 0, 0.7)";
+								b.fillText(c, 4, 17);
+								return i(a.toDataURL());
+							}),
+							(b[g.UA] = function() {
+								return navigator.userAgent;
+							}),
+							(b[g.VERSION] = function() {
+								return navigator.appVersion;
+							}),
+							(b[g.PLATFORM] = function() {
+								return navigator.platform;
+							}),
+							(b[g.IS_IFRAME] = function() {
+								return parent !== window;
+							}),
+							(b[g.REFERER] = function() {
+								return document.referrer;
+							}),
+							(b[g.URL] = function() {
+								return document.URL;
+							}),
+							(b[g.SCREEN_HEIGHT] = function() {
+								return screen.height;
+							}),
+							(b[g.SCREEN_WIDTH] = function() {
+								return screen.width;
+							}),
+							(b[g.AVAILABLE_HEIGHT] = function() {
+								return screen.height;
+							}),
+							(b[g.AVAILABLE_WIDTH] = function() {
+								return screen.width;
+							}),
+							(b[g.SCREEN_LEFT] = function() {
+								return window.screenLeft ? window.screenLeft : window.screenX;
+							}),
+							(b[g.SCREEN_TOP] = function() {
+								return window.screenTop ? window.screenTop : window.screenY;
+							}),
+							(b[g.HAS_SCROLL] = function() {
+								return "scrollBehavior" in document.documentElement.style;
+							}),
+							(b[g.HAS_PIC_ELEMENT] = function() {
+								return "HTMLPictureElement" in window;
+							}),
+							(b[g.PLUGIN_COUNT] = function() {
+								return navigator.plugins.length;
+							}),
+							(b[g.PHANTOM_MODE] = function() {
+								try {
+									null[0]();
+								} catch (b) {
+									var a = b.stack;
+									if (a.search("phantomjs") != -1) return !0;
+								}
+								return !!window.callPhantom || !!window._phantom;
+							}),
+							(b[g.COLOR_DEPTH] = function() {
+								return screen.colorDepth;
+							}),
+							(b[g.WEBSQL] = function() {
+								return !!window.openDatabase;
+							}),
+							(b[g.CUSTOM_ELEMENT] = function() {
+								return "registerElement" in document;
+							}),
+							(b[g.HAS_IMPORTS] = function() {
+								return "import" in document.createElement("link");
+							}),
+							(b[g.CHROME] = function() {
+								return !!window.chrome;
+							}),
+							(b[g.CHROME_WEB_STORE] = function() {
+								return !!window.chrome && !!window.chrome.webstore;
+							}),
+							(b[g.IE] = function() {
+								return !window.ActiveXObject;
+							}),
+							(b[g.WC] = function() {
+								return "willChange" in document.documentElement.style;
+							}),
+							(b[g.DEVORIENT] = function() {
+								return "DeviceOrientationEvent" in window;
+							}),
+							(b[g.DEVMOTION] = function() {
+								return "DeviceMotionEvent" in window;
+							}),
+							(b[g.SRCSET] = function() {
+								return "srcset" in document.createElement("img");
+							}),
+							(b[g.AVAIL_DIMENSIONS] = function() {
+								return screen.availHeight <= 1 || screen.availWidth <= 1;
+							}),
+							(b[g.COLOR_AND_PIXEL_DEPTH] = function() {
+								return (
+									screen.colorDepth <= 8 ||
+									screen.pixelDepth <= 8 ||
+									window.devicePixelRatio <= 0
+								);
+							}),
+							(b[g.DIMENSIONS] = function() {
+								return screen.height <= 1 || screen.width <= 1;
+							}),
+							(b[g.TOP_WINDOW_DRIVER] = function() {
+								return top == null ||
+									top.window == null ||
+									(document.location.ancestorOrigins != null &&
+										document.location.ancestorOrigins.length > 0 &&
+										document.location.ancestorOrigins[0] !==
+											document.location.protocol +
+												"//" +
+												document.location.host) ||
+									top.window.name == null
+									? void 0
+									: ES(top.window.name, "indexOf", !0, "driver") > -1;
+							}),
+							(b[g.DOM_AUTOMATION] = function() {
+								return (
+									document.documentElement.hasAttribute("webdriver") ||
+									window.domAutomation != null ||
+									window.domAutomationController != null ||
+									window._WEBDRIVER_ELEM_CACHE != null
+								);
+							}),
+							(b[g.WEBDRIVER_CACHE] = function() {
+								return window._WEBDRIVER_ELEM_CACHE != null;
+							}),
+							(b[g.EXTERNAL_URL] = function() {
+								return window.isExternalUrlSafeForNavigation != null;
+							}),
+							(b[g.OPERA_A] = function() {
+								return (
+									window.opera != null &&
+									window.opera._browserjsran != null &&
+									window.opera.browserjsran === 0
+								);
+							}),
+							(b[g.OPERA_B] = function() {
+								return (
+									window.opera != null &&
+									window.opera._browserjsran != null &&
+									window.opera.browserjsran === !1
+								);
+							}),
+							(b[g.WEB_DRIVER] = function() {
+								return (
+									window.webdriver != null ||
+									document.webdriver != null ||
+									document.documentElement.hasAttribute("webdriver")
+								);
+							}),
+							(b[g.ENGINE] = function() {
+								__p && __p();
+								var a = {},
+									b = [],
+									c = "unknown",
+									d = {
+										trident: 0,
+										gecko: 0,
+										presto: 0,
+										webkit: 0,
+										unknown: -1
+									},
+									e = document.createElement("fake");
+								for (var f in e.style) {
+									e = (/^([A-Za-z][a-z]*)[A-Z]/.exec(f) || [])[1];
+									e != null && (e = e.toLowerCase());
+									e in a ? a[e]++ : (a[e] = 1);
+								}
+								for (var g in a) b.push([g, a[g]]);
+								b.sort(function(a, b) {
+									return b[1] - a[1];
+								}).slice(0, 10);
+								for (var e = 0, a = b.length; e < a; e++) {
+									var h = b[e][0].toLowerCase();
+									h === "moz"
+										? (d.gecko += 5)
+										: h === "ms"
+											? (d.trident += 5)
+											: h === "get"
+												? d.webkit++
+												: h === "webkit"
+													? (d.webkit += 5)
+													: (h === "o" || h === "xv") && (d.presto += 2);
+								}
+								"onhelp" in window && d.trident++;
+								"maxConnectionsPerServer" in window && d.trident++;
+								try {
+									window.ActiveXObject.toString != null && (d.trident += 5);
+								} catch (a) {}
+								Function.prototype.toSource !== void 0 && (d.gecko += 5);
+								for (var i in d) d[i] > d[c] && (c = i);
+								return c;
+							}),
+							(b[g.IE_EXTERNAL] = function() {
+								var a = [
+										"AddChannel",
+										"AddDesktopComponent",
+										"AddFavorite",
+										"AddSearchProvider",
+										"AddService",
+										"AddToFavoritesBar",
+										"AutoCompleteSaveForm",
+										"AutoScan",
+										"bubbleEvent",
+										"ContentDiscoveryReset",
+										"ImportExportFavorites",
+										"InPrivateFilteringEnabled",
+										"IsSearchProviderInstalled",
+										"IsServiceInstalled",
+										"IsSubscribed",
+										"msActiveXFilteringEnabled",
+										"msAddSiteMode",
+										"msAddTrackingProtectionList",
+										"msClearTile",
+										"msEnableTileNotificationQueue",
+										"msEnableTileNotificationQueueForSquare150x150",
+										"msEnableTileNotificationQueueForSquare310x310",
+										"msEnableTileNotificationQueueForWide310x150",
+										"msIsSiteMode",
+										"msIsSiteModeFirstRun",
+										"msPinnedSiteState",
+										"msProvisionNetworks",
+										"msRemoveScheduledTileNotification",
+										"msReportSafeUrl",
+										"msScheduledTileNotification",
+										"msSiteModeActivate",
+										"msSiteModeAddButtonStyle",
+										"msSiteModeAddJumpListItem",
+										"msSiteModeAddThumbBarButton",
+										"msSiteModeClearBadge",
+										"msSiteModeClearIconOverlay",
+										"msSiteModeClearJumpList",
+										"msSiteModeCreateJumpList",
+										"msSiteModeRefreshBadge",
+										"msSiteModeSetIconOverlay",
+										"msSiteModeShowButtonStyle",
+										"msSiteModeShowJumpList",
+										"msSiteModeShowThumbBar",
+										"msSiteModeUpdateThumbBarButton",
+										"msStartPeriodicBadgeUpdate",
+										"msStartPeriodicTileUpdate",
+										"msStartPeriodicTileUpdateBatch",
+										"msStopPeriodicBadgeUpdate",
+										"msStopPeriodicTileUpdate",
+										"msTrackingProtectionEnabled",
+										"NavigateAndFind",
+										"raiseEvent",
+										"setContextMenu",
+										"ShowBrowserUI",
+										"menuArguments",
+										"onvisibilitychange",
+										"scrollbar",
+										"selectableContent",
+										"version",
+										"visibility",
+										"mssitepinned",
+										"AddUrlAuthentication",
+										"CloseRegPopup",
+										"FeatureEnabled",
+										"GetJsonWebData",
+										"GetRegValue",
+										"Log",
+										"LogShellErrorsOnly",
+										"OpenPopup",
+										"ReadFile",
+										"RunGutsScript",
+										"SaveRegInfo",
+										"SetAppMaximizeTimeToRestart",
+										"SetAppMinimizeTimeToRestart",
+										"SetAutoStart",
+										"SetAutoStartMinimized",
+										"SetMaxMemory",
+										"ShareEventFromBrowser",
+										"ShowPopup",
+										"ShowRadar",
+										"WriteFile",
+										"WriteRegValue",
+										"summonWalrus"
+									],
+									b = {};
+								if (window.external != null)
+									for (var c = 0; c < a.length; c++) {
+										var d = a[c];
+										b[d] = window.external[d] != null;
+									}
+								return ES("JSON", "stringify", !1, b);
+							}),
+							(b[g.FONT_DIFF] = function() {
+								__p && __p();
+								var a = document.createElement("div"),
+									b = document.createElement("div");
+								a.style.top = "-1000px";
+								a.style.setProperty(
+									"-webkit-text-size-adjust",
+									"auto",
+									"important"
+								);
+								a.style.fontSize = "xx-small";
+								a.style.position = "absolute";
+								b.style.setProperty(
+									"-webkit-text-size-adjust",
+									"auto",
+									"important"
+								);
+								b.style.fontSize = "1%";
+								b.textContent = "l";
+								a.appendChild(b);
+								document.body.appendChild(a);
+								b = b.clientHeight;
+								document.body.removeChild(a);
+								return b;
+							}),
+							(b[g.FONTS] = function() {
+								__p && __p();
+								var a = [
+										"Ubuntu",
+										"Utopia",
+										"URW Gothic L",
+										"Bitstream Charter",
+										"FreeMono",
+										"DejaVu Sans",
+										"Droid Serif",
+										"Liberation Sans",
+										"Vrinda",
+										"Kartika",
+										"Sylfaen",
+										"CordiaUPC",
+										"Angsana New Bold Italic",
+										"DFKai-SB",
+										"Ebrima",
+										"Lao UI",
+										"Segoe UI Symbol",
+										"Vijaya",
+										"Roboto",
+										"Apple Color Emoji",
+										"Baskerville",
+										"Marker Felt",
+										"Apple Symbols",
+										"Chalkboard",
+										"Herculanum",
+										"Skia"
+									],
+									b = ["monospace", "sans-serif", "serif"],
+									c = "mmmmmmmmmmlli",
+									d = document.body,
+									e = document.createElement("span"),
+									f = {},
+									g = {},
+									h = {};
+								e.style.fontSize = "72px";
+								e.textContent = c;
+								for (var c = 0; c < b.length; c++) {
+									var i = b[c];
+									e.style.fontFamily = i;
+									d.appendChild(e);
+									f[i] = e.offsetWidth;
+									g[i] = e.offsetHeight;
+									d.removeChild(e);
+								}
+								for (var i = 0; i < a.length; i++) {
+									c = a[i];
+									var j = !1;
+									for (var k = 0; k < b.length; k++) {
+										var l = b[k];
+										e.style.fontFamily = c + "," + l;
+										d.appendChild(e);
+										l = e.offsetWidth != f[l] || e.offsetHeight != g[l];
+										d.removeChild(e);
+										j = j || l;
+									}
+									h[c] = j;
+								}
+								return ES("JSON", "stringify", !1, h);
+							}),
+							b);
+							e.exports = a;
 						},
 						null
 					);
 					__d(
 						"ANWebVideoLogger.anweb",
-						["QueryString"],
-						function(a, b, c, d, e, f, g) {
+						[
+							"AdNetworkVideoEventType",
+							"AudienceNetworkVideoLoggingUtils",
+							"PluginBrowserFeatures"
+						],
+						function(a, b, c, d, e, f, g, h, i) {
 							"use strict";
 							__p && __p();
-							var h = 10,
-								i = 0.97;
+							var j = h.getFocus,
+								k = h.getStatsFields,
+								l = h.isIPhoneOrIPod;
 							function a(a, b, c, d) {
-								(this.$7 = ES(
-									function() {
-										!this.$5 && this.$1.currentTime >= h && this.$8();
-										var a = this.$1.currentTime / this.$1.duration;
-										!this.$6 && a >= i && this.$9();
-									},
-									"bind",
-									!0,
-									this
-								)),
-									(this.$1 = a),
-									(this.$4 = b),
-									(this.$2 = c !== null ? c : null),
-									(this.$3 = d !== null ? d : null);
+								(this.$1 = a),
+									(this.$2 = b),
+									(this.$3 = c),
+									(this.$4 = d),
+									(this.$5 = !1),
+									this.$1.addEventListener(
+										"play",
+										ES(
+											function(a) {
+												this.$5 ? this.$6() : (this.$5 = !0);
+											},
+											"bind",
+											!0,
+											this
+										),
+										!1
+									),
+									this.$1.addEventListener(
+										"pause",
+										ES(
+											function(a) {
+												this.$7();
+											},
+											"bind",
+											!0,
+											this
+										),
+										!1
+									);
 							}
-							a.prototype.startLogging = function() {
-								this.$1.addEventListener("timeupdate", this.$7);
+							a.prototype.setPlayer = function(a) {
+								if (this.$1 != a) throw new Error("players should be the same");
 							};
-							a.prototype.$8 = function() {
-								this.$2 != null &&
-									!this.$5 &&
-									((this.$5 = !0), this.$4(g.appendToUrl(this.$2, this.$10())));
+							a.prototype.logMRCEvent = function(a, b, c, d, e, f) {
+								e = this.$8(b, c, d, a);
+								this.$9(g.VIDEO_MRC, e);
 							};
-							a.prototype.$9 = function() {
-								this.$3 != null &&
-									!this.$6 &&
-									((this.$6 = !0), this.$4(g.appendToUrl(this.$3, this.$10())));
+							a.prototype.logImpressionEvent = function(a, b, c, d) {
+								this.$4();
 							};
-							a.prototype.$10 = function() {
-								return {
-									time: this.$1.currentTime,
-									inline: 1,
-									autoplay: 1,
-									volume: this.$1.muted ? 0 : this.$1.volume
-								};
+							a.prototype.logViewableImpressionEvent = function(a, b, c) {
+								b = this.$8(b, c, null, a);
+								this.$9(g.VIDEO_VIEWABLE_IMPRESSION, b);
+							};
+							a.prototype.logTimeEvent = function(a, b, c, d, e, f, h) {
+								e = this.$8(a, b, c, d);
+								this.$9(g.VIDEO_TIME, e);
+								h();
+							};
+							a.prototype.logMuteEvent = function() {
+								if (!this.$1.isMuted()) return;
+								this.$10(g.VIDEO_MUTE);
+							};
+							a.prototype.logUnMuteEvent = function() {
+								if (this.$1.isMuted()) return;
+								this.$10(g.VIDEO_UNMUTE);
+							};
+							a.prototype.$7 = function() {
+								this.$10(g.VIDEO_PAUSE);
+							};
+							a.prototype.$6 = function() {
+								this.$10(g.VIDEO_UNPAUSE);
+							};
+							a.prototype.$10 = function(a) {
+								this.$9(a, { time: this.$1.getCurrentTime() });
+							};
+							a.prototype.$8 = function(a, b, c, d) {
+								var e = c ? c.offsetRect : null,
+									f = c ? c.offsetHeight : null,
+									g = c ? c.offsetWidth : null,
+									h = c ? c.viewportRect : null;
+								if (l(navigator.userAgent) && g === 0 && f === 0) {
+									var i = this.$1.getWidth(),
+										m = this.$1.getHeight();
+									i !== null && m !== null && ((g = i), (f = m));
+								}
+								return babelHelpers["extends"](
+									{
+										time: b,
+										ptime: a,
+										pt: e == null ? void 0 : e.y,
+										pl: e == null ? void 0 : e.x,
+										ph: typeof f === "number" ? f : void 0,
+										pw: typeof g === "number" ? g : void 0,
+										vph: h == null ? void 0 : h.height,
+										vpw: h == null ? void 0 : h.width,
+										inline: Number(this.$1.isFullscreen()),
+										autoplay: 1,
+										detected_page_domain:
+											c && c.pageDomain !== null ? c.pageDomain : void 0,
+										detected_page_url:
+											c && c.pageURL !== null ? c.pageURL : void 0,
+										domain_detection_method: c ? c.domainDetectionMethod : 0,
+										bf: this.$11(),
+										focus: j()
+									},
+									k(d)
+								);
+							};
+							a.prototype.$11 = function() {
+								try {
+									return i.getAllBrowserFeatures();
+								} catch (a) {
+									return "";
+								}
+							};
+							a.prototype.$9 = function(a, b) {
+								this.$3({
+									name: "video",
+									params: { key: this.$2, payload: { type: a, params: b } }
+								});
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"ANWebVideoManager",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							__p && __p();
+							function a(a) {
+								this.$1 = a;
+							}
+							a.prototype.getViewabilityMeasurementElement = function() {
+								return this.$1.getVideoSlot();
+							};
+							a.prototype.getAdWidth = function() {
+								return this.$1.getWidth() || 0;
+							};
+							a.prototype.getAdHeight = function() {
+								return this.$1.getHeight() || 0;
+							};
+							a.prototype.getGatingConfig = function() {
+								return { killswitches: [], gatekeepers: [], qes: [], qrts: {} };
 							};
 							e.exports = a;
 						},
@@ -7350,6 +8216,1754 @@ try {
 						null
 					);
 					__d(
+						"getFullScreenElement",
+						[],
+						function(a, b, c, d, e, f) {
+							function a() {
+								return (
+									document.fullscreenElement ||
+									document.webkitFullscreenElement ||
+									document.mozFullScreenElement ||
+									document.msFullscreenElement
+								);
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"AudienceNetworkHTMLVideoPlayer",
+						["getFullScreenElement"],
+						function(a, b, c, d, e, f, g) {
+							"use strict";
+							__p && __p();
+							function a(a, b) {
+								b === void 0 && (b = !1),
+									(this.$1 = a),
+									(this.$2 = []),
+									b || ((this.$1.volume = 1), (this.$1.muted = !1));
+							}
+							a.prototype.addEventListener = function(a, b, c) {
+								this.$2.push({ type: a, listener: b, optionsOrUseCapture: c }),
+									this.$1.addEventListener(a, b, c);
+							};
+							a.prototype.enforcesContinuity = function() {
+								return !1;
+							};
+							a.prototype.exitFullscreen = function() {
+								document.exitFullscreen
+									? document.exitFullscreen()
+									: document.msExitFullscreen
+										? document.msExitFullscreen()
+										: document.mozCancelFullScreen
+											? document.mozCancelFullScreen()
+											: document.webkitExitFullscreen &&
+											  document.webkitExitFullscreen();
+							};
+							a.prototype.getCurrentTime = function() {
+								return this.$1.currentTime;
+							};
+							a.prototype.getDuration = function() {
+								return this.$1.duration;
+							};
+							a.prototype.getError = function() {
+								return this.$1.error;
+							};
+							a.prototype.getVideoSlot = function() {
+								return this.$1;
+							};
+							a.prototype.getVolume = function() {
+								return this.$1.volume;
+							};
+							a.prototype.getPlaybackRate = function() {
+								return this.$1.playbackRate;
+							};
+							a.prototype.isFullscreen = function() {
+								if (this.$1.webkitDisplayingFullscreen) return !0;
+								var a = g();
+								a = a === this.$1;
+								if (a) return !0;
+								a = /iPhone OS (9_|8_|7_)|iPod/;
+								return a.test(navigator.userAgent) &&
+									!(this.$1 instanceof HTMLVideoElement) &&
+									!this.$1.paused
+									? !0
+									: !1;
+							};
+							a.prototype.isMuted = function() {
+								return this.$1.muted;
+							};
+							a.prototype.isPaused = function() {
+								return this.$1.paused;
+							};
+							a.prototype.pause = function() {
+								this.$1.pause();
+							};
+							a.prototype.play = function() {
+								this.$1.play();
+							};
+							a.prototype.remove = function() {
+								this.$1.parentNode && this.$1.parentNode.removeChild(this.$1);
+							};
+							a.prototype.requestFullscreen = function() {
+								var a = this.$1;
+								a.requestFullscreen
+									? a.requestFullscreen()
+									: a.msRequestFullscreen
+										? a.msRequestFullscreen()
+										: a.mozRequestFullScreen
+											? a.mozRequestFullScreen()
+											: a.webkitRequestFullscreen &&
+											  a.webkitRequestFullscreen();
+							};
+							a.prototype.removeEventListener = function(a, b, c) {
+								this.$1.removeEventListener(a, b, c);
+							};
+							a.prototype.setSrc = function(a) {
+								this.$1.setAttribute
+									? this.$1.setAttribute("src", a)
+									: (this.$1.src = a);
+							};
+							a.prototype.getSrc = function() {
+								return this.$1.getAttribute
+									? this.$1.getAttribute("src")
+									: this.$1.src;
+							};
+							a.prototype.setVolume = function(a) {
+								this.setMuted(a <= 0), (this.$1.volume = a);
+							};
+							a.prototype.setMuted = function(a) {
+								this.$1.muted = a;
+							};
+							a.prototype.cleanup = function() {
+								ES(
+									this.$2,
+									"forEach",
+									!0,
+									ES(
+										function(a) {
+											this.removeEventListener(
+												a.type,
+												a.listener,
+												a.optionsOrUseCapture
+											);
+										},
+										"bind",
+										!0,
+										this
+									)
+								);
+							};
+							a.prototype.$3 = function() {
+								if (this.$1.getBoundingClientRect)
+									return this.$1.getBoundingClientRect();
+								else if (
+									this.$1.parentNode &&
+									this.$1.parentNode.getBoundingClientRect
+								)
+									return this.$1.parentNode.getBoundingClientRect();
+								return null;
+							};
+							a.prototype.getWidth = function() {
+								var a = this.$3();
+								return a ? a.width : null;
+							};
+							a.prototype.getHeight = function() {
+								var a = this.$3();
+								return a ? a.height : null;
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"ANVideoStateUtils",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							__p && __p();
+							var g = 0.05,
+								h = 0.5,
+								i = 2,
+								j = 0.25,
+								k = 0.5,
+								l = 0.05;
+							function a() {
+								return {
+									isAudible: !0,
+									isPaused: !1,
+									isFullScreen: !1,
+									isContinuous: !0,
+									clockTimeMs: 0,
+									videoTime: 0,
+									loggingTimeInterval: 0,
+									volume: 0,
+									playbackRate: 1,
+									videoDuration: 0,
+									forceFlushLog: !1
+								};
+							}
+							function b(a, b) {
+								if (b || a < g) return !1;
+								else return !0;
+							}
+							function c(a, b, c, d, e) {
+								__p && __p();
+								var f = d - a.videoTime;
+								if (f < 0) return !1;
+								if (e - d <= j && f <= j) return !0;
+								if (a.isPaused && b && a.videoTime > 0) return f <= l;
+								if (a.videoTime <= 0 || a.isPaused || b) return f <= k;
+								e = (c - a.clockTimeMs) / 1e3;
+								if (e <= l && f <= l) return !0;
+								d = f / e;
+								return d < i && d >= h;
+							}
+							e.exports = { isAudible: b, isContinuous: c, initState: a };
+						},
+						null
+					);
+					__d(
+						"BaseXDomainScreenMeasurement.adquality",
+						[
+							"AdQualityMeasurement.adquality",
+							"AdQualityMeasurementResult.adquality",
+							"Rectangle.adquality",
+							"nullthrows"
+						],
+						function(a, b, c, d, e, f, g, h, i, j) {
+							"use strict";
+							__p && __p();
+							var k;
+							b = babelHelpers.inherits(a, g);
+							k = b && b.prototype;
+							function a(a, b) {
+								k.constructor.call(this, a, b),
+									(this.$BaseXDomainScreenMeasurement1 = a),
+									(this.$BaseXDomainScreenMeasurement3 = b),
+									(this.$BaseXDomainScreenMeasurement2 =
+										ES(navigator.platform, "indexOf", !0, "Mac") > -1);
+							}
+							a.prototype.__getAdOffset = function() {
+								throw new Error("Not implemented");
+							};
+							a.prototype.__isDocumentHidden = function() {
+								return document.hidden === !0;
+							};
+							a.prototype.getMeasurement = function(a) {
+								__p && __p();
+								var b = i.RectangleFromClientRect(
+										this.$BaseXDomainScreenMeasurement1.getBoundingClientRect()
+									),
+									c = j(
+										i.RectangleFromWindow(this.$BaseXDomainScreenMeasurement3)
+									);
+								if (this.__isDocumentHidden()) {
+									a(
+										new h({
+											ar: i.RectangleZero(),
+											vd: this.__viewabilityDetection,
+											vr: i.RectangleZero()
+										})
+									);
+									return;
+								}
+								b = b.intersection(c);
+								if (!b) {
+									a(
+										new h({
+											ar: i.RectangleZero(),
+											vd: this.__viewabilityDetection,
+											vr: i.RectangleZero()
+										})
+									);
+									return;
+								}
+								c = this.__getAdOffset();
+								if (!c) {
+									a(
+										h.unknownResult(
+											this.__viewabilityDetection,
+											this.__viewabilityDetection + "-no-offset"
+										)
+									);
+									return;
+								}
+								var d = c.x;
+								c = c.y;
+								d = b
+									.offset(d, c)
+									.intersection(
+										i.RectangleFromViewport(this.$BaseXDomainScreenMeasurement3)
+									);
+								a(
+									new h({
+										ar: b,
+										vd: this.__viewabilityDetection,
+										vr: d || i.RectangleZero()
+									})
+								);
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"IEXDomainScreenMeasurement.adquality",
+						[
+							"AdQualityMeasurementResult.adquality",
+							"AdQualityUtils.adquality",
+							"AdQualityViewabilityDetection",
+							"BaseXDomainScreenMeasurement.adquality",
+							"HTMLElementFrameContext.adquality"
+						],
+						function(a, b, c, d, e, f, g, h, i, j, k) {
+							"use strict";
+							__p && __p();
+							var l,
+								m = h.isIE11;
+							function n(a, b, c) {
+								a.addEventListener
+									? a.addEventListener(b, c, !1)
+									: a.attachEvent
+										? a.attachEvent("on" + b, c)
+										: (a[b] = c);
+							}
+							var o = 11;
+							b = babelHelpers.inherits(a, j);
+							l = b && b.prototype;
+							function a(a, b) {
+								__p && __p();
+								l.constructor.call(this, a, b);
+								this.$IEXDomainScreenMeasurement1 = null;
+								this.__viewabilityDetection = i.IE_MOUSE;
+								a = new k(a, b);
+								this.$IEXDomainScreenMeasurement3 = a.isCrossDomain();
+								if (!this.isAvailable()) return;
+								b = a.parentWindow;
+								if (!b) return;
+								a = b.document.documentElement;
+								if (!a) return;
+								this.$IEXDomainScreenMeasurement4 = a;
+								n(
+									this.$IEXDomainScreenMeasurement4,
+									"click",
+									ES(
+										function(a) {
+											a = a || window.event;
+											if (a.target !== this.$IEXDomainScreenMeasurement4)
+												return !0;
+											a.preventDefault();
+											a.stopPropagation();
+											this.$IEXDomainScreenMeasurement1 = {
+												x: a.screenX - a.clientX,
+												y: a.screenY - a.clientY + o
+											};
+											a = this.$IEXDomainScreenMeasurement2;
+											a &&
+												(l.getMeasurement.call(this, a),
+												(this.$IEXDomainScreenMeasurement2 = null));
+											return !1;
+										},
+										"bind",
+										!0,
+										this
+									)
+								);
+							}
+							a.prototype.isAvailable = function() {
+								return !this.$IEXDomainScreenMeasurement3 ? !1 : m();
+							};
+							a.prototype.getMeasurement = function(a) {
+								var b = this.$IEXDomainScreenMeasurement2,
+									c = this.$IEXDomainScreenMeasurement4;
+								!c
+									? a(
+											g.unknownResult(
+												this.__viewabilityDetection,
+												this.__viewabilityDetection + "-na"
+											)
+									  )
+									: (b &&
+											b(
+												g.unknownResult(
+													this.__viewabilityDetection,
+													this.__viewabilityDetection + "-no-click"
+												)
+											),
+									  (this.$IEXDomainScreenMeasurement2 = a),
+									  c.click());
+							};
+							a.prototype.__getAdOffset = function() {
+								return this.$IEXDomainScreenMeasurement1;
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"InstantArticleMeasurement.adquality",
+						[
+							"AdQualityMeasurement.adquality",
+							"AdQualityMeasurementResult.adquality",
+							"AdQualityViewabilityDetection",
+							"Rectangle.adquality"
+						],
+						function(a, b, c, d, e, f, g, h, i, j) {
+							"use strict";
+							__p && __p();
+							var k,
+								l = 24,
+								m = 2,
+								n = window.performance;
+							b = babelHelpers.inherits(a, g);
+							k = b && b.prototype;
+							function a(a, b) {
+								k.constructor.call(this, a, b),
+									(this.$InstantArticleMeasurement1 = a),
+									(this.__viewabilityDetection = i.INSTANT_ARTICLES);
+							}
+							a.prototype.isAvailable = function() {
+								var a = navigator.userAgent.toLowerCase();
+								a = /fbia\/fb4a/.test(a);
+								return n && a;
+							};
+							a.prototype.$InstantArticleMeasurement2 = function(a) {
+								if (!("now" in n)) return;
+								var b = !1,
+									c = 0,
+									d = n.now(),
+									e = function e(f) {
+										c !== m && !b && window.requestAnimationFrame(e),
+											c === m && !b && ((b = !0), a(f - d < l)),
+											(d = f),
+											c++;
+									};
+								window.requestAnimationFrame(e);
+								window.setTimeout(function() {
+									b || ((b = !0), a(!1));
+								}, l * 3);
+							};
+							a.prototype.getMeasurement = function(a) {
+								this.$InstantArticleMeasurement2(
+									ES(
+										function(b) {
+											var c = new j(
+												0,
+												0,
+												this.$InstantArticleMeasurement1.clientWidth,
+												this.$InstantArticleMeasurement1.clientHeight
+											);
+											a(
+												new h({
+													ar: c,
+													vd: this.__viewabilityDetection,
+													vr: b ? c : j.RectangleZero()
+												})
+											);
+										},
+										"bind",
+										!0,
+										this
+									)
+								);
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"MozInnerScreenMeasurement.adquality",
+						[
+							"AdQualityUtils.adquality",
+							"AdQualityViewabilityDetection",
+							"BaseXDomainScreenMeasurement.adquality"
+						],
+						function(a, b, c, d, e, f, g, h, i) {
+							"use strict";
+							__p && __p();
+							var j,
+								k = g.getFirefoxVersion;
+							b = babelHelpers.inherits(a, i);
+							j = b && b.prototype;
+							function a(a, b) {
+								j.constructor.call(this, a, b),
+									(this.__viewabilityDetection = h.MOZILLA_INNER_SCREEN);
+							}
+							a.prototype.isAvailable = function() {
+								var a = k();
+								return typeof a === "number" && a >= 3;
+							};
+							a.prototype.__getAdOffset = function() {
+								var a = this.__parentWindow,
+									b = a.mozInnerScreenX;
+								a = a.mozInnerScreenY;
+								return b === void 0 || a === void 0 ? null : { x: b, y: a };
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"BaseBeaconXMeasurement.adquality",
+						[
+							"AdQualityMeasurement.adquality",
+							"AdQualityMeasurementResult.adquality",
+							"Rectangle.adquality",
+							"SimplePromise.adquality"
+						],
+						function(a, b, c, d, e, f, g, h, i, j) {
+							"use strict";
+							__p && __p();
+							var k,
+								l = 4,
+								m = 1;
+							function n(a) {
+								for (var b = a.length; b > 0; ) {
+									var c = Math.floor(Math.random() * b--),
+										d = a[b];
+									a[b] = a[c];
+									a[c] = d;
+								}
+								return a;
+							}
+							a = babelHelpers.inherits(o, g);
+							k = a && a.prototype;
+							function o(a, b) {
+								k.constructor.call(this, a, b),
+									(this.$BaseBeaconXMeasurement1 = a),
+									(this.$BaseBeaconXMeasurement2 = []),
+									(this.$BaseBeaconXMeasurement3 = []),
+									(this.$BaseBeaconXMeasurement4 = []),
+									(this.$BaseBeaconXMeasurement5 = {});
+							}
+							o.prototype.destroy = function() {
+								ES(
+									this.$BaseBeaconXMeasurement2,
+									"forEach",
+									!0,
+									ES(
+										function(a) {
+											this.$BaseBeaconXMeasurement1.removeChild(a);
+										},
+										"bind",
+										!0,
+										this
+									)
+								);
+							};
+							o.prototype.isAvailable = function() {
+								return !0;
+							};
+							o.prototype.getMeasurement = function(a) {
+								__p && __p();
+								var b = n([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+									c = n([].concat(b));
+								b = ES(b, "map", !0, function(a, b) {
+									return { x: a, y: c[b] };
+								});
+								var d = [],
+									e = [];
+								ES(b, "forEach", !0, function(a) {
+									a.x === 0 || a.y === 0 || a.x === 10 || a.y === 10
+										? d.push(a)
+										: e.push(a);
+								});
+								var f = ES(
+									d,
+									"map",
+									!0,
+									ES(
+										function(a) {
+											return this.__detectViewability(a);
+										},
+										"bind",
+										!0,
+										this
+									)
+								);
+								j.all(f).then(
+									ES(
+										function(b) {
+											__p && __p();
+											b = b.reduce(function(a, b) {
+												return a + (b === "1" ? 1 : 0);
+											}, 0);
+											if (b === f.length) {
+												a(this.$BaseBeaconXMeasurement6(1));
+												return;
+											}
+											b = [].concat(
+												f,
+												ES(
+													e,
+													"map",
+													!0,
+													ES(
+														function(a) {
+															return this.__detectViewability(a);
+														},
+														"bind",
+														!0,
+														this
+													)
+												)
+											);
+											j.all(b).then(
+												ES(
+													function(b) {
+														b = b.reduce(function(a, b) {
+															return a + (b === "1" ? 1 : 0);
+														}, 0);
+														b = Math.min(Math.max(-0.05 + b * 0.1, 0), 1);
+														a(this.$BaseBeaconXMeasurement6(b));
+													},
+													"bind",
+													!0,
+													this
+												)
+											);
+										},
+										"bind",
+										!0,
+										this
+									)
+								);
+							};
+							o.prototype.$BaseBeaconXMeasurement6 = function(a) {
+								var b = this.$BaseBeaconXMeasurement1,
+									c = a <= 0 ? 0 : b.clientWidth;
+								return new h({
+									ar: new i(0, 0, b.clientWidth, b.clientHeight),
+									vd: this.__viewabilityDetection,
+									vr: new i(0, 0, c, b.clientHeight * a)
+								});
+							};
+							o.prototype.__detectViewability = function(a) {
+								var b = a.x,
+									c = a.y;
+								return new j(
+									ES(
+										function(a, d) {
+											var e = this.$BaseBeaconXMeasurement1.clientWidth,
+												f = this.$BaseBeaconXMeasurement1.clientHeight;
+											this.$BaseBeaconXMeasurement7().then(
+												ES(
+													function(d) {
+														(d.style.left =
+															Math.floor(b * e * 0.1) -
+															o.BEACON_SIZE / 2 +
+															"px"),
+															(d.style.top =
+																Math.floor(c * f * 0.1) -
+																o.BEACON_SIZE / 2 +
+																"px"),
+															this.__checkVisibility(d).then(
+																ES(
+																	function(b) {
+																		a(b ? "1" : "0");
+																		b = this.$BaseBeaconXMeasurement4.shift();
+																		b
+																			? b(d)
+																			: this.$BaseBeaconXMeasurement3.push(d);
+																	},
+																	"bind",
+																	!0,
+																	this
+																)
+															);
+													},
+													"bind",
+													!0,
+													this
+												)
+											);
+										},
+										"bind",
+										!0,
+										this
+									)
+								);
+							};
+							o.prototype.__checkVisibility = function(a) {
+								throw new Error("Implement __checkVisibility in the subclass");
+							};
+							o.prototype.$BaseBeaconXMeasurement8 = function() {
+								var a = navigator.userAgent;
+								return /iPhone|iPod/.test(a) ? m : l;
+							};
+							o.prototype.$BaseBeaconXMeasurement7 = function() {
+								__p && __p();
+								return new j(
+									ES(
+										function(a, b) {
+											__p && __p();
+											var c = this.$BaseBeaconXMeasurement3.pop();
+											if (c) {
+												a(c);
+												return;
+											}
+											if (
+												this.$BaseBeaconXMeasurement2.length <
+												this.$BaseBeaconXMeasurement8()
+											) {
+												c = this.__setUpBeacon(0);
+												c.style.position = "absolute";
+												c.style.display = "block";
+												c.style.zIndex = "-99999";
+												c.style.border = "none";
+												c.style.width = o.BEACON_SIZE + "px";
+												c.style.height = o.BEACON_SIZE + "px";
+												this.$BaseBeaconXMeasurement1.appendChild(c);
+												this.$BaseBeaconXMeasurement2.push(c);
+												c.addEventListener(
+													"load",
+													ES(
+														function() {
+															this.__checkVisibility(c).then(function(b) {
+																a(c);
+															});
+														},
+														"bind",
+														!0,
+														this
+													),
+													!1
+												);
+												return;
+											}
+											this.$BaseBeaconXMeasurement4.push(a);
+										},
+										"bind",
+										!0,
+										this
+									)
+								);
+							};
+							o.prototype.__setUpBeacon = function(a) {
+								throw new Error("Implement __setUpBeacon in the subclass");
+							};
+							o.BEACON_SIZE = 2;
+							e.exports = o;
+						},
+						null
+					);
+					__d(
+						"RafBeaconMeasurement.adquality",
+						[
+							"AdQualityMeasurementResult.adquality",
+							"AdQualityUtils.adquality",
+							"AdQualityViewabilityDetection",
+							"BaseBeaconXMeasurement.adquality",
+							"HTMLElementFrameContext.adquality",
+							"SimplePromise.adquality",
+							"ViewabilitySettings"
+						],
+						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
+							"use strict";
+							__p && __p();
+							var n,
+								o = h.getChromeVersion,
+								p = h.getFirefoxVersion,
+								q = h.getSafariVersion,
+								r = h.isEdge,
+								s = 36,
+								t = 2,
+								u = 4;
+							b = babelHelpers.inherits(a, j);
+							n = b && b.prototype;
+							function a(a, b, c) {
+								__p && __p();
+								n.constructor.call(this, a, b),
+									(this.$RafBeaconMeasurement6 = ES(
+										function(a) {
+											var b = a.data;
+											a = a.origin;
+											try {
+												if (a !== null && a !== "null") return;
+												a = ES("JSON", "parse", !1, b);
+												b = this.$RafBeaconMeasurement5[a.id];
+												b && b(a.iv);
+											} catch (a) {}
+										},
+										"bind",
+										!0,
+										this
+									)),
+									(this.$RafBeaconMeasurement10 = ES(
+										function(a) {
+											ES(this.$RafBeaconMeasurement8, "forEach", !0, function(
+												b
+											) {
+												return b(a);
+											}),
+												(this.$RafBeaconMeasurement8 = []),
+												(this.$RafBeaconMeasurement7 = !1);
+										},
+										"bind",
+										!0,
+										this
+									)),
+									(this.$RafBeaconMeasurement1 = a),
+									(this.$RafBeaconMeasurement2 = !!q()),
+									(this.__viewabilityDetection = i.RAF),
+									(this.$RafBeaconMeasurement9 = 0),
+									(this.$RafBeaconMeasurement3 = new k(a, b).isSafeframe()),
+									(this.$RafBeaconMeasurement7 = !1),
+									(this.$RafBeaconMeasurement8 = []),
+									(this.$RafBeaconMeasurement4 = c),
+									this.isAvailable() &&
+										window.addEventListener(
+											"message",
+											this.$RafBeaconMeasurement6
+										),
+									(this.$RafBeaconMeasurement5 = {});
+							}
+							a.prototype.destroy = function() {
+								window.removeEventListener(
+									"message",
+									this.$RafBeaconMeasurement6
+								),
+									n.destroy.call(this);
+							};
+							a.prototype.isAvailable = function() {
+								__p && __p();
+								if (!n.isAvailable.call(this)) return !1;
+								if (this.$RafBeaconMeasurement3) return !1;
+								if (this.$RafBeaconMeasurement4 && r()) return !1;
+								var a = navigator.userAgent.toLowerCase(),
+									b;
+								if ((b = p())) return b >= 40 && b < 49;
+								if ((b = q())) return b >= 9;
+								var c = a.match(/crios\/(\d+)/);
+								if (c) {
+									c = parseInt(c[1], 10);
+									return c >= 48;
+								}
+								c = /fbios/.test(a);
+								if (c) return !0;
+								return (b = o()) ? b >= 52 : !1;
+							};
+							a.prototype.getMeasurement = function(a) {
+								this.$RafBeaconMeasurement8.push(a);
+								if (this.$RafBeaconMeasurement7) return;
+								this.$RafBeaconMeasurement7 = !0;
+								m.raf_safari_fix && this.$RafBeaconMeasurement2
+									? this.__checkSupportsSafari().then(
+											ES(
+												function(a) {
+													a
+														? n.getMeasurement.call(
+																this,
+																this.$RafBeaconMeasurement10
+														  )
+														: this.$RafBeaconMeasurement10(
+																g.unknownResult(
+																	this.__viewabilityDetection,
+																	"raf-safari"
+																)
+														  );
+												},
+												"bind",
+												!0,
+												this
+											)
+									  )
+									: n.getMeasurement.call(this, this.$RafBeaconMeasurement10);
+							};
+							a.prototype.__checkSupportsSafari = function() {
+								if (this.$RafBeaconMeasurement9 >= u) return l.resolve(!0);
+								else if (this.$RafBeaconMeasurement9 <= -u)
+									return l.resolve(!1);
+								return new l(
+									ES(
+										function(a, b) {
+											this.__detectViewability({ x: -1e3, y: -1e3 }).then(
+												ES(
+													function(b) {
+														(this.$RafBeaconMeasurement9 += b === "0" ? 1 : -1),
+															a(b === "0");
+													},
+													"bind",
+													!0,
+													this
+												)
+											);
+										},
+										"bind",
+										!0,
+										this
+									)
+								);
+							};
+							a.prototype.__setUpBeacon = function(a) {
+								__p && __p();
+								a = document.createElement("iframe");
+								a.sandbox = "allow-scripts";
+								var b = function() {
+									__p && __p();
+									var a = 2,
+										b = null;
+									window.isVisible = function(c, d) {
+										var e = !1,
+											f = 0,
+											g = function g(h) {
+												if (e) return;
+												else
+													f < a
+														? (b = window.requestAnimationFrame(g))
+														: ((e = !0),
+														  d.postMessage(
+																'{"id": "' + c + '", "iv": true}',
+																"*"
+														  ));
+												f++;
+											};
+										g();
+									};
+									window.addEventListener("message", function(a) {
+										window.cancelAnimationFrame(b),
+											a.data !== "failed" && window.isVisible(a.data, a.source);
+									});
+								}.toString();
+								a.setAttribute(
+									"srcdoc",
+									"<script>var __p;(" + b + ")();</script>"
+								);
+								return a;
+							};
+							a.prototype.__checkVisibility = function(a) {
+								__p && __p();
+								var b = Math.random() + "";
+								return new l(
+									ES(
+										function(c, d) {
+											var e = a.contentWindow;
+											e.postMessage(b, "*");
+											var f = window.setTimeout(
+												ES(
+													function() {
+														e.postMessage("failed", "*");
+														var a = this.$RafBeaconMeasurement5[b];
+														a && a(!1);
+													},
+													"bind",
+													!0,
+													this
+												),
+												s * t
+											);
+											this.$RafBeaconMeasurement5[b] = ES(
+												function(a) {
+													delete this.$RafBeaconMeasurement5[b],
+														window.clearTimeout(f),
+														c(a);
+												},
+												"bind",
+												!0,
+												this
+											);
+										},
+										"bind",
+										!0,
+										this
+									)
+								);
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"AdQualityMeasurementUtils.adquality",
+						[
+							"GeometricMeasurement.adquality",
+							"IEXDomainScreenMeasurement.adquality",
+							"InstantArticleMeasurement.adquality",
+							"IntersectionObserverMeasurement.adquality",
+							"MozInnerScreenMeasurement.adquality",
+							"RafBeaconMeasurement.adquality"
+						],
+						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+							"use strict";
+							function a(a, b, c) {
+								return [
+									new i(a, b),
+									new g(a, b),
+									new k(a, b),
+									new l(a, b, c),
+									new h(a, b),
+									new j(a, b)
+								];
+							}
+							e.exports = { getDefaultMeasurements: a };
+						},
+						null
+					);
+					__d(
+						"AdQualityTest.adquality",
+						["AdQualityStatistics.adquality"],
+						function(a, b, c, d, e, f, g) {
+							"use strict";
+							__p && __p();
+							function a(a) {
+								(this.$1 = !1),
+									(this.$2 = a),
+									(this.$3 = new g(a.viewableRatio));
+							}
+							a.prototype.registerProgress = function(a, b, c, d) {
+								__p && __p();
+								if (this.$1) return;
+								this.$3.registerProgress(a, b);
+								c = b.getViewableRatio() || 0;
+								if (
+									this.$2.continuous &&
+									(!b.getIsContinuous() || c < this.$2.viewableRatio)
+								) {
+									this.$3 = new g(this.$2.viewableRatio);
+									return;
+								}
+								d = this.$3.getData().viewableSeconds || 0;
+								d >= this.$2.viewableSeconds && b.isConclusive() && this.$4(b);
+							};
+							a.prototype.$4 = function(a) {
+								(this.$1 = !0),
+									this.$2.adQualityTestConditionTrueCallback({
+										measurementResult: a,
+										statistics: this.$3.getData(),
+										lastLoggingTime: 0,
+										currentLoggingTime: 0,
+										adQualityTestFinalCallback: null
+									});
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"AdQualityVideoDynamicIntervalTest.adquality",
+						[
+							"AdQualityStatistics.adquality",
+							"AdQualityTest.adquality",
+							"ANVideoStateUtils"
+						],
+						function(a, b, c, d, e, f, g, h, i) {
+							"use strict";
+							__p && __p();
+							var j,
+								k = 5;
+							b = babelHelpers.inherits(a, h);
+							j = b && b.prototype;
+							function a(a) {
+								j.constructor.call(this, a);
+								this.$AdQualityVideoDynamicIntervalTest2 = {
+									lastViewableRatio: 0,
+									lastLoggingTime: 0,
+									lastStateUpdateTime: 0,
+									lastStatisticsData: new g(0).getData(),
+									lastMonitoringState: i.initState(),
+									isInitialized: !1
+								};
+								var b = a.viewableRatio,
+									c = a.adQualityTestConditionTrueCallback;
+								a = a.adQualityTestFinalCallback;
+								this.$AdQualityVideoDynamicIntervalTest1 = new g(b);
+								this.$AdQualityVideoDynamicIntervalTest3 = c;
+								this.$AdQualityVideoDynamicIntervalTest4 = a
+									? a
+									: function() {};
+							}
+							a.prototype.registerProgress = function(a, b, c, d) {
+								a = !0;
+								while (a) {
+									c = this.$AdQualityVideoDynamicIntervalTest2;
+									c = this.$AdQualityVideoDynamicIntervalTest5(d, c, b);
+									this.$AdQualityVideoDynamicIntervalTest2 = c.state;
+									a = c.checkLogForNextInterval;
+								}
+							};
+							a.prototype.$AdQualityVideoDynamicIntervalTest5 = function(
+								a,
+								b,
+								c
+							) {
+								__p && __p();
+								var d = a.videoDuration,
+									e = a.videoTime,
+									f = a.loggingTimeInterval,
+									g = a.isContinuous,
+									h = a.isPaused,
+									i = b.lastLoggingTime,
+									j = b.lastStateUpdateTime,
+									k = this.$AdQualityVideoDynamicIntervalTest1.getViewableRatio(),
+									l =
+										b.lastStatisticsData.curViewableRatio !== null &&
+										b.lastStatisticsData.curViewableRatio !== void 0
+											? b.lastStatisticsData.curViewableRatio
+											: 0,
+									m = c.getViewableRatio();
+								m = m !== null && m !== void 0 ? m : 0;
+								m = Math.min(m, l) < k && Math.max(m, l) >= k && i != j;
+								l = e >= d;
+								k = this.$AdQualityVideoDynamicIntervalTest2.isInitialized
+									? i
+									: e - f;
+								d = this.$AdQualityVideoDynamicIntervalTest6(a, j, i, m, l);
+								j = m && (!g || h || l) && k != e;
+								h = this.$AdQualityVideoDynamicIntervalTest7(a, d, f, c, m, j);
+								l = h.preCallbackAction;
+								f = h.postCallbackAction;
+								l();
+								d
+									? (k = this.$AdQualityVideoDynamicIntervalTest8(
+											i,
+											a,
+											m,
+											b,
+											c,
+											j
+									  ))
+									: j || this.$AdQualityVideoDynamicIntervalTest4();
+								f();
+								return {
+									state: {
+										lastLoggingTime: g ? k : e,
+										lastStateUpdateTime: e,
+										lastStatisticsData: ES(
+											"Object",
+											"assign",
+											!1,
+											{},
+											this.$AdQualityVideoDynamicIntervalTest1.getData()
+										),
+										lastMonitoringState: a,
+										isInitialized: !0
+									},
+									checkLogForNextInterval: j
+								};
+							};
+							a.prototype.$AdQualityVideoDynamicIntervalTest9 = function(a, b) {
+								var c = a.loggingTimeInterval,
+									d = a.volume,
+									e = a.isContinuous;
+								a = a.playbackRate;
+								this.$AdQualityVideoDynamicIntervalTest1.registerVolume(
+									c,
+									d,
+									e
+								);
+								this.$AdQualityVideoDynamicIntervalTest1.registerPlaybackRate(
+									c,
+									a
+								);
+								this.$AdQualityVideoDynamicIntervalTest1.registerProgress(c, b);
+							};
+							a.prototype.$AdQualityVideoDynamicIntervalTest7 = function(
+								a,
+								b,
+								c,
+								d,
+								e,
+								f
+							) {
+								var g = this.$AdQualityVideoDynamicIntervalTest10(
+									e,
+									a.isContinuous
+								);
+								c = ES(
+									function() {
+										g || this.$AdQualityVideoDynamicIntervalTest9(a, d);
+									},
+									"bind",
+									!0,
+									this
+								);
+								e = ES(
+									function() {
+										b &&
+											this.$AdQualityVideoDynamicIntervalTest1.resetNonContinuousStatistics(),
+											g && !f && this.$AdQualityVideoDynamicIntervalTest9(a, d);
+									},
+									"bind",
+									!0,
+									this
+								);
+								return { preCallbackAction: c, postCallbackAction: e };
+							};
+							a.prototype.$AdQualityVideoDynamicIntervalTest8 = function(
+								a,
+								b,
+								c,
+								d,
+								e,
+								f
+							) {
+								var g = d.lastStateUpdateTime;
+								d = d.lastStatisticsData;
+								var h = b.videoTime;
+								b = b.isContinuous;
+								g = this.$AdQualityVideoDynamicIntervalTest10(c, b) ? g : h;
+								c = c ? d : this.$AdQualityVideoDynamicIntervalTest1.getData();
+								d = f ? null : this.$AdQualityVideoDynamicIntervalTest4();
+								this.$AdQualityVideoDynamicIntervalTest3({
+									statistics: c,
+									lastLoggingTime: a,
+									currentLoggingTime: g,
+									measurementResult: e,
+									adQualityTestFinalCallback: d,
+									results: { complete: !1, passed: !0 }
+								});
+								return b ? g : h;
+							};
+							a.prototype.$AdQualityVideoDynamicIntervalTest6 = function(
+								a,
+								b,
+								c,
+								d,
+								e
+							) {
+								var f = a.videoTime;
+								return f === c
+									? !1
+									: e ||
+											((this.$AdQualityVideoDynamicIntervalTest10(
+												d,
+												a.isContinuous
+											) ||
+												a.isPaused) &&
+												c != b) ||
+											f - c >= k ||
+											a.forceFlushLog;
+							};
+							a.prototype.$AdQualityVideoDynamicIntervalTest10 = function(
+								a,
+								b
+							) {
+								return a || !b;
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"AdQualityRules.adquality",
+						[
+							"AdQualityTest.adquality",
+							"AdQualityVideoDynamicIntervalTest.adquality"
+						],
+						function(a, b, c, d, e, f, g, h) {
+							"use strict";
+							a = {
+								videoTimeEvent: function(a, b) {
+									return {
+										continuous: !0,
+										adQualityTestConditionTrueCallback: a,
+										adQualityTestFinalCallback: b,
+										viewableRatio: 0.5,
+										viewableSeconds: 0,
+										createTest: function(a) {
+											return new h(a);
+										}
+									};
+								},
+								mrc: function(a) {
+									return {
+										continuous: !0,
+										adQualityTestConditionTrueCallback: a,
+										adQualityTestFinalCallback: null,
+										viewableRatio: 0.5,
+										viewableSeconds: 2,
+										createTest: function(a) {
+											return new g(a);
+										}
+									};
+								},
+								viewableImpression: function(a) {
+									return {
+										continuous: !1,
+										adQualityTestConditionTrueCallback: a,
+										adQualityTestFinalCallback: null,
+										viewableRatio: 1e-7,
+										viewableSeconds: 0.001,
+										createTest: function(a) {
+											return new g(a);
+										}
+									};
+								}
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"Env",
+						[],
+						function(a, b, c, d, e, f) {
+							b = {
+								ajaxpipe_token: null,
+								isCQuick: !1,
+								start: ES("Date", "now", !1),
+								nocatch: !1
+							};
+							a.Env && ES("Object", "assign", !1, b, a.Env);
+							a.Env = b;
+							e.exports = b;
+						},
+						null
+					);
+					__d(
+						"javascript_shared_TAAL_OpCode",
+						[],
+						function(a, b, c, d, e, f) {
+							e.exports = ES("Object", "freeze", !1, {
+								PREVIOUS_FILE: 1,
+								PREVIOUS_FRAME: 2,
+								PREVIOUS_DIR: 3,
+								FORCED_KEY: 4
+							});
+						},
+						null
+					);
+					__d(
+						"TAALOpcodes",
+						["javascript_shared_TAAL_OpCode"],
+						function(a, b, c, d, e, f, g) {
+							"use strict";
+							a = {
+								previousFile: function() {
+									return g.PREVIOUS_FILE;
+								},
+								previousFrame: function() {
+									return g.PREVIOUS_FRAME;
+								},
+								previousDirectory: function() {
+									return g.PREVIOUS_DIR;
+								},
+								getString: function(a) {
+									return a && a.length ? " TAAL[" + a.join(";") + "]" : "";
+								}
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"TAAL",
+						["TAALOpcodes"],
+						function(a, b, c, d, e, f, g) {
+							"use strict";
+							a = {
+								blameToPreviousFile: function(a) {
+									return this.applyOpcodes(a, [g.previousFile()]);
+								},
+								blameToPreviousFrame: function(a) {
+									return this.applyOpcodes(a, [g.previousFrame()]);
+								},
+								blameToPreviousDirectory: function(a) {
+									return this.applyOpcodes(a, [g.previousDirectory()]);
+								},
+								applyOpcodes: function(a, b) {
+									return a + g.getString(b);
+								}
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"eprintf",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							__p && __p();
+							function g(a) {
+								for (
+									var b = arguments.length,
+										c = new Array(b > 1 ? b - 1 : 0),
+										d = 1;
+									d < b;
+									d++
+								)
+									c[d - 1] = arguments[d];
+								var e = ES(c, "map", !0, function(a) {
+										return String(a);
+									}),
+									f = a.split("%s").length - 1;
+								if (f !== e.length)
+									return g(
+										"eprintf args number mismatch: %s",
+										ES("JSON", "stringify", !1, [a].concat(e))
+									);
+								var h = 0;
+								return a.replace(/%s/g, function() {
+									return String(e[h++]);
+								});
+							}
+							e.exports = g;
+						},
+						null
+					);
+					__d(
+						"ex",
+						["eprintf"],
+						function(a, b, c, d, e, f, g) {
+							function h(a) {
+								for (
+									var b = arguments.length,
+										c = new Array(b > 1 ? b - 1 : 0),
+										d = 1;
+									d < b;
+									d++
+								)
+									c[d - 1] = arguments[d];
+								var e = ES(c, "map", !0, function(a) {
+										return String(a);
+									}),
+									f = a.split("%s").length - 1;
+								return f !== e.length
+									? h(
+											"ex args number mismatch: %s",
+											ES("JSON", "stringify", !1, [a].concat(e))
+									  )
+									: h._prefix +
+											ES("JSON", "stringify", !1, [a].concat(e)) +
+											h._suffix;
+							}
+							h._prefix = "<![EX[";
+							h._suffix = "]]>";
+							e.exports = h;
+						},
+						null
+					);
+					__d(
+						"sprintf",
+						[],
+						function(a, b, c, d, e, f) {
+							function a(a) {
+								for (
+									var b = arguments.length,
+										c = new Array(b > 1 ? b - 1 : 0),
+										d = 1;
+									d < b;
+									d++
+								)
+									c[d - 1] = arguments[d];
+								var e = 0;
+								return a.replace(/%s/g, function() {
+									return String(c[e++]);
+								});
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"invariant",
+						["Env", "TAAL", "ex", "sprintf"],
+						function(a, b, c, d, e, f, g, h, i, j) {
+							"use strict";
+							__p && __p();
+							var k = i;
+							function a(a, b) {
+								__p && __p();
+								if (!a) {
+									var c = b;
+									for (
+										var d = arguments.length,
+											e = new Array(d > 2 ? d - 2 : 0),
+											f = 2;
+										f < d;
+										f++
+									)
+										e[f - 2] = arguments[f];
+									if (typeof c === "number") {
+										var g = l(c, e),
+											i = g.message,
+											j = g.decoderLink;
+										c = i;
+										e.unshift(j);
+									} else if (c === void 0) {
+										c = "Invariant: ";
+										for (var m = 0; m < e.length; m++) c += "%s,";
+									}
+									c = h.blameToPreviousFrame(c);
+									var n = new Error(k.apply(void 0, [c].concat(e)));
+									n.name = "Invariant Violation";
+									n.messageWithParams = [c].concat(e);
+									throw n;
+								}
+							}
+							function l(a, b) {
+								var c = "Minified invariant #" + a + "; %s";
+								b.length > 0 &&
+									(c +=
+										" Params: " +
+										ES(b, "map", !0, function(a) {
+											return "%s";
+										}).join(", "));
+								a =
+									g.show_invariant_decoder === !0
+										? "visit " + m(a, b) + " to see the full message."
+										: "";
+								return { message: c, decoderLink: a };
+							}
+							function m(a, b) {
+								a =
+									"https://our.intern.facebook.com/intern/invariant/" + a + "/";
+								b.length > 0 &&
+									(a +=
+										"?" +
+										ES(b, "map", !0, function(a, b) {
+											return "args[" + b + "]=" + encodeURIComponent(String(a));
+										}).join("&"));
+								return a;
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"AudienceNetworkVideoMonitor",
+						[
+							"AdQualityManager.adquality",
+							"AdQualityMeasurementUtils.adquality",
+							"AdQualityRules.adquality",
+							"ANVideoStateUtils",
+							"HTMLElementFrameContext.adquality",
+							"invariant"
+						],
+						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+							__p && __p();
+							function a(a, b) {
+								"use strict";
+								(this.$9 = 0),
+									(this.$1 = a),
+									(this.$2 = b),
+									(this.$5 = j.initState()),
+									(this.$6 = 0),
+									(this.$7 = !1),
+									(this.$8 = null);
+							}
+							a.prototype.checkAndSendVideoTimeEvent = function(a) {
+								"use strict";
+								this.$10(a);
+							};
+							a.prototype.getAdQualityManager = function() {
+								"use strict";
+								__p && __p();
+								if (this.$4) return this.$4;
+								var a = this.$1.getGatingConfig(),
+									b = this.$1.getViewabilityMeasurementElement();
+								this.$4 = new g({
+									element: b,
+									parentWindow: window,
+									rules: [
+										i.mrc(
+											ES(
+												function() {
+													var a = new k(
+														this.$1.getViewabilityMeasurementElement(),
+														window
+													);
+													this.$2.logMRCEvent(
+														this.getAdQualityManager().getStatistics(),
+														this.$11().getCurrentTime() - 2,
+														this.$11().getCurrentTime(),
+														a,
+														this.$1.getAdWidth(),
+														this.$1.getAdHeight()
+													);
+												},
+												"bind",
+												!0,
+												this
+											)
+										),
+										i.viewableImpression(
+											ES(
+												function(a) {
+													this.$2.logViewableImpressionEvent(
+														a.statistics,
+														Math.max(
+															0,
+															this.$11().getCurrentTime() -
+																a.statistics.viewableSeconds
+														),
+														this.$11().getCurrentTime()
+													);
+													var b = new k(
+														this.$1.getViewabilityMeasurementElement(),
+														window
+													);
+													this.$2.logImpressionEvent(
+														b,
+														a.statistics.curViewableRatio,
+														a.measurementResult.getViewabilityDetection(),
+														a.measurementResult.getReason()
+													);
+												},
+												"bind",
+												!0,
+												this
+											)
+										),
+										i.videoTimeEvent(
+											ES(
+												function(a) {
+													var b = a.lastLoggingTime,
+														c = a.currentLoggingTime,
+														d = a.statistics,
+														e = new k(
+															this.$1.getViewabilityMeasurementElement(),
+															window
+														),
+														f = function() {
+															a.adQualityTestFinalCallback &&
+																a.adQualityTestFinalCallback();
+														};
+													this.$2.logTimeEvent(
+														b,
+														c,
+														e,
+														d,
+														this.$1.getAdWidth(),
+														this.$1.getAdHeight(),
+														f
+													);
+												},
+												"bind",
+												!0,
+												this
+											),
+											ES(
+												function() {
+													--this.$9 === 0 && this.$8 && this.$8();
+												},
+												"bind",
+												!0,
+												this
+											)
+										)
+									],
+									gatingConfig: a,
+									measurementTests: h.getDefaultMeasurements(
+										b,
+										window,
+										ES(
+											a.killswitches,
+											"includes",
+											!0,
+											"remove_edge_browser_from_raf_detection"
+										)
+									)
+								});
+								return this.$4;
+							};
+							a.prototype.getLogger = function() {
+								"use strict";
+								return this.$2;
+							};
+							a.prototype.$11 = function() {
+								"use strict";
+								this.$3 || l(0, 2333);
+								return this.$3;
+							};
+							a.prototype.startListening = function(a) {
+								"use strict";
+								(this.$3 = a),
+									this.$2.setPlayer(a),
+									this.$11().addEventListener(
+										"ended",
+										ES(this.$12, "bind", !0, this),
+										!1
+									),
+									this.$11().addEventListener(
+										"timeupdate",
+										ES(this.$10, "bind", !0, this, null),
+										!1
+									),
+									this.$11().addEventListener(
+										"volumechange",
+										ES(this.$13, "bind", !0, this),
+										!1
+									);
+							};
+							a.prototype.$12 = function() {
+								"use strict";
+								this.$9 === 0 && this.$8 && this.$8();
+							};
+							a.prototype.$14 = function() {
+								"use strict";
+								var a = this.$11().getVolume(),
+									b = this.$11().isMuted();
+								return j.isAudible(a, b);
+							};
+							a.prototype.$13 = function() {
+								"use strict";
+								!this.$14() && this.$5.isAudible
+									? (this.$2.logMuteEvent(), (this.$5.isAudible = !1))
+									: this.$14() &&
+									  !this.$5.isAudible &&
+									  (this.$2.logUnMuteEvent(), (this.$5.isAudible = !0));
+							};
+							a.prototype.readCurrentState = function() {
+								"use strict";
+								var a = this.$11().getCurrentTime(),
+									b = ES("Date", "now", !1),
+									c = this.$11().isPaused();
+								return {
+									clockTimeMs: b,
+									videoTime: a,
+									isPaused: c,
+									isAudible: this.$14(),
+									isFullScreen: this.$11().isFullscreen(),
+									isContinuous:
+										this.$11().enforcesContinuity() ||
+										j.isContinuous(this.$5, c, b, a, this.$11().getDuration()),
+									loggingTimeInterval: 0,
+									volume: this.$11().getVolume(),
+									playbackRate: this.$11().getPlaybackRate(),
+									videoDuration: this.$11().getDuration(),
+									forceFlushLog: !!this.$8
+								};
+							};
+							a.prototype.$10 = function(a) {
+								__p && __p();
+								a === void 0 && (a = null);
+								var b = this.$11().getDuration();
+								if (b <= 0) return;
+								a && (this.$8 = a);
+								var c = this.readCurrentState(),
+									d = ES("Object", "assign", !1, {}, this.$5);
+								this.$5.videoTime = c.videoTime;
+								this.$5.isPaused = c.isPaused;
+								this.$5.clockTimeMs = c.clockTimeMs;
+								this.$5.isContinuous = c.isContinuous;
+								var e = this.$11().getVolume(),
+									f = this.$11().getPlaybackRate(),
+									g = this.$11().isFullscreen(),
+									h = this.$14();
+								d = c.isContinuous ? c.videoTime - d.videoTime : 0;
+								this.$9++;
+								this.getAdQualityManager().registerProgress({
+									loggingTimeInterval: d,
+									volume: e,
+									playbackRate: f,
+									isFullScreen: g,
+									isContinuous: c.isContinuous,
+									isPaused: c.isPaused,
+									clockTimeMs: c.clockTimeMs,
+									videoTime: c.videoTime,
+									videoDuration: b,
+									isAudible: h,
+									forceFlushLog: !!a
+								});
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"ANMWebMediator",
 						[],
 						function(a, b, c, d, e, f) {
@@ -7705,6 +10319,54 @@ try {
 						null
 					);
 					__d(
+						"QueryString",
+						[],
+						function(a, b, c, d, e, f) {
+							__p && __p();
+							function a(a) {
+								__p && __p();
+								var b = [];
+								ES(ES("Object", "keys", !1, a).sort(), "forEach", !0, function(
+									c
+								) {
+									var d = a[c];
+									if (d === void 0) return;
+									if (d === null) {
+										b.push(c);
+										return;
+									}
+									b.push(encodeURIComponent(c) + "=" + encodeURIComponent(d));
+								});
+								return b.join("&");
+							}
+							function b(a, b) {
+								__p && __p();
+								b === void 0 && (b = !1);
+								var c = {};
+								if (a === "") return c;
+								a = a.split("&");
+								for (var d = 0; d < a.length; d++) {
+									var e = a[d].split("=", 2),
+										f = decodeURIComponent(e[0]);
+									if (b && Object.prototype.hasOwnProperty.call(c, f))
+										throw new URIError("Duplicate key: " + f);
+									c[f] = e.length === 2 ? decodeURIComponent(e[1]) : null;
+								}
+								return c;
+							}
+							function c(a, b) {
+								return (
+									a +
+									(ES(a, "indexOf", !0, "?") !== -1 ? "&" : "?") +
+									(typeof b === "string" ? b : g.encode(b))
+								);
+							}
+							var g = { encode: a, decode: b, appendToUrl: c };
+							e.exports = g;
+						},
+						null
+					);
+					__d(
 						"Whiteops",
 						[],
 						function(a, b, c, d, e, f) {
@@ -7763,8 +10425,11 @@ try {
 							"ANUtils",
 							"ANWebTwoStepClickDialog",
 							"ANWebVideoLogger.anweb",
+							"ANWebVideoManager",
 							"ANWebVideoPlayer.anweb",
 							"ANXOut",
+							"AudienceNetworkHTMLVideoPlayer",
+							"AudienceNetworkVideoMonitor",
 							"HTMLElementFrameContext.adquality",
 							"JSSDKCssConfig",
 							"LogLevels",
@@ -7817,11 +10482,14 @@ try {
 							K,
 							L,
 							M,
-							N
+							N,
+							O,
+							P,
+							Q
 						) {
 							"use strict";
 							__p && __p();
-							var O = {
+							var R = {
 									"300x250": [300, 250],
 									"320x50": [320, 50],
 									"300x600": [300, 600],
@@ -7830,7 +10498,7 @@ try {
 									fullwidth: [300, 250],
 									rewarded_video: ["100%", "100%"]
 								},
-								P = [
+								S = [
 									"fbAdBody",
 									"fbAdCallToAction",
 									"fbAdIcon",
@@ -7840,7 +10508,7 @@ try {
 									"fbTwoStepDialog",
 									"UNKNOWN"
 								];
-							function Q(a) {
+							function T(a) {
 								return {
 									controls: a.controls === "full" ? "full" : "mute_only",
 									endCard: a.endCard || "none",
@@ -7848,33 +10516,19 @@ try {
 								};
 							}
 							function a(a, b) {
-								(this.$70 = ES(
-									function(a) {
-										this.sendToFacebook({
-											name: "signal",
-											params: {
-												key: y.onlyString(this.$4.data.key),
-												signalUrl: a
-											}
+								(this.$76 = ES(
+									function() {
+										var a = Q(this.$26);
+										this.$21.eventWithParams({
+											event_name: "VIDEO_CLICK",
+											video_playback_time: a.getCurrentTime(),
+											video_duration: a.getDuration()
 										});
 									},
 									"bind",
 									!0,
 									this
 								)),
-									(this.$77 = ES(
-										function() {
-											var a = N(this.$26);
-											this.$21.eventWithParams({
-												event_name: "VIDEO_CLICK",
-												video_playback_time: a.getCurrentTime(),
-												video_duration: a.getDuration()
-											});
-										},
-										"bind",
-										!0,
-										this
-									)),
 									(this.$25 = new n(
 										b,
 										a.onMediaLoaded,
@@ -7901,7 +10555,7 @@ try {
 									(this.$8 = a.displayFormat || a.format || "300x250"),
 									(this.tagJsIframeAppendedTime = a.tagJsIframeAppendedTime),
 									(this.$21 = new s(
-										F.ERROR,
+										I.ERROR,
 										a.tagJsInitTime,
 										y.getNavigationStart(),
 										y.onlyString(a.data.key),
@@ -7909,9 +10563,9 @@ try {
 										a.domain
 									)),
 									(this.$9 = b),
-									(this.$10 = new D(this.$9, this.$28())),
+									(this.$10 = new G(this.$9, this.$28())),
 									(this.$2 = null),
-									(this.$18 = new H()),
+									(this.$18 = new K()),
 									(this.$22 = new r(this.$9));
 							}
 							a.prototype.sendToFacebook = function(a) {
@@ -7926,11 +10580,11 @@ try {
 							a.prototype.$30 = function(a) {
 								a = a.ownerDocument;
 								var b = a.createElement("style");
-								b.innerText = E.rules;
+								b.innerText = H.rules;
 								a.body && a.body.appendChild(b);
 							};
 							a.prototype.$31 = function() {
-								return N(this.$24);
+								return Q(this.$24);
 							};
 							a.prototype.$32 = function() {
 								if (!this.$31().$33) return !1;
@@ -7949,7 +10603,7 @@ try {
 								}
 								c = this.$27 ? this.$27.getXoutButton() : null;
 								var d = u.INLINE_CONDENSED;
-								b = new C({
+								b = new D({
 									parentEl: b,
 									adIcon: a.adIcon,
 									adChoicesLink: a.adChoicesHref,
@@ -8013,17 +10667,17 @@ try {
 									$43: !!d.useIntersectionObserver,
 									$44: !!d.useCtaFallback,
 									$37: a.xout,
-									$45: d.clickGuardElements || P,
-									$46: Q(d.video || {}),
+									$45: d.clickGuardElements || S,
+									$46: T(d.video || {}),
 									$47: d.fullwidthMinAspectRatio || 1.5,
 									$48: d.autoplayEnabled === !0,
 									$49: d.separateVideoViewability === !0,
 									$50: d.pubSideLogging === !0
 								};
-								this.$21.setLogLevel(this.$31().$38.logLevel || F.ERROR);
+								this.$21.setLogLevel(this.$31().$38.logLevel || I.ERROR);
 								this.$21.frameReady();
 								this.$21.setUnifiedLoggingURL(a.unifiedLoggingURL);
-								this.$1 = M();
+								this.$1 = P();
 								this.$31().$38.rp && this.$25.enableReward();
 								var e = 0,
 									f = !!a.creativeMarkupBackup;
@@ -8108,7 +10762,7 @@ try {
 									: this.$36(a.nativeAd);
 								this.$31().$44 === !0 &&
 									(this.$17 = this.$57(a.nativeAd, this.$9, b));
-								this.$58();
+								this.$58(!!a.nativeAd.adVideo);
 								this.$21.eventWithParams(this.$59("ADNW_ADLOADED"));
 								y.autofitTextWhereNeeded(this.$34());
 								this.$60();
@@ -8152,7 +10806,7 @@ try {
 							};
 							a.prototype.$52 = function() {
 								__p && __p();
-								var a = O[this.$8],
+								var a = R[this.$8],
 									b = a[0];
 								a = a[1];
 								var c = document.createElement("iframe");
@@ -8163,7 +10817,7 @@ try {
 								this.$9.appendChild(c);
 								c.contentDocument.open();
 								c.contentDocument.close();
-								b = N(c.contentDocument.body);
+								b = Q(c.contentDocument.body);
 								b.style.overflow = "hidden";
 								b.style.margin = "0";
 								b.style.padding = "0";
@@ -8195,7 +10849,7 @@ try {
 								);
 							};
 							a.prototype.$61 = function(a) {
-								return a && a.video ? Q(a.video) : this.$31().$46;
+								return a && a.video ? T(a.video) : this.$31().$46;
 							};
 							a.prototype.$55 = function(a, b, c, d, e) {
 								(a.nativeAd.loaded = !1),
@@ -8237,7 +10891,7 @@ try {
 									this.$21.error("Multiple ADIMPRESSION attempted.");
 									return;
 								}
-								this.$2 = M();
+								this.$2 = P();
 								var a = this.$67();
 								this.sendToFacebook({
 									name: "impress",
@@ -8275,14 +10929,14 @@ try {
 								}
 								return c;
 							};
-							a.prototype.$58 = function() {
+							a.prototype.$58 = function(a) {
 								__p && __p();
 								this.$16 = new i(this.$17, this.$31().$43);
 								this.$16.attachBehaviorManager(this.$18);
-								var a = new g(
+								var b = new g(
 									ES(
 										function() {
-											return this.$69();
+											(a && this.$31().$38.logVideoEvents === !0) || this.$69();
 										},
 										"bind",
 										!0,
@@ -8297,13 +10951,13 @@ try {
 										this
 									)
 								);
-								this.$19 || a.mediaLoaded();
-								this.$18.addBehavior(a);
+								this.$19 || b.mediaLoaded();
+								this.$18.addBehavior(b);
 								this.$20.addListener(function() {
-									return a.mediaLoaded();
+									return b.mediaLoaded();
 								});
 								if (this.$31().$38.useMostlyViewableImp) {
-									var b = new h(
+									var c = new h(
 										ES(
 											function() {
 												return this.$65();
@@ -8313,10 +10967,10 @@ try {
 											this
 										)
 									);
-									this.$19 || b.mediaLoaded();
-									this.$18.addBehavior(b);
+									this.$19 || c.mediaLoaded();
+									this.$18.addBehavior(c);
 									this.$20.addListener(function() {
-										return b.mediaLoaded();
+										return c.mediaLoaded();
 									});
 								}
 							};
@@ -8326,14 +10980,14 @@ try {
 								else if (a.adVideo) return 1.75;
 								else return 1.9;
 							};
-							a.prototype.$71 = function(a, b, c, d, e) {
+							a.prototype.$70 = function(a, b, c, d, e) {
 								d
-									? this.$72(b, d)
+									? this.$71(b, d)
 									: c.adVideo
-										? this.$73(b, c, e)
-										: this.$74(b, c);
+										? this.$72(b, c, e)
+										: this.$73(b, c);
 							};
-							a.prototype.$72 = function(a, b) {
+							a.prototype.$71 = function(a, b) {
 								__p && __p();
 								this.$19 = !0;
 								var c = new o({
@@ -8381,7 +11035,7 @@ try {
 									!0,
 									ES(
 										function(a, c) {
-											this.$75(a, b[c]);
+											this.$74(a, b[c]);
 										},
 										"bind",
 										!0,
@@ -8390,13 +11044,13 @@ try {
 								);
 								this.$5 = c;
 							};
-							a.prototype.$74 = function(a, b) {
-								b = this.$76(b);
+							a.prototype.$73 = function(a, b) {
+								b = this.$75(b);
 								a.firstChild
 									? a.insertBefore(b, a.firstChild)
 									: a.appendChild(b);
 							};
-							a.prototype.$73 = function(a, b, c) {
+							a.prototype.$72 = function(a, b, c) {
 								__p && __p();
 								if (!b.adVideo) throw new Error("No video for Ad.");
 								var d = this.$31().$48;
@@ -8405,8 +11059,8 @@ try {
 								);
 								this.$19 = !0;
 								this.$20.addRequiredEvent();
-								c = new B(
-									N(b.adVideo),
+								b = new C(
+									Q(b.adVideo),
 									b.adImage,
 									d,
 									c,
@@ -8418,54 +11072,73 @@ try {
 										!0,
 										this
 									),
-									this.$77
+									this.$76
 								);
-								var e = this.$35() && this.$25.isRewardEnabled();
-								if (e) {
-									var f = N(this.$6);
-									this.$27 = new w(this.$25, f, c, this.$31().$33);
+								c = this.$35() && this.$25.isRewardEnabled();
+								if (c) {
+									var e = Q(this.$6);
+									this.$27 = new w(this.$25, e, b, this.$31().$33);
 									this.$27.makeRewarded();
-									f.style.maxWidth = "";
+									e.style.maxWidth = "";
 									this.$7 &&
 										((this.$7.style.maxWidth = "100vw"),
 										(this.$7.style.maxHeight = "100vh"));
 								}
-								new A(
-									c.getVideoElement(),
-									this.$70,
-									b.videoPlayLink,
-									b.videoTimeLink
-								).startLogging();
-								a.appendChild(c.getElement());
-								this.$26 = c;
-								this.$25.setVideo(c);
-								if (!e) {
+								if (this.$31().$38.logVideoEvents === !0) {
+									e = new E(b.getVideoElement(), !0);
+									var f = new A(
+										e,
+										y.onlyString(this.$4.data.key),
+										ES(
+											function(a) {
+												return this.sendToFacebook(a);
+											},
+											"bind",
+											!0,
+											this
+										),
+										ES(
+											function() {
+												return this.$69();
+											},
+											"bind",
+											!0,
+											this
+										)
+									);
+									f = new F(new B(e), f);
+									f.startListening(e);
+								}
+								a.appendChild(b.getElement());
+								this.$26 = b;
+								this.$25.setVideo(b);
+								if (!c) {
 									f = this.$18;
 									if (this.$31().$49) {
-										b = c.getVideoElement();
-										a = new i(b, this.$31().$43);
-										f = new H();
+										e = b.getVideoElement();
+										a = new i(e, this.$31().$43);
+										f = new K();
 										a.attachBehaviorManager(f);
 									}
-									f.addBehavior(new I(c, d, this.$21));
+									f.addBehavior(new L(b, d, this.$21));
 								}
 							};
-							a.prototype.$78 = function(a) {
-								this.$21.logClick(a, N(this.$1));
+							a.prototype.$77 = function(a) {
+								this.$21.logClick(a, Q(this.$1));
 								var b = a.href;
 								a.clickParams.clknutab !== !0 || y.isAppStoreURL(b)
 									? this.$22.open(b)
 									: this.$22.openNewTab(b);
 							};
-							a.prototype.$75 = function(a, b) {
+							a.prototype.$74 = function(a, b) {
 								__p && __p();
 								var c = ES(
 										function(a, c) {
 											__p && __p();
-											var d = M(),
+											var d = P(),
 												e = b.href,
 												f = y.maybeHTMLElement(c.target);
-											f = f ? this.$79(f) : t.UNKNOWN;
+											f = f ? this.$78(f) : t.UNKNOWN;
 											var g = {};
 											if (this.$16) {
 												var h = this.$16.getDimensions(),
@@ -8542,10 +11215,10 @@ try {
 												},
 												onlyClickClientEvent: h
 											};
-											if (d) this.$78(f);
+											if (d) this.$77(f);
 											else if (h) {
 												this.sendToFacebook({ name: "click", params: f });
-												d = J.appendToUrl(e, {
+												d = M.appendToUrl(e, {
 													ts: i.clktm,
 													dl: i.clkdel,
 													w: g.width,
@@ -8567,7 +11240,7 @@ try {
 														this.$22.openNewTab(e);
 											if (this.$31().$38.useShim || this.$31().$39 || c) {
 												h = new m(window.document);
-												var j = M();
+												var j = P();
 												h.onBounceBack(
 													ES(
 														function(a) {
@@ -8576,7 +11249,7 @@ try {
 																params: {
 																	key: y.onlyString(this.$4.data.key),
 																	leaveTime: j,
-																	backTime: M()
+																	backTime: P()
 																}
 															}),
 																this.$21.event("ADNW_BOUNCEBACK", "" + a);
@@ -8622,9 +11295,9 @@ try {
 									),
 									e = ES(
 										function(a) {
-											var b = M(),
+											var b = P(),
 												e = y.maybeHTMLElement(a.target);
-											e = e ? this.$79(e) : t.UNKNOWN;
+											e = e ? this.$78(e) : t.UNKNOWN;
 											var f = this.$31().$38.minClickDelay;
 											f && this.$1 && this.$1 + f > b && !this.$3
 												? ((this.$3 = !0),
@@ -8652,11 +11325,11 @@ try {
 								}
 								var f = this.$6.querySelector(".adnwTwoClickBlocker");
 								if (f && !!this.$31().$38.clickConfirmation) {
-									var g = N(f.querySelector(".adnwCancelLink"));
+									var g = Q(f.querySelector(".adnwCancelLink"));
 									g.addEventListener("click", function(a) {
 										f.style.display = "none";
 									});
-									g = N(f.querySelector(".adnwContinueLink"));
+									g = Q(f.querySelector(".adnwContinueLink"));
 									g.addEventListener("click", function(a) {
 										(f.style.display = "none"), e(a);
 									});
@@ -8680,7 +11353,7 @@ try {
 								if (this.$6 == null) return;
 								this.$30(this.$34());
 								if (this.$6 == null) return;
-								this.$80(
+								this.$79(
 									this.$6,
 									a.nativeAd,
 									a.nativeCarouselAds,
@@ -8692,44 +11365,44 @@ try {
 									((this.$16 = new i(this.$6)),
 									this.$16.attachBehaviorManager(this.$18));
 							};
-							a.prototype.$80 = function(a, b, c, d, e, f) {
+							a.prototype.$79 = function(a, b, c, d, e, f) {
 								b.loaded = !0;
 								this.$14 = a.getElementsByClassName(t.FB_AD_MEDIA);
 								for (d = 0; d < this.$14.length; d++)
-									this.$71(a, this.$14[d], b, c, f);
-								this.$81(a, b, "", e);
+									this.$70(a, this.$14[d], b, c, f);
+								this.$80(a, b, "", e);
 								c = a.getElementsByClassName(t.FB_AD_ICON);
-								for (d = 0; d < c.length; d++) c[d].appendChild(this.$82(b));
+								for (d = 0; d < c.length; d++) c[d].appendChild(this.$81(b));
 							};
-							a.prototype.$83 = function(a) {
-								a = N(a.ownerDocument.body);
+							a.prototype.$82 = function(a) {
+								a = Q(a.ownerDocument.body);
 								a.addEventListener("touchstart", function() {}, !1);
 							};
 							a.prototype.$62 = function(a, b, c, d, e, f, g) {
 								if (!a || !c || c.loaded) return !1;
 								this.applyAdTypeClass(a, c, d);
-								this.$83(a);
+								this.$82(a);
 								c.loaded = !0;
 								var h = !1;
-								d = this.$84(a, c, d, "", e, f, g);
+								d = this.$83(a, c, d, "", e, f, g);
 								this.$31().$40 === !0 &&
-									K.run(b, "AN_MWEB", c.topDomain, this.$31().$41, a);
+									N.run(b, "AN_MWEB", c.topDomain, this.$31().$41, a);
 								return h || d;
 							};
-							a.prototype.$84 = function(a, b, c, d, e, f, g) {
+							a.prototype.$83 = function(a, b, c, d, e, f, g) {
 								var h,
 									i = !1;
 								this.$14 = a.getElementsByClassName(t.FB_AD_MEDIA + d);
 								for (h = 0; h < this.$14.length; h++)
 									(i = !0),
 										e && !c && this.$63(b, this.$14[h]),
-										this.$71(a, this.$14[h], b, c, g);
-								this.$81(a, b, d, f);
+										this.$70(a, this.$14[h], b, c, g);
+								this.$80(a, b, d, f);
 								c = a.getElementsByClassName(t.FB_AD_ICON + d);
-								for (h = 0; h < c.length; h++) c[h].appendChild(this.$82(b));
+								for (h = 0; h < c.length; h++) c[h].appendChild(this.$81(b));
 								return i;
 							};
-							a.prototype.$81 = function(a, b, c, d) {
+							a.prototype.$80 = function(a, b, c, d) {
 								__p && __p();
 								var e;
 								d = a.getElementsByClassName(t.FB_AD_TITLE + c);
@@ -8745,9 +11418,9 @@ try {
 								for (e = 0; e < d.length; e++)
 									d[e].textContent = b.adSocialContext;
 								d = a.getElementsByClassName("fbAdLink" + c);
-								for (e = 0; e < d.length; e++) this.$75(d[e], b);
+								for (e = 0; e < d.length; e++) this.$74(d[e], b);
 							};
-							a.prototype.$82 = function(a) {
+							a.prototype.$81 = function(a) {
 								var b = document.createElement("img");
 								b.style.height = "100%";
 								b.style.width = "100%";
@@ -8767,7 +11440,7 @@ try {
 								b.src = a.adIcon;
 								return b;
 							};
-							a.prototype.$76 = function(a) {
+							a.prototype.$75 = function(a) {
 								__p && __p();
 								var b = document.createElement("img");
 								b.style.height = "100%";
@@ -8810,14 +11483,14 @@ try {
 								b.src = a.adImage;
 								return b;
 							};
-							a.prototype.$85 = function() {
+							a.prototype.$84 = function() {
 								return this.$8 === "native";
 							};
 							a.prototype.$35 = function() {
 								return this.$8 === "rewarded_video";
 							};
 							a.prototype.$51 = function() {
-								return !this.$29() && !this.$85() && O[this.$8];
+								return !this.$29() && !this.$84() && R[this.$8];
 							};
 							a.prototype.$69 = function() {
 								this.$34().classList.add("fbVisibleOnce"), this.$66();
@@ -8841,11 +11514,11 @@ try {
 									iframe_status: this.$68(),
 									nest_level: this.$10.getNestLevel(),
 									iframe_urls: this.$10.ancestorURLs.slice(0, -1),
-									mediation_service: new G(this.$10).getMediator(),
+									mediation_service: new J(this.$10).getMediator(),
 									nmv: this.$15
 								};
 							};
-							a.prototype.$79 = function(a) {
+							a.prototype.$78 = function(a) {
 								__p && __p();
 								var b;
 								b = ((b = {
@@ -9301,7 +11974,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4844449","namespace":"FB","message":"' +
+				'","revision":"4844882","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
