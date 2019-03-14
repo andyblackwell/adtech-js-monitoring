@@ -1,4 +1,4 @@
-/*1552571766,,JIT Construction: v4850498,en_US*/
+/*1552589219,,JIT Construction: v4850779,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -331,30 +331,30 @@ try {
 					__d(
 						"ES5Object",
 						["ie8DontEnum"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							__p && __p();
-							var h = {}.hasOwnProperty;
+							var g = {}.hasOwnProperty;
 							a = {};
-							function i() {}
+							function h() {}
 							a.create = function(a) {
 								var b = typeof a;
 								if (b != "object" && b != "function")
 									throw new TypeError(
 										"Object prototype may only be a Object or null"
 									);
-								i.prototype = a;
-								return new i();
+								h.prototype = a;
+								return new h();
 							};
 							a.keys = function(a) {
-								var b = typeof a;
-								if ((b != "object" && b != "function") || a === null)
+								var c = typeof a;
+								if ((c != "object" && c != "function") || a === null)
 									throw new TypeError("Object.keys called on non-object");
-								var c = [];
-								for (var d in a) h.call(a, d) && c.push(d);
-								g(a, function(a) {
-									return c.push(a);
+								var d = [];
+								for (var e in a) g.call(a, e) && d.push(e);
+								b("ie8DontEnum")(a, function(a) {
+									return d.push(a);
 								});
-								return c;
+								return d;
 							};
 							a.freeze = function(a) {
 								return a;
@@ -633,9 +633,9 @@ try {
 					__d(
 						"ES6Object",
 						["ie8DontEnum"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							__p && __p();
-							var h = {}.hasOwnProperty;
+							var g = {}.hasOwnProperty;
 							a = {
 								assign: function(a) {
 									__p && __p();
@@ -645,19 +645,19 @@ try {
 										);
 									a = Object(a);
 									for (
-										var b = 0;
-										b < (arguments.length <= 1 ? 0 : arguments.length - 1);
-										b++
+										var c = 0;
+										c < (arguments.length <= 1 ? 0 : arguments.length - 1);
+										c++
 									) {
-										var c =
-											b + 1 < 1 || arguments.length <= b + 1
+										var d =
+											c + 1 < 1 || arguments.length <= c + 1
 												? void 0
-												: arguments[b + 1];
-										if (c == null) continue;
-										c = Object(c);
-										for (var d in c) h.call(c, d) && (a[d] = c[d]);
-										g(c, function(b) {
-											return (a[b] = c[b]);
+												: arguments[c + 1];
+										if (d == null) continue;
+										d = Object(d);
+										for (var e in d) g.call(d, e) && (a[e] = d[e]);
+										b("ie8DontEnum")(d, function(b) {
+											return (a[b] = d[b]);
 										});
 									}
 									return a;
@@ -674,20 +674,20 @@ try {
 					__d(
 						"ES7ArrayPrototype",
 						["ES5Array", "ES5ArrayPrototype"],
-						function(a, b, c, d, e, f, g, h) {
+						function(a, b, c, d, e, f) {
 							__p && __p();
-							var i = g.isArray,
-								j = h.indexOf;
-							function k(a) {
-								return Math.min(Math.max(l(a), 0), Number.MAX_SAFE_INTEGER);
+							var g = b("ES5Array").isArray,
+								h = b("ES5ArrayPrototype").indexOf;
+							function i(a) {
+								return Math.min(Math.max(j(a), 0), Number.MAX_SAFE_INTEGER);
 							}
-							function l(a) {
+							function j(a) {
 								a = Number(a);
 								return isFinite(a) && a !== 0
-									? m(a) * Math.floor(Math.abs(a))
+									? k(a) * Math.floor(Math.abs(a))
 									: a;
 							}
-							function m(a) {
+							function k(a) {
 								return a >= 0 ? 1 : -1;
 							}
 							a = {
@@ -696,19 +696,19 @@ try {
 									__p && __p();
 									if (
 										a !== void 0 &&
-										i(this) &&
+										g(this) &&
 										!(typeof a === "number" && isNaN(a))
 									)
-										return j.apply(this, arguments) !== -1;
+										return h.apply(this, arguments) !== -1;
 									var b = Object(this),
-										c = b.length ? k(b.length) : 0;
+										c = b.length ? i(b.length) : 0;
 									if (c === 0) return !1;
-									var d = arguments.length > 1 ? l(arguments[1]) : 0,
+									var d = arguments.length > 1 ? j(arguments[1]) : 0,
 										e = d < 0 ? Math.max(c + d, 0) : d,
 										f = isNaN(a) && typeof a === "number";
 									while (e < c) {
-										var g = b[e];
-										if (g === a || (typeof g === "number" && f && isNaN(g)))
+										var k = b[e];
+										if (k === a || (typeof k === "number" && f && isNaN(k)))
 											return !0;
 										e++;
 									}
@@ -722,29 +722,29 @@ try {
 					__d(
 						"ES7Object",
 						["ie8DontEnum"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							__p && __p();
-							var h = {}.hasOwnProperty;
+							var g = {}.hasOwnProperty;
 							a = {};
 							a.entries = function(a) {
 								if (a == null)
 									throw new TypeError("Object.entries called on non-object");
-								var b = [];
-								for (var c in a) h.call(a, c) && b.push([c, a[c]]);
-								g(a, function(c) {
-									return b.push([c, a[c]]);
+								var c = [];
+								for (var d in a) g.call(a, d) && c.push([d, a[d]]);
+								b("ie8DontEnum")(a, function(b) {
+									return c.push([b, a[b]]);
 								});
-								return b;
+								return c;
 							};
 							a.values = function(a) {
 								if (a == null)
 									throw new TypeError("Object.values called on non-object");
-								var b = [];
-								for (var c in a) h.call(a, c) && b.push(a[c]);
-								g(a, function(c) {
-									return b.push(a[c]);
+								var c = [];
+								for (var d in a) g.call(a, d) && c.push(a[d]);
+								b("ie8DontEnum")(a, function(b) {
+									return c.push(a[b]);
 								});
-								return b;
+								return c;
 							};
 							e.exports = a;
 						},
@@ -1506,48 +1506,33 @@ try {
 							"ES7StringPrototype",
 							"json3"
 						],
-						function(
-							a,
-							b,
-							c,
-							d,
-							e,
-							f,
-							g,
-							h,
-							i,
-							j,
-							k,
-							l,
-							m,
-							n,
-							o,
-							p,
-							q,
-							r,
-							s,
-							t,
-							u
-						) {
+						function(a, b, c, d, e, f) {
 							__p && __p();
-							var v = {}.toString,
-								w = { "JSON.stringify": u.stringify, "JSON.parse": u.parse };
-							c = {
-								"Array.prototype": h,
-								"Function.prototype": j,
-								"String.prototype": l,
-								Object: k,
-								Array: g,
-								Date: i
-							};
+							var g = {}.toString,
+								h = {
+									"JSON.stringify": b("json3").stringify,
+									"JSON.parse": b("json3").parse
+								};
 							d = {
-								Object: q,
-								"Array.prototype": n,
-								"Date.prototype": o,
-								Number: p,
-								Array: m
+								"Array.prototype": b("ES5ArrayPrototype"),
+								"Function.prototype": b("ES5FunctionPrototype"),
+								"String.prototype": b("ES5StringPrototype"),
+								Object: b("ES5Object"),
+								Array: b("ES5Array"),
+								Date: b("ES5Date")
 							};
-							f = { Object: s, "String.prototype": t, "Array.prototype": r };
+							f = {
+								Object: b("ES6Object"),
+								"Array.prototype": b("ES6ArrayPrototype"),
+								"Date.prototype": b("ES6DatePrototype"),
+								Number: b("ES6Number"),
+								Array: b("ES6Array")
+							};
+							b = {
+								Object: b("ES7Object"),
+								"String.prototype": b("ES7StringPrototype"),
+								"Array.prototype": b("ES7ArrayPrototype")
+							};
 							function a(a) {
 								__p && __p();
 								for (var b in a) {
@@ -1559,70 +1544,70 @@ try {
 											f = d[1];
 										if (!e || !f || !window[e] || !window[e][f]) {
 											var g = e ? window[e] : "-",
-												h = e && window[e] && f ? window[e][f] : "-";
+												i = e && window[e] && f ? window[e][f] : "-";
 											throw new Error(
 												"Unexpected state (t11975770): " +
-													(e + ", " + f + ", " + g + ", " + h + ", " + b)
+													(e + ", " + f + ", " + g + ", " + i + ", " + b)
 											);
 										}
 									}
 									e = d.length === 2 ? window[d[0]][d[1]] : window[b];
-									for (var i in c) {
-										if (!Object.prototype.hasOwnProperty.call(c, i)) continue;
-										if (typeof c[i] !== "function") {
-											w[b + "." + i] = c[i];
+									for (var j in c) {
+										if (!Object.prototype.hasOwnProperty.call(c, j)) continue;
+										if (typeof c[j] !== "function") {
+											h[b + "." + j] = c[j];
 											continue;
 										}
-										f = e[i];
-										w[b + "." + i] =
-											f && /\{\s+\[native code\]\s\}/.test(f) ? f : c[i];
+										f = e[j];
+										h[b + "." + j] =
+											f && /\{\s+\[native code\]\s\}/.test(f) ? f : c[j];
 									}
 								}
 							}
-							a(c);
 							a(d);
 							a(f);
-							function b(a, b, c) {
-								var d = c ? v.call(a).slice(8, -1) + ".prototype" : a,
-									e = w[d + "." + b] || a[b];
+							a(b);
+							function c(a, b, c) {
+								var d = c ? g.call(a).slice(8, -1) + ".prototype" : a,
+									e = h[d + "." + b] || a[b];
 								if (typeof e === "function") {
 									for (
 										var f = arguments.length,
-											g = new Array(f > 3 ? f - 3 : 0),
-											h = 3;
-										h < f;
-										h++
+											i = new Array(f > 3 ? f - 3 : 0),
+											j = 3;
+										j < f;
+										j++
 									)
-										g[h - 3] = arguments[h];
-									return e.apply(a, g);
+										i[j - 3] = arguments[j];
+									return e.apply(a, i);
 								} else if (e) return e;
 								throw new Error(
 									"Polyfill " + d + " does not have implementation of " + b
 								);
 							}
-							e.exports = b;
+							e.exports = c;
 						},
 						null
 					);
 					__d(
 						"sdk.babelHelpers",
 						["ES5FunctionPrototype", "ES5Object", "ES6Object"],
-						function(a, b, c, d, e, f, g, h, i) {
+						function(a, b, c, d, e, f) {
 							__p && __p();
-							var j = {},
-								k = Object.prototype.hasOwnProperty;
-							j.inheritsLoose = function(a, b) {
-								i.assign(a, b);
-								a.prototype = h.create(b && b.prototype);
+							var g = {},
+								h = Object.prototype.hasOwnProperty;
+							g.inheritsLoose = function(a, c) {
+								b("ES6Object").assign(a, c);
+								a.prototype = b("ES5Object").create(c && c.prototype);
 								a.prototype.constructor = a;
-								a.__superConstructor__ = b;
-								return b;
+								a.__superConstructor__ = c;
+								return c;
 							};
-							j.inherits = j.inheritsLoose;
-							j.wrapNativeSuper = function(a) {
+							g.inherits = g.inheritsLoose;
+							g.wrapNativeSuper = function(a) {
 								__p && __p();
 								var b = typeof Map === "function" ? new Map() : void 0;
-								j.wrapNativeSuper = function(a) {
+								g.wrapNativeSuper = function(a) {
 									__p && __p();
 									if (a === null) return null;
 									if (typeof a !== "function")
@@ -1633,44 +1618,44 @@ try {
 										if (b.has(a)) return b.get(a);
 										b.set(a, c);
 									}
-									j.inheritsLoose(c, a);
+									g.inheritsLoose(c, a);
 									function c() {
 										a.apply(this, arguments);
 									}
 									return c;
 								};
-								return j.wrapNativeSuper(a);
+								return g.wrapNativeSuper(a);
 							};
-							j.assertThisInitialized = function(a) {
+							g.assertThisInitialized = function(a) {
 								if (a === void 0)
 									throw new ReferenceError(
 										"this hasn't been initialised - super() hasn't been called"
 									);
 								return a;
 							};
-							j._extends = i.assign;
-							j["extends"] = j._extends;
-							j.construct = function(a, b) {
+							g._extends = b("ES6Object").assign;
+							g["extends"] = g._extends;
+							g.construct = function(a, b) {
 								var c = [null];
 								c.push.apply(c, b);
 								return new (Function.prototype.bind.apply(a, c))();
 							};
-							j.objectWithoutPropertiesLoose = function(a, b) {
+							g.objectWithoutPropertiesLoose = function(a, b) {
 								var c = {};
 								for (var d in a) {
-									if (!k.call(a, d) || b.indexOf(d) >= 0) continue;
+									if (!h.call(a, d) || b.indexOf(d) >= 0) continue;
 									c[d] = a[d];
 								}
 								return c;
 							};
-							j.objectWithoutProperties = j.objectWithoutPropertiesLoose;
-							j.taggedTemplateLiteralLoose = function(a, b) {
+							g.objectWithoutProperties = g.objectWithoutPropertiesLoose;
+							g.taggedTemplateLiteralLoose = function(a, b) {
 								b || (b = a.slice(0));
 								a.raw = b;
 								return a;
 							};
-							j.bind = g.bind;
-							e.exports = j;
+							g.bind = b("ES5FunctionPrototype").bind;
+							e.exports = g;
 						},
 						null
 					);
@@ -2254,18 +2239,18 @@ try {
 					__d(
 						"ScreenOrientation.adquality",
 						["AdQualityScreenOrientation"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = {
 								getScreenOrientation: function() {
 									__p && __p();
-									if (!window) return g.UNKNOWN;
+									if (!window) return b("AdQualityScreenOrientation").UNKNOWN;
 									if (typeof window.orientation === "number")
 										return window.orientation === 0 ||
 											window.orientation === 180
-											? g.VERTICAL
-											: g.HORIZONTAL;
+											? b("AdQualityScreenOrientation").VERTICAL
+											: b("AdQualityScreenOrientation").HORIZONTAL;
 									var a =
 										window.screen &&
 										(window.screen.orientation ||
@@ -2276,14 +2261,17 @@ try {
 										if (typeof a === "string")
 											return a === "portrait-primary" ||
 												a === "portrait-secondary"
-												? g.VERTICAL
-												: g.HORIZONTAL;
+												? b("AdQualityScreenOrientation").VERTICAL
+												: b("AdQualityScreenOrientation").HORIZONTAL;
 									}
 									if (window.matchMedia) {
 										a = window.matchMedia("(orientation: portrait)");
-										if (a) return a.matches ? g.VERTICAL : g.HORIZONTAL;
+										if (a)
+											return a.matches
+												? b("AdQualityScreenOrientation").VERTICAL
+												: b("AdQualityScreenOrientation").HORIZONTAL;
 									}
-									return g.UNKNOWN;
+									return b("AdQualityScreenOrientation").UNKNOWN;
 								}
 							};
 							e.exports = a;
@@ -2293,17 +2281,17 @@ try {
 					__d(
 						"ANUtils",
 						["AdQualityScreenOrientation", "ScreenOrientation.adquality"],
-						function(a, b, c, d, e, f, g, h) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var i = -1,
-								j = 0,
-								k = 1,
-								l = [
+							var g = -1,
+								h = 0,
+								i = 1,
+								j = [
 									/^https?:\/\/itunes\.apple\.com\/([^\/]+\/)?app\//,
 									/^market:\/\/details/
 								];
-							function m(a) {
+							function k(a) {
 								var b = ES(
 									a,
 									"indexOf",
@@ -2313,31 +2301,31 @@ try {
 								);
 								return b === -1 ? a : a.substring(0, b);
 							}
-							function n(a) {
-								var b = m(a);
+							function l(a) {
+								var b = k(a);
 								a = ES(a, "indexOf", !0, ":", ES(a, "indexOf", !0, "://") + 3);
 								a !== -1 && (b = b.substring(0, a));
 								a = ES(b, "indexOf", !0, "://");
 								return a === -1 ? b : b.substring(a + 3);
 							}
-							function o() {
+							function m() {
 								var a = location.ancestorOrigins || [],
 									b = a[a.length - 1] || location.origin;
 								a = a[a.length - 2] || location.origin;
-								if (p(b) && q(a)) return a;
+								if (n(b) && o(a)) return a;
 								else return b;
 							}
 							function a() {
-								return n(o());
+								return l(m());
 							}
-							var p = function(a) {
+							var n = function(a) {
 								var b = /^https?:\/\/www\.google(\.com?)?.\w{2,3}$/;
 								return !!a.match(b);
 							};
-							function q(a) {
+							function o(a) {
 								return ES(a, "endsWith", !0, "cdn.ampproject.org");
 							}
-							function r(a) {
+							function p(a) {
 								var b;
 								ES(a, "indexOf", !0, "://") > -1
 									? (b = a.split("/")[2])
@@ -2347,12 +2335,12 @@ try {
 								b = b.split(";")[0];
 								return b;
 							}
-							function b(a, b) {
-								a = r(a);
+							function c(a, b) {
+								a = p(a);
 								a = a.substring(a.length - b.length);
 								return a === b;
 							}
-							function s(a) {
+							function q(a) {
 								a === void 0 && (a = null);
 								a = a || window;
 								var b = [a];
@@ -2362,8 +2350,8 @@ try {
 								} catch (a) {}
 								return b.reverse();
 							}
-							function c() {
-								var a = t();
+							function d() {
+								var a = r();
 								a =
 									(a.performance &&
 										a.performance.timing &&
@@ -2371,12 +2359,12 @@ try {
 									0;
 								return a;
 							}
-							function t() {
-								return s()[0];
+							function r() {
+								return q()[0];
 							}
-							function u(a) {
+							function s(a) {
 								__p && __p();
-								var b = s();
+								var b = q();
 								for (var c = 0; c < b.length; c++) {
 									var d = b[c],
 										e = d.ADNW || {};
@@ -2389,13 +2377,13 @@ try {
 								}
 								throw new Error("no_writable_global");
 							}
-							function d() {
-								return u("v55");
-							}
 							function f() {
-								return u("v60");
+								return s("v55");
 							}
-							function v(a) {
+							function t() {
+								return s("v60");
+							}
+							function u(a) {
 								if (a instanceof Node) return a;
 								return a &&
 									a.ownerDocument &&
@@ -2405,22 +2393,22 @@ try {
 									? a
 									: null;
 							}
-							function w(a) {
-								a = v(a);
+							function v(a) {
+								a = u(a);
 								return a &&
 									(a instanceof HTMLElement ||
 										a instanceof a.ownerDocument.defaultView.HTMLElement)
 									? a
 									: null;
 							}
-							function x(a) {
+							function w(a) {
 								return a &&
 									(a instanceof HTMLBodyElement ||
 										a instanceof a.ownerDocument.defaultView.HTMLBodyElement)
 									? a
 									: null;
 							}
-							function y(a) {
+							function x(a) {
 								return !!(
 									a &&
 									a.id &&
@@ -2428,61 +2416,64 @@ try {
 										a.hasAttribute("data-google-query-id"))
 								);
 							}
-							function z(a) {
+							function y(a) {
 								return a.ownerDocument.defaultView.frameElement;
 							}
-							function A(a) {
+							function z(a) {
 								return !!(a && a.id && a.id.match(/^google_ads_iframe_/));
 							}
-							function B(a) {
-								var b = z(a);
-								if (!A(b)) return;
-								D(b, "100%", a.clientHeight);
+							function A(a) {
+								var b = y(a);
+								if (!z(b)) return;
+								C(b, "100%", a.clientHeight);
 							}
-							function C(a) {
+							function B(a) {
 								return a == null ? "" : typeof a === "string" ? a : a + "px";
 							}
-							function D(a, b, c) {
+							function C(a, b, c) {
 								b === void 0 && (b = null);
 								c === void 0 && (c = null);
 								if (!a) return;
-								a.style.width = C(b);
-								a.style.height = C(c);
+								a.style.width = B(b);
+								a.style.height = B(c);
 							}
-							function E(a) {
+							function D(a) {
 								return !!(a && a.id && a.id.match(/^apstag-f-iframe-/));
 							}
-							function F(a) {
-								E(a) && (a = a.ownerDocument.defaultView.frameElement);
+							function E(a) {
+								D(a) && (a = a.ownerDocument.defaultView.frameElement);
 								a = a.parentElement && a.parentElement.parentElement;
-								return y(a) ? a : null;
+								return x(a) ? a : null;
 							}
-							function G(a) {
+							function F(a) {
 								var b = a.ownerDocument.defaultView;
 								return parseInt(b.getComputedStyle(a).width, 10);
 							}
-							function H(a) {
+							function G(a) {
 								var b = a.ownerDocument.defaultView;
 								return parseInt(b.getComputedStyle(a).height, 10);
 							}
-							function I() {
+							function H() {
 								return window.screen.width;
 							}
-							function J() {
+							function I() {
 								return window.screen.height;
 							}
-							function K() {
-								return h.getScreenOrientation() == g.VERTICAL;
+							function J() {
+								return (
+									b("ScreenOrientation.adquality").getScreenOrientation() ==
+									b("AdQualityScreenOrientation").VERTICAL
+								);
 							}
-							function L(a) {
+							function K(a) {
 								if (!a) return !1;
-								for (var b = 0; b < l.length; b++) {
-									var c = l[b];
+								for (var b = 0; b < j.length; b++) {
+									var c = j[b];
 									if (a.match(c)) return !0;
 								}
 								return !1;
 							}
-							function M(a, b, c) {
+							function L(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2539,7 +2530,7 @@ try {
 									}
 								}
 							}
-							function N(a, b, c) {
+							function M(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2595,7 +2586,7 @@ try {
 									}
 								}
 							}
-							function O(a, b, c) {
+							function N(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2651,10 +2642,10 @@ try {
 									}
 								}
 							}
-							function P(a) {
+							function O(a) {
 								a = a;
 								while (a) {
-									E(a) && (a = a.ownerDocument.defaultView.frameElement);
+									D(a) && (a = a.ownerDocument.defaultView.frameElement);
 									if (
 										window.getComputedStyle(a).overflowX !== "visible" ||
 										!a.parentElement
@@ -2664,93 +2655,93 @@ try {
 								}
 								return a;
 							}
-							function Q(a) {
+							function P(a) {
 								a = a.getBoundingClientRect();
 								var b = a.left;
-								a = I() - a.right;
+								a = H() - a.right;
 								return Math.max(a, b);
 							}
-							function R(a) {
+							function Q(a) {
 								return a.scrollHeight > a.clientHeight + 3;
 							}
-							function S(a, b, c) {
+							function R(a, b, c) {
 								__p && __p();
 								var d = c.slice(0, b).join(" ") + "\u2026";
 								a.textContent = d;
-								if (R(a)) return k;
-								if (b >= c.length) return j;
+								if (Q(a)) return i;
+								if (b >= c.length) return h;
 								a.textContent = c.slice(0, b + 1).join(" ") + "\u2026";
-								if (R(a)) {
+								if (Q(a)) {
 									a.textContent = d;
-									return j;
+									return h;
 								}
 								a.textContent = d;
-								return i;
+								return g;
 							}
-							function T(a) {
-								if (!R(a)) return;
+							function S(a) {
+								if (!Q(a)) return;
 								var b = a.textContent.split(" "),
 									c = 0,
 									d = b.length - 1;
 								while (c <= d) {
 									var e = Math.floor((c + d) / 2),
-										f = S(a, e, b);
-									if (f === j) break;
-									f === k ? (d = e - 1) : (c = e + 1);
+										f = R(a, e, b);
+									if (f === h) break;
+									f === i ? (d = e - 1) : (c = e + 1);
 								}
 							}
-							function U(a) {
+							function T(a) {
 								a = a.querySelectorAll("[data-auto-fit-text=true]");
-								for (var b = 0; b < a.length; b++) T(a[b]);
+								for (var b = 0; b < a.length; b++) S(a[b]);
 							}
-							function V(a) {
+							function U(a) {
 								var b = !1;
 								return function() {
 									b || ((b = !0), a.apply(void 0, arguments));
 								};
 							}
-							function W(a) {
+							function V(a) {
 								if (typeof a === "string") return a;
 								else return "";
 							}
-							function X(a, b, c) {
+							function W(a, b, c) {
 								a.contentWindow.postMessage(c, b);
 							}
 							e.exports = {
-								autofitIfInDfpIframe: B,
-								calculateLargestMargin: Q,
-								cssSize: C,
-								extractOrigin: m,
-								extractDomain: n,
-								extractHostname: r,
-								findWidestParentElement: P,
-								getDFPRoot: F,
-								getElementWidth: G,
-								getElementHeight: H,
-								getScreenHeight: J,
-								getScreenWidth: I,
-								getNavigationStart: c,
-								getTopMostAccessibleWindow: t,
-								getV55TagStateContainer: d,
-								getV60TagStateContainer: f,
-								getWindowHierarchy: s,
-								isA9Container: E,
-								isAppStoreURL: L,
-								isDfpContainer: y,
-								isSameRootDomain: b,
-								maybeHTMLElement: w,
-								maybeHTMLBodyElement: x,
-								maybeNode: v,
-								once: V,
-								onlyString: W,
-								resizeElement: D,
-								restoreElementStyles: N,
-								removeStoredData: O,
-								screenIsPortrait: K,
-								sendToFacebook: X,
-								storeElementStyles: M,
-								truncateTextToFitElement: T,
-								autofitTextWhereNeeded: U,
+								autofitIfInDfpIframe: A,
+								calculateLargestMargin: P,
+								cssSize: B,
+								extractOrigin: k,
+								extractDomain: l,
+								extractHostname: p,
+								findWidestParentElement: O,
+								getDFPRoot: E,
+								getElementWidth: F,
+								getElementHeight: G,
+								getScreenHeight: I,
+								getScreenWidth: H,
+								getNavigationStart: d,
+								getTopMostAccessibleWindow: r,
+								getV55TagStateContainer: f,
+								getV60TagStateContainer: t,
+								getWindowHierarchy: q,
+								isA9Container: D,
+								isAppStoreURL: K,
+								isDfpContainer: x,
+								isSameRootDomain: c,
+								maybeHTMLElement: v,
+								maybeHTMLBodyElement: w,
+								maybeNode: u,
+								once: U,
+								onlyString: V,
+								resizeElement: C,
+								restoreElementStyles: M,
+								removeStoredData: N,
+								screenIsPortrait: J,
+								sendToFacebook: W,
+								storeElementStyles: L,
+								truncateTextToFitElement: S,
+								autofitTextWhereNeeded: T,
 								getTopDomain: a
 							};
 						},
@@ -2834,10 +2825,10 @@ try {
 					__d(
 						"AMPContextLoader",
 						["ANUtils", "SimplePromise.adquality"],
-						function(a, b, c, d, e, f, g, h) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var i = function(a) {
+							var g = function(a) {
 								try {
 									return ES("JSON", "parse", !1, decodeURI(a.name))._context
 										.ampcontextFilepath;
@@ -2845,36 +2836,36 @@ try {
 									return null;
 								}
 							};
-							function j(a) {
+							function h(a) {
 								return a && a.sourceUrl;
 							}
-							var k = function(a, b) {
+							var i = function(a, c) {
 								__p && __p();
-								var c = g.getTopMostAccessibleWindow();
-								if (j(c.context)) {
-									a(c.context);
+								var d = b("ANUtils").getTopMostAccessibleWindow();
+								if (h(d.context)) {
+									a(d.context);
 									return;
 								}
-								var d = i(c);
-								if (d == null) {
-									b();
+								var e = g(d);
+								if (e == null) {
+									c();
 									return;
 								}
-								c.addEventListener("amp-windowContextCreated", function() {
-									a(c.context);
+								d.addEventListener("amp-windowContextCreated", function() {
+									a(d.context);
 								});
-								b = c.document;
-								var e = b.createElement("script");
-								e.src = d;
-								b.head.appendChild(e);
+								c = d.document;
+								var f = c.createElement("script");
+								f.src = e;
+								c.head.appendChild(f);
 							};
 							a = {
 								genAMPContext: function() {
-									return new h(k);
+									return new (b("SimplePromise.adquality"))(i);
 								},
 								isAMP: function() {
-									var a = g.getTopMostAccessibleWindow();
-									return j(a.context) || i(a) != null;
+									var a = b("ANUtils").getTopMostAccessibleWindow();
+									return h(a.context) || g(a) != null;
 								}
 							};
 							e.exports = a;
@@ -2899,7 +2890,7 @@ try {
 					__d(
 						"ANAdChoices",
 						["nullthrows"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
@@ -2907,8 +2898,8 @@ try {
 								function a(a, b) {
 									(this.$1 = a), (this.$2 = b);
 								}
-								var b = a.prototype;
-								b.$3 = function(a) {
+								var c = a.prototype;
+								c.$3 = function(a) {
 									__p && __p();
 									var b = this.$4(),
 										c = this.$5();
@@ -2931,7 +2922,7 @@ try {
 									});
 									return b;
 								};
-								b.$4 = function() {
+								c.$4 = function() {
 									__p && __p();
 									var a = document.createElement("div");
 									a.className = "fbAdChoices";
@@ -2946,7 +2937,7 @@ try {
 									a.style.top = "0";
 									return a;
 								};
-								b.$5 = function() {
+								c.$5 = function() {
 									__p && __p();
 									var a = document.createElement("a");
 									a.innerText = "AdChoices";
@@ -2967,7 +2958,7 @@ try {
 									a.target = "_blank";
 									return a;
 								};
-								b.$6 = function() {
+								c.$6 = function() {
 									var a = document.createElement("img");
 									a.src = this.$2.adChoicesIcon;
 									a.style.backgroundColor = "#ccc";
@@ -2978,7 +2969,7 @@ try {
 									a.style.width = "12px";
 									return a;
 								};
-								b.render = function() {
+								c.render = function() {
 									__p && __p();
 									var a = document.createElement("iframe");
 									a.style.position = "absolute";
@@ -2990,12 +2981,12 @@ try {
 									this.$1.appendChild(a);
 									a.contentDocument.open();
 									a.contentDocument.close();
-									var b = this.$3(a);
-									a = g(a.contentDocument.body);
+									var c = this.$3(a);
+									a = b("nullthrows")(a.contentDocument.body);
 									a.style.margin = "0";
 									a.style.padding = "0";
 									a.style.overflow = "hidden";
-									a.appendChild(b);
+									a.appendChild(c);
 								};
 								return a;
 							})();
@@ -3082,7 +3073,7 @@ try {
 					__d(
 						"ANBounceBackManager",
 						["PageVisibility.adquality"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
@@ -3090,8 +3081,8 @@ try {
 								function a(a) {
 									(this.$1 = !1), (this.$2 = 0), (this.$4 = a), (this.$3 = []);
 								}
-								var b = a.prototype;
-								b.$5 = function() {
+								var c = a.prototype;
+								c.$5 = function() {
 									__p && __p();
 									var a = ES("Date", "now", !1) - this.$2;
 									for (
@@ -3122,17 +3113,17 @@ try {
 									}
 									this.$3 = [];
 								};
-								b.$6 = function() {
+								c.$6 = function() {
 									var a = this;
 									this.$2 = ES("Date", "now", !1);
-									var b = new g(this.$4);
-									b.addVisibilityListener(function() {
-										var c = b.getVisibilityState();
-										c === "visible" && a.$5();
+									var c = new (b("PageVisibility.adquality"))(this.$4);
+									c.addVisibilityListener(function() {
+										var b = c.getVisibilityState();
+										b === "visible" && a.$5();
 									});
 									this.$1 = !0;
 								};
-								b.onBounceBack = function(a) {
+								c.onBounceBack = function(a) {
 									this.$1 || this.$6(), this.$3.push(a);
 								};
 								return a;
@@ -3144,51 +3135,51 @@ try {
 					__d(
 						"ANCallbackManager",
 						["ANUtils"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							function h(a) {
-								return a ? g.once(a) : null;
+							function g(a) {
+								return a ? b("ANUtils").once(a) : null;
 							}
 							a = (function() {
 								__p && __p();
 								function a(a, b, c, d) {
 									(this.$1 = a),
 										(this.$2 = b),
-										(this.$3 = h(c)),
-										(this.$4 = h(d)),
+										(this.$3 = g(c)),
+										(this.$4 = g(d)),
 										(this.$5 = !1),
 										(this.$7 = !1);
 								}
-								var b = a.prototype;
-								b.enableReward = function() {
+								var c = a.prototype;
+								c.enableReward = function() {
 									this.$5 = !0;
 								};
-								b.isRewardEnabled = function() {
+								c.isRewardEnabled = function() {
 									return this.$5;
 								};
-								b.rewardCompleted = function() {
+								c.rewardCompleted = function() {
 									if (!this.$5 || !this.$3) return;
 									this.$3();
 								};
-								b.adClosed = function() {
+								c.adClosed = function() {
 									if (!this.$5 || !this.$4) return;
 									this.$4();
 								};
-								b.setVideo = function(a) {
+								c.setVideo = function(a) {
 									this.$6 = a;
 								};
-								b.mediaLoaded = function() {
+								c.mediaLoaded = function() {
 									var a = this.$2;
 									if (this.$7 || !a) return;
 									this.$7 = !0;
-									var b = this.$6;
+									var c = this.$6;
 									a(
 										this.$1,
-										b
-											? g.once(function() {
+										c
+											? b("ANUtils").once(function() {
 													window.setTimeout(function() {
-														return b.play(!0);
+														return c.play(!0);
 													}, 0);
 											  })
 											: function() {}
@@ -3203,12 +3194,12 @@ try {
 					__d(
 						"VPAIDDomUtils",
 						["nullthrows"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							a = function a(b) {
+							a = function a(c) {
 								__p && __p();
-								var c = this;
+								var d = this;
 								this.dom = function(a, b, c) {
 									__p && __p();
 									b === void 0 && (b = {});
@@ -3244,25 +3235,25 @@ try {
 									return a;
 								};
 								this.div = function(a, b) {
-									return c.dom("div", { className: a }, b || []);
+									return d.dom("div", { className: a }, b || []);
 								};
 								this.anchor = function(a, b) {
-									return c.dom("a", {
+									return d.dom("a", {
 										className: a,
 										href: b || "#",
 										target: "_blank"
 									});
 								};
 								this.span = function(a, b) {
-									return c.dom("span", { className: a, textContent: b });
+									return d.dom("span", { className: a, textContent: b });
 								};
-								this.find = function(a, b) {
-									return g(a.querySelector(b));
+								this.find = function(a, c) {
+									return b("nullthrows")(a.querySelector(c));
 								};
 								this.withDocument = function(b) {
 									return new a(b);
 								};
-								this.$1 = b;
+								this.$1 = c;
 							};
 							e.exports = new a(document);
 						},
@@ -3294,14 +3285,14 @@ try {
 					);
 					__d(
 						"ANCarouselItem",
-						["VPAIDDomUtils", "csx", "cx"],
-						function(a, b, c, d, e, f, g, h, i) {
+						["csx", "cx", "VPAIDDomUtils"],
+						function(a, b, c, d, e, f, g, h) {
 							"use strict";
 							__p && __p();
-							var j = g.div,
-								k = g.dom,
-								l = g.find,
-								m = function(a, b) {
+							var i = b("VPAIDDomUtils").div,
+								j = b("VPAIDDomUtils").dom,
+								k = b("VPAIDDomUtils").find,
+								l = function(a, b) {
 									__p && __p();
 									b === void 0 && (b = []);
 									var c = document.createElement("a");
@@ -3335,9 +3326,9 @@ try {
 									c.href = "#";
 									return c;
 								},
-								n = function(a, b) {
+								m = function(a, b) {
 									b === void 0 && (b = "");
-									return k("div", { className: a, textContent: b });
+									return j("div", { className: a, textContent: b });
 								};
 							a = (function() {
 								__p && __p();
@@ -3358,19 +3349,19 @@ try {
 									__p && __p();
 									var a;
 									this.$5 === "Empty" ? (a = "_11vk") : (a = "_11vk _7m01");
-									a = m("_11u9", [
-										j("_11ur", [
-											j("_11us"),
-											j("_11u-", [
-												j("_11u_", [
-													n("_11v0", this.$1.adTitle),
-													n("_11vj", this.$1.adBody)
+									a = l("_11u9", [
+										i("_11ur", [
+											i("_11us"),
+											i("_11u-", [
+												i("_11u_", [
+													m("_11v0", this.$1.adTitle),
+													m("_11vj", this.$1.adBody)
 												])
 											])
 										]),
-										n(a, this.$1.adCallToAction)
+										m(a, this.$1.adCallToAction)
 									]);
-									this.$3 = l(a, "._11us");
+									this.$3 = k(a, "._11us");
 									var b = this.$4;
 									if (b != null) {
 										var c = new Image();
@@ -3529,28 +3520,28 @@ try {
 					__d(
 						"ANCarousel",
 						[
-							"ANCarouselMotion",
-							"VPAIDDomUtils",
 							"csx",
 							"cx",
+							"ANCarouselMotion",
+							"VPAIDDomUtils",
 							"ANCarouselItem"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k) {
+						function(a, b, c, d, e, f, g, h) {
 							"use strict";
 							__p && __p();
-							var l = h.div,
-								m = h.find,
-								n = function() {},
-								o = function(a) {
+							var i = b("VPAIDDomUtils").div,
+								j = b("VPAIDDomUtils").find,
+								k = function() {},
+								l = function(a) {
 									return { x: a.touches[0].clientX, y: a.touches[0].clientY };
 								},
-								p = 298,
-								q = 174;
+								m = 298,
+								n = 174;
 							a = 8;
-							var r = q / p,
-								s = a / q,
-								t = 1.2;
-							b = (function() {
+							var o = n / m,
+								p = a / n,
+								q = 1.2;
+							c = (function() {
 								__p && __p();
 								function a(a) {
 									var b = a.ads,
@@ -3561,105 +3552,105 @@ try {
 									a = a.adFeatures;
 									this.$12 = f;
 									this.$4 = b;
-									this.$7 = c || n;
-									this.onCriticalAnimationStart = d || n;
-									this.onCriticalAnimationEnd = e || n;
+									this.$7 = c || k;
+									this.onCriticalAnimationStart = d || k;
+									this.onCriticalAnimationEnd = e || k;
 									this.$13 = a;
 									this.$14();
 								}
-								var b = a.prototype;
-								b.$14 = function() {
+								var c = a.prototype;
+								c.$14 = function() {
 									__p && __p();
 									var a = this;
 									this.$6 = 0;
 									this.$5 = [];
-									this.$1 = l("ANCarousel/root", [l("_2vfy", [l("_2vf-")])]);
-									this.$3 = m(this.$1, "._2vf-");
-									this.$2 = m(this.$1, "._2vfy");
+									this.$1 = i("ANCarousel/root", [i("_2vfy", [i("_2vf-")])]);
+									this.$3 = j(this.$1, "._2vf-");
+									this.$2 = j(this.$1, "._2vfy");
 									this.$12.addRequiredEvent();
-									ES(this.$4, "forEach", !0, function(b, c) {
-										b = new k(
-											b,
-											c === 0
+									ES(this.$4, "forEach", !0, function(c, d) {
+										c = new (b("ANCarouselItem"))(
+											c,
+											d === 0
 												? function() {
 														return a.$12.requiredEventFired();
 												  }
 												: null,
 											a.$13.useFilledCarouselCTA === !0 ? "Filled" : "Empty"
 										);
-										a.$5.push(b);
-										a.$3.appendChild(b.getElement());
+										a.$5.push(c);
+										a.$3.appendChild(c.getElement());
 									});
-									this.$11 = new g(this, function(b, c) {
+									this.$11 = new (b("ANCarouselMotion"))(this, function(b, c) {
 										a.$7("AN_CAROUSEL_EVENT_SWIPE", { index: b, direction: c });
 									});
 									this.ensureSizes();
 									this.$15();
 								};
-								b.$16 = function() {
+								c.$16 = function() {
 									return this.$1.clientWidth;
 								};
-								b.$15 = function() {
+								c.$15 = function() {
 									var a = this;
 									this.$3.addEventListener("touchstart", function(b) {
-										a.$11.onMoveStart(o(b));
+										a.$11.onMoveStart(l(b));
 									});
 									this.$3.addEventListener("touchmove", function(b) {
-										a.$11.onMove(b, o(b));
+										a.$11.onMove(b, l(b));
 									});
 									this.$3.addEventListener("touchend", function(b) {
 										a.$11.onMoveEnd();
 									});
 								};
-								b.$17 = function(a) {
+								c.$17 = function(a) {
 									if (this.isWithinRange(a)) return a;
 									return a > 0 ? 0 : -this.getMaxOffset();
 								};
-								b.$18 = function() {
-									return Math.round(this.$10 * r);
+								c.$18 = function() {
+									return Math.round(this.$10 * o);
 								};
-								b.$19 = function() {
-									return Math.round(this.$8 * s);
+								c.$19 = function() {
+									return Math.round(this.$8 * p);
 								};
-								b.$20 = function() {
-									return this.$8 > q ? t : 1;
+								c.$20 = function() {
+									return this.$8 > n ? q : 1;
 								};
-								b.$21 = function(a) {
+								c.$21 = function(a) {
 									return (this.$8 + this.$9) * a + this.$9;
 								};
-								b.getLinks = function() {
+								c.getLinks = function() {
 									return ES(this.$5, "map", !0, function(a) {
 										return a.getElement();
 									});
 								};
-								b.getElement = function() {
+								c.getElement = function() {
 									return this.$1;
 								};
-								b.getRail = function() {
+								c.getRail = function() {
 									return this.$3;
 								};
-								b.getItemWidthRatio = function() {
-									return this.$8 / q;
+								c.getItemWidthRatio = function() {
+									return this.$8 / n;
 								};
-								b.getFullWidth = function() {
+								c.getFullWidth = function() {
 									return this.$4.length * (this.$8 + this.$9);
 								};
-								b.getMaxOffset = function() {
+								c.getMaxOffset = function() {
 									return this.getFullWidth() - this.$10 + this.$9;
 								};
-								b.isIndexVisible = function(a) {
+								c.isIndexVisible = function(a) {
 									var b = this.$11.getCurrentOffset();
 									a = this.$21(a);
 									return a > b && a + this.$8 < b + this.$10;
 								};
-								b["goto"] = function(a, b) {
+								c["goto"] = function(a, b) {
 									var c = -a * (this.$8 + this.$9);
 									c += (this.$10 - this.$8) / 2 - this.$9;
 									c = this.$17(c);
 									this.$11.scrollToTransition(c, b);
 									this.$6 = a;
 								};
-								b.closestIndex = function(a) {
+								c.closestIndex = function(a) {
 									var b = this.$8 + this.$9;
 									a = a + this.$10 / 2;
 									a = Math.floor(a / b);
@@ -3667,13 +3658,13 @@ try {
 									else if (a < 0) return 0;
 									return a;
 								};
-								b.isWithinRange = function(a) {
+								c.isWithinRange = function(a) {
 									return a > 0 ? !1 : a > -this.getMaxOffset();
 								};
-								b.ensureSizes = function() {
+								c.ensureSizes = function() {
 									__p && __p();
 									var a = this;
-									this.$10 = this.$16() || p;
+									this.$10 = this.$16() || m;
 									this.$8 = this.$18();
 									this.$9 = this.$19();
 									this.$1.style.fontSize = this.$20() * 100 + "px";
@@ -3687,7 +3678,7 @@ try {
 								};
 								return a;
 							})();
-							e.exports = b;
+							e.exports = c;
 						},
 						null
 					);
@@ -3757,15 +3748,15 @@ try {
 					__d(
 						"ANStyleChangeTracker",
 						["ANUtils", "nullthrows"],
-						function(a, b, c, d, e, f, g, h) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var i = 0;
-							function j() {
-								i++;
-								return "fban-fw-sct-" + i;
+							var g = 0;
+							function h() {
+								g++;
+								return "fban-fw-sct-" + g;
 							}
-							function k(a, b, c) {
+							function i(a, b, c) {
 								if (a.has(c)) return;
 								var d = b.style.getPropertyValue(c);
 								d
@@ -3783,34 +3774,34 @@ try {
 										(this.$2 = new Map()),
 										(this.$3 = new Map());
 								}
-								var b = a.prototype;
-								b.resize = function(a, b, c) {
+								var c = a.prototype;
+								c.resize = function(a, c, d) {
 									this.addChanges(a, {
-										width: g.cssSize(b),
-										height: g.cssSize(c)
+										width: b("ANUtils").cssSize(c),
+										height: b("ANUtils").cssSize(d)
 									});
 								};
-								b.addChanges = function(a, b) {
+								c.addChanges = function(a, c) {
 									__p && __p();
-									var c = this.$4(a);
-									this.$1.has(c) ||
-										(this.$1.set(c, new Map()), this.$2.set(c, new Map()));
-									var d = h(this.$1.get(c));
-									c = h(this.$2.get(c));
-									var e = ES("Object", "keys", !1, b);
-									for (var f = 0; f < e.length; f++) {
-										var g = e[f];
-										d.set(g, b[g]);
-										k(c, a, g);
+									var d = this.$4(a);
+									this.$1.has(d) ||
+										(this.$1.set(d, new Map()), this.$2.set(d, new Map()));
+									var e = b("nullthrows")(this.$1.get(d));
+									d = b("nullthrows")(this.$2.get(d));
+									var f = ES("Object", "keys", !1, c);
+									for (var g = 0; g < f.length; g++) {
+										var h = f[g];
+										e.set(h, c[h]);
+										i(d, a, h);
 									}
 								};
-								b.applyChanges = function() {
+								c.applyChanges = function() {
 									__p && __p();
 									for (
 										var a = this.$1,
-											b = ES("Array", "isArray", !1, a),
-											c = 0,
-											a = b
+											c = ES("Array", "isArray", !1, a),
+											d = 0,
+											a = c
 												? a
 												: a[
 														typeof Symbol === "function"
@@ -3820,26 +3811,26 @@ try {
 										;
 
 									) {
-										var d;
-										if (b) {
-											if (c >= a.length) break;
-											d = a[c++];
+										var e;
+										if (c) {
+											if (d >= a.length) break;
+											e = a[d++];
 										} else {
-											c = a.next();
-											if (c.done) break;
-											d = c.value;
+											d = a.next();
+											if (d.done) break;
+											e = d.value;
 										}
-										d = d;
-										var e = d[0];
-										d = d[1];
-										e = h(this.$3.get(e));
+										e = e;
+										var f = e[0];
+										e = e[1];
+										f = b("nullthrows")(this.$3.get(f));
 										for (
-											var d = d,
-												f = ES("Array", "isArray", !1, d),
-												g = 0,
-												d = f
-													? d
-													: d[
+											var e = e,
+												g = ES("Array", "isArray", !1, e),
+												h = 0,
+												e = g
+													? e
+													: e[
 															typeof Symbol === "function"
 																? Symbol.iterator
 																: "@@iterator"
@@ -3848,28 +3839,28 @@ try {
 
 										) {
 											var i;
-											if (f) {
-												if (g >= d.length) break;
-												i = d[g++];
+											if (g) {
+												if (h >= e.length) break;
+												i = e[h++];
 											} else {
-												g = d.next();
-												if (g.done) break;
-												i = g.value;
+												h = e.next();
+												if (h.done) break;
+												i = h.value;
 											}
 											i = i;
 											var j = i[0];
 											i = i[1];
-											e.style.setProperty(j, i, "important");
+											f.style.setProperty(j, i, "important");
 										}
 									}
 								};
-								b.restoreOriginalStyles = function() {
+								c.restoreOriginalStyles = function() {
 									__p && __p();
 									for (
 										var a = this.$2,
-											b = ES("Array", "isArray", !1, a),
-											c = 0,
-											a = b
+											c = ES("Array", "isArray", !1, a),
+											d = 0,
+											a = c
 												? a
 												: a[
 														typeof Symbol === "function"
@@ -3879,26 +3870,26 @@ try {
 										;
 
 									) {
-										var d;
-										if (b) {
-											if (c >= a.length) break;
-											d = a[c++];
+										var e;
+										if (c) {
+											if (d >= a.length) break;
+											e = a[d++];
 										} else {
-											c = a.next();
-											if (c.done) break;
-											d = c.value;
+											d = a.next();
+											if (d.done) break;
+											e = d.value;
 										}
-										d = d;
-										var e = d[0];
-										d = d[1];
-										e = h(this.$3.get(e));
+										e = e;
+										var f = e[0];
+										e = e[1];
+										f = b("nullthrows")(this.$3.get(f));
 										for (
-											var d = d,
-												f = ES("Array", "isArray", !1, d),
-												g = 0,
-												d = f
-													? d
-													: d[
+											var e = e,
+												g = ES("Array", "isArray", !1, e),
+												h = 0,
+												e = g
+													? e
+													: e[
 															typeof Symbol === "function"
 																? Symbol.iterator
 																: "@@iterator"
@@ -3907,25 +3898,25 @@ try {
 
 										) {
 											var i;
-											if (f) {
-												if (g >= d.length) break;
-												i = d[g++];
+											if (g) {
+												if (h >= e.length) break;
+												i = e[h++];
 											} else {
-												g = d.next();
-												if (g.done) break;
-												i = g.value;
+												h = e.next();
+												if (h.done) break;
+												i = h.value;
 											}
 											i = i;
 											var j = i[0];
 											i = i[1];
 											i.value == null
-												? e.style.removeProperty(j)
-												: e.style.setProperty(j, i.value, i.priority);
+												? f.style.removeProperty(j)
+												: f.style.setProperty(j, i.value, i.priority);
 										}
 									}
 								};
-								b.$4 = function(a) {
-									a.id || (a.id = j());
+								c.$4 = function(a) {
+									a.id || (a.id = h());
 									this.$3.set(a.id, a);
 									return a.id;
 								};
@@ -3938,44 +3929,44 @@ try {
 					__d(
 						"ANFullWidthIFrame",
 						["ANStyleChangeTracker", "ANUtils", "nullthrows"],
-						function(a, b, c, d, e, f, g, h, i) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
 								__p && __p();
-								function a(a, b, c, d, e) {
-									(this.$1 = new g()),
+								function a(a, c, d, e, f) {
+									(this.$1 = new (b("ANStyleChangeTracker"))()),
 										(this.$2 = a),
-										(this.$3 = b),
-										(this.$4 = c),
-										(this.$5 = d),
-										(this.$6 = e);
+										(this.$3 = c),
+										(this.$4 = d),
+										(this.$5 = e),
+										(this.$6 = f);
 								}
-								var b = a.prototype;
-								b.resize = function(a, b) {
+								var c = a.prototype;
+								c.resize = function(a, c) {
 									__p && __p();
-									var c = this.$2;
-									h.isA9Container(this.$2) &&
-										(this.$1.resize(c, a, b),
-										(c = this.$2.ownerDocument.defaultView.frameElement));
-									this.$1.resize(c, a, b);
-									this.$1.resize(this.$4, a, b);
+									var d = this.$2;
+									b("ANUtils").isA9Container(this.$2) &&
+										(this.$1.resize(d, a, c),
+										(d = this.$2.ownerDocument.defaultView.frameElement));
+									this.$1.resize(d, a, c);
+									this.$1.resize(this.$4, a, c);
 									this.$1.addChanges(this.$3, { display: "block" });
-									var d = h.getDFPRoot(c);
-									d != null
-										? this.$7(d, c, a, b)
-										: this.$1.addChanges(c, {
+									var e = b("ANUtils").getDFPRoot(d);
+									e != null
+										? this.$7(e, d, a, c)
+										: this.$1.addChanges(d, {
 												overflow: "visible",
 												"margin-left": "auto",
 												"margin-right": "auto",
 												position: "initial"
 										  });
 									this.$1.applyChanges();
-									this.$8(c);
+									this.$8(d);
 									this.$1.applyChanges();
 								};
-								b.$7 = function(a, b, c, d) {
-									b = i(b.parentElement);
+								c.$7 = function(a, c, d, e) {
+									c = b("nullthrows")(c.parentElement);
 									this.$1.addChanges(a, {
 										overflow: "visible",
 										"margin-left": "auto",
@@ -3984,21 +3975,23 @@ try {
 										height: "auto",
 										width: "auto"
 									});
-									this.$1.resize(b, c, d);
-									this.$1.addChanges(b, {
+									this.$1.resize(c, d, e);
+									this.$1.addChanges(c, {
 										"margin-left": "0",
 										position: "initial"
 									});
 								};
-								b.restoreOriginalStyles = function() {
+								c.restoreOriginalStyles = function() {
 									this.$1.restoreOriginalStyles();
 								};
-								b.$8 = function(a) {
+								c.$8 = function(a) {
 									this.$1.addChanges(a, { "max-width": "none" });
 									a = a.parentElement;
 									if (!a) return;
-									var b = this.$6 - a.getBoundingClientRect().left;
-									this.$1.addChanges(a, { "margin-left": h.cssSize(b) });
+									var c = this.$6 - a.getBoundingClientRect().left;
+									this.$1.addChanges(a, {
+										"margin-left": b("ANUtils").cssSize(c)
+									});
 									this.$1.addChanges(a, { "max-width": "none" });
 								};
 								return a;
@@ -4010,19 +4003,19 @@ try {
 					__d(
 						"ANFullWidthInline",
 						["ANStyleChangeTracker", "ANUtils"],
-						function(a, b, c, d, e, f, g, h) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
 								__p && __p();
-								function a(a, b, c) {
-									(this.$1 = new g()),
+								function a(a, c, d) {
+									(this.$1 = new (b("ANStyleChangeTracker"))()),
 										(this.$2 = a),
-										(this.$3 = b),
-										(this.$4 = c);
+										(this.$3 = c),
+										(this.$4 = d);
 								}
-								var b = a.prototype;
-								b.resize = function(a, b) {
+								var c = a.prototype;
+								c.resize = function(a, b) {
 									this.$1.resize(this.$3, a, b);
 									var c = this.$5(this.$3);
 									c &&
@@ -4036,21 +4029,21 @@ try {
 									this.$6();
 									this.$1.applyChanges();
 								};
-								b.restoreOriginalStyles = function() {
+								c.restoreOriginalStyles = function() {
 									this.$1.restoreOriginalStyles();
 								};
-								b.$5 = function(a) {
+								c.$5 = function(a) {
 									a =
 										a.parentElement &&
 										a.parentElement.parentElement &&
 										a.parentElement.parentElement.parentElement;
-									return a && h.isDfpContainer(a) ? a : null;
+									return a && b("ANUtils").isDfpContainer(a) ? a : null;
 								};
-								b.$6 = function() {
+								c.$6 = function() {
 									var a = this.$3,
-										b = this.$4 - a.getBoundingClientRect().left;
+										c = this.$4 - a.getBoundingClientRect().left;
 									this.$1.addChanges(a, {
-										"margin-left": h.cssSize(b),
+										"margin-left": b("ANUtils").cssSize(c),
 										"max-width": "none"
 									});
 								};
@@ -4063,10 +4056,10 @@ try {
 					__d(
 						"ANFullWidthLoader",
 						["ANFullWidthIFrame", "ANFullWidthInline", "ANUtils"],
-						function(a, b, c, d, e, f, g, h, i) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							function j(a, b) {
+							function g(a, b) {
 								return document.defaultView &&
 									document.defaultView.getComputedStyle
 									? document.defaultView
@@ -4074,34 +4067,44 @@ try {
 											.getPropertyValue(b)
 									: "";
 							}
-							function k(a) {
+							function h(a) {
 								return !a || !a.nodeType || a.nodeType !== Node.ELEMENT_NODE
 									? null
 									: a;
 							}
-							var l = "fbOriginalHeightResizeChecks",
-								m = "ADNW_FW_PRE_RESIZE_CHECK_FAIL",
-								n = "ADNW_FW_POST_RESIZE_CHECK_FAIL",
-								o = 0;
+							var i = "fbOriginalHeightResizeChecks",
+								j = "ADNW_FW_PRE_RESIZE_CHECK_FAIL",
+								k = "ADNW_FW_POST_RESIZE_CHECK_FAIL",
+								l = 0;
 							a = (function() {
 								__p && __p();
-								function a(a, b, c, d, e, f, j) {
+								function a(a, c, d, e, f, g, h) {
 									(this.$1 = a),
-										(this.$2 = b),
-										(this.$3 = c),
-										(this.$4 = d),
-										(this.$5 = e),
-										(this.$6 = f),
+										(this.$2 = c),
+										(this.$3 = d),
+										(this.$4 = e),
+										(this.$5 = f),
+										(this.$6 = g),
 										(this.$8 = []),
-										(this.$9 = l + o++),
-										(this.$10 = i.getScreenHeight()),
-										(this.$11 = i.getScreenWidth()),
+										(this.$9 = i + l++),
+										(this.$10 = b("ANUtils").getScreenHeight()),
+										(this.$11 = b("ANUtils").getScreenWidth()),
 										this.$2
-											? (this.$7 = new g(this.$2, this.$3, this.$4, this.$6, j))
-											: (this.$7 = new h(this.$3, this.$4, j));
+											? (this.$7 = new (b("ANFullWidthIFrame"))(
+													this.$2,
+													this.$3,
+													this.$4,
+													this.$6,
+													h
+											  ))
+											: (this.$7 = new (b("ANFullWidthInline"))(
+													this.$3,
+													this.$4,
+													h
+											  ));
 								}
-								var b = a.prototype;
-								b.resize = function(a, b) {
+								var c = a.prototype;
+								c.resize = function(a, b) {
 									__p && __p();
 									var c = !1;
 									if (this.$1) {
@@ -4118,45 +4121,46 @@ try {
 									this.$13();
 									return a;
 								};
-								b.restoreOriginalStyles = function() {
+								c.restoreOriginalStyles = function() {
 									this.$7.restoreOriginalStyles();
 								};
-								b.$13 = function() {
+								c.$13 = function() {
 									while (this.$8.length) {
 										var a = this.$8.pop();
 										delete a.dataset[this.$9];
 									}
 								};
-								b.$15 = function() {
+								c.$15 = function() {
 									return this.$2 ? this.$2 : this.$3;
 								};
-								b.$12 = function() {
+								c.$12 = function() {
 									__p && __p();
 									var a = this.$15();
 									if (!a) return !1;
-									var b = i.isA9Container(this.$2);
-									if (a.ownerDocument.defaultView.frameElement && !b) {
-										this.$6.event(m, "iframe");
+									var c = b("ANUtils").isA9Container(this.$2);
+									if (a.ownerDocument.defaultView.frameElement && !c) {
+										this.$6.event(j, "iframe");
 										return !1;
 									}
-									if (!i.screenIsPortrait()) return !1;
-									b = 0;
-									var c = "";
+									if (!b("ANUtils").screenIsPortrait()) return !1;
+									c = 0;
+									var d = "";
 									while (a && this.$16(a))
-										(c = c || this.$17(a, b)),
-											(a.dataset[this.$9] = i.getElementHeight(a) + ""),
+										(d = d || this.$17(a, c)),
+											(a.dataset[this.$9] =
+												b("ANUtils").getElementHeight(a) + ""),
 											this.$8.push(a),
-											(a = k(a.parentElement)),
-											b++;
-									if (c) {
-										this.$6.event(m, c);
+											(a = h(a.parentElement)),
+											c++;
+									if (d) {
+										this.$6.event(j, d);
 										return !1;
 									}
 									return !0;
 								};
-								b.$17 = function(a, b) {
+								c.$17 = function(a, b) {
 									__p && __p();
-									var c = j(a, "position");
+									var c = g(a, "position");
 									if (c && c !== "static" && !(b === 0 && c === "relative"))
 										if (c === "relative")
 											for (
@@ -4183,50 +4187,53 @@ try {
 													e = d.value;
 												}
 												e = e;
-												e = j(e, "position");
+												e = g(e, "position");
 												if (e === "absolute") return "sibling_" + b;
 											}
 										else return "position_" + b;
 									return "";
 								};
-								b.$18 = function(a) {
+								c.$18 = function(a) {
 									return Object.prototype.hasOwnProperty.call(
 										a.dataset,
 										this.$9
 									)
-										? i.getElementHeight(a) - parseInt(a.dataset[this.$9], 10)
+										? b("ANUtils").getElementHeight(a) -
+												parseInt(a.dataset[this.$9], 10)
 										: null;
 								};
-								b.$14 = function() {
+								c.$14 = function() {
 									__p && __p();
 									var a = this.$15();
 									if (!a) return !1;
 									if (this.$2) {
-										var b = this.$2.getBoundingClientRect();
-										if (b.left < 0 || b.right > i.getScreenWidth()) {
-											this.$6.event(n, "off_screen");
+										var c = this.$2.getBoundingClientRect();
+										if (c.left < 0 || c.right > b("ANUtils").getScreenWidth()) {
+											this.$6.event(k, "off_screen");
 											return !1;
 										}
 									}
 									while (a && this.$16(a)) {
-										b = this.$18(a);
-										if (b == null) {
-											this.$6.event(n, "height_null");
+										c = this.$18(a);
+										if (c == null) {
+											this.$6.event(k, "height_null");
 											return !1;
 										}
-										if (b === 0) {
-											this.$6.event(n, "height_unchanged");
+										if (c === 0) {
+											this.$6.event(k, "height_unchanged");
 											return !1;
 										}
-										a = k(a.parentElement);
+										a = h(a.parentElement);
 									}
 									return !0;
 								};
-								b.$16 = function(a) {
+								c.$16 = function(a) {
 									if (a.nodeName === "BODY") return !1;
-									var b = window.getComputedStyle(a).overflowY;
-									if (b === "scroll" || b === "auto") return !1;
-									return i.getElementHeight(a) > this.$10 * 2 ? !1 : !0;
+									var c = window.getComputedStyle(a).overflowY;
+									if (c === "scroll" || c === "auto") return !1;
+									return b("ANUtils").getElementHeight(a) > this.$10 * 2
+										? !1
+										: !0;
 								};
 								return a;
 							})();
@@ -4318,7 +4325,7 @@ try {
 							"getTime",
 							"nullthrows"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
@@ -4334,11 +4341,11 @@ try {
 										(this.$8 = null),
 										(this.$9 = !1);
 								}
-								var b = a.prototype;
-								b.setLogLevel = function(a) {
+								var c = a.prototype;
+								c.setLogLevel = function(a) {
 									this.$1 = a;
 								};
-								b.frameReady = function() {
+								c.frameReady = function() {
 									__p && __p();
 									this.$9 = !0;
 									for (
@@ -4369,50 +4376,57 @@ try {
 									}
 									this.$7 = [];
 								};
-								b.setUnifiedLoggingURL = function(a) {
+								c.setUnifiedLoggingURL = function(a) {
 									this.$8 = a;
 								};
-								b.debug = function(a, b) {
-									this.$1 <= i.DEBUG && this.event(a, b);
+								c.debug = function(a, c) {
+									this.$1 <= b("LogLevels").DEBUG && this.event(a, c);
 								};
-								b.error = function(a) {
-									this.$1 <= i.ERROR && this.event("ADNW_ADERROR", a);
+								c.error = function(a) {
+									this.$1 <= b("LogLevels").ERROR &&
+										this.event("ADNW_ADERROR", a);
 								};
-								b.event = function(a, b, c) {
+								c.event = function(a, b, c) {
 									a = { event_name: a };
 									b != null && (a.error_message = "" + b);
 									c != null && (a.error_stack_trace = c);
 									this.eventWithParams(a);
 								};
-								b.eventWithParams = function(a) {
-									var b = j();
+								c.eventWithParams = function(a) {
+									var c = b("getTime")();
 									if (!this.$9) {
-										this.$7.push({ timestamp: b, params: a });
+										this.$7.push({ timestamp: c, params: a });
 										return;
 									}
-									this.$10(b, a);
+									this.$10(c, a);
 								};
-								b.$10 = function(a, b) {
-									(b.client_ts = a),
+								c.$10 = function(a, c) {
+									(c.client_ts = a),
 										this.$2 > 0 &&
-											(b.latency_since_navigation_start = a - this.$2),
-										(b.latency_since_sdk_init = a - this.$3),
-										window.$11 && (b.visibility_changed = !0),
-										h.sendToFacebook(this.$5, this.$6, {
+											(c.latency_since_navigation_start = a - this.$2),
+										(c.latency_since_sdk_init = a - this.$3),
+										window.$11 && (c.visibility_changed = !0),
+										b("ANUtils").sendToFacebook(this.$5, this.$6, {
 											name: "client_event",
-											params: { key: h.onlyString(this.$4), payload: b }
+											params: {
+												key: b("ANUtils").onlyString(this.$4),
+												payload: c
+											}
 										});
 								};
-								b.logClick = function(a, b) {
-									var c = a.action != null ? a.action : g.BILLABLE_CLICK,
-										d = j();
-									d = {
+								c.logClick = function(a, c) {
+									var d =
+											a.action != null
+												? a.action
+												: b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
+										e = b("getTime")();
+									e = {
 										name: "client_event",
 										params: {
 											key: a.key,
 											payload: {
 												event_name: "ADNW_CLICK",
-												error_message: String(d - b),
+												error_message: String(e - c),
 												error_stack_trace: a.adElementType,
 												video_duration: a.videoDuration,
 												video_playback_time: a.videoPlaybackTime
@@ -4423,9 +4437,9 @@ try {
 										{
 											type: "clk",
 											key: a.key,
-											top_domain: h.getTopDomain(),
+											top_domain: b("ANUtils").getTopDomain(),
 											payload: {
-												type: c,
+												type: d,
 												time: a.clickParams.clktm,
 												delay: a.clickParams.clkdel,
 												pos: a.pos
@@ -4434,20 +4448,20 @@ try {
 										{
 											type: "client",
 											key: a.key,
-											top_domain: h.getTopDomain(),
-											payload: d.params.payload
+											top_domain: b("ANUtils").getTopDomain(),
+											payload: e.params.payload
 										}
 									]);
 								};
-								b.$12 = function(a) {
+								c.$12 = function(a) {
 									if (!this.isPublisherSideLoggingSupported())
 										throw new Error("unsupported_pub_side_logging");
 									window.navigator.sendBeacon(
-										k(this.$8),
+										b("nullthrows")(this.$8),
 										ES("JSON", "stringify", !1, a)
 									);
 								};
-								b.isPublisherSideLoggingSupported = function() {
+								c.isPublisherSideLoggingSupported = function() {
 									return window.navigator && window.navigator.sendBeacon;
 								};
 								return a;
@@ -4501,38 +4515,44 @@ try {
 					);
 					__d(
 						"ANRewardedVideoPlayer",
-						["ANUtils", "VPAIDDomUtils", "cx", "nullthrows"],
-						function(a, b, c, d, e, f, g, h, i, j) {
+						["cx", "ANUtils", "VPAIDDomUtils", "nullthrows"],
+						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
-							var k = h.div,
-								l = 31,
-								m = 4;
+							var h = b("VPAIDDomUtils").div,
+								i = 31,
+								j = 4;
 							a = (function() {
 								__p && __p();
-								function a(a, b, c, d) {
+								function a(a, c, d, e) {
 									(this.$1 = a),
-										(this.$2 = b),
-										(this.$3 = c),
+										(this.$2 = c),
+										(this.$3 = d),
 										(this.$4 = !1),
 										(this.$5 = !1),
-										d && (this.$11 = k("_74hs")),
-										(this.$9 = j(b.querySelector(".adnwRVFooterInfo"))),
-										(this.$6 = j(b.querySelector(".skipProgressWheel"))),
-										(this.$7 = j(
+										e && (this.$11 = h("_74hs")),
+										(this.$9 = b("nullthrows")(
+											c.querySelector(".adnwRVFooterInfo")
+										)),
+										(this.$6 = b("nullthrows")(
+											c.querySelector(".skipProgressWheel")
+										)),
+										(this.$7 = b("nullthrows")(
 											this.$6.querySelector(
 												".skipProgressWheelLeft .skipProgressWheelCircle"
 											)
 										)),
-										(this.$8 = j(
+										(this.$8 = b("nullthrows")(
 											this.$6.querySelector(
 												".skipProgressWheelRight .skipProgressWheelCircle"
 											)
 										)),
-										(this.$10 = j(b.querySelector(".skipButton")));
+										(this.$10 = b("nullthrows")(
+											c.querySelector(".skipButton")
+										));
 								}
-								var b = a.prototype;
-								b.makeRewarded = function() {
+								var c = a.prototype;
+								c.makeRewarded = function() {
 									__p && __p();
 									var a = this,
 										b = this.$3.getVideoElement();
@@ -4548,15 +4568,15 @@ try {
 										});
 									}
 								};
-								b.getXoutButton = function() {
+								c.getXoutButton = function() {
 									return this.$11;
 								};
-								b.$13 = function() {
+								c.$13 = function() {
 									var a = this,
-										b = j(this.$2.querySelector(".closeArea"));
-									b.addEventListener(
+										c = b("nullthrows")(this.$2.querySelector(".closeArea"));
+									c.addEventListener(
 										"click",
-										g.once(function() {
+										b("ANUtils").once(function() {
 											return a.$1.adClosed();
 										})
 									);
@@ -4566,23 +4586,23 @@ try {
 									this.$3.getElement().classList.add("_7462");
 									this.$1.rewardCompleted();
 								};
-								b.$15 = function() {
+								c.$15 = function() {
 									if (this.$4) return;
 									this.$4 = !0;
 									this.$9.classList.add("fadeIn");
 								};
-								b.$14 = function() {
+								c.$14 = function() {
 									if (!this.$4) return;
 									this.$4 = !1;
 									this.$9.classList.remove("fadeIn");
 								};
-								b.$16 = function() {
+								c.$16 = function() {
 									var a = this.$3.getVideoElement();
-									if (a.duration <= l || this.$5) return;
-									if (a.currentTime >= l) this.$17();
+									if (a.duration <= i || this.$5) return;
+									if (a.currentTime >= i) this.$17();
 									else {
 										this.$6.classList.add("skipProgressWheelShow");
-										a = Math.ceil((360 * a.currentTime) / l);
+										a = Math.ceil((360 * a.currentTime) / i);
 										a <= 180
 											? ((this.$7.style.transform =
 													"rotate(0deg) translate(100%, 0)"),
@@ -4594,43 +4614,45 @@ try {
 													"rotate(" + (a - 180) + "deg) translate(100%, 0)"));
 									}
 								};
-								b.$17 = function() {
+								c.$17 = function() {
 									if (this.$5) return;
 									this.$5 = !0;
 									this.$6.classList.remove("skipProgressWheelShow");
-									var a = j(this.$2.querySelector(".skipButton"));
+									var a = b("nullthrows")(this.$2.querySelector(".skipButton"));
 									a.classList.add("skipButtonShow");
 									a.addEventListener(
 										"click",
-										g.once(ES(this.$13, "bind", !0, this))
+										b("ANUtils").once(ES(this.$13, "bind", !0, this))
 									);
 								};
-								b.$18 = function() {
+								c.$18 = function() {
 									var a = this.$3.getVideoElement();
 									a = a.duration - a.currentTime;
-									return a < m;
+									return a < j;
 								};
-								b.$12 = function() {
+								c.$12 = function() {
 									__p && __p();
 									var a = this,
-										b = j(this.$2.querySelector(".adnwRVProgressBar")),
-										c = this.$3.getVideoElement(),
-										d = this.$2.ownerDocument.defaultView,
-										e = function e() {
-											var f = 100 * (c.currentTime / c.duration);
+										c = b("nullthrows")(
+											this.$2.querySelector(".adnwRVProgressBar")
+										),
+										d = this.$3.getVideoElement(),
+										e = this.$2.ownerDocument.defaultView,
+										f = function b() {
+											var f = 100 * (d.currentTime / d.duration);
 											f = Math.min(f, 100);
 											a.$16();
-											b.style.width = f + "%";
-											(c.paused || a.$18()) && a.$15();
+											c.style.width = f + "%";
+											(d.paused || a.$18()) && a.$15();
 											f >= 100
 												? a.$13()
-												: c.paused || d.requestAnimationFrame(e);
-											c.currentTime >= l && a.$17();
+												: d.paused || e.requestAnimationFrame(b);
+											d.currentTime >= i && a.$17();
 										};
-									c.addEventListener("play", function() {
-										a.$18() || a.$14(), d.requestAnimationFrame(e);
+									d.addEventListener("play", function() {
+										a.$18() || a.$14(), e.requestAnimationFrame(f);
 									});
-									!c.paused ? d.requestAnimationFrame(e) : this.$15();
+									!d.paused ? e.requestAnimationFrame(f) : this.$15();
 								};
 								return a;
 							})();
@@ -4653,15 +4675,15 @@ try {
 					);
 					__d(
 						"ANWebTwoStepClickDialog",
-						["ANUtils", "VPAIDDomUtils", "csx", "cx", "nullthrows", "sdk.fbt"],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						["csx", "cx", "ANUtils", "VPAIDDomUtils", "nullthrows", "sdk.fbt"],
+						function(a, b, c, d, e, f, g, h) {
 							"use strict";
 							__p && __p();
-							var m = g.maybeNode,
-								n = h.div,
-								o = h.span,
-								p = l._("Continue to"),
-								q = l._("Continue");
+							var i = b("ANUtils").maybeNode,
+								j = b("VPAIDDomUtils").div,
+								k = b("VPAIDDomUtils").span,
+								l = b("sdk.fbt")._("Continue to"),
+								m = b("sdk.fbt")._("Continue");
 							a = (function() {
 								__p && __p();
 								function a(a, b) {
@@ -4673,45 +4695,50 @@ try {
 									c.$7(b);
 									return c;
 								};
-								var b = a.prototype;
-								b.onConfirm = function(a) {
+								var c = a.prototype;
+								c.onConfirm = function(a) {
 									this.$4.push(a);
 									return this;
 								};
-								b.onDismiss = function(a) {
+								c.onDismiss = function(a) {
 									this.$5.push(a);
 									return this;
 								};
-								b.$6 = function() {
+								c.$6 = function() {
 									__p && __p();
 									var a = this,
-										b = this.$3;
-									b ||
-										((b = n("_74vg", [
-											n("_727i", [
-												o("_727j", ""),
-												o("_727k", p),
-												o("_727l", ""),
-												o("_727m", this.$1),
-												o("_727n", q)
+										c = this.$3;
+									c ||
+										((c = j("_74vg", [
+											j("_727i", [
+												k("_727j", ""),
+												k("_727k", l),
+												k("_727l", ""),
+												k("_727m", this.$1),
+												k("_727n", m)
 											])
 										])),
-										(k(b.querySelector("._727l")).style.backgroundImage =
-											"url(" + this.$2 + ")"),
-										b.addEventListener("click", function(c) {
+										(b("nullthrows")(
+											c.querySelector("._727l")
+										).style.backgroundImage = "url(" + this.$2 + ")"),
+										c.addEventListener("click", function(d) {
 											__p && __p();
-											var d = k(m(c.target)),
-												e = k(k(b).querySelector("._727i")),
-												f = k(k(b).querySelector("._727j"));
-											if (d === f) a.$8(c);
-											else if (d === e || ES(e, "contains", !0, d))
+											var e = b("nullthrows")(i(d.target)),
+												f = b("nullthrows")(
+													b("nullthrows")(c).querySelector("._727i")
+												),
+												g = b("nullthrows")(
+													b("nullthrows")(c).querySelector("._727j")
+												);
+											if (e === g) a.$8(d);
+											else if (e === f || ES(f, "contains", !0, e))
 												for (
-													var f = a.$4,
-														e = ES("Array", "isArray", !1, f),
-														d = 0,
-														f = e
-															? f
-															: f[
+													var g = a.$4,
+														f = ES("Array", "isArray", !1, g),
+														e = 0,
+														g = f
+															? g
+															: g[
 																	typeof Symbol === "function"
 																		? Symbol.iterator
 																		: "@@iterator"
@@ -4719,38 +4746,38 @@ try {
 													;
 
 												) {
-													var g;
-													if (e) {
-														if (d >= f.length) break;
-														g = f[d++];
+													var h;
+													if (f) {
+														if (e >= g.length) break;
+														h = g[e++];
 													} else {
-														d = f.next();
-														if (d.done) break;
-														g = d.value;
+														e = g.next();
+														if (e.done) break;
+														h = e.value;
 													}
-													g = g;
-													g(c);
+													h = h;
+													h(d);
 												}
-											else a.$8(c);
+											else a.$8(d);
 										}));
-									this.$3 = b;
+									this.$3 = c;
 								};
-								b.$8 = function(a) {
+								c.$8 = function(a) {
 									__p && __p();
-									var b = this,
-										c = k(this.$3);
-									c.classList.remove("_727o");
-									k(this.$3).style.opacity = "0";
+									var c = this,
+										d = b("nullthrows")(this.$3);
+									d.classList.remove("_727o");
+									b("nullthrows")(this.$3).style.opacity = "0";
 									window.setTimeout(function() {
 										__p && __p();
-										c.parentNode && c.parentNode.removeChild(c);
+										d.parentNode && d.parentNode.removeChild(d);
 										for (
-											var d = b.$5,
-												e = ES("Array", "isArray", !1, d),
+											var b = c.$5,
+												e = ES("Array", "isArray", !1, b),
 												f = 0,
-												d = e
-													? d
-													: d[
+												b = e
+													? b
+													: b[
 															typeof Symbol === "function"
 																? Symbol.iterator
 																: "@@iterator"
@@ -4760,10 +4787,10 @@ try {
 										) {
 											var g;
 											if (e) {
-												if (f >= d.length) break;
-												g = d[f++];
+												if (f >= b.length) break;
+												g = b[f++];
 											} else {
-												f = d.next();
+												f = b.next();
 												if (f.done) break;
 												g = f.value;
 											}
@@ -4772,11 +4799,11 @@ try {
 										}
 									}, 300);
 								};
-								b.$7 = function(a) {
-									var b = this;
-									a.appendChild(k(this.$3));
+								c.$7 = function(a) {
+									var c = this;
+									a.appendChild(b("nullthrows")(this.$3));
 									window.setTimeout(function() {
-										k(b.$3).classList.add("_727o");
+										b("nullthrows")(c.$3).classList.add("_727o");
 									});
 								};
 								return a;
@@ -4825,13 +4852,13 @@ try {
 					__d(
 						"AudienceNetworkVideoLoggingUtils",
 						["AdNetworkFocusState"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var h = 1e3,
-								i = 100;
-							function j(a) {
-								return Math.floor(a * h);
+							var g = 1e3,
+								h = 100;
+							function i(a) {
+								return Math.floor(a * g);
 							}
 							function a(a) {
 								var b;
@@ -4842,12 +4869,12 @@ try {
 									vwa: (b = a.avgViewableRatio) != null ? b : 0,
 									vwm: (b = a.minViewableRatio) != null ? b : 0,
 									vwmax: (b = a.maxViewableRatio) != null ? b : 0,
-									vtime_ms: j(a.viewableSeconds),
-									atime_ms: j(a.audibleSeconds),
-									mcat_ms: j(a.maxContinuousAudibleSeconds),
-									mcpt_ms: j(a.maxContinuousPlaySeconds),
-									mcvt_ms: j(a.maxContinuousViewableSeconds),
-									spt_ms: j(a.stickyAdSeconds),
+									vtime_ms: i(a.viewableSeconds),
+									atime_ms: i(a.audibleSeconds),
+									mcat_ms: i(a.maxContinuousAudibleSeconds),
+									mcpt_ms: i(a.maxContinuousPlaySeconds),
+									mcvt_ms: i(a.maxContinuousViewableSeconds),
+									spt_ms: i(a.stickyAdSeconds),
 									maa: a.maxAdArea.maxAdAreaNotFullscreen,
 									ortn: a.maxAdArea.screenOrientation,
 									vw_d: a.viewableDetection,
@@ -4855,31 +4882,35 @@ try {
 									pbra: a.avgPlaybackRate === null ? void 0 : a.avgPlaybackRate
 								};
 							}
-							function b() {
+							function c() {
 								__p && __p();
-								var a = i,
-									b = [],
-									c = window;
+								var a = h,
+									c = [],
+									d = window;
 								while (a > 0) {
 									try {
-										b.push(c.document.hasFocus() ? g.FOCUSED : g.UNFOCUSED);
+										c.push(
+											d.document.hasFocus()
+												? b("AdNetworkFocusState").FOCUSED
+												: b("AdNetworkFocusState").UNFOCUSED
+										);
 									} catch (a) {
-										b.push(g.UNKNOWN);
+										c.push(b("AdNetworkFocusState").UNKNOWN);
 									}
-									if (c === window.top) break;
-									c = c.parent;
+									if (d === window.top) break;
+									d = d.parent;
 									a--;
 								}
-								return b;
+								return c;
 							}
-							function c(a) {
+							function d(a) {
 								return /iPhone|iPod/.test(a);
 							}
 							e.exports = {
 								getStatsFields: a,
-								getFocus: b,
-								isIPhoneOrIPod: c,
-								MAX_LAYERS: i
+								getFocus: c,
+								isIPhoneOrIPod: d,
+								MAX_LAYERS: h
 							};
 						},
 						null
@@ -5002,29 +5033,31 @@ try {
 					__d(
 						"PluginBrowserFeatures",
 						["BrowserDetectionFeature", "FastBrowserDetectionFeature"],
-						function(a, b, c, d, e, f, g, h) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = {
 								getBrowserFeaturesMap: function(a) {
 									__p && __p();
-									var b = j(),
-										c = {},
+									var c = h(),
 										d = {},
-										e = a ? h : g;
-									ES(ES("Object", "keys", !1, e), "forEach", !0, function(a) {
-										a = e[a];
-										var b = j();
+										e = {},
+										f = a
+											? b("FastBrowserDetectionFeature")
+											: b("BrowserDetectionFeature");
+									ES(ES("Object", "keys", !1, f), "forEach", !0, function(a) {
+										a = f[a];
+										var b = h();
 										try {
-											a in k ? (c[a] = k[a]()) : (c[a] = "Not implemented");
+											a in i ? (d[a] = i[a]()) : (d[a] = "Not implemented");
 										} catch (b) {
-											c[a] = b.message;
+											d[a] = b.message;
 										}
-										d[a] = j() - b;
+										e[a] = h() - b;
 									});
-									c[e.TIME] = j() - b;
-									a || (c[g.FEATURE_TIMES] = d);
-									return c;
+									d[f.TIME] = h() - c;
+									a || (d[b("BrowserDetectionFeature").FEATURE_TIMES] = e);
+									return d;
 								},
 								getAllBrowserFeatures: function() {
 									return ES(
@@ -5043,7 +5076,7 @@ try {
 									);
 								}
 							};
-							function i(a) {
+							function g(a) {
 								var b = 0,
 									c = a.length;
 								if (c === 0) return b;
@@ -5054,27 +5087,29 @@ try {
 								}
 								return b;
 							}
-							function j() {
+							function h() {
 								if (!!window.performance && !!window.performance.now)
 									return window.performance.now();
 								else if (ES("Date", "now", !1)) return ES("Date", "now", !1);
 								else return new Date();
 							}
-							var k = ((b = {}),
-							(b[g.CSS_ALL] = function() {
+							var i = ((c = {}),
+							(c[b("BrowserDetectionFeature").CSS_ALL] = function() {
 								return "all" in document.documentElement.style;
 							}),
-							(b[g.CSS_FEATURE_QUERIES] = function() {
+							(c[
+								b("BrowserDetectionFeature").CSS_FEATURE_QUERIES
+							] = function() {
 								var a = "CSS" in window && "supports" in window.CSS;
 								return a || "supportsCSS" in window;
 							}),
-							(b[g.DRAG_AND_DROP] = function() {
+							(c[b("BrowserDetectionFeature").DRAG_AND_DROP] = function() {
 								var a = document.createElement("div");
 								return (
 									"draggable" in a || ("ondragstart" in a && "ondrop" in a)
 								);
 							}),
-							(b[g.OGG] = function() {
+							(c[b("BrowserDetectionFeature").OGG] = function() {
 								var a = document.createElement("video"),
 									b = !1;
 								try {
@@ -5087,19 +5122,19 @@ try {
 								} catch (a) {}
 								return b;
 							}),
-							(b[g.CSS_VAR] = function() {
+							(c[b("BrowserDetectionFeature").CSS_VAR] = function() {
 								return (
 									window.CSS != null &&
 									window.CSS.supports != null &&
 									window.CSS.supports("--fake-var", 0)
 								);
 							}),
-							(b[g.SCOPED_CSS] = function() {
+							(c[b("BrowserDetectionFeature").SCOPED_CSS] = function() {
 								var a = document.createElement("style");
 								a.setAttribute("scoped", "true");
 								return a.scoped === !0;
 							}),
-							(b[g.STICKY] = function() {
+							(c[b("BrowserDetectionFeature").STICKY] = function() {
 								var a = "position:",
 									b = "sticky",
 									c = ["-webkit-", "-moz-", "-o-", "-ms-"],
@@ -5108,23 +5143,23 @@ try {
 								d.cssText = a + c.join(b + ";" + a).slice(0, -a.length);
 								return ES(d.position, "indexOf", !0, b) !== -1;
 							}),
-							(b[g.TIME_ZONE] = function() {
+							(c[b("BrowserDetectionFeature").TIME_ZONE] = function() {
 								var a = new Date();
 								return a.getTimezoneOffset();
 							}),
-							(b[g.DIALOG] = function() {
+							(c[b("BrowserDetectionFeature").DIALOG] = function() {
 								var a = document.createElement("dialog");
 								return !!a.show;
 							}),
-							(b[g.VIDEO] = function() {
+							(c[b("BrowserDetectionFeature").VIDEO] = function() {
 								var a = document.createElement("video");
 								return !!a.canPlayType;
 							}),
-							(b[g.AUDIO] = function() {
+							(c[b("BrowserDetectionFeature").AUDIO] = function() {
 								var a = document.createElement("audio");
 								return !!a.canPlayType;
 							}),
-							(b[g.AUDIO_CONTEXT] = function() {
+							(c[b("BrowserDetectionFeature").AUDIO_CONTEXT] = function() {
 								try {
 									var a = new window.AudioContext();
 									a = a.createOscillator();
@@ -5134,7 +5169,7 @@ try {
 									return !1;
 								}
 							}),
-							(b[g.ANCESTOR] = function() {
+							(c[b("BrowserDetectionFeature").ANCESTOR] = function() {
 								var a = "";
 								if (
 									!!window.location &&
@@ -5147,27 +5182,27 @@ try {
 								}
 								return a;
 							}),
-							(b[g.RANDOM] = function() {
+							(c[b("BrowserDetectionFeature").RANDOM] = function() {
 								return (
 									(!!window.crypto && !!window.crypto.getRandomValues) ||
 									(!!window.msCrypto && !!window.msCrypto.getRandomValues)
 								);
 							}),
-							(b[g.USERDATA] = function() {
+							(c[b("BrowserDetectionFeature").USERDATA] = function() {
 								var a = document.createElement("div");
 								return !a.addBehavior;
 							}),
-							(b[g.CHROME_EXTENSION] = function() {
+							(c[b("BrowserDetectionFeature").CHROME_EXTENSION] = function() {
 								return (
 									!!window.chrome &&
 									!!window.chrome.runtime &&
 									!!window.chrome.runtime.id
 								);
 							}),
-							(b[g.IS_POPUP] = function() {
+							(c[b("BrowserDetectionFeature").IS_POPUP] = function() {
 								return !!window.opener && window.opener !== window;
 							}),
-							(b[g.HREF] = function() {
+							(c[b("BrowserDetectionFeature").HREF] = function() {
 								if (
 									!!window.opener &&
 									!!window.opener.location &&
@@ -5178,86 +5213,86 @@ try {
 									? window.location.href
 									: "";
 							}),
-							(b[g.HAS_CANVAS] = function() {
+							(c[b("BrowserDetectionFeature").HAS_CANVAS] = function() {
 								var a = document.createElement("canvas");
 								return !!(a.getContext && a.getContext("2d"));
 							}),
-							(b[g.EMOJI] = function() {
+							(c[b("BrowserDetectionFeature").EMOJI] = function() {
 								__p && __p();
-								if (!k[g.HAS_CANVAS]()) return !1;
+								if (!i[b("BrowserDetectionFeature").HAS_CANVAS]()) return !1;
 								var a = window.devicePixelRatio || 1;
 								a = 12 * a;
-								var b = document.createElement("canvas");
-								b = b.getContext("2d");
-								b.fillStyle = "#f00";
-								b.textBaseline = "top";
-								b.font = "32px Arial";
-								b.fillText("\ud83d\udc28", 0, 0);
-								return b.getImageData(a, a, 1, 1).data[0] !== 0;
+								var c = document.createElement("canvas");
+								c = c.getContext("2d");
+								c.fillStyle = "#f00";
+								c.textBaseline = "top";
+								c.font = "32px Arial";
+								c.fillText("\ud83d\udc28", 0, 0);
+								return c.getImageData(a, a, 1, 1).data[0] !== 0;
 							}),
-							(b[g.CANVAS_HASH] = function() {
+							(c[b("BrowserDetectionFeature").CANVAS_HASH] = function() {
 								__p && __p();
-								if (!k[g.HAS_CANVAS]()) return 0;
+								if (!i[b("BrowserDetectionFeature").HAS_CANVAS]()) return 0;
 								var a = document.createElement("canvas"),
-									b = a.getContext("2d"),
-									c = "text";
-								b.textBaseline = "top";
-								b.font = "14px Arial";
-								b.textBaseline = "alphabetic";
-								b.fillStyle = "#f60";
-								b.fillRect(125, 1, 62, 20);
-								b.fillStyle = "#069";
-								b.fillText(c, 2, 15);
-								b.fillStyle = "rgba(102, 204, 0, 0.7)";
-								b.fillText(c, 4, 17);
-								return i(a.toDataURL());
+									c = a.getContext("2d"),
+									d = "text";
+								c.textBaseline = "top";
+								c.font = "14px Arial";
+								c.textBaseline = "alphabetic";
+								c.fillStyle = "#f60";
+								c.fillRect(125, 1, 62, 20);
+								c.fillStyle = "#069";
+								c.fillText(d, 2, 15);
+								c.fillStyle = "rgba(102, 204, 0, 0.7)";
+								c.fillText(d, 4, 17);
+								return g(a.toDataURL());
 							}),
-							(b[g.UA] = function() {
+							(c[b("BrowserDetectionFeature").UA] = function() {
 								return navigator.userAgent;
 							}),
-							(b[g.VERSION] = function() {
+							(c[b("BrowserDetectionFeature").VERSION] = function() {
 								return navigator.appVersion;
 							}),
-							(b[g.PLATFORM] = function() {
+							(c[b("BrowserDetectionFeature").PLATFORM] = function() {
 								return navigator.platform;
 							}),
-							(b[g.IS_IFRAME] = function() {
+							(c[b("BrowserDetectionFeature").IS_IFRAME] = function() {
 								return parent !== window;
 							}),
-							(b[g.REFERER] = function() {
+							(c[b("BrowserDetectionFeature").REFERER] = function() {
 								return document.referrer;
 							}),
-							(b[g.URL] = function() {
+							(c[b("BrowserDetectionFeature").URL] = function() {
 								return document.URL;
 							}),
-							(b[g.SCREEN_HEIGHT] = function() {
+							(c[b("BrowserDetectionFeature").SCREEN_HEIGHT] = function() {
 								return screen.height;
 							}),
-							(b[g.SCREEN_WIDTH] = function() {
+							(c[b("BrowserDetectionFeature").SCREEN_WIDTH] = function() {
 								return screen.width;
 							}),
-							(b[g.AVAILABLE_HEIGHT] = function() {
+							(c[b("BrowserDetectionFeature").AVAILABLE_HEIGHT] = function() {
 								return screen.height;
 							}),
-							(b[g.AVAILABLE_WIDTH] = function() {
+							(c[b("BrowserDetectionFeature").AVAILABLE_WIDTH] = function() {
 								return screen.width;
 							}),
-							(b[g.SCREEN_LEFT] = function() {
+							(c[b("BrowserDetectionFeature").SCREEN_LEFT] = function() {
 								return window.screenLeft ? window.screenLeft : window.screenX;
 							}),
-							(b[g.SCREEN_TOP] = function() {
+							(c[b("BrowserDetectionFeature").SCREEN_TOP] = function() {
 								return window.screenTop ? window.screenTop : window.screenY;
 							}),
-							(b[g.HAS_SCROLL] = function() {
+							(c[b("BrowserDetectionFeature").HAS_SCROLL] = function() {
 								return "scrollBehavior" in document.documentElement.style;
 							}),
-							(b[g.HAS_PIC_ELEMENT] = function() {
+							(c[b("BrowserDetectionFeature").HAS_PIC_ELEMENT] = function() {
 								return "HTMLPictureElement" in window;
 							}),
-							(b[g.PLUGIN_COUNT] = function() {
+							(c[b("BrowserDetectionFeature").PLUGIN_COUNT] = function() {
 								return navigator.plugins.length;
 							}),
-							(b[g.PHANTOM_MODE] = function() {
+							(c[b("BrowserDetectionFeature").PHANTOM_MODE] = function() {
 								try {
 									null[0]();
 								} catch (b) {
@@ -5266,53 +5301,55 @@ try {
 								}
 								return !!window.callPhantom || !!window._phantom;
 							}),
-							(b[g.COLOR_DEPTH] = function() {
+							(c[b("BrowserDetectionFeature").COLOR_DEPTH] = function() {
 								return screen.colorDepth;
 							}),
-							(b[g.WEBSQL] = function() {
+							(c[b("BrowserDetectionFeature").WEBSQL] = function() {
 								return !!window.openDatabase;
 							}),
-							(b[g.CUSTOM_ELEMENT] = function() {
+							(c[b("BrowserDetectionFeature").CUSTOM_ELEMENT] = function() {
 								return "registerElement" in document;
 							}),
-							(b[g.HAS_IMPORTS] = function() {
+							(c[b("BrowserDetectionFeature").HAS_IMPORTS] = function() {
 								return "import" in document.createElement("link");
 							}),
-							(b[g.CHROME] = function() {
+							(c[b("BrowserDetectionFeature").CHROME] = function() {
 								return !!window.chrome;
 							}),
-							(b[g.CHROME_WEB_STORE] = function() {
+							(c[b("BrowserDetectionFeature").CHROME_WEB_STORE] = function() {
 								return !!window.chrome && !!window.chrome.webstore;
 							}),
-							(b[g.IE] = function() {
+							(c[b("BrowserDetectionFeature").IE] = function() {
 								return !window.ActiveXObject;
 							}),
-							(b[g.WC] = function() {
+							(c[b("BrowserDetectionFeature").WC] = function() {
 								return "willChange" in document.documentElement.style;
 							}),
-							(b[g.DEVORIENT] = function() {
+							(c[b("BrowserDetectionFeature").DEVORIENT] = function() {
 								return "DeviceOrientationEvent" in window;
 							}),
-							(b[g.DEVMOTION] = function() {
+							(c[b("BrowserDetectionFeature").DEVMOTION] = function() {
 								return "DeviceMotionEvent" in window;
 							}),
-							(b[g.SRCSET] = function() {
+							(c[b("BrowserDetectionFeature").SRCSET] = function() {
 								return "srcset" in document.createElement("img");
 							}),
-							(b[g.AVAIL_DIMENSIONS] = function() {
+							(c[b("BrowserDetectionFeature").AVAIL_DIMENSIONS] = function() {
 								return screen.availHeight <= 1 || screen.availWidth <= 1;
 							}),
-							(b[g.COLOR_AND_PIXEL_DEPTH] = function() {
+							(c[
+								b("BrowserDetectionFeature").COLOR_AND_PIXEL_DEPTH
+							] = function() {
 								return (
 									screen.colorDepth <= 8 ||
 									screen.pixelDepth <= 8 ||
 									window.devicePixelRatio <= 0
 								);
 							}),
-							(b[g.DIMENSIONS] = function() {
+							(c[b("BrowserDetectionFeature").DIMENSIONS] = function() {
 								return screen.height <= 1 || screen.width <= 1;
 							}),
-							(b[g.TOP_WINDOW_DRIVER] = function() {
+							(c[b("BrowserDetectionFeature").TOP_WINDOW_DRIVER] = function() {
 								return top == null ||
 									top.window == null ||
 									(document.location.ancestorOrigins != null &&
@@ -5325,7 +5362,7 @@ try {
 									? void 0
 									: ES(top.window.name, "indexOf", !0, "driver") > -1;
 							}),
-							(b[g.DOM_AUTOMATION] = function() {
+							(c[b("BrowserDetectionFeature").DOM_AUTOMATION] = function() {
 								return (
 									document.documentElement.hasAttribute("webdriver") ||
 									window.domAutomation != null ||
@@ -5333,34 +5370,34 @@ try {
 									window._WEBDRIVER_ELEM_CACHE != null
 								);
 							}),
-							(b[g.WEBDRIVER_CACHE] = function() {
+							(c[b("BrowserDetectionFeature").WEBDRIVER_CACHE] = function() {
 								return window._WEBDRIVER_ELEM_CACHE != null;
 							}),
-							(b[g.EXTERNAL_URL] = function() {
+							(c[b("BrowserDetectionFeature").EXTERNAL_URL] = function() {
 								return window.isExternalUrlSafeForNavigation != null;
 							}),
-							(b[g.OPERA_A] = function() {
+							(c[b("BrowserDetectionFeature").OPERA_A] = function() {
 								return (
 									window.opera != null &&
 									window.opera._browserjsran != null &&
 									window.opera.browserjsran === 0
 								);
 							}),
-							(b[g.OPERA_B] = function() {
+							(c[b("BrowserDetectionFeature").OPERA_B] = function() {
 								return (
 									window.opera != null &&
 									window.opera._browserjsran != null &&
 									window.opera.browserjsran === !1
 								);
 							}),
-							(b[g.WEB_DRIVER] = function() {
+							(c[b("BrowserDetectionFeature").WEB_DRIVER] = function() {
 								return (
 									window.webdriver != null ||
 									document.webdriver != null ||
 									document.documentElement.hasAttribute("webdriver")
 								);
 							}),
-							(b[g.ENGINE] = function() {
+							(c[b("BrowserDetectionFeature").ENGINE] = function() {
 								__p && __p();
 								var a = {},
 									b = [],
@@ -5403,7 +5440,7 @@ try {
 								for (var i in d) d[i] > d[c] && (c = i);
 								return c;
 							}),
-							(b[g.IE_EXTERNAL] = function() {
+							(c[b("BrowserDetectionFeature").IE_EXTERNAL] = function() {
 								var a = [
 										"AddChannel",
 										"AddDesktopComponent",
@@ -5497,7 +5534,7 @@ try {
 									}
 								return ES("JSON", "stringify", !1, b);
 							}),
-							(b[g.FONT_DIFF] = function() {
+							(c[b("BrowserDetectionFeature").FONT_DIFF] = function() {
 								__p && __p();
 								var a = document.createElement("div"),
 									b = document.createElement("div");
@@ -5522,7 +5559,7 @@ try {
 								document.body.removeChild(a);
 								return b;
 							}),
-							(b[g.FONTS] = function() {
+							(c[b("BrowserDetectionFeature").FONTS] = function() {
 								__p && __p();
 								var a = [
 										"Ubuntu",
@@ -5584,7 +5621,7 @@ try {
 								}
 								return ES("JSON", "stringify", !1, h);
 							}),
-							b);
+							c);
 							e.exports = a;
 						},
 						null
@@ -5596,12 +5633,12 @@ try {
 							"AudienceNetworkVideoLoggingUtils",
 							"PluginBrowserFeatures"
 						],
-						function(a, b, c, d, e, f, g, h, i) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var j = h.getFocus,
-								k = h.getStatsFields,
-								l = h.isIPhoneOrIPod;
+							var g = b("AudienceNetworkVideoLoggingUtils").getFocus,
+								h = b("AudienceNetworkVideoLoggingUtils").getStatsFields,
+								i = b("AudienceNetworkVideoLoggingUtils").isIPhoneOrIPod;
 							a = (function() {
 								__p && __p();
 								function a(a, b, c, d, e) {
@@ -5628,53 +5665,56 @@ try {
 										!1
 									);
 								}
-								var b = a.prototype;
-								b.setPlayer = function(a) {
+								var c = a.prototype;
+								c.setPlayer = function(a) {
 									if (this.$2 != a)
 										throw new Error("players should be the same");
 								};
-								b.logMRCEvent = function(a, b, c, d, e, f) {
-									e = this.$9(b, c, d, a);
-									this.$10(g.VIDEO_MRC, e);
+								c.logMRCEvent = function(a, c, d, e, f, g) {
+									f = this.$9(c, d, e, a);
+									this.$10(b("AdNetworkVideoEventType").VIDEO_MRC, f);
 								};
-								b.logImpressionEvent = function(a, b, c, d) {
+								c.logImpressionEvent = function(a, b, c, d) {
 									this.$5();
 								};
-								b.logViewableImpressionEvent = function(a, b, c) {
-									b = this.$9(b, c, null, a);
-									this.$10(g.VIDEO_VIEWABLE_IMPRESSION, b);
+								c.logViewableImpressionEvent = function(a, c, d) {
+									c = this.$9(c, d, null, a);
+									this.$10(
+										b("AdNetworkVideoEventType").VIDEO_VIEWABLE_IMPRESSION,
+										c
+									);
 								};
-								b.logTimeEvent = function(a, b, c, d, e, f, h) {
-									e = this.$9(a, b, c, d);
-									this.$10(g.VIDEO_TIME, e);
+								c.logTimeEvent = function(a, c, d, e, f, g, h) {
+									f = this.$9(a, c, d, e);
+									this.$10(b("AdNetworkVideoEventType").VIDEO_TIME, f);
 									h();
 								};
-								b.logMuteEvent = function() {
+								c.logMuteEvent = function() {
 									if (!this.$2.isMuted()) return;
-									this.$11(g.VIDEO_MUTE);
+									this.$11(b("AdNetworkVideoEventType").VIDEO_MUTE);
 								};
-								b.logUnMuteEvent = function() {
+								c.logUnMuteEvent = function() {
 									if (this.$2.isMuted()) return;
-									this.$11(g.VIDEO_UNMUTE);
+									this.$11(b("AdNetworkVideoEventType").VIDEO_UNMUTE);
 								};
-								b.$8 = function() {
-									this.$11(g.VIDEO_PAUSE);
+								c.$8 = function() {
+									this.$11(b("AdNetworkVideoEventType").VIDEO_PAUSE);
 								};
-								b.$7 = function() {
-									this.$11(g.VIDEO_UNPAUSE);
+								c.$7 = function() {
+									this.$11(b("AdNetworkVideoEventType").VIDEO_UNPAUSE);
 								};
-								b.$11 = function(a) {
+								c.$11 = function(a) {
 									this.$10(a, { time: this.$2.getCurrentTime() });
 								};
-								b.$9 = function(a, b, c, d) {
+								c.$9 = function(a, b, c, d) {
 									var e = c ? c.offsetRect : null,
 										f = c ? c.offsetHeight : null,
-										g = c ? c.offsetWidth : null,
-										h = c ? c.viewportRect : null;
-									if (l(navigator.userAgent) && g === 0 && f === 0) {
-										var i = this.$2.getWidth(),
+										j = c ? c.offsetWidth : null,
+										k = c ? c.viewportRect : null;
+									if (i(navigator.userAgent) && j === 0 && f === 0) {
+										var l = this.$2.getWidth(),
 											m = this.$2.getHeight();
-										i !== null && m !== null && ((g = i), (f = m));
+										l !== null && m !== null && ((j = l), (f = m));
 									}
 									return babelHelpers["extends"](
 										{
@@ -5683,9 +5723,9 @@ try {
 											pt: e == null ? void 0 : e.y,
 											pl: e == null ? void 0 : e.x,
 											ph: typeof f === "number" ? f : void 0,
-											pw: typeof g === "number" ? g : void 0,
-											vph: h == null ? void 0 : h.height,
-											vpw: h == null ? void 0 : h.width,
+											pw: typeof j === "number" ? j : void 0,
+											vph: k == null ? void 0 : k.height,
+											vpw: k == null ? void 0 : k.width,
 											inline: Number(this.$2.isFullscreen()),
 											autoplay: 1,
 											detected_page_domain:
@@ -5694,19 +5734,19 @@ try {
 												c && c.pageURL !== null ? c.pageURL : void 0,
 											domain_detection_method: c ? c.domainDetectionMethod : 0,
 											bf: this.$12(),
-											focus: j()
+											focus: g()
 										},
-										k(d)
+										h(d)
 									);
 								};
-								b.$12 = function() {
+								c.$12 = function() {
 									try {
-										return i.getAllBrowserFeatures();
+										return b("PluginBrowserFeatures").getAllBrowserFeatures();
 									} catch (a) {
 										return "";
 									}
 								};
-								b.$10 = function(a, b) {
+								c.$10 = function(a, b) {
 									if (this.$1) return;
 									this.$4({
 										name: "video",
@@ -5788,38 +5828,38 @@ try {
 					__d(
 						"ANWebVideoPlayer.anweb",
 						[
-							"NativePromise",
-							"VPAIDDomUtils",
 							"csx",
 							"cx",
+							"NativePromise",
+							"VPAIDDomUtils",
 							"joinClasses",
 							"nullthrows"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f, g, h) {
 							"use strict";
 							__p && __p();
-							var m = h.div,
-								n = h.dom;
-							function o(a, b, c) {
-								c === void 0 && (c = HTMLElement);
-								a = l(a.querySelector(b));
-								if (a instanceof c) return a;
+							var i = b("VPAIDDomUtils").div,
+								j = b("VPAIDDomUtils").dom;
+							function k(a, c, d) {
+								d === void 0 && (d = HTMLElement);
+								a = b("nullthrows")(a.querySelector(c));
+								if (a instanceof d) return a;
 								throw new Error("Invalid element type");
 							}
-							var p = (function() {
+							var l = (function() {
 								__p && __p();
 								function a() {
 									__p && __p();
 									var a = this;
-									this.$10 = function(b) {
-										var c = l(a.$7);
-										c.setMuted(!c.isMuted());
-										b.stopPropagation();
+									this.$10 = function(c) {
+										var d = b("nullthrows")(a.$7);
+										d.setMuted(!d.isMuted());
+										c.stopPropagation();
 									};
-									this.$11 = function(b) {
-										var c = l(a.$7);
-										c.getVideoElement().paused ? c.play(!0) : c.pause(!0);
-										b.stopPropagation();
+									this.$11 = function(c) {
+										var d = b("nullthrows")(a.$7);
+										d.getVideoElement().paused ? d.play(!0) : d.pause(!0);
+										c.stopPropagation();
 									};
 									this.$15 = function() {
 										a.$16();
@@ -5833,34 +5873,34 @@ try {
 									this.$13 = function() {
 										a.$19();
 									};
-									var b = this.$9(),
-										c = b[0],
-										d = b[1],
-										e = b[2],
-										f = b[3];
-									b = b[4];
-									this.$2 = c;
-									this.$3 = d;
-									this.$4 = e;
-									this.$5 = f;
-									this.$6 = b;
+									var c = this.$9(),
+										d = c[0],
+										e = c[1],
+										f = c[2],
+										g = c[3];
+									c = c[4];
+									this.$2 = d;
+									this.$3 = e;
+									this.$4 = f;
+									this.$5 = g;
+									this.$6 = c;
 									this.$8 = null;
 								}
-								var b = a.prototype;
-								b.$9 = function() {
-									var a = m("_7juh"),
-										b = m("_7jue"),
-										c = m("_7jui"),
-										d = m("_7juj"),
-										e = m("_7juk", [
-											m("_7lkm"),
-											m("_7lkn", [b, m("_7jul", [a]), c, d])
+								var c = a.prototype;
+								c.$9 = function() {
+									var a = i("_7juh"),
+										b = i("_7jue"),
+										c = i("_7jui"),
+										d = i("_7juj"),
+										e = i("_7juk", [
+											i("_7lkm"),
+											i("_7lkn", [b, i("_7jul", [a]), c, d])
 										]);
 									d.addEventListener("click", this.$10);
 									b.addEventListener("click", this.$11);
 									return [e, a, b, c, d];
 								};
-								b.attach = function(a) {
+								c.attach = function(a) {
 									__p && __p();
 									this.$7 != null && (this.detach(), (this.$7 = null));
 									this.$7 = a;
@@ -5873,7 +5913,7 @@ try {
 									a.addEventListener("timeupdate", this.$15);
 									this.$16();
 								};
-								b.detach = function() {
+								c.detach = function() {
 									this.$2.parentNode &&
 										(this.$2.parentNode.removeChild(this.$2),
 										this.$2.removeEventListener("click", this.$12));
@@ -5886,71 +5926,71 @@ try {
 										a.removeEventListener("timeupdate", this.$15);
 									}
 								};
-								b.$17 = function() {
+								c.$17 = function() {
 									this.$8 != null &&
 										(window.clearTimeout(this.$8), (this.$8 = null));
 								};
-								b.$18 = function() {
+								c.$18 = function() {
 									this.$2.classList.remove("_7jum"), this.$17();
 								};
-								b.$19 = function() {
+								c.$19 = function() {
 									var b = this;
 									this.$17();
 									this.$8 = window.setTimeout(function() {
 										b.$2.classList.add("_7jum");
 									}, a.$1);
 								};
-								b.$16 = function() {
-									var a = l(this.$7),
-										b = a.getDuration();
+								c.$16 = function() {
+									var a = b("nullthrows")(this.$7),
+										c = a.getDuration();
 									a = a.getCurrentTime();
-									var c = "0";
-									b > 0 && (c = (a / b) * 100 + "%");
-									this.$3.style.width = c;
-									c = (b - a) / 1e3;
-									b = Math.floor(c / 60);
-									a = Math.floor(c % 60);
-									this.$5.textContent = "- " + b + ":" + (a < 10 ? "0" + a : a);
+									var d = "0";
+									c > 0 && (d = (a / c) * 100 + "%");
+									this.$3.style.width = d;
+									d = (c - a) / 1e3;
+									c = Math.floor(d / 60);
+									a = Math.floor(d % 60);
+									this.$5.textContent = "- " + c + ":" + (a < 10 ? "0" + a : a);
 								};
 								return a;
 							})();
-							p.$1 = 3e3;
-							var q = (function() {
+							l.$1 = 3e3;
+							var m = (function() {
 									__p && __p();
 									function a() {
 										var a = this;
-										this.$4 = function(b) {
-											var c = l(a.$2);
-											c.setMuted(!c.isMuted());
-											b.stopPropagation();
+										this.$4 = function(c) {
+											var d = b("nullthrows")(a.$2);
+											d.setMuted(!d.isMuted());
+											c.stopPropagation();
 										};
 										this.$1 = this.$3();
 									}
-									var b = a.prototype;
-									b.$3 = function() {
-										var a = m("_1xj9");
+									var c = a.prototype;
+									c.$3 = function() {
+										var a = i("_1xj9");
 										a.addEventListener("click", this.$4, !1);
 										return a;
 									};
-									b.attach = function(a) {
+									c.attach = function(a) {
 										this.$2 != null && (this.detach(), (this.$2 = null)),
 											(this.$2 = a),
 											a.getElement().appendChild(this.$1);
 									};
-									b.detach = function() {
+									c.detach = function() {
 										this.$1.parentNode &&
 											this.$1.parentNode.removeChild(this.$1);
 									};
 									return a;
 								})(),
-								r = (function() {
+								n = (function() {
 									__p && __p();
 									function a(a, b) {
 										this.$1 = this.$3(a, b);
 									}
 									var b = a.prototype;
 									b.$3 = function(a, b) {
-										return m(
+										return i(
 											"_3c3s" + (a ? " _7kbt" : "") + (b ? " _7kbu" : "")
 										);
 									};
@@ -5971,39 +6011,39 @@ try {
 									};
 									return a;
 								})(),
-								s = (function() {
+								o = (function() {
 									__p && __p();
 									function a(a) {
 										__p && __p();
-										var b = this;
+										var c = this;
 										this.$7 = function(a) {
-											var c = l(b.$5);
-											c.play();
+											var d = b("nullthrows")(c.$5);
+											d.play();
 											a.stopPropagation();
 										};
 										this.$1 = a;
 										a = this.$6();
-										var c = a[0],
-											d = a[1];
+										var d = a[0],
+											e = a[1];
 										a = a[2];
-										this.$2 = c;
-										this.$3 = d;
+										this.$2 = d;
+										this.$3 = e;
 										this.$4 = a;
 									}
-									var b = a.prototype;
-									b.$6 = function() {
-										var a = m("_7kbv"),
-											b = m(k("_7kbw", "fbAdLink"), [
-												m("fbAdIcon"),
-												m("fbAdSubtitle"),
-												m("fbAdCallToAction")
+									var c = a.prototype;
+									c.$6 = function() {
+										var a = i("_7kbv"),
+											c = i(b("joinClasses")("_7kbw", "fbAdLink"), [
+												i("fbAdIcon"),
+												i("fbAdSubtitle"),
+												i("fbAdCallToAction")
 											]),
-											c = m("_7kbx"),
-											d = m("_7kby", [c, m("_7kbz", [b]), a]);
-										c.style.backgroundImage = "url(" + this.$1 + ")";
-										return [d, b, a];
+											d = i("_7kbx"),
+											e = i("_7kby", [d, i("_7kbz", [c]), a]);
+										d.style.backgroundImage = "url(" + this.$1 + ")";
+										return [e, c, a];
 									};
-									b.attach = function(a) {
+									c.attach = function(a) {
 										this.$5 != null && (this.detach(), (this.$5 = null)),
 											(this.$5 = a),
 											a.getElement().appendChild(this.$2),
@@ -6011,10 +6051,10 @@ try {
 											this.$4.addEventListener("click", this.$7),
 											this.$2.addEventListener("click", this.$8);
 									};
-									b.$8 = function(a) {
+									c.$8 = function(a) {
 										a.stopPropagation();
 									};
-									b.detach = function() {
+									c.detach = function() {
 										this.$2.parentNode &&
 											(this.$2.parentNode.removeChild(this.$2),
 											this.$4.removeEventListener("click", this.$7),
@@ -6022,42 +6062,42 @@ try {
 									};
 									return a;
 								})(),
-								t = (function() {
+								p = (function() {
 									__p && __p();
 									function a(a) {
 										this.$1 = a;
 										a = this.$4();
 										this.$2 = a;
 									}
-									var b = a.prototype;
-									b.$4 = function() {
-										var a = m(k("_7kb-", "fbAdLink"), [
-												m("fbAdIcon"),
-												m("fbAdSubtitle"),
-												m("fbAdCallToAction")
+									var c = a.prototype;
+									c.$4 = function() {
+										var a = i(b("joinClasses")("_7kb-", "fbAdLink"), [
+												i("fbAdIcon"),
+												i("fbAdSubtitle"),
+												i("fbAdCallToAction")
 											]),
-											b = m("_7kb_");
-										a = m("_7kc0", [b, m("_7kc1", [a])]);
-										b.style.backgroundImage = "url(" + this.$1 + ")";
+											c = i("_7kb_");
+										a = i("_7kc0", [c, i("_7kc1", [a])]);
+										c.style.backgroundImage = "url(" + this.$1 + ")";
 										return a;
 									};
-									b.attach = function(a) {
+									c.attach = function(a) {
 										this.$3 != null && (this.detach(), (this.$3 = null)),
 											this.$2.addEventListener("click", this.$5),
 											(this.$3 = a),
 											a.getElement().appendChild(this.$2);
 									};
-									b.$5 = function(a) {
+									c.$5 = function(a) {
 										a.stopPropagation();
 									};
-									b.detach = function() {
+									c.detach = function() {
 										this.$2.parentNode &&
 											(this.$2.parentNode.removeChild(this.$2),
 											this.$2.removeEventListener("click", this.$5));
 									};
 									return a;
 								})(),
-								u = ES("Object", "freeze", !1, {
+								q = ES("Object", "freeze", !1, {
 									controls: "mute_only",
 									endCard: "none",
 									pauseCard: "play_button"
@@ -6078,14 +6118,14 @@ try {
 									this.$3 = f;
 									this.$13 = !0;
 									this.$7 =
-										(d.controls || u.controls) === "full" ? new p() : new q();
+										(d.controls || q.controls) === "full" ? new l() : new m();
 									this.$8 =
-										(d.pauseCard || u.pauseCard) === "icon_and_cta"
-											? new t(b)
-											: new r.pauseCard();
+										(d.pauseCard || q.pauseCard) === "icon_and_cta"
+											? new p(b)
+											: new n.pauseCard();
 									this.$10 =
-										(d.endCard || u.endCard) === "v1" ? new s(b) : null;
-									this.$9 = r.autoplayCard();
+										(d.endCard || q.endCard) === "v1" ? new o(b) : null;
+									this.$9 = n.autoplayCard();
 									c = this.$14();
 									a = c[0];
 									e = c[1];
@@ -6097,22 +6137,22 @@ try {
 									this.$9.attach(this);
 									this.$10 && this.$10.attach(this);
 								}
-								var b = a.prototype;
-								b.$14 = function() {
+								var c = a.prototype;
+								c.$14 = function() {
 									__p && __p();
 									var a = this,
-										b = m("_6pfr");
-									b.style.backgroundImage = "url(" + this.$2 + ")";
+										c = i("_6pfr");
+									c.style.backgroundImage = "url(" + this.$2 + ")";
 									if (this.$4) {
-										var c = new Image();
-										c.addEventListener("load", function() {
+										var d = new Image();
+										d.addEventListener("load", function() {
 											a.$4 && a.$4();
 										});
-										c.src = this.$2;
+										d.src = this.$2;
 									}
-									c = m(k("_1xj7", "_7jun", "_7kc3"), [
-										b,
-										n(
+									d = i(b("joinClasses")("_1xj7", "_7jun", "_7kc3"), [
+										c,
+										j(
 											"video",
 											{
 												className: "_1xj8",
@@ -6124,14 +6164,14 @@ try {
 											[]
 										)
 									]);
-									b = document.defaultView.HTMLVideoElement;
-									b = o(c, "._1xj8", b);
-									b.poster = this.$2;
-									b.setAttribute("webkit-playsinline", "true");
-									b.setAttribute("playsinline", "true");
-									return [c, b];
+									c = document.defaultView.HTMLVideoElement;
+									c = k(d, "._1xj8", c);
+									c.poster = this.$2;
+									c.setAttribute("webkit-playsinline", "true");
+									c.setAttribute("playsinline", "true");
+									return [d, c];
 								};
-								b.$15 = function() {
+								c.$15 = function() {
 									var a = this;
 									this.$11.addEventListener("click", function(b) {
 										a.$12.paused ? a.play(!0) : a.pause(!0),
@@ -6146,59 +6186,59 @@ try {
 									this.$12.addEventListener("fullscreenchange", b);
 									this.$12.addEventListener("webkitfullscreenchange", b);
 								};
-								b.getElement = function() {
+								c.getElement = function() {
 									return this.$11;
 								};
-								b.setMuted = function(a) {
+								c.setMuted = function(a) {
 									(this.$13 = a),
 										(this.$12.muted = a),
 										this.$11.classList.toggle("_7jun", this.$13);
 								};
-								b.isMuted = function() {
+								c.isMuted = function() {
 									return this.$13;
 								};
-								b.play = function(a) {
+								c.play = function(a) {
 									__p && __p();
-									var b = this;
+									var c = this;
 									this.$6 = !0;
 									this.$5 = this.$5 && !a;
 									a = this.$12.play();
 									if (a instanceof Promise)
 										return a
 											.then(function() {
-												b.$11.classList.remove("_7juo"),
-													b.$11.classList.remove("_7kc2"),
-													b.$11.classList.remove("_7kc3");
+												c.$11.classList.remove("_7juo"),
+													c.$11.classList.remove("_7kc2"),
+													c.$11.classList.remove("_7kc3");
 											})
 											["catch"](function(a) {
-												b.$11.classList.add("_7juo");
+												c.$11.classList.add("_7juo");
 												throw a;
 											});
 									else {
 										this.$11.classList.remove("_7juo");
-										return g.resolve();
+										return b("NativePromise").resolve();
 									}
 								};
-								b.pause = function(a) {
+								c.pause = function(a) {
 									(this.$5 = this.$5 || !!a),
 										this.$12.pause(),
 										this.$11.classList.add("_7juo");
 								};
-								b.wasManuallyPaused = function() {
+								c.wasManuallyPaused = function() {
 									return this.$5;
 								};
-								b.hasPlayed = function() {
+								c.hasPlayed = function() {
 									return this.$6;
 								};
-								b.getVideoElement = function() {
+								c.getVideoElement = function() {
 									return this.$12;
 								};
-								b.getDuration = function() {
+								c.getDuration = function() {
 									return this.$12 == null
 										? 0
 										: Math.round(this.$12.duration * 1e3) || 0;
 								};
-								b.getCurrentTime = function() {
+								c.getCurrentTime = function() {
 									return this.$12 == null
 										? 0
 										: Math.round(this.$12.currentTime * 1e3);
@@ -6211,11 +6251,11 @@ try {
 					);
 					__d(
 						"ANXOutConfirmationStep",
-						["VPAIDDomUtils", "cx"],
-						function(a, b, c, d, e, f, g, h) {
+						["cx", "VPAIDDomUtils"],
+						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
-							var i = g.div;
+							var h = b("VPAIDDomUtils").div;
 							a = (function() {
 								__p && __p();
 								function a(a, b, c, d, e, f) {
@@ -6230,32 +6270,32 @@ try {
 								b.$7 = function() {
 									__p && __p();
 									var a = this,
-										b = i(
+										b = h(
 											"_6qhu" +
 												(this.$4 === "hide" ? " _6qhv" : "") +
 												(this.$4 === "report" ? " _6qhw" : "")
 										),
-										c = i("_6qhx");
+										c = h("_6qhx");
 									c.innerText =
 										this.$4 === "hide"
 											? this.$2.finished_hide_ad
 											: this.$2.finished_report_ad;
-									var d = i("_6qhy");
+									var d = h("_6qhy");
 									d.innerText = this.$2.finished_description;
-									var e = i("_6qh7 _6qh8", [i("_6qhz")]);
+									var e = h("_6qh7 _6qh8", [h("_6qhz")]);
 									e.appendChild(document.createTextNode(this.$3.title));
 									var f = document.createElement("img");
 									f.className = "_6qh-";
 									f.src = this.$1;
-									var g = i("_6qh_");
+									var g = h("_6qh_");
 									g.textContent = this.$2.manage_ad_preferences;
-									var h = document.createElement("a");
-									h.href = this.$2.manage_ad_preferences_uri;
-									h.target = "_blank";
-									h.className = "_6qi0";
-									h.appendChild(i("_6qi1"));
-									h.appendChild(g);
-									g = i("_6qi2", [f, e]);
+									var i = document.createElement("a");
+									i.href = this.$2.manage_ad_preferences_uri;
+									i.target = "_blank";
+									i.className = "_6qi0";
+									i.appendChild(h("_6qi1"));
+									i.appendChild(g);
+									g = h("_6qi2", [f, e]);
 									f = document.createElement("a");
 									f.className = "_6qi3";
 									this.$6 != null && (f.href = this.$6);
@@ -6263,10 +6303,10 @@ try {
 										f.addEventListener("click", function(b) {
 											a.$5();
 										});
-									return i("_6qi4", [b, c, d, g, h, f]);
+									return h("_6qi4", [b, c, d, g, i, f]);
 								};
 								b.render = function() {
-									var a = i("_6qhb _6qi5"),
+									var a = h("_6qhb _6qi5"),
 										b = this.$7();
 									a.appendChild(b);
 									return a;
@@ -6279,39 +6319,39 @@ try {
 					);
 					__d(
 						"ANXOutInitialStep",
-						["VPAIDDomUtils", "cx", "joinClasses"],
-						function(a, b, c, d, e, f, g, h, i) {
+						["cx", "VPAIDDomUtils", "joinClasses"],
+						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
-							var j = g.div;
+							var h = b("VPAIDDomUtils").div;
 							a = (function() {
 								__p && __p();
 								function a(a, b, c, d) {
 									(this.$3 = c), (this.$4 = d), (this.$1 = b), (this.$2 = a);
 								}
-								var b = a.prototype;
-								b.$5 = function(a, b, c, d, e) {
+								var c = a.prototype;
+								c.$5 = function(a, c, d, e, f) {
 									__p && __p();
-									b = j(i("_6qhk", b));
-									var f = j("_6qhl");
-									f.textContent = a;
-									a = j("_6qhm", [f]);
-									if (c != null) {
-										f = j("_6qhn");
-										f.textContent = c;
-										a.appendChild(f);
+									c = h(b("joinClasses")("_6qhk", c));
+									var g = h("_6qhl");
+									g.textContent = a;
+									a = h("_6qhm", [g]);
+									if (d != null) {
+										g = h("_6qhn");
+										g.textContent = d;
+										a.appendChild(g);
 									}
-									c = document.createElement("a");
-									c.className = "_6qho";
-									c.appendChild(b);
-									c.appendChild(a);
-									e != null && ((c.href = e), (c.target = "_blank"));
-									c.addEventListener("click", function(a) {
-										e == null && a.preventDefault(), d();
+									d = document.createElement("a");
+									d.className = "_6qho";
+									d.appendChild(c);
+									d.appendChild(a);
+									f != null && ((d.href = f), (d.target = "_blank"));
+									d.addEventListener("click", function(a) {
+										f == null && a.preventDefault(), e();
 									});
-									return c;
+									return d;
 								};
-								b.render = function() {
+								c.render = function() {
 									var a = this,
 										b = this.$5(
 											this.$2.hide_ad,
@@ -6343,7 +6383,7 @@ try {
 									e.addEventListener("click", function(b) {
 										b.preventDefault(), a.$4();
 									});
-									return j("_6qhb _6qhq", [b, c, d, e]);
+									return h("_6qhb _6qhq", [b, c, d, e]);
 								};
 								return a;
 							})();
@@ -6353,11 +6393,11 @@ try {
 					);
 					__d(
 						"ANXOutOptionStep",
-						["VPAIDDomUtils", "cx"],
-						function(a, b, c, d, e, f, g, h) {
+						["cx", "VPAIDDomUtils"],
+						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
-							var i = g.div;
+							var h = b("VPAIDDomUtils").div;
 							a = (function() {
 								__p && __p();
 								function a(a, b, c, d, e) {
@@ -6369,15 +6409,15 @@ try {
 								}
 								var b = a.prototype;
 								b.$6 = function() {
-									var a = i("_6qgh"),
-										b = i(
+									var a = h("_6qgh"),
+										b = h(
 											"_6qgi" +
 												(this.$2 === "hide" ? " _6qgk" : "") +
 												(this.$2 === "report" ? " _6qgl" : "")
 										),
-										c = i("_6qh4");
-									b = i("_6qh5", [b, c]);
-									b = i("_6qh6", [a, b]);
+										c = h("_6qh4");
+									b = h("_6qh5", [b, c]);
+									b = h("_6qh6", [a, b]);
 									a.textContent =
 										this.$2 === "hide" ? this.$3.hide_ad : this.$3.report_ad;
 									c.textContent =
@@ -6402,8 +6442,8 @@ try {
 										});
 										return c;
 									});
-									b = i("_6qh9", b);
-									b = i("_6qha", [b]);
+									b = h("_6qh9", b);
+									b = h("_6qha", [b]);
 									if (this.$5) {
 										var c = document.createElement("a");
 										c.className = "_6qi3";
@@ -6415,7 +6455,7 @@ try {
 									return b;
 								};
 								b.render = function() {
-									var a = i("_6qhb _6qhc"),
+									var a = h("_6qhb _6qhc"),
 										b = this.$6(),
 										c = this.$7();
 									a.appendChild(b);
@@ -6431,17 +6471,17 @@ try {
 					__d(
 						"ANXOut",
 						[
+							"cx",
 							"ANXOutConfirmationStep",
 							"ANXOutInitialStep",
 							"ANXOutOptionStep",
 							"VPAIDDomUtils",
-							"cx",
 							"nullthrows"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
-							var m = j.div;
+							var h = b("VPAIDDomUtils").div;
 							a = (function() {
 								__p && __p();
 								function a(a) {
@@ -6457,46 +6497,47 @@ try {
 										(this.$13 = a.endURL),
 										(this.$14 = !!a.allowOptionStepClose);
 								}
-								var b = a.prototype;
-								b.$15 = function() {
+								var c = a.prototype;
+								c.$15 = function() {
 									this.$3 == null &&
-										((this.$3 = m("_6qhd")),
-										this.getRoot().appendChild(l(this.$3)));
-									return l(this.$3);
+										((this.$3 = h("_6qhd")),
+										this.getRoot().appendChild(b("nullthrows")(this.$3)));
+									return b("nullthrows")(this.$3);
 								};
-								b.$16 = function() {
+								c.$16 = function() {
 									this.$3 != null &&
-										(this.getRoot().removeChild(l(this.$3)), (this.$3 = null));
+										(this.getRoot().removeChild(b("nullthrows")(this.$3)),
+										(this.$3 = null));
 								};
-								b.$17 = function() {
-									return m("_6qhe");
+								c.$17 = function() {
+									return h("_6qhe");
 								};
-								b.$18 = function(a) {
+								c.$18 = function(a) {
 									var b = this.$15(),
 										c = this.$17();
 									this.$19();
 									c.appendChild(a);
 									b.appendChild(c);
 								};
-								b.$19 = function() {
+								c.$19 = function() {
 									var a = this.$15();
 									while (a.firstChild) a.removeChild(a.firstChild);
 								};
-								b.$20 = function() {
+								c.$20 = function() {
 									var a = this.$15(),
-										b = m("_6qhf");
+										b = h("_6qhf");
 									this.$19();
 									b.innerText = this.$7.ad_removed;
 									a.appendChild(b);
 								};
-								b.onInitialStepDone = function() {
+								c.onInitialStepDone = function() {
 									this.$12 != null && this.$21();
 								};
-								b.$21 = function() {
+								c.$21 = function() {
 									var a = this,
-										b = new i(
+										c = new (b("ANXOutOptionStep"))(
 											this.$7,
-											l(this.$12),
+											b("nullthrows")(this.$12),
 											function(b) {
 												a.$22(b);
 											},
@@ -6505,11 +6546,11 @@ try {
 											},
 											this.$14
 										);
-									this.$18(b.render());
+									this.$18(c.render());
 								};
-								b.$22 = function(a) {
+								c.$22 = function(a) {
 									__p && __p();
-									var b = this;
+									var c = this;
 									this.$10(a.option_type);
 									if (a.option_type === this.$7.follow_up_report) {
 										this.$12 = "report";
@@ -6517,21 +6558,21 @@ try {
 										return;
 									}
 									this.$11();
-									a = new g(
+									a = new (b("ANXOutConfirmationStep"))(
 										this.$7,
 										a,
 										this.$5,
-										l(this.$12),
+										b("nullthrows")(this.$12),
 										function() {
-											b.$20();
+											c.$20();
 										},
 										this.$13
 									);
 									this.$18(a.render());
 								};
-								b.$23 = function() {
+								c.$23 = function() {
 									var a = this,
-										b = new h(
+										c = new (b("ANXOutInitialStep"))(
 											this.$7,
 											this.$6,
 											function(b) {
@@ -6544,18 +6585,18 @@ try {
 												a.$9(), a.$16();
 											}
 										);
-									this.$18(b.render());
+									this.$18(c.render());
 								};
-								b.getButton = function() {
-									return l(this.$4);
+								c.getButton = function() {
+									return b("nullthrows")(this.$4);
 								};
-								b.getRoot = function() {
-									return l(this.$2);
+								c.getRoot = function() {
+									return b("nullthrows")(this.$2);
 								};
-								b.render = function() {
+								c.render = function() {
 									__p && __p();
 									var a = this;
-									this.$2 = m("_6qhh", []);
+									this.$2 = h("_6qhh", []);
 									if (this.$4 == null) {
 										var b = document.createElement("a");
 										b.href = "#";
@@ -6601,7 +6642,7 @@ try {
 					__d(
 						"AdImpressionBehavior.anweb",
 						["OnScreenBehavior.anweb"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function(a) {
@@ -6645,7 +6686,7 @@ try {
 									this.$AdImpressionBehavior2 = !1;
 								};
 								return b;
-							})(g);
+							})(b("OnScreenBehavior.anweb"));
 							e.exports = a;
 						},
 						null
@@ -6653,10 +6694,10 @@ try {
 					__d(
 						"AdMostlyViewableImpressionBehavior.anweb",
 						["OnScreenBehavior.anweb"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var h = 1e3;
+							var g = 1e3;
 							a = (function(a) {
 								__p && __p();
 								babelHelpers.inheritsLoose(b, a);
@@ -6695,12 +6736,12 @@ try {
 											function() {
 												a.$AdMostlyViewableImpressionBehavior5();
 											},
-											h
+											g
 										));
 									this.$AdMostlyViewableImpressionBehavior1 = !1;
 								};
 								return b;
-							})(g);
+							})(b("OnScreenBehavior.anweb"));
 							e.exports = a;
 						},
 						null
@@ -6736,34 +6777,35 @@ try {
 					__d(
 						"AdQualityMeasurementResult.adquality",
 						["AdQualityViewabilityDetection"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
 								__p && __p();
-								a.unknownResult = function(b, c) {
-									b === void 0 && (b = g.NONE);
-									c === void 0 && (c = "");
-									return new a({ vd: b, r: c });
+								a.unknownResult = function(c, d) {
+									c === void 0 && (c = b("AdQualityViewabilityDetection").NONE);
+									d === void 0 && (d = "");
+									return new a({ vd: c, r: d });
 								};
 								function a(a) {
-									var b = a.ar,
-										c = a.e,
-										d = a.vd,
-										e = a.r,
-										f = a.vr,
+									var c = a.ar,
+										d = a.e,
+										e = a.vd,
+										f = a.r,
+										g = a.vr,
 										h = a.cont;
 									a = a.maa;
-									this.$3 = d;
-									this.$5 = f;
-									this.$1 = b;
+									this.$3 = e;
+									this.$5 = g;
+									this.$1 = c;
 									this.$7 = a;
-									this.$2 = c || null;
-									this.$4 = d === g.NONE ? "" : e || d;
+									this.$2 = d || null;
+									this.$4 =
+										e === b("AdQualityViewabilityDetection").NONE ? "" : f || e;
 									this.$6 = h || !1;
 								}
-								var b = a.prototype;
-								b.appendResult = function(a) {
+								var c = a.prototype;
+								c.appendResult = function(a) {
 									this.$5 || (this.$5 = a.$5),
 										this.$1 || (this.$1 = a.$1),
 										(this.$4 = a.$4),
@@ -6771,7 +6813,7 @@ try {
 										(this.$6 = a.$6),
 										(this.$7 = this.$7 || a.$7);
 								};
-								b.getData = function() {
+								c.getData = function() {
 									var a = null;
 									if (this.$2)
 										try {
@@ -6786,37 +6828,37 @@ try {
 										viewableRatio: this.getViewableRatio()
 									};
 								};
-								b.getAdRect = function() {
+								c.getAdRect = function() {
 									return this.$1;
 								};
-								b.getError = function() {
+								c.getError = function() {
 									return this.$2;
 								};
-								b.getMaxAdArea = function() {
+								c.getMaxAdArea = function() {
 									return this.$7;
 								};
-								b.getIsContinuous = function() {
+								c.getIsContinuous = function() {
 									return this.$6;
 								};
-								b.getViewableRect = function() {
+								c.getViewableRect = function() {
 									return this.$5;
 								};
-								b.getViewableRatio = function() {
+								c.getViewableRatio = function() {
 									return this.$8(function(a) {
 										return a.area();
 									});
 								};
-								b.getViewableHeightRatio = function() {
+								c.getViewableHeightRatio = function() {
 									return this.$8(function(a) {
 										return a.height;
 									});
 								};
-								b.getViewableWidthRatio = function() {
+								c.getViewableWidthRatio = function() {
 									return this.$8(function(a) {
 										return a.width;
 									});
 								};
-								b.$8 = function(a) {
+								c.$8 = function(a) {
 									var b = this.$1,
 										c = this.$5;
 									return (c && a(c) === 0) || (b && a(b) === 0)
@@ -6825,13 +6867,13 @@ try {
 											? a(c) / a(b)
 											: null;
 								};
-								b.getViewabilityDetection = function() {
+								c.getViewabilityDetection = function() {
 									return this.$3;
 								};
-								b.getReason = function() {
+								c.getReason = function() {
 									return this.$4;
 								};
-								b.isConclusive = function() {
+								c.isConclusive = function() {
 									return typeof this.getViewableRatio() === "number";
 								};
 								return a;
@@ -6843,7 +6885,7 @@ try {
 					__d(
 						"AdQualityMeasurement.adquality",
 						["AdQualityMeasurementResult.adquality"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
@@ -6851,23 +6893,23 @@ try {
 								function a(a, b) {
 									this.__parentWindow = b;
 								}
-								var b = a.prototype;
-								b.destroy = function() {};
-								b.getMeasurement = function(a) {
+								var c = a.prototype;
+								c.destroy = function() {};
+								c.getMeasurement = function(a) {
 									a(
-										g.unknownResult(
+										b("AdQualityMeasurementResult.adquality").unknownResult(
 											this.__viewabilityDetection,
 											this.__viewabilityDetection + "-na"
 										)
 									);
 								};
-								b.getViewabilityDetection = function() {
+								c.getViewabilityDetection = function() {
 									return this.__viewabilityDetection;
 								};
-								b.getParentWindow = function() {
+								c.getParentWindow = function() {
 									return this.__parentWindow;
 								};
-								b.isAvailable = function(a) {
+								c.isAvailable = function(a) {
 									return !1;
 								};
 								return a;
@@ -6963,7 +7005,7 @@ try {
 					__d(
 						"Rectangle.adquality",
 						["AdQualityUtils.adquality"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
@@ -7016,20 +7058,20 @@ try {
 										return null;
 									}
 								};
-								a.RectangleFromViewport = function(b) {
-									var c = g.getBrowserBarOffset(b);
+								a.RectangleFromViewport = function(c) {
+									var d = b("AdQualityUtils.adquality").getBrowserBarOffset(c);
 									return new a(
-										b.screenX,
-										b.screenY + c,
-										b.outerWidth,
-										b.outerHeight - c
+										c.screenX,
+										c.screenY + d,
+										c.outerWidth,
+										c.outerHeight - d
 									);
 								};
-								var b = a.prototype;
-								b.area = function() {
+								var c = a.prototype;
+								c.area = function() {
 									return this.width * this.height;
 								};
-								b.getData = function() {
+								c.getData = function() {
 									return {
 										x: this.x,
 										y: this.y,
@@ -7037,14 +7079,14 @@ try {
 										height: this.height
 									};
 								};
-								b.intersection = function(b) {
+								c.intersection = function(b) {
 									var c = Math.max(this.x, b.x),
 										d = Math.max(this.y, b.y),
 										e = Math.min(this.x + this.width, b.x + b.width);
 									b = Math.min(this.y + this.height, b.y + b.height);
 									return e >= c && b >= d ? new a(c, d, e - c, b - d) : null;
 								};
-								b.offset = function(b, c) {
+								c.offset = function(b, c) {
 									return new a(this.x + b, this.y + c, this.width, this.height);
 								};
 								return a;
@@ -7063,65 +7105,71 @@ try {
 							"AMPContextLoader",
 							"Rectangle.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var m = i.getBrowserBarOffset;
+							var g = b("AdQualityUtils.adquality").getBrowserBarOffset;
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b, c) {
+								babelHelpers.inheritsLoose(c, a);
+								function c(c, d) {
 									__p && __p();
-									var d;
-									d = a.call(this, b, c) || this;
-									d.$AMPMeasurement5 = function(a) {
+									var e;
+									e = a.call(this, c, d) || this;
+									e.$AMPMeasurement5 = function(a) {
 										a = a[a.length - 1];
-										var b = a.boundingClientRect;
+										var c = a.boundingClientRect;
 										a = a.intersectionRect;
-										d.$AMPMeasurement1 = l.RectangleFromClientRect(b);
-										d.$AMPMeasurement4 = l
+										e.$AMPMeasurement1 = b(
+											"Rectangle.adquality"
+										).RectangleFromClientRect(c);
+										e.$AMPMeasurement4 = b("Rectangle.adquality")
 											.RectangleFromClientRect(a)
 											.offset(
-												d.__parentWindow.screenX,
-												d.__parentWindow.screenY + m(d.__parentWindow)
+												e.__parentWindow.screenX,
+												e.__parentWindow.screenY + g(e.__parentWindow)
 											);
-										d.$AMPMeasurement4 =
-											(d.$AMPMeasurement2 && d.$AMPMeasurement2.hidden) ||
-											!d.$AMPMeasurement4
-												? l.RectangleZero()
-												: d.$AMPMeasurement4;
+										e.$AMPMeasurement4 =
+											(e.$AMPMeasurement2 && e.$AMPMeasurement2.hidden) ||
+											!e.$AMPMeasurement4
+												? b("Rectangle.adquality").RectangleZero()
+												: e.$AMPMeasurement4;
 									};
-									d.$AMPMeasurement1 = null;
-									d.$AMPMeasurement2 = null;
-									d.__viewabilityDetection = j.AMP;
-									d.$AMPMeasurement3 = null;
-									d.$AMPMeasurement4 = null;
-									k.genAMPContext().then(function(a) {
-										(d.$AMPMeasurement2 = a),
-											(d.$AMPMeasurement3 = a.observeIntersection(
-												d.$AMPMeasurement5
-											));
-									});
-									return d;
+									e.$AMPMeasurement1 = null;
+									e.$AMPMeasurement2 = null;
+									e.__viewabilityDetection = b(
+										"AdQualityViewabilityDetection"
+									).AMP;
+									e.$AMPMeasurement3 = null;
+									e.$AMPMeasurement4 = null;
+									b("AMPContextLoader")
+										.genAMPContext()
+										.then(function(a) {
+											(e.$AMPMeasurement2 = a),
+												(e.$AMPMeasurement3 = a.observeIntersection(
+													e.$AMPMeasurement5
+												));
+										});
+									return e;
 								}
-								var c = b.prototype;
-								c.destroy = function() {
+								var d = c.prototype;
+								d.destroy = function() {
 									this.$AMPMeasurement3 && this.$AMPMeasurement3();
 								};
-								c.isAvailable = function() {
-									return k.isAMP();
+								d.isAvailable = function() {
+									return b("AMPContextLoader").isAMP();
 								};
-								c.getMeasurement = function(a) {
+								d.getMeasurement = function(a) {
 									a(
-										new h({
+										new (b("AdQualityMeasurementResult.adquality"))({
 											ar: this.$AMPMeasurement1,
 											vd: this.__viewabilityDetection,
 											vr: this.$AMPMeasurement4
 										})
 									);
 								};
-								return b;
-							})(g);
+								return c;
+							})(b("AdQualityMeasurement.adquality"));
 							e.exports = a;
 						},
 						null
@@ -7129,7 +7177,7 @@ try {
 					__d(
 						"AdQualityMeasurementQueue.adquality",
 						["AdQualityMeasurementResult.adquality"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
@@ -7137,30 +7185,36 @@ try {
 								function a(a) {
 									this.$1 = a;
 								}
-								var b = a.prototype;
-								b.destroy = function() {
+								var c = a.prototype;
+								c.destroy = function() {
 									ES(this.$1, "forEach", !0, function(a) {
 										a.destroy();
 									}),
 										(this.$1 = []);
 								};
-								b.getMeasurement = function(a) {
-									this.$2(0, g.unknownResult(), a);
+								c.getMeasurement = function(a) {
+									this.$2(
+										0,
+										b("AdQualityMeasurementResult.adquality").unknownResult(),
+										a
+									);
 								};
-								b.$2 = function(a, b, c) {
-									var d = this;
-									b.appendResult(g.unknownResult());
+								c.$2 = function(a, c, d) {
+									var e = this;
+									c.appendResult(
+										b("AdQualityMeasurementResult.adquality").unknownResult()
+									);
 									if (a < this.$1.length) {
-										var e = this.$1[a];
-										!e.isAvailable(this.$1)
-											? this.$2(a + 1, b, c)
-											: e.getMeasurement(function(e) {
-													b.appendResult(e),
-														b.isConclusive() ? d.$3(b, c) : d.$2(a + 1, b, c);
+										var f = this.$1[a];
+										!f.isAvailable(this.$1)
+											? this.$2(a + 1, c, d)
+											: f.getMeasurement(function(b) {
+													c.appendResult(b),
+														c.isConclusive() ? e.$3(c, d) : e.$2(a + 1, c, d);
 											  });
-									} else this.$3(b, c);
+									} else this.$3(c, d);
 								};
-								b.$3 = function(a, b) {
+								c.$3 = function(a, b) {
 									b(a);
 								};
 								return a;
@@ -7172,7 +7226,7 @@ try {
 					__d(
 						"AdQualityPlayerSizeMonitor.adquality",
 						["ScreenOrientation.adquality"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
@@ -7180,23 +7234,25 @@ try {
 								function a() {
 									this.$1 = { h: 0, u: 0, v: 0 };
 								}
-								var b = a.prototype;
-								b.destroy = function() {
+								var c = a.prototype;
+								c.destroy = function() {
 									this.$1 = { h: 0, u: 0, v: 0 };
 								};
-								b.getMaxAdAreaForScreenOrientation = function(a) {
-									var b = g.getScreenOrientation();
+								c.getMaxAdAreaForScreenOrientation = function(a) {
+									var c = b(
+										"ScreenOrientation.adquality"
+									).getScreenOrientation();
 									if (a.getReason() !== "fullscreen") {
 										a = a.getAdRect();
 										a = (a && a.area()) || 0;
-										this.$1[b] = Math.max(this.$1[b], a);
+										this.$1[c] = Math.max(this.$1[c], a);
 									}
 									return {
-										maxAdAreaNotFullscreen: this.$1[b],
-										screenOrientation: b
+										maxAdAreaNotFullscreen: this.$1[c],
+										screenOrientation: c
 									};
 								};
-								b.getMaxAdAreaByScreenOrientation = function(a) {
+								c.getMaxAdAreaByScreenOrientation = function(a) {
 									return {
 										maxAdAreaNotFullscreen: this.$1[a],
 										screenOrientation: a
@@ -7211,19 +7267,19 @@ try {
 					__d(
 						"AdQualityStatistics.adquality",
 						["AdQualityScreenOrientation", "AdQualityViewabilityDetection"],
-						function(a, b, c, d, e, f, g, h) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
 								__p && __p();
-								function a(a, b, c) {
-									b === void 0 && (b = 0.05),
-										c === void 0 && (c = 0.33),
+								function a(a, c, d) {
+									c === void 0 && (c = 0.05),
+										d === void 0 && (d = 0.33),
 										(this.$23 = a),
-										(this.$2 = b),
-										(this.$28 = c),
+										(this.$2 = c),
+										(this.$28 = d),
 										this.resetNonContinuousStatistics(),
-										(this.$20 = h.NONE),
+										(this.$20 = b("AdQualityViewabilityDetection").NONE),
 										(this.$21 = ""),
 										(this.$5 = 0),
 										(this.$7 = 0),
@@ -7233,14 +7289,14 @@ try {
 										(this.$11 = 0),
 										(this.$27 = {
 											maxAdAreaNotFullscreen: 0,
-											screenOrientation: g.UNKNOWN
+											screenOrientation: b("AdQualityScreenOrientation").UNKNOWN
 										});
 								}
-								var b = a.prototype;
-								b.getViewableRatio = function() {
+								var c = a.prototype;
+								c.getViewableRatio = function() {
 									return this.$23;
 								};
-								b.getData = function() {
+								c.getData = function() {
 									return {
 										audibleSeconds: this.$1,
 										avgPlaybackRate: isFinite(this.$18 / this.$24)
@@ -7264,7 +7320,7 @@ try {
 										maxAdArea: this.$27
 									};
 								};
-								b.registerProgress = function(a, b) {
+								c.registerProgress = function(a, b) {
 									__p && __p();
 									this.$14 += a;
 									var c = b.getViewableRatio() || 0;
@@ -7292,7 +7348,7 @@ try {
 									b.getIsContinuous() || (this.$7 = 0);
 									this.$10 = Math.max(this.$10, this.$7);
 								};
-								b.registerVolume = function(a, b, c) {
+								c.registerVolume = function(a, b, c) {
 									__p && __p();
 									this.$25++;
 									this.$19 += b;
@@ -7305,10 +7361,10 @@ try {
 									(!c || !b) && (this.$5 = 0);
 									this.$9 = Math.max(this.$9, this.$5);
 								};
-								b.registerPlaybackRate = function(a, b) {
+								c.registerPlaybackRate = function(a, b) {
 									(this.$24 += a), (this.$18 += b * a);
 								};
-								b.resetNonContinuousStatistics = function() {
+								c.resetNonContinuousStatistics = function() {
 									(this.$1 = 0),
 										(this.$3 = null),
 										(this.$4 = 0),
@@ -7340,86 +7396,88 @@ try {
 							"AdQualityPlayerSizeMonitor.adquality",
 							"AdQualityStatistics.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var k = 0.5;
+							var g = 0.5;
 							a = (function() {
 								__p && __p();
 								function a(a) {
 									__p && __p();
-									var b = a.element,
-										c = a.parentWindow,
-										d = a.rules;
+									var c = a.element,
+										d = a.parentWindow,
+										e = a.rules;
 									this.$1 = !0;
-									this.$2 = b;
-									this.$3 = new g(a.measurementTests);
-									this.$4 = new i();
-									this.$5 = c;
-									this.$8 = d;
-									this.$6 = new j(k);
+									this.$2 = c;
+									this.$3 = new (b("AdQualityMeasurementQueue.adquality"))(
+										a.measurementTests
+									);
+									this.$4 = new (b("AdQualityPlayerSizeMonitor.adquality"))();
+									this.$5 = d;
+									this.$8 = e;
+									this.$6 = new (b("AdQualityStatistics.adquality"))(g);
 									this.$7 = ES(this.$8, "map", !0, function(a) {
 										return a.createTest(a);
 									});
 								}
-								var b = a.prototype;
-								b.getStatistics = function() {
+								var c = a.prototype;
+								c.getStatistics = function() {
 									return this.$6.getData();
 								};
-								b.getViewableRatio = function(a, b) {
-									var c = this;
-									this.$3.getMeasurement(function(d) {
-										var e = d.getAdRect();
-										b(
-											new h({
-												ar: e,
-												e: d.getError(),
-												vd: d.getViewabilityDetection(),
-												r: a ? "fullscreen" : d.getReason(),
-												vr: a ? e : d.getViewableRect(),
-												maa: c.$4.getMaxAdAreaForScreenOrientation(d)
+								c.getViewableRatio = function(a, c) {
+									var d = this;
+									this.$3.getMeasurement(function(e) {
+										var f = e.getAdRect();
+										c(
+											new (b("AdQualityMeasurementResult.adquality"))({
+												ar: f,
+												e: e.getError(),
+												vd: e.getViewabilityDetection(),
+												r: a ? "fullscreen" : e.getReason(),
+												vr: a ? f : e.getViewableRect(),
+												maa: d.$4.getMaxAdAreaForScreenOrientation(e)
 											})
 										);
 									});
 								};
-								b.registerProgress = function(a, b) {
+								c.registerProgress = function(a, c) {
 									__p && __p();
-									var c = this;
+									var d = this;
 									if (!this.$1) {
-										b && b(this.getStatistics());
+										c && c(this.getStatistics());
 										return;
 									}
-									this.$3.getMeasurement(function(d) {
-										if (c.$1) {
-											var e = d.getAdRect();
-											e = new h({
-												ar: e,
-												e: d.getError(),
-												vd: d.getViewabilityDetection(),
-												r: a.isFullScreen ? "fullscreen" : d.getReason(),
-												vr: a.isFullScreen ? e : d.getViewableRect(),
+									this.$3.getMeasurement(function(e) {
+										if (d.$1) {
+											var f = e.getAdRect();
+											f = new (b("AdQualityMeasurementResult.adquality"))({
+												ar: f,
+												e: e.getError(),
+												vd: e.getViewabilityDetection(),
+												r: a.isFullScreen ? "fullscreen" : e.getReason(),
+												vr: a.isFullScreen ? f : e.getViewableRect(),
 												cont: a.isContinuous,
-												maa: c.$4.getMaxAdAreaForScreenOrientation(d)
+												maa: d.$4.getMaxAdAreaForScreenOrientation(e)
 											});
-											c.$9(
-												e,
+											d.$9(
+												f,
 												parseFloat(a.loggingTimeInterval),
-												c.getStatistics(),
+												d.getStatistics(),
 												a,
 												a.volume,
 												a.playbackRate
 											);
-											b && b(c.getStatistics());
+											c && c(d.getStatistics());
 										}
 									});
 								};
-								b.resetStatistics = function() {
+								c.resetStatistics = function() {
 									this.$6.resetNonContinuousStatistics();
 								};
-								b.addRule = function(a) {
+								c.addRule = function(a) {
 									this.$8.push(a), this.$7.push(a.createTest(a));
 								};
-								b.$9 = function(a, b, c, d, e, f) {
+								c.$9 = function(a, b, c, d, e, f) {
 									this.$6.registerVolume(b, e, a.getIsContinuous()),
 										this.$6.registerPlaybackRate(b, f),
 										this.$6.registerProgress(b, a),
@@ -7458,19 +7516,19 @@ try {
 					__d(
 						"HTMLElementFrameContext.adquality",
 						["ANUtils", "Rectangle.adquality"],
-						function(a, b, c, d, e, f, g, h) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var i = 0,
-								j = 1,
-								k = 2,
-								l = 3,
-								m = 0,
-								n = 1,
-								o = 2;
+							var g = 0,
+								h = 1,
+								i = 2,
+								j = 3,
+								k = 0,
+								l = 1,
+								m = 2;
 							a = (function() {
 								__p && __p();
-								function a(b, c) {
+								function a(c, d) {
 									__p && __p();
 									this.ancestorIframes = [];
 									this.ancestorURLs = [];
@@ -7487,102 +7545,108 @@ try {
 									this.type = null;
 									this.viewportRect = null;
 									this.windowCount = 0;
-									this.domainDetectionMethod = i;
+									this.domainDetectionMethod = g;
 									this.pageDomain = null;
 									this.transparent = null;
 									try {
 										try {
-											(this.offsetHeight = b.offsetHeight),
-												(this.offsetWidth = b.offsetWidth);
+											(this.offsetHeight = c.offsetHeight),
+												(this.offsetWidth = c.offsetWidth);
 										} catch (a) {}
-										var d = b.ownerDocument;
+										var e = c.ownerDocument;
 										this.parentWindow =
-											c || b.ownerDocument.defaultView || d.parentWindow;
+											d || c.ownerDocument.defaultView || e.parentWindow;
 										if (this.parentWindow) {
-											c = b;
-											d = this.parentWindow;
-											while (d && this.windowCount < 100) {
+											d = c;
+											e = this.parentWindow;
+											while (e && this.windowCount < 100) {
 												this.windowCount++;
-												b = null;
-												var e = null;
+												c = null;
+												var f = null;
 												try {
-													(e = d.document.referrer),
-														(b = d.location.href || d.document.location.href),
-														(this.topWindow = d),
+													(f = e.document.referrer),
+														(c = e.location.href || e.document.location.href),
+														(this.topWindow = e),
 														(this.topWindowLevel = this.windowCount);
 												} catch (a) {
 													this.crossDomainWindowCount++;
 												}
-												this.ancestorURLs.push(b || e || "");
-												var f = null;
+												this.ancestorURLs.push(c || f || "");
+												var n = null;
 												try {
-													c &&
-														a.isElementVisible(c) === !1 &&
+													d &&
+														a.isElementVisible(d) === !1 &&
 														(this.transparent = !0);
 												} catch (a) {}
-												var p = null;
+												var o = null;
 												if (
-													c &&
-													c.getBoundingClientRect &&
+													d &&
+													d.getBoundingClientRect &&
 													this.crossDomainWindowCount === 0
 												)
 													try {
-														p = c.getBoundingClientRect();
+														o = d.getBoundingClientRect();
 													} catch (a) {}
-												p &&
+												o &&
 													this.crossDomainWindowCount === 0 &&
 													(!this.offsetRect
-														? (this.offsetRect = h.RectangleFromClientRect(p))
+														? (this.offsetRect = b(
+																"Rectangle.adquality"
+														  ).RectangleFromClientRect(o))
 														: (this.offsetRect = this.offsetRect.offset(
-																p.left,
-																p.top
+																o.left,
+																o.top
 														  )));
 												if (!this.parentWindow || !this.parentWindow.top)
-													d = null;
-												else if (d === this.parentWindow.top)
-													b &&
-														((this.pageURL = b),
-														(this.pageDomain = g.extractDomain(b)),
-														(this.domainDetectionMethod = j),
-														(this.focus = f)),
+													e = null;
+												else if (e === this.parentWindow.top)
+													c &&
+														((this.pageURL = c),
+														(this.pageDomain = b("ANUtils").extractDomain(c)),
+														(this.domainDetectionMethod = h),
+														(this.focus = n)),
 														this.windowCount > 1
-															? b
-																? (this.type = n)
-																: (this.type = o)
-															: (this.type = m),
-														this.type !== o &&
-															((this.viewportRect = h.RectangleFromWindow(d)),
+															? c
+																? (this.type = l)
+																: (this.type = m)
+															: (this.type = k),
+														this.type !== m &&
+															((this.viewportRect = b(
+																"Rectangle.adquality"
+															).RectangleFromWindow(e)),
 															this.transparent === null &&
 																(this.transparent = !1)),
-														(d = null);
+														(e = null);
 												else {
-													e &&
-														d.parent === this.parentWindow.top &&
-														((this.pageURL = e),
-														(this.pageDomain = g.extractDomain(e)),
-														(this.domainDetectionMethod = k));
-													c = null;
+													f &&
+														e.parent === this.parentWindow.top &&
+														((this.pageURL = f),
+														(this.pageDomain = b("ANUtils").extractDomain(f)),
+														(this.domainDetectionMethod = i));
+													d = null;
 													try {
-														(c = d.frameElement),
-															c && this.ancestorIframes.push(c);
+														(d = e.frameElement),
+															d && this.ancestorIframes.push(d);
 													} catch (a) {}
-													d = d.parent;
+													e = e.parent;
 												}
 											}
 											if (!this.pageURL) {
-												p = window.location.ancestorOrigins;
-												p &&
-													p.length > 0 &&
-													((this.pageDomain = g.extractDomain(p[p.length - 1])),
-													(this.domainDetectionMethod = l));
+												o = window.location.ancestorOrigins;
+												o &&
+													o.length > 0 &&
+													((this.pageDomain = b("ANUtils").extractDomain(
+														o[o.length - 1]
+													)),
+													(this.domainDetectionMethod = j));
 											}
 										}
 									} catch (a) {
 										this.error = a;
 									}
 								}
-								var b = a.prototype;
-								b.getData = function() {
+								var c = a.prototype;
+								c.getData = function() {
 									var a = null;
 									if (this.error)
 										try {
@@ -7611,29 +7675,29 @@ try {
 										transparent: this.transparent
 									};
 								};
-								b.isSafeframe = function() {
+								c.isSafeframe = function() {
 									return !!this.getSafeFrameAPI();
 								};
-								b.getSafeFrameAPI = function() {
+								c.getSafeFrameAPI = function() {
 									return this.$1(function(a) {
 										return a.$sf && a.$sf.ext;
 									});
 								};
-								b.getMRAIDAPI = function() {
+								c.getMRAIDAPI = function() {
 									return this.$1(function(a) {
 										return a.mraid;
 									});
 								};
-								b.$1 = function(a) {
+								c.$1 = function(a) {
 									__p && __p();
-									var b = g.getWindowHierarchy(this.parentWindow);
+									var c = b("ANUtils").getWindowHierarchy(this.parentWindow);
 									for (
-										var b = b,
-											c = ES("Array", "isArray", !1, b),
-											d = 0,
-											b = c
-												? b
-												: b[
+										var c = c,
+											d = ES("Array", "isArray", !1, c),
+											e = 0,
+											c = d
+												? c
+												: c[
 														typeof Symbol === "function"
 															? Symbol.iterator
 															: "@@iterator"
@@ -7641,31 +7705,31 @@ try {
 										;
 
 									) {
-										var e;
-										if (c) {
-											if (d >= b.length) break;
-											e = b[d++];
+										var f;
+										if (d) {
+											if (e >= c.length) break;
+											f = c[e++];
 										} else {
-											d = b.next();
-											if (d.done) break;
-											e = d.value;
+											e = c.next();
+											if (e.done) break;
+											f = e.value;
 										}
-										e = e;
-										e = a(e);
-										if (e) return e;
+										f = f;
+										f = a(f);
+										if (f) return f;
 									}
 									return null;
 								};
-								b.getNestLevel = function() {
+								c.getNestLevel = function() {
 									return this.ancestorURLs.length - 1;
 								};
-								b.getTopURL = function() {
+								c.getTopURL = function() {
 									return this.ancestorURLs[this.ancestorURLs.length - 1];
 								};
-								b.isCrossDomain = function() {
+								c.isCrossDomain = function() {
 									return this.crossDomainWindowCount > 0;
 								};
-								b.getOverlayedArea = function(a) {
+								c.getOverlayedArea = function(a) {
 									__p && __p();
 									try {
 										var b = this.topWindow,
@@ -7728,76 +7792,83 @@ try {
 							"PageVisibility.adquality",
 							"Rectangle.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b, c) {
-									var d;
-									d = a.call(this, b, c) || this;
-									d.$GeometricMeasurement1 = b;
-									c = new j(b, c);
-									d.$GeometricMeasurement2 = !!(c.viewportRect && c.offsetRect);
-									d.__viewabilityDetection = i.GEOMETRIC;
-									d.$GeometricMeasurement3 = new k(b.ownerDocument);
-									return d;
+								babelHelpers.inheritsLoose(c, a);
+								function c(c, d) {
+									var e;
+									e = a.call(this, c, d) || this;
+									e.$GeometricMeasurement1 = c;
+									d = new (b("HTMLElementFrameContext.adquality"))(c, d);
+									e.$GeometricMeasurement2 = !!(d.viewportRect && d.offsetRect);
+									e.__viewabilityDetection = b(
+										"AdQualityViewabilityDetection"
+									).GEOMETRIC;
+									e.$GeometricMeasurement3 = new (b(
+										"PageVisibility.adquality"
+									))(c.ownerDocument);
+									return e;
 								}
-								var c = b.prototype;
-								c.isAvailable = function() {
+								var d = c.prototype;
+								d.isAvailable = function() {
 									return this.$GeometricMeasurement2;
 								};
-								c.getMeasurement = function(a) {
+								d.getMeasurement = function(a) {
 									__p && __p();
-									var b = new j(
+									var c = new (b("HTMLElementFrameContext.adquality"))(
 											this.$GeometricMeasurement1,
 											this.__parentWindow
 										),
-										c = null,
 										d = null,
-										e = "",
-										f = null,
-										g = null;
+										e = null,
+										f = "",
+										g = null,
+										h = null;
 									try {
 										var i = this.$GeometricMeasurement3.isHidden();
-										typeof i === "boolean" && (d = !i);
-										g = b.offsetRect;
-										b.focus !== null && (d = b.focus);
-										if (b.transparent === !0) {
+										typeof i === "boolean" && (e = !i);
+										h = c.offsetRect;
+										c.focus !== null && (e = c.focus);
+										if (c.transparent === !0) {
 											a(
-												new h({
-													ar: g,
+												new (b("AdQualityMeasurementResult.adquality"))({
+													ar: h,
 													vd: this.__viewabilityDetection,
 													r: "geo-trans",
-													vr: l.RectangleZero()
+													vr: b("Rectangle.adquality").RectangleZero()
 												}),
-												b
+												c
 											);
 											return;
 										}
-										b.viewportRect && g && b.crossDomainWindowCount === 0
-											? ((f =
-													b.viewportRect.intersection(g) || l.RectangleZero()),
-											  (e = f.area() > 0 ? "geo-area" : "geo-no-vr"))
-											: g || (e = "geo-no-or");
-										d === !1 && ((f = l.RectangleZero()), (e = "geo-pv"));
+										c.viewportRect && h && c.crossDomainWindowCount === 0
+											? ((g =
+													c.viewportRect.intersection(h) ||
+													b("Rectangle.adquality").RectangleZero()),
+											  (f = g.area() > 0 ? "geo-area" : "geo-no-vr"))
+											: h || (f = "geo-no-or");
+										e === !1 &&
+											((g = b("Rectangle.adquality").RectangleZero()),
+											(f = "geo-pv"));
 									} catch (a) {
-										c = a;
+										d = a;
 									}
 									a(
-										new h({
-											ar: g,
-											e: c,
+										new (b("AdQualityMeasurementResult.adquality"))({
+											ar: h,
+											e: d,
 											vd: this.__viewabilityDetection,
-											r: e,
-											vr: f
+											r: f,
+											vr: g
 										}),
-										b
+										c
 									);
 								};
-								return b;
-							})(g);
+								return c;
+							})(b("AdQualityMeasurement.adquality"));
 							e.exports = a;
 						},
 						null
@@ -7813,68 +7884,69 @@ try {
 							"Rectangle.adquality",
 							"SimplePromise.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var n = 300,
-								o = [];
-							for (var a = 0; a <= 10; a += 1) o.push(a / 10);
-							b = (function(a) {
+							var g = 300,
+								h = [];
+							for (var a = 0; a <= 10; a += 1) h.push(a / 10);
+							c = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b, c) {
+								babelHelpers.inheritsLoose(c, a);
+								function c(c, d) {
 									__p && __p();
-									var d;
-									d = a.call(this, b, c) || this;
-									d.$IntersectionObserverMeasurement2 = b;
-									d.isAvailable() &&
-										(d.$IntersectionObserverMeasurement4 = new m(function(
-											a,
-											e
-										) {
+									var e;
+									e = a.call(this, c, d) || this;
+									e.$IntersectionObserverMeasurement2 = c;
+									e.isAvailable() &&
+										(e.$IntersectionObserverMeasurement4 = new (b(
+											"SimplePromise.adquality"
+										))(function(a, f) {
 											__p && __p();
-											var f = window.setTimeout(function() {
-													return e();
-												}, n),
-												g = new j(b, c),
-												h = g.offsetRect;
-											g = g.topWindow;
-											var i = b;
-											if (h && g) {
-												var m = l.RectangleFromWindow(g);
+											var i = window.setTimeout(function() {
+													return f();
+												}, g),
+												j = new (b("HTMLElementFrameContext.adquality"))(c, d),
+												k = j.offsetRect;
+											j = j.topWindow;
+											var l = c;
+											if (k && j) {
+												var m = b("Rectangle.adquality").RectangleFromWindow(j);
 												m &&
-													(h.y < m.y ||
-														h.x < m.x ||
-														h.height > m.height ||
-														h.width > m.width) &&
-													(i = g.document.documentElement || b);
+													(k.y < m.y ||
+														k.x < m.x ||
+														k.height > m.height ||
+														k.width > m.width) &&
+													(l = j.document.documentElement || c);
 											}
-											h = d.__parentWindow.IntersectionObserver;
-											d.$IntersectionObserverMeasurement3 = new h(
+											k = e.__parentWindow.IntersectionObserver;
+											e.$IntersectionObserverMeasurement3 = new k(
 												function(b) {
-													var c = !!d.$IntersectionObserverMeasurement1;
-													d.$IntersectionObserverMeasurement1 = b[b.length - 1];
-													c || (window.clearTimeout(f), a());
+													var c = !!e.$IntersectionObserverMeasurement1;
+													e.$IntersectionObserverMeasurement1 = b[b.length - 1];
+													c || (window.clearTimeout(i), a());
 												},
-												{ threshold: o }
+												{ threshold: h }
 											);
-											d.$IntersectionObserverMeasurement3.observe(i);
-											d.$IntersectionObserverMeasurement5 = new k(
-												b.ownerDocument
-											);
+											e.$IntersectionObserverMeasurement3.observe(l);
+											e.$IntersectionObserverMeasurement5 = new (b(
+												"PageVisibility.adquality"
+											))(c.ownerDocument);
 										}));
-									d.__viewabilityDetection = i.INTERSECTION_OBSERVER;
-									return d;
+									e.__viewabilityDetection = b(
+										"AdQualityViewabilityDetection"
+									).INTERSECTION_OBSERVER;
+									return e;
 								}
-								var c = b.prototype;
-								c.destroy = function() {
+								var d = c.prototype;
+								d.destroy = function() {
 									this.$IntersectionObserverMeasurement3 &&
 										this.$IntersectionObserverMeasurement3.disconnect();
 								};
-								c.isAvailable = function() {
+								d.isAvailable = function() {
 									return "IntersectionObserver" in this.__parentWindow;
 								};
-								c.getMeasurement = function(a) {
+								d.getMeasurement = function(a) {
 									__p && __p();
 									var b = this;
 									if (this.$IntersectionObserverMeasurement1) {
@@ -7894,41 +7966,43 @@ try {
 										}
 									);
 								};
-								c.$IntersectionObserverMeasurement6 = function(a) {
+								d.$IntersectionObserverMeasurement6 = function(a) {
 									__p && __p();
 									if (!this.$IntersectionObserverMeasurement1) {
 										this.$IntersectionObserverMeasurement7(a);
 										return;
 									}
-									var b = this.$IntersectionObserverMeasurement1,
-										c = b.boundingClientRect;
-									b = b.intersectionRect;
-									var d = !this.$IntersectionObserverMeasurement5.isHidden(),
-										e = new j(
+									var c = this.$IntersectionObserverMeasurement1,
+										d = c.boundingClientRect;
+									c = c.intersectionRect;
+									var e = !this.$IntersectionObserverMeasurement5.isHidden(),
+										f = new (b("HTMLElementFrameContext.adquality"))(
 											this.$IntersectionObserverMeasurement2,
 											this.__parentWindow
 										);
-									e.focus !== null && (d = d && Boolean(e.focus));
-									e = d ? l.RectangleFromClientRect(b) : l.RectangleZero();
+									f.focus !== null && (e = e && Boolean(f.focus));
+									f = e
+										? b("Rectangle.adquality").RectangleFromClientRect(c)
+										: b("Rectangle.adquality").RectangleZero();
 									a(
-										new h({
-											ar: l.RectangleFromClientRect(c),
+										new (b("AdQualityMeasurementResult.adquality"))({
+											ar: b("Rectangle.adquality").RectangleFromClientRect(d),
 											vd: this.__viewabilityDetection,
-											vr: e
+											vr: f
 										})
 									);
 								};
-								c.$IntersectionObserverMeasurement7 = function(a) {
+								d.$IntersectionObserverMeasurement7 = function(a) {
 									a(
-										h.unknownResult(
+										b("AdQualityMeasurementResult.adquality").unknownResult(
 											this.__viewabilityDetection,
 											this.__viewabilityDetection + "-na"
 										)
 									);
 								};
-								return b;
-							})(g);
-							e.exports = b;
+								return c;
+							})(b("AdQualityMeasurement.adquality"));
+							e.exports = c;
 						},
 						null
 					);
@@ -7942,42 +8016,51 @@ try {
 							"Rectangle.adquality",
 							"nullthrows"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b, c) {
-									var d;
-									d = a.call(this, b, c) || this;
-									d.$SafeframeMeasurement1 = new j(b, c).getSafeFrameAPI();
-									d.__viewabilityDetection = i.SAFEFRAME;
-									return d;
+								babelHelpers.inheritsLoose(c, a);
+								function c(c, d) {
+									var e;
+									e = a.call(this, c, d) || this;
+									e.$SafeframeMeasurement1 = new (b(
+										"HTMLElementFrameContext.adquality"
+									))(c, d).getSafeFrameAPI();
+									e.__viewabilityDetection = b(
+										"AdQualityViewabilityDetection"
+									).SAFEFRAME;
+									return e;
 								}
-								var c = b.prototype;
-								c.isAvailable = function() {
+								var d = c.prototype;
+								d.isAvailable = function() {
 									return !!this.$SafeframeMeasurement1;
 								};
-								c.getMeasurement = function(a) {
-									var b = l(this.$SafeframeMeasurement1);
-									b = b.geom;
-									b = b();
-									b = b.self;
-									var c = Number(b.h),
-										d = Number(b.w),
-										e = Number(b.l),
-										f = Number(b.t);
+								d.getMeasurement = function(a) {
+									var c = b("nullthrows")(this.$SafeframeMeasurement1);
+									c = c.geom;
+									c = c();
+									c = c.self;
+									var d = Number(c.h),
+										e = Number(c.w),
+										f = Number(c.l),
+										g = Number(c.t);
 									a(
-										new h({
-											ar: new k(e, f, d, c),
+										new (b("AdQualityMeasurementResult.adquality"))({
+											ar: new (b("Rectangle.adquality"))(f, g, e, d),
 											vd: this.__viewabilityDetection,
-											vr: new k(e, f, Number(b.xiv) * d, Number(b.yiv) * c)
+											vr: new (b("Rectangle.adquality"))(
+												f,
+												g,
+												Number(c.xiv) * e,
+												Number(c.yiv) * d
+											)
 										})
 									);
 								};
-								return b;
-							})(g);
+								return c;
+							})(b("AdQualityMeasurement.adquality"));
 							e.exports = a;
 						},
 						null
@@ -7992,41 +8075,48 @@ try {
 							"IntersectionObserverMeasurement.adquality",
 							"SafeframeMeasurement.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var m = 100;
+							var g = 100;
 							a = (function() {
 								__p && __p();
-								function a(a, b) {
-									b === void 0 && (b = !1);
+								function a(a, c) {
+									c === void 0 && (c = !1);
 									this.$1 = !1;
 									this.$3 = null;
-									var c = a.ownerDocument.defaultView,
-										d = [new j(a, c), new l(a, c), new i(a, c)],
-										e = new k(a, c);
-									b ? (d = [e].concat(d)) : d.push(e);
-									this.$2 = new g({
+									var d = a.ownerDocument.defaultView,
+										e = [
+											new (b("GeometricMeasurement.adquality"))(a, d),
+											new (b("SafeframeMeasurement.adquality"))(a, d),
+											new (b("AMPMeasurement.adquality"))(a, d)
+										],
+										f = new (b("IntersectionObserverMeasurement.adquality"))(
+											a,
+											d
+										);
+									c ? (e = [f].concat(e)) : e.push(f);
+									this.$2 = new (b("AdQualityManager.adquality"))({
 										element: a,
-										parentWindow: c,
+										parentWindow: d,
 										rules: [],
-										measurementTests: d
+										measurementTests: e
 									});
 								}
-								var b = a.prototype;
-								b.pause = function() {
+								var c = a.prototype;
+								c.pause = function() {
 									this.$1 = !0;
 								};
-								b.resume = function() {
+								c.resume = function() {
 									this.$1 = !1;
 								};
-								b.getDimensions = function() {
+								c.getDimensions = function() {
 									return !this.$4 ? null : this.$4.getAdRect();
 								};
-								b.attachBehaviorManager = function(a) {
+								c.attachBehaviorManager = function(a) {
 									(this.$3 = a), this.$6();
 								};
-								b.$6 = function() {
+								c.$6 = function() {
 									__p && __p();
 									var a = this;
 									if (this.$5 !== void 0) return;
@@ -8041,27 +8131,34 @@ try {
 												b != null &&
 												a.$3.updateView(c, b);
 										});
-									}, m);
+									}, g);
 								};
-								b.getCurrentViewabilityState = function() {
+								c.getCurrentViewabilityState = function() {
 									__p && __p();
-									if (!this.$4) return { viewabilityLevels: [h.UNKNOWN] };
+									if (!this.$4)
+										return { viewabilityLevels: [b("AdViewability").UNKNOWN] };
 									var a = this.$4,
-										b = a.getViewableRatio(),
-										c = a.getViewableWidthRatio();
+										c = a.getViewableRatio(),
+										d = a.getViewableWidthRatio();
 									a = a.getViewableHeightRatio();
-									if (b == null || c == null || a == null)
-										return { viewabilityLevels: [h.UNKNOWN] };
-									if (b <= 0)
-										return { viewabilityLevels: [h.OFFSCREEN_INFINITY] };
-									if (c <= 0.99)
-										return { viewabilityLevels: [h.OFFSCREEN_HORIZONTAL] };
-									b >= 1
-										? (b = [h.FULLY_VISIBLE])
-										: (b = [h.PARTIALLY_VISIBLE]);
+									if (c == null || d == null || a == null)
+										return { viewabilityLevels: [b("AdViewability").UNKNOWN] };
+									if (c <= 0)
+										return {
+											viewabilityLevels: [b("AdViewability").OFFSCREEN_INFINITY]
+										};
+									if (d <= 0.99)
+										return {
+											viewabilityLevels: [
+												b("AdViewability").OFFSCREEN_HORIZONTAL
+											]
+										};
+									c >= 1
+										? (c = [b("AdViewability").FULLY_VISIBLE])
+										: (c = [b("AdViewability").PARTIALLY_VISIBLE]);
 									return {
-										viewabilityLevels: b,
-										widthInView: c,
+										viewabilityLevels: c,
+										widthInView: d,
 										heightInView: a
 									};
 								};
@@ -8090,7 +8187,7 @@ try {
 					__d(
 						"AudienceNetworkHTMLVideoPlayer",
 						["getFullScreenElement"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
@@ -8101,8 +8198,8 @@ try {
 										(this.$2 = []),
 										b || ((this.$1.volume = 1), (this.$1.muted = !1));
 								}
-								var b = a.prototype;
-								b.addEventListener = function(a, b, c) {
+								var c = a.prototype;
+								c.addEventListener = function(a, b, c) {
 									this.$2.push({
 										type: a,
 										listener: b,
@@ -8110,10 +8207,10 @@ try {
 									}),
 										this.$1.addEventListener(a, b, c);
 								};
-								b.enforcesContinuity = function() {
+								c.enforcesContinuity = function() {
 									return !1;
 								};
-								b.exitFullscreen = function() {
+								c.exitFullscreen = function() {
 									document.exitFullscreen
 										? document.exitFullscreen()
 										: document.msExitFullscreen
@@ -8123,27 +8220,27 @@ try {
 												: document.webkitExitFullscreen &&
 												  document.webkitExitFullscreen();
 								};
-								b.getCurrentTime = function() {
+								c.getCurrentTime = function() {
 									return this.$1.currentTime;
 								};
-								b.getDuration = function() {
+								c.getDuration = function() {
 									return this.$1.duration;
 								};
-								b.getError = function() {
+								c.getError = function() {
 									return this.$1.error;
 								};
-								b.getVideoSlot = function() {
+								c.getVideoSlot = function() {
 									return this.$1;
 								};
-								b.getVolume = function() {
+								c.getVolume = function() {
 									return this.$1.volume;
 								};
-								b.getPlaybackRate = function() {
+								c.getPlaybackRate = function() {
 									return this.$1.playbackRate;
 								};
-								b.isFullscreen = function() {
+								c.isFullscreen = function() {
 									if (this.$1.webkitDisplayingFullscreen) return !0;
-									var a = g();
+									var a = b("getFullScreenElement")();
 									a = a === this.$1;
 									if (a) return !0;
 									a = /iPhone OS (9_|8_|7_)|iPod/;
@@ -8153,22 +8250,22 @@ try {
 										? !0
 										: !1;
 								};
-								b.isMuted = function() {
+								c.isMuted = function() {
 									return this.$1.muted;
 								};
-								b.isPaused = function() {
+								c.isPaused = function() {
 									return this.$1.paused;
 								};
-								b.pause = function() {
+								c.pause = function() {
 									this.$1.pause();
 								};
-								b.play = function() {
+								c.play = function() {
 									this.$1.play();
 								};
-								b.remove = function() {
+								c.remove = function() {
 									this.$1.parentNode && this.$1.parentNode.removeChild(this.$1);
 								};
-								b.requestFullscreen = function() {
+								c.requestFullscreen = function() {
 									var a = this.$1;
 									a.requestFullscreen
 										? a.requestFullscreen()
@@ -8179,26 +8276,26 @@ try {
 												: a.webkitRequestFullscreen &&
 												  a.webkitRequestFullscreen();
 								};
-								b.removeEventListener = function(a, b, c) {
+								c.removeEventListener = function(a, b, c) {
 									this.$1.removeEventListener(a, b, c);
 								};
-								b.setSrc = function(a) {
+								c.setSrc = function(a) {
 									this.$1.setAttribute
 										? this.$1.setAttribute("src", a)
 										: (this.$1.src = a);
 								};
-								b.getSrc = function() {
+								c.getSrc = function() {
 									return this.$1.getAttribute
 										? this.$1.getAttribute("src")
 										: this.$1.src;
 								};
-								b.setVolume = function(a) {
+								c.setVolume = function(a) {
 									this.setMuted(a <= 0), (this.$1.volume = a);
 								};
-								b.setMuted = function(a) {
+								c.setMuted = function(a) {
 									this.$1.muted = a;
 								};
-								b.cleanup = function() {
+								c.cleanup = function() {
 									var a = this;
 									ES(this.$2, "forEach", !0, function(b) {
 										a.removeEventListener(
@@ -8208,7 +8305,7 @@ try {
 										);
 									});
 								};
-								b.$3 = function() {
+								c.$3 = function() {
 									if (this.$1.getBoundingClientRect)
 										return this.$1.getBoundingClientRect();
 									else if (
@@ -8218,11 +8315,11 @@ try {
 										return this.$1.parentNode.getBoundingClientRect();
 									return null;
 								};
-								b.getWidth = function() {
+								c.getWidth = function() {
 									var a = this.$3();
 									return a ? a.width : null;
 								};
-								b.getHeight = function() {
+								c.getHeight = function() {
 									var a = this.$3();
 									return a ? a.height : null;
 								};
@@ -8287,13 +8384,13 @@ try {
 							"Rectangle.adquality",
 							"nullthrows"
 						],
-						function(a, b, c, d, e, f, g, h, i, j) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b, c) {
+								babelHelpers.inheritsLoose(c, a);
+								function c(b, c) {
 									var d;
 									d = a.call(this, b, c) || this;
 									d.$BaseXDomainScreenMeasurement1 = b;
@@ -8302,71 +8399,73 @@ try {
 										ES(navigator.platform, "indexOf", !0, "Mac") > -1;
 									return d;
 								}
-								var c = b.prototype;
-								c.__getAdOffset = function() {
+								var d = c.prototype;
+								d.__getAdOffset = function() {
 									throw new Error("Not implemented");
 								};
-								c.__isDocumentHidden = function() {
+								d.__isDocumentHidden = function() {
 									return document.hidden === !0;
 								};
-								c.getMeasurement = function(a) {
+								d.getMeasurement = function(a) {
 									__p && __p();
-									var b = i.RectangleFromClientRect(
+									var c = b("Rectangle.adquality").RectangleFromClientRect(
 											this.$BaseXDomainScreenMeasurement1.getBoundingClientRect()
 										),
-										c = j(
-											i.RectangleFromWindow(this.$BaseXDomainScreenMeasurement3)
+										d = b("nullthrows")(
+											b("Rectangle.adquality").RectangleFromWindow(
+												this.$BaseXDomainScreenMeasurement3
+											)
 										);
 									if (this.__isDocumentHidden()) {
 										a(
-											new h({
-												ar: i.RectangleZero(),
+											new (b("AdQualityMeasurementResult.adquality"))({
+												ar: b("Rectangle.adquality").RectangleZero(),
 												vd: this.__viewabilityDetection,
-												vr: i.RectangleZero()
+												vr: b("Rectangle.adquality").RectangleZero()
 											})
 										);
 										return;
 									}
-									b = b.intersection(c);
-									if (!b) {
-										a(
-											new h({
-												ar: i.RectangleZero(),
-												vd: this.__viewabilityDetection,
-												vr: i.RectangleZero()
-											})
-										);
-										return;
-									}
-									c = this.__getAdOffset();
+									c = c.intersection(d);
 									if (!c) {
 										a(
-											h.unknownResult(
+											new (b("AdQualityMeasurementResult.adquality"))({
+												ar: b("Rectangle.adquality").RectangleZero(),
+												vd: this.__viewabilityDetection,
+												vr: b("Rectangle.adquality").RectangleZero()
+											})
+										);
+										return;
+									}
+									d = this.__getAdOffset();
+									if (!d) {
+										a(
+											b("AdQualityMeasurementResult.adquality").unknownResult(
 												this.__viewabilityDetection,
 												this.__viewabilityDetection + "-no-offset"
 											)
 										);
 										return;
 									}
-									var d = c.x;
-									c = c.y;
-									d = b
-										.offset(d, c)
+									var e = d.x;
+									d = d.y;
+									e = c
+										.offset(e, d)
 										.intersection(
-											i.RectangleFromViewport(
+											b("Rectangle.adquality").RectangleFromViewport(
 												this.$BaseXDomainScreenMeasurement3
 											)
 										);
 									a(
-										new h({
-											ar: b,
+										new (b("AdQualityMeasurementResult.adquality"))({
+											ar: c,
 											vd: this.__viewabilityDetection,
-											vr: d || i.RectangleZero()
+											vr: e || b("Rectangle.adquality").RectangleZero()
 										})
 									);
 								};
-								return b;
-							})(g);
+								return c;
+							})(b("AdQualityMeasurement.adquality"));
 							e.exports = a;
 						},
 						null
@@ -8380,85 +8479,89 @@ try {
 							"BaseXDomainScreenMeasurement.adquality",
 							"HTMLElementFrameContext.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var l = h.isIE11;
-							function m(a, b, c) {
+							var g = b("AdQualityUtils.adquality").isIE11;
+							function h(a, b, c) {
 								a.addEventListener
 									? a.addEventListener(b, c, !1)
 									: a.attachEvent
 										? a.attachEvent("on" + b, c)
 										: (a[b] = c);
 							}
-							var n = 11;
+							var i = 11;
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b, c) {
+								babelHelpers.inheritsLoose(c, a);
+								function c(c, d) {
 									__p && __p();
-									var d;
-									d = a.call(this, b, c) || this;
-									d.$IEXDomainScreenMeasurement1 = null;
-									d.__viewabilityDetection = i.IE_MOUSE;
-									b = new k(b, c);
-									d.$IEXDomainScreenMeasurement3 = b.isCrossDomain();
-									if (!d.isAvailable())
-										return babelHelpers.assertThisInitialized(d);
-									c = b.parentWindow;
-									if (!c) return babelHelpers.assertThisInitialized(d);
-									b = c.document.documentElement;
-									if (!b) return babelHelpers.assertThisInitialized(d);
-									d.$IEXDomainScreenMeasurement4 = b;
-									m(d.$IEXDomainScreenMeasurement4, "click", function(b) {
+									var e;
+									e = a.call(this, c, d) || this;
+									e.$IEXDomainScreenMeasurement1 = null;
+									e.__viewabilityDetection = b(
+										"AdQualityViewabilityDetection"
+									).IE_MOUSE;
+									c = new (b("HTMLElementFrameContext.adquality"))(c, d);
+									e.$IEXDomainScreenMeasurement3 = c.isCrossDomain();
+									if (!e.isAvailable())
+										return babelHelpers.assertThisInitialized(e);
+									d = c.parentWindow;
+									if (!d) return babelHelpers.assertThisInitialized(e);
+									c = d.document.documentElement;
+									if (!c) return babelHelpers.assertThisInitialized(e);
+									e.$IEXDomainScreenMeasurement4 = c;
+									h(e.$IEXDomainScreenMeasurement4, "click", function(b) {
 										b = b || window.event;
-										if (b.target !== d.$IEXDomainScreenMeasurement4) return !0;
+										if (b.target !== e.$IEXDomainScreenMeasurement4) return !0;
 										b.preventDefault();
 										b.stopPropagation();
-										d.$IEXDomainScreenMeasurement1 = {
+										e.$IEXDomainScreenMeasurement1 = {
 											x: b.screenX - b.clientX,
-											y: b.screenY - b.clientY + n
+											y: b.screenY - b.clientY + i
 										};
-										b = d.$IEXDomainScreenMeasurement2;
+										b = e.$IEXDomainScreenMeasurement2;
 										b &&
 											(a.prototype.getMeasurement.call(
-												babelHelpers.assertThisInitialized(d),
+												babelHelpers.assertThisInitialized(e),
 												b
 											),
-											(d.$IEXDomainScreenMeasurement2 = null));
+											(e.$IEXDomainScreenMeasurement2 = null));
 										return !1;
 									});
-									return d;
+									return e;
 								}
-								var c = b.prototype;
-								c.isAvailable = function() {
-									return !this.$IEXDomainScreenMeasurement3 ? !1 : l();
+								var d = c.prototype;
+								d.isAvailable = function() {
+									return !this.$IEXDomainScreenMeasurement3 ? !1 : g();
 								};
-								c.getMeasurement = function(a) {
-									var b = this.$IEXDomainScreenMeasurement2,
-										c = this.$IEXDomainScreenMeasurement4;
-									!c
+								d.getMeasurement = function(a) {
+									var c = this.$IEXDomainScreenMeasurement2,
+										d = this.$IEXDomainScreenMeasurement4;
+									!d
 										? a(
-												g.unknownResult(
+												b("AdQualityMeasurementResult.adquality").unknownResult(
 													this.__viewabilityDetection,
 													this.__viewabilityDetection + "-na"
 												)
 										  )
-										: (b &&
-												b(
-													g.unknownResult(
+										: (c &&
+												c(
+													b(
+														"AdQualityMeasurementResult.adquality"
+													).unknownResult(
 														this.__viewabilityDetection,
 														this.__viewabilityDetection + "-no-click"
 													)
 												),
 										  (this.$IEXDomainScreenMeasurement2 = a),
-										  c.click());
+										  d.click());
 								};
-								c.__getAdOffset = function() {
+								d.__getAdOffset = function() {
 									return this.$IEXDomainScreenMeasurement1;
 								};
-								return b;
-							})(j);
+								return c;
+							})(b("BaseXDomainScreenMeasurement.adquality"));
 							e.exports = a;
 						},
 						null
@@ -8471,63 +8574,65 @@ try {
 							"AdQualityViewabilityDetection",
 							"Rectangle.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var k = 24,
-								l = 2,
-								m = window.performance;
+							var g = 24,
+								h = 2,
+								i = window.performance;
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b, c) {
-									c = a.call(this, b, c) || this;
-									c.$InstantArticleMeasurement1 = b;
-									c.__viewabilityDetection = i.INSTANT_ARTICLES;
-									return c;
+								babelHelpers.inheritsLoose(c, a);
+								function c(c, d) {
+									d = a.call(this, c, d) || this;
+									d.$InstantArticleMeasurement1 = c;
+									d.__viewabilityDetection = b(
+										"AdQualityViewabilityDetection"
+									).INSTANT_ARTICLES;
+									return d;
 								}
-								var c = b.prototype;
-								c.isAvailable = function() {
+								var d = c.prototype;
+								d.isAvailable = function() {
 									var a = navigator.userAgent.toLowerCase();
 									a = /fbia\/fb4a/.test(a);
-									return m && a;
+									return i && a;
 								};
-								c.$InstantArticleMeasurement2 = function(a) {
-									if (!("now" in m)) return;
+								d.$InstantArticleMeasurement2 = function(a) {
+									if (!("now" in i)) return;
 									var b = !1,
 										c = 0,
-										d = m.now(),
+										d = i.now(),
 										e = function e(f) {
-											c !== l && !b && window.requestAnimationFrame(e),
-												c === l && !b && ((b = !0), a(f - d < k)),
+											c !== h && !b && window.requestAnimationFrame(e),
+												c === h && !b && ((b = !0), a(f - d < g)),
 												(d = f),
 												c++;
 										};
 									window.requestAnimationFrame(e);
 									window.setTimeout(function() {
 										b || ((b = !0), a(!1));
-									}, k * 3);
+									}, g * 3);
 								};
-								c.getMeasurement = function(a) {
-									var b = this;
-									this.$InstantArticleMeasurement2(function(c) {
-										var d = new j(
+								d.getMeasurement = function(a) {
+									var c = this;
+									this.$InstantArticleMeasurement2(function(d) {
+										var e = new (b("Rectangle.adquality"))(
 											0,
 											0,
-											b.$InstantArticleMeasurement1.clientWidth,
-											b.$InstantArticleMeasurement1.clientHeight
+											c.$InstantArticleMeasurement1.clientWidth,
+											c.$InstantArticleMeasurement1.clientHeight
 										);
 										a(
-											new h({
-												ar: d,
-												vd: b.__viewabilityDetection,
-												vr: c ? d : j.RectangleZero()
+											new (b("AdQualityMeasurementResult.adquality"))({
+												ar: e,
+												vd: c.__viewabilityDetection,
+												vr: d ? e : b("Rectangle.adquality").RectangleZero()
 											})
 										);
 									});
 								};
-								return b;
-							})(g);
+								return c;
+							})(b("AdQualityMeasurement.adquality"));
 							e.exports = a;
 						},
 						null
@@ -8539,31 +8644,33 @@ try {
 							"AdQualityViewabilityDetection",
 							"BaseXDomainScreenMeasurement.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var j = g.getFirefoxVersion;
+							var g = b("AdQualityUtils.adquality").getFirefoxVersion;
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b, c) {
-									b = a.call(this, b, c) || this;
-									b.__viewabilityDetection = h.MOZILLA_INNER_SCREEN;
-									return b;
+								babelHelpers.inheritsLoose(c, a);
+								function c(c, d) {
+									c = a.call(this, c, d) || this;
+									c.__viewabilityDetection = b(
+										"AdQualityViewabilityDetection"
+									).MOZILLA_INNER_SCREEN;
+									return c;
 								}
-								var c = b.prototype;
-								c.isAvailable = function() {
-									var a = j();
+								var d = c.prototype;
+								d.isAvailable = function() {
+									var a = g();
 									return typeof a === "number" && a >= 3;
 								};
-								c.__getAdOffset = function() {
+								d.__getAdOffset = function() {
 									var a = this.__parentWindow,
 										b = a.mozInnerScreenX;
 									a = a.mozInnerScreenY;
 									return b === void 0 || a === void 0 ? null : { x: b, y: a };
 								};
-								return b;
-							})(i);
+								return c;
+							})(b("BaseXDomainScreenMeasurement.adquality"));
 							e.exports = a;
 						},
 						null
@@ -8576,12 +8683,12 @@ try {
 							"Rectangle.adquality",
 							"SimplePromise.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var k = 4,
-								l = 1;
-							function m(a) {
+							var g = 4,
+								h = 1;
+							function i(a) {
 								for (var b = a.length; b > 0; ) {
 									var c = Math.floor(Math.random() * b--),
 										d = a[b];
@@ -8592,8 +8699,8 @@ try {
 							}
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b, c) {
+								babelHelpers.inheritsLoose(c, a);
+								function c(b, c) {
 									c = a.call(this, b, c) || this;
 									c.$BaseBeaconXMeasurement1 = b;
 									c.$BaseBeaconXMeasurement2 = [];
@@ -8602,104 +8709,118 @@ try {
 									c.$BaseBeaconXMeasurement5 = {};
 									return c;
 								}
-								var c = b.prototype;
-								c.destroy = function() {
+								var d = c.prototype;
+								d.destroy = function() {
 									var a = this;
 									ES(this.$BaseBeaconXMeasurement2, "forEach", !0, function(b) {
 										a.$BaseBeaconXMeasurement1.removeChild(b);
 									});
 								};
-								c.isAvailable = function() {
+								d.isAvailable = function() {
 									return !0;
 								};
-								c.getMeasurement = function(a) {
+								d.getMeasurement = function(a) {
 									__p && __p();
-									var b = this,
-										c = m([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
-										d = m([].concat(c));
-									c = ES(c, "map", !0, function(a, b) {
-										return { x: a, y: d[b] };
+									var c = this,
+										d = i([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+										e = i([].concat(d));
+									d = ES(d, "map", !0, function(a, b) {
+										return { x: a, y: e[b] };
 									});
-									var e = [],
-										f = [];
-									ES(c, "forEach", !0, function(a) {
+									var f = [],
+										g = [];
+									ES(d, "forEach", !0, function(a) {
 										a.x === 0 || a.y === 0 || a.x === 10 || a.y === 10
-											? e.push(a)
-											: f.push(a);
+											? f.push(a)
+											: g.push(a);
 									});
-									var g = ES(e, "map", !0, function(a) {
-										return b.__detectViewability(a);
+									var h = ES(f, "map", !0, function(a) {
+										return c.__detectViewability(a);
 									});
-									j.all(g).then(function(c) {
-										__p && __p();
-										c = c.reduce(function(a, b) {
-											return a + (b === "1" ? 1 : 0);
-										}, 0);
-										if (c === g.length) {
-											a(b.$BaseBeaconXMeasurement6(1));
-											return;
-										}
-										c = [].concat(
-											g,
-											ES(f, "map", !0, function(a) {
-												return b.__detectViewability(a);
-											})
-										);
-										j.all(c).then(function(c) {
-											c = c.reduce(function(a, b) {
+									b("SimplePromise.adquality")
+										.all(h)
+										.then(function(d) {
+											__p && __p();
+											d = d.reduce(function(a, b) {
 												return a + (b === "1" ? 1 : 0);
 											}, 0);
-											c = Math.min(Math.max(-0.05 + c * 0.1, 0), 1);
-											a(b.$BaseBeaconXMeasurement6(c));
+											if (d === h.length) {
+												a(c.$BaseBeaconXMeasurement6(1));
+												return;
+											}
+											d = [].concat(
+												h,
+												ES(g, "map", !0, function(a) {
+													return c.__detectViewability(a);
+												})
+											);
+											b("SimplePromise.adquality")
+												.all(d)
+												.then(function(b) {
+													b = b.reduce(function(a, b) {
+														return a + (b === "1" ? 1 : 0);
+													}, 0);
+													b = Math.min(Math.max(-0.05 + b * 0.1, 0), 1);
+													a(c.$BaseBeaconXMeasurement6(b));
+												});
 										});
-									});
 								};
-								c.$BaseBeaconXMeasurement6 = function(a) {
-									var b = this.$BaseBeaconXMeasurement1,
-										c = a <= 0 ? 0 : b.clientWidth;
-									return new h({
-										ar: new i(0, 0, b.clientWidth, b.clientHeight),
+								d.$BaseBeaconXMeasurement6 = function(a) {
+									var c = this.$BaseBeaconXMeasurement1,
+										d = a <= 0 ? 0 : c.clientWidth;
+									return new (b("AdQualityMeasurementResult.adquality"))({
+										ar: new (b("Rectangle.adquality"))(
+											0,
+											0,
+											c.clientWidth,
+											c.clientHeight
+										),
 										vd: this.__viewabilityDetection,
-										vr: new i(0, 0, c, b.clientHeight * a)
+										vr: new (b("Rectangle.adquality"))(
+											0,
+											0,
+											d,
+											c.clientHeight * a
+										)
 									});
 								};
-								c.__detectViewability = function(a) {
-									var c = this,
-										d = a.x,
-										e = a.y;
-									return new j(function(a, f) {
-										var g = c.$BaseBeaconXMeasurement1.clientWidth,
-											h = c.$BaseBeaconXMeasurement1.clientHeight;
-										c.$BaseBeaconXMeasurement7().then(function(f) {
-											(f.style.left =
-												Math.floor(d * g * 0.1) - b.BEACON_SIZE / 2 + "px"),
-												(f.style.top =
-													Math.floor(e * h * 0.1) - b.BEACON_SIZE / 2 + "px"),
-												c.__checkVisibility(f).then(function(b) {
-													a(b ? "1" : "0");
-													b = c.$BaseBeaconXMeasurement4.shift();
-													b ? b(f) : c.$BaseBeaconXMeasurement3.push(f);
+								d.__detectViewability = function(a) {
+									var d = this,
+										e = a.x,
+										f = a.y;
+									return new (b("SimplePromise.adquality"))(function(a, b) {
+										var g = d.$BaseBeaconXMeasurement1.clientWidth,
+											h = d.$BaseBeaconXMeasurement1.clientHeight;
+										d.$BaseBeaconXMeasurement7().then(function(b) {
+											(b.style.left =
+												Math.floor(e * g * 0.1) - c.BEACON_SIZE / 2 + "px"),
+												(b.style.top =
+													Math.floor(f * h * 0.1) - c.BEACON_SIZE / 2 + "px"),
+												d.__checkVisibility(b).then(function(c) {
+													a(c ? "1" : "0");
+													c = d.$BaseBeaconXMeasurement4.shift();
+													c ? c(b) : d.$BaseBeaconXMeasurement3.push(b);
 												});
 										});
 									});
 								};
-								c.__checkVisibility = function(a) {
+								d.__checkVisibility = function(a) {
 									throw new Error(
 										"Implement __checkVisibility in the subclass"
 									);
 								};
-								c.$BaseBeaconXMeasurement8 = function() {
+								d.$BaseBeaconXMeasurement8 = function() {
 									var a = navigator.userAgent;
-									return /iPhone|iPod/.test(a) ? l : k;
+									return /iPhone|iPod/.test(a) ? h : g;
 								};
-								c.$BaseBeaconXMeasurement7 = function() {
+								d.$BaseBeaconXMeasurement7 = function() {
 									__p && __p();
 									var a = this;
-									return new j(function(c, d) {
+									return new (b("SimplePromise.adquality"))(function(b, d) {
 										__p && __p();
 										var e = a.$BaseBeaconXMeasurement3.pop();
 										if (e) {
-											c(e);
+											b(e);
 											return;
 										}
 										if (
@@ -8711,29 +8832,29 @@ try {
 											e.style.display = "block";
 											e.style.zIndex = "-99999";
 											e.style.border = "none";
-											e.style.width = b.BEACON_SIZE + "px";
-											e.style.height = b.BEACON_SIZE + "px";
+											e.style.width = c.BEACON_SIZE + "px";
+											e.style.height = c.BEACON_SIZE + "px";
 											a.$BaseBeaconXMeasurement1.appendChild(e);
 											a.$BaseBeaconXMeasurement2.push(e);
 											e.addEventListener(
 												"load",
 												function() {
 													a.__checkVisibility(e).then(function(a) {
-														c(e);
+														b(e);
 													});
 												},
 												!1
 											);
 											return;
 										}
-										a.$BaseBeaconXMeasurement4.push(c);
+										a.$BaseBeaconXMeasurement4.push(b);
 									});
 								};
-								c.__setUpBeacon = function(a) {
+								d.__setUpBeacon = function(a) {
 									throw new Error("Implement __setUpBeacon in the subclass");
 								};
-								return b;
-							})(g);
+								return c;
+							})(b("AdQualityMeasurement.adquality"));
 							a.BEACON_SIZE = 2;
 							e.exports = a;
 						},
@@ -8750,73 +8871,77 @@ try {
 							"SimplePromise.adquality",
 							"ViewabilitySettings"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var n = h.getChromeVersion,
-								o = h.getFirefoxVersion,
-								p = h.getSafariVersion,
-								q = h.isEdge,
-								r = 36,
-								s = 2,
-								t = 4;
+							var g = b("AdQualityUtils.adquality").getChromeVersion,
+								h = b("AdQualityUtils.adquality").getFirefoxVersion,
+								i = b("AdQualityUtils.adquality").getSafariVersion,
+								j = b("AdQualityUtils.adquality").isEdge,
+								k = 36,
+								l = 2,
+								m = 4;
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b, c, d) {
+								babelHelpers.inheritsLoose(c, a);
+								function c(c, d, e) {
 									__p && __p();
-									var e;
-									e = a.call(this, b, c) || this;
-									e.$RafBeaconMeasurement6 = function(a) {
+									var f;
+									f = a.call(this, c, d) || this;
+									f.$RafBeaconMeasurement6 = function(a) {
 										var b = a.data;
 										a = a.origin;
 										try {
 											if (a !== null && a !== "null") return;
 											a = ES("JSON", "parse", !1, b);
-											b = e.$RafBeaconMeasurement5[a.id];
+											b = f.$RafBeaconMeasurement5[a.id];
 											b && b(a.iv);
 										} catch (a) {}
 									};
-									e.$RafBeaconMeasurement10 = function(a) {
-										ES(e.$RafBeaconMeasurement8, "forEach", !0, function(b) {
+									f.$RafBeaconMeasurement10 = function(a) {
+										ES(f.$RafBeaconMeasurement8, "forEach", !0, function(b) {
 											return b(a);
 										}),
-											(e.$RafBeaconMeasurement8 = []),
-											(e.$RafBeaconMeasurement7 = !1);
+											(f.$RafBeaconMeasurement8 = []),
+											(f.$RafBeaconMeasurement7 = !1);
 									};
-									e.$RafBeaconMeasurement1 = b;
-									e.$RafBeaconMeasurement2 = !!p();
-									e.__viewabilityDetection = i.RAF;
-									e.$RafBeaconMeasurement9 = 0;
-									e.$RafBeaconMeasurement3 = new k(b, c).isSafeframe();
-									e.$RafBeaconMeasurement7 = !1;
-									e.$RafBeaconMeasurement8 = [];
-									e.$RafBeaconMeasurement4 = d;
-									e.isAvailable() &&
+									f.$RafBeaconMeasurement1 = c;
+									f.$RafBeaconMeasurement2 = !!i();
+									f.__viewabilityDetection = b(
+										"AdQualityViewabilityDetection"
+									).RAF;
+									f.$RafBeaconMeasurement9 = 0;
+									f.$RafBeaconMeasurement3 = new (b(
+										"HTMLElementFrameContext.adquality"
+									))(c, d).isSafeframe();
+									f.$RafBeaconMeasurement7 = !1;
+									f.$RafBeaconMeasurement8 = [];
+									f.$RafBeaconMeasurement4 = e;
+									f.isAvailable() &&
 										window.addEventListener(
 											"message",
-											e.$RafBeaconMeasurement6
+											f.$RafBeaconMeasurement6
 										);
-									e.$RafBeaconMeasurement5 = {};
-									return e;
+									f.$RafBeaconMeasurement5 = {};
+									return f;
 								}
-								var c = b.prototype;
-								c.destroy = function() {
+								var d = c.prototype;
+								d.destroy = function() {
 									window.removeEventListener(
 										"message",
 										this.$RafBeaconMeasurement6
 									),
 										a.prototype.destroy.call(this);
 								};
-								c.isAvailable = function() {
+								d.isAvailable = function() {
 									__p && __p();
 									if (!a.prototype.isAvailable.call(this)) return !1;
 									if (this.$RafBeaconMeasurement3) return !1;
-									if (this.$RafBeaconMeasurement4 && q()) return !1;
+									if (this.$RafBeaconMeasurement4 && j()) return !1;
 									var b = navigator.userAgent.toLowerCase(),
 										c;
-									if ((c = o())) return c >= 40 && c < 49;
-									if ((c = p())) return c >= 9;
+									if ((c = h())) return c >= 40 && c < 49;
+									if ((c = i())) return c >= 9;
 									var d = b.match(/crios\/(\d+)/);
 									if (d) {
 										d = parseInt(d[1], 10);
@@ -8824,23 +8949,26 @@ try {
 									}
 									d = /fbios/.test(b);
 									if (d) return !0;
-									return (c = n()) ? c >= 52 : !1;
+									return (c = g()) ? c >= 52 : !1;
 								};
-								c.getMeasurement = function(b) {
-									var c = this;
-									this.$RafBeaconMeasurement8.push(b);
+								d.getMeasurement = function(c) {
+									var d = this;
+									this.$RafBeaconMeasurement8.push(c);
 									if (this.$RafBeaconMeasurement7) return;
 									this.$RafBeaconMeasurement7 = !0;
-									m.raf_safari_fix && this.$RafBeaconMeasurement2
-										? this.__checkSupportsSafari().then(function(b) {
-												b
+									b("ViewabilitySettings").raf_safari_fix &&
+									this.$RafBeaconMeasurement2
+										? this.__checkSupportsSafari().then(function(c) {
+												c
 													? a.prototype.getMeasurement.call(
-															c,
-															c.$RafBeaconMeasurement10
+															d,
+															d.$RafBeaconMeasurement10
 													  )
-													: c.$RafBeaconMeasurement10(
-															g.unknownResult(
-																c.__viewabilityDetection,
+													: d.$RafBeaconMeasurement10(
+															b(
+																"AdQualityMeasurementResult.adquality"
+															).unknownResult(
+																d.__viewabilityDetection,
 																"raf-safari"
 															)
 													  );
@@ -8850,12 +8978,13 @@ try {
 												this.$RafBeaconMeasurement10
 										  );
 								};
-								c.__checkSupportsSafari = function() {
+								d.__checkSupportsSafari = function() {
 									var a = this;
-									if (this.$RafBeaconMeasurement9 >= t) return l.resolve(!0);
-									else if (this.$RafBeaconMeasurement9 <= -t)
-										return l.resolve(!1);
-									return new l(function(b, c) {
+									if (this.$RafBeaconMeasurement9 >= m)
+										return b("SimplePromise.adquality").resolve(!0);
+									else if (this.$RafBeaconMeasurement9 <= -m)
+										return b("SimplePromise.adquality").resolve(!1);
+									return new (b("SimplePromise.adquality"))(function(b, c) {
 										a.__detectViewability({ x: -1e3, y: -1e3 }).then(function(
 											c
 										) {
@@ -8864,7 +8993,7 @@ try {
 										});
 									});
 								};
-								c.__setUpBeacon = function(a) {
+								d.__setUpBeacon = function(a) {
 									__p && __p();
 									a = document.createElement("iframe");
 									a.sandbox = "allow-scripts";
@@ -8901,27 +9030,27 @@ try {
 									);
 									return a;
 								};
-								c.__checkVisibility = function(a) {
+								d.__checkVisibility = function(a) {
 									__p && __p();
-									var b = this,
-										c = Math.random() + "";
-									return new l(function(d, e) {
+									var c = this,
+										d = Math.random() + "";
+									return new (b("SimplePromise.adquality"))(function(b, e) {
 										var f = a.contentWindow;
-										f.postMessage(c, "*");
+										f.postMessage(d, "*");
 										var g = window.setTimeout(function() {
 											f.postMessage("failed", "*");
-											var a = b.$RafBeaconMeasurement5[c];
+											var a = c.$RafBeaconMeasurement5[d];
 											a && a(!1);
-										}, r * s);
-										b.$RafBeaconMeasurement5[c] = function(a) {
-											delete b.$RafBeaconMeasurement5[c],
+										}, k * l);
+										c.$RafBeaconMeasurement5[d] = function(a) {
+											delete c.$RafBeaconMeasurement5[d],
 												window.clearTimeout(g),
-												d(a);
+												b(a);
 										};
 									});
 								};
-								return b;
-							})(j);
+								return c;
+							})(b("BaseBeaconXMeasurement.adquality"));
 							e.exports = a;
 						},
 						null
@@ -8936,16 +9065,16 @@ try {
 							"MozInnerScreenMeasurement.adquality",
 							"RafBeaconMeasurement.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f) {
 							"use strict";
-							function a(a, b, c) {
+							function a(a, c, d) {
 								return [
-									new i(a, b),
-									new g(a, b),
-									new k(a, b),
-									new l(a, b, c),
-									new h(a, b),
-									new j(a, b)
+									new (b("InstantArticleMeasurement.adquality"))(a, c),
+									new (b("GeometricMeasurement.adquality"))(a, c),
+									new (b("MozInnerScreenMeasurement.adquality"))(a, c),
+									new (b("RafBeaconMeasurement.adquality"))(a, c, d),
+									new (b("IEXDomainScreenMeasurement.adquality"))(a, c),
+									new (b("IntersectionObserverMeasurement.adquality"))(a, c)
 								];
 							}
 							e.exports = { getDefaultMeasurements: a };
@@ -8955,7 +9084,7 @@ try {
 					__d(
 						"AdQualityTest.adquality",
 						["AdQualityStatistics.adquality"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
@@ -8963,27 +9092,31 @@ try {
 								function a(a) {
 									(this.$1 = !1),
 										(this.$2 = a),
-										(this.$3 = new g(a.viewableRatio));
+										(this.$3 = new (b("AdQualityStatistics.adquality"))(
+											a.viewableRatio
+										));
 								}
-								var b = a.prototype;
-								b.registerProgress = function(a, b, c, d) {
+								var c = a.prototype;
+								c.registerProgress = function(a, c, d, e) {
 									__p && __p();
 									if (this.$1) return;
-									this.$3.registerProgress(a, b);
-									c = b.getViewableRatio() || 0;
+									this.$3.registerProgress(a, c);
+									d = c.getViewableRatio() || 0;
 									if (
 										this.$2.continuous &&
-										(!b.getIsContinuous() || c < this.$2.viewableRatio)
+										(!c.getIsContinuous() || d < this.$2.viewableRatio)
 									) {
-										this.$3 = new g(this.$2.viewableRatio);
+										this.$3 = new (b("AdQualityStatistics.adquality"))(
+											this.$2.viewableRatio
+										);
 										return;
 									}
-									d = this.$3.getData().viewableSeconds || 0;
-									d >= this.$2.viewableSeconds &&
-										b.isConclusive() &&
-										this.$4(b);
+									e = this.$3.getData().viewableSeconds || 0;
+									e >= this.$2.viewableSeconds &&
+										c.isConclusive() &&
+										this.$4(c);
 								};
-								b.$4 = function(a) {
+								c.$4 = function(a) {
 									(this.$1 = !0),
 										this.$2.adQualityTestConditionTrueCallback({
 											measurementResult: a,
@@ -9006,34 +9139,38 @@ try {
 							"AdQualityTest.adquality",
 							"ANVideoStateUtils"
 						],
-						function(a, b, c, d, e, f, g, h, i) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var j = 5;
+							var g = 5;
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b) {
-									var c;
-									c = a.call(this, b) || this;
-									c.$AdQualityVideoDynamicIntervalTest2 = {
+								babelHelpers.inheritsLoose(c, a);
+								function c(c) {
+									var d;
+									d = a.call(this, c) || this;
+									d.$AdQualityVideoDynamicIntervalTest2 = {
 										lastViewableRatio: 0,
 										lastLoggingTime: 0,
 										lastStateUpdateTime: 0,
-										lastStatisticsData: new g(0).getData(),
-										lastMonitoringState: i.initState(),
+										lastStatisticsData: new (b(
+											"AdQualityStatistics.adquality"
+										))(0).getData(),
+										lastMonitoringState: b("ANVideoStateUtils").initState(),
 										isInitialized: !1
 									};
-									var d = b.viewableRatio,
-										e = b.adQualityTestConditionTrueCallback;
-									b = b.adQualityTestFinalCallback;
-									c.$AdQualityVideoDynamicIntervalTest1 = new g(d);
-									c.$AdQualityVideoDynamicIntervalTest3 = e;
-									c.$AdQualityVideoDynamicIntervalTest4 = b ? b : function() {};
-									return c;
+									var e = c.viewableRatio,
+										f = c.adQualityTestConditionTrueCallback;
+									c = c.adQualityTestFinalCallback;
+									d.$AdQualityVideoDynamicIntervalTest1 = new (b(
+										"AdQualityStatistics.adquality"
+									))(e);
+									d.$AdQualityVideoDynamicIntervalTest3 = f;
+									d.$AdQualityVideoDynamicIntervalTest4 = c ? c : function() {};
+									return d;
 								}
-								var c = b.prototype;
-								c.registerProgress = function(a, b, c, d) {
+								var d = c.prototype;
+								d.registerProgress = function(a, b, c, d) {
 									a = !0;
 									while (a) {
 										c = this.$AdQualityVideoDynamicIntervalTest2;
@@ -9042,7 +9179,7 @@ try {
 										a = c.checkLogForNextInterval;
 									}
 								};
-								c.$AdQualityVideoDynamicIntervalTest5 = function(a, b, c) {
+								d.$AdQualityVideoDynamicIntervalTest5 = function(a, b, c) {
 									__p && __p();
 									var d = a.videoDuration,
 										e = a.videoTime,
@@ -9105,7 +9242,7 @@ try {
 										checkLogForNextInterval: j
 									};
 								};
-								c.$AdQualityVideoDynamicIntervalTest9 = function(a, b) {
+								d.$AdQualityVideoDynamicIntervalTest9 = function(a, b) {
 									var c = a.loggingTimeInterval,
 										d = a.volume,
 										e = a.isContinuous;
@@ -9124,7 +9261,7 @@ try {
 										b
 									);
 								};
-								c.$AdQualityVideoDynamicIntervalTest7 = function(
+								d.$AdQualityVideoDynamicIntervalTest7 = function(
 									a,
 									b,
 									c,
@@ -9147,7 +9284,7 @@ try {
 									};
 									return { preCallbackAction: c, postCallbackAction: e };
 								};
-								c.$AdQualityVideoDynamicIntervalTest8 = function(
+								d.$AdQualityVideoDynamicIntervalTest8 = function(
 									a,
 									b,
 									c,
@@ -9174,7 +9311,7 @@ try {
 									});
 									return b ? g : h;
 								};
-								c.$AdQualityVideoDynamicIntervalTest6 = function(
+								d.$AdQualityVideoDynamicIntervalTest6 = function(
 									a,
 									b,
 									c,
@@ -9191,14 +9328,14 @@ try {
 												) ||
 													a.isPaused) &&
 													c != b) ||
-												f - c >= j ||
+												f - c >= g ||
 												a.forceFlushLog;
 								};
-								c.$AdQualityVideoDynamicIntervalTest10 = function(a, b) {
+								d.$AdQualityVideoDynamicIntervalTest10 = function(a, b) {
 									return a || !b;
 								};
-								return b;
-							})(h);
+								return c;
+							})(b("AdQualityTest.adquality"));
 							e.exports = a;
 						},
 						null
@@ -9209,18 +9346,20 @@ try {
 							"AdQualityTest.adquality",
 							"AdQualityVideoDynamicIntervalTest.adquality"
 						],
-						function(a, b, c, d, e, f, g, h) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							a = {
-								videoTimeEvent: function(a, b) {
+								videoTimeEvent: function(a, c) {
 									return {
 										continuous: !0,
 										adQualityTestConditionTrueCallback: a,
-										adQualityTestFinalCallback: b,
+										adQualityTestFinalCallback: c,
 										viewableRatio: 0.5,
 										viewableSeconds: 0,
 										createTest: function(a) {
-											return new h(a);
+											return new (b(
+												"AdQualityVideoDynamicIntervalTest.adquality"
+											))(a);
 										}
 									};
 								},
@@ -9232,7 +9371,7 @@ try {
 										viewableRatio: 0.5,
 										viewableSeconds: 2,
 										createTest: function(a) {
-											return new g(a);
+											return new (b("AdQualityTest.adquality"))(a);
 										}
 									};
 								},
@@ -9244,7 +9383,7 @@ try {
 										viewableRatio: 1e-7,
 										viewableSeconds: 0.001,
 										createTest: function(a) {
-											return new g(a);
+											return new (b("AdQualityTest.adquality"))(a);
 										}
 									};
 								}
@@ -9290,20 +9429,22 @@ try {
 					__d(
 						"TAAL",
 						["TAALOpcodes"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							a = {
 								blameToPreviousFile: function(a) {
-									return this.applyOpcodes(a, [g.PREVIOUS_FILE]);
+									return this.applyOpcodes(a, [b("TAALOpcodes").PREVIOUS_FILE]);
 								},
 								blameToPreviousFrame: function(a) {
-									return this.applyOpcodes(a, [g.PREVIOUS_FRAME]);
+									return this.applyOpcodes(a, [
+										b("TAALOpcodes").PREVIOUS_FRAME
+									]);
 								},
 								blameToPreviousDirectory: function(a) {
-									return this.applyOpcodes(a, [g.PREVIOUS_DIR]);
+									return this.applyOpcodes(a, [b("TAALOpcodes").PREVIOUS_DIR]);
 								},
-								applyOpcodes: function(a, b) {
-									return a + g.getString(b);
+								applyOpcodes: function(a, c) {
+									return a + b("TAALOpcodes").getString(c);
 								}
 							};
 							e.exports = a;
@@ -9346,8 +9487,8 @@ try {
 					__d(
 						"ex",
 						["eprintf"],
-						function(a, b, c, d, e, f, g) {
-							function h(a) {
+						function(a, b, c, d, e, f) {
+							function g(a) {
 								for (
 									var b = arguments.length,
 										c = new Array(b > 1 ? b - 1 : 0),
@@ -9361,17 +9502,17 @@ try {
 									}),
 									f = a.split("%s").length - 1;
 								return f !== e.length
-									? h(
+									? g(
 											"ex args number mismatch: %s",
 											ES("JSON", "stringify", !1, [a].concat(e))
 									  )
-									: h._prefix +
+									: g._prefix +
 											ES("JSON", "stringify", !1, [a].concat(e)) +
-											h._suffix;
+											g._suffix;
 							}
-							h._prefix = "<![EX[";
-							h._suffix = "]]>";
-							e.exports = h;
+							g._prefix = "<![EX[";
+							g._suffix = "]]>";
+							e.exports = g;
 						},
 						null
 					);
@@ -9400,54 +9541,54 @@ try {
 					__d(
 						"invariant",
 						["Env", "TAAL", "ex", "sprintf"],
-						function(a, b, c, d, e, f, g, h, i, j) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var k = i;
-							function a(a, b) {
+							var g = b("ex");
+							function a(a, c) {
 								__p && __p();
 								if (!a) {
-									var c = b;
+									var d = c;
 									for (
-										var d = arguments.length,
-											e = new Array(d > 2 ? d - 2 : 0),
-											f = 2;
-										f < d;
-										f++
+										var e = arguments.length,
+											f = new Array(e > 2 ? e - 2 : 0),
+											i = 2;
+										i < e;
+										i++
 									)
-										e[f - 2] = arguments[f];
-									if (typeof c === "number") {
-										var g = l(c, e),
-											i = g.message,
-											j = g.decoderLink;
-										c = i;
-										e.unshift(j);
-									} else if (c === void 0) {
-										c = "Invariant: ";
-										for (var m = 0; m < e.length; m++) c += "%s,";
+										f[i - 2] = arguments[i];
+									if (typeof d === "number") {
+										var j = h(d, f),
+											k = j.message,
+											l = j.decoderLink;
+										d = k;
+										f.unshift(l);
+									} else if (d === void 0) {
+										d = "Invariant: ";
+										for (var m = 0; m < f.length; m++) d += "%s,";
 									}
-									c = h.blameToPreviousFrame(c);
-									var n = new Error(k.apply(void 0, [c].concat(e)));
+									d = b("TAAL").blameToPreviousFrame(d);
+									var n = new Error(g.apply(void 0, [d].concat(f)));
 									n.name = "Invariant Violation";
-									n.messageWithParams = [c].concat(e);
+									n.messageWithParams = [d].concat(f);
 									throw n;
 								}
 							}
-							function l(a, b) {
-								var c = "Minified invariant #" + a + "; %s";
-								b.length > 0 &&
-									(c +=
+							function h(a, c) {
+								var d = "Minified invariant #" + a + "; %s";
+								c.length > 0 &&
+									(d +=
 										" Params: " +
-										ES(b, "map", !0, function(a) {
+										ES(c, "map", !0, function(a) {
 											return "%s";
 										}).join(", "));
 								a =
-									g.show_invariant_decoder === !0
-										? "visit " + m(a, b) + " to see the full message."
+									b("Env").show_invariant_decoder === !0
+										? "visit " + i(a, c) + " to see the full message."
 										: "";
-								return { message: c, decoderLink: a };
+								return { message: d, decoderLink: a };
 							}
-							function m(a, b) {
+							function i(a, b) {
 								a =
 									"https://our.intern.facebook.com/intern/invariant/" + a + "/";
 								b.length > 0 &&
@@ -9465,43 +9606,43 @@ try {
 					__d(
 						"AudienceNetworkVideoMonitor",
 						[
+							"invariant",
 							"AdQualityManager.adquality",
 							"AdQualityMeasurementUtils.adquality",
 							"AdQualityRules.adquality",
 							"ANVideoStateUtils",
-							"HTMLElementFrameContext.adquality",
-							"invariant"
+							"HTMLElementFrameContext.adquality"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k, l) {
+						function(a, b, c, d, e, f, g) {
 							__p && __p();
 							a = (function() {
 								"use strict";
 								__p && __p();
-								function a(a, b) {
+								function a(a, c) {
 									(this.$9 = 0),
 										(this.$1 = a),
-										(this.$2 = b),
-										(this.$5 = j.initState()),
+										(this.$2 = c),
+										(this.$5 = b("ANVideoStateUtils").initState()),
 										(this.$6 = 0),
 										(this.$7 = !1),
 										(this.$8 = null);
 								}
-								var b = a.prototype;
-								b.checkAndSendVideoTimeEvent = function(a) {
+								var c = a.prototype;
+								c.checkAndSendVideoTimeEvent = function(a) {
 									this.$10(a);
 								};
-								b.getAdQualityManager = function() {
+								c.getAdQualityManager = function() {
 									__p && __p();
 									var a = this;
 									if (this.$4) return this.$4;
-									var b = this.$1.getGatingConfig(),
-										c = this.$1.getViewabilityMeasurementElement();
-									this.$4 = new g({
-										element: c,
+									var c = this.$1.getGatingConfig(),
+										d = this.$1.getViewabilityMeasurementElement();
+									this.$4 = new (b("AdQualityManager.adquality"))({
+										element: d,
 										parentWindow: window,
 										rules: [
-											i.mrc(function() {
-												var b = new k(
+											b("AdQualityRules.adquality").mrc(function() {
+												var c = new (b("HTMLElementFrameContext.adquality"))(
 													a.$1.getViewabilityMeasurementElement(),
 													window
 												);
@@ -9509,53 +9650,55 @@ try {
 													a.getAdQualityManager().getStatistics(),
 													a.$11().getCurrentTime() - 2,
 													a.$11().getCurrentTime(),
-													b,
+													c,
 													a.$1.getAdWidth(),
 													a.$1.getAdHeight()
 												);
 											}),
-											i.viewableImpression(function(b) {
+											b("AdQualityRules.adquality").viewableImpression(function(
+												c
+											) {
 												a.$2.logViewableImpressionEvent(
-													b.statistics,
+													c.statistics,
 													Math.max(
 														0,
 														a.$11().getCurrentTime() -
-															b.statistics.viewableSeconds
+															c.statistics.viewableSeconds
 													),
 													a.$11().getCurrentTime()
 												);
-												var c = new k(
+												var d = new (b("HTMLElementFrameContext.adquality"))(
 													a.$1.getViewabilityMeasurementElement(),
 													window
 												);
 												a.$2.logImpressionEvent(
-													c,
-													b.statistics.curViewableRatio,
-													b.measurementResult.getViewabilityDetection(),
-													b.measurementResult.getReason()
+													d,
+													c.statistics.curViewableRatio,
+													c.measurementResult.getViewabilityDetection(),
+													c.measurementResult.getReason()
 												);
 											}),
-											i.videoTimeEvent(
-												function(b) {
-													var c = b.lastLoggingTime,
-														d = b.currentLoggingTime,
-														e = b.statistics,
-														f = new k(
+											b("AdQualityRules.adquality").videoTimeEvent(
+												function(c) {
+													var d = c.lastLoggingTime,
+														e = c.currentLoggingTime,
+														f = c.statistics,
+														g = new (b("HTMLElementFrameContext.adquality"))(
 															a.$1.getViewabilityMeasurementElement(),
 															window
 														),
-														g = function() {
-															b.adQualityTestFinalCallback &&
-																b.adQualityTestFinalCallback();
+														h = function() {
+															c.adQualityTestFinalCallback &&
+																c.adQualityTestFinalCallback();
 														};
 													a.$2.logTimeEvent(
-														c,
 														d,
-														f,
 														e,
+														g,
+														f,
 														a.$1.getAdWidth(),
 														a.$1.getAdHeight(),
-														g
+														h
 													);
 												},
 												function() {
@@ -9563,12 +9706,14 @@ try {
 												}
 											)
 										],
-										gatingConfig: b,
-										measurementTests: h.getDefaultMeasurements(
-											c,
+										gatingConfig: c,
+										measurementTests: b(
+											"AdQualityMeasurementUtils.adquality"
+										).getDefaultMeasurements(
+											d,
 											window,
 											ES(
-												b.killswitches,
+												c.killswitches,
 												"includes",
 												!0,
 												"remove_edge_browser_from_raf_detection"
@@ -9577,14 +9722,14 @@ try {
 									});
 									return this.$4;
 								};
-								b.getLogger = function() {
+								c.getLogger = function() {
 									return this.$2;
 								};
-								b.$11 = function() {
-									this.$3 || l(0, 2333);
+								c.$11 = function() {
+									this.$3 || g(0, 2333);
 									return this.$3;
 								};
-								b.startListening = function(a) {
+								c.startListening = function(a) {
 									(this.$3 = a),
 										this.$2.setPlayer(a),
 										this.$11().addEventListener(
@@ -9603,37 +9748,37 @@ try {
 											!1
 										);
 								};
-								b.$12 = function() {
+								c.$12 = function() {
 									this.$9 === 0 && this.$8 && this.$8();
 								};
-								b.$14 = function() {
+								c.$14 = function() {
 									var a = this.$11().getVolume(),
-										b = this.$11().isMuted();
-									return j.isAudible(a, b);
+										c = this.$11().isMuted();
+									return b("ANVideoStateUtils").isAudible(a, c);
 								};
-								b.$13 = function() {
+								c.$13 = function() {
 									!this.$14() && this.$5.isAudible
 										? (this.$2.logMuteEvent(), (this.$5.isAudible = !1))
 										: this.$14() &&
 										  !this.$5.isAudible &&
 										  (this.$2.logUnMuteEvent(), (this.$5.isAudible = !0));
 								};
-								b.readCurrentState = function() {
+								c.readCurrentState = function() {
 									var a = this.$11().getCurrentTime(),
-										b = ES("Date", "now", !1),
-										c = this.$11().isPaused();
+										c = ES("Date", "now", !1),
+										d = this.$11().isPaused();
 									return {
-										clockTimeMs: b,
+										clockTimeMs: c,
 										videoTime: a,
-										isPaused: c,
+										isPaused: d,
 										isAudible: this.$14(),
 										isFullScreen: this.$11().isFullscreen(),
 										isContinuous:
 											this.$11().enforcesContinuity() ||
-											j.isContinuous(
+											b("ANVideoStateUtils").isContinuous(
 												this.$5,
+												d,
 												c,
-												b,
 												a,
 												this.$11().getDuration()
 											),
@@ -9644,7 +9789,7 @@ try {
 										forceFlushLog: !!this.$8
 									};
 								};
-								b.$10 = function(a) {
+								c.$10 = function(a) {
 									__p && __p();
 									a === void 0 && (a = null);
 									var b = this.$11().getDuration();
@@ -9706,22 +9851,23 @@ try {
 					__d(
 						"MediationDetector",
 						["AMPContextLoader", "ANMWebMediator", "ANUtils", "nullthrows"],
-						function(a, b, c, d, e, f, g, h, i, j) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
 								__p && __p();
 								function a(a) {
 									__p && __p();
-									var b = this;
+									var c = this;
 									this.$2 = function() {
 										__p && __p();
-										if (b.$1.getNestLevel() === 0) return h.NONE;
+										if (c.$1.getNestLevel() === 0)
+											return b("ANMWebMediator").NONE;
 										for (
-											var a = b.$1.ancestorIframes,
-												c = ES("Array", "isArray", !1, a),
-												d = 0,
-												a = c
+											var a = c.$1.ancestorIframes,
+												d = ES("Array", "isArray", !1, a),
+												e = 0,
+												a = d
 													? a
 													: a[
 															typeof Symbol === "function"
@@ -9731,60 +9877,62 @@ try {
 											;
 
 										) {
-											var e;
-											if (c) {
-												if (d >= a.length) break;
-												e = a[d++];
+											var f;
+											if (d) {
+												if (e >= a.length) break;
+												f = a[e++];
 											} else {
-												d = a.next();
-												if (d.done) break;
-												e = d.value;
+												e = a.next();
+												if (e.done) break;
+												f = e.value;
 											}
-											e = e;
-											if (e.src) {
-												e = i.extractDomain(e.src);
-												if (e === b.$1.pageDomain) return h.NONE;
+											f = f;
+											if (f.src) {
+												f = b("ANUtils").extractDomain(f.src);
+												if (f === c.$1.pageDomain)
+													return b("ANMWebMediator").NONE;
 											}
 										}
 										return null;
 									};
 									this.$4 = function() {
-										var a = b.$1.ancestorURLs;
-										if (a.length > 0 && b.$1.getSafeFrameAPI()) {
-											a = i.extractDomain(a[0]);
+										var a = c.$1.ancestorURLs;
+										if (a.length > 0 && c.$1.getSafeFrameAPI()) {
+											a = b("ANUtils").extractDomain(a[0]);
 											if (window.googletag && a === "tpc.googlesyndication.com")
-												return h.GOOGLE_SAFE_FRAME;
-											else return h.UNKNOWN_SAFE_FRAME;
+												return b("ANMWebMediator").GOOGLE_SAFE_FRAME;
+											else return b("ANMWebMediator").UNKNOWN_SAFE_FRAME;
 										}
 										return null;
 									};
 									this.$5 = function() {
-										var a = b.$1.ancestorIframes;
+										var a = c.$1.ancestorIframes;
 										return a.length > 0 &&
 											ES(a[0].id, "indexOf", !0, "google_ads_iframe_") === 0
-											? h.GOOGLE_FRIENDLY_IFRAME
+											? b("ANMWebMediator").GOOGLE_FRIENDLY_IFRAME
 											: null;
 									};
 									this.$8 = function() {
-										var a = b.$1.ancestorIframes;
+										var a = c.$1.ancestorIframes;
 										return a.length > 0 &&
 											(ES(a[0].classList, "contains", !0, "str-fan-iframe") ||
-												j(a[0].parentElement).id === "str-fan-placeholder")
-											? h.SHARETHROUGH
+												b("nullthrows")(a[0].parentElement).id ===
+													"str-fan-placeholder")
+											? b("ANMWebMediator").SHARETHROUGH
 											: null;
 									};
 									this.$9 = function() {
-										var a = b.$1.ancestorIframes;
+										var a = c.$1.ancestorIframes;
 										return a.length > 0 &&
 											ES(a[0].classList, "contains", !0, "fiSafeFrame") &&
 											window.parent.fiQuery
-											? h.FIRSTIMPRESSION_IO
+											? b("ANMWebMediator").FIRSTIMPRESSION_IO
 											: null;
 									};
 									this.$1 = a;
 								}
-								var b = a.prototype;
-								b.getMediator = function() {
+								var c = a.prototype;
+								c.getMediator = function() {
 									var a = [
 										this.$2,
 										this.$3,
@@ -9795,34 +9943,36 @@ try {
 										this.$8,
 										this.$9
 									];
-									for (var b = 0; b < a.length; b++) {
-										var c = a[b];
+									for (var c = 0; c < a.length; c++) {
+										var d = a[c];
 										try {
-											c = c();
-											if (c) return c;
+											d = d();
+											if (d) return d;
 										} catch (a) {}
 									}
-									return h.UNKNOWN;
+									return b("ANMWebMediator").UNKNOWN;
 								};
-								b.$6 = function() {
+								c.$6 = function() {
 									return window.sas &&
 										document.querySelector(
 											'script[src*="www.smartadserver.com/"]'
 										)
 										? window.sas_ajax
-											? h.SMART_ADSERVER_ASYNC
-											: h.SMART_ADSERVER_SYNC
+											? b("ANMWebMediator").SMART_ADSERVER_ASYNC
+											: b("ANMWebMediator").SMART_ADSERVER_SYNC
 										: null;
 								};
-								b.$7 = function() {
+								c.$7 = function() {
 									if (window.ADNXSMediation && window.ADNXSMediation.adFilled)
 										if (window.ADNXSAsync || window.ADNXSMediation.isAsync())
-											return h.APPNEXUS_ASYNC;
-										else return h.APPNEXUS;
+											return b("ANMWebMediator").APPNEXUS_ASYNC;
+										else return b("ANMWebMediator").APPNEXUS;
 									return null;
 								};
-								b.$3 = function() {
-									return g.isAMP() ? h.AMP : null;
+								c.$3 = function() {
+									return b("AMPContextLoader").isAMP()
+										? b("ANMWebMediator").AMP
+										: null;
 								};
 								return a;
 							})();
@@ -9856,20 +10006,20 @@ try {
 					__d(
 						"OnScreenBehaviorManager.anweb",
 						["OnScreenDefinition.anweb"],
-						function(a, b, c, d, e, f, g) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var h = ES("Object", "freeze", !1, {
+							var g = ES("Object", "freeze", !1, {
 								invalid: -1,
 								"off-screen": 0,
 								"partially-on-screen": 1,
 								"mostly-on-screen": 2,
 								"completely-on-screen": 3
 							});
-							function i(a) {
-								return h[a];
+							function h(a) {
+								return g[a];
 							}
-							function j(a, b, c) {
+							function i(a, b, c) {
 								__p && __p();
 								switch (b) {
 									case 3:
@@ -9889,28 +10039,29 @@ try {
 										break;
 								}
 							}
-							function k(a, b, c) {
-								for (var d = b + 1; d <= c; d++) j(a, d, !0);
-								for (var d = b - 1; d >= c; d--) j(a, d, !1);
+							function j(a, b, c) {
+								for (var d = b + 1; d <= c; d++) i(a, d, !0);
+								for (var d = b - 1; d >= c; d--) i(a, d, !1);
 							}
 							a = (function() {
 								__p && __p();
 								function a(a) {
-									a === void 0 && (a = g.MOBILE_FEED),
+									a === void 0 &&
+										(a = b("OnScreenDefinition.anweb").MOBILE_FEED),
 										(this.$3 = a),
 										(this.$1 = "off-screen"),
 										(this.$2 = []);
 								}
-								var b = a.prototype;
-								b.updateView = function(a, b) {
+								var c = a.prototype;
+								c.updateView = function(a, b) {
 									a = this.$3.getState(a, b);
 									this.$4(a);
 								};
-								b.$4 = function(a) {
+								c.$4 = function(a) {
 									__p && __p();
 									if (a === this.$1) return;
-									var b = i(this.$1),
-										c = i(a);
+									var b = h(this.$1),
+										c = h(a);
 									for (
 										var d = this.$2,
 											e = ES("Array", "isArray", !1, d),
@@ -9935,12 +10086,12 @@ try {
 											g = f.value;
 										}
 										g = g;
-										k(g, b, c);
+										j(g, b, c);
 									}
 									this.$1 = a;
 								};
-								b.addBehavior = function(a) {
-									this.$2.push(a), k(a, i("off-screen"), i(this.$1));
+								c.addBehavior = function(a) {
+									this.$2.push(a), j(a, h("off-screen"), h(this.$1));
 								};
 								return a;
 							})();
@@ -9967,13 +10118,13 @@ try {
 					__d(
 						"PlayVideoWhenOnScreenBehavior.anweb",
 						["OnScreenBehavior.anweb", "promiseDone.anweb"],
-						function(a, b, c, d, e, f, g, h) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(b, a);
-								function b(b, c, d) {
+								babelHelpers.inheritsLoose(c, a);
+								function c(b, c, d) {
 									var e;
 									e = a.call(this) || this;
 									e.$PlayVideoWhenOnScreenBehavior1 = b;
@@ -9982,14 +10133,14 @@ try {
 									e.$PlayVideoWhenOnScreenBehavior4 = !1;
 									return e;
 								}
-								var c = b.prototype;
-								c.onCompletelyEntered = function() {
+								var d = c.prototype;
+								d.onCompletelyEntered = function() {
 									var a = this;
 									!this.$PlayVideoWhenOnScreenBehavior4 &&
 										this.$PlayVideoWhenOnScreenBehavior2 &&
 										!this.$PlayVideoWhenOnScreenBehavior1.wasManuallyPaused() &&
 										((this.$PlayVideoWhenOnScreenBehavior4 = !0),
-										h(
+										b("promiseDone.anweb")(
 											this.$PlayVideoWhenOnScreenBehavior1.play().then(
 												function() {
 													return a.$PlayVideoWhenOnScreenBehavior3.event(
@@ -10004,19 +10155,19 @@ try {
 											)
 										));
 								};
-								c.onMostlyLeft = function() {
+								d.onMostlyLeft = function() {
 									this.$PlayVideoWhenOnScreenBehavior1.pause();
 								};
-								c.onCompletelyLeft = function() {
+								d.onCompletelyLeft = function() {
 									this.$PlayVideoWhenOnScreenBehavior1.pause();
 								};
-								c.onMostlyEntered = function() {
+								d.onMostlyEntered = function() {
 									this.$PlayVideoWhenOnScreenBehavior1.hasPlayed() &&
 										!this.$PlayVideoWhenOnScreenBehavior1.wasManuallyPaused() &&
 										this.$PlayVideoWhenOnScreenBehavior1.play();
 								};
-								return b;
-							})(g);
+								return c;
+							})(b("OnScreenBehavior.anweb"));
 							e.exports = a;
 						},
 						null
@@ -10107,6 +10258,7 @@ try {
 					__d(
 						"ANAdManager",
 						[
+							"cx",
 							"AdImpressionBehavior.anweb",
 							"AdMostlyViewableImpressionBehavior.anweb",
 							"AdQualityViewabilityMonitor",
@@ -10141,58 +10293,13 @@ try {
 							"PlayVideoWhenOnScreenBehavior.anweb",
 							"QueryString",
 							"Whiteops",
-							"cx",
 							"getTime",
 							"nullthrows"
 						],
-						function(
-							a,
-							b,
-							c,
-							d,
-							e,
-							f,
-							g,
-							h,
-							i,
-							j,
-							k,
-							l,
-							m,
-							n,
-							o,
-							p,
-							q,
-							r,
-							s,
-							t,
-							u,
-							v,
-							w,
-							x,
-							y,
-							z,
-							A,
-							B,
-							C,
-							D,
-							E,
-							F,
-							G,
-							H,
-							I,
-							J,
-							K,
-							L,
-							M,
-							N,
-							O,
-							P,
-							Q
-						) {
+						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
-							var R = {
+							var h = {
 									"300x250": [300, 250],
 									"320x50": [320, 50],
 									"300x600": [300, 600],
@@ -10201,7 +10308,7 @@ try {
 									fullwidth: [300, 250],
 									rewarded_video: ["100%", "100%"]
 								},
-								S = [
+								i = [
 									"fbAdBody",
 									"fbAdCallToAction",
 									"fbAdIcon",
@@ -10211,7 +10318,7 @@ try {
 									"fbTwoStepDialog",
 									"UNKNOWN"
 								];
-							function T(a) {
+							function j(a) {
 								return {
 									controls: a.controls === "full" ? "full" : "mute_only",
 									endCard: a.endCard || "none",
@@ -10220,72 +10327,79 @@ try {
 							}
 							a = (function() {
 								__p && __p();
-								function a(a, b) {
+								function a(a, c) {
 									__p && __p();
-									var c = this;
+									var d = this;
 									this.$77 = function() {
-										var a = Q(c.$26);
-										c.$21.eventWithParams({
+										var a = b("nullthrows")(d.$26);
+										d.$21.eventWithParams({
 											event_name: "VIDEO_CLICK",
 											video_playback_time: a.getCurrentTime(),
 											video_duration: a.getDuration()
 										});
 									};
-									this.$25 = new n(
-										b,
+									this.$25 = new (b("ANCallbackManager"))(
+										c,
 										a.onMediaLoaded,
 										a.onRewardCompleted,
 										a.onAdClosed
 									);
 									this.$19 = !1;
 									this.$4 = a;
-									this.$20 = new p();
+									this.$20 = new (b("ANEventCounter"))();
 									this.$11 = !1;
 									this.$12 = !1;
 									this.$23 = !1;
 									this.$3 = !1;
 									this.$20.addListener(function() {
-										return c.$25.mediaLoaded();
+										return d.$25.mediaLoaded();
 									});
 									this.$8 = a.displayFormat || a.format || "300x250";
 									this.tagJsIframeAppendedTime = a.tagJsIframeAppendedTime;
-									this.$21 = new s(
-										I.ERROR,
+									this.$21 = new (b("ANLogger"))(
+										b("LogLevels").ERROR,
 										a.tagJsInitTime,
-										y.getNavigationStart(),
-										y.onlyString(a.data.key),
+										b("ANUtils").getNavigationStart(),
+										b("ANUtils").onlyString(a.data.key),
 										a.iframe,
 										a.domain
 									);
-									this.$9 = b;
-									this.$10 = new G(this.$9, this.$28());
+									this.$9 = c;
+									this.$10 = new (b("HTMLElementFrameContext.adquality"))(
+										this.$9,
+										this.$28()
+									);
 									this.$2 = null;
-									this.$18 = new K();
-									this.$22 = new r(this.$9);
+									this.$18 = new (b("OnScreenBehaviorManager.anweb"))();
+									this.$22 = new (b("ANLinkOpener"))(this.$9);
 									this.$28().addEventListener("beforeunload", function() {
-										c.$21.event("ADNW_PAGE_UNLOADED");
+										d.$21.event("ADNW_PAGE_UNLOADED");
 									});
 								}
-								var b = a.prototype;
-								b.sendToFacebook = function(a) {
-									y.sendToFacebook(this.$4.iframe, this.$4.domain, a);
+								var c = a.prototype;
+								c.sendToFacebook = function(a) {
+									b("ANUtils").sendToFacebook(
+										this.$4.iframe,
+										this.$4.domain,
+										a
+									);
 								};
-								b.$28 = function() {
+								c.$28 = function() {
 									return this.$9.ownerDocument.defaultView;
 								};
-								b.$29 = function() {
+								c.$29 = function() {
 									return this.$28().frameElement;
 								};
-								b.$30 = function(a) {
+								c.$30 = function(a) {
 									a = a.ownerDocument;
-									var b = a.createElement("style");
-									b.innerText = H.rules;
-									a.body && a.body.appendChild(b);
+									var c = a.createElement("style");
+									c.innerText = b("JSSDKCssConfig").rules;
+									a.body && a.body.appendChild(c);
 								};
-								b.$31 = function() {
-									return Q(this.$24);
+								c.$31 = function() {
+									return b("nullthrows")(this.$24);
 								};
-								b.$32 = function() {
+								c.$32 = function() {
 									if (!this.$31().$33) return !1;
 									var a = this.$34();
 									return (
@@ -10293,213 +10407,233 @@ try {
 										this.$35()
 									);
 								};
-								b.$36 = function(a) {
+								c.$36 = function(a) {
 									__p && __p();
-									var b = this,
-										c = this.$34();
+									var c = this,
+										d = this.$34();
 									if (!this.$32()) {
-										var d = new l(c, a);
-										d.render();
+										var e = new (b("ANAdChoices"))(d, a);
+										e.render();
 										return;
 									}
-									d = this.$27 ? this.$27.getXoutButton() : null;
-									var e = u.INLINE_CONDENSED;
-									c = new D({
-										parentEl: c,
+									e = this.$27 ? this.$27.getXoutButton() : null;
+									var f = b("ANMWebUnifiedLoggingXOutOrigin").INLINE_CONDENSED;
+									d = new (b("ANXOut"))({
+										parentEl: d,
 										adIcon: a.adIcon,
 										adChoicesLink: a.adChoicesHref,
 										content: this.$31().$37,
-										buttonEl: d,
+										buttonEl: e,
 										allowOptionStepClose: this.$31().$38.allowOptionStepClose,
 										onXOutStart: function() {
-											b.$21.event(v.START, e);
+											c.$21.event(b("ANMWebXOutClientEvent").START, f);
 										},
 										onXOutCancel: function() {
-											b.$21.event(v.CANCEL, e);
+											c.$21.event(b("ANMWebXOutClientEvent").CANCEL, f);
 										},
 										onXOutOption: function(a) {
-											b.sendToFacebook({
+											c.sendToFacebook({
 												name: "xout",
 												params: {
-													key: y.onlyString(b.$4.data.key),
+													key: b("ANUtils").onlyString(c.$4.data.key),
 													reason: a,
-													type: e
+													type: f
 												}
 											}),
-												b.$21.event(v.SELECT_OPTION, a);
+												c.$21.event(
+													b("ANMWebXOutClientEvent").SELECT_OPTION,
+													a
+												);
 										},
 										onXOutFinish: function() {
-											b.$25.adClosed(), b.$21.event(v.FINISH);
+											c.$25.adClosed(),
+												c.$21.event(b("ANMWebXOutClientEvent").FINISH);
 										}
 									});
-									c.render();
+									d.render();
 									return;
 								};
-								b.renderAd = function(a, b, c, d) {
+								c.renderAd = function(a, c, d, e) {
 									__p && __p();
-									var e = this;
-									d = a.features || {};
+									var f = this;
+									e = a.features || {};
 									this.$24 = {
-										$39: !!d.clickOpenNewTab,
-										$40: !!d.enableWhiteops,
-										$41: d.appIDHashed,
-										$38: d,
-										$33: d.inlineXOut,
-										$42: d.isDesktopDisplayFormat,
-										$43: !!d.useIntersectionObserver,
-										$44: !!d.useCtaFallback,
+										$39: !!e.clickOpenNewTab,
+										$40: !!e.enableWhiteops,
+										$41: e.appIDHashed,
+										$38: e,
+										$33: e.inlineXOut,
+										$42: e.isDesktopDisplayFormat,
+										$43: !!e.useIntersectionObserver,
+										$44: !!e.useCtaFallback,
 										$37: a.xout,
-										$45: d.clickGuardElements || S,
-										$46: T(d.video || {}),
-										$47: d.fullwidthMinAspectRatio || 1.5,
-										$48: d.autoplayEnabled === !0,
-										$49: d.separateVideoViewability === !0,
-										$50: d.pubSideLogging === !0
+										$45: e.clickGuardElements || i,
+										$46: j(e.video || {}),
+										$47: e.fullwidthMinAspectRatio || 1.5,
+										$48: e.autoplayEnabled === !0,
+										$49: e.separateVideoViewability === !0,
+										$50: e.pubSideLogging === !0
 									};
-									this.$21.setLogLevel(this.$31().$38.logLevel || I.ERROR);
+									this.$21.setLogLevel(
+										this.$31().$38.logLevel || b("LogLevels").ERROR
+									);
 									this.$21.frameReady();
 									this.$21.setUnifiedLoggingURL(a.unifiedLoggingURL);
-									this.$1 = P();
+									this.$1 = b("getTime")();
 									this.$31().$38.rp && this.$25.enableReward();
-									var f = 0,
-										g = !!a.creativeMarkupBackup;
+									var g = 0,
+										h = !!a.creativeMarkupBackup;
 									!a.nativeAd
 										? (this.$9.style.display = "")
 										: (a.creativeMarkup &&
 												(this.$51() ? this.$52() : this.$53(),
 												this.$31().$38.resizeMediaView &&
 													((this.$9.style.visibility = "hidden"),
-													(f = this.$54()))),
+													(g = this.$54()))),
 										  this.$55(
 												a,
 												a.creativeMarkup,
 												this.$9,
-												b,
+												c,
 												!!this.$31().$38.resizeMediaView
 										  ));
 									this.$34().classList.add("fbAdLoaded");
-									c(a.placementId);
+									d(a.placementId);
 									this.$31().$38.resizeMediaView
 										? window.setTimeout(function() {
 												__p && __p();
-												var c = new q(g, e.$29(), e.$9, e.$7, e.$13, e.$21, f),
-													d = e.$34();
-												d.style.width = y.cssSize(e.$13);
-												e.$5 && e.$5.ensureSizes();
-												d = c.resize(e.$13, d.offsetHeight);
-												d && ((e.$11 = !0), (e.$12 = !!a.nativeCarouselAds));
-												e.$36(a.nativeAd);
-												if (g) {
-													var h = function() {
+												var d = new (b("ANFullWidthLoader"))(
+														h,
+														f.$29(),
+														f.$9,
+														f.$7,
+														f.$13,
+														f.$21,
+														g
+													),
+													e = f.$34();
+												e.style.width = b("ANUtils").cssSize(f.$13);
+												f.$5 && f.$5.ensureSizes();
+												e = d.resize(f.$13, e.offsetHeight);
+												e && ((f.$11 = !0), (f.$12 = !!a.nativeCarouselAds));
+												f.$36(a.nativeAd);
+												if (h) {
+													var i = function() {
 														(a.nativeCarouselAds = null),
-															c.restoreOriginalStyles(),
-															e.$56(
+															d.restoreOriginalStyles(),
+															f.$56(
 																a,
 																a.creativeMarkupBackup,
-																b,
-																!!e.$31().$38.resizeMediaView
+																c,
+																!!f.$31().$38.resizeMediaView
 															),
-															(e.$11 = !1),
-															(e.$12 = !1),
-															e.$36(a.nativeAd),
-															(e.$9.style.visibility = "visible");
+															(f.$11 = !1),
+															(f.$12 = !1),
+															f.$36(a.nativeAd),
+															(f.$9.style.visibility = "visible");
 													};
-													if (!d) h();
+													if (!e) i();
 													else {
-														d = function a() {
-															y.screenIsPortrait() ||
+														e = function a() {
+															b("ANUtils").screenIsPortrait() ||
 																(window.removeEventListener(
 																	"orientationchange",
 																	a
 																),
-																h());
+																i());
 														};
-														window.addEventListener("orientationchange", d);
+														window.addEventListener("orientationchange", e);
 													}
 												}
 										  }, 0)
 										: this.$36(a.nativeAd);
 									this.$31().$44 === !0 &&
-										(this.$17 = this.$57(a.nativeAd, this.$9, b));
+										(this.$17 = this.$57(a.nativeAd, this.$9, c));
 									this.$58(!!a.nativeAd.adVideo);
 									this.$21.eventWithParams(this.$59("ADNW_ADLOADED"));
-									y.autofitTextWhereNeeded(this.$34());
+									b("ANUtils").autofitTextWhereNeeded(this.$34());
 									this.$60();
 								};
-								b.$59 = function(a) {
-									var b = this.$16;
-									if (!b) return { event_name: a, viewability: j.UNKNOWN };
-									b = this.$16.getCurrentViewabilityState();
+								c.$59 = function(a) {
+									var c = this.$16;
+									if (!c)
+										return {
+											event_name: a,
+											viewability: b("AdViewability").UNKNOWN
+										};
+									c = this.$16.getCurrentViewabilityState();
 									return {
 										event_name: a,
-										viewability: b.viewabilityLevels.join(","),
-										width_in_view: b.widthInView || 0,
-										height_in_view: b.heightInView || 0,
-										left: b.pageLeft || 0,
-										top: b.pageTop || 0,
-										scroll_left: b.scrollLeft || 0,
-										scroll_top: b.scrollTop || 0,
-										page_width: b.pageWidth || 0,
-										page_height: b.pageHeight || 0
+										viewability: c.viewabilityLevels.join(","),
+										width_in_view: c.widthInView || 0,
+										height_in_view: c.heightInView || 0,
+										left: c.pageLeft || 0,
+										top: c.pageTop || 0,
+										scroll_left: c.scrollLeft || 0,
+										scroll_top: c.scrollTop || 0,
+										page_width: c.pageWidth || 0,
+										page_height: c.pageHeight || 0
 									};
 								};
-								b.$60 = function() {
+								c.$60 = function() {
 									var a = this.$31().$38.forceIframeSize;
 									if (a) {
-										var b = this.$29();
-										b &&
-											((b.style.width = y.cssSize(a.w)),
-											(b.style.height = y.cssSize(a.h)));
+										var c = this.$29();
+										c &&
+											((c.style.width = b("ANUtils").cssSize(a.w)),
+											(c.style.height = b("ANUtils").cssSize(a.h)));
 									}
 								};
-								b.$54 = function() {
+								c.$54 = function() {
 									var a = 300,
-										b = y.getScreenWidth(),
-										c = this.$29() || this.$9;
-									c = y.findWidestParentElement(c);
-									var d = y.calculateLargestMargin(c);
-									this.$13 = b - d * 2;
+										c = b("ANUtils").getScreenWidth(),
+										d = this.$29() || this.$9;
+									d = b("ANUtils").findWidestParentElement(d);
+									var e = b("ANUtils").calculateLargestMargin(d);
+									this.$13 = c - e * 2;
 									this.$13 < a &&
-										((this.$13 = a), (d = c.getBoundingClientRect().right - a));
-									return d;
+										((this.$13 = a), (e = d.getBoundingClientRect().right - a));
+									return e;
 								};
-								b.$52 = function() {
+								c.$52 = function() {
 									__p && __p();
-									var a = R[this.$8],
-										b = a[0];
+									var a = h[this.$8],
+										c = a[0];
 									a = a[1];
-									var c = document.createElement("iframe");
-									c.classList.add("fbAdWrapper");
-									c.style.border = "0";
-									c.style.width = y.cssSize(b);
-									c.style.height = y.cssSize(a);
-									this.$9.appendChild(c);
-									c.contentDocument.open();
-									c.contentDocument.close();
-									b = Q(c.contentDocument.body);
-									b.style.overflow = "hidden";
-									b.style.margin = "0";
-									b.style.padding = "0";
-									b.style.maxWidth = y.getScreenWidth() + "px";
-									this.$6 = b;
-									this.$7 = c;
+									var d = document.createElement("iframe");
+									d.classList.add("fbAdWrapper");
+									d.style.border = "0";
+									d.style.width = b("ANUtils").cssSize(c);
+									d.style.height = b("ANUtils").cssSize(a);
+									this.$9.appendChild(d);
+									d.contentDocument.open();
+									d.contentDocument.close();
+									c = b("nullthrows")(d.contentDocument.body);
+									c.style.overflow = "hidden";
+									c.style.margin = "0";
+									c.style.padding = "0";
+									c.style.maxWidth = b("ANUtils").getScreenWidth() + "px";
+									this.$6 = c;
+									this.$7 = d;
 								};
-								b.$53 = function() {
+								c.$53 = function() {
 									__p && __p();
 									var a = document.createElement("div");
 									a.style.textAlign = "center";
 									a.style.position = "relative";
 									this.$9.appendChild(a);
 									this.$7 = a;
-									var b = document.createElement("div");
-									b.style.maxWidth = y.cssSize(y.getScreenWidth());
-									b.style.width = "100%";
-									b.style.position = "relative";
-									b.style.display = "inline-block";
-									a.appendChild(b);
-									this.$6 = b;
+									var c = document.createElement("div");
+									c.style.maxWidth = b("ANUtils").cssSize(
+										b("ANUtils").getScreenWidth()
+									);
+									c.style.width = "100%";
+									c.style.position = "relative";
+									c.style.display = "inline-block";
+									a.appendChild(c);
+									this.$6 = c;
 								};
-								b.$34 = function() {
+								c.$34 = function() {
 									var a = this.$51() ? this.$6 || this.$9 : this.$9;
 									return (
 										a.getElementsByClassName("fbANRoot")[0] ||
@@ -10507,10 +10641,10 @@ try {
 										a
 									);
 								};
-								b.$61 = function(a) {
-									return a && a.video ? T(a.video) : this.$31().$46;
+								c.$61 = function(a) {
+									return a && a.video ? j(a.video) : this.$31().$46;
 								};
-								b.$55 = function(a, b, c, d, e) {
+								c.$55 = function(a, b, c, d, e) {
 									(a.nativeAd.loaded = !1),
 										b && b.raw && ((this.$6.innerHTML = b.raw), (c = this.$6)),
 										c && ((c = this.$34()), this.$30(c)),
@@ -10536,36 +10670,46 @@ try {
 												a.nativeAd.textColor
 											));
 								};
-								b.$63 = function(a, b) {
+								c.$63 = function(a, c) {
 									a = this.$64(a);
-									y.resizeElement(b, this.$13, Math.round(this.$13 / a));
+									b("ANUtils").resizeElement(
+										c,
+										this.$13,
+										Math.round(this.$13 / a)
+									);
 								};
-								b.$65 = function() {
+								c.$65 = function() {
 									this.$21.eventWithParams(
 										this.$59("ADNW_MOSTLY_VIEWABLE_FOR_1S")
 									);
 								};
-								b.$66 = function() {
+								c.$66 = function() {
 									if (this.$2) {
 										this.$21.error("Multiple ADIMPRESSION attempted.");
 										return;
 									}
-									this.$2 = P();
+									this.$2 = b("getTime")();
 									var a = this.$67();
 									this.sendToFacebook({
 										name: "impress",
-										params: { key: y.onlyString(this.$4.data.key), payload: a }
+										params: {
+											key: b("ANUtils").onlyString(this.$4.data.key),
+											payload: a
+										}
 									});
 									this.$21.eventWithParams(this.$59("ADNW_ADIMPRESSION"));
-									this.$32() && this.$21.event(v.HAS_INLINE_XOUT);
+									this.$32() &&
+										this.$21.event(b("ANMWebXOutClientEvent").HAS_INLINE_XOUT);
 								};
-								b.$68 = function() {
+								c.$68 = function() {
 									var a = this.$10.getSafeFrameAPI();
 									if (this.$10.isCrossDomain() && !a)
-										return k.isAMP() ? "AMP" : "CROSS_DOMAIN_IFRAME";
-									var b = this.$10.getNestLevel();
-									if (b === 0) return "NO_IFRAME";
-									return b > 1
+										return b("AMPContextLoader").isAMP()
+											? "AMP"
+											: "CROSS_DOMAIN_IFRAME";
+									var c = this.$10.getNestLevel();
+									if (c === 0) return "NO_IFRAME";
+									return c > 1
 										? a
 											? "NESTED_SAFE_FRAME"
 											: "NESTED_FRIENDLY_IFRAME"
@@ -10573,7 +10717,7 @@ try {
 											? "SAFE_FRAME"
 											: "FRIENDLY_IFRAME";
 								};
-								b.$57 = function(a, b, c) {
+								c.$57 = function(a, b, c) {
 									__p && __p();
 									if (this.$31().$44 !== !0) return a && b ? b : c;
 									a = a && b;
@@ -10588,65 +10732,70 @@ try {
 									}
 									return c;
 								};
-								b.$58 = function(a) {
+								c.$58 = function(a) {
 									__p && __p();
-									var b = this;
-									this.$16 = new i(this.$17, this.$31().$43);
+									var c = this;
+									this.$16 = new (b("AdQualityViewabilityMonitor"))(
+										this.$17,
+										this.$31().$43
+									);
 									this.$16.attachBehaviorManager(this.$18);
-									var c = new g(
+									var d = new (b("AdImpressionBehavior.anweb"))(
 										function() {
-											(a && b.$69()) || b.$70();
+											(a && c.$69()) || c.$70();
 										},
 										function() {
-											return b.$21.event("ADNW_PARTIAL_ADIMPRESSION");
+											return c.$21.event("ADNW_PARTIAL_ADIMPRESSION");
 										}
 									);
-									this.$19 || c.mediaLoaded();
-									this.$18.addBehavior(c);
+									this.$19 || d.mediaLoaded();
+									this.$18.addBehavior(d);
 									this.$20.addListener(function() {
-										return c.mediaLoaded();
+										return d.mediaLoaded();
 									});
 									if (this.$31().$38.useMostlyViewableImp) {
-										var d = new h(function() {
-											return b.$65();
-										});
-										this.$19 || d.mediaLoaded();
-										this.$18.addBehavior(d);
+										var e = new (b("AdMostlyViewableImpressionBehavior.anweb"))(
+											function() {
+												return c.$65();
+											}
+										);
+										this.$19 || e.mediaLoaded();
+										this.$18.addBehavior(e);
 										this.$20.addListener(function() {
-											return d.mediaLoaded();
+											return e.mediaLoaded();
 										});
 									}
 								};
-								b.$64 = function(a) {
+								c.$64 = function(a) {
 									if (a.adImageAspectRatio != null && a.adImageAspectRatio > 0)
 										return Math.max(a.adImageAspectRatio, this.$31().$47);
 									else if (a.adVideo) return 1.75;
 									else return 1.9;
 								};
-								b.$71 = function(a, b, c, d, e) {
+								c.$71 = function(a, b, c, d, e) {
 									d
 										? this.$72(b, d)
 										: c.adVideo
 											? this.$73(b, c, e)
 											: this.$74(b, c);
 								};
-								b.$72 = function(a, b) {
+								c.$72 = function(a, c) {
 									__p && __p();
-									var c = this;
+									var d = this;
 									this.$19 = !0;
-									var d = new o({
+									var e = new (b("ANCarousel"))({
 										parent: a,
-										ads: b,
+										ads: c,
 										onCriticalAnimationStart: function() {
-											c.$16.pause();
+											d.$16.pause();
 										},
 										onCriticalAnimationEnd: function() {
-											c.$16.resume();
+											d.$16.resume();
 										},
 										onEvent: function(a, b) {
 											switch (a) {
 												case "AN_CAROUSEL_EVENT_SWIPE":
-													c.$21.eventWithParams({
+													d.$21.eventWithParams({
 														event_name: "CAROUSEL_SWIPE",
 														index: b.index,
 														direction: b.direction
@@ -10656,273 +10805,313 @@ try {
 										onLoadEventCounter: this.$20,
 										adFeatures: this.$31().$38
 									});
-									a.appendChild(d.getElement());
-									d.ensureSizes();
-									ES(d.getLinks(), "forEach", !0, function(a, d) {
-										c.$75(a, b[d]);
+									a.appendChild(e.getElement());
+									e.ensureSizes();
+									ES(e.getLinks(), "forEach", !0, function(a, b) {
+										d.$75(a, c[b]);
 									});
-									this.$5 = d;
+									this.$5 = e;
 								};
-								b.$74 = function(a, b) {
+								c.$74 = function(a, b) {
 									b = this.$76(b);
 									a.firstChild
 										? a.insertBefore(b, a.firstChild)
 										: a.appendChild(b);
 								};
-								b.$73 = function(a, b, c) {
+								c.$73 = function(a, c, d) {
 									__p && __p();
-									var d = this;
-									if (!b.adVideo) throw new Error("No video for Ad.");
-									var e = this.$31().$48;
+									var e = this;
+									if (!c.adVideo) throw new Error("No video for Ad.");
+									var f = this.$31().$48;
 									this.$21.event(
-										e ? "VIDEO_AUTOPLAY_ENABLED" : "VIDEO_AUTOPLAY_DISABLED"
+										f ? "VIDEO_AUTOPLAY_ENABLED" : "VIDEO_AUTOPLAY_DISABLED"
 									);
 									this.$19 = !0;
 									this.$20.addRequiredEvent();
-									b = new C(
-										Q(b.adVideo),
-										b.adImage,
-										e,
-										c,
+									c = new (b("ANWebVideoPlayer.anweb"))(
+										b("nullthrows")(c.adVideo),
+										c.adImage,
+										f,
+										d,
 										function() {
-											d.$20.requiredEventFired();
+											e.$20.requiredEventFired();
 										},
 										this.$77
 									);
-									c = this.$35() && this.$25.isRewardEnabled();
-									if (c) {
-										var f = Q(this.$6);
-										this.$27 = new w(this.$25, f, b, this.$31().$33);
+									d = this.$35() && this.$25.isRewardEnabled();
+									if (d) {
+										var g = b("nullthrows")(this.$6);
+										this.$27 = new (b("ANRewardedVideoPlayer"))(
+											this.$25,
+											g,
+											c,
+											this.$31().$33
+										);
 										this.$27.makeRewarded();
-										f.style.maxWidth = "";
+										g.style.maxWidth = "";
 										this.$7 &&
 											((this.$7.style.maxWidth = "100vw"),
 											(this.$7.style.maxHeight = "100vh"));
 									}
 									if (this.$69()) {
-										f = new E(b.getVideoElement(), !0);
-										var g =
+										g = new (b("AudienceNetworkHTMLVideoPlayer"))(
+											c.getVideoElement(),
+											!0
+										);
+										var h =
 											this.$31().$38.logVideoEvents !== !0 &&
 											this.$31().$38.videoMrcImpression === !0;
-										g = new A(
+										h = new (b("ANWebVideoLogger.anweb"))(
+											h,
 											g,
-											f,
-											y.onlyString(this.$4.data.key),
+											b("ANUtils").onlyString(this.$4.data.key),
 											function(a) {
-												return d.sendToFacebook(a);
+												return e.sendToFacebook(a);
 											},
 											function() {
-												return d.$70();
+												return e.$70();
 											}
 										);
-										g = new F(new B(f), g);
-										g.startListening(f);
+										h = new (b("AudienceNetworkVideoMonitor"))(
+											new (b("ANWebVideoManager"))(g),
+											h
+										);
+										h.startListening(g);
 									}
-									a.appendChild(b.getElement());
-									this.$26 = b;
-									this.$25.setVideo(b);
-									if (!c) {
-										g = this.$18;
+									a.appendChild(c.getElement());
+									this.$26 = c;
+									this.$25.setVideo(c);
+									if (!d) {
+										h = this.$18;
 										if (this.$31().$49) {
-											f = b.getVideoElement();
-											a = new i(f, this.$31().$43);
-											g = new K();
-											a.attachBehaviorManager(g);
+											g = c.getVideoElement();
+											a = new (b("AdQualityViewabilityMonitor"))(
+												g,
+												this.$31().$43
+											);
+											h = new (b("OnScreenBehaviorManager.anweb"))();
+											a.attachBehaviorManager(h);
 										}
-										g.addBehavior(new L(b, e, this.$21));
+										h.addBehavior(
+											new (b("PlayVideoWhenOnScreenBehavior.anweb"))(
+												c,
+												f,
+												this.$21
+											)
+										);
 									}
 								};
-								b.$78 = function(a) {
-									this.$21.logClick(a, Q(this.$1));
-									var b = a.href;
-									a.clickParams.clknutab !== !0 || y.isAppStoreURL(b)
-										? this.$22.open(b)
-										: this.$22.openNewTab(b);
+								c.$78 = function(a) {
+									this.$21.logClick(a, b("nullthrows")(this.$1));
+									var c = a.href;
+									a.clickParams.clknutab !== !0 || b("ANUtils").isAppStoreURL(c)
+										? this.$22.open(c)
+										: this.$22.openNewTab(c);
 								};
-								b.$75 = function(a, b) {
+								c.$75 = function(a, c) {
 									__p && __p();
-									var c = this,
-										d = function(a, d) {
+									var d = this,
+										e = function(a, e) {
 											__p && __p();
-											var e = P(),
-												f = b.href,
-												g = y.maybeHTMLElement(d.target);
-											g = g ? c.$79(g) : t.UNKNOWN;
-											var h = {};
-											if (c.$16) {
-												var i = c.$16.getDimensions(),
-													j = c.$16.getCurrentViewabilityState();
-												i != null &&
-													((h.height = i.height),
-													(h.width = i.width),
-													j.widthInView != null &&
-														j.heightInView != null &&
-														((h.visibleWidth = Math.round(
-															j.widthInView * i.width
+											var f = b("getTime")(),
+												g = c.href,
+												h = b("ANUtils").maybeHTMLElement(e.target);
+											h = h ? d.$79(h) : b("ANMWebAdElement").UNKNOWN;
+											var i = {};
+											if (d.$16) {
+												var j = d.$16.getDimensions(),
+													k = d.$16.getCurrentViewabilityState();
+												j != null &&
+													((i.height = j.height),
+													(i.width = j.width),
+													k.widthInView != null &&
+														k.heightInView != null &&
+														((i.visibleWidth = Math.round(
+															k.widthInView * j.width
 														)),
-														(h.visibleHeight = Math.round(
-															j.heightInView * i.height
+														(i.visibleHeight = Math.round(
+															k.heightInView * j.height
 														))));
-												if (c.$10.getSafeFrameAPI())
-													(h.relClickX = d.clientX), (h.relClickY = d.clientY);
+												if (d.$10.getSafeFrameAPI())
+													(i.relClickX = e.clientX), (i.relClickY = e.clientY);
 												else {
-													h.clickX = d.clientX;
-													h.clickY = d.clientY;
-													if (j.viewportLeft != null && j.viewportTop != null)
-														(h.relClickX = d.clientX - j.viewportLeft),
-															(h.relClickY = d.clientY - j.viewportTop);
+													i.clickX = e.clientX;
+													i.clickY = e.clientY;
+													if (k.viewportLeft != null && k.viewportTop != null)
+														(i.relClickX = e.clientX - k.viewportLeft),
+															(i.relClickY = e.clientY - k.viewportTop);
 													else {
-														i = c.$34().getBoundingClientRect();
-														h.relClickX = d.clientX - i.left;
-														h.relClickY = d.clientY - i.top;
+														j = d.$34().getBoundingClientRect();
+														i.relClickX = e.clientX - j.left;
+														i.relClickY = e.clientY - j.top;
 													}
 												}
 											}
-											j = {
-												clktm: Math.round(e / 1e3),
-												clknutab: c.$31().$39,
-												touch: ES("JSON", "stringify", !1, h)
+											k = {
+												clktm: Math.round(f / 1e3),
+												clknutab: d.$31().$39,
+												touch: ES("JSON", "stringify", !1, i)
 											};
-											c.$2 && (j.clkdel = e - c.$2);
-											h.height &&
-												h.width &&
-												h.visibleWidth &&
-												h.visibleHeight &&
-												(j.vp =
-													(h.visibleWidth * h.visibleHeight) /
-													(h.height * h.width));
-											d = y.isAppStoreURL(f);
-											i = !d && a === x.BILLABLE_CLICK && c.$31().$38.useShim;
-											e =
-												!i &&
-												c.$31().$50 &&
-												c.$21.isPublisherSideLoggingSupported() &&
-												a === x.BILLABLE_CLICK;
-											e &&
-												f === "" &&
-												(c.$21.error("pub_logging_no_href"), (e = !1));
-											g = {
-												key: y.onlyString(c.$4.data.key),
-												href: f,
-												clickParams: j,
-												adElementType: g,
+											d.$2 && (k.clkdel = f - d.$2);
+											i.height &&
+												i.width &&
+												i.visibleWidth &&
+												i.visibleHeight &&
+												(k.vp =
+													(i.visibleWidth * i.visibleHeight) /
+													(i.height * i.width));
+											e = b("ANUtils").isAppStoreURL(g);
+											j =
+												!e &&
+												a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK &&
+												d.$31().$38.useShim;
+											f =
+												!j &&
+												d.$31().$50 &&
+												d.$21.isPublisherSideLoggingSupported() &&
+												a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK;
+											f &&
+												g === "" &&
+												(d.$21.error("pub_logging_no_href"), (f = !1));
+											h = {
+												key: b("ANUtils").onlyString(d.$4.data.key),
+												href: g,
+												clickParams: k,
+												adElementType: h,
 												action: a,
-												videoDuration: c.$26 == null ? 0 : c.$26.getDuration(),
+												videoDuration: d.$26 == null ? 0 : d.$26.getDuration(),
 												videoPlaybackTime:
-													c.$26 == null ? 0 : c.$26.getCurrentTime(),
+													d.$26 == null ? 0 : d.$26.getCurrentTime(),
 												pos: {
-													element: g,
-													width: h.width,
-													height: h.height,
-													visibleWidth: h.visibleWidth,
-													visibleHeight: h.visibleHeight,
-													clickX: h.clickX,
-													clickY: h.clickY,
-													relClickX: h.relClickX,
-													relClickY: h.relClickX
+													element: h,
+													width: i.width,
+													height: i.height,
+													visibleWidth: i.visibleWidth,
+													visibleHeight: i.visibleHeight,
+													clickX: i.clickX,
+													clickY: i.clickY,
+													relClickX: i.relClickX,
+													relClickY: i.relClickX
 												},
-												onlyClickClientEvent: i
+												onlyClickClientEvent: j
 											};
-											if (e) c.$78(g);
-											else if (i) {
-												c.sendToFacebook({ name: "click", params: g });
-												e = M.appendToUrl(f, {
-													ts: j.clktm,
-													dl: j.clkdel,
-													w: h.width,
-													h: h.height,
-													vw: h.visibleWidth,
-													vh: h.visibleHeight,
-													cx: h.clickX,
-													cy: h.clickY,
-													rcx: h.relClickX,
-													rcy: h.relClickY
+											if (f) d.$78(h);
+											else if (j) {
+												d.sendToFacebook({ name: "click", params: h });
+												f = b("QueryString").appendToUrl(g, {
+													ts: k.clktm,
+													dl: k.clkdel,
+													w: i.width,
+													h: i.height,
+													vw: i.visibleWidth,
+													vh: i.visibleHeight,
+													cx: i.clickX,
+													cy: i.clickY,
+													rcx: i.relClickX,
+													rcy: i.relClickY
 												});
-												c.$22.openNewTab(e);
+												d.$22.openNewTab(f);
 											} else
-												c.sendToFacebook({ name: "click", params: g }),
-													c.$31().$39 &&
-														f &&
-														!d &&
-														a === x.BILLABLE_CLICK &&
-														c.$22.openNewTab(f);
-											if (c.$31().$38.useShim || c.$31().$39 || d) {
-												i = new m(window.document);
-												var k = P();
-												i.onBounceBack(function(a) {
-													c.sendToFacebook({
+												d.sendToFacebook({ name: "click", params: h }),
+													d.$31().$39 &&
+														g &&
+														!e &&
+														a ===
+															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK &&
+														d.$22.openNewTab(g);
+											if (d.$31().$38.useShim || d.$31().$39 || e) {
+												j = new (b("ANBounceBackManager"))(window.document);
+												var l = b("getTime")();
+												j.onBounceBack(function(a) {
+													d.sendToFacebook({
 														name: "bounce",
 														params: {
-															key: y.onlyString(c.$4.data.key),
-															leaveTime: k,
-															backTime: P()
+															key: b("ANUtils").onlyString(d.$4.data.key),
+															leaveTime: l,
+															backTime: b("getTime")()
 														}
 													}),
-														c.$21.event("ADNW_BOUNCEBACK", "" + a);
+														d.$21.event("ADNW_BOUNCEBACK", "" + a);
 												});
 											}
 										},
-										e = function() {
-											z.openDialog(c.$34(), b.adSubtitle, b.adIcon)
+										f = function() {
+											b("ANWebTwoStepClickDialog")
+												.openDialog(d.$34(), c.adSubtitle, c.adIcon)
 												.onConfirm(function(a) {
-													(c.$23 = !0), d(x.BILLABLE_CLICK, a);
+													(d.$23 = !0),
+														e(
+															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
+															a
+														);
 												})
 												.onDismiss(function(a) {
-													(c.$23 = !1), d(x.TWO_STEP_CANCEL, a);
+													(d.$23 = !1),
+														e(
+															b("ANUnifiedLoggingClickEvent").TWO_STEP_CANCEL,
+															a
+														);
 												});
 										},
-										f = function(a) {
-											var b = P(),
-												f = y.maybeHTMLElement(a.target);
-											f = f ? c.$79(f) : t.UNKNOWN;
-											var g = c.$31().$38.minClickDelay;
-											g && c.$1 && c.$1 + g > b && !c.$3
-												? ((c.$3 = !0),
-												  d(x.CLICK_GUARD, a),
-												  c.$11 &&
-														c.$31().$38.useTwoStepOnFastClicks === !0 &&
-														e())
-												: ES(c.$31().$45, "includes", !0, f) &&
-												  c.$11 &&
-												  !c.$12 &&
-												  c.$31().$38.useTwoStepClick === !0 &&
-												  !c.$23
-													? (d(x.TWO_STEP_DIALOG, a), e())
-													: d(x.BILLABLE_CLICK, a);
+										g = function(a) {
+											var c = b("getTime")(),
+												g = b("ANUtils").maybeHTMLElement(a.target);
+											g = g ? d.$79(g) : b("ANMWebAdElement").UNKNOWN;
+											var h = d.$31().$38.minClickDelay;
+											h && d.$1 && d.$1 + h > c && !d.$3
+												? ((d.$3 = !0),
+												  e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a),
+												  d.$11 &&
+														d.$31().$38.useTwoStepOnFastClicks === !0 &&
+														f())
+												: ES(d.$31().$45, "includes", !0, g) &&
+												  d.$11 &&
+												  !d.$12 &&
+												  d.$31().$38.useTwoStepClick === !0 &&
+												  !d.$23
+													? (e(
+															b("ANUnifiedLoggingClickEvent").TWO_STEP_DIALOG,
+															a
+													  ),
+													  f())
+													: e(
+															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
+															a
+													  );
 											a.preventDefault();
 											a.stopPropagation();
 										};
 									if (!this.$6) {
-										a.addEventListener("click", f);
+										a.addEventListener("click", g);
 										return;
 									}
-									var g = this.$6.querySelector(".adnwTwoClickBlocker");
-									if (g && !!this.$31().$38.clickConfirmation) {
-										var h = Q(g.querySelector(".adnwCancelLink"));
-										h.addEventListener("click", function(a) {
-											g.style.display = "none";
+									var h = this.$6.querySelector(".adnwTwoClickBlocker");
+									if (h && !!this.$31().$38.clickConfirmation) {
+										var i = b("nullthrows")(h.querySelector(".adnwCancelLink"));
+										i.addEventListener("click", function(a) {
+											h.style.display = "none";
 										});
-										h = Q(g.querySelector(".adnwContinueLink"));
-										h.addEventListener("click", function(a) {
-											(g.style.display = "none"), f(a);
+										i = b("nullthrows")(h.querySelector(".adnwContinueLink"));
+										i.addEventListener("click", function(a) {
+											(h.style.display = "none"), g(a);
 										});
 										a.addEventListener("click", function(a) {
-											g.style.display = "block";
+											h.style.display = "block";
 										});
-									} else a.addEventListener("click", f);
+									} else a.addEventListener("click", g);
 								};
-								b.applyAdTypeClass = function(a, b, c) {
+								c.applyAdTypeClass = function(a, b, c) {
 									c
 										? (a.className += " fbCarouselType")
 										: b.adVideo
 											? (a.className += " fbVideoType")
 											: (a.className += " fbDisplayType");
 								};
-								b.$56 = function(a, b, c, d) {
+								c.$56 = function(a, c, d, e) {
 									__p && __p();
 									this.$16.pause();
 									a.nativeAd.loaded = !1;
-									this.$6.innerHTML = b.raw;
+									this.$6.innerHTML = c.raw;
 									if (this.$6 == null) return;
 									this.$30(this.$34());
 									if (this.$6 == null) return;
@@ -10930,71 +11119,93 @@ try {
 										this.$6,
 										a.nativeAd,
 										a.nativeCarouselAds,
-										d,
-										b && b.dfp,
-										this.$61(b)
+										e,
+										c && c.dfp,
+										this.$61(c)
 									);
 									this.$6 &&
-										((this.$16 = new i(this.$6)),
+										((this.$16 = new (b("AdQualityViewabilityMonitor"))(
+											this.$6
+										)),
 										this.$16.attachBehaviorManager(this.$18));
 								};
-								b.$80 = function(a, b, c, d, e, f) {
-									b.loaded = !0;
-									this.$14 = a.getElementsByClassName(t.FB_AD_MEDIA);
-									for (d = 0; d < this.$14.length; d++)
-										this.$71(a, this.$14[d], b, c, f);
-									this.$81(a, b, "", e);
-									c = a.getElementsByClassName(t.FB_AD_ICON);
-									for (d = 0; d < c.length; d++) c[d].appendChild(this.$82(b));
+								c.$80 = function(a, c, d, e, f, g) {
+									c.loaded = !0;
+									this.$14 = a.getElementsByClassName(
+										b("ANMWebAdElement").FB_AD_MEDIA
+									);
+									for (e = 0; e < this.$14.length; e++)
+										this.$71(a, this.$14[e], c, d, g);
+									this.$81(a, c, "", f);
+									d = a.getElementsByClassName(b("ANMWebAdElement").FB_AD_ICON);
+									for (e = 0; e < d.length; e++) d[e].appendChild(this.$82(c));
 								};
-								b.$83 = function(a) {
-									a = Q(a.ownerDocument.body);
+								c.$83 = function(a) {
+									a = b("nullthrows")(a.ownerDocument.body);
 									a.addEventListener("touchstart", function() {}, !1);
 								};
-								b.$62 = function(a, b, c, d, e, f, g) {
-									if (!a || !c || c.loaded) return !1;
-									this.applyAdTypeClass(a, c, d);
+								c.$62 = function(a, c, d, e, f, g, h) {
+									if (!a || !d || d.loaded) return !1;
+									this.applyAdTypeClass(a, d, e);
 									this.$83(a);
-									c.loaded = !0;
-									var h = !1;
-									d = this.$84(a, c, d, "", e, f, g);
+									d.loaded = !0;
+									var i = !1;
+									e = this.$84(a, d, e, "", f, g, h);
 									this.$31().$40 === !0 &&
-										N.run(b, "AN_MWEB", c.topDomain, this.$31().$41, a);
-									return h || d;
+										b("Whiteops").run(
+											c,
+											"AN_MWEB",
+											d.topDomain,
+											this.$31().$41,
+											a
+										);
+									return i || e;
 								};
-								b.$84 = function(a, b, c, d, e, f, g) {
-									var h,
-										i = !1;
-									this.$14 = a.getElementsByClassName(t.FB_AD_MEDIA + d);
-									for (h = 0; h < this.$14.length; h++)
-										(i = !0),
-											e && !c && this.$63(b, this.$14[h]),
-											this.$71(a, this.$14[h], b, c, g);
-									this.$81(a, b, d, f);
-									c = a.getElementsByClassName(t.FB_AD_ICON + d);
-									for (h = 0; h < c.length; h++) c[h].appendChild(this.$82(b));
-									return i;
+								c.$84 = function(a, c, d, e, f, g, h) {
+									var i,
+										j = !1;
+									this.$14 = a.getElementsByClassName(
+										b("ANMWebAdElement").FB_AD_MEDIA + e
+									);
+									for (i = 0; i < this.$14.length; i++)
+										(j = !0),
+											f && !d && this.$63(c, this.$14[i]),
+											this.$71(a, this.$14[i], c, d, h);
+									this.$81(a, c, e, g);
+									d = a.getElementsByClassName(
+										b("ANMWebAdElement").FB_AD_ICON + e
+									);
+									for (i = 0; i < d.length; i++) d[i].appendChild(this.$82(c));
+									return j;
 								};
-								b.$81 = function(a, b, c, d) {
+								c.$81 = function(a, c, d, e) {
 									__p && __p();
-									var e;
-									d = a.getElementsByClassName(t.FB_AD_TITLE + c);
-									for (e = 0; e < d.length; e++) d[e].textContent = b.adTitle;
-									d = a.getElementsByClassName(t.FB_AD_SUBTITLE + c);
-									for (e = 0; e < d.length; e++)
-										d[e].textContent = b.adSubtitle;
-									d = a.getElementsByClassName(t.FB_AD_BODY + c);
-									for (e = 0; e < d.length; e++) d[e].textContent = b.adBody;
-									d = a.getElementsByClassName(t.FB_AD_CALL_TO_ACTION + c);
-									for (e = 0; e < d.length; e++)
-										d[e].textContent = b.adCallToAction;
-									d = a.getElementsByClassName("fbAdSocialContext" + c);
-									for (e = 0; e < d.length; e++)
-										d[e].textContent = b.adSocialContext;
-									d = a.getElementsByClassName("fbAdLink" + c);
-									for (e = 0; e < d.length; e++) this.$75(d[e], b);
+									var f;
+									e = a.getElementsByClassName(
+										b("ANMWebAdElement").FB_AD_TITLE + d
+									);
+									for (f = 0; f < e.length; f++) e[f].textContent = c.adTitle;
+									e = a.getElementsByClassName(
+										b("ANMWebAdElement").FB_AD_SUBTITLE + d
+									);
+									for (f = 0; f < e.length; f++)
+										e[f].textContent = c.adSubtitle;
+									e = a.getElementsByClassName(
+										b("ANMWebAdElement").FB_AD_BODY + d
+									);
+									for (f = 0; f < e.length; f++) e[f].textContent = c.adBody;
+									e = a.getElementsByClassName(
+										b("ANMWebAdElement").FB_AD_CALL_TO_ACTION + d
+									);
+									for (f = 0; f < e.length; f++)
+										e[f].textContent = c.adCallToAction;
+									e = a.getElementsByClassName("fbAdSocialContext" + d);
+									for (f = 0; f < e.length; f++)
+										e[f].textContent = c.adSocialContext;
+									e = a.getElementsByClassName("fbAdLink" + d);
+									for (f = 0; f < e.length; f++) this.$75(e[f], c);
 								};
-								b.$82 = function(a) {
+								c.$82 = function(a) {
 									var b = this,
 										c = document.createElement("img");
 									c.style.height = "100%";
@@ -11007,7 +11218,7 @@ try {
 									c.src = a.adIcon;
 									return c;
 								};
-								b.$76 = function(a) {
+								c.$76 = function(a) {
 									__p && __p();
 									var b = this,
 										c = document.createElement("img");
@@ -11035,46 +11246,48 @@ try {
 									c.src = a.adImage;
 									return c;
 								};
-								b.$85 = function() {
+								c.$85 = function() {
 									return this.$8 === "native";
 								};
-								b.$35 = function() {
+								c.$35 = function() {
 									return this.$8 === "rewarded_video";
 								};
-								b.$51 = function() {
-									return !this.$29() && !this.$85() && R[this.$8];
+								c.$51 = function() {
+									return !this.$29() && !this.$85() && h[this.$8];
 								};
-								b.$70 = function() {
+								c.$70 = function() {
 									this.$34().classList.add("fbVisibleOnce"), this.$66();
 								};
-								b.$67 = function() {
+								c.$67 = function() {
 									var a = this.$16.getDimensions(),
-										b =
+										c =
 											(this.$16 && this.$16.getCurrentViewabilityState()) ||
 											null;
 									return {
 										width: a ? a.width : null,
 										height: a ? a.height : null,
-										width_in_view: (b && b.widthInView) || null,
-										height_in_view: (b && b.heightInView) || null,
-										top: (b && b.pageTop) || null,
-										left: (b && b.pageLeft) || null,
-										scroll_top: (b && b.scrollTop) || null,
-										scroll_left: (b && b.scrollLeft) || null,
-										page_width: (b && b.pageWidth) || null,
-										page_height: (b && b.pageHeight) || null,
+										width_in_view: (c && c.widthInView) || null,
+										height_in_view: (c && c.heightInView) || null,
+										top: (c && c.pageTop) || null,
+										left: (c && c.pageLeft) || null,
+										scroll_top: (c && c.scrollTop) || null,
+										scroll_left: (c && c.scrollLeft) || null,
+										page_width: (c && c.pageWidth) || null,
+										page_height: (c && c.pageHeight) || null,
 										hosturl: this.$10.getTopURL(),
 										iframe_status: this.$68(),
 										nest_level: this.$10.getNestLevel(),
 										iframe_urls: this.$10.ancestorURLs.slice(0, -1),
-										mediation_service: new J(this.$10).getMediator(),
+										mediation_service: new (b("MediationDetector"))(
+											this.$10
+										).getMediator(),
 										nmv: this.$15
 									};
 								};
-								b.$79 = function(a) {
+								c.$79 = function(a) {
 									__p && __p();
-									var b;
-									b = ((b = {
+									var c;
+									c = ((c = {
 										fbAdCallToAction: "fbAdCallToAction",
 										fbAdTitle: "fbAdTitle",
 										fbAdBody: "fbAdBody",
@@ -11083,18 +11296,18 @@ try {
 										fbAdMediaCenter: "fbAdMediaCenter",
 										fbAdMedia: "fbAdMedia"
 									}),
-									(b._74vg = "fbTwoStepDialog"),
-									b);
-									var c = this.$34();
-									for (var d in b) {
-										var e = c.getElementsByClassName(d);
+									(c._74vg = "fbTwoStepDialog"),
+									c);
+									var d = this.$34();
+									for (var e in c) {
+										var f = d.getElementsByClassName(e);
 										for (
-											var e = e,
-												f = ES("Array", "isArray", !1, e),
-												g = 0,
-												e = f
-													? e
-													: e[
+											var f = f,
+												g = ES("Array", "isArray", !1, f),
+												h = 0,
+												f = g
+													? f
+													: f[
 															typeof Symbol === "function"
 																? Symbol.iterator
 																: "@@iterator"
@@ -11102,22 +11315,22 @@ try {
 											;
 
 										) {
-											var h;
-											if (f) {
-												if (g >= e.length) break;
-												h = e[g++];
+											var i;
+											if (g) {
+												if (h >= f.length) break;
+												i = f[h++];
 											} else {
-												g = e.next();
-												if (g.done) break;
-												h = g.value;
+												h = f.next();
+												if (h.done) break;
+												i = h.value;
 											}
-											h = h;
-											if (a === h || ES(h, "contains", !0, a)) return b[d];
+											i = i;
+											if (a === i || ES(i, "contains", !0, a)) return c[e];
 										}
 									}
-									return t.UNKNOWN;
+									return b("ANMWebAdElement").UNKNOWN;
 								};
-								b.$69 = function() {
+								c.$69 = function() {
 									return (
 										this.$31().$38.videoMrcImpression === !0 ||
 										this.$31().$38.logVideoEvents === !0
@@ -11138,87 +11351,87 @@ try {
 							"ANUtils",
 							"OnScreenBehaviorManager.anweb"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
 								__p && __p();
-								function a(a, b, c, d, e, f, g) {
+								function a(a, c, d, e, f, g, h) {
 									(this.$1 = a),
-										(this.$2 = b),
-										(this.$3 = c),
-										(this.$4 = d),
-										(this.$5 = f),
-										(this.$6 = g),
-										(this.$7 = e),
+										(this.$2 = c),
+										(this.$3 = d),
+										(this.$4 = e),
+										(this.$5 = g),
+										(this.$6 = h),
+										(this.$7 = f),
 										(this.$8 = []),
-										(this.$9 = new i(c));
+										(this.$9 = new (b("ANLinkOpener"))(d));
 								}
 								a.render = function(b, c, d, e, f, g, h) {
 									b = new a(b, c, d, e, f, g, h);
 									b.$10();
 									return b;
 								};
-								var b = a.prototype;
-								b.$11 = function(a, b) {
-									var c = this,
-										d = b.querySelector(".fbArticleImage"),
-										e = new k();
-									b = new h(b);
-									b.attachBehaviorManager(e);
-									var f = new g(
+								var c = a.prototype;
+								c.$11 = function(a, c) {
+									var d = this,
+										e = c.querySelector(".fbArticleImage"),
+										f = new (b("OnScreenBehaviorManager.anweb"))();
+									c = new (b("AdQualityViewabilityMonitor"))(c);
+									c.attachBehaviorManager(f);
+									var g = new (b("AdImpressionBehavior.anweb"))(
 										function() {
-											c.$5(a);
+											d.$5(a);
 										},
 										function() {}
 									);
-									d &&
-										(d.complete && f.mediaLoaded(),
-										d.addEventListener("load", function() {
-											f.mediaLoaded();
+									e &&
+										(e.complete && g.mediaLoaded(),
+										e.addEventListener("load", function() {
+											g.mediaLoaded();
 										}));
-									e.addBehavior(f);
+									f.addBehavior(g);
 								};
-								b.$12 = function(a, b, c) {
+								c.$12 = function(a, b, c) {
 									var d = this;
 									this.$11(a, c);
 									c.addEventListener("click", function() {
 										d.$6(a), d.$9.open(b.link);
 									});
 								};
-								b.$13 = function(a, b) {
-									b.innerHTML = this.$4;
-									var c = b.querySelector(".fbArticleImage"),
-										d = b.querySelector(".fbArticleTitle"),
-										e = b.querySelector(".fbArticleSubtitle"),
-										f = b.querySelector(".fbArticleSource");
-									c && (c.src = a.image);
-									d && (d.textContent = a.title);
-									e && (e.textContent = a.summary);
-									f && (f.textContent = a.source);
-									j.autofitTextWhereNeeded(b);
+								c.$13 = function(a, c) {
+									c.innerHTML = this.$4;
+									var d = c.querySelector(".fbArticleImage"),
+										e = c.querySelector(".fbArticleTitle"),
+										f = c.querySelector(".fbArticleSubtitle"),
+										g = c.querySelector(".fbArticleSource");
+									d && (d.src = a.image);
+									e && (e.textContent = a.title);
+									f && (f.textContent = a.summary);
+									g && (g.textContent = a.source);
+									b("ANUtils").autofitTextWhereNeeded(c);
 								};
-								b.$10 = function() {
+								c.$10 = function() {
 									__p && __p();
 									var a = this.$3.querySelectorAll(".fbSlot"),
-										b = 0,
-										c = 0;
-									for (var d = 0; d < a.length; d++) {
-										var e = a[d];
-										if (ES(e.classList, "contains", !0, "fbSlotAd")) {
-											var f = this.$2[b++];
-											this.$8.push(f);
-											this.$7(f, e);
+										c = 0,
+										d = 0;
+									for (var e = 0; e < a.length; e++) {
+										var f = a[e];
+										if (ES(f.classList, "contains", !0, "fbSlotAd")) {
+											var g = this.$2[c++];
+											this.$8.push(g);
+											this.$7(g, f);
 										} else if (
-											ES(e.classList, "contains", !0, "fbSlotArticle")
+											ES(f.classList, "contains", !0, "fbSlotArticle")
 										) {
-											f = this.$1[c++];
-											this.$8.push(f);
-											this.$13(f, e);
-											this.$12(d, f, e);
+											g = this.$1[d++];
+											this.$8.push(g);
+											this.$13(g, f);
+											this.$12(e, g, f);
 										}
 									}
-									j.autofitIfInDfpIframe(this.$3);
+									b("ANUtils").autofitIfInDfpIframe(this.$3);
 								};
 								return a;
 							})();
@@ -11235,43 +11448,47 @@ try {
 							"ANUtils",
 							"LogLevels"
 						],
-						function(a, b, c, d, e, f, g, h, i, j, k) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
 								__p && __p();
 								function a(a) {
-									var b = this;
+									var c = this;
 									this.$1 = !1;
 									this.$2 = a;
-									this.$3 = new h(
-										k.ERROR,
+									this.$3 = new (b("ANLogger"))(
+										b("LogLevels").ERROR,
 										a.tagJsInitTime,
-										j.getNavigationStart(),
+										b("ANUtils").getNavigationStart(),
 										this.$4(),
 										this.$2.iframe,
 										this.$2.domain
 									);
 									window.addEventListener("pagehide", function() {
-										b.$1 || b.$3.event("ADNW_UNLOAD_BEFORE_ADLOADED");
+										c.$1 || c.$3.event("ADNW_UNLOAD_BEFORE_ADLOADED");
 									});
 								}
-								var b = a.prototype;
-								b.$4 = function() {
-									return j.onlyString(
+								var c = a.prototype;
+								c.$4 = function() {
+									return b("ANUtils").onlyString(
 										this.$2.data.key ||
 											(this.$2.data.keys && this.$2.data.keys[0])
 									);
 								};
-								b.sendToFacebook = function(a) {
-									j.sendToFacebook(this.$2.iframe, this.$2.domain, a);
+								c.sendToFacebook = function(a) {
+									b("ANUtils").sendToFacebook(
+										this.$2.iframe,
+										this.$2.domain,
+										a
+									);
 								};
-								b.renderAd = function(a, b, c, d, e) {
-									var f = ES("Object", "assign", !1, {}, this.$2, { data: a });
-									f = new g(f, b);
-									f.renderAd(a, c, d, e);
+								c.renderAd = function(a, c, d, e, f) {
+									var g = ES("Object", "assign", !1, {}, this.$2, { data: a });
+									g = new (b("ANAdManager"))(g, c);
+									g.renderAd(a, d, e, f);
 								};
-								b.$5 = function(a) {
+								c.$5 = function(a) {
 									__p && __p();
 									var b = [];
 									if (a.nativeAd) b = [a];
@@ -11287,73 +11504,73 @@ try {
 										}
 									return b;
 								};
-								b.$6 = function() {
-									return j.onlyString(this.$2.data.requestId);
+								c.$6 = function() {
+									return b("ANUtils").onlyString(this.$2.data.requestId);
 								};
-								b.$7 = function(a, b, c, d) {
+								c.$7 = function(a, c, d, e) {
 									__p && __p();
-									var e = this,
-										f = this.$5(a),
-										g = !!a.recommendedContent,
-										h = f.length > 1,
-										k = this.$2.rootElement;
-									a.wrapperMarkup && (k.innerHTML = a.wrapperMarkup);
-									if (g)
-										i.render(
+									var f = this,
+										g = this.$5(a),
+										h = !!a.recommendedContent,
+										i = g.length > 1,
+										j = this.$2.rootElement;
+									a.wrapperMarkup && (j.innerHTML = a.wrapperMarkup);
+									if (h)
+										b("ANRecirculationUnit").render(
 											a.recommendedContent,
-											f,
-											k,
+											g,
+											j,
 											a.wrapperItemMarkup,
-											function(a, f) {
-												e.renderAd(a, f, b, c, d);
+											function(a, b) {
+												f.renderAd(a, b, c, d, e);
 											},
 											function(a) {
-												j.sendToFacebook(e.$2.iframe, e.$2.domain, {
+												b("ANUtils").sendToFacebook(f.$2.iframe, f.$2.domain, {
 													name: "recirc",
 													params: {
-														reqId: e.$6(),
+														reqId: f.$6(),
 														payload: { type: "impression", index: a }
 													}
 												});
 											},
-											function(b) {
-												var c = a.features || {};
-												if (c.skipRecircClickEvent === !0) return;
-												j.sendToFacebook(e.$2.iframe, e.$2.domain, {
+											function(c) {
+												var d = a.features || {};
+												if (d.skipRecircClickEvent === !0) return;
+												b("ANUtils").sendToFacebook(f.$2.iframe, f.$2.domain, {
 													name: "recirc",
 													params: {
-														reqId: e.$6(),
-														payload: { type: "click", index: b }
+														reqId: f.$6(),
+														payload: { type: "click", index: c }
 													}
 												});
 											}
 										);
 									else
-										for (var g = 0; g < f.length; g++) {
-											var l = f[g],
-												m = k;
-											h &&
-												((m = document.createElement("div")),
-												(m.className = "fbAdSlot-" + g),
-												k.appendChild(m));
-											this.renderAd(l, m, b, c, d);
+										for (var h = 0; h < g.length; h++) {
+											var k = g[h],
+												l = j;
+											i &&
+												((l = document.createElement("div")),
+												(l.className = "fbAdSlot-" + h),
+												j.appendChild(l));
+											this.renderAd(k, l, c, d, e);
 										}
 								};
-								b.adLoaded = function(a, b, c, d) {
+								c.adLoaded = function(a, c, d, e) {
 									__p && __p();
 									if (this.$1) {
 										this.$3.error("Multiple ADLOADED attempted.");
 										return;
 									}
-									var e = a.features || {};
-									this.$3.setLogLevel(e.logLevel || k.ERROR);
+									var f = a.features || {};
+									this.$3.setLogLevel(f.logLevel || b("LogLevels").ERROR);
 									this.$3.frameReady();
 									if (!a.success) {
 										this.$3.error();
-										d(a.errorCode, a.errorMsg, a.placementId);
+										e(a.errorCode, a.errorMsg, a.placementId);
 										return;
 									}
-									this.$7(a, b, c, d);
+									this.$7(a, c, d, e);
 									this.$1 = !0;
 								};
 								return a;
@@ -11365,14 +11582,14 @@ try {
 					__d(
 						"legacy:fb.fbadnw55",
 						["ANCoreProxy", "ANUtils", "getTime", "nullthrows"],
-						function(a, b, c, d, e, f, g, h, i, j) {
+						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var k = window;
-							function l(a, b) {
+							var g = window;
+							function h(a, b) {
 								__p && __p();
 								var c = function(a) {
-										k.setTimeout(function() {
+										g.setTimeout(function() {
 											return b(a);
 										}, 0);
 									},
@@ -11383,7 +11600,7 @@ try {
 								for (
 									var e = a,
 										f = ES("Array", "isArray", !1, e),
-										g = 0,
+										h = 0,
 										e = f
 											? e
 											: e[
@@ -11394,68 +11611,68 @@ try {
 									;
 
 								) {
-									var h;
+									var i;
 									if (f) {
-										if (g >= e.length) break;
-										h = e[g++];
+										if (h >= e.length) break;
+										i = e[h++];
 									} else {
-										g = e.next();
-										if (g.done) break;
-										h = g.value;
+										h = e.next();
+										if (h.done) break;
+										i = h.value;
 									}
-									h = h;
-									c(h);
+									i = i;
+									c(i);
 								}
 							}
-							var m = function(a, b) {
+							var i = function(a, c) {
 								__p && __p();
 								if (a.rootElement.dataset.parsed) return;
 								a.rootElement.dataset.parsed = "true";
-								a.domain = h.extractOrigin(a.iframe.src);
+								a.domain = b("ANUtils").extractOrigin(a.iframe.src);
 								a.data = {};
-								a.core = new g(a);
-								var c = function(b) {
+								a.core = new (b("ANCoreProxy"))(a);
+								var d = function(c) {
 										__p && __p();
 										if (a.isAdLoaded) return;
 										a.isAdLoaded = !0;
-										var c = j(b.iframeData),
-											d = b.data.features || {},
-											e = b.data.clientEventURL || "";
-										if (c.result === "valid") {
-											a.data.result = c.result;
-											c = !!d.useClickUrlFromAdResponse;
-											var f = [],
-												g = [];
+										var d = b("nullthrows")(c.iframeData),
+											e = c.data.features || {},
+											f = c.data.clientEventURL || "";
+										if (d.result === "valid") {
+											a.data.result = d.result;
+											d = !!e.useClickUrlFromAdResponse;
+											var g = [],
+												h = [];
 											if (a.data.keys) {
-												f = a.data.keys;
-												var i = b.data.nativeAds;
+												g = a.data.keys;
+												var i = c.data.nativeAds;
 												i &&
-													(g = ES(i, "map", !0, function(a) {
+													(h = ES(i, "map", !0, function(a) {
 														return a.href;
 													}));
 											} else {
-												i = b.data.nativeAd;
-												g.push(i && i.href);
-												f.push(a.data.key);
+												i = c.data.nativeAd;
+												h.push(i && i.href);
+												g.push(a.data.key);
 											}
-											for (var i = 0; i < f.length; i++)
+											for (var i = 0; i < g.length; i++)
 												a.core.sendToFacebook({
 													name: "init",
 													params: {
-														key: h.onlyString(f[i]),
-														features: d,
-														clientEventUrl: h.onlyString(e),
-														clickUrl: c ? h.onlyString(g[i]) : null
+														key: b("ANUtils").onlyString(g[i]),
+														features: e,
+														clientEventUrl: b("ANUtils").onlyString(f),
+														clickUrl: d ? b("ANUtils").onlyString(h[i]) : null
 													}
 												});
 										} else
-											b.data = {
+											c.data = {
 												errorCode: "1007",
 												errorMsg: "Incorrect Domain",
-												placementId: b.placementId
+												placementId: c.placementId
 											};
 										a.core.adLoaded(
-											b.data,
+											c.data,
 											a.iframe,
 											function() {
 												a.onAdLoaded(a.rootElement);
@@ -11463,36 +11680,36 @@ try {
 											ES(a.onAdError, "bind", !0, a)
 										);
 									},
-									d = function(b, d) {
+									e = function(c, e) {
 										__p && __p();
-										if (d.source !== b.iframe.contentWindow) return;
-										b = j(b.iframeData);
-										switch (d.name) {
+										if (e.source !== c.iframe.contentWindow) return;
+										c = b("nullthrows")(c.iframeData);
+										switch (e.name) {
 											case "iframeLoaded":
-												b.result ||
-													((b.result = d.data.result),
-													(b.pluginPerf = d.data.pluginPerf));
-												a.xhrLoaded && c(a);
+												c.result ||
+													((c.result = e.data.result),
+													(c.pluginPerf = e.data.pluginPerf));
+												a.xhrLoaded && d(a);
 												break;
 											case "xhrLoaded":
 												a.xhrLoaded = !0;
-												d = d.data;
-												for (var e in d) a.data[e] = d[e];
-												(a.data.code || b.result) && c(a);
+												e = e.data;
+												for (var f in e) a.data[f] = e[f];
+												(a.data.code || c.result) && d(a);
 												break;
 										}
 									};
-								a.core.sdkJSComplete = i();
-								l(a.events, function(b) {
-									return d(a, b);
+								a.core.sdkJSComplete = b("getTime")();
+								h(a.events, function(b) {
+									return e(a, b);
 								});
 							};
 							a = function() {
-								var a = h.getV55TagStateContainer();
+								var a = b("ANUtils").getV55TagStateContainer();
 								a.sdkInitialized ||
 									((a.sdkInitialized = !0),
-									l(a.ads, function(b) {
-										return m(b, a);
+									h(a.ads, function(b) {
+										return i(b, a);
 									}));
 							};
 							a();
@@ -11515,7 +11732,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4850498","namespace":"FB","message":"' +
+				'","revision":"4850779","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
