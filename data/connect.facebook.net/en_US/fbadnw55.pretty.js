@@ -1,4 +1,4 @@
-/*1552617529,,JIT Construction: v4853689,en_US*/
+/*1552685769,,JIT Construction: v4856779,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -11037,17 +11037,23 @@ try {
 													(i.height * i.width));
 											e = b("ANUtils").isAppStoreURL(g);
 											j =
-												!e &&
-												a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK &&
-												d.$31().$38.useShim;
+												ES(
+													g,
+													"indexOf",
+													!0,
+													"facebook.com/audienetwork/wclk"
+												) !== -1;
 											f =
+												j &&
+												a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK;
+											var l =
 												!j &&
 												d.$31().$50 &&
 												d.$21.isPublisherSideLoggingSupported() &&
 												a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK;
-											f &&
+											l &&
 												g === "" &&
-												(d.$21.error("pub_logging_no_href"), (f = !1));
+												(d.$21.error("pub_logging_no_href"), (l = !1));
 											h = {
 												key: b("ANUtils").onlyString(d.$4.data.key),
 												href: g,
@@ -11068,9 +11074,9 @@ try {
 													relClickX: i.relClickX,
 													relClickY: i.relClickX
 												},
-												onlyClickClientEvent: j
+												onlyClickClientEvent: f
 											};
-											if (f) d.$79(h);
+											if (l) d.$79(h);
 											else if (j) {
 												d.sendToFacebook({ name: "click", params: h });
 												f = b("QueryString").appendToUrl(g, {
@@ -11094,15 +11100,15 @@ try {
 														a ===
 															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK &&
 														d.$22.openNewTab(g);
-											if (d.$31().$38.useShim || d.$31().$39 || e) {
-												j = new (b("ANBounceBackManager"))(window.document);
-												var l = b("getTime")();
-												j.onBounceBack(function(a) {
+											if (d.$31().$39 || e) {
+												l = new (b("ANBounceBackManager"))(window.document);
+												var m = b("getTime")();
+												l.onBounceBack(function(a) {
 													d.sendToFacebook({
 														name: "bounce",
 														params: {
 															key: b("ANUtils").onlyString(d.$4.data.key),
-															leaveTime: l,
+															leaveTime: m,
 															backTime: b("getTime")()
 														}
 													}),
@@ -11808,7 +11814,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4853689","namespace":"FB","message":"' +
+				'","revision":"4856779","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
