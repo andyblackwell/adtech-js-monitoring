@@ -1,4 +1,4 @@
-/*1552927363,,JIT Construction: v4860969,en_US*/
+/*1552948417,,JIT Construction: v4862382,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -11125,7 +11125,7 @@ try {
 													g,
 													"indexOf",
 													!0,
-													"facebook.com/audienetwork/wclk"
+													"facebook.com/ads/conv_redirect"
 												) !== -1;
 											f =
 												j &&
@@ -11898,7 +11898,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4860969","namespace":"FB","message":"' +
+				'","revision":"4862382","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
