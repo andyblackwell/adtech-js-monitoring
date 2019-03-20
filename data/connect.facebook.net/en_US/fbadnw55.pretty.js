@@ -1,4 +1,4 @@
-/*1553045868,,JIT Construction: v4869329,en_US*/
+/*1553054371,,JIT Construction: v4870456,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -11168,18 +11168,16 @@ try {
 													"indexOf",
 													!0,
 													"facebook.com/ads/conv_redirect"
-												) !== -1;
-											f =
-												j &&
+												) !== -1 &&
 												a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK;
-											var l =
+											f =
 												!j &&
 												d.$31().$50 &&
 												d.$21.isPublisherSideLoggingSupported() &&
 												a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK;
-											l &&
+											f &&
 												g === "" &&
-												(d.$21.error("pub_logging_no_href"), (l = !1));
+												(d.$21.error("pub_logging_no_href"), (f = !1));
 											h = {
 												key: b("ANUtils").onlyString(d.$4.data.key),
 												href: g,
@@ -11200,9 +11198,9 @@ try {
 													relClickX: i.relClickX,
 													relClickY: i.relClickX
 												},
-												onlyClickClientEvent: f
+												onlyClickClientEvent: j
 											};
-											if (l) d.$82(h);
+											if (f) d.$82(h);
 											else if (j) {
 												d.sendToFacebook({ name: "click", params: h });
 												f = b("QueryString").appendToUrl(g, {
@@ -11227,14 +11225,14 @@ try {
 															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK &&
 														d.$22.openNewTab(g);
 											if (d.$31().$39 || e) {
-												l = new (b("ANBounceBackManager"))(window.document);
-												var m = b("getTime")();
-												l.onBounceBack(function(a) {
+												j = new (b("ANBounceBackManager"))(window.document);
+												var l = b("getTime")();
+												j.onBounceBack(function(a) {
 													d.sendToFacebook({
 														name: "bounce",
 														params: {
 															key: b("ANUtils").onlyString(d.$4.data.key),
-															leaveTime: m,
+															leaveTime: l,
 															backTime: b("getTime")()
 														}
 													}),
@@ -11952,7 +11950,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4869329","namespace":"FB","message":"' +
+				'","revision":"4870456","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
