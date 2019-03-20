@@ -1,4 +1,4 @@
-/*1553054371,,JIT Construction: v4870456,en_US*/
+/*1553105730,,JIT Construction: v4871641,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -10838,19 +10838,16 @@ try {
 								c.$69 = function() {
 									__p && __p();
 									var a = this,
-										c = this.$9;
-									if (c == null) {
+										c = this.$31().$51;
+									if (c == null) return;
+									var d = this.$9;
+									if (d == null) {
 										this.$21.error("missing ad element");
 										return;
 									}
-									var d = this.$31().$51;
-									if (d == null) {
-										this.$21.error("missing moat URL");
-										return;
-									}
-									d = new (b("ANMoatSivt"))(d, c.ownerDocument);
+									c = new (b("ANMoatSivt"))(c, d.ownerDocument);
 									b("promiseDone.anweb")(
-										d
+										c
 											.getMeasurements()
 											.then(function(c) {
 												a.sendToFacebook({
@@ -11950,7 +11947,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4870456","namespace":"FB","message":"' +
+				'","revision":"4871641","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
