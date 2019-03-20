@@ -1,4 +1,4 @@
-/*1553105730,,JIT Construction: v4871641,en_US*/
+/*1553112936,,JIT Construction: v4872173,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2443,11 +2443,20 @@ try {
 								return !!(a && a.id && a.id.match(/^google_ads_iframe_/));
 							}
 							function A(a) {
-								var b = y(a);
-								if (!z(b)) return;
-								D(b, "100%", a.clientHeight);
+								while (a != null) {
+									if (z(a)) return !0;
+									a = y(a);
+								}
+								return !1;
 							}
-							function B(a, c) {
+							function B(a) {
+								var b = y(a);
+								if (b == null) return;
+								if (!z(b)) return;
+								E(b, "100%", b.clientHeight);
+								E(b, "100%", a.clientHeight);
+							}
+							function C(a, c) {
 								__p && __p();
 								var d = c.ownerDocument;
 								d = d.createElement("iframe");
@@ -2458,48 +2467,48 @@ try {
 								a.appendChild(c);
 								a.style.margin = "0";
 								d.style.border = "none";
-								D(d, "100%", null);
+								E(d, "100%", null);
 								return d;
 							}
-							function C(a) {
+							function D(a) {
 								return a == null ? "" : typeof a === "string" ? a : a + "px";
 							}
-							function D(a, b, c) {
+							function E(a, b, c) {
 								b === void 0 && (b = null);
 								c === void 0 && (c = null);
 								if (!a) return;
-								a.style.width = C(b);
-								a.style.height = C(c);
-							}
-							function E(a) {
-								return !!(a && a.id && a.id.match(/^apstag-f-iframe-/));
+								a.style.width = D(b);
+								a.style.height = D(c);
 							}
 							function F(a) {
-								E(a) && (a = a.ownerDocument.defaultView.frameElement);
+								return !!(a && a.id && a.id.match(/^apstag-f-iframe-/));
+							}
+							function G(a) {
+								F(a) && (a = a.ownerDocument.defaultView.frameElement);
 								a = a.parentElement && a.parentElement.parentElement;
 								return x(a) ? a : null;
 							}
-							function G(a) {
+							function H(a) {
 								var b = a.ownerDocument.defaultView;
 								return parseInt(b.getComputedStyle(a).width, 10);
 							}
-							function H(a) {
+							function I(a) {
 								var b = a.ownerDocument.defaultView;
 								return parseInt(b.getComputedStyle(a).height, 10);
 							}
-							function I() {
+							function J() {
 								return window.screen.width;
 							}
-							function J() {
+							function K() {
 								return window.screen.height;
 							}
-							function K() {
+							function L() {
 								return (
 									b("ScreenOrientation.adquality").getScreenOrientation() ==
 									b("AdQualityScreenOrientation").VERTICAL
 								);
 							}
-							function L(a) {
+							function M(a) {
 								if (!a) return !1;
 								for (var b = 0; b < j.length; b++) {
 									var c = j[b];
@@ -2507,7 +2516,7 @@ try {
 								}
 								return !1;
 							}
-							function M(a, b, c) {
+							function N(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2564,7 +2573,7 @@ try {
 									}
 								}
 							}
-							function N(a, b, c) {
+							function O(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2620,7 +2629,7 @@ try {
 									}
 								}
 							}
-							function O(a, b, c) {
+							function P(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2676,10 +2685,10 @@ try {
 									}
 								}
 							}
-							function P(a) {
+							function Q(a) {
 								a = a;
 								while (a) {
-									E(a) && (a = a.ownerDocument.defaultView.frameElement);
+									F(a) && (a = a.ownerDocument.defaultView.frameElement);
 									if (
 										window.getComputedStyle(a).overflowX !== "visible" ||
 										!a.parentElement
@@ -2689,95 +2698,96 @@ try {
 								}
 								return a;
 							}
-							function Q(a) {
+							function R(a) {
 								a = a.getBoundingClientRect();
 								var b = a.left;
-								a = I() - a.right;
+								a = J() - a.right;
 								return Math.max(a, b);
 							}
-							function R(a) {
+							function S(a) {
 								return a.scrollHeight > a.clientHeight + 3;
 							}
-							function S(a, b, c) {
+							function T(a, b, c) {
 								__p && __p();
 								var d = c.slice(0, b).join(" ") + "\u2026";
 								a.textContent = d;
-								if (R(a)) return i;
+								if (S(a)) return i;
 								if (b >= c.length) return h;
 								a.textContent = c.slice(0, b + 1).join(" ") + "\u2026";
-								if (R(a)) {
+								if (S(a)) {
 									a.textContent = d;
 									return h;
 								}
 								a.textContent = d;
 								return g;
 							}
-							function T(a) {
-								if (!R(a)) return;
+							function U(a) {
+								if (!S(a)) return;
 								var b = a.textContent.split(" "),
 									c = 0,
 									d = b.length - 1;
 								while (c <= d) {
 									var e = Math.floor((c + d) / 2),
-										f = S(a, e, b);
+										f = T(a, e, b);
 									if (f === h) break;
 									f === i ? (d = e - 1) : (c = e + 1);
 								}
 							}
-							function U(a) {
-								a = a.querySelectorAll("[data-auto-fit-text=true]");
-								for (var b = 0; b < a.length; b++) T(a[b]);
-							}
 							function V(a) {
+								a = a.querySelectorAll("[data-auto-fit-text=true]");
+								for (var b = 0; b < a.length; b++) U(a[b]);
+							}
+							function W(a) {
 								var b = !1;
 								return function() {
 									b || ((b = !0), a.apply(void 0, arguments));
 								};
 							}
-							function W(a) {
+							function X(a) {
 								if (typeof a === "string") return a;
 								else return "";
 							}
-							function X(a, b, c) {
+							function Y(a, b, c) {
 								a.contentWindow.postMessage(c, b);
 							}
 							e.exports = {
-								autofitIfInDfpIframe: A,
-								calculateLargestMargin: Q,
-								cssSize: C,
+								autofitIfInDfpIframe: B,
+								calculateLargestMargin: R,
+								cssSize: D,
 								extractOrigin: k,
 								extractDomain: l,
 								extractHostname: p,
-								findWidestParentElement: P,
-								getDFPRoot: F,
-								getElementWidth: G,
-								getElementHeight: H,
-								getScreenHeight: J,
-								getScreenWidth: I,
+								findWidestParentElement: Q,
+								getDFPRoot: G,
+								getElementWidth: H,
+								getElementHeight: I,
+								getScreenHeight: K,
+								getScreenWidth: J,
 								getNavigationStart: d,
 								getTopMostAccessibleWindow: r,
 								getV55TagStateContainer: f,
 								getV60TagStateContainer: t,
 								getWindowHierarchy: q,
-								isA9Container: E,
-								isAppStoreURL: L,
+								isA9Container: F,
+								isAppStoreURL: M,
+								isInDfpIframe: A,
 								isDfpContainer: x,
 								isSameRootDomain: c,
 								maybeHTMLElement: v,
 								maybeHTMLBodyElement: w,
 								maybeNode: u,
-								once: V,
-								onlyString: W,
-								resizeElement: D,
-								restoreElementStyles: N,
-								removeStoredData: O,
-								screenIsPortrait: K,
-								sendToFacebook: X,
-								storeElementStyles: M,
-								truncateTextToFitElement: T,
-								autofitTextWhereNeeded: U,
+								once: W,
+								onlyString: X,
+								resizeElement: E,
+								restoreElementStyles: O,
+								removeStoredData: P,
+								screenIsPortrait: L,
+								sendToFacebook: Y,
+								storeElementStyles: N,
+								truncateTextToFitElement: U,
+								autofitTextWhereNeeded: V,
 								getTopDomain: a,
-								wrapInIframe: B
+								wrapInIframe: C
 							};
 						},
 						null
@@ -10999,6 +11009,7 @@ try {
 									d.style.right = "-20px";
 									d.style.bottom = "-20px";
 									d.style.filter = "blur(20px)";
+									d.dataset.fbImageBackdrop = "true";
 									c.insertBefore(d, a);
 								};
 								c.$77 = function(a, b) {
@@ -11719,7 +11730,11 @@ try {
 										j = this.$2.rootElement,
 										k = a.features || {},
 										l = null;
-									if (h && k.wrapRecirculationInIframe) {
+									if (
+										h &&
+										!b("ANUtils").isInDfpIframe(j) &&
+										k.wrapRecirculationInIframe
+									) {
 										var m = document.createElement("div");
 										j.innerHTML = "";
 										j.appendChild(m);
@@ -11947,7 +11962,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4871641","namespace":"FB","message":"' +
+				'","revision":"4872173","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
