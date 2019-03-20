@@ -1,4 +1,4 @@
-/*1553020108,,JIT Construction: v4866385,en_US*/
+/*1553045868,,JIT Construction: v4869329,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2280,8 +2280,27 @@ try {
 						null
 					);
 					__d(
+						"nullthrows",
+						[],
+						function(a, b, c, d, e, f) {
+							a = function(a, b) {
+								b === void 0 && (b = "Got unexpected null or undefined");
+								if (a != null) return a;
+								a = new Error(b);
+								a.framesToPop = 1;
+								throw a;
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"ANUtils",
-						["AdQualityScreenOrientation", "ScreenOrientation.adquality"],
+						[
+							"AdQualityScreenOrientation",
+							"ScreenOrientation.adquality",
+							"nullthrows"
+						],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
@@ -2426,47 +2445,61 @@ try {
 							function A(a) {
 								var b = y(a);
 								if (!z(b)) return;
-								C(b, "100%", a.clientHeight);
+								D(b, "100%", a.clientHeight);
 							}
-							function B(a) {
+							function B(a, c) {
+								__p && __p();
+								var d = c.ownerDocument;
+								d = d.createElement("iframe");
+								a.appendChild(d);
+								d.contentDocument.open();
+								d.contentDocument.close();
+								a = b("nullthrows")(d.contentDocument.body);
+								a.appendChild(c);
+								a.style.margin = "0";
+								d.style.border = "none";
+								D(d, "100%", null);
+								return d;
+							}
+							function C(a) {
 								return a == null ? "" : typeof a === "string" ? a : a + "px";
 							}
-							function C(a, b, c) {
+							function D(a, b, c) {
 								b === void 0 && (b = null);
 								c === void 0 && (c = null);
 								if (!a) return;
-								a.style.width = B(b);
-								a.style.height = B(c);
-							}
-							function D(a) {
-								return !!(a && a.id && a.id.match(/^apstag-f-iframe-/));
+								a.style.width = C(b);
+								a.style.height = C(c);
 							}
 							function E(a) {
-								D(a) && (a = a.ownerDocument.defaultView.frameElement);
+								return !!(a && a.id && a.id.match(/^apstag-f-iframe-/));
+							}
+							function F(a) {
+								E(a) && (a = a.ownerDocument.defaultView.frameElement);
 								a = a.parentElement && a.parentElement.parentElement;
 								return x(a) ? a : null;
 							}
-							function F(a) {
+							function G(a) {
 								var b = a.ownerDocument.defaultView;
 								return parseInt(b.getComputedStyle(a).width, 10);
 							}
-							function G(a) {
+							function H(a) {
 								var b = a.ownerDocument.defaultView;
 								return parseInt(b.getComputedStyle(a).height, 10);
 							}
-							function H() {
+							function I() {
 								return window.screen.width;
 							}
-							function I() {
+							function J() {
 								return window.screen.height;
 							}
-							function J() {
+							function K() {
 								return (
 									b("ScreenOrientation.adquality").getScreenOrientation() ==
 									b("AdQualityScreenOrientation").VERTICAL
 								);
 							}
-							function K(a) {
+							function L(a) {
 								if (!a) return !1;
 								for (var b = 0; b < j.length; b++) {
 									var c = j[b];
@@ -2474,7 +2507,7 @@ try {
 								}
 								return !1;
 							}
-							function L(a, b, c) {
+							function M(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2531,7 +2564,7 @@ try {
 									}
 								}
 							}
-							function M(a, b, c) {
+							function N(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2587,7 +2620,7 @@ try {
 									}
 								}
 							}
-							function N(a, b, c) {
+							function O(a, b, c) {
 								__p && __p();
 								for (
 									var b = b,
@@ -2643,10 +2676,10 @@ try {
 									}
 								}
 							}
-							function O(a) {
+							function P(a) {
 								a = a;
 								while (a) {
-									D(a) && (a = a.ownerDocument.defaultView.frameElement);
+									E(a) && (a = a.ownerDocument.defaultView.frameElement);
 									if (
 										window.getComputedStyle(a).overflowX !== "visible" ||
 										!a.parentElement
@@ -2656,94 +2689,95 @@ try {
 								}
 								return a;
 							}
-							function P(a) {
+							function Q(a) {
 								a = a.getBoundingClientRect();
 								var b = a.left;
-								a = H() - a.right;
+								a = I() - a.right;
 								return Math.max(a, b);
 							}
-							function Q(a) {
+							function R(a) {
 								return a.scrollHeight > a.clientHeight + 3;
 							}
-							function R(a, b, c) {
+							function S(a, b, c) {
 								__p && __p();
 								var d = c.slice(0, b).join(" ") + "\u2026";
 								a.textContent = d;
-								if (Q(a)) return i;
+								if (R(a)) return i;
 								if (b >= c.length) return h;
 								a.textContent = c.slice(0, b + 1).join(" ") + "\u2026";
-								if (Q(a)) {
+								if (R(a)) {
 									a.textContent = d;
 									return h;
 								}
 								a.textContent = d;
 								return g;
 							}
-							function S(a) {
-								if (!Q(a)) return;
+							function T(a) {
+								if (!R(a)) return;
 								var b = a.textContent.split(" "),
 									c = 0,
 									d = b.length - 1;
 								while (c <= d) {
 									var e = Math.floor((c + d) / 2),
-										f = R(a, e, b);
+										f = S(a, e, b);
 									if (f === h) break;
 									f === i ? (d = e - 1) : (c = e + 1);
 								}
 							}
-							function T(a) {
-								a = a.querySelectorAll("[data-auto-fit-text=true]");
-								for (var b = 0; b < a.length; b++) S(a[b]);
-							}
 							function U(a) {
+								a = a.querySelectorAll("[data-auto-fit-text=true]");
+								for (var b = 0; b < a.length; b++) T(a[b]);
+							}
+							function V(a) {
 								var b = !1;
 								return function() {
 									b || ((b = !0), a.apply(void 0, arguments));
 								};
 							}
-							function V(a) {
+							function W(a) {
 								if (typeof a === "string") return a;
 								else return "";
 							}
-							function W(a, b, c) {
+							function X(a, b, c) {
 								a.contentWindow.postMessage(c, b);
 							}
 							e.exports = {
 								autofitIfInDfpIframe: A,
-								calculateLargestMargin: P,
-								cssSize: B,
+								calculateLargestMargin: Q,
+								cssSize: C,
 								extractOrigin: k,
 								extractDomain: l,
 								extractHostname: p,
-								findWidestParentElement: O,
-								getDFPRoot: E,
-								getElementWidth: F,
-								getElementHeight: G,
-								getScreenHeight: I,
-								getScreenWidth: H,
+								findWidestParentElement: P,
+								getDFPRoot: F,
+								getElementWidth: G,
+								getElementHeight: H,
+								getScreenHeight: J,
+								getScreenWidth: I,
 								getNavigationStart: d,
 								getTopMostAccessibleWindow: r,
 								getV55TagStateContainer: f,
 								getV60TagStateContainer: t,
 								getWindowHierarchy: q,
-								isA9Container: D,
-								isAppStoreURL: K,
+								isA9Container: E,
+								isAppStoreURL: L,
 								isDfpContainer: x,
 								isSameRootDomain: c,
 								maybeHTMLElement: v,
 								maybeHTMLBodyElement: w,
 								maybeNode: u,
-								once: U,
-								onlyString: V,
-								resizeElement: C,
-								restoreElementStyles: M,
-								removeStoredData: N,
-								screenIsPortrait: J,
-								sendToFacebook: W,
-								storeElementStyles: L,
-								truncateTextToFitElement: S,
-								autofitTextWhereNeeded: T,
-								getTopDomain: a
+								once: V,
+								onlyString: W,
+								resizeElement: D,
+								restoreElementStyles: N,
+								removeStoredData: O,
+								screenIsPortrait: K,
+								sendToFacebook: X,
+								storeElementStyles: M,
+								truncateTextToFitElement: T,
+								autofitTextWhereNeeded: U,
+								getTopDomain: a,
+								wrapInIframe: B
 							};
 						},
 						null
@@ -2868,21 +2902,6 @@ try {
 									var a = b("ANUtils").getTopMostAccessibleWindow();
 									return h(a.context) || g(a) != null;
 								}
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"nullthrows",
-						[],
-						function(a, b, c, d, e, f) {
-							a = function(a, b) {
-								b === void 0 && (b = "Got unexpected null or undefined");
-								if (a != null) return a;
-								a = new Error(b);
-								a.framesToPop = 1;
-								throw a;
 							};
 							e.exports = a;
 						},
@@ -9507,6 +9526,7 @@ try {
 						function(a, b, c, d, e, f) {
 							b = {
 								ajaxpipe_token: null,
+								iframeKey: "",
 								isCQuick: !1,
 								start: ES("Date", "now", !1),
 								nocatch: !1
@@ -9526,10 +9546,7 @@ try {
 								PREVIOUS_FILE: 1,
 								PREVIOUS_FRAME: 2,
 								PREVIOUS_DIR: 3,
-								FORCED_KEY: 4,
-								getString: function(a) {
-									return a && a.length ? " TAAL[" + a.join(";") + "]" : "";
-								}
+								FORCED_KEY: 4
 							};
 							e.exports = a;
 						},
@@ -9552,8 +9569,8 @@ try {
 								blameToPreviousDirectory: function(a) {
 									return this.applyOpcodes(a, [b("TAALOpcodes").PREVIOUS_DIR]);
 								},
-								applyOpcodes: function(a, c) {
-									return a + b("TAALOpcodes").getString(c);
+								applyOpcodes: function(a, b) {
+									return b && b.length ? a + " TAAL[" + b.join(";") + "]" : a;
 								}
 							};
 							e.exports = a;
@@ -11704,7 +11721,17 @@ try {
 										g = this.$5(a),
 										h = !!a.recommendedContent,
 										i = g.length > 1,
-										j = this.$2.rootElement;
+										j = this.$2.rootElement,
+										k = a.features || {},
+										l = null;
+									if (h && k.wrapRecirculationInIframe) {
+										var m = document.createElement("div");
+										j.innerHTML = "";
+										j.appendChild(m);
+										k.wrapRecirculationInIframe &&
+											(l = b("ANUtils").wrapInIframe(j, m));
+										j = m;
+									}
 									a.wrapperMarkup && (j.innerHTML = a.wrapperMarkup);
 									if (h)
 										b("ANRecirculationUnit").render(
@@ -11724,27 +11751,29 @@ try {
 													}
 												});
 											},
-											function(c) {
-												var d = a.features || {};
-												if (d.skipRecircClickEvent === !0) return;
+											function(d) {
+												var c = a.features || {};
+												if (c.skipRecircClickEvent === !0) return;
 												b("ANUtils").sendToFacebook(f.$2.iframe, f.$2.domain, {
 													name: "recirc",
 													params: {
 														reqId: f.$6(),
-														payload: { type: "click", index: c }
+														payload: { type: "click", index: d }
 													}
 												});
 											}
-										);
+										),
+											l != null &&
+												b("ANUtils").resizeElement(l, "100%", j.clientHeight);
 									else
-										for (var h = 0; h < g.length; h++) {
-											var k = g[h],
-												l = j;
+										for (var k = 0; k < g.length; k++) {
+											m = g[k];
+											h = j;
 											i &&
-												((l = document.createElement("div")),
-												(l.className = "fbAdSlot-" + h),
-												j.appendChild(l));
-											this.renderAd(k, l, c, d, e);
+												((h = document.createElement("div")),
+												(h.className = "fbAdSlot-" + k),
+												j.appendChild(h));
+											this.renderAd(m, h, c, d, e);
 										}
 								};
 								c.adLoaded = function(a, c, d, e) {
@@ -11923,7 +11952,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"4866385","namespace":"FB","message":"' +
+				'","revision":"4869329","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
