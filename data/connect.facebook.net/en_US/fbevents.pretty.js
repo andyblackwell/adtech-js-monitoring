@@ -18,7 +18,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-fbq.version = "2.8.45";
+fbq.version = "2.8.46";
 fbq._releaseSegment = "stable";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -980,7 +980,6 @@ fbq.pendingConfigs = ["global_config"];
 							Dwell: !0,
 							FirstPartyCookies: !0,
 							GA2FBQ: !0,
-							IWL: !0,
 							IWLBootstrapper: !0,
 							IWLParameters: !0,
 							InferredEvents: !0,
@@ -999,7 +998,6 @@ fbq.pendingConfigs = ["global_config"];
 							Dwell: ["dwell"],
 							FirstPartyCookies: ["cookie"],
 							GA2FBQ: ["ga2fbq"],
-							IWL: ["iwl"],
 							IWLBootstrapper: ["iwlbootstrapper"],
 							IWLParameters: ["iwlparameters", "inferredEvents"],
 							InferredEvents: ["inferredevents", "identity"],
@@ -2096,6 +2094,53 @@ fbq.pendingConfigs = ["global_config"];
 				return e.exports;
 			})(a, b, c, d);
 		});
+		f.ensureModuleRegistered(
+			"signalsFBEventsResolveLegacyArguments",
+			function() {
+				return (function(f, i, j, k) {
+					var e = { exports: {} };
+					e.exports;
+					(function() {
+						"use strict";
+						var a = "report";
+						function b(a) {
+							var b = g(a, 1);
+							b = b[0];
+							return a.length === 1 && Array.isArray(b)
+								? { args: b, isLegacySyntax: !0 }
+								: { args: a, isLegacySyntax: !1 };
+						}
+						function c(b) {
+							var c = g(b, 2),
+								d = c[0];
+							c = c[1];
+							if (typeof d === "string" && d.slice(0, a.length) === a) {
+								d = d.slice(a.length);
+								if (d === "CustomEvent") {
+									c != null &&
+										(typeof c === "undefined" ? "undefined" : h(c)) ===
+											"object" &&
+										typeof c.event === "string" &&
+										(d = c.event);
+									return ["trackCustom", d].concat(b.slice(1));
+								}
+								return ["track", d].concat(b.slice(1));
+							}
+							return b;
+						}
+						function d(a) {
+							a = b(a);
+							var d = a.args;
+							a = a.isLegacySyntax;
+							d = c(d);
+							return { args: d, isLegacySyntax: a };
+						}
+						e.exports = d;
+					})();
+					return e.exports;
+				})(a, b, c, d);
+			}
+		);
 		f.ensureModuleRegistered("SignalsFBEventsTelemetry", function() {
 			return (function(g, h, i, j) {
 				var k = { exports: {} };
@@ -2656,13 +2701,14 @@ fbq.pendingConfigs = ["global_config"];
 						t = a.getFbeventsModules("signalsFBEventsInjectMethod"),
 						u = a.getFbeventsModules("signalsFBEventsMakeSafe"),
 						v = a.getFbeventsModules("SignalsFBEventsConfigStore"),
-						w = l.on,
-						x = l.once,
-						y = l.trigger,
-						z = m.each;
+						w = a.getFbeventsModules("signalsFBEventsResolveLegacyArguments"),
+						x = l.on,
+						y = l.once,
+						z = l.trigger,
+						A = m.each;
 					l = m.FBSet;
-					var A = m.isArray,
-						B = m.isInteger,
+					m.isArray;
+					var B = m.isInteger,
 						C = m.isEmptyObject,
 						D = m.isNumber,
 						E = m.keys,
@@ -2692,58 +2738,51 @@ fbq.pendingConfigs = ["global_config"];
 						for (var b in a) J.call(a, b) && (this[b] = a[b]);
 						return this;
 					}
-					function S(b) {
+					function S() {
 						try {
-							var c = da.call(arguments);
-							if (G.isLocked() && c[0] !== "consent") {
+							var b = da.call(arguments);
+							if (G.isLocked() && b[0] !== "consent") {
 								a.queue.push(arguments);
 								return;
 							}
-							var d = c.length === 1 && A(c[0]);
-							d && (c = c[0]);
-							typeof c[0] !== "string" && F({ type: "FBQ_NO_METHOD_NAME" });
-							if (b.slice(0, 6) === "report") {
-								var e = b.slice(6);
-								e === "CustomEvent"
-									? ((e = (c[1] || {}).event || e),
-									  (c = ["trackCustom", e].concat(c.slice(1))))
-									: (c = ["track", e].concat(c.slice(1)));
-							}
-							b = c.shift();
-							switch (b) {
+							var c = w(b),
+								d = c.args,
+								e = c.isLegacySyntax,
+								f = d.shift();
+							switch (f) {
 								case "addPixelId":
 									L = !0;
-									U.apply(this, c);
+									U.apply(this, d);
 									break;
 								case "init":
 									M = !0;
-									U.apply(this, c);
+									U.apply(this, d);
 									break;
 								case "set":
-									T.apply(this, c);
+									T.apply(this, d);
 									break;
 								case "track":
-									if (D(c[0])) {
-										ia.apply(this, c);
+									if (D(d[0])) {
+										ia.apply(this, d);
 										break;
 									}
-									if (d) {
-										W.apply(this, c);
+									if (e) {
+										W.apply(this, d);
 										break;
 									}
-									ha.apply(this, c);
+									ha.apply(this, d);
 									break;
 								case "trackCustom":
-									W.apply(this, c);
+									W.apply(this, d);
 									break;
 								case "send":
-									X.apply(this, c);
+									X.apply(this, d);
 									break;
 								case "on":
-									w.apply(void 0, j(c));
+									x.apply(void 0, j(d));
 									break;
 								case "loadPlugin":
-									$(c[0]);
+									$(d[0]);
 									break;
 								default:
 									R.callMethod(arguments);
@@ -2818,17 +2857,17 @@ fbq.pendingConfigs = ["global_config"];
 								break;
 							case "mobileBridge":
 								var x = f[0],
-									z = f[1];
+									y = f[1];
 								if (typeof x !== "string")
 									throw new Error("Invalid pixelID supplied to set call.");
-								if (typeof z !== "string")
+								if (typeof y !== "string")
 									throw new Error("Invalid appID supplied to set call.");
-								s.registerBridge([x, z]);
+								s.registerBridge([x, y]);
 								break;
 							case "iwlExtractors":
 								var A = f[0],
 									B = f[1];
-								y("setIWLExtractors", { extractors: B, pixelID: A });
+								z("setIWLExtractors", { extractors: B, pixelID: A });
 								break;
 							default:
 								var C = f[0],
@@ -2945,15 +2984,15 @@ fbq.pendingConfigs = ["global_config"];
 						try {
 							e.append("ud", (b && b.userData) || {}, !0);
 						} catch (a) {
-							y("pii_invalidated", b);
+							z("pii_invalidated", b);
 						}
 						e.append("v", a.version);
 						a._releaseSegment && e.append("r", a._releaseSegment);
 						e.append("a", b && b.agent ? b.agent : a.agent);
 						b && (e.append("ec", b.eventCount), b.eventCount++);
-						d = y("getCustomParameters", b, d);
-						z(d, function(a) {
-							return z(E(a), function(b) {
+						d = z("getCustomParameters", b, d);
+						A(d, function(a) {
+							return A(E(a), function(b) {
 								if (e.containsKey(b))
 									throw new Error(
 										"Custom parameter " + b + " has already been specified."
@@ -3023,7 +3062,7 @@ fbq.pendingConfigs = ["global_config"];
 						if (Object.prototype.hasOwnProperty.call(H, b)) return;
 						J.call(c, "__fbEventsPlugin") &&
 							c.__fbEventsPlugin === 1 &&
-							((H[b] = c), H[b].plugin(a, R, v), y("pluginLoaded", b));
+							((H[b] = c), H[b].plugin(a, R, v), z("pluginLoaded", b));
 						G.releasePlugin(b);
 					}
 					G.onUnlocked(function() {
@@ -3046,7 +3085,7 @@ fbq.pendingConfigs = ["global_config"];
 						t(k, "replaceState", b);
 						g.addEventListener("popstate", b, !1);
 					}
-					x("fired", function() {
+					y("fired", function() {
 						return ma();
 					});
 					function na(b) {
@@ -3062,10 +3101,10 @@ fbq.pendingConfigs = ["global_config"];
 							(a.registerPlugin = la),
 							(a._initHandlers = []),
 							(a._initsDone = {}),
-							(a.on = w),
-							(a.once = x),
+							(a.on = x),
+							(a.once = y),
 							(a.send = X),
-							(a.trigger = y),
+							(a.trigger = z),
 							(a.getEventCustomParameters = Y),
 							(a.addInitHandler = na),
 							(a.getState = oa),
@@ -3075,8 +3114,8 @@ fbq.pendingConfigs = ["global_config"];
 					pa(g.fbq);
 					ja();
 					e.exports = { doExport: pa };
-					y("execEnd");
-					y("initialized", a);
+					z("execEnd");
+					z("initialized", a);
 				})();
 				return e.exports;
 			})(a, b, c, d);
