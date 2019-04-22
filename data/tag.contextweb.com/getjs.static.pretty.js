@@ -1,18 +1,18 @@
 !(function t(e, n, r) {
-	function i(s, a) {
-		if (!n[s]) {
-			if (!e[s]) {
+	function i(a, s) {
+		if (!n[a]) {
+			if (!e[a]) {
 				var c = "function" == typeof require && require;
-				if (!a && c) return c(s, !0);
-				if (o) return o(s, !0);
-				var u = new Error("Cannot find module '" + s + "'");
+				if (!s && c) return c(a, !0);
+				if (o) return o(a, !0);
+				var u = new Error("Cannot find module '" + a + "'");
 				throw ((u.code = "MODULE_NOT_FOUND"), u);
 			}
-			var d = (n[s] = { exports: {} });
-			e[s][0].call(
+			var d = (n[a] = { exports: {} });
+			e[a][0].call(
 				d.exports,
 				function(t) {
-					var n = e[s][1][t];
+					var n = e[a][1][t];
 					return i(n ? n : t);
 				},
 				d,
@@ -23,14 +23,14 @@
 				r
 			);
 		}
-		return n[s].exports;
+		return n[a].exports;
 	}
 	for (
-		var o = "function" == typeof require && require, s = 0;
-		s < r.length;
-		s++
+		var o = "function" == typeof require && require, a = 0;
+		a < r.length;
+		a++
 	)
-		i(r[s]);
+		i(r[a]);
 	return i;
 })(
 	{
@@ -113,12 +113,12 @@
 							)
 								return void e(null, null);
 							this.callbackQueue.push(e);
-							var s = this;
+							var a = this;
 							this.userDataLoader.loadAllUserData({
 								timeout: this.options.timeout,
 								partners: n,
 								responseHandler: function(t, e) {
-									s.handleLoadedUserData(t, e);
+									a.handleLoadedUserData(t, e);
 								}
 							});
 						},
@@ -154,8 +154,8 @@
 										i || (e(null, t), (i = !0), clearTimeout(o));
 									});
 								} else e();
-							} catch (s) {
-								e(s);
+							} catch (a) {
+								e(a);
 							}
 						};
 					};
@@ -170,11 +170,11 @@
 					o = function() {
 						function t(t) {
 							if (t.data) {
-								var e = n(t.data, "string") ? s(t.data) : t.data;
+								var e = n(t.data, "string") ? a(t.data) : t.data;
 								if (e && e.__cmpReturn) {
 									var r = e.__cmpReturn;
-									a[r.callId] &&
-										(a[r.callId](r.returnValue, r.success), delete a[r.callId]);
+									s[r.callId] &&
+										(s[r.callId](r.returnValue, r.success), delete s[r.callId]);
 								}
 							}
 						}
@@ -194,14 +194,14 @@
 							} catch (n) {}
 							return !1;
 						}
-						function s(t) {
+						function a(t) {
 							try {
 								return JSON.parse(t);
 							} catch (e) {
 								return null;
 							}
 						}
-						var a = {};
+						var s = {};
 						i.attachEvent(window, "message", function(e) {
 							t(e);
 						}),
@@ -213,10 +213,10 @@
 									window.__cmp("getConsentData", null, i);
 								else {
 									var o = r.random("pp"),
-										s = e();
-									s
-										? ((a[o] = i),
-										  s.postMessage(
+										a = e();
+									a
+										? ((s[o] = i),
+										  a.postMessage(
 												{ __cmpCall: { command: "getConsentData", callId: o } },
 												"*"
 										  ))
@@ -574,6 +574,8 @@
 								(e += this.safeQs("ch", t.ch)),
 								(e += this.safeQs("fp", t.fp)),
 								(e += this.safeQs("eid", t.eid)),
+								t.eclk &&
+									(e += this.safeQs("eclk", this.processUrlForQSValue(t.eclk))),
 								(e += this.addPubTokens(t.PPTOKEN))
 							);
 						},
@@ -1004,6 +1006,26 @@
 							(e.height = "1"),
 							(e.src = dataUrl),
 							document.body && document.body.appendChild(e);
+					},
+					attachScript: function(t, e) {
+						var n = document.getElementsByTagName("head");
+						if (
+							(0 === n.length && (n = document.getElementsByTagName("body")),
+							!(n.length >= 0))
+						)
+							throw new Error("Document does not have head or body");
+						var r = document.createElement("script");
+						(r.async = !0),
+							(r.src = t),
+							(r.type = "text/javascript"),
+							r.addEventListener
+								? r.addEventListener("load", e, !1)
+								: r.attachEvent("onreadystatechange", function() {
+										("loaded" === r.readyState ||
+											"complete" === r.readyState) &&
+											((r.onreadystatechange = null), e());
+								  }),
+							n[0].appendChild(r);
 					}
 				};
 				e.exports = r;
@@ -1090,9 +1112,9 @@
 						sendDataOnUnload: function(t, e) {
 							var n = JSON.stringify(e),
 								o = r.buildUri(t, { data: n }),
-								s = navigator.sendBeacon;
-							s && (s = navigator.sendBeacon(t, n)),
-								s ||
+								a = navigator.sendBeacon;
+							a && (a = navigator.sendBeacon(t, n)),
+								a ||
 									(void 0 !== window.Image
 										? (new window.Image(1, 1).src = o)
 										: i.createPixel(o));
@@ -1109,32 +1131,32 @@
 						getDocument: function(t) {
 							return t.contentDocument || t.contentWindow.document;
 						},
-						createIFrame: function(t, e, n, i, o, s) {
-							var a = t.createElement("iframe");
+						createIFrame: function(t, e, n, i, o, a) {
+							var s = t.createElement("iframe");
 							if (
-								((a.width = n),
-								(a.height = i),
-								(a.style.border = "0px"),
-								(a.scrolling = "no"),
-								(a.frameborder = 0),
-								(a.allowtransparency = !0),
-								(a.margin = "0"),
-								(a.padding = "0"),
-								(a.frameBorder = "0"),
-								(a.id = r.random("div_")),
-								e.appendChild(a),
-								o && (a.src = o),
-								s)
+								((s.width = n),
+								(s.height = i),
+								(s.style.border = "0px"),
+								(s.scrolling = "no"),
+								(s.frameborder = 0),
+								(s.allowtransparency = !0),
+								(s.margin = "0"),
+								(s.padding = "0"),
+								(s.frameBorder = "0"),
+								(s.id = r.random("div_")),
+								e.appendChild(s),
+								o && (s.src = o),
+								a)
 							) {
 								var c = [
 									"<html><head></head><body style='margin: 0px; background-color: transparent; padding: 0px;'>",
-									s,
+									a,
 									"</body></html>"
 								].join("");
-								(a.contentWindow.contents = c),
-									(a.src = 'javascript:window["contents"]');
+								(s.contentWindow.contents = c),
+									(s.src = 'javascript:window["contents"]');
 							}
-							return a;
+							return s;
 						}
 					};
 				e.exports = i;
@@ -1274,19 +1296,19 @@
 								(o.src = t.url + "#" + i),
 								!this.hasPostMessage())
 							) {
-								var s = function() {
+								var a = function() {
 										try {
 											o.contentWindow.name &&
 												e.handleResponse(JSON.parse(o.contentWindow.name));
 										} catch (t) {
-											o.onload = s;
+											o.onload = a;
 										}
 									},
-									a = function() {};
-								(o.onload = s),
-									(o.onerror = a),
+									s = function() {};
+								(o.onload = a),
+									(o.onerror = s),
 									o.attachEvent &&
-										(o.attachEvent("onload", s), o.attachEvent("onerror", a));
+										(o.attachEvent("onload", a), o.attachEvent("onerror", s));
 							}
 							return document.body.appendChild(o), this;
 						},
@@ -1303,22 +1325,22 @@
 								},
 								o = function(t) {
 									return function(r, o) {
-										var s = {};
-										r && (s.error = r),
-											o && (s.result = o),
-											(s.rtime = new Date().getTime() - n),
-											(e[t] = s),
+										var a = {};
+										r && (a.error = r),
+											o && (a.result = o),
+											(a.rtime = new Date().getTime() - n),
+											(e[t] = a),
 											i();
 									};
 								};
-							for (var s in t.partners) {
-								var a = t.partners[s];
+							for (var a in t.partners) {
+								var s = t.partners[a];
 								r++,
 									this.loadUserData({
-										url: a.url,
-										timeout: a.timeout || t.timeout,
-										payload: a.payload,
-										responseHandler: o(s)
+										url: s.url,
+										timeout: s.timeout || t.timeout,
+										payload: s.payload,
+										responseHandler: o(a)
 									});
 							}
 							i();
@@ -1372,7 +1394,7 @@
 											var o = document.referrer.split("/")[2];
 											window.location.href = "//" + o + "/favicon.ico";
 										}
-									} catch (s) {}
+									} catch (a) {}
 								};
 							try {
 								e = t(r.payload, i);
@@ -1380,7 +1402,7 @@
 								return void i(o);
 							}
 							void 0 !== e && null !== e && i(null, e);
-						} catch (s) {}
+						} catch (a) {}
 					}
 				}),
 					(e.exports = r);
@@ -1406,7 +1428,7 @@
 									r = n("json-stringify") && n("json-parse");
 								else {
 									var o,
-										a = '{"a":[1,true,false,null,"\\u0000\\b\\n\\f\\r\\t"]}';
+										s = '{"a":[1,true,false,null,"\\u0000\\b\\n\\f\\r\\t"]}';
 									if ("json-stringify" == t) {
 										var c = e.stringify,
 											d = "function" == typeof c && y;
@@ -1418,7 +1440,7 @@
 												d =
 													"0" === c(0) &&
 													"0" === c(new i()) &&
-													'""' == c(new s()) &&
+													'""' == c(new a()) &&
 													c(w) === g &&
 													c(g) === g &&
 													c() === g &&
@@ -1427,7 +1449,7 @@
 													"[null]" == c([g]) &&
 													"null" == c(null) &&
 													"[null,null,null]" == c([g, w, null]) &&
-													c({ a: [o, !0, !1, null, "\x00\b\n\f\r	"] }) == a &&
+													c({ a: [o, !0, !1, null, "\x00\b\n\f\r	"] }) == s &&
 													"1" === c(null, o) &&
 													"[\n 1,\n 2\n]" == c([1, 2], null, 1) &&
 													'"-271821-04-20T00:00:00.000Z"' ==
@@ -1447,7 +1469,7 @@
 										if ("function" == typeof h)
 											try {
 												if (0 === h("0") && !h(!1)) {
-													o = h(a);
+													o = h(s);
 													var f = 5 == o.a.length && 1 === o.a[0];
 													if (f) {
 														try {
@@ -1471,15 +1493,15 @@
 								}
 								return (n[t] = !!r);
 							}
-							t || (t = a.Object()), e || (e = a.Object());
-							var i = t.Number || a.Number,
-								s = t.String || a.String,
-								c = t.Object || a.Object,
-								u = t.Date || a.Date,
-								d = t.SyntaxError || a.SyntaxError,
-								l = t.TypeError || a.TypeError,
-								h = t.Math || a.Math,
-								f = t.JSON || a.JSON;
+							t || (t = s.Object()), e || (e = s.Object());
+							var i = t.Number || s.Number,
+								a = t.String || s.String,
+								c = t.Object || s.Object,
+								u = t.Date || s.Date,
+								d = t.SyntaxError || s.SyntaxError,
+								l = t.TypeError || s.TypeError,
+								h = t.Math || s.Math,
+								f = t.JSON || s.JSON;
 							"object" == typeof f &&
 								f &&
 								((e.stringify = f.stringify), (e.parse = f.parse));
@@ -1500,8 +1522,8 @@
 									708 == y.getUTCMilliseconds();
 							} catch (S) {}
 							if (!n("json")) {
-								var O = "[object Function]",
-									E = "[object Date]",
+								var E = "[object Function]",
+									O = "[object Date]",
 									A = "[object Number]",
 									D = "[object String]",
 									b = "[object Array]",
@@ -1510,7 +1532,7 @@
 								if (!y)
 									var T = h.floor,
 										I = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334],
-										R = function(t, e) {
+										x = function(t, e) {
 											return (
 												I[e] +
 												365 * (t - 1970) +
@@ -1546,21 +1568,21 @@
 										var n,
 											r,
 											i,
-											s = 0;
+											a = 0;
 										((n = function() {
 											this.valueOf = 0;
 										}).prototype.valueOf = 0),
 											(r = new n());
-										for (i in r) p.call(r, i) && s++;
+										for (i in r) p.call(r, i) && a++;
 										return (
 											(n = r = null),
-											s
+											a
 												? (m =
-														2 == s
+														2 == a
 															? function(t, e) {
 																	var n,
 																		r = {},
-																		i = w.call(t) == O;
+																		i = w.call(t) == E;
 																	for (n in t)
 																		(i && "prototype" == n) ||
 																			p.call(r, n) ||
@@ -1571,7 +1593,7 @@
 															: function(t, e) {
 																	var n,
 																		r,
-																		i = w.call(t) == O;
+																		i = w.call(t) == E;
 																	for (n in t)
 																		(i && "prototype" == n) ||
 																			!p.call(t, n) ||
@@ -1591,19 +1613,19 @@
 												  (m = function(t, e) {
 														var n,
 															i,
-															s = w.call(t) == O,
-															a =
-																(!s &&
+															a = w.call(t) == E,
+															s =
+																(!a &&
 																	"function" != typeof t.constructor &&
 																	o[typeof t.hasOwnProperty] &&
 																	t.hasOwnProperty) ||
 																p;
 														for (n in t)
-															(s && "prototype" == n) || !a.call(t, n) || e(n);
+															(a && "prototype" == n) || !s.call(t, n) || e(n);
 														for (
 															i = r.length;
 															(n = r[--i]);
-															a.call(t, n) && e(n)
+															s.call(t, n) && e(n)
 														);
 												  })),
 											m(t, e)
@@ -1611,7 +1633,7 @@
 									}),
 									!n("json-stringify"))
 								) {
-									var _ = {
+									var R = {
 											92: "\\\\",
 											34: '\\"',
 											8: "\\b",
@@ -1620,9 +1642,9 @@
 											13: "\\r",
 											9: "\\t"
 										},
-										x = "000000",
+										_ = "000000",
 										N = function(t, e) {
-											return (x + (e || 0)).slice(-t);
+											return (_ + (e || 0)).slice(-t);
 										},
 										F = "\\u00",
 										M = function(t) {
@@ -1635,8 +1657,8 @@
 												r > n;
 												n++
 											) {
-												var s = t.charCodeAt(n);
-												switch (s) {
+												var a = t.charCodeAt(n);
+												switch (a) {
 													case 8:
 													case 9:
 													case 10:
@@ -1644,11 +1666,11 @@
 													case 13:
 													case 34:
 													case 92:
-														e += _[s];
+														e += R[a];
 														break;
 													default:
-														if (32 > s) {
-															e += F + N(2, s.toString(16));
+														if (32 > a) {
+															e += F + N(2, a.toString(16));
 															break;
 														}
 														e += i ? o[n] : t.charAt(n);
@@ -1656,44 +1678,44 @@
 											}
 											return e + '"';
 										},
-										P = function(t, e, n, r, i, o, s) {
-											var a, c, u, d, h, f, v, y, S, O, U, I, _, x, F, L;
+										P = function(t, e, n, r, i, o, a) {
+											var s, c, u, d, h, f, v, y, S, E, U, I, R, _, F, L;
 											try {
-												a = e[t];
+												s = e[t];
 											} catch (k) {}
-											if ("object" == typeof a && a)
-												if (((c = w.call(a)), c != E || p.call(a, "toJSON")))
-													"function" == typeof a.toJSON &&
+											if ("object" == typeof s && s)
+												if (((c = w.call(s)), c != O || p.call(s, "toJSON")))
+													"function" == typeof s.toJSON &&
 														((c != A && c != D && c != b) ||
-															p.call(a, "toJSON")) &&
-														(a = a.toJSON(t));
-												else if (a > -1 / 0 && 1 / 0 > a) {
-													if (R) {
+															p.call(s, "toJSON")) &&
+														(s = s.toJSON(t));
+												else if (s > -1 / 0 && 1 / 0 > s) {
+													if (x) {
 														for (
-															h = T(a / 864e5), u = T(h / 365.2425) + 1970 - 1;
-															R(u + 1, 0) <= h;
+															h = T(s / 864e5), u = T(h / 365.2425) + 1970 - 1;
+															x(u + 1, 0) <= h;
 															u++
 														);
 														for (
-															d = T((h - R(u, 0)) / 30.42);
-															R(u, d + 1) <= h;
+															d = T((h - x(u, 0)) / 30.42);
+															x(u, d + 1) <= h;
 															d++
 														);
-														(h = 1 + h - R(u, d)),
-															(f = ((a % 864e5) + 864e5) % 864e5),
+														(h = 1 + h - x(u, d)),
+															(f = ((s % 864e5) + 864e5) % 864e5),
 															(v = T(f / 36e5) % 24),
 															(y = T(f / 6e4) % 60),
 															(S = T(f / 1e3) % 60),
-															(O = f % 1e3);
+															(E = f % 1e3);
 													} else
-														(u = a.getUTCFullYear()),
-															(d = a.getUTCMonth()),
-															(h = a.getUTCDate()),
-															(v = a.getUTCHours()),
-															(y = a.getUTCMinutes()),
-															(S = a.getUTCSeconds()),
-															(O = a.getUTCMilliseconds());
-													a =
+														(u = s.getUTCFullYear()),
+															(d = s.getUTCMonth()),
+															(h = s.getUTCDate()),
+															(v = s.getUTCHours()),
+															(y = s.getUTCMinutes()),
+															(S = s.getUTCSeconds()),
+															(E = s.getUTCMilliseconds());
+													s =
 														(0 >= u || u >= 1e4
 															? (0 > u ? "-" : "+") + N(6, 0 > u ? -u : u)
 															: N(4, u)) +
@@ -1708,20 +1730,20 @@
 														":" +
 														N(2, S) +
 														"." +
-														N(3, O) +
+														N(3, E) +
 														"Z";
-												} else a = null;
-											if ((n && (a = n.call(e, t, a)), null === a))
+												} else s = null;
+											if ((n && (s = n.call(e, t, s)), null === s))
 												return "null";
-											if (((c = w.call(a)), c == C)) return "" + a;
+											if (((c = w.call(s)), c == C)) return "" + s;
 											if (c == A)
-												return a > -1 / 0 && 1 / 0 > a ? "" + a : "null";
-											if (c == D) return M("" + a);
-											if ("object" == typeof a) {
-												for (x = s.length; x--; ) if (s[x] === a) throw l();
-												if ((s.push(a), (U = []), (F = o), (o += i), c == b)) {
-													for (_ = 0, x = a.length; x > _; _++)
-														(I = P(_, a, n, r, i, o, s)),
+												return s > -1 / 0 && 1 / 0 > s ? "" + s : "null";
+											if (c == D) return M("" + s);
+											if ("object" == typeof s) {
+												for (_ = a.length; _--; ) if (a[_] === s) throw l();
+												if ((a.push(s), (U = []), (F = o), (o += i), c == b)) {
+													for (R = 0, _ = s.length; _ > R; R++)
+														(I = P(R, s, n, r, i, o, a)),
 															U.push(I === g ? "null" : I);
 													L = U.length
 														? i
@@ -1729,8 +1751,8 @@
 															: "[" + U.join(",") + "]"
 														: "[]";
 												} else
-													m(r || a, function(t) {
-														var e = P(t, a, n, r, i, o, s);
+													m(r || s, function(t) {
+														var e = P(t, s, n, r, i, o, a);
 														e !== g && U.push(M(t) + ":" + (i ? " " : "") + e);
 													}),
 														(L = U.length
@@ -1738,25 +1760,25 @@
 																? "{\n" + o + U.join(",\n" + o) + "\n" + F + "}"
 																: "{" + U.join(",") + "}"
 															: "{}");
-												return s.pop(), L;
+												return a.pop(), L;
 											}
 										};
 									e.stringify = function(t, e, n) {
-										var r, i, s, a;
+										var r, i, a, s;
 										if (o[typeof e] && e)
-											if ((a = w.call(e)) == O) i = e;
-											else if (a == b) {
-												s = {};
+											if ((s = w.call(e)) == E) i = e;
+											else if (s == b) {
+												a = {};
 												for (
 													var c, u = 0, d = e.length;
 													d > u;
 													c = e[u++],
-														a = w.call(c),
-														(a == D || a == A) && (s[c] = 1)
+														s = w.call(c),
+														(s == D || s == A) && (a[c] = 1)
 												);
 											}
 										if (n)
-											if ((a = w.call(n)) == A) {
+											if ((s = w.call(n)) == A) {
 												if ((n -= n % 1) > 0)
 													for (
 														r = "", n > 10 && (n = 10);
@@ -1764,14 +1786,14 @@
 														r += " "
 													);
 											} else
-												a == D && (r = n.length <= 10 ? n : n.slice(0, 10));
-										return P("", ((c = {}), (c[""] = t), c), i, s, r, "", []);
+												s == D && (r = n.length <= 10 ? n : n.slice(0, 10));
+										return P("", ((c = {}), (c[""] = t), c), i, a, r, "", []);
 									};
 								}
 								if (!n("json-parse")) {
 									var L,
 										k,
-										j = s.fromCharCode,
+										j = a.fromCharCode,
 										J = {
 											92: "\\",
 											34: '"',
@@ -1786,7 +1808,7 @@
 											throw ((L = k = null), d());
 										},
 										B = function() {
-											for (var t, e, n, r, i, o = k, s = o.length; s > L; )
+											for (var t, e, n, r, i, o = k, a = o.length; a > L; )
 												switch ((i = o.charCodeAt(L))) {
 													case 9:
 													case 10:
@@ -1802,7 +1824,7 @@
 													case 44:
 														return (t = U ? o.charAt(L) : o[L]), L++, t;
 													case 34:
-														for (t = "@", L++; s > L; )
+														for (t = "@", L++; a > L; )
 															if (((i = o.charCodeAt(L)), 32 > i)) q();
 															else if (92 == i)
 																switch ((i = o.charCodeAt(++L))) {
@@ -1852,14 +1874,14 @@
 																	i >= 48 && 57 >= i) &&
 																	q(),
 																	r = !1;
-																s > L &&
+																a > L &&
 																((i = o.charCodeAt(L)), i >= 48 && 57 >= i);
 																L++
 															);
 															if (46 == o.charCodeAt(L)) {
 																for (
 																	n = ++L;
-																	s > n &&
+																	a > n &&
 																	((i = o.charCodeAt(n)), i >= 48 && 57 >= i);
 																	n++
 																);
@@ -1872,7 +1894,7 @@
 																	i = o.charCodeAt(++L),
 																		(43 == i || 45 == i) && L++,
 																		n = L;
-																	s > n &&
+																	a > n &&
 																	((i = o.charCodeAt(n)), i >= 48 && 57 >= i);
 																	n++
 																);
@@ -1942,7 +1964,7 @@
 											(n = Q(B())),
 											"$" != B() && q(),
 											(L = k = null),
-											e && w.call(e) == O
+											e && w.call(e) == E
 												? W(((r = {}), (r[""] = n), r), "", e)
 												: n
 										);
@@ -1953,43 +1975,42 @@
 						}
 						var i = "function" == typeof define && define.amd,
 							o = { function: !0, object: !0 },
-							s = o[typeof n] && n && !n.nodeType && n,
-							a = (o[typeof window] && window) || this,
+							a = o[typeof n] && n && !n.nodeType && n,
+							s = (o[typeof window] && window) || this,
 							c =
-								s &&
+								a &&
 								o[typeof e] &&
 								e &&
 								!e.nodeType &&
 								"object" == typeof t &&
 								t;
-
 						if (
 							(!c ||
 								(c.global !== c && c.window !== c && c.self !== c) ||
-								(a = c),
-							s && !i)
+								(s = c),
+							a && !i)
 						)
-							r(a, s);
+							r(s, a);
 						else {
-							var u = a.JSON,
-								d = a.JSON3,
+							var u = s.JSON,
+								d = s.JSON3,
 								l = !1,
 								h = r(
-									a,
-									(a.JSON3 = {
+									s,
+									(s.JSON3 = {
 										noConflict: function() {
 											return (
 												l ||
 													((l = !0),
-													(a.JSON = u),
-													(a.JSON3 = d),
+													(s.JSON = u),
+													(s.JSON3 = d),
 													(u = d = null)),
 												h
 											);
 										}
 									})
 								);
-							a.JSON = { parse: h.parse, stringify: h.stringify };
+							s.JSON = { parse: h.parse, stringify: h.stringify };
 						}
 						i &&
 							define(function() {
