@@ -18,7 +18,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-fbq.version = "2.8.48";
+fbq.version = "2.8.49";
 fbq._releaseSegment = "canary";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
