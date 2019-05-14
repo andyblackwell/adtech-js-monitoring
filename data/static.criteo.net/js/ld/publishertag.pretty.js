@@ -103,7 +103,7 @@
 		return cmpInFrame(t) || void 0 !== getCMPFrame(t);
 	}
 	function retrieveGDPRConsent(t, n, e) {
-		void 0 === e && (e = 1e4);
+		void 0 === e && (e = parseInt("10000", 10));
 		var o = TimeMeasurer.CreateRunning(),
 			i = !1,
 			r = setTimeout(function() {
@@ -706,7 +706,7 @@
 			"number" == typeof window.PREBID_TIMEOUT ? window.PREBID_TIMEOUT : void 0;
 		return t && e ? Math.min(t, e) : t || e || void 0;
 	}
-	var PublisherTagVersion = 65,
+	var PublisherTagVersion = 66,
 		DirectBiddingMetric = function(t, e, n, o, i, r, a, s, d, c, l, u) {
 			(this.publisherTagVersion = t),
 				(this.slots = e),
@@ -869,7 +869,9 @@
 						i = { slotid: o.slotId, impid: o.impId };
 					if (
 						(void 0 !== o.zoneId && (i.zoneid = o.zoneId),
-						void 0 !== o.nativeCallback && (i.native = !0),
+						(void 0 !== o.nativeCallback ||
+							(void 0 !== o.mediaTypes && void 0 !== o.mediaTypes.native)) &&
+							(i.native = !0),
 						void 0 !== o.transactionId && (i.transactionid = o.transactionId),
 						void 0 !== o.publisherSubId &&
 							(i.publishersubid = o.publisherSubId),
@@ -1241,10 +1243,7 @@
 			return (
 				(a.prototype.buildUrl = function(t, e, n, o, i) {
 					void 0 === n && (n = IntegrationMode.Unspecified);
-					var r =
-						("https:" === e.protocol ? "https:" : "http:") +
-						a.CRITEO_BIDDER_URL +
-						this.getHandlerPath();
+					var r = e.protocol + a.CRITEO_BIDDER_URL + this.getHandlerPath();
 					return (
 						(r += "?ptv=" + PublisherTagVersion),
 						(r += "&profileId=" + String(t)),
@@ -1390,8 +1389,8 @@
 		return typeof t[e] === n ? t[e] : void 0;
 	}
 	var BidEventTarget = function() {},
-		__extends$4 = ((Sh = function(t, e) {
-			return (Sh =
+		__extends$4 = ((Rh = function(t, e) {
+			return (Rh =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1405,13 +1404,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Sh(t, e),
+			Rh(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Sh,
+		Rh,
 		BidEventContainerTarget = (function(_super) {
 			function BidEventContainerTarget(t, e) {
 				var n = _super.call(this) || this;
@@ -1445,8 +1444,8 @@
 				BidEventContainerTarget
 			);
 		})(BidEventTarget),
-		__extends$5 = ((ii = function(t, e) {
-			return (ii =
+		__extends$5 = ((hi = function(t, e) {
+			return (hi =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1460,13 +1459,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			ii(t, e),
+			hi(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		ii,
+		hi,
 		BidEventDocumentTarget = (function(n) {
 			function t(t) {
 				var e = n.call(this) || this;
@@ -1494,8 +1493,8 @@
 				t
 			);
 		})(BidEventTarget),
-		__extends$6 = ((Ci = function(t, e) {
-			return (Ci =
+		__extends$6 = ((Bi = function(t, e) {
+			return (Bi =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1509,13 +1508,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Ci(t, e),
+			Bi(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Ci,
+		Bi,
 		Custom = (function(n) {
 			function o(t) {
 				var e = n.call(this, o.NAME) || this;
@@ -1550,8 +1549,8 @@
 				t
 			);
 		})(),
-		__extends$7 = ((Zi = function(t, e) {
-			return (Zi =
+		__extends$7 = ((Yi = function(t, e) {
+			return (Yi =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1565,13 +1564,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Zi(t, e),
+			Yi(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Zi,
+		Yi,
 		DisplayUrlBidResponseSlot = (function(d) {
 			function t(t, e, n, o, i, r, a) {
 				var s = d.call(this, t, e, n, o, i, r) || this;
@@ -1594,8 +1593,8 @@
 				t
 			);
 		})(BidResponseSlot),
-		__extends$8 = ((uj = function(t, e) {
-			return (uj =
+		__extends$8 = ((tj = function(t, e) {
+			return (tj =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1609,13 +1608,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			uj(t, e),
+			tj(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		uj,
+		tj,
 		HtmlCreativeBidResponseSlot = (function(d) {
 			function t(t, e, n, o, i, r, a) {
 				var s = d.call(this, t, e, n, o, i, r) || this;
@@ -1716,8 +1715,8 @@
 				f
 			);
 		})(),
-		__extends$9 = ((xk = function(t, e) {
-			return (xk =
+		__extends$9 = ((wk = function(t, e) {
+			return (wk =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1731,13 +1730,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			xk(t, e),
+			wk(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		xk,
+		wk,
 		NativeBidResponseSlot = (function(c) {
 			function t(t, e, n, o, i, r, a, s) {
 				var d = c.call(this, t, e, n, o, i, r) || this;
@@ -1792,8 +1791,8 @@
 				t
 			);
 		})(),
-		__extends$10 = ((bl = function(t, e) {
-			return (bl =
+		__extends$10 = ((al = function(t, e) {
+			return (al =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -1807,13 +1806,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			bl(t, e),
+			al(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		bl,
+		al,
 		RenderAdInputParameters = (function(n) {
 			function t(t) {
 				var e = n.call(this) || this;
@@ -1850,14 +1849,15 @@
 			})
 		);
 	}
-	var DirectBiddingSlot = function(t, e, n, o, i, r) {
+	var DirectBiddingSlot = function(t, e, n, o, i, r, a) {
 			(this.slotId = generateUuid().replace(/-/g, "")),
 				(this.impId = t),
 				(this.zoneId = e),
 				(this.nativeCallback = n),
 				(this.transactionId = o),
 				(this.sizes = i),
-				(this.publisherSubId = r);
+				(this.publisherSubId = r),
+				(this.mediaTypes = a);
 		},
 		__extends$11 = ((Dl = function(t, e) {
 			return (Dl =
@@ -2310,194 +2310,220 @@
 				s
 			);
 		})(),
-		Prebid = (function() {
-			function o(t, e, n, o, i) {
-				var r, a;
-				(this.timer = new DirectBiddingTimer(
-					new DirectBiddingMetricBuilder(),
-					o.auctionStart,
-					resolvePrebidTimeout(o.timeout)
-				)),
-					(this.auctionId = o.auctionId),
-					(this.bidRequests = n),
-					(this.slots = []);
-				for (var s = 0, d = n; s < d.length; s++) {
-					var c = d[s];
-					this.slots.push(
-						new DirectBiddingSlot(
-							c.adUnitCode,
-							c.params.zoneId,
-							c.params.nativeCallback,
-							c.transactionId,
-							c.sizes.map(function(t) {
-								return new Size(t[0], t[1]);
-							}),
-							c.params.publisherSubId
-						)
-					),
-						(r = c.params.networkId || r),
-						c.params.integrationMode && (a = parse(c.params.integrationMode));
-				}
-				var l = {};
-				o.gdprConsent &&
-					(void 0 !== o.gdprConsent.consentString &&
-						(l.consentData = o.gdprConsent.consentString),
-					void 0 !== o.gdprConsent.gdprApplies &&
-						(l.gdprApplies = !!o.gdprConsent.gdprApplies),
-					o.gdprConsent.vendorData &&
-						o.gdprConsent.vendorData.vendorConsents &&
-						void 0 !==
-							o.gdprConsent.vendorData.vendorConsents[
-								CRITEO_VENDOR_ID.toString(10)
-							] &&
-						(l.consentGiven = !!o.gdprConsent.vendorData.vendorConsents[
-							CRITEO_VENDOR_ID.toString(10)
-						])),
-					(this.metricsManager = new DirectBiddingMetricsManager()),
-					(this.cache = new DirectBiddingCache(
-						window.criteo_pubtag.context,
-						this.slots,
-						r
-					)),
-					(this.requestBuilder = new DirectBiddingRequestBuilder(
-						this.cache.filterNoBidSlots(this.slots),
-						window.criteo_pubtag.context,
-						this.metricsManager,
-						new DirectBiddingUrlBuilder(!1),
-						t,
-						a,
-						r,
-						e,
-						l,
-						i
-					)),
-					(this.url = this.requestBuilder.getUrl()),
-					(window.Criteo.prebid_adapters = window.Criteo.prebid_adapters || {}),
-					(window.Criteo.prebid_adapters[this.auctionId] = this);
-			}
-			return (
-				(o.prototype.buildCdbUrl = function() {
-					return this.url;
-				}),
-				(o.prototype.buildCdbRequest = function() {
-					if (this.cache.silentModeEnabled())
-						Log.Debug(
-							"Request ignored because the global silent mode is enabled"
-						);
-					else {
-						if (this.requestBuilder.isValid())
-							return (
-								this.timer.sendRequest(this.url),
-								this.requestBuilder.getRequest()
-							);
-						Log.Debug("Request ignored because it doesnt contain any slot");
-					}
-				}),
-				(o.GetAllAdapters = function() {
-					return window.Criteo.prebid_adapters;
-				}),
-				(o.GetAdapter = function(t) {
-					var e = "string" == typeof t ? t : t.bidRequests[0].auctionId,
-						n = o.GetAllAdapters();
-					if (n && e in n) return n[e];
-				}),
-				(o.prototype.createNativeAd = function(t, e, n) {
-					return (
-						(window.criteo_prebid_native_slots =
-							window.criteo_prebid_native_slots || {}),
-						(window.criteo_prebid_native_slots[t] = {
-							callback: n,
-							payload: e
+		PrebidMediaTypes,
+		Zo;
+	(Zo = PrebidMediaTypes || (PrebidMediaTypes = {})),
+		(Zo.Native = "native"),
+		(Zo.Banner = "banner"),
+		(Zo.Video = "video");
+	var Prebid = (function() {
+		function o(t, e, n, o, i) {
+			var r, a;
+			(this.timer = new DirectBiddingTimer(
+				new DirectBiddingMetricBuilder(),
+				o.auctionStart,
+				resolvePrebidTimeout(o.timeout)
+			)),
+				(this.auctionId = o.auctionId),
+				(this.bidRequests = n),
+				(this.slots = []);
+			for (var s = 0, d = n; s < d.length; s++) {
+				var c = d[s];
+				this.slots.push(
+					new DirectBiddingSlot(
+						c.adUnitCode,
+						c.params.zoneId,
+						c.params.nativeCallback,
+						c.transactionId,
+						c.sizes.map(function(t) {
+							return new Size(t[0], t[1]);
 						}),
-						'<script type="text/javascript">\n            var win = window;\n            for (var i = 0; i < 10; ++i) {\n                win = win.parent;\n                if (win.criteo_prebid_native_slots) {\n                    var responseSlot = win.criteo_prebid_native_slots["' +
-							t +
-							'"];\n                    responseSlot.callback(responseSlot.payload);\n                    break;\n                }\n            }\n        </script>'
+						c.params.publisherSubId,
+						c.mediaTypes
+					)
+				),
+					(r = c.params.networkId || r),
+					c.params.integrationMode && (a = parse(c.params.integrationMode));
+			}
+			var l = {};
+			o.gdprConsent &&
+				(void 0 !== o.gdprConsent.consentString &&
+					(l.consentData = o.gdprConsent.consentString),
+				void 0 !== o.gdprConsent.gdprApplies &&
+					(l.gdprApplies = !!o.gdprConsent.gdprApplies),
+				o.gdprConsent.vendorData &&
+					o.gdprConsent.vendorData.vendorConsents &&
+					void 0 !==
+						o.gdprConsent.vendorData.vendorConsents[
+							CRITEO_VENDOR_ID.toString(10)
+						] &&
+					(l.consentGiven = !!o.gdprConsent.vendorData.vendorConsents[
+						CRITEO_VENDOR_ID.toString(10)
+					])),
+				(this.metricsManager = new DirectBiddingMetricsManager()),
+				(this.cache = new DirectBiddingCache(
+					window.criteo_pubtag.context,
+					this.slots,
+					r
+				)),
+				(this.requestBuilder = new DirectBiddingRequestBuilder(
+					this.cache.filterNoBidSlots(this.slots),
+					window.criteo_pubtag.context,
+					this.metricsManager,
+					new DirectBiddingUrlBuilder(!1),
+					t,
+					a,
+					r,
+					e,
+					l,
+					i
+				)),
+				(this.url = this.requestBuilder.getUrl()),
+				(window.Criteo.prebid_adapters = window.Criteo.prebid_adapters || {}),
+				(window.Criteo.prebid_adapters[this.auctionId] = this);
+		}
+		return (
+			(o.prototype.buildCdbUrl = function() {
+				return this.url;
+			}),
+			(o.prototype.buildCdbRequest = function() {
+				if (this.cache.silentModeEnabled())
+					Log.Debug(
+						"Request ignored because the global silent mode is enabled"
 					);
-				}),
-				(o.prototype.getBidRequestForSlot = function(t) {
-					for (var e = 0, n = this.bidRequests; e < n.length; e++) {
-						var o = n[e];
-						if (
-							o.adUnitCode === t.impid &&
-							(!o.params.zoneId || parseInt(o.params.zoneId, 10) === t.zoneid)
-						)
-							return o;
+				else {
+					if (this.requestBuilder.isValid())
+						return (
+							this.timer.sendRequest(this.url), this.requestBuilder.getRequest()
+						);
+					Log.Debug("Request ignored because it doesnt contain any slot");
+				}
+			}),
+			(o.GetAllAdapters = function() {
+				return window.Criteo.prebid_adapters;
+			}),
+			(o.GetAdapter = function(t) {
+				var e = "string" == typeof t ? t : t.bidRequests[0].auctionId,
+					n = o.GetAllAdapters();
+				if (n && e in n) return n[e];
+			}),
+			(o.prototype.createCriteoNativeAdWithCallback = function(t, e, n) {
+				return (
+					(window.criteo_prebid_native_slots =
+						window.criteo_prebid_native_slots || {}),
+					(window.criteo_prebid_native_slots[t] = { callback: n, payload: e }),
+					'<script type="text/javascript">\n            var win = window;\n            for (var i = 0; i < 10; ++i) {\n                win = win.parent;\n                if (win.criteo_prebid_native_slots) {\n                    var responseSlot = win.criteo_prebid_native_slots["' +
+						t +
+						'"];\n                    responseSlot.callback(responseSlot.payload);\n                    break;\n                }\n            }\n        </script>'
+				);
+			}),
+			(o.prototype.createPrebidNativeAd = function(t) {
+				return {
+					title: t.products[0].title,
+					body: t.products[0].description,
+					sponsoredBy: t.advertiser.description,
+					icon: t.advertiser.logo,
+					image: t.products[0].image,
+					clickUrl: t.products[0].click_url,
+					privacyLink: t.privacy.optout_click_url,
+					privacyIcon: t.privacy.optout_image_url,
+					cta: t.products[0].call_to_action,
+					price: t.products[0].price,
+					impressionTrackers: t.impression_pixels.map(function(t) {
+						return t.url;
+					})
+				};
+			}),
+			(o.prototype.getBidRequestForSlot = function(t) {
+				for (var e = 0, n = this.bidRequests; e < n.length; e++) {
+					var o = n[e];
+					if (
+						o.adUnitCode === t.impid &&
+						(!o.params.zoneId || parseInt(o.params.zoneId, 10) === t.zoneid)
+					)
+						return o;
+				}
+			}),
+			(o.prototype.interpretResponse = function(t, e) {
+				this.timer.requestReceived();
+				var n = extractExtraData(t),
+					o = {};
+				if (void 0 !== n.slots)
+					for (var i = 0, r = n.slots; i < r.length; i++) {
+						o[(c = r[i]).imp_id] = c;
 					}
-				}),
-				(o.prototype.interpretResponse = function(t, e) {
-					this.timer.requestReceived();
-					var n = extractExtraData(t),
-						o = {};
-					if (void 0 !== n.slots)
-						for (var i = 0, r = n.slots; i < r.length; i++) {
-							o[(c = r[i]).imp_id] = c;
-						}
-					var a = [];
-					if (t.slots && Array.isArray(t.slots))
-						for (var s = 0, d = t.slots; s < d.length; s++) {
-							var c = d[s],
-								l = this.getBidRequestForSlot(c);
-							if (l) {
-								var u = l.bidId,
-									p = c.native
-										? this.createNativeAd(u, c.native, l.params.nativeCallback)
-										: c.creative,
-									f = c.ttl || (o[c.slotid] && o[c.slotid].ttl) || 60;
-								a.push({
+				var a = [];
+				if (t.slots && Array.isArray(t.slots))
+					for (var s = 0, d = t.slots; s < d.length; s++) {
+						var c = d[s],
+							l = this.getBidRequestForSlot(c);
+						if (l) {
+							var u = l.bidId,
+								p = c.ttl || (o[c.slotid] && o[c.slotid].ttl) || 60,
+								f = {
 									requestId: u,
 									adId: generateUuid(),
 									cpm: c.cpm,
-									ad: p,
 									currency: c.currency,
 									netRevenue: !0,
-									ttl: f,
+									ttl: p,
 									creativeId: u,
 									width: c.width,
 									height: c.height
-								});
-							} else
-								Log.Error('Could not get bid request for slot "' + c + '"');
-						}
-					return (
-						this.cache.handleResponse(this.slots, t, n, !1),
-						this.metricsManager.storeMetric(this.timer.finish(n.slots)),
-						a
-					);
-				}),
-				(o.prototype.handleBidWon = function(t) {
-					this.updateMetric(t, function(t) {
-						t.adapterBidWon = !0;
+								};
+							c.native
+								? l.params.nativeCallback
+									? (f.ad = this.createCriteoNativeAdWithCallback(
+											u,
+											c.native,
+											l.params.nativeCallback
+									  ))
+									: ((f.native = this.createPrebidNativeAd(c.native)),
+									  (f.mediaType = PrebidMediaTypes.Native))
+								: (f.ad = c.creative),
+								a.push(f);
+						} else Log.Error('Could not get bid request for slot "' + c + '"');
+					}
+				return (
+					this.cache.handleResponse(this.slots, t, n, !1),
+					this.metricsManager.storeMetric(this.timer.finish(n.slots)),
+					a
+				);
+			}),
+			(o.prototype.handleBidWon = function(t) {
+				this.updateMetric(t, function(t) {
+					t.adapterBidWon = !0;
+				});
+			}),
+			(o.prototype.handleBidTimeout = function() {
+				this.timer.requestReceived(!0),
+					this.metricsManager.storeMetric(this.timer.finish());
+			}),
+			(o.prototype.handleSetTargeting = function(t) {
+				var e = this;
+				this.timer.setTargeting(),
+					this.updateMetric(t, function() {
+						return e.timer.build();
 					});
-				}),
-				(o.prototype.handleBidTimeout = function() {
-					this.timer.requestReceived(!0),
-						this.metricsManager.storeMetric(this.timer.finish());
-				}),
-				(o.prototype.handleSetTargeting = function(t) {
-					var e = this;
-					this.timer.setTargeting(),
-						this.updateMetric(t, function() {
-							return e.timer.build();
-						});
-				}),
-				(o.prototype.updateMetric = function(t, e) {
-					for (
-						var n = this.metricsManager.getMetrics(!1), o = 0;
-						o < n.length;
-						++o
-					)
-						for (var i = 0, r = n[o].slots; i < r.length; i++) {
-							var a = r[i];
-							if (a.adUnitId === t.adUnitCode) {
-								var s = e(a);
-								s && (n[o] = s);
-							}
+			}),
+			(o.prototype.updateMetric = function(t, e) {
+				for (
+					var n = this.metricsManager.getMetrics(!1), o = 0;
+					o < n.length;
+					++o
+				)
+					for (var i = 0, r = n[o].slots; i < r.length; i++) {
+						var a = r[i];
+						if (a.adUnitId === t.adUnitCode) {
+							var s = e(a);
+							s && (n[o] = s);
 						}
-					this.metricsManager.setMetrics(n);
-				}),
-				o
-			);
-		})();
+					}
+				this.metricsManager.setMetrics(n);
+			}),
+			o
+		);
+	})();
 	function GetIdfs() {
 		return window.criteo_pubtag.context.getIdfs();
 	}
@@ -2545,8 +2571,8 @@
 				a
 			);
 		})(),
-		__extends$13 = ((eq = function(t, e) {
-			return (eq =
+		__extends$13 = ((hq = function(t, e) {
+			return (hq =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -2560,13 +2586,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			eq(t, e),
+			hq(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		eq,
+		hq,
 		ConditionalEvent = (function(r) {
 			function a(t, e, n, o) {
 				var i = r.call(this, a.NAME) || this;
@@ -2596,11 +2622,11 @@
 			);
 		})(AbstractEvent),
 		AdFormatType,
-		xq;
-	(xq = AdFormatType || (AdFormatType = {})),
-		(xq[(xq.Classic = 0)] = "Classic"),
-		(xq[(xq.StickyFooter = 1)] = "StickyFooter"),
-		(xq[(xq.ScrollingBanner = 2)] = "ScrollingBanner");
+		Aq;
+	(Aq = AdFormatType || (AdFormatType = {})),
+		(Aq[(Aq.Classic = 0)] = "Classic"),
+		(Aq[(Aq.StickyFooter = 1)] = "StickyFooter"),
+		(Aq[(Aq.ScrollingBanner = 2)] = "ScrollingBanner");
 	var CookieHelper = (function() {
 			function f() {}
 			return (
@@ -2760,11 +2786,11 @@
 			);
 		})(),
 		DisplayContext,
-		sr;
-	(sr = DisplayContext || (DisplayContext = {})),
-		(sr[(sr.InFriendlyIframe = 1)] = "InFriendlyIframe"),
-		(sr[(sr.InUnfriendlyIframe = 2)] = "InUnfriendlyIframe"),
-		(sr[(sr.DirectIntegration = 3)] = "DirectIntegration");
+		vr;
+	(vr = DisplayContext || (DisplayContext = {})),
+		(vr[(vr.InFriendlyIframe = 1)] = "InFriendlyIframe"),
+		(vr[(vr.InUnfriendlyIframe = 2)] = "InUnfriendlyIframe"),
+		(vr[(vr.DirectIntegration = 3)] = "DirectIntegration");
 	var DomManipulationTools = (function() {
 			function t() {}
 			return (
@@ -2843,8 +2869,8 @@
 				r
 			);
 		})(),
-		__extends$14 = ((Sr = function(t, e) {
-			return (Sr =
+		__extends$14 = ((Vr = function(t, e) {
+			return (Vr =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -2858,13 +2884,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Sr(t, e),
+			Vr(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Sr,
+		Vr,
 		DisplayEvent = (function(i) {
 			function t(t, e, n) {
 				var o = i.call(this, t) || this;
@@ -2890,12 +2916,12 @@
 			);
 		})(AbstractEvent),
 		HandlerType,
-		ps;
-	(ps = HandlerType || (HandlerType = {})),
-		(ps[(ps.AFR = 0)] = "AFR"),
-		(ps[(ps.AJS = 1)] = "AJS");
-	var __extends$15 = ((qs = function(t, e) {
-			return (qs =
+		ss;
+	(ss = HandlerType || (HandlerType = {})),
+		(ss[(ss.AFR = 0)] = "AFR"),
+		(ss[(ss.AJS = 1)] = "AJS");
+	var __extends$15 = ((ts = function(t, e) {
+			return (ts =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -2909,13 +2935,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			qs(t, e),
+			ts(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		qs,
+		ts,
 		DisplayEventAFR = (function(a) {
 			function i(t, e, n) {
 				var o = a.call(this, i.NAME, t, e) || this;
@@ -2963,8 +2989,8 @@
 				i
 			);
 		})(DisplayEvent),
-		__extends$16 = ((Ts = function(t, e) {
-			return (Ts =
+		__extends$16 = ((Ws = function(t, e) {
+			return (Ws =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -2978,13 +3004,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Ts(t, e),
+			Ws(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Ts,
+		Ws,
 		DisplayEventAsync = (function(_super) {
 			function DisplayEventAsync(t, e) {
 				return _super.call(this, DisplayEventAsync.NAME, t, e) || this;
@@ -3065,8 +3091,8 @@
 				DisplayEventAsync
 			);
 		})(DisplayEvent),
-		__extends$17 = ((Bt = function(t, e) {
-			return (Bt =
+		__extends$17 = ((Et = function(t, e) {
+			return (Et =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -3080,13 +3106,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Bt(t, e),
+			Et(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Bt,
+		Et,
 		DisplayEventSync = (function(n) {
 			function o(t, e) {
 				return n.call(this, o.NAME, t, e) || this;
@@ -3109,8 +3135,8 @@
 				o
 			);
 		})(DisplayEvent),
-		__extends$18 = ((Ut = function(t, e) {
-			return (Ut =
+		__extends$18 = ((Xt = function(t, e) {
+			return (Xt =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -3124,13 +3150,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Ut(t, e),
+			Xt(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Ut,
+		Xt,
 		DisplayInputParameters = (function(n) {
 			function t(t) {
 				var e = n.call(this) || this;
@@ -3232,11 +3258,7 @@
 				(l.prototype.buildUrl = function(t, e, n, o, i, r) {
 					var a;
 					a = n === HandlerType.AFR ? l.CAS_URL_AFR : l.CAS_URL_AJS;
-					var s =
-						("https:" === e.protocol ? "https:" : "http:") +
-						a +
-						"?ptv=" +
-						PublisherTagVersion;
+					var s = e.protocol + a + "?ptv=" + PublisherTagVersion;
 					if (!0 === e.isAdBlocked) {
 						var d = this.getAbpParameter(t, e);
 						s += "&abp=" + String(d);
@@ -3519,7 +3541,7 @@
 			);
 		})(),
 		StorageOrigin,
-		Pv;
+		Rv;
 	function tryDecodeURIComponent(e, n) {
 		try {
 			return decodeURIComponent(e);
@@ -3541,10 +3563,10 @@
 			}
 		);
 	}
-	(Pv = StorageOrigin || (StorageOrigin = {})),
-		(Pv[(Pv.None = 0)] = "None"),
-		(Pv[(Pv.Cookie = 1)] = "Cookie"),
-		(Pv[(Pv.LocalStorage = 2)] = "LocalStorage");
+	(Rv = StorageOrigin || (StorageOrigin = {})),
+		(Rv[(Rv.None = 0)] = "None"),
+		(Rv[(Rv.Cookie = 1)] = "Cookie"),
+		(Rv[(Rv.LocalStorage = 2)] = "LocalStorage");
 	var CookieSynchronizer = (function() {
 			function o(t, e, n) {
 				(this.isDebug = e),
@@ -3779,7 +3801,7 @@
 					(this.silentModeIgnored = !1),
 					this.debugMode && SetLogLevel(LogLevel.Debug),
 					(this.location = e.location),
-					(this.protocol = e.location.protocol),
+					(this.protocol = this.getProtocol(e)),
 					(this.dising = !1),
 					(this.ct0 = void 0),
 					(this.wpdt0 = void 0),
@@ -3787,6 +3809,24 @@
 					(this.rtaVarNames = []);
 			}
 			return (
+				(t.prototype.getProtocol = function(t) {
+					var e = t,
+						n = t,
+						o = 0;
+					do {
+						try {
+							switch (((n = (e = n).parent), e.location.protocol)) {
+								case "https:":
+									return "https:";
+								case "http:":
+									return "http:";
+								default:
+									o++;
+							}
+						} catch (t) {}
+					} while (e !== n && o < 10 && void 0 !== n);
+					return "https:";
+				}),
 				(t.prototype.getContextFlags = function() {
 					var t = "";
 					return (
@@ -3914,8 +3954,8 @@
 		};
 		return t && Array.isArray(t) && e.push.apply(e, t), e;
 	}
-	var __extends$19 = ((zx = function(t, e) {
-			return (zx =
+	var __extends$19 = ((Gx = function(t, e) {
+			return (Gx =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -3929,13 +3969,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			zx(t, e),
+			Gx(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		zx,
+		Gx,
 		DefaultCrtgContentName = "crtg_content",
 		DefaultCrtgRtaCookieName = "crtg_rta",
 		RtaInputParameters = (function(n) {
@@ -3964,8 +4004,8 @@
 			}
 			return __extends$19(t, n), t;
 		})(InputParameters),
-		__extends$20 = ((Sx = function(t, e) {
-			return (Sx =
+		__extends$20 = ((Zx = function(t, e) {
+			return (Zx =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -3979,13 +4019,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			Sx(t, e),
+			Zx(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		Sx,
+		Zx,
 		RtaEvent = (function(_super) {
 			function RtaEvent(t, e) {
 				var n = _super.call(this, RtaEvent.NAME) || this;
@@ -4026,8 +4066,8 @@
 		}
 		return e;
 	}
-	var __extends$21 = ((ty = function(t, e) {
-			return (ty =
+	var __extends$21 = ((Ay = function(t, e) {
+			return (Ay =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(t, e) {
@@ -4041,13 +4081,13 @@
 			function n() {
 				this.constructor = t;
 			}
-			ty(t, e),
+			Ay(t, e),
 				(t.prototype =
 					null === e
 						? Object.create(e)
 						: ((n.prototype = e.prototype), new n()));
 		}),
-		ty,
+		Ay,
 		RtaTargetingEvent = (function(o) {
 			function i(t, e) {
 				var n = o.call(this, i.NAME) || this;
@@ -4077,11 +4117,7 @@
 			function o() {}
 			return (
 				(o.prototype.buildUrl = function(t, e) {
-					var n =
-						("https:" === e.protocol ? "https:" : "http:") +
-						o.RTA_URL +
-						"?ptv=" +
-						PublisherTagVersion;
+					var n = e.protocol + o.RTA_URL + "?ptv=" + PublisherTagVersion;
 					return (
 						!0 === e.isAdBlocked && (n += "&abp=1"),
 						(n += "&netid=" + String(t.networkId)),
