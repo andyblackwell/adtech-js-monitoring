@@ -1,4 +1,4 @@
-/*1560189011,,JIT Construction: v1000807199,en_US*/
+/*1560202114,,JIT Construction: v1000808946,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -3794,68 +3794,94 @@ try {
 								function a(a) {
 									__p && __p();
 									var b = a.ads,
-										c = a.onLoadEventCounter;
-									a = a.adFeatures;
+										c = a.onLoadEventCounter,
+										d = a.adFeatures;
+									a = a.extended;
 									this.$3 = c;
 									this.$2 = b;
-									this.$4 = a;
+									this.$4 = d;
+									this.$10 = a;
 									this.$5 = [];
 									this.$6 = 0;
 									this.$7 = 0;
 									this.$9 = !1;
 									this.$8 = !1;
-									this.$1 = this.$10();
-									this.$11();
-									this.$9 || this.$12();
+									this.$1 = this.$11();
+									this.$12();
+									this.$9 || this.$13();
 									this.$3.addRequiredEvent();
 								}
 								var c = a.prototype;
-								c.$10 = function() {
+								c.$11 = function() {
 									var a = this.$2.length,
 										b;
 									h("_7_cd");
-									a <= 2
-										? (b = h("_7_cd", [this.$13()]))
-										: a <= 4
-											? (b = h("_7_cd", [this.$13(), this.$13()]))
-											: (b = h("_7_cd", [this.$13(), this.$14()]));
+									!this.$10
+										? a <= 2
+											? (b = h("_7_cd", [this.$14()]))
+											: a <= 4
+												? (b = h("_7_cd", [this.$14(), this.$14()]))
+												: (b = h("_7_cd", [this.$14(), this.$15()]))
+										: a <= 2
+											? (b = h("_7_cd", [this.$14()]))
+											: a <= 4
+												? (b = h("_7_cd", [this.$14(), this.$14()]))
+												: a <= 6
+													? (b = h("_7_cd", [
+															this.$14(),
+															this.$14(),
+															this.$14()
+													  ]))
+													: (b = h("_7_cd", [
+															this.$14(),
+															this.$14(),
+															this.$15()
+													  ]));
 									return b;
 								};
-								c.$11 = function() {
+								c.$12 = function() {
 									var a = this;
 									ES(this.$2, "forEach", !0, function(b, c) {
 										if (!a.$9) {
 											c = b.adImage;
-											b = a.$15();
-											a.$16(b, c);
+											b = a.$16();
+											a.$17(b, c);
 										}
 									});
 								};
-								c.$12 = function() {
+								c.$13 = function() {
 									var a = this.$5[this.$6 - 1],
 										b;
-									this.$7 === 3
-										? (b = this.$17())
-										: this.$7 === 5
+									!this.$10
+										? this.$7 === 3
 											? (b = this.$18())
-											: (b = this.$19());
+											: this.$7 === 5
+												? (b = this.$19())
+												: (b = this.$20())
+										: this.$7 === 3
+											? (b = this.$18())
+											: this.$7 === 5
+												? (b = this.$18())
+												: this.$7 === 7
+													? (b = this.$19())
+													: (b = this.$20());
 									a.appendChild(b);
 								};
-								c.$19 = function() {
+								c.$20 = function() {
 									return h(b("joinClasses")("fbAdLink", "fbAdIcon", "_7_ce"));
 								};
-								c.$17 = function() {
+								c.$18 = function() {
 									return h(b("joinClasses")("fbAdLink", "_7_cf"), [
 										h(b("joinClasses")("fbAdIcon", "_7_ce")),
 										h(b("joinClasses")("fbAdSubtitle", "_7_c-"))
 									]);
 								};
-								c.$18 = function() {
+								c.$19 = function() {
 									return h(b("joinClasses")("fbAdLink", "_7_c_"), [
 										h(b("joinClasses")("fbAdIcon", "_7_ce"))
 									]);
 								};
-								c.$13 = function() {
+								c.$14 = function() {
 									var a = h("_7_d0");
 									this.$5.push(a);
 									this.$6++;
@@ -3864,19 +3890,19 @@ try {
 									this.$6++;
 									return h("_7_d1", [a, b]);
 								};
-								c.$14 = function() {
+								c.$15 = function() {
 									var a = h("_7_d0");
 									this.$5.push(a);
 									this.$6++;
-									return h("_7_d1", [a, h("_7_d0", [this.$13(), this.$13()])]);
+									return h("_7_d1", [a, h("_7_d0", [this.$14(), this.$14()])]);
 								};
-								c.$15 = function() {
+								c.$16 = function() {
 									var a = this.$5[this.$7];
 									this.$7 === this.$6 - 1 && (this.$9 = !0);
 									this.$7++;
 									return a;
 								};
-								c.$16 = function(a, b) {
+								c.$17 = function(a, b) {
 									var c = this,
 										d = document.createElement("img");
 									d.addEventListener("load", function() {
@@ -11845,11 +11871,14 @@ try {
 								};
 								c.$82 = function(a, c) {
 									var d = this,
-										e = new (b("ANCollage"))({
-											ads: c,
-											onLoadEventCounter: this.$22,
-											adFeatures: this.$34().$43
-										});
+										e = this.$34().$43.useExtendedCollage;
+									e || (e = !1);
+									e = new (b("ANCollage"))({
+										ads: c,
+										onLoadEventCounter: this.$22,
+										adFeatures: this.$34().$43,
+										extended: e
+									});
 									a.appendChild(e.getElement());
 									ES(e.getCells(), "forEach", !0, function(a, b) {
 										d.$87(a, c[b]);
@@ -12106,42 +12135,31 @@ try {
 											h && d.$1 && d.$1 + h > c && !d.$3
 												? ((d.$3 = !0),
 												  e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a))
-												: d.$34().$43.clickGuardOnlyCta === !0
-													? g === "fbAdCallToAction"
+												: d.$34().$43.clickGuardTwoClicks === !0
+													? g === "fbAdCallToAction" || d.$4 || d.$3
 														? e(
 																b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
 																a
 														  )
-														: d.$23.event("ADNW_CLICK_IGNORED_OUTSIDE_CTA")
-													: d.$34().$43.clickGuardTwoClicks === !0
-														? g === "fbAdCallToAction" || d.$4 || d.$3
-															? e(
-																	b("ANUnifiedLoggingClickEvent")
-																		.BILLABLE_CLICK,
-																	a
-															  )
-															: ((d.$4 = !0),
-															  e(
-																	b("ANUnifiedLoggingClickEvent")
-																		.TWO_STEP_DIALOG,
-																	a
-															  ))
-														: ES(d.$34().$51, "includes", !0, g) &&
-														  d.$13 &&
-														  !d.$14 &&
-														  d.$34().$43.useTwoStepClick === !0 &&
-														  !d.$25
-															? (e(
-																	b("ANUnifiedLoggingClickEvent")
-																		.TWO_STEP_DIALOG,
-																	a
-															  ),
-															  f())
-															: e(
-																	b("ANUnifiedLoggingClickEvent")
-																		.BILLABLE_CLICK,
-																	a
-															  );
+														: ((d.$4 = !0),
+														  e(
+																b("ANUnifiedLoggingClickEvent").TWO_STEP_DIALOG,
+																a
+														  ))
+													: ES(d.$34().$51, "includes", !0, g) &&
+													  d.$13 &&
+													  !d.$14 &&
+													  d.$34().$43.useTwoStepClick === !0 &&
+													  !d.$25
+														? (e(
+																b("ANUnifiedLoggingClickEvent").TWO_STEP_DIALOG,
+																a
+														  ),
+														  f())
+														: e(
+																b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
+																a
+														  );
 											a.preventDefault();
 											a.stopPropagation();
 										};
@@ -12917,7 +12935,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000807199","namespace":"FB","message":"' +
+				'","revision":"1000808946","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
