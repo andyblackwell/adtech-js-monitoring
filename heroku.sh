@@ -5,12 +5,12 @@
 
 if [ ! -d tmp/data ]; then
 
-  # you must set the $GITHUB_USER and $GH_ACCESS_TOKEN variables with `heroku config:add GITHUB_USER=username` or in Heroky's UI
+  # you must set the $GITHUB_USER and $GITHUB_AUTH_TOKEN variables with `heroku config:add GITHUB_USER=username` or in Heroku's UI
   # See https://github.com/settings/tokens to create a token
   git config --global user.name "heroku-bot"
   git config --global user.email "heroku-bot@localhost"
 
-  git clone https://$GH_ACCESS_TOKEN:x-oauth-basic@github.com/$GITHUB_USER/adtech-js-monitoring tmp
+  git clone https://github.com/$GITHUB_USER/adtech-js-monitoring tmp
 fi
 
 cd tmp/;
