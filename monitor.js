@@ -77,7 +77,7 @@ var c = new Crawler({
 							monitor.version = currentVersion;
 							save();
 						}
-					} else if (isNumeric(currentVersion) && isNumeric(monitor.version) && currentVersion > monitor.version) {
+					} else if (isNumeric(currentVersion) && isNumeric(monitor.version) && parseFloat(currentVersion) > parseFloat(monitor.version)) {
 						monitor.version = currentVersion;
 						save();
 					}
