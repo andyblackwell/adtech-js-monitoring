@@ -1,4 +1,4 @@
-/*1560247799,,JIT Construction: v1000812706,en_US*/
+/*1560264324,,JIT Construction: v1000812995,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12134,20 +12134,27 @@ try {
 											h && d.$1 && d.$1 + h > c && !d.$3
 												? ((d.$3 = !0),
 												  e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a))
-												: ES(d.$33().$50, "includes", !0, g) &&
-												  d.$12 &&
-												  !d.$13 &&
-												  d.$33().$42.useTwoStepClick === !0 &&
-												  !d.$24
-													? (e(
-															b("ANUnifiedLoggingClickEvent").TWO_STEP_DIALOG,
-															a
-													  ),
-													  f())
-													: e(
-															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
-															a
-													  );
+												: d.$33().$42.clickGuardAllElements === !0
+													? g === b("ANMWebAdElement").UNKNOWN
+														? d.$22.event("ADNW_CLICK_IGNORED_ON_WHITESPACES")
+														: e(
+																b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
+																a
+														  )
+													: ES(d.$33().$50, "includes", !0, g) &&
+													  d.$12 &&
+													  !d.$13 &&
+													  d.$33().$42.useTwoStepClick === !0 &&
+													  !d.$24
+														? (e(
+																b("ANUnifiedLoggingClickEvent").TWO_STEP_DIALOG,
+																a
+														  ),
+														  f())
+														: e(
+																b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
+																a
+														  );
 											a.preventDefault();
 											a.stopPropagation();
 										};
@@ -12923,7 +12930,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000812706","namespace":"FB","message":"' +
+				'","revision":"1000812995","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
