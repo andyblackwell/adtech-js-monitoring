@@ -7,7 +7,7 @@
 			"url": "https://connect.facebook.net/en_US/fbadnw60.js",
 			"version": "1000826951",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
-			"diffIgnorePatterns": ["JIT Construction", "revision"],
+			"diffIgnorePatterns": ["JIT Construction", "revision", "static\\.xx\\.fbcdn\\.net"],
 			"etag": "\"b63c2b264eed63338159612f6a6dad66\""
 		},
 		{
