@@ -7,14 +7,18 @@
 			"url": "https://connect.facebook.net/en_US/fbadnw60.js",
 			"version": "1000826951",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
-			"diffIgnorePatterns": ["JIT Construction", "revision", "static\\.xx\\.fbcdn\\.net"],
+			"diffIgnorePatterns": [
+				"JIT Construction",
+				"revision",
+				"static\\.xx\\.fbcdn\\.net"
+			],
 			"etag": "\"b63c2b264eed63338159612f6a6dad66\""
 		},
 		{
 			"name": "Facebook Main",
 			"tags": ["Facebook"],
 			"url": "https://connect.facebook.net/en_US/all.js",
-			"version": "1000827744",
+			"version": "1000828552",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
 			"diffIgnorePatterns": [
 				"JIT Construction",
@@ -22,7 +26,7 @@
 				"^\\s+\"http(s)?:\\/\\/www\\.facebook\\.com\\/\"",
 				"^\\s+(www|m|connect|business|api|api_read|graph|an|fbcdn|cdn|sdkurl):"
 			],
-			"etag": "\"f724e1ed0adf259abff5b9978d20a119\""
+			"etag": "\"348881768c10f2e4fc70fec320e39cac\""
 		},
 		{
 			"name": "Facebook Events",
