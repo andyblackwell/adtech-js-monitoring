@@ -1,4 +1,4 @@
-/*1560926504,,JIT Construction: v1000849688,en_US*/
+/*1560947242,,JIT Construction: v1000850380,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -11096,9 +11096,10 @@ try {
 													"VIDEO_AUTOPLAY_SUCCEEDED"
 												);
 											},
-											function() {
+											function(b) {
 												return a.$PlayVideoWhenOnScreenBehavior2.event(
-													"VIDEO_AUTOPLAY_FAILED"
+													"VIDEO_AUTOPLAY_FAILED",
+													b
 												);
 											}
 										)
@@ -12886,7 +12887,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000849688","namespace":"FB","message":"' +
+				'","revision":"1000850380","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
