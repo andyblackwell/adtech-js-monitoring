@@ -1,4 +1,4 @@
-/*1560947242,,JIT Construction: v1000850380,en_US*/
+/*1560983760,,JIT Construction: v1000853522,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4816,6 +4816,66 @@ try {
 									a.src = this.$1;
 									a.async = !0;
 									b("nullthrows")(this.$2.body).appendChild(a);
+								};
+								return a;
+							})();
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"ANPageNavigationManager",
+						["PageVisibility.adquality"],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							__p && __p();
+							a = (function() {
+								__p && __p();
+								function a(a) {
+									(this.$1 = !1), (this.$3 = a), (this.$2 = []);
+								}
+								var c = a.prototype;
+								c.$4 = function() {
+									__p && __p();
+									for (
+										var a = this.$2,
+											b = ES("Array", "isArray", !1, a),
+											c = 0,
+											a = b
+												? a
+												: a[
+														typeof Symbol === "function"
+															? Symbol.iterator
+															: "@@iterator"
+												  ]();
+										;
+
+									) {
+										var d;
+										if (b) {
+											if (c >= a.length) break;
+											d = a[c++];
+										} else {
+											c = a.next();
+											if (c.done) break;
+											d = c.value;
+										}
+										d = d;
+										d();
+									}
+									this.$2 = [];
+								};
+								c.$5 = function() {
+									var a = this,
+										c = new (b("PageVisibility.adquality"))(this.$3);
+									c.addVisibilityListener(function() {
+										var b = c.getVisibilityState();
+										(b === "hidden" || b === "unloaded") && a.$4();
+									});
+									this.$1 = !0;
+								};
+								c.onNavigation = function(a) {
+									this.$1 || this.$5(), this.$2.push(a);
 								};
 								return a;
 							})();
@@ -11193,6 +11253,7 @@ try {
 							"ANMWebAdElement",
 							"ANMWebUnifiedLoggingXOutOrigin",
 							"ANMWebXOutClientEvent",
+							"ANPageNavigationManager",
 							"ANRewardedVideoPlayer",
 							"ANStitchedImage",
 							"ANTextOnlyLoader",
@@ -11532,11 +11593,15 @@ try {
 										(this.$18 = this.$65(a.nativeAd, this.$10, c));
 									this.$66(!!a.nativeAd.adVideo);
 									this.$22.eventWithParams(this.$67("ADNW_ADLOADED"));
-									this.$68();
+									e = new (b("ANPageNavigationManager"))(window.document);
+									e.onNavigation(function() {
+										f.$68();
+									});
+									this.$69();
 									this.$34().$57 || d(a.placementId);
 									b("ANUtils").autofitTextWhereNeeded(this.$39());
 									this.$31().addEventListener("beforeunload", function() {
-										f.$22.event("ADNW_PAGE_UNLOADED"), f.$69();
+										f.$22.event("ADNW_PAGE_UNLOADED"), f.$68();
 									});
 								};
 								c.$67 = function(a) {
@@ -11562,7 +11627,7 @@ try {
 										viewable_reason: c.viewabilityReason || ""
 									};
 								};
-								c.$68 = function() {
+								c.$69 = function() {
 									var a = this.$34().$43.forceIframeSize;
 									if (a) {
 										var c = this.$32();
@@ -12047,7 +12112,7 @@ try {
 														a ===
 															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK &&
 														d.$23.openNewTab(g));
-											d.$69();
+											d.$68();
 											if (d.$34().$46 || e) {
 												k = new (b("ANBounceBackManager"))(window.document);
 												var l = b("getTime")();
@@ -12361,7 +12426,7 @@ try {
 								c.$80 = function() {
 									return this.$34().$43.logPerformanceStats === !0;
 								};
-								c.$69 = function() {
+								c.$68 = function() {
 									__p && __p();
 									if (!this.$80() || this.$29) return;
 									this.$29 = !0;
@@ -12887,7 +12952,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000850380","namespace":"FB","message":"' +
+				'","revision":"1000853522","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
