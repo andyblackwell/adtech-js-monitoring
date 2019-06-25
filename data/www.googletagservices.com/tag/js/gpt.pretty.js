@@ -1461,10 +1461,10 @@
 			return 0 === Pc(R(172));
 		};
 	var Rc = function() {
-			return Za("3") || 0;
+			return Za("5") || 0;
 		},
 		Sc = function() {
-			return "2019062001";
+			return "2019062401";
 		};
 	Kc("getVersion", Sc);
 	var Tc = function() {
@@ -1698,11 +1698,13 @@
 	})(void 0, void 0, dd);
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
+		[146, null, null, [1]],
 		[null, 7, null, [null, 0.1]],
 		[118, null, null, [1]],
 		[20, null, null, [], [[[1, [[4, null, 1]]], [1]]]],
 		[null, null, 8, [null, null, "/pagead/js/rum.js"]],
 		[140, null, null, [1]],
+		[158, null, null, [1]],
 		[8, null, null, [1]],
 		[55, null, null, [1]],
 		[null, 8, null, [null, -1]],
@@ -2084,16 +2086,7 @@
 				[50, [[21064004], [21064005, [[161, null, null, [1]]]]]],
 				[10, [[21064034], [21064035, [[31, null, null, [1]]]]]],
 				[10, [[21064050], [21064051, [[159, null, null, [1]]]]]],
-				[
-					10,
-					[
-						[21064052],
-						[21064053, [[153, null, null, [1]]]],
-						[21064054, [[146, null, null, [1]]]]
-					]
-				],
 				[50, [[21064055], [21064056, [[110, null, null, [1]]]]], null, 11],
-				[10, [[21064068], [21064069, [[158, null, null, [1]]]]]],
 				[
 					1000,
 					[[21064076]],
@@ -2167,7 +2160,7 @@
 					]
 				],
 				[
-					1,
+					10,
 					[
 						[21064078],
 						[
@@ -2613,6 +2606,28 @@
 							21064071,
 							[[null, 7, null, [null, 1]], [60, null, null, [1]]],
 							[6, null, null, 4, null, 3]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21064083,
+							[
+								[null, 7, null, [null, 1]],
+								[null, null, 5, [null, null, "21064083"]],
+								[60, null, null, [1]],
+								[null, null, 6, [null, null, "21064083"]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21064084,
+							[[null, 7, null, [null, 1]], [60, null, null, [1]]],
+							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
