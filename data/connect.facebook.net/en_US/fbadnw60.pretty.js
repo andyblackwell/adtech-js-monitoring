@@ -1,4 +1,4 @@
-/*1561387798,,JIT Construction: v1000871208,en_US*/
+/*1561471667,,JIT Construction: v1000877631,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4681,6 +4681,10 @@ try {
 								c.error = function(a) {
 									this.$1 <= b("LogLevels").ERROR &&
 										this.event("ADNW_ADERROR", a);
+								};
+								c.warn = function(a) {
+									this.$1 <= b("LogLevels").WARNING &&
+										this.event("ADNW_ADWARNING", a);
 								};
 								c.event = function(a, b, c) {
 									a = { event_name: a };
@@ -12489,52 +12493,57 @@ try {
 								c.$67 = function() {
 									__p && __p();
 									if (!this.$78() || this.$29) return;
+									var a = b("getTime")(),
+										c = a - b("ANUtils").getNavigationStart(),
+										d = a - this.$4.tagJsInitTime;
+									if (c <= 0 || d <= 0) {
+										this.$22.warn("Invalid time received from Date.now");
+										return;
+									}
 									this.$29 = !0;
-									var a = b("nullthrows")(this.$20),
-										c = this.$17.getInitialViewabilityState(),
-										d = this.$27,
-										e = null,
-										f = null;
-									d != null &&
-										((e = d.getCurrentTime()), (f = d.getDuration()));
-									d = null;
-									c != null &&
-										c.viewabilityLevels != null &&
-										(d = c.viewabilityLevels.join(","));
-									var g = b("getTime")(),
-										h =
+									var e = b("nullthrows")(this.$20),
+										f = this.$17.getInitialViewabilityState(),
+										g = this.$27,
+										h = null,
+										i = null;
+									g != null &&
+										((h = g.getCurrentTime()), (i = g.getDuration()));
+									g = null;
+									f != null &&
+										f.viewabilityLevels != null &&
+										(g = f.viewabilityLevels.join(","));
+									var j =
 											this.$34().$54 &&
 											this.$22.isPublisherSideLoggingSupported(),
-										i = c == null ? void 0 : c.widthInView;
-									i && (i *= 100);
-									var j = c == null ? void 0 : c.heightInView;
-									j && (j *= 100);
-									a = {
+										k = f == null ? void 0 : f.widthInView;
+									k && (k *= 100);
+									var l = f == null ? void 0 : f.heightInView;
+									l && (l *= 100);
+									e = {
 										key: this.$30(),
 										payload: {
-											partially_visible_time_ms: a.getPartiallyVisibleTime(),
-											mostly_visible_time_ms: a.getMostlyVisibleTime(),
-											fully_visible_time_ms: a.getFullyVisibleTime(),
-											client_ts: g,
-											latency_since_navigation_start:
-												g - b("ANUtils").getNavigationStart(),
-											latency_since_sdk_init: g - this.$4.tagJsInitTime,
-											viewability: d,
-											width_in_view: i,
-											height_in_view: j,
-											left: c == null ? void 0 : c.pageLeft,
-											top: c == null ? void 0 : c.pageTop,
-											scroll_left: c == null ? void 0 : c.scrollLeft,
-											scroll_top: c == null ? void 0 : c.scrollTop,
-											page_width: c == null ? void 0 : c.pageWidth,
-											page_height: c == null ? void 0 : c.pageHeight,
-											video_playback_time: e,
-											video_duration: f
+											partially_visible_time_ms: e.getPartiallyVisibleTime(),
+											mostly_visible_time_ms: e.getMostlyVisibleTime(),
+											fully_visible_time_ms: e.getFullyVisibleTime(),
+											client_ts: a,
+											latency_since_navigation_start: c,
+											latency_since_sdk_init: d,
+											viewability: g,
+											width_in_view: k,
+											height_in_view: l,
+											left: f == null ? void 0 : f.pageLeft,
+											top: f == null ? void 0 : f.pageTop,
+											scroll_left: f == null ? void 0 : f.scrollLeft,
+											scroll_top: f == null ? void 0 : f.scrollTop,
+											page_width: f == null ? void 0 : f.pageWidth,
+											page_height: f == null ? void 0 : f.pageHeight,
+											video_playback_time: h,
+											video_duration: i
 										}
 									};
-									h
-										? this.$22.logPerfStats(a)
-										: this.sendToFacebook({ name: "perf", params: a });
+									j
+										? this.$22.logPerfStats(e)
+										: this.sendToFacebook({ name: "perf", params: e });
 								};
 								return a;
 							})();
@@ -13012,7 +13021,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000871208","namespace":"FB","message":"' +
+				'","revision":"1000877631","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
