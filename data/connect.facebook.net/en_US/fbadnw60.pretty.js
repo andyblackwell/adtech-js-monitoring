@@ -1,4 +1,4 @@
-/*1561471667,,JIT Construction: v1000877631,en_US*/
+/*1561493730,,JIT Construction: v1000879191,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12295,7 +12295,6 @@ try {
 									this.applyAdTypeClass(a, e, f);
 									this.$94(a);
 									e.loaded = !0;
-									var j = !1;
 									d = this.$95(a, d, e, f, g, h, i);
 									this.$34().$47 === !0 &&
 										b("Whiteops").run(
@@ -12305,22 +12304,69 @@ try {
 											this.$34().$48,
 											a
 										);
-									return j || d;
+									return d;
 								};
 								c.$95 = function(a, c, d, e, f, g, h) {
-									var i,
-										j = !1;
+									__p && __p();
 									this.$15 = a.getElementsByClassName(
 										b("ANMWebAdElement").FB_AD_MEDIA
 									);
-									for (i = 0; i < this.$15.length; i++)
-										(j = !0),
-											f && !e && this.$70(d, this.$15[i]),
-											this.$79(a, this.$15[i], c, d, e, h);
+									var i = this.$15.length > 0;
+									for (
+										var j = this.$15,
+											k = ES("Array", "isArray", !1, j),
+											l = 0,
+											j = k
+												? j
+												: j[
+														typeof Symbol === "function"
+															? Symbol.iterator
+															: "@@iterator"
+												  ]();
+										;
+
+									) {
+										var m;
+										if (k) {
+											if (l >= j.length) break;
+											m = j[l++];
+										} else {
+											l = j.next();
+											if (l.done) break;
+											m = l.value;
+										}
+										m = m;
+										f && !e && this.$70(d, m);
+										this.$79(a, m, c, d, e, h);
+									}
 									this.$92(a, d, g);
-									c = a.getElementsByClassName(b("ANMWebAdElement").FB_AD_ICON);
-									for (i = 0; i < c.length; i++) c[i].appendChild(this.$93(d));
-									return j;
+									m = a.getElementsByClassName(b("ANMWebAdElement").FB_AD_ICON);
+									for (
+										var l = m,
+											k = ES("Array", "isArray", !1, l),
+											j = 0,
+											l = k
+												? l
+												: l[
+														typeof Symbol === "function"
+															? Symbol.iterator
+															: "@@iterator"
+												  ]();
+										;
+
+									) {
+										if (k) {
+											if (j >= l.length) break;
+											c = l[j++];
+										} else {
+											j = l.next();
+											if (j.done) break;
+											c = j.value;
+										}
+										e = c;
+										e.appendChild(this.$93(d));
+									}
+									return i;
 								};
 								c.$92 = function(a, c, d) {
 									__p && __p();
@@ -13021,7 +13067,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000877631","namespace":"FB","message":"' +
+				'","revision":"1000879191","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
