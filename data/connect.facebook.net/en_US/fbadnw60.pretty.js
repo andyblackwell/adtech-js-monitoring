@@ -1,4 +1,4 @@
-/*1561493730,,JIT Construction: v1000879191,en_US*/
+/*1561519002,,JIT Construction: v1000881846,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -8380,6 +8380,7 @@ try {
 									this.$7 = ES(this.$8, "map", !0, function(a) {
 										return a.createTest(a);
 									});
+									this.$9 = a.gatingConfig;
 								}
 								var c = a.prototype;
 								c.getStatistics = function() {
@@ -8420,7 +8421,7 @@ try {
 												cont: a.isContinuous,
 												maa: d.$4.getMaxAdAreaForScreenOrientation(e)
 											});
-											d.$9(
+											d.$10(
 												f,
 												parseFloat(a.loggingTimeInterval),
 												d.getStatistics(),
@@ -8438,13 +8439,22 @@ try {
 								c.addRule = function(a) {
 									this.$8.push(a), this.$7.push(a.createTest(a));
 								};
-								c.$9 = function(a, b, c, d, e, f) {
-									this.$6.registerVolume(b, e, a.getIsContinuous()),
-										this.$6.registerPlaybackRate(b, f),
-										this.$6.registerProgress(b, a),
-										ES(this.$7, "forEach", !0, function(e) {
-											e.registerProgress(b, a, c, d);
-										});
+								c.$10 = function(a, b, c, d, e, f) {
+									this.$6.registerVolume(b, e, a.getIsContinuous());
+									this.$6.registerPlaybackRate(b, f);
+									this.$6.registerProgress(b, a);
+									var g =
+										this.$9 == null
+											? !1
+											: ES(
+													this.$9.gatekeepers,
+													"includes",
+													!0,
+													"adnw_instream_min_viewability"
+											  );
+									ES(this.$7, "forEach", !0, function(e) {
+										e.registerProgress(b, a, c, d, g);
+									});
 								};
 								c.getMeasurementResult = function() {
 									var a = this;
@@ -10183,22 +10193,26 @@ try {
 										));
 								}
 								var c = a.prototype;
-								c.registerProgress = function(a, c, d, e) {
+								c.registerProgress = function(a, c, d, e, f) {
 									__p && __p();
 									if (this.$1) return;
 									this.$3.registerProgress(a, c);
-									d = c.getViewableRatio() || 0;
+									d = !!f;
+									e =
+										(d
+											? this.$3.getData().minViewableRatio
+											: c.getViewableRatio()) || 0;
 									if (
 										this.$2.continuous &&
-										(!c.getIsContinuous() || d < this.$2.viewableRatio)
+										(!c.getIsContinuous() || e < this.$2.viewableRatio)
 									) {
 										this.$3 = new (b("AdQualityStatistics.adquality"))(
 											this.$2.viewableRatio
 										);
 										return;
 									}
-									e = this.$3.getData().viewableSeconds || 0;
-									e >= this.$2.viewableSeconds &&
+									a = this.$3.getData().viewableSeconds || 0;
+									a >= this.$2.viewableSeconds &&
 										c.isConclusive() &&
 										this.$4(c);
 								};
@@ -13067,7 +13081,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000879191","namespace":"FB","message":"' +
+				'","revision":"1000881846","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
