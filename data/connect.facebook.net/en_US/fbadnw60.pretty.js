@@ -1,4 +1,4 @@
-/*1561519002,,JIT Construction: v1000881846,en_US*/
+/*1561557987,,JIT Construction: v1000883659,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12190,7 +12190,6 @@ try {
 														a ===
 															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK &&
 														d.$23.openNewTab(g));
-											d.$67();
 											if (d.$34().$46 || e) {
 												k = new (b("ANBounceBackManager"))(window.document);
 												var l = b("getTime")();
@@ -13081,7 +13080,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000881846","namespace":"FB","message":"' +
+				'","revision":"1000883659","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
