@@ -1,4 +1,4 @@
-/*1561577500,,JIT Construction: v1000884467,en_US*/
+/*1561671029,,JIT Construction: v1000891277,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12104,101 +12104,103 @@ try {
 									var d = this,
 										e = function(a, e) {
 											__p && __p();
-											d.$3 = b("getTime")();
-											var f = b("nullthrows")(c.href),
-												g = b("ANUtils").maybeHTMLElement(e.target);
-											g = g ? d.$91(g) : b("ANMWebAdElement").UNKNOWN;
-											var h = {};
+											var f = b("getTime")(),
+												g = b("nullthrows")(c.href),
+												h = b("ANUtils").maybeHTMLElement(e.target);
+											h = h ? d.$91(h) : b("ANMWebAdElement").UNKNOWN;
+											var i = {};
 											if (d.$18) {
-												var i = d.$18.getDimensions(),
-													j = d.$18.getLastViewabilityState();
-												i != null &&
-													((h.height = i.height),
-													(h.width = i.width),
-													j.widthInView != null &&
-														j.heightInView != null &&
-														((h.visibleWidth = Math.round(
-															j.widthInView * i.width
+												var j = d.$18.getDimensions(),
+													k = d.$18.getLastViewabilityState();
+												j != null &&
+													((i.height = j.height),
+													(i.width = j.width),
+													k.widthInView != null &&
+														k.heightInView != null &&
+														((i.visibleWidth = Math.round(
+															k.widthInView * j.width
 														)),
-														(h.visibleHeight = Math.round(
-															j.heightInView * i.height
+														(i.visibleHeight = Math.round(
+															k.heightInView * j.height
 														))));
 												if (d.$12.getSafeFrameAPI())
-													(h.relClickX = e.clientX), (h.relClickY = e.clientY);
+													(i.relClickX = e.clientX), (i.relClickY = e.clientY);
 												else {
-													h.clickX = e.clientX;
-													h.clickY = e.clientY;
-													if (j.viewportLeft != null && j.viewportTop != null)
-														(h.relClickX = e.clientX - j.viewportLeft),
-															(h.relClickY = e.clientY - j.viewportTop);
+													i.clickX = e.clientX;
+													i.clickY = e.clientY;
+													if (k.viewportLeft != null && k.viewportTop != null)
+														(i.relClickX = e.clientX - k.viewportLeft),
+															(i.relClickY = e.clientY - k.viewportTop);
 													else {
-														i = d.$40().getBoundingClientRect();
-														h.relClickX = e.clientX - i.left;
-														h.relClickY = e.clientY - i.top;
+														j = d.$40().getBoundingClientRect();
+														i.relClickX = e.clientX - j.left;
+														i.relClickY = e.clientY - j.top;
 													}
 												}
 											}
-											j = {
-												clktm: Math.round(b("nullthrows")(d.$3) / 1e3),
+											k = {
+												clktm: Math.round(f / 1e3),
 												clknutab: d.$35().$47,
-												touch: ES("JSON", "stringify", !1, h)
+												touch: ES("JSON", "stringify", !1, i)
 											};
-											d.$2 && d.$3 && (j.clkdel = d.$3 - d.$2);
-											h.height &&
-												h.width &&
-												h.visibleWidth &&
-												h.visibleHeight &&
-												(j.vp =
-													(h.visibleWidth * h.visibleHeight) /
-													(h.height * h.width));
-											e = b("ANUtils").isAppStoreURL(f);
-											i =
+											d.$2 && (k.clkdel = f - d.$2);
+											i.height &&
+												i.width &&
+												i.visibleWidth &&
+												i.visibleHeight &&
+												(k.vp =
+													(i.visibleWidth * i.visibleHeight) /
+													(i.height * i.width));
+											e = b("ANUtils").isAppStoreURL(g);
+											j =
 												d.$35().$55 &&
 												d.$23.isPublisherSideLoggingSupported() &&
 												a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK;
-											i &&
-												f === "" &&
-												(d.$23.error("pub_logging_no_href"), (i = !1));
-											j = {
+											j &&
+												g === "" &&
+												(d.$23.error("pub_logging_no_href"), (j = !1));
+											k = {
 												key: d.$31(),
-												href: b("nullthrows")(f),
-												clickParams: j,
-												adElementType: g,
+												href: b("nullthrows")(g),
+												clickParams: k,
+												adElementType: h,
 												action: a,
 												videoDuration: d.$28 == null ? 0 : d.$28.getDuration(),
 												videoPlaybackTime:
 													d.$28 == null ? 0 : d.$28.getCurrentTime(),
 												pos: {
-													element: g,
-													width: h.width,
-													height: h.height,
-													visibleWidth: h.visibleWidth,
-													visibleHeight: h.visibleHeight,
-													clickX: h.clickX,
-													clickY: h.clickY,
-													relClickX: h.relClickX,
-													relClickY: h.relClickX,
+													element: h,
+													width: i.width,
+													height: i.height,
+													visibleWidth: i.visibleWidth,
+													visibleHeight: i.visibleHeight,
+													clickX: i.clickX,
+													clickY: i.clickY,
+													relClickX: i.relClickX,
+													relClickY: i.relClickX,
 													carouselCardIndex:
 														d.$6 == null ? null : d.$6.getIndex()
 												}
 											};
-											i
-												? d.$90(j)
-												: (d.sendToFacebook({ name: "click", params: j }),
+											j
+												? d.$90(k)
+												: (d.sendToFacebook({ name: "click", params: k }),
 												  d.$35().$47 &&
-														f &&
+														g &&
 														!e &&
 														a ===
 															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK &&
-														d.$24.openNewTab(f));
+														d.$24.openNewTab(g));
+											a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK &&
+												(d.$3 = f);
 											if (d.$35().$47 || e) {
-												g = new (b("ANBounceBackManager"))(window.document);
-												g.onBounceBack(function(a) {
+												h = new (b("ANBounceBackManager"))(window.document);
+												h.onBounceBack(function(a) {
 													d.sendToFacebook({
 														name: "bounce",
 														params: {
 															key: d.$31(),
-															leaveTime: b("nullthrows")(d.$3),
+															leaveTime: f,
 															backTime: b("getTime")()
 														}
 													}),
@@ -12225,21 +12227,21 @@ try {
 												});
 										},
 										g = function(a) {
-											d.$3 = b("getTime")();
-											var c = b("ANUtils").maybeHTMLElement(a.target);
-											c = c ? d.$91(c) : b("ANMWebAdElement").UNKNOWN;
-											var g = d.$35().$44.minClickDelay;
-											g && d.$1 && d.$1 + g > b("nullthrows")(d.$3) && !d.$4
+											var c = b("getTime")(),
+												g = b("ANUtils").maybeHTMLElement(a.target);
+											g = g ? d.$91(g) : b("ANMWebAdElement").UNKNOWN;
+											var h = d.$35().$44.minClickDelay;
+											h && d.$1 && d.$1 + h > c && !d.$4
 												? ((d.$4 = !0),
 												  e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a))
 												: d.$35().$44.clickGuardAllElements === !0
-													? c === b("ANMWebAdElement").UNKNOWN
+													? g === b("ANMWebAdElement").UNKNOWN
 														? d.$23.event("ADNW_CLICK_IGNORED_ON_WHITESPACES")
 														: e(
 																b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
 																a
 														  )
-													: ES(d.$35().$52, "includes", !0, c) &&
+													: ES(d.$35().$52, "includes", !0, g) &&
 													  d.$13 &&
 													  !d.$14 &&
 													  d.$35().$44.useTwoStepClick === !0 &&
@@ -12553,56 +12555,84 @@ try {
 									__p && __p();
 									if (!this.$79() || this.$30) return;
 									var a = b("getTime")(),
-										c = a - b("ANUtils").getNavigationStart(),
-										d = a - this.$5.tagJsInitTime;
-									if (c <= 0 || d <= 0) {
+										c = b("ANUtils").getNavigationStart(),
+										d = a - c,
+										e = a - this.$5.tagJsInitTime;
+									if (d <= 0 || e <= 0) {
+										this.$23.warn("Invalid time received from Date.now");
+										return;
+									}
+									var f = this.$5.tagJsInitTime - c,
+										g = null,
+										h = null,
+										i = null,
+										j = null;
+									c = a - c;
+									this.$1 && (g = this.$1 - this.$5.tagJsInitTime);
+									this.$2 && this.$1 && (h = this.$2 - this.$1);
+									this.$3 && this.$2 && (i = this.$3 - this.$2);
+									this.$3 && (j = a - this.$3);
+									if (
+										f < 0 ||
+										(g && g < 0) ||
+										(h && h < 0) ||
+										(i && i < 0) ||
+										(j && j < 0) ||
+										c < 0
+									) {
 										this.$23.warn("Invalid time received from Date.now");
 										return;
 									}
 									this.$30 = !0;
-									var e = b("nullthrows")(this.$21),
-										f = this.$18.getInitialViewabilityState(),
-										g = this.$28,
-										h = null,
-										i = null;
-									g != null &&
-										((h = g.getCurrentTime()), (i = g.getDuration()));
-									g = null;
-									f != null &&
-										f.viewabilityLevels != null &&
-										(g = f.viewabilityLevels.join(","));
-									var j =
+									var k = b("nullthrows")(this.$21),
+										l = this.$18.getInitialViewabilityState(),
+										m = this.$28,
+										n = null,
+										o = null;
+									m != null &&
+										((n = m.getCurrentTime()), (o = m.getDuration()));
+									m = null;
+									l != null &&
+										l.viewabilityLevels != null &&
+										(m = l.viewabilityLevels.join(","));
+									var p =
 											this.$35().$55 &&
 											this.$23.isPublisherSideLoggingSupported(),
-										k = f == null ? void 0 : f.widthInView;
-									k && (k *= 100);
-									var l = f == null ? void 0 : f.heightInView;
-									l && (l *= 100);
-									e = {
+										q = l == null ? void 0 : l.widthInView;
+									q && (q *= 100);
+									var r = l == null ? void 0 : l.heightInView;
+									r && (r *= 100);
+									k = {
 										key: this.$31(),
 										payload: {
-											partially_visible_time_ms: e.getPartiallyVisibleTime(),
-											mostly_visible_time_ms: e.getMostlyVisibleTime(),
-											fully_visible_time_ms: e.getFullyVisibleTime(),
+											partially_visible_time_ms: k.getPartiallyVisibleTime(),
+											mostly_visible_time_ms: k.getMostlyVisibleTime(),
+											fully_visible_time_ms: k.getFullyVisibleTime(),
 											client_ts: a,
-											latency_since_navigation_start: c,
-											latency_since_sdk_init: d,
-											viewability: g,
-											width_in_view: k,
-											height_in_view: l,
-											left: f == null ? void 0 : f.pageLeft,
-											top: f == null ? void 0 : f.pageTop,
-											scroll_left: f == null ? void 0 : f.scrollLeft,
-											scroll_top: f == null ? void 0 : f.scrollTop,
-											page_width: f == null ? void 0 : f.pageWidth,
-											page_height: f == null ? void 0 : f.pageHeight,
-											video_playback_time: h,
-											video_duration: i
+											latency_since_navigation_start: d,
+											latency_since_sdk_init: e,
+											viewability: m,
+											width_in_view: q,
+											height_in_view: r,
+											left: l == null ? void 0 : l.pageLeft,
+											top: l == null ? void 0 : l.pageTop,
+											scroll_left: l == null ? void 0 : l.scrollLeft,
+											scroll_top: l == null ? void 0 : l.scrollTop,
+											page_width: l == null ? void 0 : l.pageWidth,
+											page_height: l == null ? void 0 : l.pageHeight,
+											request_delay: f,
+											load_time: g,
+											imp_delay: h,
+											click_delay: i,
+											click_to_navigation_time: j,
+											total_time_on_page: c,
+											video_playback_time: n,
+											video_duration: o
 										}
 									};
-									j
-										? this.$23.logPerfStats(e)
-										: this.sendToFacebook({ name: "perf", params: e });
+									p
+										? this.$23.logPerfStats(k)
+										: this.sendToFacebook({ name: "perf", params: k });
 								};
 								return a;
 							})();
@@ -13080,7 +13110,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000884467","namespace":"FB","message":"' +
+				'","revision":"1000891277","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
