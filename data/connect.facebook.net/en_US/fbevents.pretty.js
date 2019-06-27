@@ -18,7 +18,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-fbq.version = "2.8.52";
+fbq.version = "2.8.53";
 fbq._releaseSegment = "canary";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -275,6 +275,12 @@ fbq.pendingConfigs = ["global_config"];
 								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
 							)
 								return null;
+							a = a.extractor_config;
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
+							)
+								return null;
 							var b = a.parameter_type;
 							a = a.value;
 							b = d(b);
@@ -289,7 +295,7 @@ fbq.pendingConfigs = ["global_config"];
 								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
 							)
 								return null;
-							var b = a.parameterType;
+							var b = a.parameter_type;
 							a = a.selector;
 							b = d(b);
 							a = a != null && typeof a === "string" && a !== "" ? a : null;
@@ -298,6 +304,12 @@ fbq.pendingConfigs = ["global_config"];
 								: null;
 						}
 						function k(a) {
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
+							)
+								return null;
+							a = a.extractor_config;
 							if (
 								a == null ||
 								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
@@ -447,7 +459,10 @@ fbq.pendingConfigs = ["global_config"];
 					var c = a.isSafeInteger;
 					function d(a) {
 						if (typeof a === "number") {
-							c(a) || b({ pixelID: a.toString(), type: "INVALID_PIXEL_ID" });
+							if (!c(a)) {
+								b({ pixelID: a.toString(), type: "INVALID_PIXEL_ID" });
+								return null;
+							}
 							return a.toString();
 						}
 						if (typeof a === "string") {
@@ -785,7 +800,7 @@ fbq.pendingConfigs = ["global_config"];
 								return (
 									"\"fbq('" +
 									c +
-									"', ...);\" is not a valid fbq('consent', ...) action. Valid actions are 'await' and 'grant'."
+									"', ...);\" is not a valid fbq('consent', ...) action. Valid actions are 'revoke' and 'grant'."
 								);
 							case "INVALID_JSON_LD":
 								b = a.jsonLd;
@@ -2013,6 +2028,12 @@ fbq.pendingConfigs = ["global_config"];
 								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
 							)
 								return null;
+							a = a.extractor_config;
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
+							)
+								return null;
 							var b = a.parameter_type;
 							a = a.value;
 							b = d(b);
@@ -2027,7 +2048,7 @@ fbq.pendingConfigs = ["global_config"];
 								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
 							)
 								return null;
-							var b = a.parameterType;
+							var b = a.parameter_type;
 							a = a.selector;
 							b = d(b);
 							a = a != null && typeof a === "string" && a !== "" ? a : null;
@@ -2036,6 +2057,12 @@ fbq.pendingConfigs = ["global_config"];
 								: null;
 						}
 						function k(a) {
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
+							)
+								return null;
+							a = a.extractor_config;
 							if (
 								a == null ||
 								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
@@ -2185,7 +2212,10 @@ fbq.pendingConfigs = ["global_config"];
 					var c = a.isSafeInteger;
 					function d(a) {
 						if (typeof a === "number") {
-							c(a) || b({ pixelID: a.toString(), type: "INVALID_PIXEL_ID" });
+							if (!c(a)) {
+								b({ pixelID: a.toString(), type: "INVALID_PIXEL_ID" });
+								return null;
+							}
 							return a.toString();
 						}
 						if (typeof a === "string") {
@@ -2523,7 +2553,7 @@ fbq.pendingConfigs = ["global_config"];
 								return (
 									"\"fbq('" +
 									c +
-									"', ...);\" is not a valid fbq('consent', ...) action. Valid actions are 'await' and 'grant'."
+									"', ...);\" is not a valid fbq('consent', ...) action. Valid actions are 'revoke' and 'grant'."
 								);
 							case "INVALID_JSON_LD":
 								b = a.jsonLd;
@@ -3856,6 +3886,12 @@ fbq.pendingConfigs = ["global_config"];
 								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
 							)
 								return null;
+							a = a.extractor_config;
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
+							)
+								return null;
 							var b = a.parameter_type;
 							a = a.value;
 							b = d(b);
@@ -3870,7 +3906,7 @@ fbq.pendingConfigs = ["global_config"];
 								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
 							)
 								return null;
-							var b = a.parameterType;
+							var b = a.parameter_type;
 							a = a.selector;
 							b = d(b);
 							a = a != null && typeof a === "string" && a !== "" ? a : null;
@@ -3879,6 +3915,12 @@ fbq.pendingConfigs = ["global_config"];
 								: null;
 						}
 						function j(a) {
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
+							)
+								return null;
+							a = a.extractor_config;
 							if (
 								a == null ||
 								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
@@ -4028,7 +4070,10 @@ fbq.pendingConfigs = ["global_config"];
 					var c = a.isSafeInteger;
 					function d(a) {
 						if (typeof a === "number") {
-							c(a) || b({ pixelID: a.toString(), type: "INVALID_PIXEL_ID" });
+							if (!c(a)) {
+								b({ pixelID: a.toString(), type: "INVALID_PIXEL_ID" });
+								return null;
+							}
 							return a.toString();
 						}
 						if (typeof a === "string") {
@@ -4446,8 +4491,9 @@ fbq.pendingConfigs = ["global_config"];
 											: !1;
 									this._validateSend(a, b);
 									if (
-										this._argsHasAnyUserData(a) &&
-										!this.fbq.loadPlugin("identity")
+										(this._argsHasAnyUserData(a) &&
+											!this.fbq.loadPlugin("identity")) ||
+										this.locks.isLocked()
 									) {
 										g.fbq("fire", a);
 										return this;
@@ -4906,7 +4952,7 @@ fbq.pendingConfigs = ["global_config"];
 								return (
 									"\"fbq('" +
 									c +
-									"', ...);\" is not a valid fbq('consent', ...) action. Valid actions are 'await' and 'grant'."
+									"', ...);\" is not a valid fbq('consent', ...) action. Valid actions are 'revoke' and 'grant'."
 								);
 							case "INVALID_JSON_LD":
 								b = a.jsonLd;
@@ -6658,34 +6704,7 @@ fbq.registerPlugin("global_config", {
 		fbq.loadPlugin("opttracking");
 		fbq.loadPlugin("performance");
 		fbq.set("experiments", {
-			"0": { name: "beacon", range: [0, 0], code: "b", passRate: 0.5 },
-			"1": { name: "logDataLayer", range: [0, 0], code: "d", passRate: 0 },
-			"2": {
-				name: "button_click_send_beacon",
-				range: [0, 0.1],
-				code: "e",
-				passRate: 0.5
-			},
-			"3": {
-				name: "button_click_send_beacon_all_browser",
-				range: [0.11, 0.12],
-				code: "f",
-				passRate: 0.5
-			},
-			"4": {
-				name: "all_event_send_beacon",
-				range: [0.12, 0.13],
-				code: "g",
-				passRate: 0.5
-			},
-			"5": {
-				name: "send_coalescence_telemetry",
-				range: [0, 0],
-				code: "h",
-				passRate: 0.5
-			},
-			"6": { name: "xhr_cors_post", range: [0, 0], code: "x", passRate: 0.5 },
-			"7": { name: "set_timeout_post", range: [0, 0], code: "t", passRate: 0 }
+			"0": { name: "logDataLayer", range: [0, 0], code: "d", passRate: 0 }
 		});
 		instance.configLoaded("global_config");
 	}
