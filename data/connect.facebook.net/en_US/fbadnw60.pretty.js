@@ -1,4 +1,4 @@
-/*1561671029,,JIT Construction: v1000891277,en_US*/
+/*1561738094,,JIT Construction: v1000895462,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12556,83 +12556,75 @@ try {
 									if (!this.$79() || this.$30) return;
 									var a = b("getTime")(),
 										c = b("ANUtils").getNavigationStart(),
-										d = a - c,
-										e = a - this.$5.tagJsInitTime;
-									if (d <= 0 || e <= 0) {
-										this.$23.warn("Invalid time received from Date.now");
-										return;
-									}
-									var f = this.$5.tagJsInitTime - c,
+										d = this.$5.tagJsInitTime - c,
+										e = null,
+										f = null,
 										g = null,
-										h = null,
-										i = null,
-										j = null;
+										h = null;
 									c = a - c;
-									this.$1 && (g = this.$1 - this.$5.tagJsInitTime);
-									this.$2 && this.$1 && (h = this.$2 - this.$1);
-									this.$3 && this.$2 && (i = this.$3 - this.$2);
-									this.$3 && (j = a - this.$3);
+									this.$1 && (e = this.$1 - this.$5.tagJsInitTime);
+									this.$2 && this.$1 && (f = this.$2 - this.$1);
+									this.$3 && this.$2 && (g = this.$3 - this.$2);
+									this.$3 && (h = a - this.$3);
 									if (
-										f < 0 ||
+										d < 0 ||
+										(e && e < 0) ||
+										(f && f < 0) ||
 										(g && g < 0) ||
 										(h && h < 0) ||
-										(i && i < 0) ||
-										(j && j < 0) ||
 										c < 0
 									) {
 										this.$23.warn("Invalid time received from Date.now");
 										return;
 									}
 									this.$30 = !0;
-									var k = b("nullthrows")(this.$21),
-										l = this.$18.getInitialViewabilityState(),
-										m = this.$28,
-										n = null,
-										o = null;
-									m != null &&
-										((n = m.getCurrentTime()), (o = m.getDuration()));
-									m = null;
-									l != null &&
-										l.viewabilityLevels != null &&
-										(m = l.viewabilityLevels.join(","));
-									var p =
+									var i = b("nullthrows")(this.$21),
+										j = this.$18.getInitialViewabilityState(),
+										k = this.$28,
+										l = null,
+										m = null;
+									k != null &&
+										((l = k.getCurrentTime()), (m = k.getDuration()));
+									k = null;
+									j != null &&
+										j.viewabilityLevels != null &&
+										(k = j.viewabilityLevels.join(","));
+									var n =
 											this.$35().$55 &&
 											this.$23.isPublisherSideLoggingSupported(),
-										q = l == null ? void 0 : l.widthInView;
-									q && (q *= 100);
-									var r = l == null ? void 0 : l.heightInView;
-									r && (r *= 100);
-									k = {
+										o = j == null ? void 0 : j.widthInView;
+									o && (o *= 100);
+									var p = j == null ? void 0 : j.heightInView;
+									p && (p *= 100);
+									i = {
 										key: this.$31(),
 										payload: {
-											partially_visible_time_ms: k.getPartiallyVisibleTime(),
-											mostly_visible_time_ms: k.getMostlyVisibleTime(),
-											fully_visible_time_ms: k.getFullyVisibleTime(),
+											partially_visible_time_ms: i.getPartiallyVisibleTime(),
+											mostly_visible_time_ms: i.getMostlyVisibleTime(),
+											fully_visible_time_ms: i.getFullyVisibleTime(),
 											client_ts: a,
-											latency_since_navigation_start: d,
-											latency_since_sdk_init: e,
-											viewability: m,
-											width_in_view: q,
-											height_in_view: r,
-											left: l == null ? void 0 : l.pageLeft,
-											top: l == null ? void 0 : l.pageTop,
-											scroll_left: l == null ? void 0 : l.scrollLeft,
-											scroll_top: l == null ? void 0 : l.scrollTop,
-											page_width: l == null ? void 0 : l.pageWidth,
-											page_height: l == null ? void 0 : l.pageHeight,
-											request_delay: f,
-											load_time: g,
-											imp_delay: h,
-											click_delay: i,
-											click_to_navigation_time: j,
+											viewability: k,
+											width_in_view: o,
+											height_in_view: p,
+											left: j == null ? void 0 : j.pageLeft,
+											top: j == null ? void 0 : j.pageTop,
+											scroll_left: j == null ? void 0 : j.scrollLeft,
+											scroll_top: j == null ? void 0 : j.scrollTop,
+											page_width: j == null ? void 0 : j.pageWidth,
+											page_height: j == null ? void 0 : j.pageHeight,
+											request_delay: d,
+											load_time: e,
+											imp_delay: f,
+											click_delay: g,
+											click_to_navigation_time: h,
 											total_time_on_page: c,
-											video_playback_time: n,
-											video_duration: o
+											video_playback_time: l,
+											video_duration: m
 										}
 									};
-									p
-										? this.$23.logPerfStats(k)
-										: this.sendToFacebook({ name: "perf", params: k });
+									n
+										? this.$23.logPerfStats(i)
+										: this.sendToFacebook({ name: "perf", params: i });
 								};
 								return a;
 							})();
@@ -13110,7 +13102,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000891277","namespace":"FB","message":"' +
+				'","revision":"1000895462","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
