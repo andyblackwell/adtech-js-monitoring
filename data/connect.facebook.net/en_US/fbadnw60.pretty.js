@@ -1,4 +1,4 @@
-/*1561738094,,JIT Construction: v1000895462,en_US*/
+/*1561781292,,JIT Construction: v1000899487,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -3049,6 +3049,45 @@ try {
 										: (c.contentDocument.open(),
 										  c.contentDocument.close(),
 										  d());
+								};
+								return a;
+							})();
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"ANBanner",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							__p && __p();
+							var g = "adnwBannerCallToActionOverlay",
+								h = "adnwBannerWords";
+							a = (function() {
+								__p && __p();
+								function a(a) {
+									(this.$1 = a.getElementsByClassName(h)[0]),
+										(this.$2 = a.getElementsByClassName(g)[0]);
+								}
+								var b = a.prototype;
+								b.init = function() {
+									this.$3();
+								};
+								b.$3 = function() {
+									var a = this;
+									this.$1.addEventListener("touchstart", function() {
+										a.$4();
+									});
+									this.$2.addEventListener("touchstart", function() {
+										a.$5();
+									});
+								};
+								b.$4 = function() {
+									this.$2.classList.remove("hidden");
+								};
+								b.$5 = function() {
+									this.$2.classList.add("hidden");
 								};
 								return a;
 							})();
@@ -11322,6 +11361,7 @@ try {
 							"AdViewability",
 							"AMPContextLoader",
 							"ANAdChoices",
+							"ANBanner",
 							"ANBounceBackManager",
 							"ANCallbackManager",
 							"ANCarousel",
@@ -11684,6 +11724,10 @@ try {
 									this.$32().addEventListener("beforeunload", function() {
 										f.$23.event("ADNW_PAGE_UNLOADED"), f.$68();
 									});
+									if (this.$35().$44.useBannerV2) {
+										e = new (b("ANBanner"))(this.$40());
+										e.init();
+									}
 								};
 								c.$67 = function(a) {
 									var c = this.$18;
@@ -11921,20 +11965,22 @@ try {
 									else return 1.9;
 								};
 								c.$80 = function(a, b, c, d, e, f) {
-									this.$35().$44.useClientSideCarouselCollage &&
-									e &&
-									c &&
-									!c.use_carousel_stitch
-										? this.$81(b, e)
-										: e && c && !c.use_carousel_stitch
+									this.$35().$44.useBannerV2
+										? this.$81(b, d)
+										: this.$35().$44.useClientSideCarouselCollage &&
+										  e &&
+										  c &&
+										  !c.use_carousel_stitch
 											? this.$82(b, e)
-											: d.adVideo
-												? this.$83(b, d, f)
-												: e && c && c.use_carousel_stitch && e.length > 1
-													? this.$84(b, e)
-													: this.$85(b, d);
+											: e && c && !c.use_carousel_stitch
+												? this.$83(b, e)
+												: d.adVideo
+													? this.$84(b, d, f)
+													: e && c && c.use_carousel_stitch && e.length > 1
+														? this.$85(b, e)
+														: this.$81(b, d);
 								};
-								c.$82 = function(a, c) {
+								c.$83 = function(a, c) {
 									__p && __p();
 									var d = this,
 										e = new (b("ANCarousel"))({
@@ -11966,7 +12012,7 @@ try {
 									});
 									this.$6 = e;
 								};
-								c.$81 = function(a, c) {
+								c.$82 = function(a, c) {
 									var d = this,
 										e = !!this.$35().$44.useExtendedCollage,
 										f = !!this.$35().$44.useAlternativeCollage;
@@ -12005,7 +12051,7 @@ try {
 									d.dataset.fbImageBackdrop = "true";
 									c.insertBefore(d, a);
 								};
-								c.$85 = function(a, b) {
+								c.$81 = function(a, b) {
 									var c = this.$88(b);
 									a.firstChild
 										? a.insertBefore(c, a.firstChild)
@@ -12014,11 +12060,11 @@ try {
 										b.adImageAspectRatio < 1.9 &&
 										this.$87(c);
 								};
-								c.$84 = function(a, c) {
+								c.$85 = function(a, c) {
 									var d = new (b("ANStitchedImage"))(this.$22, this.$23);
 									a.appendChild(d.render(c[0], c[1]));
 								};
-								c.$83 = function(a, c, d) {
+								c.$84 = function(a, c, d) {
 									__p && __p();
 									var e = this;
 									if (!c.adVideo) throw new Error("No video for Ad.");
@@ -13102,7 +13148,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000895462","namespace":"FB","message":"' +
+				'","revision":"1000899487","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
