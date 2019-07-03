@@ -1,4 +1,4 @@
-/*1562125658,,JIT Construction: v1000909538,en_US*/
+/*1562167218,,JIT Construction: v1000910174,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12679,6 +12679,44 @@ try {
 						null
 					);
 					__d(
+						"ANGenericViewabilityObserver",
+						[
+							"AdQualityViewabilityMonitor",
+							"OnScreenBehavior.anweb",
+							"OnScreenBehaviorManager.anweb"
+						],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							__p && __p();
+							var g = (function(b) {
+								__p && __p();
+								babelHelpers.inheritsLoose(a, b);
+								function a(a) {
+									var c;
+									c = b.call(this) || this;
+									c.$ANGenericViewabilityBehavior1 = a;
+									return c;
+								}
+								var c = a.prototype;
+								c.onPartiallyEntered = function() {
+									this.$ANGenericViewabilityBehavior1();
+								};
+								return a;
+							})(b("OnScreenBehavior.anweb"));
+							a = {
+								observe: function(a, c) {
+									var d = new (b("OnScreenBehaviorManager.anweb"))();
+									a = new (b("AdQualityViewabilityMonitor"))(a, !1);
+									a.attachBehaviorManager(d);
+									a = new g(c);
+									d.addBehavior(a);
+								}
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"ANRecirculationUnit",
 						[
 							"AdImpressionBehavior.anweb",
@@ -12713,6 +12751,9 @@ try {
 									return b;
 								};
 								var c = a.prototype;
+								c.getBottomOverlay = function() {
+									return this.$3.querySelector(".fbRecirculationBottomOverlay");
+								};
 								c.$15 = function(a, c) {
 									var d = this,
 										e = c.querySelector(".fbArticleImage"),
@@ -12793,15 +12834,18 @@ try {
 						"ANCoreProxy",
 						[
 							"ANAdManager",
+							"ANGenericViewabilityObserver",
 							"ANLogger",
 							"ANRecirculationUnit",
 							"ANUtils",
 							"LogLevels",
+							"VPAIDDomUtils",
 							"nullthrows"
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
+							var g = b("VPAIDDomUtils").div;
 							a = (function() {
 								__p && __p();
 								function a(a) {
@@ -12858,82 +12902,126 @@ try {
 								c.$6 = function() {
 									return b("ANUtils").onlyString(this.$2.data.requestId);
 								};
-								c.$7 = function(a, c, d, e, f, g) {
+								c.$7 = function(a) {
+									return ES("Object", "assign", !1, {}, a, {
+										onAdLoaded: function() {},
+										onAdError: function() {},
+										onUnitLoaded: void 0,
+										onUnitError: void 0,
+										onMediaLoaded: void 0,
+										onRewardCompleted: void 0,
+										onAdClosed: void 0
+									});
+								};
+								c.$8 = function(a, c, d, e, f, h) {
 									__p && __p();
-									var h = this,
-										i = this.$5(a),
-										j = !!a.recommendedContent,
-										k = i.length > 1,
-										l = this.$2.rootElement,
-										m = a.features || {},
-										n = null;
-									if (
-										j &&
-										!b("ANUtils").isInDfpIframe(l) &&
-										m.wrapRecirculationInIframe
-									) {
-										var o = document.createElement("div");
-										l.innerHTML = "";
-										l.appendChild(o);
-										m.wrapRecirculationInIframe &&
-											(n = b("ANUtils").wrapInIframe(l, o));
-										l = o;
+									var i = this,
+										j = a.features || {},
+										k = this.$2.rootElement,
+										l = null,
+										m = this.$5(a),
+										n = j.maxPageRecirc != null && j.maxPageRecirc > 0,
+										o = this.$2.recircPageIdx || 0;
+									if (n && o === 0) {
+										var p = g("fbRecircPage-0"),
+											q = this.$2.rootElement;
+										q.appendChild(p);
+										k = p;
 									}
-									a.wrapperMarkup && (l.innerHTML = a.wrapperMarkup);
-									if (j) {
-										b("ANRecirculationUnit").render(
-											a.recommendedContent,
-											i,
-											l,
-											a.wrapperItemMarkup,
-											m,
-											function(a, b) {
-												h.renderAd(a, b, c, d, e);
-											},
-											function(a) {
-												b("ANUtils").sendToFacebook(h.$2.iframe, h.$2.domain, {
-													name: "recirc",
-													params: {
-														reqId: h.$6(),
-														payload: { type: "impression", index: a }
-													}
-												});
-											},
-											function(a) {
-												if (m.skipRecircClickEvent === !0) return;
-												b("ANUtils").sendToFacebook(h.$2.iframe, h.$2.domain, {
-													name: "recirc",
-													params: {
-														reqId: h.$6(),
-														payload: { type: "click", index: a }
-													}
-												});
-											},
-											function() {
-												return e(a.errorCode, a.errorMsg, a.placementId);
-											},
-											function() {
-												f && f(a.placementId);
-											},
-											function() {
-												g && g(a.errorCode, a.errorMsg, a.placementId);
-											}
+									if (
+										!b("ANUtils").isInDfpIframe(k) &&
+										j.wrapRecirculationInIframe
+									) {
+										q = document.createElement("div");
+										k.innerHTML = "";
+										k.appendChild(q);
+										j.wrapRecirculationInIframe &&
+											(l = b("ANUtils").wrapInIframe(k, q));
+										k = q;
+									}
+									a.wrapperMarkup && (k.innerHTML = a.wrapperMarkup);
+									p = b("ANRecirculationUnit").render(
+										a.recommendedContent,
+										m,
+										k,
+										a.wrapperItemMarkup,
+										j,
+										function(a, b) {
+											i.renderAd(a, b, c, d, e);
+										},
+										function(a) {
+											b("ANUtils").sendToFacebook(i.$2.iframe, i.$2.domain, {
+												name: "recirc",
+												params: {
+													reqId: i.$6(),
+													payload: { type: "impression", index: a }
+												}
+											});
+										},
+										function(a) {
+											if (j.skipRecircClickEvent === !0) return;
+											b("ANUtils").sendToFacebook(i.$2.iframe, i.$2.domain, {
+												name: "recirc",
+												params: {
+													reqId: i.$6(),
+													payload: { type: "click", index: a }
+												}
+											});
+										},
+										function() {
+											return e(a.errorCode, a.errorMsg, a.placementId);
+										},
+										function() {
+											f && f(a.placementId);
+										},
+										function() {
+											h && h(a.errorCode, a.errorMsg, a.placementId);
+										}
+									);
+									q = p.getBottomOverlay();
+									n &&
+										q &&
+										o < j.maxPageRecirc &&
+										b("ANGenericViewabilityObserver").observe(
+											q,
+											b("ANUtils").once(function() {
+												var a = g("fbRecircPage-" + (o + 1));
+												b("nullthrows")(k.parentElement).appendChild(a);
+												a = i.$7(
+													ES("Object", "assign", !1, {}, i.$2.adInputData, {
+														rootElement: a,
+														recircPageIdx: o + 1
+													})
+												);
+												i.$2.tagStateContainer &&
+													i.$2.tagStateContainer.slots.push(a);
+											})
 										);
-										if (n != null) {
-											o = b("nullthrows")(n.contentDocument.body);
-											o.style.overflowY = "hidden";
-											b("ANUtils").resizeElement(n, "100%", l.clientHeight);
-										}
-									} else
-										for (var j = 0; j < i.length; j++) {
-											o = i[j];
-											n = l;
-											k &&
-												((n = document.createElement("div")),
-												(n.className = "fbAdSlot-" + j),
-												l.appendChild(n));
-											this.renderAd(o, n, c, d, e);
-										}
+									if (l != null) {
+										m = b("nullthrows")(l.contentDocument.body);
+										m.style.overflowY = "hidden";
+										b("ANUtils").resizeElement(l, "100%", k.clientHeight);
+									}
+								};
+								c.$9 = function(a, b, c, d, e, f) {
+									__p && __p();
+									var g = !!a.recommendedContent;
+									if (g) {
+										this.$8(a, b, c, d, e, f);
+										return;
+									}
+									g = this.$5(a);
+									e = g.length > 1;
+									f = this.$2.rootElement;
+									for (var a = 0; a < g.length; a++) {
+										var h = g[a],
+											i = f;
+										e &&
+											((i = document.createElement("div")),
+											(i.className = "fbAdSlot-" + a),
+											f.appendChild(i));
+										this.renderAd(h, i, b, c, d);
+									}
 								};
 								c.adLoaded = function(a, c, d, e, f, g) {
 									__p && __p();
@@ -12949,7 +13037,7 @@ try {
 										e(a.errorCode, a.errorMsg, a.placementId);
 										return;
 									}
-									this.$7(a, c, d, e, f, g);
+									this.$9(a, c, d, e, f, g);
 									this.$1 = !0;
 								};
 								return a;
@@ -13148,7 +13236,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000909538","namespace":"FB","message":"' +
+				'","revision":"1000910174","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
