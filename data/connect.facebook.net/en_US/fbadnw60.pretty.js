@@ -1,4 +1,4 @@
-/*1562167218,,JIT Construction: v1000910174,en_US*/
+/*1562212649,,JIT Construction: v1000911015,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4781,17 +4781,19 @@ try {
 											}
 										}
 									};
+									c = {
+										type: d,
+										time: a.clickParams.clktm,
+										delay: a.clickParams.clkdel,
+										pos: a.pos
+									};
+									a.recircUnitId != null && (c.recirc_unit_id = a.recircUnitId);
 									this.$12([
 										{
 											type: "clk",
 											key: a.key,
 											top_domain: b("ANUtils").getTopDomain(),
-											payload: {
-												type: d,
-												time: a.clickParams.clktm,
-												delay: a.clickParams.clkdel,
-												pos: a.pos
-											}
+											payload: c
 										},
 										{
 											type: "client",
@@ -12228,6 +12230,8 @@ try {
 														d.$6 == null ? null : d.$6.getIndex()
 												}
 											};
+											d.$5.data.recircUnitId != null &&
+												(k.recircUnitId = d.$5.data.recircUnitId);
 											j
 												? d.$90(k)
 												: (d.sendToFacebook({ name: "click", params: k }),
@@ -12522,7 +12526,7 @@ try {
 									var a = this.$18.getDimensions(),
 										c =
 											(this.$18 && this.$18.getLastViewabilityState()) || null;
-									return {
+									a = {
 										width: a ? a.width : null,
 										height: a ? a.height : null,
 										width_in_view: (c && c.widthInView) || null,
@@ -12544,6 +12548,9 @@ try {
 										).getMediator(),
 										nmv: this.$17
 									};
+									this.$5.data.recircUnitId != null &&
+										(a.recirc_unit_id = this.$5.data.recircUnitId);
+									return a;
 								};
 								c.$91 = function(a) {
 									__p && __p();
@@ -12913,7 +12920,10 @@ try {
 										onAdClosed: void 0
 									});
 								};
-								c.$8 = function(a, c, d, e, f, h) {
+								c.$8 = function() {
+									return b("ANUtils").onlyString(this.$2.data.recircUnitId);
+								};
+								c.$9 = function(a, c, d, e, f, h) {
 									__p && __p();
 									var i = this,
 										j = a.features || {},
@@ -12954,7 +12964,8 @@ try {
 												name: "recirc",
 												params: {
 													reqId: i.$6(),
-													payload: { type: "impression", index: a }
+													unitId: i.$8(),
+													payload: { type: "impression", page: o, index: a }
 												}
 											});
 										},
@@ -12964,7 +12975,8 @@ try {
 												name: "recirc",
 												params: {
 													reqId: i.$6(),
-													payload: { type: "click", index: a }
+													unitId: i.$8(),
+													payload: { type: "click", page: o, index: a }
 												}
 											});
 										},
@@ -13003,11 +13015,11 @@ try {
 										b("ANUtils").resizeElement(l, "100%", k.clientHeight);
 									}
 								};
-								c.$9 = function(a, b, c, d, e, f) {
+								c.$10 = function(a, b, c, d, e, f) {
 									__p && __p();
 									var g = !!a.recommendedContent;
 									if (g) {
-										this.$8(a, b, c, d, e, f);
+										this.$9(a, b, c, d, e, f);
 										return;
 									}
 									g = this.$5(a);
@@ -13037,7 +13049,7 @@ try {
 										e(a.errorCode, a.errorMsg, a.placementId);
 										return;
 									}
-									this.$9(a, c, d, e, f, g);
+									this.$10(a, c, d, e, f, g);
 									this.$1 = !0;
 								};
 								return a;
@@ -13236,7 +13248,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000910174","namespace":"FB","message":"' +
+				'","revision":"1000911015","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
