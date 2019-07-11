@@ -1,4 +1,4 @@
-/*1562680506,,JIT Construction: v1000918856,en_US*/
+/*1562848091,,JIT Construction: v1000928549,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -10752,16 +10752,16 @@ try {
 										element: d,
 										parentWindow: window,
 										rules: [
-											b("AdQualityRules.adquality").mrc(function() {
-												var c = new (b("HTMLElementFrameContext.adquality"))(
+											b("AdQualityRules.adquality").mrc(function(c) {
+												var d = new (b("HTMLElementFrameContext.adquality"))(
 													a.$1.getViewabilityMeasurementElement(),
 													window
 												);
 												a.$2.logMRCEvent(
-													a.getAdQualityManager().getStatistics(),
+													c.statistics,
 													a.$11().getCurrentTime() - 2,
 													a.$11().getCurrentTime(),
-													c,
+													d,
 													a.$1.getAdWidth(),
 													a.$1.getAdHeight()
 												);
@@ -13216,7 +13216,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000918856","namespace":"FB","message":"' +
+				'","revision":"1000928549","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
