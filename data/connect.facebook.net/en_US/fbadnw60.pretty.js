@@ -1,4 +1,4 @@
-/*1562848091,,JIT Construction: v1000928549,en_US*/
+/*1562859716,,JIT Construction: v1000928674,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12247,31 +12247,38 @@ try {
 											var c = b("getTime")(),
 												g = b("ANUtils").maybeHTMLElement(a.target);
 											g = g ? d.$91(g) : b("ANMWebAdElement").UNKNOWN;
-											var h = d.$35().$44.minClickDelay;
-											h && d.$1 && d.$1 + h > c && !d.$4
+											var h = d.$35().$44.minClickDelay,
+												i = d.$35().$44.minClickDelayImpression;
+											i && d.$2 && d.$2 + i > c && !d.$4
 												? ((d.$4 = !0),
 												  e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a))
-												: d.$35().$44.clickGuardAllElements === !0
-													? g === b("ANMWebAdElement").UNKNOWN
-														? d.$23.event("ADNW_CLICK_IGNORED_ON_WHITESPACES")
-														: e(
-																b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
-																a
-														  )
-													: ES(d.$35().$52, "includes", !0, g) &&
-													  d.$13 &&
-													  !d.$14 &&
-													  d.$35().$44.useTwoStepClick === !0 &&
-													  !d.$25
-														? (e(
-																b("ANUnifiedLoggingClickEvent").TWO_STEP_DIALOG,
-																a
-														  ),
-														  f())
-														: e(
-																b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
-																a
-														  );
+												: h && d.$1 && d.$1 + h > c && !d.$4
+													? ((d.$4 = !0),
+													  e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a))
+													: d.$35().$44.clickGuardAllElements === !0
+														? g === b("ANMWebAdElement").UNKNOWN
+															? d.$23.event("ADNW_CLICK_IGNORED_ON_WHITESPACES")
+															: e(
+																	b("ANUnifiedLoggingClickEvent")
+																		.BILLABLE_CLICK,
+																	a
+															  )
+														: ES(d.$35().$52, "includes", !0, g) &&
+														  d.$13 &&
+														  !d.$14 &&
+														  d.$35().$44.useTwoStepClick === !0 &&
+														  !d.$25
+															? (e(
+																	b("ANUnifiedLoggingClickEvent")
+																		.TWO_STEP_DIALOG,
+																	a
+															  ),
+															  f())
+															: e(
+																	b("ANUnifiedLoggingClickEvent")
+																		.BILLABLE_CLICK,
+																	a
+															  );
 											a.preventDefault();
 											a.stopPropagation();
 										};
@@ -13216,7 +13223,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000928549","namespace":"FB","message":"' +
+				'","revision":"1000928674","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
