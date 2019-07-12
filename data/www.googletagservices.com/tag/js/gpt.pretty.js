@@ -1536,10 +1536,10 @@
 			return 0 === Rc(R(172));
 		};
 	var Tc = function() {
-			return $a("3") || 0;
+			return $a("7") || 0;
 		},
 		Uc = function() {
-			return "2019070902";
+			return "2019071103";
 		};
 	Mc("getVersion", Uc);
 	var Vc = function() {
@@ -1730,6 +1730,7 @@
 	[
 		[146, null, null, [1]],
 		[null, 7, null, [null, 0.1]],
+		[167, null, null, [1]],
 		[118, null, null, [1]],
 		[20, null, null, [], [[[1, [[4, null, 1]]], [1]]]],
 		[90, null, null, [1]],
@@ -1761,6 +1762,40 @@
 		[161, null, null, [1]]
 	],
 	[
+		[
+			null,
+			[
+				[null, [[676982416]]],
+				[null, [[676982601], [676982602], [676982605]]],
+				[null, [[676982612], [676982613]]],
+				[null, [[676982665]]],
+				[null, [[676982678]]],
+				[null, [[676982680]]],
+				[null, [[676982682]]]
+			]
+		],
+		[
+			4,
+			[
+				[null, [[676982417]]],
+				[null, [[676982603], [676982604]]],
+				[null, [[676982661], [676982662], [676982663]]],
+				[null, [[676982666], [676982667], [676982669], [676982670]]],
+				[
+					null,
+					[
+						[676982672],
+						[676982673],
+						[676982674],
+						[676982675],
+						[676982676],
+						[676982677]
+					]
+				],
+				[null, [[676982681]]]
+			]
+		],
+		[12, [[1, [[21064123], [21064124]]]]],
 		[
 			null,
 			[
@@ -2148,7 +2183,7 @@
 						]
 					]
 				],
-				[1, [[21063387], [21063388, [[130, null, null, [1]]]]]],
+				[10, [[21063387], [21063388, [[130, null, null, [1]]]]]],
 				[
 					1,
 					[[21063633], [21063634, [[143, null, null, [1]]]]],
@@ -2162,7 +2197,6 @@
 					[4, null, 8, null, null, null, null, ["TextDecoder"]],
 					9
 				],
-				[10, [[21063692], [21063693]]],
 				[
 					1,
 					[
@@ -2186,7 +2220,7 @@
 						[21063967, [[156, null, null, [1]], [157, null, null, [1]]]]
 					]
 				],
-				[50, [[21063989], [21063990, [[null, 13, null, [null, 1]]]]]],
+				[500, [[21063989], [21063990, [[null, 13, null, [null, 1]]]]]],
 				[50, [[21064055], [21064056, [[110, null, null, [1]]]]], null, 11],
 				[
 					null,
@@ -2200,7 +2234,25 @@
 					]
 				],
 				[10, [[21064100], [21064101, [[163, null, null, [1]]]]]],
-				[50, [[21064105], [21064106, [[167, null, null, [1]]]]]],
+				[10, [[21064165], [21064166]]],
+				[10, [[21064169], [21064170, [[168, null, null, [1]]]]]],
+				[
+					1000,
+					[
+						[
+							21064180,
+							null,
+							[4, null, 6, null, null, null, null, ["21064177"]]
+						],
+						[
+							21064181,
+							null,
+							[4, null, 6, null, null, null, null, ["21064178"]]
+						],
+						[21064182, null, [4, null, 6, null, null, null, null, ["21064179"]]]
+					],
+					[4, null, 16]
+				],
 				[
 					1000,
 					[
@@ -2604,75 +2656,84 @@
 					[[21064030, null, [4, null, 8, null, null, null, null, ["_gmptnl"]]]]
 				],
 				[
-					1,
+					1000,
 					[
 						[
-							21064127,
+							21064171,
 							[
-								[null, null, 5, [null, null, "21064127"]],
-								[null, null, 6, [null, null, "21064127"]]
+								[null, 7, null, [null, 1]],
+								[null, null, 5, [null, null, "21064171"]],
+								[60, null, null, [1]],
+								[null, null, 6, [null, null, "21064171"]]
 							],
-							[3, [[6, null, null, 4, null, 1], [6, null, null, 4, null, 0]]]
+							[6, null, null, 4, null, 2]
 						],
 						[
-							21064128,
-							[
-								[
-									null,
-									null,
-									4,
-									[null, null, "/gpt/pubads_impl_"],
-									[[[4, null, 16], [null, null, "/gpt/pubads_impl_modern_"]]]
-								],
-								[null, null, 5, [null, null, "21064128"]],
-								[null, null, 6, [null, null, "21064128"]]
-							],
-							[3, [[6, null, null, 4, null, 1], [6, null, null, 4, null, 0]]]
+							21064172,
+							[[null, 7, null, [null, 1]], [60, null, null, [1]]],
+							[6, null, null, 4, null, 3]
 						]
 					],
-					null,
+					[4, null, 3],
 					1
 				],
 				[
 					1,
 					[
 						[
-							21064129,
+							21064177,
 							[
-								[null, null, 5, [null, null, "21064129"]],
-								[null, null, 6, [null, null, "21064129"]]
-							],
-							[3, [[6, null, null, 4, null, 1], [6, null, null, 4, null, 0]]]
+								[null, null, 5, [null, null, "21064177"]],
+								[null, null, 6, [null, null, "21064177"]]
+							]
 						],
 						[
-							21064130,
+							21064178,
 							[
-								[null, null, 4, [null, null, "/gpt/pubads_impl_modern_"]],
-								[null, null, 5, [null, null, "21064130"]],
-								[null, null, 6, [null, null, "21064130"]]
-							],
-							[3, [[6, null, null, 4, null, 1], [6, null, null, 4, null, 0]]]
+								[null, null, 4, [null, null, "/gpt/pubads_impl_legacy_"]],
+								[null, null, 5, [null, null, "21064178"]],
+								[null, null, 6, [null, null, "21064178"]]
+							]
+						],
+						[
+							21064179,
+							[
+								[
+									null,
+									null,
+									4,
+									[null, null, "/gpt/pubads_impl_legacy_"],
+									[[[4, null, 16], [null, null, "/gpt/pubads_impl_modern_"]]]
+								],
+								[null, null, 5, [null, null, "21064179"]],
+								[null, null, 6, [null, null, "21064179"]]
+							]
 						]
 					],
-					[4, null, 16],
+					[3, [[6, null, null, 4, null, 1], [6, null, null, 4, null, 0]]],
 					1
 				],
 				[
 					1000,
 					[
 						[
-							21064156,
+							21064183,
 							[
 								[null, 7, null, [null, 1]],
-								[null, null, 5, [null, null, "21064156"]],
+								[null, null, 5, [null, null, "21064183"]],
 								[60, null, null, [1]],
-								[null, null, 6, [null, null, "21064156"]]
+								[null, null, 6, [null, null, "21064183"]]
 							],
 							[6, null, null, 4, null, 4]
 						],
 						[
-							21064157,
-							[[null, 7, null, [null, 1]], [60, null, null, [1]]],
+							21064184,
+							[
+								[null, 7, null, [null, 1]],
+								[null, null, 5, [null, null, "21064184"]],
+								[60, null, null, [1]],
+								[null, null, 6, [null, null, "21064184"]]
+							],
 							[6, null, null, 4, null, 5]
 						]
 					],
@@ -2683,19 +2744,19 @@
 					1000,
 					[
 						[
-							21064163,
+							21064185,
 							[
 								[null, 7, null, [null, 1]],
-								[null, null, 5, [null, null, "21064163"]],
+								[null, null, 5, [null, null, "21064185"]],
 								[60, null, null, [1]],
-								[null, null, 6, [null, null, "21064163"]]
+								[null, null, 6, [null, null, "21064185"]]
 							],
-							[6, null, null, 4, null, 2]
+							[6, null, null, 4, null, 6]
 						],
 						[
-							21064164,
+							21064186,
 							[[null, 7, null, [null, 1]], [60, null, null, [1]]],
-							[6, null, null, 4, null, 3]
+							[6, null, null, 4, null, 7]
 						]
 					],
 					[4, null, 3],
@@ -2706,7 +2767,6 @@
 		[
 			6,
 			[
-				[null, [[20200055], [20200056]]],
 				[null, [[21062379, [[23, null, null, [1]]]]]],
 				[
 					10,
