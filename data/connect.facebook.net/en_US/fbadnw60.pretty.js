@@ -1,4 +1,4 @@
-/*1562953825,,JIT Construction: v1000934020,en_US*/
+/*1562958331,,JIT Construction: v1000934355,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -11587,8 +11587,7 @@ try {
 										var g = ["_6qhg"];
 										this.$35().$44.anXOutIcon
 											? g.push("_7-er")
-											: (this.$45() || this.$35().$44.onlyAdChoicesIcon) &&
-											  g.push("_7-e_");
+											: this.$45() && g.push("_7-e_");
 										f.className = b("joinClasses").apply(void 0, g);
 										e.appendChild(f);
 									}
@@ -12738,6 +12737,18 @@ try {
 						null
 					);
 					__d(
+						"ANMWebUnifiedLoggingRecirculationEvent",
+						[],
+						function(a, b, c, d, e, f) {
+							e.exports = ES("Object", "freeze", !1, {
+								CANCEL_PAGE_LOAD: "cancel_pg",
+								CLICK: "click",
+								IMPRESSION: "impression"
+							});
+						},
+						null
+					);
+					__d(
 						"ANGenericViewabilityObserver",
 						[
 							"AdQualityViewabilityMonitor",
@@ -12753,12 +12764,16 @@ try {
 								function a(a) {
 									var c;
 									c = b.call(this) || this;
-									c.$ANGenericViewabilityBehavior1 = a;
+									c.$ANGenericViewabilityBehavior1 = a.onViewable;
+									c.$ANGenericViewabilityBehavior2 = a.onExit;
 									return c;
 								}
 								var c = a.prototype;
 								c.onPartiallyEntered = function() {
 									this.$ANGenericViewabilityBehavior1();
+								};
+								c.onCompletelyLeft = function() {
+									this.$ANGenericViewabilityBehavior2();
 								};
 								return a;
 							})(b("OnScreenBehavior.anweb"));
@@ -12772,6 +12787,68 @@ try {
 								}
 							};
 							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"ANRecirculationInfiniteScroll",
+						[
+							"ANGenericViewabilityObserver",
+							"ANUtils",
+							"VPAIDDomUtils",
+							"nullthrows"
+						],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							__p && __p();
+							var g = b("VPAIDDomUtils").div,
+								h = function(a) {
+									return ES("Object", "assign", !1, {}, a, {
+										onAdLoaded: function() {},
+										onAdError: function() {},
+										onUnitLoaded: void 0,
+										onUnitError: void 0,
+										onMediaLoaded: void 0,
+										onRewardCompleted: void 0,
+										onAdClosed: void 0
+									});
+								};
+							e.exports = {
+								observe: function(a) {
+									__p && __p();
+									var c = null,
+										d = !1,
+										e = b("ANUtils").once(function() {
+											c = g("fbRecircPage-" + (a.currentPage + 1));
+											b("nullthrows")(a.element.parentElement).appendChild(c);
+											var e = ES("Object", "assign", !1, {}, h(a.adInputData), {
+												rootElement: c,
+												recircpageidx: a.currentPage + 1,
+												recircunitid: a.unitId,
+												onAdLoaded: function() {
+													d = !0;
+												}
+											});
+											a.tagStateContainer.slots.push(e);
+										}),
+										f = b("ANUtils").once(function() {
+											if (d || c == null) return;
+											c.style.display = "none";
+											a.onCancelledPage();
+										});
+									b("ANGenericViewabilityObserver").observe(
+										a.nextPageTriggerElement,
+										{
+											onViewable: e,
+											onExit: function() {
+												if (c == null) return;
+												var b = a.element.getBoundingClientRect().top;
+												b < 0 && f();
+											}
+										}
+									);
+								}
+							};
 						},
 						null
 					);
@@ -12893,8 +12970,9 @@ try {
 						"ANCoreProxy",
 						[
 							"ANAdManager",
-							"ANGenericViewabilityObserver",
 							"ANLogger",
+							"ANMWebUnifiedLoggingRecirculationEvent",
+							"ANRecirculationInfiniteScroll",
 							"ANRecirculationUnit",
 							"ANUtils",
 							"LogLevels",
@@ -12961,21 +13039,10 @@ try {
 								c.$6 = function() {
 									return b("ANUtils").onlyString(this.$2.data.requestId);
 								};
-								c.$7 = function(a) {
-									return ES("Object", "assign", !1, {}, a, {
-										onAdLoaded: function() {},
-										onAdError: function() {},
-										onUnitLoaded: void 0,
-										onUnitError: void 0,
-										onMediaLoaded: void 0,
-										onRewardCompleted: void 0,
-										onAdClosed: void 0
-									});
-								};
-								c.$8 = function() {
+								c.$7 = function() {
 									return b("ANUtils").onlyString(this.$2.data.recircUnitId);
 								};
-								c.$9 = function(a, c, d, e, f, h) {
+								c.$8 = function(a, c, d, e, f, h) {
 									__p && __p();
 									var i = this,
 										j = a.features || {},
@@ -13012,23 +13079,33 @@ try {
 											i.renderAd(a, b, c, d, e);
 										},
 										function(a) {
-											b("ANUtils").sendToFacebook(i.$2.iframe, i.$2.domain, {
+											i.sendToFacebook({
 												name: "recirc",
 												params: {
 													reqId: i.$6(),
-													unitId: i.$8(),
-													payload: { type: "impression", page: o, index: a }
+													unitId: i.$7(),
+													payload: {
+														type: b("ANMWebUnifiedLoggingRecirculationEvent")
+															.IMPRESSION,
+														page: o,
+														index: a
+													}
 												}
 											});
 										},
 										function(a) {
 											if (j.skipRecircClickEvent === !0) return;
-											b("ANUtils").sendToFacebook(i.$2.iframe, i.$2.domain, {
+											i.sendToFacebook({
 												name: "recirc",
 												params: {
 													reqId: i.$6(),
-													unitId: i.$8(),
-													payload: { type: "click", page: o, index: a }
+													unitId: i.$7(),
+													payload: {
+														type: b("ANMWebUnifiedLoggingRecirculationEvent")
+															.CLICK,
+														page: o,
+														index: a
+													}
 												}
 											});
 										},
@@ -13043,36 +13120,49 @@ try {
 										}
 									);
 									q = p.getBottomOverlay();
-									n &&
-										q &&
-										o < j.maxPageRecirc &&
-										b("ANGenericViewabilityObserver").observe(
-											q,
-											b("ANUtils").once(function() {
-												var a = g("fbRecircPage-" + (o + 1));
-												b("nullthrows")(k.parentElement).appendChild(a);
-												a = i.$7(
-													ES("Object", "assign", !1, {}, i.$2.adInputData, {
-														rootElement: a,
-														recircpageidx: o + 1,
-														recircunitid: i.$2.data.recircUnitId
-													})
-												);
-												i.$2.tagStateContainer &&
-													i.$2.tagStateContainer.slots.push(a);
-											})
-										);
+									if (n && q && o < j.maxPageRecirc) {
+										m = this.$2.data.recircUnitId;
+										p = this.$2.adInputData;
+										n = this.$2.tagStateContainer;
+										m != null &&
+											p != null &&
+											n != null &&
+											b("ANRecirculationInfiniteScroll").observe({
+												currentPage: o,
+												element: k,
+												nextPageTriggerElement: q,
+												unitId: m,
+												adInputData: p,
+												tagStateContainer: n,
+												onCancelledPage: function() {
+													i.sendToFacebook({
+														name: "recirc",
+														params: {
+															reqId: i.$6(),
+															unitId: i.$7(),
+															payload: {
+																type: b(
+																	"ANMWebUnifiedLoggingRecirculationEvent"
+																).CANCEL_PAGE_LOAD,
+																page: o + 1,
+																index: -1
+															}
+														}
+													});
+												}
+											});
+									}
 									if (l != null) {
-										m = b("nullthrows")(l.contentDocument.body);
-										m.style.overflowY = "hidden";
+										q = b("nullthrows")(l.contentDocument.body);
+										q.style.overflowY = "hidden";
 										b("ANUtils").resizeElement(l, "100%", k.clientHeight);
 									}
 								};
-								c.$10 = function(a, b, c, d, e, f) {
+								c.$9 = function(a, b, c, d, e, f) {
 									__p && __p();
 									var g = !!a.recommendedContent;
 									if (g) {
-										this.$9(a, b, c, d, e, f);
+										this.$8(a, b, c, d, e, f);
 										return;
 									}
 									g = this.$5(a);
@@ -13102,7 +13192,7 @@ try {
 										e(a.errorCode, a.errorMsg, a.placementId);
 										return;
 									}
-									this.$10(a, c, d, e, f, g);
+									this.$9(a, c, d, e, f, g);
 									this.$1 = !0;
 								};
 								return a;
@@ -13301,7 +13391,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000934020","namespace":"FB","message":"' +
+				'","revision":"1000934355","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
