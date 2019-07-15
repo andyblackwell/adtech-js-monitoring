@@ -1,4 +1,4 @@
-/*1562958331,,JIT Construction: v1000934355,en_US*/
+/*1563215809,,JIT Construction: v1000939191,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -3725,7 +3725,7 @@ try {
 									this.$5 = j(this.$1, "._2vf-");
 									this.$2 = j(this.$1, "._2vfy");
 									this.$14.addRequiredEvent();
-									this.$16 = !!this.$15.isMaiObjective;
+									this.$16 = !1;
 									ES(this.$6, "forEach", !0, function(c, d) {
 										c = new (b("ANCarouselItem"))(
 											c,
@@ -13391,7 +13391,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000934355","namespace":"FB","message":"' +
+				'","revision":"1000939191","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
