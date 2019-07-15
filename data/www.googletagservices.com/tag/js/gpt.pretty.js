@@ -1457,7 +1457,7 @@
 		211: !1,
 		152: [],
 		172: null,
-		191: "001906272103440",
+		191: "001907091704050",
 		192: "021906111828200",
 		190: "011906111828200",
 		245: {},
@@ -1536,10 +1536,10 @@
 			return 0 === Rc(R(172));
 		};
 	var Tc = function() {
-			return $a("7") || 0;
+			return $a("3") || 0;
 		},
 		Uc = function() {
-			return "2019071103";
+			return "2019071501";
 		};
 	Mc("getVersion", Uc);
 	var Vc = function() {
@@ -1593,12 +1593,7 @@
 		};
 	x("partner.googleadservices.com");
 	var Zc = x("www.googletagservices.com"),
-		$c = function() {
-			return !R(46) || R(6) || kc(152)
-				? "https://securepubads.g.doubleclick.net"
-				: "http://pubads.g.doubleclick.net";
-		},
-		ad = function(a) {
+		$c = function(a) {
 			var b = a.currentScript;
 			return (
 				"complete" != a.readyState &&
@@ -1606,35 +1601,34 @@
 				!(b && b.async)
 			);
 		},
-		bd = function() {
+		ad = function() {
 			var a = R(76);
 			if (a) return a;
-			a = $c();
-			var b = lc(4, "/gpt/pubads_impl_"),
-				c;
-			var d = "";
+			a = lc(4, "/gpt/pubads_impl_");
+			var b;
+			var c = "";
 			if (R(148))
 				try {
-					var e = "";
+					var d = "";
 					try {
-						e = g.top.location.hash;
-					} catch (h) {
-						e = g.location.hash;
+						d = g.top.location.hash;
+					} catch (f) {
+						d = g.location.hash;
 					}
-					e && (d = (c = e.match(/\bgptv=(\d+)/)) ? c[1] : "");
-				} catch (h) {}
-			if (!(c = d)) {
-				var f = void 0 === f ? 0 : f;
-				c = Q.b().c(12, f);
+					d && (c = (b = d.match(/\bgptv=(\d+)/)) ? b[1] : "");
+				} catch (f) {}
+			if (!(b = c)) {
+				var e = void 0 === e ? 0 : e;
+				b = Q.b().c(12, e);
 			}
-			c = c || Uc();
-			f = lc(5);
-			a = a + b + c + ".js";
-			f && (a += "?" + f);
+			b = b || Uc();
+			e = lc(5);
+			a = "https://securepubads.g.doubleclick.net" + a + b + ".js";
+			e && (a += "?" + e);
 			Z(76, a);
 			return a;
 		},
-		cd = function(a, b) {
+		bd = function(a, b) {
 			var c;
 			if (!(c = a.currentScript))
 				a: {
@@ -1656,7 +1650,7 @@
 			xc();
 			uc(b) && (U[1] = b);
 		},
-		dd = function() {
+		cd = function() {
 			return navigator.getBattery
 				? navigator.getBattery().then(function(a) {
 						Z(243, a.level);
@@ -1665,24 +1659,25 @@
 				  })
 				: null;
 		},
-		ed = function(a, b, c) {
+		dd = function(a, b, c) {
 			var d = Lc();
 			a = a || d.fifWin || window;
 			b = b || a.document;
 			Mc("cmd", []);
 			if (d.evalScripts) d.evalScripts();
 			else {
-				cd(b, c);
+				bd(b, c);
 				a.PerformanceObserver && a.PerformanceLongTaskTiming && Jc(a);
 				Kc(a);
-				a = bd();
-				if (ad(b)) {
+				a = ad();
+				if ($c(b)) {
 					c = "gpt-impl-" + Math.random();
 					try {
 						var e = '<script id="' + c + '" src="' + a + '">\x3c/script>';
 						kc(17) &&
 							qc() &&
-							(e += '<link rel="preconnect" href="' + $c() + '">');
+							(e +=
+								'<link rel="preconnect" href="https://securepubads.g.doubleclick.net">');
 						b.write(e);
 					} catch (f) {}
 					b.getElementById(c) && ((d._loadStarted_ = !0), Z(220, !1), Fc());
@@ -1694,10 +1689,12 @@
 					(c.src = a),
 					(c.async = !0),
 					(b.head || b.body || b.documentElement).appendChild(c),
-					kc(17) && qc() && rc(b, $c(), "preconnect"),
+					kc(17) &&
+						qc() &&
+						rc(b, "https://securepubads.g.doubleclick.net", "preconnect"),
 					Z(220, !0),
 					(d._loadStarted_ = !0));
-				(b = dd()) &&
+				(b = cd()) &&
 					b.catch(function(f) {
 						var h = new Gc();
 						Hc(h, function(m) {
@@ -1707,15 +1704,15 @@
 					});
 			}
 		};
-	var fd;
+	var ed;
 	a: {
 		try {
 			if ("array" == n(E)) {
-				fd = E;
+				ed = E;
 				break a;
 			}
 		} catch (a) {}
-		fd = [];
+		ed = [];
 	}
 	(function(a, b, c) {
 		var d = new Gc();
@@ -1723,9 +1720,9 @@
 			e.methodId = 420;
 		});
 		Ic(d, function() {
-			return ed(a, b, c);
+			return dd(a, b, c);
 		});
-	})(void 0, void 0, fd);
+	})(void 0, void 0, ed);
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
 		[146, null, null, [1]],
@@ -2208,7 +2205,6 @@
 				],
 				[1, [[21063785], [21063786, [[139, null, null, [1]]]]]],
 				[1, [[21063792], [21063793, [[148, null, null, [1]]]]]],
-				[50, [[21063815], [21063816, [[152, null, null, []]]]]],
 				[50, [[21063817], [21063818, [[149, null, null, [1]]]]]],
 				[10, [[21063910], [21063911]]],
 				[
@@ -2656,28 +2652,6 @@
 					[[21064030, null, [4, null, 8, null, null, null, null, ["_gmptnl"]]]]
 				],
 				[
-					1000,
-					[
-						[
-							21064171,
-							[
-								[null, 7, null, [null, 1]],
-								[null, null, 5, [null, null, "21064171"]],
-								[60, null, null, [1]],
-								[null, null, 6, [null, null, "21064171"]]
-							],
-							[6, null, null, 4, null, 2]
-						],
-						[
-							21064172,
-							[[null, 7, null, [null, 1]], [60, null, null, [1]]],
-							[6, null, null, 4, null, 3]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
 					1,
 					[
 						[
@@ -2744,19 +2718,19 @@
 					1000,
 					[
 						[
-							21064185,
+							21064196,
 							[
 								[null, 7, null, [null, 1]],
-								[null, null, 5, [null, null, "21064185"]],
+								[null, null, 5, [null, null, "21064196"]],
 								[60, null, null, [1]],
-								[null, null, 6, [null, null, "21064185"]]
+								[null, null, 6, [null, null, "21064196"]]
 							],
-							[6, null, null, 4, null, 6]
+							[6, null, null, 4, null, 2]
 						],
 						[
-							21064186,
+							21064197,
 							[[null, 7, null, [null, 1]], [60, null, null, [1]]],
-							[6, null, null, 4, null, 7]
+							[6, null, null, 4, null, 3]
 						]
 					],
 					[4, null, 3],
