@@ -1,4 +1,4 @@
-/*1563215809,,JIT Construction: v1000939191,en_US*/
+/*1563227477,,JIT Construction: v1000940901,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12698,8 +12698,8 @@ try {
 											this.$23.isPublisherSideLoggingSupported(),
 										o = j == null ? void 0 : j.widthInView;
 									o && (o *= 100);
-									var p = j == null ? void 0 : j.heightInView;
-									p && (p *= 100);
+									j = j == null ? void 0 : j.heightInView;
+									j && (j *= 100);
 									i = {
 										key: this.$31(),
 										payload: {
@@ -12709,13 +12709,7 @@ try {
 											client_ts: a,
 											viewability: k,
 											width_in_view: o,
-											height_in_view: p,
-											left: j == null ? void 0 : j.pageLeft,
-											top: j == null ? void 0 : j.pageTop,
-											scroll_left: j == null ? void 0 : j.scrollLeft,
-											scroll_top: j == null ? void 0 : j.scrollTop,
-											page_width: j == null ? void 0 : j.pageWidth,
-											page_height: j == null ? void 0 : j.pageHeight,
+											height_in_view: j,
 											request_delay: d,
 											load_time: e,
 											imp_delay: f,
@@ -13391,7 +13385,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000939191","namespace":"FB","message":"' +
+				'","revision":"1000940901","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
