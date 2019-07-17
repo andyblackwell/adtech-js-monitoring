@@ -1,4 +1,4 @@
-/*1563227477,,JIT Construction: v1000940901,en_US*/
+/*1563383932,,JIT Construction: v1000949546,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -11464,8 +11464,9 @@ try {
 									"fbAdTitle",
 									"fbTwoStepDialog",
 									"UNKNOWN"
-								];
-							function j(a) {
+								],
+								j = 250 / 300;
+							function k(a) {
 								return {
 									controls: a.controls || "mute_only",
 									endCard: a.endCard || "none",
@@ -11719,11 +11720,14 @@ try {
 													e = f.$40();
 												e.style.width = b("ANUtils").cssSize(f.$15);
 												f.$6 && f.$6.ensureSizes();
-												e = d.resize(f.$15, e.offsetHeight);
-												e && ((f.$13 = !0), (f.$14 = !!a.nativeCarouselAds));
+												var i = !!f.$35().$44.isIab;
+												i
+													? (i = d.resize(f.$15, f.$15 * j))
+													: (i = d.resize(f.$15, e.offsetHeight));
+												i && ((f.$13 = !0), (f.$14 = !!a.nativeCarouselAds));
 												f.$43(a.nativeAd, d);
 												if (h) {
-													var i = function() {
+													var k = function() {
 														(a.creativeMarkupBackup.use_carousel_stitch = !0),
 															d.restoreOriginalStyles(),
 															f.$64(
@@ -11737,7 +11741,7 @@ try {
 															f.$43(a.nativeAd),
 															(f.$11.style.visibility = "visible");
 													};
-													if (!e) i();
+													if (!i) k();
 													else {
 														e = function a() {
 															b("ANUtils").screenIsPortrait() ||
@@ -11745,7 +11749,7 @@ try {
 																	"orientationchange",
 																	a
 																),
-																i());
+																k());
 														};
 														window.addEventListener("orientationchange", e);
 													}
@@ -11874,7 +11878,7 @@ try {
 											a.nativeCarouselAds,
 											e,
 											b && b.dfp,
-											j(b.video)
+											k(b.video)
 										));
 								};
 								c.$71 = function(a, c) {
@@ -12382,7 +12386,7 @@ try {
 										a.nativeCarouselAds,
 										e,
 										c && c.dfp,
-										j(c.video)
+										k(c.video)
 									);
 									d &&
 										((this.$18 = new (b("AdQualityViewabilityMonitor"))(
@@ -13385,7 +13389,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000940901","namespace":"FB","message":"' +
+				'","revision":"1000949546","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
