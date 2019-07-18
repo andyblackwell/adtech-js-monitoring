@@ -18,7 +18,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-fbq.version = "2.8.53";
+fbq.version = "2.9.1";
 fbq._releaseSegment = "canary";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -574,21 +574,23 @@ fbq.pendingConfigs = ["global_config"];
 						b = f.getFbeventsModules("SignalsFBEventsFiredEvent"),
 						c = f.getFbeventsModules("SignalsFBEventsGetCustomParametersEvent"),
 						d = f.getFbeventsModules("SignalsFBEventsGetIWLParametersEvent"),
-						e = f.getFbeventsModules("SignalsFBEventsPIIAutomatchedEvent"),
-						g = f.getFbeventsModules("SignalsFBEventsPIIConflictingEvent"),
-						h = f.getFbeventsModules("SignalsFBEventsPIIInvalidatedEvent"),
-						i = f.getFbeventsModules("SignalsFBEventsPluginLoadedEvent"),
-						j = f.getFbeventsModules("SignalsFBEventsSetIWLExtractorsEvent");
+						e = f.getFbeventsModules("SignalsFBEventsIWLBootStrapEvent"),
+						g = f.getFbeventsModules("SignalsFBEventsPIIAutomatchedEvent"),
+						h = f.getFbeventsModules("SignalsFBEventsPIIConflictingEvent"),
+						i = f.getFbeventsModules("SignalsFBEventsPIIInvalidatedEvent"),
+						j = f.getFbeventsModules("SignalsFBEventsPluginLoadedEvent"),
+						l = f.getFbeventsModules("SignalsFBEventsSetIWLExtractorsEvent");
 					a = {
 						execEnd: new a(),
 						fired: b,
 						getCustomParameters: c,
 						getIWLParameters: d,
-						piiAutomatched: e,
-						piiConflicting: g,
-						piiInvalidated: h,
-						pluginLoaded: i,
-						setIWLExtractors: j
+						iwlBootstrap: e,
+						piiAutomatched: g,
+						piiConflicting: h,
+						piiInvalidated: i,
+						pluginLoaded: j,
+						setIWLExtractors: l
 					};
 					k.exports = a;
 				})();
@@ -682,6 +684,36 @@ fbq.pendingConfigs = ["global_config"];
 				})(a, b, c, d);
 			}
 		);
+		f.ensureModuleRegistered("SignalsFBEventsIWLBootStrapEvent", function() {
+			return (function(g, i, j, k) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+						b = f.getFbeventsModules("signalsFBEventsCoercePixelID");
+					function c() {
+						for (var a = arguments.length, c = Array(a), d = 0; d < a; d++)
+							c[d] = arguments[d];
+						var e = c[0];
+						if (
+							e == null ||
+							(typeof e === "undefined" ? "undefined" : h(e)) !== "object"
+						)
+							return null;
+						var f = e.graphToken,
+							g = e.pixelID,
+							i = b(g);
+						return f != null && typeof f === "string" && i != null
+							? [{ graphToken: f, pixelID: i }]
+							: null;
+					}
+					a = new a(c);
+					e.exports = a;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
 		f.ensureModuleRegistered("SignalsFBEventsLogging", function() {
 			return (function(g, h, i, j) {
 				var k = { exports: {} };
@@ -2327,21 +2359,23 @@ fbq.pendingConfigs = ["global_config"];
 						b = f.getFbeventsModules("SignalsFBEventsFiredEvent"),
 						c = f.getFbeventsModules("SignalsFBEventsGetCustomParametersEvent"),
 						d = f.getFbeventsModules("SignalsFBEventsGetIWLParametersEvent"),
-						e = f.getFbeventsModules("SignalsFBEventsPIIAutomatchedEvent"),
-						g = f.getFbeventsModules("SignalsFBEventsPIIConflictingEvent"),
-						h = f.getFbeventsModules("SignalsFBEventsPIIInvalidatedEvent"),
-						i = f.getFbeventsModules("SignalsFBEventsPluginLoadedEvent"),
-						j = f.getFbeventsModules("SignalsFBEventsSetIWLExtractorsEvent");
+						e = f.getFbeventsModules("SignalsFBEventsIWLBootStrapEvent"),
+						g = f.getFbeventsModules("SignalsFBEventsPIIAutomatchedEvent"),
+						h = f.getFbeventsModules("SignalsFBEventsPIIConflictingEvent"),
+						i = f.getFbeventsModules("SignalsFBEventsPIIInvalidatedEvent"),
+						j = f.getFbeventsModules("SignalsFBEventsPluginLoadedEvent"),
+						l = f.getFbeventsModules("SignalsFBEventsSetIWLExtractorsEvent");
 					a = {
 						execEnd: new a(),
 						fired: b,
 						getCustomParameters: c,
 						getIWLParameters: d,
-						piiAutomatched: e,
-						piiConflicting: g,
-						piiInvalidated: h,
-						pluginLoaded: i,
-						setIWLExtractors: j
+						iwlBootstrap: e,
+						piiAutomatched: g,
+						piiConflicting: h,
+						piiInvalidated: i,
+						pluginLoaded: j,
+						setIWLExtractors: l
 					};
 					k.exports = a;
 				})();
@@ -2435,6 +2469,36 @@ fbq.pendingConfigs = ["global_config"];
 				})(a, b, c, d);
 			}
 		);
+		f.ensureModuleRegistered("SignalsFBEventsIWLBootStrapEvent", function() {
+			return (function(g, i, j, k) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+						b = f.getFbeventsModules("signalsFBEventsCoercePixelID");
+					function c() {
+						for (var a = arguments.length, c = Array(a), d = 0; d < a; d++)
+							c[d] = arguments[d];
+						var e = c[0];
+						if (
+							e == null ||
+							(typeof e === "undefined" ? "undefined" : h(e)) !== "object"
+						)
+							return null;
+						var f = e.graphToken,
+							g = e.pixelID,
+							i = b(g);
+						return f != null && typeof f === "string" && i != null
+							? [{ graphToken: f, pixelID: i }]
+							: null;
+					}
+					a = new a(c);
+					e.exports = a;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
 		f.ensureModuleRegistered("SignalsFBEventsLogging", function() {
 			return (function(g, h, i, j) {
 				var k = { exports: {} };
@@ -4244,21 +4308,23 @@ fbq.pendingConfigs = ["global_config"];
 						b = f.getFbeventsModules("SignalsFBEventsFiredEvent"),
 						c = f.getFbeventsModules("SignalsFBEventsGetCustomParametersEvent"),
 						d = f.getFbeventsModules("SignalsFBEventsGetIWLParametersEvent"),
-						e = f.getFbeventsModules("SignalsFBEventsPIIAutomatchedEvent"),
-						g = f.getFbeventsModules("SignalsFBEventsPIIConflictingEvent"),
-						h = f.getFbeventsModules("SignalsFBEventsPIIInvalidatedEvent"),
-						i = f.getFbeventsModules("SignalsFBEventsPluginLoadedEvent"),
-						j = f.getFbeventsModules("SignalsFBEventsSetIWLExtractorsEvent");
+						e = f.getFbeventsModules("SignalsFBEventsIWLBootStrapEvent"),
+						g = f.getFbeventsModules("SignalsFBEventsPIIAutomatchedEvent"),
+						h = f.getFbeventsModules("SignalsFBEventsPIIConflictingEvent"),
+						i = f.getFbeventsModules("SignalsFBEventsPIIInvalidatedEvent"),
+						j = f.getFbeventsModules("SignalsFBEventsPluginLoadedEvent"),
+						l = f.getFbeventsModules("SignalsFBEventsSetIWLExtractorsEvent");
 					a = {
 						execEnd: new a(),
 						fired: b,
 						getCustomParameters: c,
 						getIWLParameters: d,
-						piiAutomatched: e,
-						piiConflicting: g,
-						piiInvalidated: h,
-						pluginLoaded: i,
-						setIWLExtractors: j
+						iwlBootstrap: e,
+						piiAutomatched: g,
+						piiConflicting: h,
+						piiInvalidated: i,
+						pluginLoaded: j,
+						setIWLExtractors: l
 					};
 					k.exports = a;
 				})();
@@ -4803,6 +4869,36 @@ fbq.pendingConfigs = ["global_config"];
 					k.exports = b;
 				})();
 				return k.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsIWLBootStrapEvent", function() {
+			return (function(g, i, j, k) {
+				var l = { exports: {} };
+				l.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+						b = f.getFbeventsModules("signalsFBEventsCoercePixelID");
+					function c() {
+						for (var a = arguments.length, c = Array(a), d = 0; d < a; d++)
+							c[d] = arguments[d];
+						var e = c[0];
+						if (
+							e == null ||
+							(typeof e === "undefined" ? "undefined" : h(e)) !== "object"
+						)
+							return null;
+						var f = e.graphToken,
+							g = e.pixelID,
+							i = b(g);
+						return f != null && typeof f === "string" && i != null
+							? [{ graphToken: f, pixelID: i }]
+							: null;
+					}
+					a = new a(c);
+					l.exports = a;
+				})();
+				return l.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsJSLoader", function() {
@@ -6328,34 +6424,35 @@ fbq.pendingConfigs = ["global_config"];
 						C = m.isNumber,
 						D = m.keys;
 					m = y.execEnd;
-					var aa = y.fired,
-						ba = y.getCustomParameters,
-						ca = y.piiInvalidated,
-						da = y.setIWLExtractors,
-						ea = n.logError,
-						E = n.logUserError,
-						F = r.global,
-						G = -1,
-						fa = Array.prototype.slice,
-						H = Object.prototype.hasOwnProperty,
-						I = i.href,
-						J = !1,
-						K = !1,
-						L = [],
-						M = {},
-						N;
+					var E = y.fired,
+						F = y.getCustomParameters,
+						aa = y.iwlBootstrap,
+						ba = y.piiInvalidated,
+						ca = y.setIWLExtractors,
+						da = n.logError,
+						G = n.logUserError,
+						H = r.global,
+						I = -1,
+						ea = Array.prototype.slice,
+						J = Object.prototype.hasOwnProperty,
+						K = i.href,
+						L = !1,
+						M = !1,
+						N = [],
+						O = {},
+						P;
 					h.referrer;
-					var O = { PageView: new A(), PixelInitialized: new A() },
-						P = new p(a, M),
-						Q = new w(P, F);
-					function ga(a) {
-						for (var b in a) H.call(a, b) && (this[b] = a[b]);
+					var Q = { PageView: new A(), PixelInitialized: new A() },
+						R = new p(a, O),
+						S = new w(R, H);
+					function fa(a) {
+						for (var b in a) J.call(a, b) && (this[b] = a[b]);
 						return this;
 					}
-					function R() {
+					function T() {
 						try {
-							var b = fa.call(arguments);
-							if (F.isLocked() && b[0] !== "consent") {
+							var b = ea.call(arguments);
+							if (H.isLocked() && b[0] !== "consent") {
 								a.queue.push(arguments);
 								return;
 							}
@@ -6365,32 +6462,32 @@ fbq.pendingConfigs = ["global_config"];
 								f = d.shift();
 							switch (f) {
 								case "addPixelId":
-									J = !0;
-									T.apply(this, d);
+									L = !0;
+									V.apply(this, d);
 									break;
 								case "init":
-									K = !0;
-									T.apply(this, d);
+									M = !0;
+									V.apply(this, d);
 									break;
 								case "set":
-									S.apply(this, d);
+									U.apply(this, d);
 									break;
 								case "track":
 									if (C(d[0])) {
-										ja.apply(this, d);
+										ia.apply(this, d);
 										break;
 									}
 									if (e) {
-										V.apply(this, d);
+										X.apply(this, d);
 										break;
 									}
-									ia.apply(this, d);
+									ha.apply(this, d);
 									break;
 								case "trackCustom":
-									V.apply(this, d);
+									X.apply(this, d);
 									break;
 								case "send":
-									W.apply(this, d);
+									Y.apply(this, d);
 									break;
 								case "on":
 									var g = j(d),
@@ -6400,17 +6497,17 @@ fbq.pendingConfigs = ["global_config"];
 									l && l.triggerWeakly(i);
 									break;
 								case "loadPlugin":
-									Q.loadPlugin(d[0]);
+									S.loadPlugin(d[0]);
 									break;
 								default:
-									P.callMethod(arguments);
+									R.callMethod(arguments);
 									break;
 							}
 						} catch (a) {
-							ea(a);
+							da(a);
 						}
 					}
-					function S(c) {
+					function U(c) {
 						for (
 							var e = arguments.length, f = Array(e > 1 ? e - 1 : 0), g = 1;
 							g < e;
@@ -6452,15 +6549,15 @@ fbq.pendingConfigs = ["global_config"];
 									throw new Error(
 										"Invalid pixelID supplied to set autoConfig."
 									);
-								P.callMethod([n, m, "AutomaticSetup"]);
+								R.callMethod([n, m, "AutomaticSetup"]);
 								break;
 							case "firstPartyCookies":
 								var o = f[0],
 									p = f[1],
 									r = o === !0 || o === "true" ? "optIn" : "optOut";
 								if (typeof p === "string")
-									P.callMethod([r, p, "FirstPartyCookies"]);
-								else if (p === void 0) P.disableFirstPartyCookies = !0;
+									R.callMethod([r, p, "FirstPartyCookies"]);
+								else if (p === void 0) R.disableFirstPartyCookies = !0;
 								else
 									throw new Error(
 										"Invalid pixelID supplied to set cookie controls."
@@ -6485,33 +6582,38 @@ fbq.pendingConfigs = ["global_config"];
 							case "iwlExtractors":
 								var z = f[0],
 									A = f[1];
-								da.triggerWeakly({ extractors: A, pixelID: z });
+								ca.triggerWeakly({ extractors: A, pixelID: z });
 								break;
-							default:
+							case "startIWLBootstrap":
 								var B = f[0],
 									C = f[1];
+								aa.triggerWeakly({ graphToken: B, pixelID: C });
+								break;
+							default:
+								var E = f[0],
+									F = f[1];
 								if (typeof c !== "string")
 									throw new Error(
 										"The metadata setting provided in the 'set' call is invalid."
 									);
-								if (typeof B !== "string")
+								if (typeof E !== "string")
 									throw new Error("The metadata value must be a string.");
-								if (typeof C !== "string")
+								if (typeof F !== "string")
 									throw new Error("Invalid pixelID supplied to set call.");
-								ha(c, B, C);
+								ga(c, E, F);
 								break;
 						}
 					}
 					a._initHandlers = [];
 					a._initsDone = {};
-					function T(a, b, c) {
-						G = G === -1 ? Date.now() : G;
+					function V(a, b, c) {
+						I = I === -1 ? Date.now() : I;
 						a = x(a);
 						if (a == null) return;
-						if (H.call(M, a)) {
-							b && B(M[a].userData)
-								? ((M[a].userData = b), Q.loadPlugin("identity"))
-								: E({ pixelID: a, type: "DUPLICATE_PIXEL_ID" });
+						if (J.call(O, a)) {
+							b && B(O[a].userData)
+								? ((O[a].userData = b), S.loadPlugin("identity"))
+								: G({ pixelID: a, type: "DUPLICATE_PIXEL_ID" });
 							return;
 						}
 						c = {
@@ -6521,79 +6623,79 @@ fbq.pendingConfigs = ["global_config"];
 							userData: b || {},
 							userDataFormFields: {}
 						};
-						L.push(c);
-						M[a] = c;
-						b != null && Q.loadPlugin("identity");
-						U();
-						P.loadConfig(a);
+						N.push(c);
+						O[a] = c;
+						b != null && S.loadPlugin("identity");
+						W();
+						R.loadConfig(a);
 					}
-					function U() {
+					function W() {
 						for (var b = 0; b < a._initHandlers.length; b++) {
 							var c = a._initHandlers[b];
 							a._initsDone[b] || (a._initsDone[b] = {});
-							for (var d = 0; d < L.length; d++) {
-								var e = L[d];
+							for (var d = 0; d < N.length; d++) {
+								var e = N[d];
 								a._initsDone[b][e.id] || ((a._initsDone[b][e.id] = !0), c(e));
 							}
 						}
 					}
-					function ha(a, b, c) {
+					function ga(a, b, c) {
 						var d = o.validateMetadata(a);
-						d.error && E(d.error);
+						d.error && G(d.error);
 						d.warnings &&
 							d.warnings.forEach(function(a) {
-								E(a);
+								G(a);
 							});
-						if (H.call(M, c)) {
-							for (var d = 0, e = L.length; d < e; d++)
-								if (L[d].id === c) {
-									L[d][a] = b;
+						if (J.call(O, c)) {
+							for (var d = 0, e = N.length; d < e; d++)
+								if (N[d].id === c) {
+									N[d][a] = b;
 									break;
 								}
-						} else E({ metadataValue: b, pixelID: c, type: "SET_METADATA_ON_UNINITIALIZED_PIXEL_ID" });
+						} else G({ metadataValue: b, pixelID: c, type: "SET_METADATA_ON_UNINITIALIZED_PIXEL_ID" });
 					}
-					function ia(a, b, c) {
+					function ha(a, b, c) {
 						(b = b || {}),
 							o.validateEventAndLog(a, b),
 							a === "CustomEvent" &&
 								typeof b.event === "string" &&
 								(a = b.event),
-							V.call(this, a, b, c);
+							X.call(this, a, b, c);
 					}
-					function V(a, b, c) {
-						for (var d = 0, e = L.length; d < e; d++) {
-							var f = L[d];
+					function X(a, b, c) {
+						for (var d = 0, e = N.length; d < e; d++) {
+							var f = N[d];
 							if (
 								!(a === "PageView" && this.allowDuplicatePageViews) &&
-								Object.prototype.hasOwnProperty.call(O, a) &&
-								O[a].has(f.id)
+								Object.prototype.hasOwnProperty.call(Q, a) &&
+								Q[a].has(f.id)
 							)
 								continue;
-							Y({ customData: b, eventData: c, eventName: a, pixel: f });
-							Object.prototype.hasOwnProperty.call(O, a) && O[a].add(f.id);
+							$({ customData: b, eventData: c, eventName: a, pixel: f });
+							Object.prototype.hasOwnProperty.call(Q, a) && Q[a].add(f.id);
 						}
 					}
-					function ja(a, b) {
-						Y({ customData: b, eventName: a, pixel: null });
+					function ia(a, b) {
+						$({ customData: b, eventName: a, pixel: null });
 					}
-					function W(a, b, c) {
-						L.forEach(function(c) {
-							return Y({ customData: b, eventName: a, pixel: c });
+					function Y(a, b, c) {
+						N.forEach(function(c) {
+							return $({ customData: b, eventName: a, pixel: c });
 						});
 					}
-					function X(b, d) {
+					function Z(b, d) {
 						var e = new c(a.piiTranslator);
 						try {
 							e.append("ud", (b && b.userData) || {}, !0),
 								e.append("udff", (b && b.userDataFormFields) || {}, !0);
 						} catch (a) {
-							ca.trigger(b);
+							ba.trigger(b);
 						}
 						e.append("v", a.version);
 						a._releaseSegment && e.append("r", a._releaseSegment);
 						e.append("a", b && b.agent ? b.agent : a.agent);
 						b && (e.append("ec", b.eventCount), b.eventCount++);
-						d = ba.trigger(b, d);
+						d = F.trigger(b, d);
 						z(d, function(a) {
 							return z(D(a), function(b) {
 								if (e.containsKey(b))
@@ -6603,12 +6705,12 @@ fbq.pendingConfigs = ["global_config"];
 								else e.append(b, a[b]);
 							});
 						});
-						e.append("it", G);
+						e.append("it", I);
 						d = b && b.codeless === "false";
 						e.append("coo", d);
 						return e;
 					}
-					function Y(a) {
+					function $(a) {
 						var b = a.customData,
 							c = a.eventData,
 							e = a.eventName;
@@ -6617,7 +6719,7 @@ fbq.pendingConfigs = ["global_config"];
 							s.sendEvent(a, e, b || {});
 							return;
 						}
-						var f = X(a, e);
+						var f = Z(a, e);
 						if (c != null) {
 							c = c.eventID;
 							f.append("eid", c);
@@ -6630,62 +6732,62 @@ fbq.pendingConfigs = ["global_config"];
 							piiTranslator: null
 						});
 					}
-					function Z() {
-						while (a.queue.length && !F.isLocked()) {
+					function ja() {
+						while (a.queue.length && !H.isLocked()) {
 							var b = a.queue.shift();
-							R.apply(a, b);
+							T.apply(a, b);
 						}
 					}
-					F.onUnlocked(function() {
-						Z();
+					H.onUnlocked(function() {
+						ja();
 					});
-					a.pixelId && ((J = !0), T(a.pixelId));
-					((J && K) || g.fbq !== g._fbq) && E({ type: "CONFLICTING_VERSIONS" });
-					L.length > 1 && E({ type: "MULTIPLE_PIXELS" });
+					a.pixelId && ((L = !0), V(a.pixelId));
+					((L && M) || g.fbq !== g._fbq) && G({ type: "CONFLICTING_VERSIONS" });
+					N.length > 1 && G({ type: "MULTIPLE_PIXELS" });
 					function ka() {
 						if (a.disablePushState === !0) return;
 						if (!l.pushState || !l.replaceState) return;
 						var b = u(function() {
-							N = I;
-							I = i.href;
-							if (I === N) return;
-							var a = new ga({ allowDuplicatePageViews: !0 });
-							R.call(a, "trackCustom", "PageView");
+							P = K;
+							K = i.href;
+							if (K === P) return;
+							var a = new fa({ allowDuplicatePageViews: !0 });
+							T.call(a, "trackCustom", "PageView");
 						});
 						t(l, "pushState", b);
 						t(l, "replaceState", b);
 						g.addEventListener("popstate", b, !1);
 					}
-					aa.listenOnce(function() {
+					E.listenOnce(function() {
 						ka();
 					});
 					function la(b) {
-						a._initHandlers.push(b), U();
+						a._initHandlers.push(b), W();
 					}
 					function ma() {
-						return { pixelInitializationTime: G, pixels: L };
+						return { pixelInitializationTime: I, pixels: N };
 					}
-					function $(a) {
-						(a.instance = P),
-							(a.callMethod = R),
+					function na(a) {
+						(a.instance = R),
+							(a.callMethod = T),
 							(a._initHandlers = []),
 							(a._initsDone = {}),
-							(a.send = W),
-							(a.getEventCustomParameters = X),
+							(a.send = Y),
+							(a.getEventCustomParameters = Z),
 							(a.addInitHandler = la),
 							(a.getState = ma),
-							(a.init = T),
-							(a.set = S),
+							(a.init = V),
+							(a.set = U),
 							(a.loadPlugin = function(a) {
-								return Q.loadPlugin(a);
+								return S.loadPlugin(a);
 							}),
 							(a.registerPlugin = function(a, b) {
-								Q.registerPlugin(a, b);
+								S.registerPlugin(a, b);
 							});
 					}
-					$(g.fbq);
-					Z();
-					e.exports = { doExport: $ };
+					na(g.fbq);
+					ja();
+					e.exports = { doExport: na };
 					m.trigger();
 				})();
 				return e.exports;
