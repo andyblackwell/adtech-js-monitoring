@@ -1457,7 +1457,7 @@
 		211: !1,
 		152: [],
 		172: null,
-		191: "001907091704050",
+		191: "001907161745080",
 		192: "021906111828200",
 		190: "011906111828200",
 		245: {},
@@ -1539,7 +1539,7 @@
 			return $a("3") || 0;
 		},
 		Uc = function() {
-			return "2019071501";
+			return "2019072201";
 		};
 	Mc("getVersion", Uc);
 	var Vc = function() {
@@ -1602,31 +1602,32 @@
 			);
 		},
 		ad = function() {
-			var a = R(76);
-			if (a) return a;
-			a = lc(4, "/gpt/pubads_impl_");
-			var b;
-			var c = "";
+			var a = !kc(181),
+				b = a ? R(76) : "";
+			if (b) return b;
+			b = lc(4, "/gpt/pubads_impl_");
+			var c;
+			var d = "";
 			if (R(148))
 				try {
-					var d = "";
+					var e = "";
 					try {
-						d = g.top.location.hash;
-					} catch (f) {
-						d = g.location.hash;
+						e = g.top.location.hash;
+					} catch (h) {
+						e = g.location.hash;
 					}
-					d && (c = (b = d.match(/\bgptv=(\d+)/)) ? b[1] : "");
-				} catch (f) {}
-			if (!(b = c)) {
-				var e = void 0 === e ? 0 : e;
-				b = Q.b().c(12, e);
+					e && (d = (c = e.match(/\bgptv=(\d+)/)) ? c[1] : "");
+				} catch (h) {}
+			if (!(c = d)) {
+				var f = void 0 === f ? 0 : f;
+				c = Q.b().c(12, f);
 			}
-			b = b || Uc();
-			e = lc(5);
-			a = "https://securepubads.g.doubleclick.net" + a + b + ".js";
-			e && (a += "?" + e);
-			Z(76, a);
-			return a;
+			c = c || Uc();
+			f = lc(5);
+			b = "https://securepubads.g.doubleclick.net" + b + c + ".js";
+			f && (b += "?" + f);
+			a && Z(76, b);
+			return b;
 		},
 		bd = function(a, b) {
 			var c;
@@ -1725,6 +1726,7 @@
 	})(void 0, void 0, ed);
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
+		[null, 13, null, [null, 1]],
 		[146, null, null, [1]],
 		[null, 7, null, [null, 0.1]],
 		[167, null, null, [1]],
@@ -1799,6 +1801,7 @@
 				[null, [[21063438], [21063439]]],
 				[null, [[21063445], [21063446]]],
 				[null, [[21064058]]],
+				[null, [[21064213], [21064214]]],
 				[null, [[676982416]]],
 				[null, [[676982601], [676982602], [676982605]]],
 				[null, [[676982612], [676982613]]],
@@ -2180,7 +2183,7 @@
 						]
 					]
 				],
-				[10, [[21063387], [21063388, [[130, null, null, [1]]]]]],
+				[50, [[21063387], [21063388, [[130, null, null, [1]]]]]],
 				[
 					1,
 					[[21063633], [21063634, [[143, null, null, [1]]]]],
@@ -2203,7 +2206,6 @@
 					null,
 					11
 				],
-				[1, [[21063785], [21063786, [[139, null, null, [1]]]]]],
 				[1, [[21063792], [21063793, [[148, null, null, [1]]]]]],
 				[50, [[21063817], [21063818, [[149, null, null, [1]]]]]],
 				[10, [[21063910], [21063911]]],
@@ -2216,7 +2218,6 @@
 						[21063967, [[156, null, null, [1]], [157, null, null, [1]]]]
 					]
 				],
-				[500, [[21063989], [21063990, [[null, 13, null, [null, 1]]]]]],
 				[50, [[21064055], [21064056, [[110, null, null, [1]]]]], null, 11],
 				[
 					null,
@@ -2231,7 +2232,7 @@
 				],
 				[10, [[21064100], [21064101, [[163, null, null, [1]]]]]],
 				[10, [[21064165], [21064166]]],
-				[10, [[21064169], [21064170, [[168, null, null, [1]]]]]],
+				[50, [[21064169], [21064170, [[168, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -2240,14 +2241,25 @@
 							null,
 							[4, null, 6, null, null, null, null, ["21064177"]]
 						],
-						[
-							21064181,
-							null,
-							[4, null, 6, null, null, null, null, ["21064178"]]
-						],
 						[21064182, null, [4, null, 6, null, null, null, null, ["21064179"]]]
 					],
-					[4, null, 16]
+					[
+						2,
+						[
+							[4, null, 16],
+							[4, null, 9, null, null, null, null, ["Promise"]],
+							[4, null, 9, null, null, null, null, ["IntersectionObserver"]]
+						]
+					]
+				],
+				[1, [[21064194], [21064195, [[165, null, null, [1]]]]]],
+				[50, [[21064225], [21064226, [[null, 13, null, []]]]]],
+				[
+					1,
+					[
+						[21064227],
+						[21064228, [[159, null, null, [1]], [139, null, null, [1]]]]
+					]
 				],
 				[
 					1000,
@@ -2271,7 +2283,8 @@
 					[4, null, 6, null, null, null, null, ["21060611"]]
 				],
 				[1, [[108809132], [108809133, [[45, null, null, [1]]]]]],
-				[10, [[370204026], [370204027], [370204053]]]
+				[10, [[370204026], [370204027], [370204053]]],
+				[10, [[370204075], [370204076, [[175, null, null, [1]]]]]]
 			]
 		],
 		[
@@ -2286,18 +2299,6 @@
 						[21063600, [[105, null, null, [1]]]],
 						[21064038],
 						[21064039, [[105, null, null, [1]]]]
-					]
-				],
-				[
-					null,
-					[
-						[21063802],
-						[21063803, [[null, 20, null, [null, 1]], [145, null, null, [1]]]],
-						[21063804, [[null, 20, null, [null, 1]]]],
-						[21063805, [[null, 20, null, [null, 1]], [145, null, null, [1]]]],
-						[21063806, [[null, 20, null, [null, 1]]]],
-						[21063807, [[null, 20, null, [null, 1]], [145, null, null, [1]]]],
-						[21063808, [[null, 20, null, [null, 1]]]]
 					]
 				],
 				[null, [[21063829, [[150, null, null, [1]]]]]],
@@ -2425,7 +2426,13 @@
 				],
 				[
 					1000,
-					[[21062812, [[23, null, null, [1]]]]],
+					[
+						[
+							21062812,
+							[[23, null, null, [1]]],
+							[2, [[8, null, null, 5, null, 49], [7, null, null, 5, null, 950]]]
+						]
+					],
 					[
 						2,
 						[
@@ -2652,7 +2659,7 @@
 					[[21064030, null, [4, null, 8, null, null, null, null, ["_gmptnl"]]]]
 				],
 				[
-					1,
+					null,
 					[
 						[
 							21064177,
@@ -2662,22 +2669,35 @@
 							]
 						],
 						[
-							21064178,
-							[
-								[null, null, 4, [null, null, "/gpt/pubads_impl_legacy_"]],
-								[null, null, 5, [null, null, "21064178"]],
-								[null, null, 6, [null, null, "21064178"]]
-							]
-						],
-						[
 							21064179,
 							[
 								[
 									null,
 									null,
 									4,
-									[null, null, "/gpt/pubads_impl_legacy_"],
-									[[[4, null, 16], [null, null, "/gpt/pubads_impl_modern_"]]]
+									[null, null, "/gpt/pubads_impl_"],
+									[
+										[
+											[
+												2,
+												[
+													[4, null, 16],
+													[4, null, 9, null, null, null, null, ["Promise"]],
+													[
+														4,
+														null,
+														9,
+														null,
+														null,
+														null,
+														null,
+														["IntersectionObserver"]
+													]
+												]
+											],
+											[null, null, "/gpt/pubads_impl_modern_"]
+										]
+									]
 								],
 								[null, null, 5, [null, null, "21064179"]],
 								[null, null, 6, [null, null, "21064179"]]
@@ -2691,44 +2711,17 @@
 					1000,
 					[
 						[
-							21064183,
+							21064237,
 							[
 								[null, 7, null, [null, 1]],
-								[null, null, 5, [null, null, "21064183"]],
+								[null, null, 5, [null, null, "21064237"]],
 								[60, null, null, [1]],
-								[null, null, 6, [null, null, "21064183"]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21064184,
-							[
-								[null, 7, null, [null, 1]],
-								[null, null, 5, [null, null, "21064184"]],
-								[60, null, null, [1]],
-								[null, null, 6, [null, null, "21064184"]]
-							],
-							[6, null, null, 4, null, 5]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21064196,
-							[
-								[null, 7, null, [null, 1]],
-								[null, null, 5, [null, null, "21064196"]],
-								[60, null, null, [1]],
-								[null, null, 6, [null, null, "21064196"]]
+								[null, null, 6, [null, null, "21064237"]]
 							],
 							[6, null, null, 4, null, 2]
 						],
 						[
-							21064197,
+							21064238,
 							[[null, 7, null, [null, 1]], [60, null, null, [1]]],
 							[6, null, null, 4, null, 3]
 						]
