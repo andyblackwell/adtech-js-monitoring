@@ -1,4 +1,4 @@
-/*1563513350,,JIT Construction: v1000959222,en_US*/
+/*1563808018,,JIT Construction: v1000965396,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12915,7 +12915,7 @@ try {
 									this.$15(a, c);
 									var e = !1;
 									c.addEventListener("click", function() {
-										if (d.$5.dedupeRecircEvent && e) return;
+										if (e) return;
 										d.$7(a);
 										d.$10.open(b.link);
 										e = !0;
@@ -13393,7 +13393,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000959222","namespace":"FB","message":"' +
+				'","revision":"1000965396","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
