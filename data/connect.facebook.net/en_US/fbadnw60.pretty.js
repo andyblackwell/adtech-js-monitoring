@@ -1,4 +1,4 @@
-/*1563891716,,JIT Construction: v1000970977,en_US*/
+/*1563896379,,JIT Construction: v1000971110,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -10808,11 +10808,15 @@ try {
 										(this.$5 = b("ANVideoStateUtils").initState()),
 										(this.$6 = 0),
 										(this.$7 = !1),
-										(this.$8 = null);
+										(this.$8 = null),
+										(this.$10 = !1);
 								}
 								var c = a.prototype;
 								c.checkAndSendVideoTimeEvent = function(a) {
-									this.$10(a);
+									this.$11(a);
+								};
+								c.onSeeked = function() {
+									this.$10 = !0;
 								};
 								c.getAdQualityManager = function() {
 									__p && __p();
@@ -10831,8 +10835,8 @@ try {
 												);
 												a.$2.logMRCEvent(
 													c.statistics,
-													a.$11().getCurrentTime() - 2,
-													a.$11().getCurrentTime(),
+													a.$12().getCurrentTime() - 2,
+													a.$12().getCurrentTime(),
 													d,
 													a.$1.getAdWidth(),
 													a.$1.getAdHeight()
@@ -10845,10 +10849,10 @@ try {
 													c.statistics,
 													Math.max(
 														0,
-														a.$11().getCurrentTime() -
+														a.$12().getCurrentTime() -
 															c.statistics.viewableSeconds
 													),
-													a.$11().getCurrentTime()
+													a.$12().getCurrentTime()
 												);
 												var d = new (b("HTMLElementFrameContext.adquality"))(
 													a.$1.getViewabilityMeasurementElement(),
@@ -10900,74 +10904,76 @@ try {
 								c.getLogger = function() {
 									return this.$2;
 								};
-								c.$11 = function() {
+								c.$12 = function() {
 									this.$3 || g(0, 2333);
 									return this.$3;
 								};
 								c.startListening = function(a) {
 									(this.$3 = a),
 										this.$2.setPlayer(a),
-										this.$11().addEventListener(
+										this.$12().addEventListener(
 											"ended",
-											ES(this.$12, "bind", !0, this),
-											!1
-										),
-										this.$11().addEventListener(
-											"timeupdate",
-											ES(this.$10, "bind", !0, this, null),
-											!1
-										),
-										this.$11().addEventListener(
-											"volumechange",
 											ES(this.$13, "bind", !0, this),
+											!1
+										),
+										this.$12().addEventListener(
+											"timeupdate",
+											ES(this.$11, "bind", !0, this, null),
+											!1
+										),
+										this.$12().addEventListener(
+											"volumechange",
+											ES(this.$14, "bind", !0, this),
 											!1
 										);
 								};
-								c.$12 = function() {
+								c.$13 = function() {
 									this.$9 === 0 && this.$8 && this.$8();
 								};
-								c.$14 = function() {
-									var a = this.$11().getVolume(),
-										c = this.$11().isMuted();
+								c.$15 = function() {
+									var a = this.$12().getVolume(),
+										c = this.$12().isMuted();
 									return b("ANVideoStateUtils").isAudible(a, c);
 								};
-								c.$13 = function() {
-									!this.$14() && this.$5.isAudible
+								c.$14 = function() {
+									!this.$15() && this.$5.isAudible
 										? (this.$2.logMuteEvent(), (this.$5.isAudible = !1))
-										: this.$14() &&
+										: this.$15() &&
 										  !this.$5.isAudible &&
 										  (this.$2.logUnMuteEvent(), (this.$5.isAudible = !0));
 								};
 								c.readCurrentState = function() {
-									var a = this.$11().getCurrentTime(),
+									var a = this.$12().getCurrentTime(),
 										c = ES("Date", "now", !1),
-										d = this.$11().isPaused();
-									return {
-										clockTimeMs: c,
-										videoTime: a,
-										isPaused: d,
-										isAudible: this.$14(),
-										isFullScreen: this.$11().isFullscreen(),
-										isContinuous:
-											this.$11().enforcesContinuity() ||
-											b("ANVideoStateUtils").isContinuous(
+										d = this.$12().isPaused(),
+										e = !1;
+									this.$10
+										? (this.$10 = !1)
+										: (e = b("ANVideoStateUtils").isContinuous(
 												this.$5,
 												d,
 												c,
 												a,
-												this.$11().getDuration()
-											),
+												this.$12().getDuration()
+										  ));
+									return {
+										clockTimeMs: c,
+										videoTime: a,
+										isPaused: d,
+										isAudible: this.$15(),
+										isFullScreen: this.$12().isFullscreen(),
+										isContinuous: this.$12().enforcesContinuity() || e,
 										loggingTimeInterval: 0,
-										volume: this.$11().getVolume(),
-										playbackRate: this.$11().getPlaybackRate(),
-										videoDuration: this.$11().getDuration(),
+										volume: this.$12().getVolume(),
+										playbackRate: this.$12().getPlaybackRate(),
+										videoDuration: this.$12().getDuration(),
 										forceFlushLog: !!this.$8
 									};
 								};
-								c.$10 = function(a) {
+								c.$11 = function(a) {
 									__p && __p();
 									a === void 0 && (a = null);
-									var b = this.$11().getDuration();
+									var b = this.$12().getDuration();
 									if (b <= 0) return;
 									a && (this.$8 = a);
 									var c = this.readCurrentState(),
@@ -10976,10 +10982,10 @@ try {
 									this.$5.isPaused = c.isPaused;
 									this.$5.clockTimeMs = c.clockTimeMs;
 									this.$5.isContinuous = c.isContinuous;
-									var e = this.$11().getVolume(),
-										f = this.$11().getPlaybackRate(),
-										g = this.$11().isFullscreen(),
-										h = this.$14();
+									var e = this.$12().getVolume(),
+										f = this.$12().getPlaybackRate(),
+										g = this.$12().isFullscreen(),
+										h = this.$15();
 									d = c.isContinuous ? c.videoTime - d.videoTime : 0;
 									this.$9++;
 									this.getAdQualityManager().registerProgress({
@@ -12674,59 +12680,65 @@ try {
 									this.$2 && this.$1 && (f = this.$2 - this.$1);
 									this.$3 && this.$2 && (g = this.$3 - this.$2);
 									this.$3 && (h = a - this.$3);
+									var i = b("nullthrows")(this.$21),
+										j = i.getPartiallyVisibleTime(),
+										k = i.getMostlyVisibleTime();
+									i = i.getFullyVisibleTime();
 									if (
 										d < 0 ||
 										(e && e < 0) ||
 										(f && f < 0) ||
 										(g && g < 0) ||
 										(h && h < 0) ||
-										c < 0
+										c < 0 ||
+										j < 0 ||
+										k < 0 ||
+										i < 0
 									) {
 										this.$23.warn("Invalid time received from Date.now");
 										return;
 									}
 									this.$30 = !0;
-									var i = b("nullthrows")(this.$21),
-										j = this.$18.getInitialViewabilityState(),
-										k = this.$28,
-										l = null,
-										m = null;
-									k != null &&
-										((l = k.getCurrentTime()), (m = k.getDuration()));
-									k = null;
-									j != null &&
-										j.viewabilityLevels != null &&
-										(k = j.viewabilityLevels.join(","));
-									var n =
+									var l = this.$18.getInitialViewabilityState(),
+										m = this.$28,
+										n = null,
+										o = null;
+									m != null &&
+										((n = m.getCurrentTime()), (o = m.getDuration()));
+									m = null;
+									l != null &&
+										l.viewabilityLevels != null &&
+										(m = l.viewabilityLevels.join(","));
+									var p =
 											this.$35().$55 &&
 											this.$23.isPublisherSideLoggingSupported(),
-										o = j == null ? void 0 : j.widthInView;
-									o && (o *= 100);
-									j = j == null ? void 0 : j.heightInView;
-									j && (j *= 100);
-									i = {
+										q = l == null ? void 0 : l.widthInView;
+									q && (q *= 100);
+									l = l == null ? void 0 : l.heightInView;
+									l && (l *= 100);
+									j = {
 										key: this.$31(),
 										payload: {
-											partially_visible_time_ms: i.getPartiallyVisibleTime(),
-											mostly_visible_time_ms: i.getMostlyVisibleTime(),
-											fully_visible_time_ms: i.getFullyVisibleTime(),
+											partially_visible_time_ms: j,
+											mostly_visible_time_ms: k,
+											fully_visible_time_ms: i,
 											client_ts: a,
-											viewability: k,
-											width_in_view: o,
-											height_in_view: j,
+											viewability: m,
+											width_in_view: q,
+											height_in_view: l,
 											request_delay: d,
 											load_time: e,
 											imp_delay: f,
 											click_delay: g,
 											click_to_navigation_time: h,
 											total_time_on_page: c,
-											video_playback_time: l,
-											video_duration: m
+											video_playback_time: n,
+											video_duration: o
 										}
 									};
-									n
-										? this.$23.logPerfStats(i)
-										: this.sendToFacebook({ name: "perf", params: i });
+									p
+										? this.$23.logPerfStats(j)
+										: this.sendToFacebook({ name: "perf", params: j });
 								};
 								return a;
 							})();
@@ -13391,7 +13403,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000970977","namespace":"FB","message":"' +
+				'","revision":"1000971110","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
