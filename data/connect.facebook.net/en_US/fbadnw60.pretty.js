@@ -1,4 +1,4 @@
-/*1563808018,,JIT Construction: v1000965396,en_US*/
+/*1563891716,,JIT Construction: v1000970977,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12762,16 +12762,12 @@ try {
 								function a(a) {
 									var c;
 									c = b.call(this) || this;
-									c.$ANGenericViewabilityBehavior1 = a.onViewable;
-									c.$ANGenericViewabilityBehavior2 = a.onExit;
+									c.$ANGenericViewabilityBehavior1 = a;
 									return c;
 								}
 								var c = a.prototype;
 								c.onPartiallyEntered = function() {
 									this.$ANGenericViewabilityBehavior1();
-								};
-								c.onCompletelyLeft = function() {
-									this.$ANGenericViewabilityBehavior2();
 								};
 								return a;
 							})(b("OnScreenBehavior.anweb"));
@@ -12836,14 +12832,11 @@ try {
 										});
 									b("ANGenericViewabilityObserver").observe(
 										a.nextPageTriggerElement,
-										{
-											onViewable: e,
-											onExit: function() {
-												if (c == null) return;
-												var b = a.element.getBoundingClientRect().top;
-												b < 0 && f();
-											}
-										}
+										e
+									);
+									b("ANGenericViewabilityObserver").observe(
+										a.cancelPageTriggerElement,
+										f
 									);
 								}
 							};
@@ -12887,6 +12880,9 @@ try {
 								var c = a.prototype;
 								c.getBottomOverlay = function() {
 									return this.$3.querySelector(".fbRecirculationBottomOverlay");
+								};
+								c.getTopOverlay = function() {
+									return this.$3.querySelector(".fbRecirculationTopOverlay");
 								};
 								c.$15 = function(a, c) {
 									var d = this,
@@ -13122,20 +13118,22 @@ try {
 										}
 									);
 									q = p.getBottomOverlay();
-									if (n && q && o < j.maxPageRecirc) {
-										m = this.$2.data.recircUnitId;
-										p = this.$2.adInputData;
-										n = this.$2.tagStateContainer;
-										m != null &&
-											p != null &&
+									m = p.getTopOverlay();
+									if (n && q && m && o < j.maxPageRecirc) {
+										p = this.$2.data.recircUnitId;
+										n = this.$2.adInputData;
+										var r = this.$2.tagStateContainer;
+										p != null &&
 											n != null &&
+											r != null &&
 											b("ANRecirculationInfiniteScroll").observe({
 												currentPage: o,
 												element: k,
-												nextPageTriggerElement: q,
-												unitId: m,
-												adInputData: p,
-												tagStateContainer: n,
+												nextPageTriggerElement: m,
+												cancelPageTriggerElement: q,
+												unitId: p,
+												adInputData: n,
+												tagStateContainer: r,
 												onCancelledPage: function() {
 													i.sendToFacebook({
 														name: "recirc",
@@ -13155,8 +13153,8 @@ try {
 											});
 									}
 									if (l != null) {
-										q = b("nullthrows")(l.contentDocument.body);
-										q.style.overflowY = "hidden";
+										m = b("nullthrows")(l.contentDocument.body);
+										m.style.overflowY = "hidden";
 										b("ANUtils").resizeElement(l, "100%", k.clientHeight);
 									}
 								};
@@ -13393,7 +13391,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000965396","namespace":"FB","message":"' +
+				'","revision":"1000970977","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
