@@ -1,4 +1,4 @@
-/*1563915714,,JIT Construction: v1000972025,en_US*/
+/*1563999900,,JIT Construction: v1000977677,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12287,7 +12287,7 @@ try {
 													clickX: i.clickX,
 													clickY: i.clickY,
 													relClickX: i.relClickX,
-													relClickY: i.relClickX,
+													relClickY: i.relClickY,
 													carouselCardIndex:
 														d.$6 == null ? null : d.$6.getIndex()
 												}
@@ -13413,7 +13413,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000972025","namespace":"FB","message":"' +
+				'","revision":"1000977677","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
