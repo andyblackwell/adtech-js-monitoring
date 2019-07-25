@@ -57,7 +57,7 @@
 				return a.m ? a.m : (a.m = new a());
 			};
 		},
-		n = function(a) {
+		m = function(a) {
 			var b = typeof a;
 			if ("object" == b)
 				if (a) {
@@ -97,23 +97,13 @@
 		na = function(a, b) {
 			for (var c in b) a[c] = b[c];
 		},
-		p = function(a, b) {
+		n = function(a, b) {
 			function c() {}
 			c.prototype = b.prototype;
-			a.I = b.prototype;
 			a.prototype = new c();
 			a.prototype.constructor = a;
-			a.G = function(d, e, f) {
-				for (
-					var h = Array(arguments.length - 2), m = 2;
-					m < arguments.length;
-					m++
-				)
-					h[m - 2] = arguments[m];
-				return b.prototype[e].apply(d, h);
-			};
 		};
-	var q = function(a, b) {
+	var p = function(a, b) {
 			for (var c = a.length, d = k(a) ? a.split("") : a, e = 0; e < c; e++)
 				e in d && b.call(void 0, d[e], e, a);
 		},
@@ -124,8 +114,8 @@
 				h++
 			)
 				if (h in f) {
-					var m = f[h];
-					b.call(void 0, m, h, a) && (d[e++] = m);
+					var q = f[h];
+					b.call(void 0, q, h, a) && (d[e++] = q);
 				}
 			return d;
 		},
@@ -284,7 +274,7 @@
 			if (w("Trident") || w("MSIE")) return Ia(b);
 			b = Ga(b);
 			var c = {};
-			q(b, function(e) {
+			p(b, function(e) {
 				c[e[0]] = e[1];
 			});
 			var d = ma(ua, c);
@@ -337,7 +327,7 @@
 		B = function(a, b, c, d) {
 			a.a = null;
 			b || (b = []);
-			a.H = void 0;
+			a.G = void 0;
 			a.f = -1;
 			a.g = b;
 			a: {
@@ -348,7 +338,7 @@
 						!(
 							null === e ||
 							"object" != typeof e ||
-							"array" == n(e) ||
+							"array" == m(e) ||
 							(La && e instanceof Uint8Array)
 						)
 					) {
@@ -523,7 +513,7 @@
 	var H = function(a) {
 		B(this, a, fb, gb);
 	};
-	p(H, z);
+	n(H, z);
 	var fb = [2, 8],
 		gb = [[3, 4, 5], [6, 7]];
 	var hb = function(a) {
@@ -621,7 +611,7 @@
 		(a[9] = function(b) {
 			b = ia(b);
 			var c;
-			if ((c = "function" == n(b)))
+			if ((c = "function" == m(b)))
 				(b = b && b.toString && b.toString()),
 					(c = k(b) && -1 != b.indexOf("[native code]"));
 			return c;
@@ -682,16 +672,16 @@
 	var ob = function(a) {
 		B(this, a, nb, null);
 	};
-	p(ob, z);
+	n(ob, z);
 	var nb = [4];
 	var I = function(a) {
 		B(this, a, pb, qb);
 	};
-	p(I, z);
+	n(I, z);
 	var rb = function(a) {
 		B(this, a, null, null);
 	};
-	p(rb, z);
+	n(rb, z);
 	var pb = [5],
 		qb = [[1, 2, 3, 6]];
 	var J = function() {
@@ -782,7 +772,7 @@
 		},
 		Bb = function(a) {
 			var b = K.b().a;
-			q(a, function(c) {
+			p(a, function(c) {
 				var d = Na(c, qb[0]),
 					e = sb(c, d);
 				e && (b[d][e] = c.g);
@@ -790,7 +780,7 @@
 		},
 		Cb = function(a) {
 			var b = K.b().a;
-			q(a, function(c) {
+			p(a, function(c) {
 				var d = new I(c),
 					e = Na(d, qb[0]);
 				(d = sb(d, e)) && (b[e][d] || (b[e][d] = c));
@@ -892,7 +882,7 @@
 	var Wb = function(a) {
 		B(this, a, Vb, null);
 	};
-	p(Wb, z);
+	n(Wb, z);
 	var Vb = [2];
 	Wb.prototype.getId = function() {
 		return D(this, 1, 0);
@@ -903,7 +893,7 @@
 	var Yb = function(a) {
 		B(this, a, Xb, null);
 	};
-	p(Yb, z);
+	n(Yb, z);
 	var Xb = [2];
 	Yb.prototype.i = function() {
 		return D(this, 5, 0);
@@ -911,11 +901,11 @@
 	var $b = function(a) {
 		B(this, a, Zb, null);
 	};
-	p($b, z);
+	n($b, z);
 	var P = function(a) {
 		B(this, a, ac, null);
 	};
-	p(P, z);
+	n(P, z);
 	var Zb = [1, 2],
 		ac = [2];
 	P.prototype.i = function() {
@@ -934,7 +924,7 @@
 			this.h = d;
 			this.c = {};
 			(a = eb()) &&
-				q(a.split(",") || [], function(f) {
+				p(a.split(",") || [], function(f) {
 					(f = parseInt(f, 10)) && (c.c[f] = !0);
 				});
 		},
@@ -943,7 +933,7 @@
 				d = dc(a.a, b);
 			d.length &&
 				(9 !== b && (a.a = ec(a.a, b)),
-				q(d, function(e) {
+				p(d, function(e) {
 					if ((e = fc(a, e))) {
 						var f = e.getId();
 						c.push(f);
@@ -1120,7 +1110,7 @@
 				if (-1 != c.toLowerCase().indexOf("stylesheet"))
 					var h = wa(b).toString();
 				else {
-					if (b instanceof r) var m = wa(b).toString();
+					if (b instanceof r) var q = wa(b).toString();
 					else {
 						if (b instanceof u) var y = Aa(b);
 						else {
@@ -1131,9 +1121,9 @@
 									(X = Ca(b));
 							y = Aa(X);
 						}
-						m = y;
+						q = y;
 					}
-					h = m;
+					h = q;
 				}
 				f.href = h;
 			} catch (Fa) {
@@ -1173,9 +1163,9 @@
 				((T[1] = ""), (T[2] = -1), (T[3] = -1), (T[4] = ""), (T[6] = ""));
 			U = S.googleIMState = S.googleIMState || {};
 			uc(U[1]) || (U[1] = ".google.com");
-			"array" == n(U[5]) || (U[5] = []);
+			"array" == m(U[5]) || (U[5] = []);
 			"boolean" == typeof U[6] || (U[6] = !1);
-			"array" == n(U[7]) || (U[7] = []);
+			"array" == m(U[7]) || (U[7] = []);
 			da(U[8]) || (U[8] = 0);
 		},
 		yc = function(a) {
@@ -1340,7 +1330,7 @@
 				e = "NT" == d,
 				f = parseInt(b.freshLifetimeSecs || "", 10),
 				h = parseInt(b.validLifetimeSecs || "", 10),
-				m = b["1p_jar"] || "";
+				q = b["1p_jar"] || "";
 			b = b.pucrd || "";
 			xc();
 			1 == c ? a.C() : a.B();
@@ -1356,7 +1346,7 @@
 						0 < f &&
 						da(h) &&
 						0 < h &&
-						k(m);
+						k(q);
 				e = e && !a.j() && (!(T[3] >= +new Date()) || "NT" == T[1]);
 				var Fa = !(T[3] >= +new Date()) && 0 != c;
 				if (X || e || Fa)
@@ -1368,7 +1358,7 @@
 						(y[1] = d),
 						(y[2] = f),
 						(y[3] = h),
-						(y[4] = m),
+						(y[4] = q),
 						(y[6] = b),
 						xc();
 				if (X || !a.j()) {
@@ -1419,7 +1409,7 @@
 		if (!a.google_ltobserver) {
 			var b = new a.PerformanceObserver(function(c) {
 				var d = (a.google_lt_queue = a.google_lt_queue || []);
-				q(c.getEntries(), function(e) {
+				p(c.getEntries(), function(e) {
 					return d.push(e);
 				});
 			});
@@ -1457,9 +1447,9 @@
 		211: !1,
 		152: [],
 		172: null,
-		191: "001907161745080",
-		192: "021906111828200",
-		190: "011906111828200",
+		191: "001907231757120",
+		192: "021907152257550",
+		190: "011907152257550",
 		245: {},
 		180: null,
 		230: {},
@@ -1536,10 +1526,10 @@
 			return 0 === Rc(R(172));
 		};
 	var Tc = function() {
-			return $a("3") || 0;
+			return $a("5") || 0;
 		},
 		Uc = function() {
-			return "2019072201";
+			return "2019072501";
 		};
 	Mc("getVersion", Uc);
 	var Vc = function() {
@@ -1554,8 +1544,8 @@
 				var f = e.length;
 				if (0 == f) e = 0;
 				else {
-					for (var h = 305419896, m = 0; m < f; m++)
-						h ^= ((h << 5) + (h >> 2) + e.charCodeAt(m)) & 4294967295;
+					for (var h = 305419896, q = 0; q < f; q++)
+						h ^= ((h << 5) + (h >> 2) + e.charCodeAt(q)) & 4294967295;
 					e = 0 < h ? h : 4294967296 + h;
 				}
 			} else e = null;
@@ -1698,8 +1688,8 @@
 				(b = cd()) &&
 					b.catch(function(f) {
 						var h = new Gc();
-						Hc(h, function(m) {
-							m.methodId = 501;
+						Hc(h, function(q) {
+							q.methodId = 501;
 						});
 						h.c(501, f);
 					});
@@ -1708,7 +1698,7 @@
 	var ed;
 	a: {
 		try {
-			if ("array" == n(E)) {
+			if ("array" == m(E)) {
 				ed = E;
 				break a;
 			}
@@ -1726,11 +1716,11 @@
 	})(void 0, void 0, ed);
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
+		[175, null, null, [1]],
 		[null, 13, null, [null, 1]],
 		[146, null, null, [1]],
 		[null, 7, null, [null, 0.1]],
 		[167, null, null, [1]],
-		[118, null, null, [1]],
 		[20, null, null, [], [[[1, [[4, null, 1]]], [1]]]],
 		[90, null, null, [1]],
 		[null, null, 8, [null, null, "/pagead/js/rum.js"]],
@@ -1888,11 +1878,11 @@
 				],
 				[
 					1000,
-					[[21064076]],
+					[[21064235]],
 					[
 						2,
 						[
-							[4, null, 6, null, null, null, null, ["21064055"]],
+							[4, null, 6, null, null, null, null, ["21064233"]],
 							[
 								2,
 								[
@@ -1924,11 +1914,11 @@
 				],
 				[
 					1000,
-					[[21064077]],
+					[[21064236]],
 					[
 						2,
 						[
-							[4, null, 6, null, null, null, null, ["21064056"]],
+							[4, null, 6, null, null, null, null, ["21064234"]],
 							[
 								2,
 								[
@@ -2218,7 +2208,6 @@
 						[21063967, [[156, null, null, [1]], [157, null, null, [1]]]]
 					]
 				],
-				[50, [[21064055], [21064056, [[110, null, null, [1]]]]], null, 11],
 				[
 					null,
 					[
@@ -2233,15 +2222,71 @@
 				[10, [[21064100], [21064101, [[163, null, null, [1]]]]]],
 				[10, [[21064165], [21064166]]],
 				[50, [[21064169], [21064170, [[168, null, null, [1]]]]]],
+				[1, [[21064194], [21064195, [[165, null, null, [1]]]]]],
 				[
 					1000,
 					[
 						[
-							21064180,
+							21064215,
 							null,
-							[4, null, 6, null, null, null, null, ["21064177"]]
+							[4, null, 6, null, null, null, null, ["21064211"]]
 						],
-						[21064182, null, [4, null, 6, null, null, null, null, ["21064179"]]]
+						[21064216, null, [4, null, 6, null, null, null, null, ["21064212"]]]
+					],
+					[4, null, 19]
+				],
+				[
+					1,
+					[
+						[21064217],
+						[
+							21064218,
+							[
+								[
+									null,
+									null,
+									null,
+									[
+										null,
+										null,
+										null,
+										[
+											"u_tz",
+											"u_his",
+											"u_ah",
+											"u_aw",
+											"u_cd",
+											"u_nplug",
+											"u_nmime",
+											"flash"
+										]
+									],
+									null,
+									7
+								]
+							]
+						]
+					]
+				],
+				[50, [[21064225], [21064226, [[null, 13, null, []]]]]],
+				[
+					1,
+					[
+						[21064227],
+						[21064228, [[159, null, null, [1]], [139, null, null, [1]]]]
+					]
+				],
+				[50, [[21064233], [21064234, [[110, null, null, [1]]]]], null, 11],
+				[50, [[21064247], [21064248, [[175, null, null, []]]]]],
+				[
+					1000,
+					[
+						[
+							21064265,
+							null,
+							[4, null, 6, null, null, null, null, ["21064263"]]
+						],
+						[21064266, null, [4, null, 6, null, null, null, null, ["21064264"]]]
 					],
 					[
 						2,
@@ -2250,15 +2295,6 @@
 							[4, null, 9, null, null, null, null, ["Promise"]],
 							[4, null, 9, null, null, null, null, ["IntersectionObserver"]]
 						]
-					]
-				],
-				[1, [[21064194], [21064195, [[165, null, null, [1]]]]]],
-				[50, [[21064225], [21064226, [[null, 13, null, []]]]]],
-				[
-					1,
-					[
-						[21064227],
-						[21064228, [[159, null, null, [1]], [139, null, null, [1]]]]
 					]
 				],
 				[
@@ -2283,8 +2319,7 @@
 					[4, null, 6, null, null, null, null, ["21060611"]]
 				],
 				[1, [[108809132], [108809133, [[45, null, null, [1]]]]]],
-				[10, [[370204026], [370204027], [370204053]]],
-				[10, [[370204075], [370204076, [[175, null, null, [1]]]]]]
+				[10, [[370204026], [370204027], [370204053]]]
 			]
 		],
 		[
@@ -2353,7 +2388,7 @@
 				[null, [[21064027], [21064028, [[105, null, null, [1]]]]]],
 				[null, [[21064059, [[null, 22, null, [null, 30]]]]]],
 				[
-					null,
+					1,
 					[
 						[21064154],
 						[
@@ -2658,18 +2693,42 @@
 					10,
 					[[21064030, null, [4, null, 8, null, null, null, null, ["_gmptnl"]]]]
 				],
+				[1, [[21064209], [21064210, [[171, null, null, [1]]]]]],
+				[1, [[21064211], [21064212, [[177, null, null, [1]]]]]],
 				[
-					null,
+					1000,
 					[
 						[
-							21064177,
+							21064257,
 							[
-								[null, null, 5, [null, null, "21064177"]],
-								[null, null, 6, [null, null, "21064177"]]
+								[null, 7, null, [null, 1]],
+								[null, null, 5, [null, null, "21064257"]],
+								[60, null, null, [1]],
+								[null, null, 6, [null, null, "21064257"]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21064258,
+							[[null, 7, null, [null, 1]], [60, null, null, [1]]],
+							[6, null, null, 4, null, 5]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1,
+					[
+						[
+							21064263,
+							[
+								[null, null, 5, [null, null, "21064263"]],
+								[null, null, 6, [null, null, "21064263"]]
 							]
 						],
 						[
-							21064179,
+							21064264,
 							[
 								[
 									null,
@@ -2699,36 +2758,15 @@
 										]
 									]
 								],
-								[null, null, 5, [null, null, "21064179"]],
-								[null, null, 6, [null, null, "21064179"]]
+								[null, null, 5, [null, null, "21064264"]],
+								[null, null, 6, [null, null, "21064264"]]
 							]
 						]
 					],
 					[3, [[6, null, null, 4, null, 1], [6, null, null, 4, null, 0]]],
 					1
 				],
-				[
-					1000,
-					[
-						[
-							21064237,
-							[
-								[null, 7, null, [null, 1]],
-								[null, null, 5, [null, null, "21064237"]],
-								[60, null, null, [1]],
-								[null, null, 6, [null, null, "21064237"]]
-							],
-							[6, null, null, 4, null, 2]
-						],
-						[
-							21064238,
-							[[null, 7, null, [null, 1]], [60, null, null, [1]]],
-							[6, null, null, 4, null, 3]
-						]
-					],
-					[4, null, 3],
-					1
-				]
+				[1, [[21064269], [21064270, [[181, null, null, [1]]]]]]
 			]
 		],
 		[
