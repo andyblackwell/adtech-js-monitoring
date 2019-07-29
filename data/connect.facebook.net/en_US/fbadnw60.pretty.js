@@ -1,4 +1,4 @@
-/*1564167408,,JIT Construction: v1000987642,en_US*/
+/*1564411861,,JIT Construction: v1000992792,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12709,20 +12709,25 @@ try {
 									}
 									this.$30 = !0;
 									var l = this.$18.getInitialViewabilityState(),
-										m = this.$28,
-										n = null,
-										o = null;
-									m != null &&
-										((n = m.getCurrentTime()), (o = m.getDuration()));
-									m = null;
+										m = this.$18.getLastViewabilityState(),
+										n = this.$28,
+										o = null,
+										p = null;
+									n != null &&
+										((o = n.getCurrentTime()), (p = n.getDuration()));
+									n = null;
 									l != null &&
 										l.viewabilityLevels != null &&
-										(m = l.viewabilityLevels.join(","));
-									var p =
-											this.$37().$57 &&
-											this.$23.isPublisherSideLoggingSupported(),
-										q = l == null ? void 0 : l.widthInView;
-									q && (q *= 100);
+										(n = l.viewabilityLevels.join(","));
+									var q = null;
+									m != null &&
+										m.viewabilityLevels != null &&
+										(q = m.viewabilityLevels.join(","));
+									m =
+										this.$37().$57 &&
+										this.$23.isPublisherSideLoggingSupported();
+									var r = l == null ? void 0 : l.widthInView;
+									r && (r *= 100);
 									l = l == null ? void 0 : l.heightInView;
 									l && (l *= 100);
 									j = {
@@ -12732,8 +12737,8 @@ try {
 											mostly_visible_time_ms: k,
 											fully_visible_time_ms: i,
 											client_ts: a,
-											viewability: m,
-											width_in_view: q,
+											viewability: n,
+											width_in_view: r,
 											height_in_view: l,
 											request_delay: d,
 											load_time: e,
@@ -12741,13 +12746,14 @@ try {
 											click_delay: g,
 											click_to_navigation_time: h,
 											total_time_on_page: c,
-											video_playback_time: n,
-											video_duration: o,
+											video_playback_time: o,
+											video_duration: p,
 											creative_type: this.$31,
-											asset_count: this.$32
+											asset_count: this.$32,
+											viewability_at_navigation: q
 										}
 									};
-									p
+									m
 										? this.$23.logPerfStats(j)
 										: this.sendToFacebook({ name: "perf", params: j });
 								};
@@ -13414,7 +13420,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1000987642","namespace":"FB","message":"' +
+				'","revision":"1000992792","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
