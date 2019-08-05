@@ -1,4 +1,4 @@
-/*1565013800,,JIT Construction: v1001018526,en_US*/
+/*1565048910,,JIT Construction: v1001021779,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12786,6 +12786,7 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							e.exports = ES("Object", "freeze", !1, {
+								BLANK_IMPRESSION: "blank_impression",
 								CANCEL_PAGE_LOAD: "cancel_pg",
 								CLICK: "click",
 								IMPRESSION: "impression"
@@ -12895,16 +12896,18 @@ try {
 						[
 							"AdImpressionBehavior.anweb",
 							"AdQualityViewabilityMonitor",
+							"ANGenericViewabilityObserver",
 							"ANLinkOpener",
 							"ANUtils",
-							"OnScreenBehaviorManager.anweb"
+							"OnScreenBehaviorManager.anweb",
+							"nullthrows"
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
 								__p && __p();
-								function a(a, c, d, e, f, g, h, i, j, k, l) {
+								function a(a, c, d, e, f, g, h, i, j, k, l, m) {
 									(this.$1 = a),
 										(this.$2 = c),
 										(this.$3 = d),
@@ -12912,16 +12915,17 @@ try {
 										(this.$5 = f),
 										(this.$6 = h),
 										(this.$7 = i),
-										(this.$8 = g),
-										(this.$9 = []),
-										(this.$10 = new (b("ANLinkOpener"))(d)),
-										(this.$11 = j),
-										(this.$13 = l),
-										(this.$12 = k);
+										(this.$8 = j),
+										(this.$9 = g),
+										(this.$10 = []),
+										(this.$11 = new (b("ANLinkOpener"))(d)),
+										(this.$12 = k),
+										(this.$14 = m),
+										(this.$13 = l);
 								}
-								a.render = function(b, c, d, e, f, g, h, i, j, k, l) {
-									b = new a(b, c, d, e, f, g, h, i, j, k, l);
-									b.$14();
+								a.render = function(b, c, d, e, f, g, h, i, j, k, l, m) {
+									b = new a(b, c, d, e, f, g, h, i, j, k, l, m);
+									b.$15();
 									return b;
 								};
 								var c = a.prototype;
@@ -12931,7 +12935,7 @@ try {
 								c.getTopOverlay = function() {
 									return this.$3.querySelector(".fbRecirculationTopOverlay");
 								};
-								c.$15 = function(a, c) {
+								c.$16 = function(a, c) {
 									var d = this,
 										e = c.querySelector(".fbArticleImage"),
 										f = new (b("OnScreenBehaviorManager.anweb"))();
@@ -12953,18 +12957,18 @@ try {
 										}));
 									f.addBehavior(g);
 								};
-								c.$16 = function(a, b, c) {
+								c.$17 = function(a, b, c) {
 									var d = this;
-									this.$15(a, c);
+									this.$16(a, c);
 									var e = !1;
 									c.addEventListener("click", function() {
 										if (e) return;
-										d.$7(a);
-										d.$10.open(b.link);
+										d.$8(a);
+										d.$11.open(b.link);
 										e = !0;
 									});
 								};
-								c.$17 = function(a, b) {
+								c.$18 = function(a, b) {
 									b.innerHTML = this.$4;
 									var c = b.querySelector(".fbArticleImage"),
 										d = b.querySelector(".fbArticleTitle"),
@@ -12975,33 +12979,47 @@ try {
 									e && (e.textContent = a.summary);
 									b && (b.textContent = a.source);
 								};
-								c.$14 = function() {
+								c.$15 = function() {
 									__p && __p();
-									var a = this.$3.querySelectorAll(".fbSlot"),
-										c = 0,
-										d = 0;
-									if (a.length === 0) {
-										this.$13 && this.$13();
-										this.$11 && this.$11();
+									var a = this,
+										c = this.$3.querySelectorAll(".fbSlot"),
+										d = 0,
+										e = 0;
+									if (c.length === 0) {
+										this.$14 && this.$14();
+										this.$12 && this.$12();
 										return;
 									}
-									for (var e = 0; e < a.length; e++) {
-										var f = a[e];
-										if (ES(f.classList, "contains", !0, "fbSlotAd")) {
-											var g = this.$2[c++];
-											this.$9.push(g);
-											this.$8(g, f);
+									if (this.$5.recircBlank) {
+										var f = document.createElement("div");
+										b("nullthrows")(this.$3.parentElement).appendChild(f);
+										b("ANGenericViewabilityObserver").observe(
+											f,
+											b("ANUtils").once(function() {
+												a.$7();
+											})
+										);
+										f.className = "fbBlankRecirc";
+										f.style.height = "1px";
+										this.$3.style.display = "none";
+									}
+									for (var f = 0; f < c.length; f++) {
+										var g = c[f];
+										if (ES(g.classList, "contains", !0, "fbSlotAd")) {
+											var h = this.$2[d++];
+											this.$10.push(h);
+											this.$9(h, g);
 										} else if (
-											ES(f.classList, "contains", !0, "fbSlotArticle")
+											ES(g.classList, "contains", !0, "fbSlotArticle")
 										) {
-											g = this.$1[d++];
-											this.$9.push(g);
-											this.$17(g, f);
-											this.$16(e, g, f);
+											h = this.$1[e++];
+											this.$10.push(h);
+											this.$18(h, g);
+											this.$17(f, h, g);
 										}
 									}
-									c === 0 && this.$11 && this.$11();
-									this.$12 && this.$12();
+									d === 0 && this.$12 && this.$12();
+									this.$13 && this.$13();
 									b("ANUtils").autofitIfInDfpIframe(this.$3);
 									b("ANUtils").autofitTextWhereNeeded(this.$3);
 								};
@@ -13138,6 +13156,21 @@ try {
 												}
 											});
 										},
+										function() {
+											i.sendToFacebook({
+												name: "recirc",
+												params: {
+													reqId: i.$6(),
+													unitId: i.$7(),
+													payload: {
+														type: b("ANMWebUnifiedLoggingRecirculationEvent")
+															.BLANK_IMPRESSION,
+														page: 0,
+														index: 0
+													}
+												}
+											});
+										},
 										function(a) {
 											if (j.skipRecircClickEvent === !0) return;
 											i.sendToFacebook({
@@ -13166,7 +13199,7 @@ try {
 									);
 									q = p.getBottomOverlay();
 									m = p.getTopOverlay();
-									if (n && q && m && o < j.maxPageRecirc) {
+									if (n && q && m && o < j.maxPageRecirc && !j.recircBlank) {
 										p = this.$2.data.recircUnitId;
 										n = this.$2.adInputData;
 										var r = this.$2.tagStateContainer;
@@ -13438,7 +13471,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001018526","namespace":"FB","message":"' +
+				'","revision":"1001021779","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
