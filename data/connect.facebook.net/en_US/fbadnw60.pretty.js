@@ -1,4 +1,4 @@
-/*1565048910,,JIT Construction: v1001021779,en_US*/
+/*1565062149,,JIT Construction: v1001023063,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12789,7 +12789,8 @@ try {
 								BLANK_IMPRESSION: "blank_impression",
 								CANCEL_PAGE_LOAD: "cancel_pg",
 								CLICK: "click",
-								IMPRESSION: "impression"
+								IMPRESSION: "impression",
+								SCROLL_UPDATE: "scroll_update"
 							});
 						},
 						null
@@ -12905,48 +12906,51 @@ try {
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
+							var g = 1e4;
 							a = (function() {
 								__p && __p();
-								function a(a, c, d, e, f, g, h, i, j, k, l, m) {
+								function a(a, c, d, e, f, g, h, i, j, k, l, m, n, o) {
 									(this.$1 = a),
 										(this.$2 = c),
 										(this.$3 = d),
 										(this.$4 = e),
 										(this.$5 = f),
-										(this.$6 = h),
+										(this.$6 = g),
 										(this.$7 = i),
 										(this.$8 = j),
-										(this.$9 = g),
-										(this.$10 = []),
-										(this.$11 = new (b("ANLinkOpener"))(d)),
-										(this.$12 = k),
+										(this.$9 = k),
+										(this.$10 = l),
+										(this.$11 = h),
+										(this.$12 = []),
+										(this.$13 = new (b("ANLinkOpener"))(e)),
 										(this.$14 = m),
-										(this.$13 = l);
+										(this.$16 = o),
+										(this.$15 = n);
 								}
-								a.render = function(b, c, d, e, f, g, h, i, j, k, l, m) {
-									b = new a(b, c, d, e, f, g, h, i, j, k, l, m);
-									b.$15();
+								a.render = function(b, c, d, e, f, g, h, i, j, k, l, m, n, o) {
+									b = new a(b, c, d, e, f, g, h, i, j, k, l, m, n, o);
+									b.$17();
 									return b;
 								};
 								var c = a.prototype;
 								c.getBottomOverlay = function() {
-									return this.$3.querySelector(".fbRecirculationBottomOverlay");
+									return this.$4.querySelector(".fbRecirculationBottomOverlay");
 								};
 								c.getTopOverlay = function() {
-									return this.$3.querySelector(".fbRecirculationTopOverlay");
+									return this.$4.querySelector(".fbRecirculationTopOverlay");
 								};
-								c.$16 = function(a, c) {
+								c.$18 = function(a, c) {
 									var d = this,
 										e = c.querySelector(".fbArticleImage"),
 										f = new (b("OnScreenBehaviorManager.anweb"))();
 									c = new (b("AdQualityViewabilityMonitor"))(
 										c,
-										this.$5.useIntersectionObserver === !0
+										this.$6.useIntersectionObserver === !0
 									);
 									c.attachBehaviorManager(f);
 									var g = new (b("AdImpressionBehavior.anweb"))(
 										function() {
-											d.$6(a);
+											d.$7(a);
 										},
 										function() {}
 									);
@@ -12957,19 +12961,19 @@ try {
 										}));
 									f.addBehavior(g);
 								};
-								c.$17 = function(a, b, c) {
+								c.$19 = function(a, b, c) {
 									var d = this;
-									this.$16(a, c);
+									this.$18(a, c);
 									var e = !1;
 									c.addEventListener("click", function() {
 										if (e) return;
-										d.$8(a);
-										d.$11.open(b.link);
+										d.$9(a);
+										d.$13.open(b.link);
 										e = !0;
 									});
 								};
-								c.$18 = function(a, b) {
-									b.innerHTML = this.$4;
+								c.$20 = function(a, b) {
+									b.innerHTML = this.$5;
 									var c = b.querySelector(".fbArticleImage"),
 										d = b.querySelector(".fbArticleTitle"),
 										e = b.querySelector(".fbArticleSubtitle");
@@ -12979,49 +12983,68 @@ try {
 									e && (e.textContent = a.summary);
 									b && (b.textContent = a.source);
 								};
-								c.$15 = function() {
+								c.$21 = function() {
+									var a = this,
+										b = -Infinity;
+									window.setInterval(function() {
+										var c = Math.round(window.top.scrollY);
+										if (c <= b) return;
+										var d = {
+											absolute: c,
+											percentage: Math.round(
+												(100 * c) /
+													(window.top.document.body.scrollHeight -
+														window.top.innerHeight)
+											)
+										};
+										a.$10(d);
+										b = c;
+									}, g);
+								};
+								c.$17 = function() {
 									__p && __p();
 									var a = this,
-										c = this.$3.querySelectorAll(".fbSlot"),
+										c = this.$4.querySelectorAll(".fbSlot"),
 										d = 0,
 										e = 0;
 									if (c.length === 0) {
+										this.$16 && this.$16();
 										this.$14 && this.$14();
-										this.$12 && this.$12();
 										return;
 									}
-									if (this.$5.recircBlank) {
+									this.$3 === 0 && this.$6.recircLogScrollDepth && this.$21();
+									if (this.$6.recircBlank) {
 										var f = document.createElement("div");
-										b("nullthrows")(this.$3.parentElement).appendChild(f);
+										b("nullthrows")(this.$4.parentElement).appendChild(f);
 										b("ANGenericViewabilityObserver").observe(
 											f,
 											b("ANUtils").once(function() {
-												a.$7();
+												a.$8();
 											})
 										);
 										f.className = "fbBlankRecirc";
 										f.style.height = "1px";
-										this.$3.style.display = "none";
+										this.$4.style.display = "none";
 									}
 									for (var f = 0; f < c.length; f++) {
 										var g = c[f];
 										if (ES(g.classList, "contains", !0, "fbSlotAd")) {
 											var h = this.$2[d++];
-											this.$10.push(h);
-											this.$9(h, g);
+											this.$12.push(h);
+											this.$11(h, g);
 										} else if (
 											ES(g.classList, "contains", !0, "fbSlotArticle")
 										) {
 											h = this.$1[e++];
-											this.$10.push(h);
-											this.$18(h, g);
-											this.$17(f, h, g);
+											this.$12.push(h);
+											this.$20(h, g);
+											this.$19(f, h, g);
 										}
 									}
-									d === 0 && this.$12 && this.$12();
-									this.$13 && this.$13();
-									b("ANUtils").autofitIfInDfpIframe(this.$3);
-									b("ANUtils").autofitTextWhereNeeded(this.$3);
+									d === 0 && this.$14 && this.$14();
+									this.$15 && this.$15();
+									b("ANUtils").autofitIfInDfpIframe(this.$4);
+									b("ANUtils").autofitTextWhereNeeded(this.$4);
 								};
 								return a;
 							})();
@@ -13135,6 +13158,7 @@ try {
 									p = b("ANRecirculationUnit").render(
 										a.recommendedContent,
 										m,
+										o,
 										k,
 										a.wrapperItemMarkup,
 										j,
@@ -13183,6 +13207,22 @@ try {
 															.CLICK,
 														page: o,
 														index: a
+													}
+												}
+											});
+										},
+										function(a) {
+											i.sendToFacebook({
+												name: "recirc",
+												params: {
+													reqId: i.$6(),
+													unitId: i.$7(),
+													payload: {
+														type: b("ANMWebUnifiedLoggingRecirculationEvent")
+															.SCROLL_UPDATE,
+														page: 0,
+														index: 0,
+														scroll_update: a
 													}
 												}
 											});
@@ -13471,7 +13511,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001021779","namespace":"FB","message":"' +
+				'","revision":"1001023063","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
