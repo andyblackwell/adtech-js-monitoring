@@ -1,4 +1,4 @@
-/*1565160235,,JIT Construction: v1001028879,en_US*/
+/*1565196265,,JIT Construction: v1001029687,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2529,176 +2529,7 @@ try {
 								}
 								return !1;
 							}
-							function O(a, b, c) {
-								__p && __p();
-								for (
-									var b = b,
-										d = ES("Array", "isArray", !1, b),
-										e = 0,
-										b = d
-											? b
-											: b[
-													typeof Symbol === "function"
-														? Symbol.iterator
-														: "@@iterator"
-											  ]();
-									;
-
-								) {
-									var f;
-									if (d) {
-										if (e >= b.length) break;
-										f = b[e++];
-									} else {
-										e = b.next();
-										if (e.done) break;
-										f = e.value;
-									}
-									f = f;
-									var g = f.ownerDocument.defaultView;
-									g = g.getComputedStyle(f);
-									for (
-										var h = c,
-											i = ES("Array", "isArray", !1, h),
-											j = 0,
-											h = i
-												? h
-												: h[
-														typeof Symbol === "function"
-															? Symbol.iterator
-															: "@@iterator"
-												  ]();
-										;
-
-									) {
-										var k;
-										if (i) {
-											if (j >= h.length) break;
-											k = h[j++];
-										} else {
-											j = h.next();
-											if (j.done) break;
-											k = j.value;
-										}
-										k = k;
-										var l = a + k;
-										f.dataset[l] = g.getPropertyValue(k);
-									}
-								}
-							}
-							function P(a, b, c) {
-								__p && __p();
-								for (
-									var b = b,
-										d = ES("Array", "isArray", !1, b),
-										e = 0,
-										b = d
-											? b
-											: b[
-													typeof Symbol === "function"
-														? Symbol.iterator
-														: "@@iterator"
-											  ]();
-									;
-
-								) {
-									var f;
-									if (d) {
-										if (e >= b.length) break;
-										f = b[e++];
-									} else {
-										e = b.next();
-										if (e.done) break;
-										f = e.value;
-									}
-									f = f;
-									if (!f) continue;
-									for (
-										var g = c,
-											h = ES("Array", "isArray", !1, g),
-											i = 0,
-											g = h
-												? g
-												: g[
-														typeof Symbol === "function"
-															? Symbol.iterator
-															: "@@iterator"
-												  ]();
-										;
-
-									) {
-										var j;
-										if (h) {
-											if (i >= g.length) break;
-											j = g[i++];
-										} else {
-											i = g.next();
-											if (i.done) break;
-											j = i.value;
-										}
-										j = j;
-										var k = a + j;
-										f.style[j] = f.dataset[k];
-									}
-								}
-							}
-							function Q(a, b, c) {
-								__p && __p();
-								for (
-									var b = b,
-										d = ES("Array", "isArray", !1, b),
-										e = 0,
-										b = d
-											? b
-											: b[
-													typeof Symbol === "function"
-														? Symbol.iterator
-														: "@@iterator"
-											  ]();
-									;
-
-								) {
-									var f;
-									if (d) {
-										if (e >= b.length) break;
-										f = b[e++];
-									} else {
-										e = b.next();
-										if (e.done) break;
-										f = e.value;
-									}
-									f = f;
-									if (!f) continue;
-									for (
-										var g = c,
-											h = ES("Array", "isArray", !1, g),
-											i = 0,
-											g = h
-												? g
-												: g[
-														typeof Symbol === "function"
-															? Symbol.iterator
-															: "@@iterator"
-												  ]();
-										;
-
-									) {
-										var j;
-										if (h) {
-											if (i >= g.length) break;
-											j = g[i++];
-										} else {
-											i = g.next();
-											if (i.done) break;
-											j = i.value;
-										}
-										j = j;
-										j = a + j;
-										delete f.dataset[j];
-									}
-								}
-							}
-							function R(a) {
+							function O(a) {
 								a = a;
 								while (a) {
 									G(a) && (a = a.ownerDocument.defaultView.frameElement);
@@ -2711,59 +2542,59 @@ try {
 								}
 								return a;
 							}
-							function S(a) {
+							function P(a) {
 								a = a.getBoundingClientRect();
 								var b = a.left;
 								a = K() - a.right;
 								return Math.max(a, b);
 							}
-							function T(a) {
+							function Q(a) {
 								return a.scrollHeight > a.clientHeight + 3;
 							}
-							function U(a, b, c) {
+							function R(a, b, c) {
 								__p && __p();
 								var d = c.slice(0, b).join(" ") + "\u2026";
 								a.textContent = d;
-								if (T(a)) return i;
+								if (Q(a)) return i;
 								if (b >= c.length) return h;
 								a.textContent = c.slice(0, b + 1).join(" ") + "\u2026";
-								if (T(a)) {
+								if (Q(a)) {
 									a.textContent = d;
 									return h;
 								}
 								a.textContent = d;
 								return g;
 							}
-							function V(a) {
-								if (!T(a)) return;
+							function S(a) {
+								if (!Q(a)) return;
 								var b = a.textContent.split(" "),
 									c = 0,
 									d = b.length - 1;
 								while (c <= d) {
 									var e = Math.floor((c + d) / 2),
-										f = U(a, e, b);
+										f = R(a, e, b);
 									if (f === h) break;
 									f === i ? (d = e - 1) : (c = e + 1);
 								}
 							}
-							function W(a) {
+							function T(a) {
 								a = a.querySelectorAll("[data-auto-fit-text=true]");
-								for (var b = 0; b < a.length; b++) V(a[b]);
+								for (var b = 0; b < a.length; b++) S(a[b]);
 							}
-							function X(a) {
+							function U(a) {
 								var b = !1;
 								return function() {
 									b || ((b = !0), a.apply(void 0, arguments));
 								};
 							}
-							function Y(a) {
+							function V(a) {
 								if (typeof a === "string") return a;
 								else return "";
 							}
-							function Z(a, b, c) {
+							function W(a, b, c) {
 								a.contentWindow.postMessage(c, b);
 							}
-							function $(a) {
+							function X(a) {
 								return a instanceof Promise
 									? !0
 									: a !== null &&
@@ -2773,12 +2604,12 @@ try {
 							}
 							e.exports = {
 								autofitIfInDfpIframe: B,
-								calculateLargestMargin: S,
+								calculateLargestMargin: P,
 								cssSize: D,
 								extractOrigin: k,
 								extractDomain: l,
 								extractHostname: p,
-								findWidestParentElement: R,
+								findWidestParentElement: O,
 								getDFPRoot: H,
 								getElementWidth: I,
 								getElementHeight: J,
@@ -2794,21 +2625,18 @@ try {
 								isAppStoreURL: N,
 								isInDfpIframe: A,
 								isDfpContainer: x,
-								isPromiseLike: $,
+								isPromiseLike: X,
 								isSameRootDomain: c,
 								maybeHTMLElement: v,
 								maybeHTMLBodyElement: w,
 								maybeNode: u,
-								once: X,
-								onlyString: Y,
+								once: U,
+								onlyString: V,
 								resizeElement: E,
-								restoreElementStyles: P,
-								removeStoredData: Q,
 								screenIsPortrait: M,
-								sendToFacebook: Z,
-								storeElementStyles: O,
-								truncateTextToFitElement: V,
-								autofitTextWhereNeeded: W,
+								sendToFacebook: W,
+								truncateTextToFitElement: S,
+								autofitTextWhereNeeded: T,
 								getTopDomain: a,
 								wrapInIframe: C
 							};
@@ -4181,7 +4009,7 @@ try {
 								c.applyChanges = function() {
 									__p && __p();
 									for (
-										var a = this.$1,
+										var a = this.$1.entries(),
 											c = ES("Array", "isArray", !1, a),
 											d = 0,
 											a = c
@@ -4208,7 +4036,7 @@ try {
 										e = e[1];
 										f = b("nullthrows")(this.$3.get(f));
 										for (
-											var e = e,
+											var e = e.entries(),
 												g = ES("Array", "isArray", !1, e),
 												h = 0,
 												e = g
@@ -4240,7 +4068,7 @@ try {
 								c.restoreOriginalStyles = function() {
 									__p && __p();
 									for (
-										var a = this.$2,
+										var a = this.$2.entries(),
 											c = ES("Array", "isArray", !1, a),
 											d = 0,
 											a = c
@@ -4267,7 +4095,7 @@ try {
 										e = e[1];
 										f = b("nullthrows")(this.$3.get(f));
 										for (
-											var e = e,
+											var e = e.entries(),
 												g = ES("Array", "isArray", !1, e),
 												h = 0,
 												e = g
@@ -12476,60 +12304,19 @@ try {
 									this.$16 = a.getElementsByClassName(
 										b("ANMWebAdElement").FB_AD_MEDIA
 									);
-									var i = this.$16.length > 0;
-									for (
-										var j = this.$16,
-											k = ES("Array", "isArray", !1, j),
-											l = 0,
-											j = k
-												? j
-												: j[
-														typeof Symbol === "function"
-															? Symbol.iterator
-															: "@@iterator"
-												  ]();
-										;
-
-									) {
-										var m;
-										if (k) {
-											if (l >= j.length) break;
-											m = j[l++];
-										} else {
-											l = j.next();
-											if (l.done) break;
-											m = l.value;
-										}
-										m = m;
-										f && !e && this.$75(d, m);
-										this.$84(a, m, c, d, e, h);
+									var i = this.$16.length > 0,
+										j = ES("Array", "from", !1, this.$16);
+									for (var k = 0; k < j.length; k++) {
+										var l = j[k];
+										f && !e && this.$75(d, l);
+										this.$84(a, l, c, d, e, h);
 									}
 									this.$97(a, d, g);
-									m = a.getElementsByClassName(b("ANMWebAdElement").FB_AD_ICON);
-									for (
-										var l = m,
-											k = ES("Array", "isArray", !1, l),
-											j = 0,
-											l = k
-												? l
-												: l[
-														typeof Symbol === "function"
-															? Symbol.iterator
-															: "@@iterator"
-												  ]();
-										;
-
-									) {
-										if (k) {
-											if (j >= l.length) break;
-											c = l[j++];
-										} else {
-											j = l.next();
-											if (j.done) break;
-											c = j.value;
-										}
-										e = c;
-										e.appendChild(this.$98(d));
+									l = a.getElementsByClassName(b("ANMWebAdElement").FB_AD_ICON);
+									j = ES("Array", "from", !1, l);
+									for (var k = 0; k < j.length; k++) {
+										c = j[k];
+										c.appendChild(this.$98(d));
 									}
 									return i;
 								};
@@ -12671,31 +12458,10 @@ try {
 									var d = this.$42();
 									for (var e in c) {
 										var f = d.getElementsByClassName(e);
-										for (
-											var f = f,
-												g = ES("Array", "isArray", !1, f),
-												h = 0,
-												f = g
-													? f
-													: f[
-															typeof Symbol === "function"
-																? Symbol.iterator
-																: "@@iterator"
-													  ]();
-											;
-
-										) {
-											var i;
-											if (g) {
-												if (h >= f.length) break;
-												i = f[h++];
-											} else {
-												h = f.next();
-												if (h.done) break;
-												i = h.value;
-											}
-											i = i;
-											if (a === i || ES(i, "contains", !0, a)) return c[e];
+										f = ES("Array", "from", !1, f);
+										for (var g = 0; g < f.length; g++) {
+											var h = f[g];
+											if (a === h || ES(h, "contains", !0, a)) return c[e];
 										}
 									}
 									return b("ANMWebAdElement").UNKNOWN;
@@ -13549,7 +13315,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001028879","namespace":"FB","message":"' +
+				'","revision":"1001029687","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
