@@ -1,4 +1,4 @@
-/*1565196265,,JIT Construction: v1001029687,en_US*/
+/*1565633914,,JIT Construction: v1001045722,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12198,41 +12198,50 @@ try {
 												});
 										},
 										g = function(a) {
+											__p && __p();
 											var c = b("getTime")(),
 												g = b("ANUtils").maybeHTMLElement(a.target);
 											g = g ? d.$95(g) : b("ANMWebAdElement").UNKNOWN;
 											var h = d.$37().$46.minClickDelay,
 												i = d.$37().$46.minClickDelayImpression;
-											i && d.$2 && d.$2 + i > c && !d.$4
-												? ((d.$4 = !0),
-												  e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a))
-												: h && d.$1 && d.$1 + h > c && !d.$4
-													? ((d.$4 = !0),
-													  e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a))
-													: d.$37().$46.clickGuardAllElements === !0
-														? g === b("ANMWebAdElement").UNKNOWN
-															? d.$23.event("ADNW_CLICK_IGNORED_ON_WHITESPACES")
-															: e(
-																	b("ANUnifiedLoggingClickEvent")
-																		.BILLABLE_CLICK,
-																	a
-															  )
-														: ES(d.$37().$55, "includes", !0, g) &&
-														  d.$13 &&
-														  !d.$14 &&
-														  d.$37().$46.useTwoStepClick === !0 &&
-														  !d.$25
-															? (e(
-																	b("ANUnifiedLoggingClickEvent")
-																		.TWO_STEP_DIALOG,
-																	a
-															  ),
-															  f())
-															: e(
-																	b("ANUnifiedLoggingClickEvent")
-																		.BILLABLE_CLICK,
-																	a
-															  );
+											if (i && d.$2 && d.$2 + i > c && !d.$4)
+												(d.$4 = !0),
+													e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a);
+											else if (h && d.$1 && d.$1 + h > c && !d.$4)
+												(d.$4 = !0),
+													e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a);
+											else if (d.$37().$46.clickGuardAllElements === !0)
+												g === b("ANMWebAdElement").UNKNOWN
+													? d.$23.event("ADNW_CLICK_IGNORED_ON_WHITESPACES")
+													: e(
+															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
+															a
+													  );
+											else if (d.$37().$46.clickGuardLowViewability === !0) {
+												i = d.$18.getLastViewabilityState();
+												i != null &&
+												i.heightInView != null &&
+												i.heightInView < 0.3
+													? d.$23.event("ADNW_CLICK_IGNORED_ON_LOW_VIEWABILITY")
+													: e(
+															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
+															a
+													  );
+											} else
+												ES(d.$37().$55, "includes", !0, g) &&
+												d.$13 &&
+												!d.$14 &&
+												d.$37().$46.useTwoStepClick === !0 &&
+												!d.$25
+													? (e(
+															b("ANUnifiedLoggingClickEvent").TWO_STEP_DIALOG,
+															a
+													  ),
+													  f())
+													: e(
+															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
+															a
+													  );
 											a.preventDefault();
 											a.stopPropagation();
 										};
@@ -13315,7 +13324,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001029687","namespace":"FB","message":"' +
+				'","revision":"1001045722","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
