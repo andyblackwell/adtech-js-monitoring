@@ -1,4 +1,4 @@
-/*1565633914,,JIT Construction: v1001045722,en_US*/
+/*1565719050,,JIT Construction: v1001051215,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12530,13 +12530,15 @@ try {
 									m != null &&
 										m.viewabilityLevels != null &&
 										(q = m.viewabilityLevels.join(","));
-									m =
-										this.$37().$58 &&
-										this.$23.isPublisherSideLoggingSupported();
-									var r = l == null ? void 0 : l.widthInView;
-									r && (r *= 100);
+									var r =
+											this.$37().$58 &&
+											this.$23.isPublisherSideLoggingSupported(),
+										s = l == null ? void 0 : l.widthInView;
+									s && (s *= 100);
 									l = l == null ? void 0 : l.heightInView;
 									l && (l *= 100);
+									m = m == null ? void 0 : m.heightInView;
+									m && (m *= 100);
 									j = {
 										key: this.$33(),
 										payload: {
@@ -12545,7 +12547,7 @@ try {
 											fully_visible_time_ms: i,
 											client_ts: a,
 											viewability: n,
-											width_in_view: r,
+											width_in_view: s,
 											height_in_view: l,
 											request_delay: d,
 											load_time: e,
@@ -12557,10 +12559,11 @@ try {
 											video_duration: p,
 											creative_type: this.$31,
 											asset_count: this.$32,
-											viewability_at_navigation: q
+											viewability_at_navigation: q,
+											height_in_view_at_navigation: m
 										}
 									};
-									m
+									r
 										? this.$23.logPerfStats(j)
 										: this.sendToFacebook({ name: "perf", params: j });
 								};
@@ -13324,7 +13327,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001045722","namespace":"FB","message":"' +
+				'","revision":"1001051215","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
