@@ -1,4 +1,4 @@
-/*1565719050,,JIT Construction: v1001051215,en_US*/
+/*1565827140,,JIT Construction: v1001059732,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -12698,7 +12698,8 @@ try {
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var g = 1e4;
+							var g = 1e4,
+								h = 1e3;
 							a = (function() {
 								__p && __p();
 								function a(a, c, d, e, f, g, h, i, j, k, l, m, n, o) {
@@ -12742,7 +12743,11 @@ try {
 									c.attachBehaviorManager(f);
 									var g = new (b("AdImpressionBehavior.anweb"))(
 										function() {
-											d.$7(a);
+											d.$7(a),
+												d.$19(),
+												window.setTimeout(function() {
+													d.$19();
+												}, h);
 										},
 										function() {}
 									);
@@ -12753,7 +12758,7 @@ try {
 										}));
 									f.addBehavior(g);
 								};
-								c.$19 = function(a, b, c) {
+								c.$20 = function(a, b, c) {
 									var d = this;
 									this.$18(a, c);
 									var e = !1;
@@ -12764,7 +12769,7 @@ try {
 										e = !0;
 									});
 								};
-								c.$20 = function(a, b) {
+								c.$21 = function(a, b) {
 									b.innerHTML = this.$5;
 									var c = b.querySelector(".fbArticleImage"),
 										d = b.querySelector(".fbArticleTitle"),
@@ -12775,23 +12780,27 @@ try {
 									e && (e.textContent = a.summary || "");
 									b && (b.textContent = a.source);
 								};
-								c.$21 = function() {
+								c.$19 = function() {
+									var a = Math.round(window.top.scrollY);
+									a = {
+										absolute: a,
+										percentage: Math.round(
+											(100 * a) /
+												(window.top.document.body.scrollHeight -
+													window.top.innerHeight)
+										),
+										document_w: window.top.document.body.scrollWidth,
+										document_h: window.top.document.body.scrollHeight
+									};
+									this.$10(a);
+								};
+								c.$22 = function() {
 									var a = this,
 										b = -Infinity;
 									window.setInterval(function() {
 										var c = Math.round(window.top.scrollY);
 										if (c <= b) return;
-										var d = {
-											absolute: c,
-											percentage: Math.round(
-												(100 * c) /
-													(window.top.document.body.scrollHeight -
-														window.top.innerHeight)
-											),
-											document_w: window.top.document.body.scrollWidth,
-											document_h: window.top.document.body.scrollHeight
-										};
-										a.$10(d);
+										a.$19();
 										b = c;
 									}, g);
 								};
@@ -12806,7 +12815,7 @@ try {
 										this.$14 && this.$14();
 										return;
 									}
-									this.$3 === 0 && this.$6.recircLogScrollDepth && this.$21();
+									this.$3 === 0 && this.$6.recircLogScrollDepth && this.$22();
 									if (this.$6.recircBlank) {
 										var f = document.createElement("div");
 										b("nullthrows")(this.$4.parentElement).appendChild(f);
@@ -12831,8 +12840,8 @@ try {
 										) {
 											h = this.$1[e++];
 											this.$12.push(h);
-											this.$20(h, g);
-											this.$19(f, h, g);
+											this.$21(h, g);
+											this.$20(f, h, g);
 										}
 									}
 									d === 0 && this.$14 && this.$14();
@@ -12929,7 +12938,7 @@ try {
 										k = this.$2.rootElement,
 										l = null,
 										m = this.$5(a),
-										n = j.maxPageRecirc != null && j.maxPageRecirc > 0,
+										n = j.maxPageRecirc != null,
 										o = this.$2.recircpageidx || 0;
 									if (n && o === 0) {
 										var p = g("fbRecircPage-0"),
@@ -13327,7 +13336,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001051215","namespace":"FB","message":"' +
+				'","revision":"1001059732","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
