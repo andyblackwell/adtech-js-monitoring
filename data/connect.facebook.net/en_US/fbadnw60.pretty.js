@@ -1,4 +1,4 @@
-/*1565905923,,JIT Construction: v1001064357,en_US*/
+/*1565917644,,JIT Construction: v1001065659,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -10468,67 +10468,149 @@ try {
 						null
 					);
 					__d(
-						"eprintf",
+						"ErrorSerializer",
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
+							function b(a) {
+								return "<![EX[" + ES("JSON", "stringify", !1, h(a)) + "]]>";
+							}
+							function c(a) {
+								__p && __p();
+								try {
+									var b = l(a, /^([\s\S]*)<\!\[EX\[(\[.*\])\]\]>([\s\S]*)$/);
+									if (!b) return k(a);
+									var c = b[0],
+										d = b[1];
+									b = b[2];
+									d = ES("JSON", "parse", !1, d);
+									var e = d[0];
+									d = d.slice(1);
+									e = k(e);
+									e.message = c + e.message + b;
+									d && d.length > 0 && (e.params = d);
+									return e;
+								} catch (b) {
+									return {
+										message: "Unable to parse error message %s because %s",
+										params: [a, b.message]
+									};
+								}
+							}
 							function g(a) {
-								for (
-									var b = arguments.length,
-										c = new Array(b > 1 ? b - 1 : 0),
-										d = 1;
-									d < b;
-									d++
-								)
-									c[d - 1] = arguments[d];
-								var e = ES(c, "map", !0, function(a) {
-										return String(a);
-									}),
-									f = a.split("%s").length - 1;
-								if (f !== e.length)
-									return g(
-										"eprintf args number mismatch: %s",
-										ES("JSON", "stringify", !1, [a].concat(e))
-									);
-								var h = 0;
-								return a.replace(/%s/g, function() {
-									return String(e[h++]);
+								var b = a.message || "",
+									c = a.params || [],
+									d = 0;
+								a = b.replace(/%s/g, function() {
+									return d < c.length ? String(c[d++]) : "NOPARAM";
+								});
+								d < c.length &&
+									(a += " PARAMS" + ES("JSON", "stringify", !1, c.slice(d)));
+								return a;
+							}
+							function d(a) {
+								return g(a) + i(a);
+							}
+							function h(a) {
+								return [a.message + i(a)].concat(j(a));
+							}
+							function i(a) {
+								var b = a.taalOpcodes;
+								a = a.forcedKey;
+								var c = [];
+								b && c.push.apply(c, b);
+								a && c.push("4" + a.replace(/[^\d\w]/g, "_"));
+								return c.length > 0 ? " TAAL[" + c.join(";") + "]" : "";
+							}
+							function j(a) {
+								return ES((a = a.params) != null ? a : [], "map", !0, function(
+									a
+								) {
+									return String(a);
 								});
 							}
-							e.exports = g;
+							function k(a) {
+								__p && __p();
+								var b = l(a, /^([\s\S]*) TAAL\[(.*)\]$/);
+								b = (b = b) != null ? b : [a, null];
+								var c = b[0];
+								b = b[1];
+								c = { message: c };
+								if (b) {
+									var d = [];
+									for (
+										var b = b.split(";"),
+											e = ES("Array", "isArray", !1, b),
+											f = 0,
+											b = e
+												? b
+												: b[
+														typeof Symbol === "function"
+															? Symbol.iterator
+															: "@@iterator"
+												  ]();
+										;
+
+									) {
+										var g;
+										if (e) {
+											if (f >= b.length) break;
+											g = b[f++];
+										} else {
+											f = b.next();
+											if (f.done) break;
+											g = f.value;
+										}
+										g = g;
+										if (g === "1" || g === "2" || g === "3")
+											d.push(parseInt(g, 10));
+										else if (g[0] === "4" && g.length > 1)
+											c.forcedKey = g.substring(1);
+										else return { message: a };
+									}
+									d.length > 0 && (c.taalOpcodes = d);
+								}
+								return c;
+							}
+							function l(a, b) {
+								if (typeof a === "string") {
+									a = a.match(b);
+									if (a && a.length > 0) return a.slice(1);
+								}
+							}
+							e.exports = a.ErrorSerializer = {
+								parse: c,
+								stringify: b,
+								toFormattedMessage: d,
+								toFormattedMessageNoTAAL: g,
+								toMessageWithParams: h
+							};
 						},
-						null
+						3
 					);
 					__d(
 						"ex",
-						["eprintf"],
+						["ErrorSerializer"],
 						function(a, b, c, d, e, f) {
-							function g(a) {
+							function a(a) {
 								for (
-									var b = arguments.length,
-										c = new Array(b > 1 ? b - 1 : 0),
-										d = 1;
-									d < b;
-									d++
+									var c = arguments.length,
+										d = new Array(c > 1 ? c - 1 : 0),
+										e = 1;
+									e < c;
+									e++
 								)
-									c[d - 1] = arguments[d];
-								var e = ES(c, "map", !0, function(a) {
-										return String(a);
-									}),
-									f = a.split("%s").length - 1;
-								return f !== e.length
-									? g(
-											"ex args number mismatch: %s",
-											ES("JSON", "stringify", !1, [a].concat(e))
-									  )
-									: g._prefix +
-											ES("JSON", "stringify", !1, [a].concat(e)) +
-											g._suffix;
+									d[e - 1] = arguments[e];
+								var f = ES(d, "map", !0, function(a) {
+									return String(a);
+								});
+								return b("ErrorSerializer").stringify({
+									message: a,
+									params: f
+								});
 							}
-							g._prefix = "<![EX[";
-							g._suffix = "]]>";
-							e.exports = g;
+							e.exports = a;
 						},
 						null
 					);
@@ -13329,7 +13411,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001064357","namespace":"FB","message":"' +
+				'","revision":"1001065659","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
