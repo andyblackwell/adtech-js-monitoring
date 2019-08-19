@@ -1526,10 +1526,10 @@
 			return 0 === Sc(R(172));
 		};
 	var Uc = function() {
-			return Za("3") || 0;
+			return Za("5") || 0;
 		},
 		Vc = function() {
-			return "2019081501";
+			return "2019081901";
 		};
 	Nc("getVersion", Vc);
 	var Wc = function() {
@@ -1700,7 +1700,6 @@
 	})(void 0, void 0, fd);
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
-		[175, null, null, [1]],
 		[null, 13, null, [null, 1]],
 		[146, null, null, [1]],
 		[null, 7, null, [null, 0.1]],
@@ -1743,7 +1742,7 @@
 				[null, [[21063445], [21063446]]],
 				[null, [[21064213], [21064214]]],
 				[null, [[21064294], [21064295]]],
-				[null, [[21064297, [[97, null, null, [1]]]]]],
+				[null, [[21064297]]],
 				[null, [[21064425], [21064426]]],
 				[null, [[676982416]]],
 				[null, [[676982680]]],
@@ -1978,7 +1977,7 @@
 				[1, [[21063792], [21063793, [[148, null, null, [1]]]]]],
 				[50, [[21063817], [21063818, [[149, null, null, [1]]]]]],
 				[
-					10,
+					50,
 					[
 						[21063964],
 						[21063965, [[156, null, null, [1]]]],
@@ -2081,8 +2080,7 @@
 					]
 				],
 				[50, [[21064324], [21064325, [[null, 13, null, []]]]]],
-				[50, [[21064341], [21064342, [[110, null, null, []]]]], null, 11],
-				[50, [[21064358], [21064359, [[126, null, null, [1]]]]], null, 11],
+				[50, [[21064358], [21064359, [[126, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -2135,20 +2133,21 @@
 					]
 				],
 				[null, [[21064395], [21064396, [[197, null, null, [1]]]]]],
-				[10, [[21064411], [21064412, [[144, null, null, [1]]]]]],
+				[1, [[21064411], [21064412, [[144, null, null, [1]]]]]],
 				[10, [[21064413], [21064414, [[194, null, null, [1]]]]]],
 				[50, [[21064415], [21064416, [[195, null, null, [1]]]]]],
+				[null, [[21064439], [21064440, [[199, null, null, [1]]]]]],
 				[
 					1000,
 					[
 						[
-							21064421,
+							21064458,
 							null,
-							[4, null, 6, null, null, null, null, ["21064419"]]
+							[4, null, 6, null, null, null, null, ["21064456"]]
 						],
-						[21064422, null, [4, null, 6, null, null, null, null, ["21064420"]]]
+						[21064459, null, [4, null, 6, null, null, null, null, ["21064457"]]]
 					],
-					[4, null, 16]
+					[4, null, 22]
 				],
 				[
 					1000,
@@ -2219,10 +2218,7 @@
 				[null, [[21064288], [21064289]]],
 				[null, [[21064291], [21064292], [21064293]]],
 				[null, [[21064296, [[150, null, null, [1]]]]]],
-				[
-					null,
-					[[21064298, [[97, null, null, [1]], [null, 22, null, [null, 30]]]]]
-				],
+				[null, [[21064298, [[null, 22, null, [null, 30]]]]]],
 				[
 					null,
 					[
@@ -2233,6 +2229,7 @@
 					]
 				],
 				[null, [[21064303], [21064304], [21064305, [[74, null, null, [1]]]]]],
+				[null, [[21064451], [21064452], [21064453, [[74, null, null, [1]]]]]],
 				[null, [[676982417]]],
 				[null, [[676982681]]],
 				[null, [[676983663]]]
@@ -2283,7 +2280,15 @@
 					[
 						2,
 						[
-							[12, null, null, null, 2, null, "today\\.line\\.me/.+/article"],
+							[
+								12,
+								null,
+								null,
+								null,
+								2,
+								null,
+								"today\\.line\\.me/.+/(main|article)"
+							],
 							[4, null, 8, null, null, null, null, ["_gmptnl"]]
 						]
 					],
@@ -2394,21 +2399,24 @@
 					1000,
 					[
 						[
-							21064419,
+							21064454,
 							[
-								[null, 24, null, [null, 21064419]],
-								[null, 25, null, [null, 21064419]]
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21064454]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21064454]]
 							],
-							[2, [[8, null, null, 1, null, 29], [7, null, null, 1, null, 40]]]
+							[6, null, null, 4, null, 4]
 						],
 						[
-							21064420,
+							21064455,
 							[
-								[null, 24, null, [null, 21064420]],
-								[null, 25, null, [null, 21064420]],
-								[187, null, null, [], [[[4, null, 16], [1]]]]
+								[null, 7, null, [null, 1]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]]
 							],
-							[2, [[8, null, null, 1, null, 39], [7, null, null, 1, null, 50]]]
+							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
@@ -2418,24 +2426,21 @@
 					1000,
 					[
 						[
-							21064434,
+							21064456,
 							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21064434]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21064434]]
+								[null, 24, null, [null, 21064456]],
+								[null, 25, null, [null, 21064456]]
 							],
-							[6, null, null, 4, null, 2]
+							[2, [[8, null, null, 1, null, 29], [7, null, null, 1, null, 40]]]
 						],
 						[
-							21064435,
+							21064457,
 							[
-								[null, 7, null, [null, 1]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]]
+								[null, 24, null, [null, 21064457]],
+								[null, 25, null, [null, 21064457]],
+								[187, null, null, [], [[[4, null, 22], [1]]]]
 							],
-							[6, null, null, 4, null, 3]
+							[2, [[8, null, null, 1, null, 39], [7, null, null, 1, null, 50]]]
 						]
 					],
 					[4, null, 3],
