@@ -1,4 +1,4 @@
-/*1566406336,,JIT Construction: v1001084849,en_US*/
+/*1566417145,,JIT Construction: v1001085728,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -13380,17 +13380,16 @@ try {
 										i = this.$2.rootElement,
 										j = this.$5(a);
 									a.wrapperMarkup && (i.innerHTML = a.wrapperMarkup);
-									var k = ES("Object", "assign", !1, {}, this.$2, { data: a });
 									b("ANMultiAdsUnit").render(
 										j,
 										i,
-										k,
+										this.$2,
 										function(a, b) {
 											h.renderAd(a, b, c, d, e);
 										},
 										function() {
 											return e(
-												a.errorCode || "1099",
+												a.errorCode || "1097",
 												a.errorMsg || "Error rendering multi ads unit",
 												a.placementId
 											);
@@ -13401,7 +13400,7 @@ try {
 										function() {
 											g &&
 												g(
-													a.errorCode || "1099",
+													a.errorCode || "1097",
 													a.errorMsg || "Error rendering multi ads unit",
 													a.placementId
 												);
@@ -13651,7 +13650,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001084849","namespace":"FB","message":"' +
+				'","revision":"1001085728","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
