@@ -1,4 +1,4 @@
-/*1566417145,,JIT Construction: v1001085728,en_US*/
+/*1566481640,,JIT Construction: v1001090368,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -11475,8 +11475,10 @@ try {
 									"fbTwoStepDialog",
 									"UNKNOWN"
 								],
-								j = 250 / 300;
-							function k(a) {
+								j = 250 / 300,
+								k = 16,
+								l = 16;
+							function m(a) {
 								return {
 									controls: a.controls || "mute_only",
 									endCard: a.endCard || "none",
@@ -11603,7 +11605,10 @@ try {
 									if (f == null) {
 										f = document.createElement("a");
 										f.href = "#";
-										var g = ["_6qhg"];
+										var g;
+										this.$37().$46.useCardDesign
+											? (g = ["_6qhg", "fbAdXOutButton"])
+											: (g = ["_6qhg"]);
 										this.$37().$46.anXOutIcon
 											? (g.push("_7-er"),
 											  this.$37().$46.padXoutArea === !0 && g.push("_8bwk"))
@@ -11676,8 +11681,10 @@ try {
 								};
 								c.$51 = function() {
 									var a = !!this.$37().$46.isIab,
-										b = !!this.$37().$46.showMultiAds;
-									if (a) return this.$15 * j;
+										b = !!this.$37().$46.showMultiAds,
+										c = !!this.$37().$46.useCardDesign;
+									if (c) return this.$42().offsetHeight + l;
+									else if (a) return this.$15 * j;
 									else if (b) return this.$15 / 2;
 									return this.$42().offsetHeight;
 								};
@@ -11926,16 +11933,22 @@ try {
 											a.nativeCarouselAds,
 											e,
 											b && b.dfp,
-											k(b.video)
+											m(b.video)
 										));
 								};
 								c.$77 = function(a, c) {
 									a = this.$78(a);
-									b("ANUtils").resizeElement(
-										c,
-										this.$15,
-										Math.round(this.$15 / a)
-									);
+									this.$37().$46.useCardDesign
+										? b("ANUtils").resizeElement(
+												c,
+												this.$15 - k,
+												Math.round((this.$15 - k) / a)
+										  )
+										: b("ANUtils").resizeElement(
+												c,
+												this.$15,
+												Math.round(this.$15 / a)
+										  );
 								};
 								c.$79 = function() {
 									this.$23.eventWithParams(
@@ -12448,7 +12461,7 @@ try {
 										a.nativeCarouselAds,
 										e,
 										c && c.dfp,
-										k(c.video)
+										m(c.video)
 									);
 									d &&
 										((this.$18 = new (b("AdQualityViewabilityMonitor"))(
@@ -13650,7 +13663,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001085728","namespace":"FB","message":"' +
+				'","revision":"1001090368","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
