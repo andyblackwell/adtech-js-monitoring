@@ -1,4 +1,4 @@
-/*1566546040,,JIT Construction: v1001095366,en_US*/
+/*1566588710,,JIT Construction: v1001095923,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -10378,21 +10378,12 @@ try {
 									this.$8.push(a), this.$7.push(a.createTest(a));
 								};
 								c.$10 = function(a, b, c, d, e, f) {
-									this.$6.registerVolume(b, e, a.getIsContinuous());
-									this.$6.registerPlaybackRate(b, f);
-									this.$6.registerProgress(b, a);
-									var g =
-										this.$9 == null
-											? !1
-											: ES(
-													this.$9.gatekeepers,
-													"includes",
-													!0,
-													"adnw_instream_min_viewability"
-											  );
-									ES(this.$7, "forEach", !0, function(e) {
-										e.registerProgress(b, a, c, d, g);
-									});
+									this.$6.registerVolume(b, e, a.getIsContinuous()),
+										this.$6.registerPlaybackRate(b, f),
+										this.$6.registerProgress(b, a),
+										ES(this.$7, "forEach", !0, function(e) {
+											e.registerProgress(b, a, c, d);
+										});
 								};
 								c.getMeasurementResult = function() {
 									var a = this;
@@ -12131,26 +12122,22 @@ try {
 										));
 								}
 								var c = a.prototype;
-								c.registerProgress = function(a, c, d, e, f) {
+								c.registerProgress = function(a, c, d, e) {
 									__p && __p();
 									if (this.$1) return;
 									this.$3.registerProgress(a, c);
-									d = !!f;
-									e =
-										(d
-											? this.$3.getData().minViewableRatio
-											: c.getViewableRatio()) || 0;
+									d = this.$3.getData().minViewableRatio || 0;
 									if (
 										this.$2.continuous &&
-										(!c.getIsContinuous() || e < this.$2.viewableRatio)
+										(!c.getIsContinuous() || d < this.$2.viewableRatio)
 									) {
 										this.$3 = new (b("AdQualityStatistics.adquality"))(
 											this.$2.viewableRatio
 										);
 										return;
 									}
-									a = this.$3.getData().viewableSeconds || 0;
-									a >= this.$2.viewableSeconds &&
+									e = this.$3.getData().viewableSeconds || 0;
+									e >= this.$2.viewableSeconds &&
 										c.isConclusive() &&
 										this.$4(c);
 								};
@@ -15305,7 +15292,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001095366","namespace":"FB","message":"' +
+				'","revision":"1001095923","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
