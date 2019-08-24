@@ -1,4 +1,4 @@
-/*1566588710,,JIT Construction: v1001095923,en_US*/
+/*1566615216,,JIT Construction: v1001099407,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2946,7 +2946,7 @@ try {
 									: (typeof d !== "string" &&
 											((u = d), (d = String(d) + " (" + typeof d + ")")),
 									  (r = b("ErrorSerializer").parse(d)));
-								k = {
+								r = {
 									_originalError: a,
 									column: f ? m(e) : l(a) || m(e),
 									deferredSource: a.deferredSource,
@@ -2970,14 +2970,15 @@ try {
 										return a.text;
 									}).join("\n"),
 									stackFrames: e,
-									type: a.type || ""
+									type:
+										(k = c == null ? void 0 : c.type) != null ? k : a.type || ""
 								};
 								typeof window !== "undefined" &&
 									window &&
 									window.location &&
-									(k.windowLocationURL = window.location.href);
-								for (var v in k) k[v] == null && delete k[v];
-								return k;
+									(r.windowLocationURL = window.location.href);
+								for (var v in r) r[v] == null && delete r[v];
+								return r;
 							}
 							e.exports = {
 								normalizeError: a,
@@ -3149,27 +3150,29 @@ try {
 												: new Error("applyWithGuard caught non-object");
 										e && (h.deferredSource = e);
 										e = h.type != null && h.type != "" ? h.type : "fatal";
-										e = "<level:" + e + "> <name:ErrorGuard> " + h.name;
-										e = b("ErrorNormalizeUtils").normalizeError(h, { name: e });
-										e.type = e.type || "fatal";
-										e.loggingSource = "GUARDED";
-										e.extra || (e.extra = {});
+										var j = "<level:" + e + "> <name:ErrorGuard> " + h.name;
+										j = b("ErrorNormalizeUtils").normalizeError(h, {
+											name: j,
+											type: e
+										});
+										j.loggingSource = "GUARDED";
+										j.extra || (j.extra = {});
 										if (a)
 											try {
-												e.extra[a.toString().substring(0, 100)] = "function";
+												j.extra[a.toString().substring(0, 100)] = "function";
 											} catch (a) {}
 										d != null &&
 											d.length &&
-											(e.extra[
+											(j.extra[
 												Array.from(d)
 													.toString()
 													.substring(0, 100)
 											] = "args");
-										e.guard = b("ErrorPubSub").guardList[0];
-										e.guardList = b("ErrorPubSub").guardList.slice();
+										j.guard = b("ErrorPubSub").guardList[0];
+										j.guardList = b("ErrorPubSub").guardList.slice();
 										f && f(h);
-										c && c(e);
-										b("ErrorPubSub").reportNormalizedError(e);
+										c && c(j);
+										b("ErrorPubSub").reportNormalizedError(j);
 									} finally {
 										b("ErrorPubSub").popGuard();
 									}
@@ -3343,14 +3346,14 @@ try {
 											(o = "FBLogger");
 									var s = b("ErrorSerializer").stringify(n),
 										t = "<level:" + c + "> <name:" + k + "> " + o,
-										u = b("ErrorNormalizeUtils").normalizeError(
+										u = g[c],
+										v = b("ErrorNormalizeUtils").normalizeError(
 											(e = j) != null ? e : new Error(s),
-											{ message: s, name: t }
+											{ message: s, name: t, type: u }
 										);
-									u.type = g[c];
-									u.loggingSource = "FBLOGGER";
-									l.isEmpty() || (u.fbloggerMetadata = l.formatMetadata());
-									b("ErrorPubSub").reportNormalizedError(u);
+									v.loggingSource = "FBLOGGER";
+									l.isEmpty() || (v.fbloggerMetadata = l.formatMetadata());
+									b("ErrorPubSub").reportNormalizedError(v);
 								};
 								c.fatal = function(a) {
 									for (
@@ -15292,7 +15295,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001095923","namespace":"FB","message":"' +
+				'","revision":"1001099407","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
