@@ -1,4 +1,4 @@
-/*1566919857,,JIT Construction: v1001106380,en_US*/
+/*1566929844,,JIT Construction: v1001106688,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -5266,8 +5266,11 @@ try {
 								};
 							a = (function() {
 								__p && __p();
-								function a(a, b) {
-									(this.$4 = b), (this.$1 = a), (this.$2 = this.$5());
+								function a(a, b, c) {
+									(this.$4 = b),
+										(this.$1 = a),
+										(this.$5 = c != null ? c : null),
+										(this.$2 = this.$6());
 								}
 								var c = a.prototype;
 								c.setImageSize = function(a) {
@@ -5276,15 +5279,19 @@ try {
 									this.$3.style.width = a;
 									this.$3.style.height = a;
 								};
-								c.$5 = function() {
+								c.$6 = function() {
 									__p && __p();
-									var a = l("_11u9", [
+									var a =
+										this.$5 !== null
+											? this.$5
+											: b("nullthrows")(this.$1.adBody);
+									a = l("_11u9", [
 										i("_11ur", [
 											i("_11us"),
 											i("_11u-", [
 												i("_11u_", [
 													m("_11v0", b("nullthrows")(this.$1.adTitle)),
-													m("_11vj", b("nullthrows")(this.$1.adBody))
+													m("_11vj", a)
 												])
 											])
 										])
@@ -5520,14 +5527,17 @@ try {
 									this.$5 = j(this.$1, "._2vf-");
 									this.$2 = j(this.$1, "._2vfy");
 									this.$12.addRequiredEvent();
-									ES(this.$6, "forEach", !0, function(c, d) {
+									var d = this.$13.dpaPriceLabels;
+									ES(this.$6, "forEach", !0, function(c, e) {
+										var f = d != null ? d[e] : null;
 										c = new (b("ANCarouselItem"))(
 											c,
-											d === 0
+											e === 0
 												? function() {
 														return a.$12.requiredEventFired();
 												  }
-												: null
+												: null,
+											f
 										);
 										a.$7.push(c);
 										a.$5.appendChild(c.getElement());
@@ -15293,7 +15303,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001106380","namespace":"FB","message":"' +
+				'","revision":"1001106688","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
