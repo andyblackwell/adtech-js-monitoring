@@ -1,4 +1,4 @@
-/*1567019649,,JIT Construction: v1001111574,en_US*/
+/*1567206953,,JIT Construction: v1001124355,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -6126,10 +6126,10 @@ try {
 								var c = a.prototype;
 								c.resize = function(a, c) {
 									__p && __p();
-									this.$1.resize(this.$4, a, c);
-									this.$1.addChanges(this.$3, { display: "block" });
+									this.$7 || this.$1.resize(this.$4, a, c);
 									var d = this.$2;
 									if (this.$7) {
+										this.$1.addChanges(this.$3, { display: "block" });
 										b("ANUtils").isA9Container(this.$2) &&
 											(this.$1.resize(d, a, c),
 											(d = this.$2.ownerDocument.defaultView.frameElement));
@@ -14497,7 +14497,7 @@ try {
 										e = !!d,
 										f = b("ANUtils").getContainingIframe(this.$2),
 										g = this.$10();
-									f = new (b("ANFullWidthLoader"))(
+									g = new (b("ANFullWidthLoader"))(
 										!0,
 										f,
 										this.$2,
@@ -14507,19 +14507,20 @@ try {
 										g,
 										!0
 									);
-									g = f.resize(this.$8, (this.$8 / 2) * c);
-									if (e && !g)
+									var h = g.resize(this.$8, (this.$8 / 2) * c);
+									if (e && !h)
 										(b("nullthrows")(d).use_carousel_stitch = !0),
-											f.restoreOriginalStyles(),
+											g.restoreOriginalStyles(),
 											(this.$1[0].creativeMarkup = b("nullthrows")(d)),
 											(this.$1[0].features.resizeMediaView = !1),
 											this.$4(this.$1[0], this.$2);
 									else {
+										f === null && g.restoreOriginalStyles();
 										e = 0;
-										for (var g = 0; g < c; g++) {
-											f = a[g];
-											d = this.$1[e++];
-											this.$4(d, f);
+										for (var h = 0; h < c; h++) {
+											d = a[h];
+											f = this.$1[e++];
+											this.$4(f, d);
 										}
 										e === 0 && this.$5 && this.$5();
 										this.$6 && this.$6();
@@ -15318,7 +15319,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001111574","namespace":"FB","message":"' +
+				'","revision":"1001124355","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
