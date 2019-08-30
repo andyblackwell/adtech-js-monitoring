@@ -1428,6 +1428,7 @@
 	var Y = {
 		173: "pubads.g.doubleclick.net",
 		174: "securepubads.g.doubleclick.net",
+		247: "https://securepubads.g.doubleclick.net",
 		7: 0.02,
 		13: 1500,
 		23: 0.001,
@@ -1516,10 +1517,10 @@
 			return 0 === Tc(S(172));
 		};
 	var Vc = function() {
-			return Xa("3") || 0;
+			return Xa("5") || 0;
 		},
 		Wc = function() {
-			return "2019082701";
+			return "2019082901";
 		};
 	Nc("getVersion", Wc);
 	var Xc = function() {
@@ -1598,7 +1599,7 @@
 					if ((a = a.scripts))
 						for (c = 0; c < a.length; c++) {
 							var d = a[c];
-							if (-1 < d.src.indexOf("www.googletagservices.com/tag/js/gpt")) {
+							if (-1 < d.src.indexOf("/tag/js/gpt")) {
 								c = d;
 								break a;
 							}
@@ -1684,6 +1685,7 @@
 		[167, null, null, [1]],
 		[20, null, null, [], [[[1, [[4, null, 1]]], [1]]]],
 		[181, null, null, [1]],
+		[130, null, null, [1]],
 		[126, null, null, [1]],
 		[193, null, null, [1]],
 		[110, null, null, [1]],
@@ -1934,7 +1936,6 @@
 						]
 					]
 				],
-				[50, [[21063387], [21063388, [[130, null, null, [1]]]]]],
 				[
 					1,
 					[[21063633], [21063634, [[143, null, null, [1]]]]],
@@ -2034,7 +2035,7 @@
 					]
 				],
 				[1, [[21064411], [21064412, [[144, null, null, [1]]]]]],
-				[10, [[21064413], [21064414, [[194, null, null, [1]]]]]],
+				[null, [[21064413], [21064414, [[194, null, null, [1]]]]]],
 				[50, [[21064439], [21064440, [[199, null, null, [1]]]]]],
 				[
 					1000,
@@ -2056,7 +2057,7 @@
 					]
 				],
 				[50, [[21064476], [21064477, [[126, null, null, []]]]]],
-				[1, [[21064507], [21064508, [[200, null, null, [1]]]]]],
+				[10, [[21064507], [21064508, [[200, null, null, [1]]]]]],
 				[
 					50,
 					[
@@ -2139,6 +2140,7 @@
 						]
 					]
 				],
+				[50, [[21064520], [21064521, [[130, null, null, []]]]]],
 				[
 					1000,
 					[
@@ -2423,7 +2425,7 @@
 					1
 				],
 				[
-					1,
+					10,
 					[
 						[21064512],
 						[21064513, [[176, null, null, [1]]]],
@@ -2567,6 +2569,33 @@
 							[4, null, 8, null, null, null, null, ["chrome"]]
 						]
 					]
+				],
+				[
+					1000,
+					[
+						[
+							21064528,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21064528]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21064528]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21064529,
+							[
+								[null, 7, null, [null, 1]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]]
+							],
+							[6, null, null, 4, null, 5]
+						]
+					],
+					[4, null, 3],
+					1
 				]
 			]
 		],
