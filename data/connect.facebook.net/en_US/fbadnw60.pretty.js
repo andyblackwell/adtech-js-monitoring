@@ -1,4 +1,4 @@
-/*1567320262,,JIT Construction: v1001126299,en_US*/
+/*1567431865,,JIT Construction: v1001126863,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -8657,14 +8657,15 @@ try {
 						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
-							var h = b("VPAIDDomUtils").div;
+							var h = b("VPAIDDomUtils").div,
+								i = { LEFT: "LEFT", RIGHT: "RIGHT" };
 							a = (function() {
 								__p && __p();
 								function a(a, c) {
 									__p && __p();
 									var d = this;
 									a === void 0 && (a = !1);
-									c === void 0 && (c = !1);
+									c === void 0 && (c = i.RIGHT);
 									this.$6 = function(a) {
 										var c = b("nullthrows")(d.$2);
 										c.setMuted(!c.isMuted());
@@ -8676,7 +8677,7 @@ try {
 								}
 								var c = a.prototype;
 								c.$5 = function() {
-									var a = h((this.$4 ? "_8e1m" : "") + " _1xj9");
+									var a = h((this.$4 === i.LEFT ? "_8e1m" : "") + " _1xj9");
 									a.addEventListener("click", this.$6, !1);
 									if (this.$3) {
 										var b = h("_8e1n fbAdLink", [a]);
@@ -8694,7 +8695,10 @@ try {
 								};
 								return a;
 							})();
-							e.exports = a;
+							e.exports = {
+								ANWebMuteOnlyPlayerChrome: a,
+								ANWebVideoMuteButtonPositionTypes: i
+							};
 						},
 						null
 					);
@@ -9071,22 +9075,25 @@ try {
 							"use strict";
 							__p && __p();
 							var i = b("ANUtils").isPromiseLike,
-								j = b("VPAIDDomUtils").div,
-								k = b("VPAIDDomUtils").dom;
-							function l(a, c, d) {
+								j = b("ANWebMuteOnlyPlayerChrome").ANWebMuteOnlyPlayerChrome,
+								k = b("ANWebMuteOnlyPlayerChrome")
+									.ANWebVideoMuteButtonPositionTypes,
+								l = b("VPAIDDomUtils").div,
+								m = b("VPAIDDomUtils").dom;
+							function n(a, c, d) {
 								d === void 0 && (d = HTMLElement);
 								a = b("nullthrows")(a.querySelector(c));
 								if (a instanceof d) return a;
 								throw new Error("Invalid element type");
 							}
-							var m = ES("Object", "freeze", !1, {
+							var o = ES("Object", "freeze", !1, {
 								controls: "mute_only",
 								endCard: "none",
 								pauseCard: "play_button"
 							});
-							function n(a) {
+							function p(a) {
 								__p && __p();
-								a = a || m.controls;
+								a = a || o.controls;
 								if (a === "full") return new (b("ANWebVideoPlayerControls"))();
 								if (a === "full_vertical")
 									return new (b("ANFullscreenWebVideoPlayerControls"))();
@@ -9105,19 +9112,19 @@ try {
 										).controlTypes.MINIMAL
 									);
 								return a === "clickthrough_mute_only"
-									? new (b("ANWebMuteOnlyPlayerChrome"))(!0, !0)
-									: new (b("ANWebMuteOnlyPlayerChrome"))();
+									? new j(!0, k.LEFT)
+									: new j();
 							}
-							function o(a, c) {
-								a = a || m.pauseCard;
+							function q(a, c) {
+								a = a || o.pauseCard;
 								if (a === "icon_and_cta")
 									return new (b("ANWebIconAndCtaPauseCard"))(c);
 								return a === "vertical"
 									? new (b("ANWebVerticalVideoPauseCard"))(c)
 									: b("ANWebPlayButtonCard").pauseCard();
 							}
-							function p(a, c) {
-								a = a || m.endCard;
+							function r(a, c) {
+								a = a || o.endCard;
 								if (a === "v1") return new (b("ANWebSimpleEndCard"))(c);
 								return a === "vertical"
 									? new (b("ANWebVerticalVideoEndCard"))(c)
@@ -9138,9 +9145,9 @@ try {
 									this.$4 = e;
 									this.$3 = f;
 									this.$13 = !0;
-									this.$7 = n(d.controls);
-									this.$8 = o(d.pauseCard, c);
-									this.$10 = p(d.endCard, c);
+									this.$7 = p(d.controls);
+									this.$8 = q(d.pauseCard, c);
+									this.$10 = r(d.endCard, c);
 									this.$9 = b("ANWebPlayButtonCard").autoplayCard();
 									a = this.$14();
 									e = a[0];
@@ -9157,7 +9164,7 @@ try {
 								c.$14 = function() {
 									__p && __p();
 									var a = this,
-										c = j("_6pfr");
+										c = l("_6pfr");
 									c.style.backgroundImage = "url(" + this.$2 + ")";
 									if (this.$4) {
 										var d = new Image();
@@ -9166,9 +9173,9 @@ try {
 										});
 										d.src = this.$2;
 									}
-									d = j(b("joinClasses")("_1xj7", "_7jun", "_7kc3"), [
+									d = l(b("joinClasses")("_1xj7", "_7jun", "_7kc3"), [
 										c,
-										k(
+										m(
 											"video",
 											{
 												className: "_1xj8",
@@ -9181,7 +9188,7 @@ try {
 										)
 									]);
 									c = document.defaultView.HTMLVideoElement;
-									c = l(d, "._1xj8", c);
+									c = n(d, "._1xj8", c);
 									c.poster = this.$2;
 									c.setAttribute("webkit-playsinline", "true");
 									c.setAttribute("playsinline", "true");
@@ -15434,7 +15441,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001126299","namespace":"FB","message":"' +
+				'","revision":"1001126863","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
