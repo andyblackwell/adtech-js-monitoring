@@ -1,4 +1,4 @@
-/*1567431865,,JIT Construction: v1001126863,en_US*/
+/*1567436007,,JIT Construction: v1001126967,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -6206,14 +6206,15 @@ try {
 							__p && __p();
 							a = (function() {
 								__p && __p();
-								function a(a, c, d, e, f, g) {
+								function a(a, c, d, e, f, g, h) {
 									(this.$1 = new (b("ANStyleChangeTracker"))()),
 										(this.$2 = a),
 										(this.$3 = c),
 										(this.$4 = d),
 										(this.$5 = e),
 										(this.$6 = f),
-										(this.$7 = g);
+										(this.$7 = g),
+										(this.$8 = h);
 								}
 								var c = a.prototype;
 								c.resize = function(a, c) {
@@ -6228,7 +6229,7 @@ try {
 										this.$1.resize(d, a, c);
 										var e = b("ANUtils").getDFPRoot(d);
 										e != null
-											? this.$8(e, d, a, c)
+											? this.$9(e, d, a, c)
 											: this.$1.addChanges(d, {
 													overflow: "visible",
 													"margin-left": "auto",
@@ -6237,10 +6238,13 @@ try {
 											  });
 									}
 									this.$1.applyChanges();
-									this.$9(d);
-									this.$1.applyChanges();
+									if (this.$8) {
+										e = d.ownerDocument.defaultView.frameElement;
+										this.$1.resize(e, a, c);
+										this.$1.applyChanges();
+									} else this.$10(d), this.$1.applyChanges();
 								};
-								c.$8 = function(a, c, d, e) {
+								c.$9 = function(a, c, d, e) {
 									c = b("nullthrows")(c.parentElement);
 									this.$1.addChanges(a, {
 										overflow: "visible",
@@ -6259,7 +6263,7 @@ try {
 								c.restoreOriginalStyles = function() {
 									this.$1.restoreOriginalStyles();
 								};
-								c.$9 = function(a) {
+								c.$10 = function(a) {
 									this.$1.addChanges(a, { "max-width": "none" });
 									a = a.parentElement;
 									if (!a) return;
@@ -6283,42 +6287,52 @@ try {
 							__p && __p();
 							a = (function() {
 								__p && __p();
-								function a(a, c, d, e) {
+								function a(a, c, d, e, f) {
 									(this.$1 = new (b("ANStyleChangeTracker"))()),
 										(this.$2 = a),
 										(this.$3 = c),
 										(this.$4 = d),
-										(this.$5 = e);
+										(this.$5 = e),
+										(this.$6 = f);
 								}
 								var c = a.prototype;
-								c.resize = function(a, b) {
-									this.$1.resize(this.$3, a, b);
+								c.resize = function(a, c) {
+									__p && __p();
+									this.$1.resize(this.$3, a, c);
 									if (this.$5) {
 										this.$1.addChanges(this.$2, { display: "block" });
-										var c = this.$6(this.$3);
-										c &&
-											(this.$1.resize(c, a, b),
-											this.$1.addChanges(c, {
+										var d = this.$7(this.$3);
+										d &&
+											(this.$1.resize(d, a, c),
+											this.$1.addChanges(d, {
 												"margin-left": "auto",
 												"margin-right": "auto"
 											}),
 											this.$1.addChanges(this.$2, { display: "block" }));
 									}
 									this.$1.applyChanges();
-									this.$7();
+									d = this.$3.parentElement;
+									var e = !1;
+									this.$6 && (e = this.$6.inline_resize_parent);
+									d &&
+										b("ANUtils").getElementHeight(d) < c &&
+										e === !0 &&
+										this.$1.resize(d, a, c);
+									this.$1.applyChanges();
+									this.$8();
 									this.$1.applyChanges();
 								};
 								c.restoreOriginalStyles = function() {
 									this.$1.restoreOriginalStyles();
 								};
-								c.$6 = function(a) {
+								c.$7 = function(a) {
 									a =
 										a.parentElement &&
 										a.parentElement.parentElement &&
 										a.parentElement.parentElement.parentElement;
 									return a && b("ANUtils").isDfpContainer(a) ? a : null;
 								};
-								c.$7 = function() {
+								c.$8 = function() {
 									var a = this.$3,
 										c = this.$4 - a.getBoundingClientRect().left;
 									this.$1.addChanges(a, {
@@ -6349,82 +6363,109 @@ try {
 								k = 0;
 							a = (function() {
 								__p && __p();
-								function a(a, c, d, e, f, g, i, j) {
+								function a(a, c, d, e, f, g, i, j, l) {
 									(this.$1 = a),
 										(this.$2 = c),
 										(this.$3 = d),
 										(this.$4 = e),
 										(this.$5 = f),
 										(this.$6 = g),
-										(this.$8 = []),
-										(this.$9 = h + k++),
-										(this.$10 = b("ANUtils").getScreenHeight()),
-										(this.$11 = b("ANUtils").getScreenWidth()),
-										(this.$12 = j),
+										(this.$9 = []),
+										(this.$10 = h + k++),
+										(this.$12 = b("ANUtils").getScreenHeight()),
+										(this.$13 = b("ANUtils").getScreenWidth()),
+										(this.$14 = j),
+										(this.$11 = i),
+										(this.$15 = l),
 										this.$2
-											? (this.$7 = new (b("ANFullWidthIFrame"))(
+											? ((this.$7 = "iframe"),
+											  (this.$8 = new (b("ANFullWidthIFrame"))(
 													this.$2,
 													this.$3,
 													this.$4,
 													this.$6,
-													i,
-													j
-											  ))
-											: (this.$7 = new (b("ANFullWidthInline"))(
+													this.$11,
+													this.$14,
+													!1
+											  )))
+											: ((this.$7 = "inline"),
+											  (this.$8 = new (b("ANFullWidthInline"))(
 													this.$3,
 													this.$4,
 													i,
-													j
-											  ));
+													j,
+													this.$15
+											  )));
 								}
 								var c = a.prototype;
-								c.resize = function(a, b) {
+								c.resize = function(a, c) {
 									__p && __p();
-									var c = !1;
-									if (this.$1 && this.$12) {
-										c = this.$13();
-										if (!c && this.$1) {
-											this.$14();
+									var d = !1;
+									if (this.$1 && this.$14) {
+										d = this.$16();
+										if (!d && this.$1) {
+											this.$17();
 											return !1;
 										}
-									}
-									this.$7.resize(a, b);
+									} else
+										this.$2 &&
+											this.$18() &&
+											(this.$8 = new (b("ANFullWidthIFrame"))(
+												this.$2,
+												this.$3,
+												this.$4,
+												this.$6,
+												this.$11,
+												this.$14,
+												!0
+											));
+									this.$8.resize(a, c);
 									this.$3.style.visibility = "";
-									if (!this.$12) return !0;
-									a = c;
-									this.$1 && c && (a = this.$15());
-									this.$14();
+									if (!this.$14) return !0;
+									a = d;
+									this.$1 && d && (a = this.$19());
+									this.$17();
 									return a;
 								};
 								c.restoreOriginalStyles = function() {
-									this.$7.restoreOriginalStyles();
+									this.$8.restoreOriginalStyles();
 								};
-								c.$14 = function() {
-									while (this.$8.length) {
-										var a = this.$8.pop();
-										delete a.dataset[this.$9];
+								c.$17 = function() {
+									while (this.$9.length) {
+										var a = this.$9.pop();
+										delete a.dataset[this.$10];
 									}
 								};
-								c.$16 = function() {
+								c.$20 = function() {
 									return this.$2 ? this.$2 : this.$3;
 								};
-								c.$13 = function() {
+								c.$16 = function() {
 									__p && __p();
-									var a = this.$16();
+									var a = this.$20();
 									if (!a) return !1;
 									var c = b("ANUtils").isA9Container(this.$2);
 									if (a.ownerDocument.defaultView.frameElement && !c) {
 										this.$6.event(i, "iframe");
-										return !1;
+										if (this.$2 && this.$18())
+											this.$8 = new (b("ANFullWidthIFrame"))(
+												this.$2,
+												this.$3,
+												this.$4,
+												this.$6,
+												this.$11,
+												this.$14,
+												!0
+											);
+										else return !1;
 									}
 									if (!b("ANUtils").screenIsPortrait()) return !1;
 									c = 0;
 									var d = "";
-									while (a && this.$17(a))
-										(d = d || this.$18(a, c)),
-											(a.dataset[this.$9] =
+									while (a && this.$21(a))
+										(d = d || this.$22(a, c)),
+											(a.dataset[this.$10] =
 												b("ANUtils").getElementHeight(a) + ""),
-											this.$8.push(a),
+											this.$9.push(a),
 											(a = g(a.parentElement)),
 											c++;
 									if (d) {
@@ -6433,7 +6474,14 @@ try {
 									}
 									return !0;
 								};
-								c.$18 = function(a, c) {
+								c.$18 = function() {
+									return (
+										this.$7 === "iframe" &&
+										this.$15 &&
+										this.$15.iframe_resize_parent === !0
+									);
+								};
+								c.$22 = function(a, c) {
 									__p && __p();
 									var d = b("ANUtils").getStyle(a, "position");
 									if (d && d !== "static" && !(c === 0 && d === "relative"))
@@ -6468,18 +6516,18 @@ try {
 										else return "position_" + c;
 									return "";
 								};
-								c.$19 = function(a) {
+								c.$23 = function(a) {
 									return Object.prototype.hasOwnProperty.call(
 										a.dataset,
-										this.$9
+										this.$10
 									)
 										? b("ANUtils").getElementHeight(a) -
-												parseInt(a.dataset[this.$9], 10)
+												parseInt(a.dataset[this.$10], 10)
 										: null;
 								};
-								c.$15 = function() {
+								c.$19 = function() {
 									__p && __p();
-									var a = this.$16();
+									var a = this.$20();
 									if (!a) return !1;
 									if (this.$2) {
 										var c = this.$2.getBoundingClientRect();
@@ -6488,8 +6536,8 @@ try {
 											return !1;
 										}
 									}
-									while (a && this.$17(a)) {
-										c = this.$19(a);
+									while (a && this.$21(a)) {
+										c = this.$23(a);
 										if (c == null) {
 											this.$6.event(j, "height_null");
 											return !1;
@@ -6502,11 +6550,11 @@ try {
 									}
 									return !0;
 								};
-								c.$17 = function(a) {
+								c.$21 = function(a) {
 									if (a.nodeName === "BODY") return !1;
 									var c = window.getComputedStyle(a).overflowY;
 									if (c === "scroll" || c === "auto") return !1;
-									return b("ANUtils").getElementHeight(a) > this.$10 * 2
+									return b("ANUtils").getElementHeight(a) > this.$12 * 2
 										? !1
 										: !0;
 								};
@@ -13518,7 +13566,8 @@ try {
 														f.$15,
 														f.$23,
 														g,
-														f.$50(a)
+														f.$50(a),
+														f.$37().$46.fwResizeGKs
 													),
 													e = f.$42();
 												e.style.width = b("ANUtils").cssSize(f.$15);
@@ -13623,6 +13672,8 @@ try {
 									d = b("ANUtils").findWidestParentElement(d);
 									var e = b("ANUtils").calculateLargestMargin(d);
 									this.$15 = c - e * 2;
+									var f = this.$37().$46.fwResizeGKs;
+									f && f.iframe_resize_parent === !0 && (this.$15 = c);
 									this.$15 < a &&
 										((this.$15 = a), (e = d.getBoundingClientRect().right - a));
 									return e;
@@ -15441,7 +15492,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001126863","namespace":"FB","message":"' +
+				'","revision":"1001126967","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
