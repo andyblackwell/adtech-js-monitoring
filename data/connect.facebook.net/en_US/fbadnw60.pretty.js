@@ -1,4 +1,4 @@
-/*1567521973,,JIT Construction: v1001128149,en_US*/
+/*1567526778,,JIT Construction: v1001128292,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -14250,7 +14250,6 @@ try {
 																"ADNW_CLICK_IGNORED_ON_LOW_VIEWABILITY"
 														  )
 														: ES(d.$37().$57, "includes", !0, g) &&
-														  d.$13 &&
 														  !d.$14 &&
 														  d.$37().$46.useTwoStepClick === !0 &&
 														  !d.$25
@@ -15569,7 +15568,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001128149","namespace":"FB","message":"' +
+				'","revision":"1001128292","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
