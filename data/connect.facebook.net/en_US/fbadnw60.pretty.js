@@ -1,4 +1,4 @@
-/*1567481355,,JIT Construction: v1001127704,en_US*/
+/*1567516295,,JIT Construction: v1001128084,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -14766,7 +14766,8 @@ try {
 							"use strict";
 							__p && __p();
 							var g = b("VPAIDDomUtils").div,
-								h = function(a) {
+								h = "lightgray",
+								i = function(a) {
 									return ES("Object", "assign", !1, {}, a, {
 										onAdLoaded: function() {},
 										onAdError: function() {},
@@ -14777,39 +14778,81 @@ try {
 										onAdClosed: void 0
 									});
 								};
-							e.exports = {
-								observe: function(a) {
+							a = (function() {
+								__p && __p();
+								function a(a) {
 									__p && __p();
-									var c = null,
-										d = !1,
-										e = b("ANUtils").once(function() {
-											c = g("fbRecircPage-" + (a.currentPage + 1));
-											b("nullthrows")(a.element.parentElement).appendChild(c);
-											var e = ES("Object", "assign", !1, {}, h(a.adInputData), {
-												rootElement: c,
-												recircpageidx: a.currentPage + 1,
-												recircunitid: a.unitId,
-												onAdLoaded: function() {
-													d = !0;
-												}
-											});
-											a.tagStateContainer.slots.push(e);
-										}),
-										f = b("ANUtils").once(function() {
-											if (d || c == null) return;
-											c.style.display = "none";
-											a.onCancelledPage();
+									var c = this;
+									this.cancelNextPage = b("ANUtils").once(function() {
+										if (c.$2 || c.$1 == null) return;
+										c.$1.style.display = "none";
+										c.$3.onCancelledPage();
+									});
+									this.loadNextPage = b("ANUtils").once(function() {
+										__p && __p();
+										c.$1 = g("fbRecircPage-" + (c.$3.currentPage + 1));
+										var a = c.$1;
+										if (a == null) return;
+										b("nullthrows")(c.$3.element.parentElement).appendChild(a);
+										a = ES("Object", "assign", !1, {}, i(c.$3.adInputData), {
+											rootElement: c.$1,
+											recircpageidx: c.$3.currentPage + 1,
+											recircunitid: c.$3.unitId,
+											onUnitLoaded: function() {
+												(c.$2 = !0), c.hideLoadMoreButton();
+											},
+											onUnitError: function() {
+												c.hideLoadMoreButton();
+											},
+											onAdLoaded: function() {
+												(c.$2 = !0), c.hideLoadMoreButton();
+											}
 										});
-									b("ANGenericViewabilityObserver").observe(
-										a.nextPageTriggerElement,
-										e
-									);
-									b("ANGenericViewabilityObserver").observe(
-										a.cancelPageTriggerElement,
-										f
-									);
+										c.$3.tagStateContainer.slots.push(a);
+									});
+									this.$3 = a;
+									this.$1 = null;
+									this.$2 = !1;
+									this.$3.showLoadMoreButton = a.showLoadMoreButton;
+									this.$3.showLoadMoreButton && this.setUpLoadMoreButton();
 								}
-							};
+								var c = a.prototype;
+								c.observe = function() {
+									this.$3.nextPageTriggerElement &&
+										b("ANGenericViewabilityObserver").observe(
+											this.$3.nextPageTriggerElement,
+											this.loadNextPage
+										),
+										this.$3.cancelPageTriggerElement &&
+											b("ANGenericViewabilityObserver").observe(
+												this.$3.cancelPageTriggerElement,
+												this.cancelNextPage
+											);
+								};
+								c.setUpLoadMoreButton = function() {
+									var a = this,
+										b = this.$3.unit.getLoadMoreButton();
+									b &&
+										((b.style.display = "inline"),
+										(b.onclick = function() {
+											var c = a.$3.unit.getLoadMoreButtonLabel(),
+												d = a.$3.unit.getLoadMoreButtonSpinner();
+											b &&
+												c &&
+												d &&
+												((b.style.backgroundColor = h),
+												(c.style.display = "none"),
+												(d.style.display = "block"),
+												a.loadNextPage());
+										}));
+								};
+								c.hideLoadMoreButton = function() {
+									var a = this.$3.unit.getLoadMoreButton();
+									a && (a.style.display = "none");
+								};
+								return a;
+							})();
+							e.exports = a;
 						},
 						null
 					);
@@ -14860,6 +14903,23 @@ try {
 								};
 								c.getTopOverlay = function() {
 									return this.$4.querySelector(".fbRecirculationTopOverlay");
+								};
+								c.getLoadMoreButton = function() {
+									return this.$4.querySelector(
+										".fbRecirculationLoadMoreButton"
+									);
+								};
+								c.getLoadMoreButtonLabel = function() {
+									var a = this.getLoadMoreButton();
+									return !a
+										? null
+										: a.querySelector(".fbRecirculationLoadMoreButtonLabel");
+								};
+								c.getLoadMoreButtonSpinner = function() {
+									var a = this.getLoadMoreButton();
+									return !a
+										? null
+										: a.querySelector(".fbRecirculationLoadMoreButtonSpinner");
 								};
 								c.$18 = function(a, c) {
 									var d = this,
@@ -15180,30 +15240,31 @@ try {
 												);
 										}
 									);
-									q = p.getBottomOverlay();
-									m = p.getTopOverlay();
+									var r, s;
+									q = !1;
+									j.shouldShowLoadMoreButton &&
+										(q = j.shouldShowLoadMoreButton);
+									q || ((r = p.getBottomOverlay()), (s = p.getTopOverlay()));
 									if (
 										n &&
-										q &&
-										m &&
 										j.maxPageRecirc != null &&
 										o < j.maxPageRecirc &&
 										!j.recircBlank
 									) {
-										p = this.$2.data.recircUnitId;
+										m = this.$2.data.recircUnitId;
 										n = this.$2.adInputData;
-										var r = this.$2.tagStateContainer;
-										p != null &&
-											n != null &&
-											r != null &&
-											b("ANRecirculationInfiniteScroll").observe({
+										var t = this.$2.tagStateContainer;
+										if (m != null && n != null && t != null) {
+											p = new (b("ANRecirculationInfiniteScroll"))({
 												currentPage: o,
 												element: k,
-												nextPageTriggerElement: m,
-												cancelPageTriggerElement: q,
-												unitId: p,
+												nextPageTriggerElement: s,
+												unit: p,
+												cancelPageTriggerElement: r,
+												showLoadMoreButton: q,
+												unitId: m,
 												adInputData: n,
-												tagStateContainer: r,
+												tagStateContainer: t,
 												onCancelledPage: function() {
 													i.sendToFacebook({
 														name: "recirc",
@@ -15221,10 +15282,12 @@ try {
 													});
 												}
 											});
+											p.observe();
+										}
 									}
 									if (l != null) {
-										m = b("nullthrows")(l.contentDocument.body);
-										m.style.overflowY = "hidden";
+										q = b("nullthrows")(l.contentDocument.body);
+										q.style.overflowY = "hidden";
 										b("ANUtils").resizeElement(l, "100%", k.clientHeight);
 									}
 								};
@@ -15503,7 +15566,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001127704","namespace":"FB","message":"' +
+				'","revision":"1001128084","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
