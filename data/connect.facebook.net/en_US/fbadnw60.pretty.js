@@ -1,4 +1,4 @@
-/*1567526778,,JIT Construction: v1001128292,en_US*/
+/*1567608103,,JIT Construction: v1001133600,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -6241,11 +6241,10 @@ try {
 											  });
 									}
 									this.$1.applyChanges();
-									if (this.$8) {
-										e = d.ownerDocument.defaultView.frameElement;
-										this.$1.resize(e, a, c);
-										this.$1.applyChanges();
-									} else this.$10(d), this.$1.applyChanges();
+									e = d.ownerDocument.defaultView.frameElement;
+									this.$8 && e
+										? (this.$1.resize(e, a, c), this.$1.applyChanges())
+										: (this.$10(d), this.$1.applyChanges());
 								};
 								c.$9 = function(a, c, d, e) {
 									c = b("nullthrows")(c.parentElement);
@@ -15131,7 +15130,7 @@ try {
 										k = this.$2.rootElement,
 										l = null,
 										m = this.$5(a),
-										n = j.maxPageRecirc != null,
+										n = j.maxPageRecirc != null && j.maxPageRecirc > 0,
 										o = this.$2.recircpageidx || 0;
 									if (n && o === 0) {
 										var p = g("fbRecircPage-0"),
@@ -15231,7 +15230,7 @@ try {
 											);
 										},
 										function() {
-											f && f(a.placementId);
+											f && f(a.placementId, { hasInfiniteScroll: n });
 										},
 										function() {
 											h &&
@@ -15254,9 +15253,9 @@ try {
 										!j.recircBlank
 									) {
 										m = this.$2.data.recircUnitId;
-										n = this.$2.adInputData;
-										var t = this.$2.tagStateContainer;
-										if (m != null && n != null && t != null) {
+										var t = this.$2.adInputData,
+											u = this.$2.tagStateContainer;
+										if (m != null && t != null && u != null) {
 											p = new (b("ANRecirculationInfiniteScroll"))({
 												currentPage: o,
 												element: k,
@@ -15265,8 +15264,8 @@ try {
 												cancelPageTriggerElement: r,
 												showLoadMoreButton: q,
 												unitId: m,
-												adInputData: n,
-												tagStateContainer: t,
+												adInputData: t,
+												tagStateContainer: u,
 												onCancelledPage: function() {
 													i.sendToFacebook({
 														name: "recirc",
@@ -15476,8 +15475,8 @@ try {
 												a.onAdLoaded(a.rootElement);
 											},
 											ES(a.onAdError, "bind", !0, a),
-											function() {
-												a.onUnitLoaded && a.onUnitLoaded(a.rootElement);
+											function(b, c) {
+												a.onUnitLoaded && a.onUnitLoaded(a.rootElement, c);
 											},
 											function() {
 												a.onUnitError &&
@@ -15568,7 +15567,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001128292","namespace":"FB","message":"' +
+				'","revision":"1001133600","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
