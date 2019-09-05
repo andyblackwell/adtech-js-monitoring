@@ -1,4 +1,4 @@
-/*1567641815,,JIT Construction: v1001136901,en_US*/
+/*1567702796,,JIT Construction: v1001139395,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -14632,6 +14632,7 @@ try {
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
+							var g = "multi_ads_fw_resize_fail";
 							a = (function() {
 								__p && __p();
 								function a(a, c, d, e, f, g, h) {
@@ -14679,31 +14680,32 @@ try {
 										d = this.$1[0].creativeMarkupBackup,
 										e = !!d,
 										f = b("ANUtils").getContainingIframe(this.$2),
-										g = this.$10();
-									g = new (b("ANFullWidthLoader"))(
+										h = this.$10();
+									h = new (b("ANFullWidthLoader"))(
 										!0,
 										f,
 										this.$2,
 										this.$2,
 										this.$8,
 										this.$3,
-										g,
+										h,
 										!0
 									);
-									var h = g.resize(this.$8, (this.$8 / 2) * c);
-									if (e && !h)
+									var i = h.resize(this.$8, (this.$8 / 2) * c);
+									if (e && !i)
 										(b("nullthrows")(d).use_carousel_stitch = !0),
-											g.restoreOriginalStyles(),
+											h.restoreOriginalStyles(),
 											(this.$1[0].creativeMarkup = b("nullthrows")(d)),
 											(this.$1[0].features.resizeMediaView = !1),
-											this.$4(this.$1[0], this.$2);
+											this.$4(this.$1[0], this.$2),
+											this.$3.event(g);
 									else {
 										f === null &&
-											(g.restoreOriginalStyles(),
+											(h.restoreOriginalStyles(),
 											(this.$2.style.height = "fit-content"));
 										e = 0;
-										for (var h = 0; h < c; h++) {
-											d = a[h];
+										for (var i = 0; i < c; i++) {
+											d = a[i];
 											f = this.$1[e++];
 											this.$4(f, d);
 										}
@@ -15567,7 +15569,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001136901","namespace":"FB","message":"' +
+				'","revision":"1001139395","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
