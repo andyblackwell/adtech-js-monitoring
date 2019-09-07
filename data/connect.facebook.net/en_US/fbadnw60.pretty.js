@@ -1,4 +1,4 @@
-/*1567702796,,JIT Construction: v1001139395,en_US*/
+/*1567814524,,JIT Construction: v1001147029,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -14245,9 +14245,19 @@ try {
 													? ((d.$4 = !0),
 													  e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a))
 													: d.$101()
-														? d.$23.event(
-																"ADNW_CLICK_IGNORED_ON_LOW_VIEWABILITY"
-														  )
+														? !d.$14 &&
+														  d.$37().$46.useTwoStepClick === !0 &&
+														  !d.$25
+															? (e(
+																	b("ANUnifiedLoggingClickEvent")
+																		.TWO_STEP_DIALOG,
+																	a
+															  ),
+															  f())
+															: e(
+																	b("ANUnifiedLoggingClickEvent").CLICK_GUARD,
+																	a
+															  )
 														: ES(d.$37().$57, "includes", !0, g) &&
 														  !d.$14 &&
 														  d.$37().$46.useTwoStepClick === !0 &&
@@ -15569,7 +15579,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001139395","namespace":"FB","message":"' +
+				'","revision":"1001147029","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
