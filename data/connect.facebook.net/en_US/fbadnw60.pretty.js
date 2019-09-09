@@ -1,4 +1,4 @@
-/*1567814524,,JIT Construction: v1001147029,en_US*/
+/*1568040706,,JIT Construction: v1001149921,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -14642,7 +14642,7 @@ try {
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var g = "multi_ads_fw_resize_fail";
+							var g = "MULTI_ADS_FW_RESIZE_FAIL";
 							a = (function() {
 								__p && __p();
 								function a(a, c, d, e, f, g, h) {
@@ -14703,12 +14703,19 @@ try {
 									);
 									var i = h.resize(this.$8, (this.$8 / 2) * c);
 									if (e && !i)
-										(b("nullthrows")(d).use_carousel_stitch = !0),
+										this.$3.setLogLevel(
+											this.$1[0].features.logLevel || b("LogLevels").ERROR
+										),
+											this.$3.frameReady(),
+											this.$3.setUnifiedLoggingURL(
+												this.$1[0].unifiedLoggingURL
+											),
+											this.$3.event(g),
+											(b("nullthrows")(d).use_carousel_stitch = !0),
 											h.restoreOriginalStyles(),
 											(this.$1[0].creativeMarkup = b("nullthrows")(d)),
 											(this.$1[0].features.resizeMediaView = !1),
-											this.$4(this.$1[0], this.$2),
-											this.$3.event(g);
+											this.$4(this.$1[0], this.$2);
 									else {
 										f === null &&
 											(h.restoreOriginalStyles(),
@@ -14798,6 +14805,7 @@ try {
 									var c = this;
 									this.cancelNextPage = b("ANUtils").once(function() {
 										if (c.$2 || c.$1 == null) return;
+										c.$4 = !0;
 										c.$1.style.display = "none";
 										c.$3.onCancelledPage();
 									});
@@ -14826,6 +14834,7 @@ try {
 									this.$3 = a;
 									this.$1 = null;
 									this.$2 = !1;
+									this.$4 = !1;
 									this.$3.showLoadMoreButton = a.showLoadMoreButton;
 									this.$3.showLoadMoreButton && this.setUpLoadMoreButton();
 								}
@@ -14843,25 +14852,41 @@ try {
 											);
 								};
 								c.setUpLoadMoreButton = function() {
+									__p && __p();
 									var a = this,
 										b = this.$3.unit.getLoadMoreButton();
 									b &&
 										((b.style.display = "inline"),
 										(b.onclick = function() {
+											__p && __p();
+											a.$3.onLoadMoreButtonClick();
 											var c = a.$3.unit.getLoadMoreButtonLabel(),
 												d = a.$3.unit.getLoadMoreButtonSpinner();
-											b &&
-												c &&
-												d &&
-												((b.style.backgroundColor = h),
-												(c.style.display = "none"),
-												(d.style.display = "block"),
-												a.loadNextPage());
+											if (c && d) {
+												b.style.backgroundColor = h;
+												c.style.display = "none";
+												d.style.display = "block";
+												if (!a.$4) {
+													a.loadNextPage();
+													return;
+												}
+												a.$4 = !1;
+												if (a.$2 === !0) {
+													a.showNextPageElement();
+													a.hideLoadMoreButton();
+													return;
+												}
+												a.loadNextPage();
+												a.showNextPageElement();
+											}
 										}));
+								};
+								c.showNextPageElement = function() {
+									this.$1 && (this.$1.style.display = "block");
 								};
 								c.hideLoadMoreButton = function() {
 									var a = this.$3.unit.getLoadMoreButton();
-									a && (a.style.display = "none");
+									a && !this.$4 && (a.style.display = "none");
 								};
 								return a;
 							})();
@@ -15069,6 +15094,7 @@ try {
 							"ANUtils",
 							"LogLevels",
 							"VPAIDDomUtils",
+							"getTime",
 							"nullthrows"
 						],
 						function(a, b, c, d, e, f) {
@@ -15253,11 +15279,14 @@ try {
 												);
 										}
 									);
-									var r, s;
 									q = !1;
 									j.shouldShowLoadMoreButton &&
 										(q = j.shouldShowLoadMoreButton);
-									q || ((r = p.getBottomOverlay()), (s = p.getTopOverlay()));
+									m =
+										this.$2.adInputData &&
+										this.$2.adInputData.recircdisablepages === !0;
+									var r, s;
+									m || ((r = p.getBottomOverlay()), (s = p.getTopOverlay()));
 									if (
 										n &&
 										j.maxPageRecirc != null &&
@@ -15278,6 +15307,7 @@ try {
 												unitId: m,
 												adInputData: t,
 												tagStateContainer: u,
+												logger: this.$3,
 												onCancelledPage: function() {
 													i.sendToFacebook({
 														name: "recirc",
@@ -15290,6 +15320,32 @@ try {
 																).CANCEL_PAGE_LOAD,
 																page: o + 1,
 																index: -1
+															}
+														}
+													});
+												},
+												onLoadMoreButtonClick: function() {
+													i.sendToFacebook({
+														name: "client_event",
+														params: {
+															key: i.$4(),
+															payload: {
+																client_ts: b("getTime")(),
+																event_name:
+																	"ADNW_WEB_RECIRCULATION_LOAD_MORE_BUTTON_CLICK",
+																height_in_view: 0,
+																latency_since_navigation_start: 0,
+																latency_since_sdk_init: 0,
+																left: 0,
+																page_height: 0,
+																page_width: 0,
+																scroll_left: 0,
+																scroll_top: 0,
+																top: 0,
+																viewability: "UNKNOWN",
+																viewable_detection: "",
+																viewable_reason: "",
+																width_in_view: 0
 															}
 														}
 													});
@@ -15579,7 +15635,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001147029","namespace":"FB","message":"' +
+				'","revision":"1001149921","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
