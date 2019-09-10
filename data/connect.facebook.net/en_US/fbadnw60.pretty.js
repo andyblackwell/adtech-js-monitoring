@@ -1,4 +1,4 @@
-/*1568094701,,JIT Construction: v1001151999,en_US*/
+/*1568132344,,JIT Construction: v1001155613,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -193,6 +193,12 @@ try {
 								? ((b[a] = { factory: f, deps: d.concat(e), exports: {} }),
 								  g === 3 && require.call(null, a))
 								: (c[a] = f);
+						};
+						a.$RefreshReg$ = function() {};
+						a.$RefreshSig$ = function() {
+							return function(a) {
+								return a;
+							};
 						};
 					})(this);
 					__d(
@@ -4601,6 +4607,17 @@ try {
 											typeof a.then === "function" &&
 											typeof a["catch"] === "function";
 							}
+							function Y(a) {
+								return !a || !a.nodeType || a.nodeType !== Node.ELEMENT_NODE
+									? null
+									: a;
+							}
+							function Z(a) {
+								if (a.nodeName === "BODY") return !1;
+								var b = window.getComputedStyle(a).overflowY;
+								if (b === "scroll" || b === "auto") return !1;
+								return J(a) > L() * 2 ? !1 : !0;
+							}
 							e.exports = {
 								autofitIfInDfpIframe: B,
 								calculateLargestMargin: P,
@@ -4638,7 +4655,9 @@ try {
 								truncateTextToFitElement: S,
 								autofitTextWhereNeeded: T,
 								getTopDomain: a,
-								wrapInIframe: C
+								wrapInIframe: C,
+								checkHTMLElement: Y,
+								shouldContinueTraversing: Z
 							};
 						},
 						null
@@ -6344,29 +6363,22 @@ try {
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							function g(a) {
-								return !a || !a.nodeType || a.nodeType !== Node.ELEMENT_NODE
-									? null
-									: a;
-							}
-							var h = "fbOriginalHeightResizeChecks",
-								i = "ADNW_FW_PRE_RESIZE_CHECK_FAIL",
-								j = "ADNW_FW_POST_RESIZE_CHECK_FAIL",
-								k = 0;
+							var g = "fbOriginalHeightResizeChecks",
+								h = "ADNW_FW_PRE_RESIZE_CHECK_FAIL",
+								i = "ADNW_FW_POST_RESIZE_CHECK_FAIL",
+								j = 0;
 							a = (function() {
 								__p && __p();
-								function a(a, c, d, e, f, g, i, j, l) {
+								function a(a, c, d, e, f, h, i, k, l) {
 									(this.$1 = a),
 										(this.$2 = c),
 										(this.$3 = d),
 										(this.$4 = e),
 										(this.$5 = f),
-										(this.$6 = g),
+										(this.$6 = h),
 										(this.$9 = []),
-										(this.$10 = h + k++),
-										(this.$12 = b("ANUtils").getScreenHeight()),
-										(this.$13 = b("ANUtils").getScreenWidth()),
-										(this.$14 = j),
+										(this.$10 = g + j++),
+										(this.$14 = k),
 										(this.$11 = i),
 										(this.$15 = l),
 										this.$2
@@ -6385,7 +6397,7 @@ try {
 													this.$3,
 													this.$4,
 													i,
-													j,
+													k,
 													this.$15
 											  )));
 								}
@@ -6437,7 +6449,7 @@ try {
 									if (!a) return !1;
 									var c = b("ANUtils").isA9Container(this.$2);
 									if (a.ownerDocument.defaultView.frameElement && !c) {
-										this.$6.event(i, "iframe");
+										this.$6.event(h, "iframe");
 										if (this.$2 && this.$18())
 											this.$8 = new (b("ANFullWidthIFrame"))(
 												this.$2,
@@ -6453,15 +6465,15 @@ try {
 									if (!b("ANUtils").screenIsPortrait()) return !1;
 									c = 0;
 									var d = "";
-									while (a && this.$21(a))
-										(d = d || this.$22(a, c)),
+									while (a && b("ANUtils").shouldContinueTraversing(a))
+										(d = d || this.$21(a, c)),
 											(a.dataset[this.$10] =
 												b("ANUtils").getElementHeight(a) + ""),
 											this.$9.push(a),
-											(a = g(a.parentElement)),
+											(a = b("ANUtils").checkHTMLElement(a.parentElement)),
 											c++;
 									if (d) {
-										this.$6.event(i, d);
+										this.$6.event(h, d);
 										return !1;
 									}
 									return !0;
@@ -6473,7 +6485,7 @@ try {
 										this.$15.iframe_resize_parent === !0
 									);
 								};
-								c.$22 = function(a, c) {
+								c.$21 = function(a, c) {
 									__p && __p();
 									var d = b("ANUtils").getStyle(a, "position");
 									if (d && d !== "static" && !(c === 0 && d === "relative"))
@@ -6508,7 +6520,7 @@ try {
 										else return "position_" + c;
 									return "";
 								};
-								c.$23 = function(a) {
+								c.$22 = function(a) {
 									return Object.prototype.hasOwnProperty.call(
 										a.dataset,
 										this.$10
@@ -6529,31 +6541,23 @@ try {
 											d.left < -c ||
 											d.right > b("ANUtils").getScreenWidth() + c
 										) {
-											this.$6.event(j, "off_screen");
+											this.$6.event(i, "off_screen");
 											return !1;
 										}
 									}
-									while (a && this.$21(a)) {
-										d = this.$23(a);
+									while (a && b("ANUtils").shouldContinueTraversing(a)) {
+										d = this.$22(a);
 										if (d == null) {
-											this.$6.event(j, "height_null");
+											this.$6.event(i, "height_null");
 											return !1;
 										}
 										if (d === 0) {
-											this.$6.event(j, "height_unchanged");
+											this.$6.event(i, "height_unchanged");
 											return !1;
 										}
-										a = g(a.parentElement);
+										a = b("ANUtils").checkHTMLElement(a.parentElement);
 									}
 									return !0;
-								};
-								c.$21 = function(a) {
-									if (a.nodeName === "BODY") return !1;
-									var c = window.getComputedStyle(a).overflowY;
-									if (c === "scroll" || c === "auto") return !1;
-									return b("ANUtils").getElementHeight(a) > this.$12 * 2
-										? !1
-										: !0;
 								};
 								return a;
 							})();
@@ -14435,6 +14439,9 @@ try {
 								c.$44 = function() {
 									return this.$108() || !!this.$37().$46.forceFullwidthTextOnly;
 								};
+								c.$109 = function() {
+									return this.$10 === "320x50";
+								};
 								c.$39 = function() {
 									return !this.$35() && !this.$107() && h[this.$10];
 								};
@@ -14600,6 +14607,54 @@ try {
 									}
 									return !1;
 								};
+								c.$110 = function() {
+									var a = this.$35();
+									return a ? a : this.$11;
+								};
+								c.$111 = function() {
+									__p && __p();
+									var a = this.$110();
+									if (!a) return !1;
+									var c = 0;
+									while (a && b("ANUtils").shouldContinueTraversing(a)) {
+										var d = b("ANUtils").getStyle(a, "position");
+										if (d && d !== "static") {
+											if (d === "fixed") return !0;
+											if (!(c === 0 && d === "relative"))
+												if (d === "relative")
+													for (
+														var d = a.children,
+															e = ES("Array", "isArray", !1, d),
+															f = 0,
+															d = e
+																? d
+																: d[
+																		typeof Symbol === "function"
+																			? Symbol.iterator
+																			: "@@iterator"
+																  ]();
+														;
+
+													) {
+														var g;
+														if (e) {
+															if (f >= d.length) break;
+															g = d[f++];
+														} else {
+															f = d.next();
+															if (f.done) break;
+															g = f.value;
+														}
+														g = g;
+														g = b("ANUtils").getStyle(g, "position");
+														if (g === "absolute") return !0;
+													}
+										}
+										a = b("ANUtils").checkHTMLElement(a.parentElement);
+										c++;
+									}
+									return !1;
+								};
 								return a;
 							})();
 							e.exports = a;
@@ -14691,8 +14746,9 @@ try {
 										h,
 										!0
 									);
-									var i = h.resize(this.$8, (this.$8 / 2) * c);
-									if (e && !i)
+									var i = this.$8 / 2,
+										j = h.resize(this.$8, i * c);
+									if (e && !j)
 										this.$3.setLogLevel(
 											this.$1[0].features.logLevel || b("LogLevels").ERROR
 										),
@@ -14709,10 +14765,11 @@ try {
 									else {
 										f === null &&
 											(h.restoreOriginalStyles(),
-											(this.$2.style.height = "fit-content"));
+											(this.$2.style.height = "auto"));
 										e = 0;
-										for (var i = 0; i < c; i++) {
-											d = a[i];
+										for (var j = 0; j < c; j++) {
+											d = a[j];
+											d.style.height = i + "px";
 											f = this.$1[e++];
 											this.$4(f, d);
 										}
@@ -15625,7 +15682,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001151999","namespace":"FB","message":"' +
+				'","revision":"1001155613","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
