@@ -1,4 +1,4 @@
-/*1568040706,,JIT Construction: v1001149921,en_US*/
+/*1568094701,,JIT Construction: v1001151999,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -5306,17 +5306,7 @@ try {
 											i("_11ur", [i("_11us"), i("_8flg _11u-", [a])])
 										]);
 									}
-									return l("_11u9", [
-										i("_11ur", [
-											i("_11us"),
-											i("_11u-", [
-												i("_11u_", [
-													m("_11v0", b("nullthrows")(this.$1.adTitle)),
-													m("_11vj", b("nullthrows")(this.$1.adBody))
-												])
-											])
-										])
-									]);
+									return l("_11u9", [i("_11ur", [i("_11us")])]);
 								};
 								c.$7 = function() {
 									__p && __p();
@@ -15635,7 +15625,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001149921","namespace":"FB","message":"' +
+				'","revision":"1001151999","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
