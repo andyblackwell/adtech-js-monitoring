@@ -1578,10 +1578,10 @@
 			return 0 === bd(T(172));
 		};
 	var dd = function() {
-			return fb("3") || 0;
+			return fb("5") || 0;
 		},
 		ed = function() {
-			return "2019090501";
+			return "2019090901";
 		},
 		fd = Wc();
 	fd.hasOwnProperty("getVersion") || (fd.getVersion = ed);
@@ -1782,6 +1782,20 @@
 				[null, [[21063445], [21063446]]],
 				[null, [[21064294], [21064295]]],
 				[null, [[21064297]]],
+				[
+					50,
+					[[21064472], [21064473, [[164, null, null, [1]]]]],
+					[
+						12,
+						null,
+						null,
+						null,
+						2,
+						null,
+						"https?://(.*\\.)?nextdoor\\.com(\\?|/|$)"
+					],
+					14
+				],
 				[null, [[676982416]]],
 				[null, [[676982680]]],
 				[null, [[676982682]]]
@@ -2186,7 +2200,7 @@
 					]
 				],
 				[50, [[21064520], [21064521, [[130, null, null, []]]]]],
-				[1, [[21064526], [21064527, [[165, null, null, [1]]]]]],
+				[10, [[21064526], [21064527, [[165, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -2665,6 +2679,33 @@
 								[null, 28, null, [null, 0.1]]
 							],
 							[6, null, null, 4, null, 3]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21064570,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21064570]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21064570]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21064571,
+							[
+								[null, 7, null, [null, 1]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]]
+							],
+							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
