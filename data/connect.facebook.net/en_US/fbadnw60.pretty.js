@@ -1,4 +1,4 @@
-/*1568154269,,JIT Construction: v1001157438,en_US*/
+/*1568245492,,JIT Construction: v1001162967,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4251,32 +4251,20 @@ try {
 						null
 					);
 					__d(
-						"AdQualityScreenOrientation",
-						[],
-						function(a, b, c, d, e, f) {
-							e.exports = ES("Object", "freeze", !1, {
-								HORIZONTAL: "h",
-								UNKNOWN: "u",
-								VERTICAL: "v"
-							});
-						},
-						null
-					);
-					__d(
 						"ScreenOrientation.adquality",
-						["AdQualityScreenOrientation"],
+						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = {
 								getScreenOrientation: function() {
 									__p && __p();
-									if (!window) return b("AdQualityScreenOrientation").UNKNOWN;
+									if (!window) return "u";
 									if (typeof window.orientation === "number")
 										return window.orientation === 0 ||
 											window.orientation === 180
-											? b("AdQualityScreenOrientation").VERTICAL
-											: b("AdQualityScreenOrientation").HORIZONTAL;
+											? "v"
+											: "h";
 									var a =
 										window.screen &&
 										(window.screen.orientation ||
@@ -4287,17 +4275,14 @@ try {
 										if (typeof a === "string")
 											return a === "portrait-primary" ||
 												a === "portrait-secondary"
-												? b("AdQualityScreenOrientation").VERTICAL
-												: b("AdQualityScreenOrientation").HORIZONTAL;
+												? "v"
+												: "h";
 									}
 									if (window.matchMedia) {
 										a = window.matchMedia("(orientation: portrait)");
-										if (a)
-											return a.matches
-												? b("AdQualityScreenOrientation").VERTICAL
-												: b("AdQualityScreenOrientation").HORIZONTAL;
+										if (a) return a.matches ? "v" : "h";
 									}
-									return b("AdQualityScreenOrientation").UNKNOWN;
+									return "u";
 								}
 							};
 							e.exports = a;
@@ -4306,11 +4291,7 @@ try {
 					);
 					__d(
 						"ANUtils",
-						[
-							"AdQualityScreenOrientation",
-							"ScreenOrientation.adquality",
-							"nullthrows"
-						],
+						["ScreenOrientation.adquality", "nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
@@ -4522,8 +4503,7 @@ try {
 							}
 							function M() {
 								return (
-									b("ScreenOrientation.adquality").getScreenOrientation() ==
-									b("AdQualityScreenOrientation").VERTICAL
+									b("ScreenOrientation.adquality").getScreenOrientation() == "v"
 								);
 							}
 							function N(a) {
@@ -6598,37 +6578,6 @@ try {
 						null
 					);
 					__d(
-						"ANUnifiedLoggingClickEvent",
-						[],
-						function(a, b, c, d, e, f) {
-							e.exports = ES("Object", "freeze", !1, {
-								BILLABLE_CLICK: 0,
-								CLOSE: 1,
-								NON_STORE_CLICK: 3,
-								MPA_SCROLL: 4,
-								NATIVE_MPA_SCROLL: 5,
-								RESUME_CLICK: 8,
-								AD_CHOICES_CLICK: 9,
-								CLICK_GUARD: 10,
-								TWO_STEP_DIALOG: 11,
-								TWO_STEP_CANCEL: 12
-							});
-						},
-						null
-					);
-					__d(
-						"LogLevels",
-						[],
-						function(a, b, c, d, e, f) {
-							e.exports = ES("Object", "freeze", !1, {
-								DEBUG: 1,
-								WARNING: 2,
-								ERROR: 3
-							});
-						},
-						null
-					);
-					__d(
 						"getTime",
 						[],
 						function(a, b, c, d, e, f) {
@@ -6642,13 +6591,7 @@ try {
 					);
 					__d(
 						"ANLogger",
-						[
-							"ANUnifiedLoggingClickEvent",
-							"ANUtils",
-							"LogLevels",
-							"getTime",
-							"nullthrows"
-						],
+						["ANUtils", "getTime", "nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
@@ -6704,16 +6647,14 @@ try {
 								c.setUnifiedLoggingURL = function(a) {
 									this.$8 = a;
 								};
-								c.debug = function(a, c) {
-									this.$1 <= b("LogLevels").DEBUG && this.event(a, c);
+								c.debug = function(a, b) {
+									this.$1 <= 1 && this.event(a, b);
 								};
 								c.error = function(a) {
-									this.$1 <= b("LogLevels").ERROR &&
-										this.event("ADNW_ADERROR", a);
+									this.$1 <= 3 && this.event("ADNW_ADERROR", a);
 								};
 								c.warn = function(a) {
-									this.$1 <= b("LogLevels").WARNING &&
-										this.event("ADNW_ADWARNING", a);
+									this.$1 <= 2 && this.event("ADNW_ADWARNING", a);
 								};
 								c.event = function(a, b, c) {
 									a = { event_name: a };
@@ -6753,10 +6694,7 @@ try {
 											  });
 								};
 								c.logClick = function(a, c) {
-									var d =
-											a.action != null
-												? a.action
-												: b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
+									var d = a.action != null ? a.action : 0,
 										e = b("getTime")();
 									e = {
 										name: "client_event",
@@ -6817,49 +6755,6 @@ try {
 								return a;
 							})();
 							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ANMWebAdElement",
-						[],
-						function(a, b, c, d, e, f) {
-							e.exports = ES("Object", "freeze", !1, {
-								FB_AD_BODY: "fbAdBody",
-								FB_AD_CALL_TO_ACTION: "fbAdCallToAction",
-								FB_AD_ICON: "fbAdIcon",
-								FB_AD_MEDIA: "fbAdMedia",
-								FB_AD_MEDIA_CENTER: "fbAdMediaCenter",
-								FB_AD_SUBTITLE: "fbAdSubtitle",
-								FB_AD_TITLE: "fbAdTitle",
-								FB_TWO_STEP_DIALOG: "fbTwoStepDialog",
-								UNKNOWN: "UNKNOWN"
-							});
-						},
-						null
-					);
-					__d(
-						"ANMWebUnifiedLoggingXOutOrigin",
-						[],
-						function(a, b, c, d, e, f) {
-							e.exports = ES("Object", "freeze", !1, {
-								INLINE: "inline",
-								INLINE_CONDENSED: "inline-condensed"
-							});
-						},
-						null
-					);
-					__d(
-						"ANMWebXOutClientEvent",
-						[],
-						function(a, b, c, d, e, f) {
-							e.exports = ES("Object", "freeze", !1, {
-								CANCEL: "ADNW_XOUT_CANCEL",
-								FINISH: "ADNW_XOUT_FINISH",
-								HAS_INLINE_XOUT: "ADNW_HAS_INLINE_XOUT",
-								SELECT_OPTION: "ADNW_XOUT_OPTION",
-								START: "ADNW_XOUT_START"
-							});
 						},
 						null
 					);
@@ -7443,45 +7338,8 @@ try {
 						null
 					);
 					__d(
-						"AdNetworkVideoEventType",
-						[],
-						function(a, b, c, d, e, f) {
-							e.exports = ES("Object", "freeze", !1, {
-								VIDEO_PLAY: 0,
-								VIDEO_SKIP: 1,
-								VIDEO_TIME: 2,
-								VIDEO_MRC: 3,
-								VIDEO_PAUSE: 4,
-								VIDEO_UNPAUSE: 5,
-								VIDEO_MUTE: 6,
-								VIDEO_UNMUTE: 7,
-								VIDEO_FULLSCREEN: 8,
-								VIDEO_LEAVE_FULLSCREEN: 9,
-								VIDEO_VIEWABLE_IMPRESSION: 10,
-								VIDEO_FIRST_QUARTILE: 11,
-								VIDEO_MID_POINT: 12,
-								VIDEO_THIRD_QUARTILE: 13,
-								VIDEO_COMPLETE: 14,
-								VIDEO_IMPRESSION_IAB: 16
-							});
-						},
-						null
-					);
-					__d(
-						"AdNetworkFocusState",
-						[],
-						function(a, b, c, d, e, f) {
-							e.exports = ES("Object", "freeze", !1, {
-								UNKNOWN: 0,
-								FOCUSED: 1,
-								UNFOCUSED: 2
-							});
-						},
-						null
-					);
-					__d(
 						"AudienceNetworkVideoLoggingUtils",
-						["AdNetworkFocusState"],
+						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
@@ -7512,34 +7370,30 @@ try {
 									pbra: a.avgPlaybackRate === null ? void 0 : a.avgPlaybackRate
 								};
 							}
-							function c() {
+							function b() {
 								__p && __p();
 								var a = h,
-									c = [],
-									d = window;
+									b = [],
+									c = window;
 								while (a > 0) {
 									try {
-										c.push(
-											d.document.hasFocus()
-												? b("AdNetworkFocusState").FOCUSED
-												: b("AdNetworkFocusState").UNFOCUSED
-										);
+										b.push(c.document.hasFocus() ? 1 : 2);
 									} catch (a) {
-										c.push(b("AdNetworkFocusState").UNKNOWN);
+										b.push(0);
 									}
-									if (d === window.top) break;
-									d = d.parent;
+									if (c === window.top) break;
+									c = c.parent;
 									a--;
 								}
-								return c;
+								return b;
 							}
-							function d(a) {
+							function c(a) {
 								return /iPhone|iPod/.test(a);
 							}
 							e.exports = {
 								getStatsFields: a,
-								getFocus: c,
-								isIPhoneOrIPod: d,
+								getFocus: b,
+								isIPhoneOrIPod: c,
 								MAX_LAYERS: h
 							};
 						},
@@ -7686,7 +7540,7 @@ try {
 										e[a] = h() - b;
 									});
 									d[f.TIME] = h() - c;
-									a || (d[b("BrowserDetectionFeature").FEATURE_TIMES] = e);
+									a || (d.feature_times = e);
 									return d;
 								},
 								getAllBrowserFeatures: function() {
@@ -7724,22 +7578,20 @@ try {
 								else return new Date();
 							}
 							var i = ((c = {}),
-							(c[b("BrowserDetectionFeature").CSS_ALL] = function() {
+							(c.css_all = function() {
 								return "all" in document.documentElement.style;
 							}),
-							(c[
-								b("BrowserDetectionFeature").CSS_FEATURE_QUERIES
-							] = function() {
+							(c.cfq = function() {
 								var a = "CSS" in window && "supports" in window.CSS;
 								return a || "supportsCSS" in window;
 							}),
-							(c[b("BrowserDetectionFeature").DRAG_AND_DROP] = function() {
+							(c.dnd = function() {
 								var a = document.createElement("div");
 								return (
 									"draggable" in a || ("ondragstart" in a && "ondrop" in a)
 								);
 							}),
-							(c[b("BrowserDetectionFeature").OGG] = function() {
+							(c.ogg = function() {
 								var a = document.createElement("video"),
 									b = !1;
 								try {
@@ -7752,19 +7604,19 @@ try {
 								} catch (a) {}
 								return b;
 							}),
-							(c[b("BrowserDetectionFeature").CSS_VAR] = function() {
+							(c.cssvar = function() {
 								return (
 									window.CSS != null &&
 									window.CSS.supports != null &&
 									window.CSS.supports("--fake-var", 0)
 								);
 							}),
-							(c[b("BrowserDetectionFeature").SCOPED_CSS] = function() {
+							(c.scope = function() {
 								var a = document.createElement("style");
 								a.setAttribute("scoped", "true");
 								return a.scoped === !0;
 							}),
-							(c[b("BrowserDetectionFeature").STICKY] = function() {
+							(c.sticky = function() {
 								var a = "position:",
 									b = "sticky",
 									c = ["-webkit-", "-moz-", "-o-", "-ms-"],
@@ -7773,23 +7625,23 @@ try {
 								d.cssText = a + c.join(b + ";" + a).slice(0, -a.length);
 								return ES(d.position, "indexOf", !0, b) !== -1;
 							}),
-							(c[b("BrowserDetectionFeature").TIME_ZONE] = function() {
+							(c.tz = function() {
 								var a = new Date();
 								return a.getTimezoneOffset();
 							}),
-							(c[b("BrowserDetectionFeature").DIALOG] = function() {
+							(c.dialog = function() {
 								var a = document.createElement("dialog");
 								return !!a.show;
 							}),
-							(c[b("BrowserDetectionFeature").VIDEO] = function() {
+							(c.video = function() {
 								var a = document.createElement("video");
 								return !!a.canPlayType;
 							}),
-							(c[b("BrowserDetectionFeature").AUDIO] = function() {
+							(c.audio = function() {
 								var a = document.createElement("audio");
 								return !!a.canPlayType;
 							}),
-							(c[b("BrowserDetectionFeature").AUDIO_CONTEXT] = function() {
+							(c.ac = function() {
 								try {
 									var a = new window.AudioContext();
 									a = a.createOscillator();
@@ -7799,7 +7651,7 @@ try {
 									return !1;
 								}
 							}),
-							(c[b("BrowserDetectionFeature").ANCESTOR] = function() {
+							(c.ancestor = function() {
 								var a = "";
 								if (
 									!!window.location &&
@@ -7812,27 +7664,27 @@ try {
 								}
 								return a;
 							}),
-							(c[b("BrowserDetectionFeature").RANDOM] = function() {
+							(c.random = function() {
 								return (
 									(!!window.crypto && !!window.crypto.getRandomValues) ||
 									(!!window.msCrypto && !!window.msCrypto.getRandomValues)
 								);
 							}),
-							(c[b("BrowserDetectionFeature").USERDATA] = function() {
+							(c.userdata = function() {
 								var a = document.createElement("div");
 								return !a.addBehavior;
 							}),
-							(c[b("BrowserDetectionFeature").CHROME_EXTENSION] = function() {
+							(c.ext = function() {
 								return (
 									!!window.chrome &&
 									!!window.chrome.runtime &&
 									!!window.chrome.runtime.id
 								);
 							}),
-							(c[b("BrowserDetectionFeature").IS_POPUP] = function() {
+							(c.pop = function() {
 								return !!window.opener && window.opener !== window;
 							}),
-							(c[b("BrowserDetectionFeature").HREF] = function() {
+							(c.href = function() {
 								if (
 									!!window.opener &&
 									!!window.opener.location &&
@@ -7843,86 +7695,86 @@ try {
 									? window.location.href
 									: "";
 							}),
-							(c[b("BrowserDetectionFeature").HAS_CANVAS] = function() {
+							(c.canvas = function() {
 								var a = document.createElement("canvas");
 								return !!(a.getContext && a.getContext("2d"));
 							}),
-							(c[b("BrowserDetectionFeature").EMOJI] = function() {
+							(c.emoji = function() {
 								__p && __p();
-								if (!i[b("BrowserDetectionFeature").HAS_CANVAS]()) return !1;
+								if (!i.canvas()) return !1;
 								var a = window.devicePixelRatio || 1;
 								a = 12 * a;
-								var c = document.createElement("canvas");
-								c = c.getContext("2d");
-								c.fillStyle = "#f00";
-								c.textBaseline = "top";
-								c.font = "32px Arial";
-								c.fillText("\ud83d\udc28", 0, 0);
-								return c.getImageData(a, a, 1, 1).data[0] !== 0;
+								var b = document.createElement("canvas");
+								b = b.getContext("2d");
+								b.fillStyle = "#f00";
+								b.textBaseline = "top";
+								b.font = "32px Arial";
+								b.fillText("\ud83d\udc28", 0, 0);
+								return b.getImageData(a, a, 1, 1).data[0] !== 0;
 							}),
-							(c[b("BrowserDetectionFeature").CANVAS_HASH] = function() {
+							(c.canvasfp = function() {
 								__p && __p();
-								if (!i[b("BrowserDetectionFeature").HAS_CANVAS]()) return 0;
+								if (!i.canvas()) return 0;
 								var a = document.createElement("canvas"),
-									c = a.getContext("2d"),
-									d = "text";
-								c.textBaseline = "top";
-								c.font = "14px Arial";
-								c.textBaseline = "alphabetic";
-								c.fillStyle = "#f60";
-								c.fillRect(125, 1, 62, 20);
-								c.fillStyle = "#069";
-								c.fillText(d, 2, 15);
-								c.fillStyle = "rgba(102, 204, 0, 0.7)";
-								c.fillText(d, 4, 17);
+									b = a.getContext("2d"),
+									c = "text";
+								b.textBaseline = "top";
+								b.font = "14px Arial";
+								b.textBaseline = "alphabetic";
+								b.fillStyle = "#f60";
+								b.fillRect(125, 1, 62, 20);
+								b.fillStyle = "#069";
+								b.fillText(c, 2, 15);
+								b.fillStyle = "rgba(102, 204, 0, 0.7)";
+								b.fillText(c, 4, 17);
 								return g(a.toDataURL());
 							}),
-							(c[b("BrowserDetectionFeature").UA] = function() {
+							(c.ua = function() {
 								return navigator.userAgent;
 							}),
-							(c[b("BrowserDetectionFeature").VERSION] = function() {
+							(c.version = function() {
 								return navigator.appVersion;
 							}),
-							(c[b("BrowserDetectionFeature").PLATFORM] = function() {
+							(c.platform = function() {
 								return navigator.platform;
 							}),
-							(c[b("BrowserDetectionFeature").IS_IFRAME] = function() {
+							(c.isIframe = function() {
 								return parent !== window;
 							}),
-							(c[b("BrowserDetectionFeature").REFERER] = function() {
+							(c.ref = function() {
 								return document.referrer;
 							}),
-							(c[b("BrowserDetectionFeature").URL] = function() {
+							(c.url = function() {
 								return document.URL;
 							}),
-							(c[b("BrowserDetectionFeature").SCREEN_HEIGHT] = function() {
+							(c.height = function() {
 								return screen.height;
 							}),
-							(c[b("BrowserDetectionFeature").SCREEN_WIDTH] = function() {
+							(c.width = function() {
 								return screen.width;
 							}),
-							(c[b("BrowserDetectionFeature").AVAILABLE_HEIGHT] = function() {
+							(c.aheight = function() {
 								return screen.height;
 							}),
-							(c[b("BrowserDetectionFeature").AVAILABLE_WIDTH] = function() {
+							(c.awidth = function() {
 								return screen.width;
 							}),
-							(c[b("BrowserDetectionFeature").SCREEN_LEFT] = function() {
+							(c.left = function() {
 								return window.screenLeft ? window.screenLeft : window.screenX;
 							}),
-							(c[b("BrowserDetectionFeature").SCREEN_TOP] = function() {
+							(c.top = function() {
 								return window.screenTop ? window.screenTop : window.screenY;
 							}),
-							(c[b("BrowserDetectionFeature").HAS_SCROLL] = function() {
+							(c.scroll = function() {
 								return "scrollBehavior" in document.documentElement.style;
 							}),
-							(c[b("BrowserDetectionFeature").HAS_PIC_ELEMENT] = function() {
+							(c.pic = function() {
 								return "HTMLPictureElement" in window;
 							}),
-							(c[b("BrowserDetectionFeature").PLUGIN_COUNT] = function() {
+							(c.plugins = function() {
 								return navigator.plugins.length;
 							}),
-							(c[b("BrowserDetectionFeature").PHANTOM_MODE] = function() {
+							(c.pmode = function() {
 								try {
 									null[0]();
 								} catch (b) {
@@ -7931,55 +7783,53 @@ try {
 								}
 								return !!window.callPhantom || !!window._phantom;
 							}),
-							(c[b("BrowserDetectionFeature").COLOR_DEPTH] = function() {
+							(c.colorDepth = function() {
 								return screen.colorDepth;
 							}),
-							(c[b("BrowserDetectionFeature").WEBSQL] = function() {
+							(c.websql = function() {
 								return !!window.openDatabase;
 							}),
-							(c[b("BrowserDetectionFeature").CUSTOM_ELEMENT] = function() {
+							(c.ce = function() {
 								return "registerElement" in document;
 							}),
-							(c[b("BrowserDetectionFeature").HAS_IMPORTS] = function() {
+							(c.imp = function() {
 								return "import" in document.createElement("link");
 							}),
-							(c[b("BrowserDetectionFeature").CHROME] = function() {
+							(c.chrome = function() {
 								return !!window.chrome;
 							}),
-							(c[b("BrowserDetectionFeature").CHROME_WEB_STORE] = function() {
+							(c.chromewebstore = function() {
 								return !!window.chrome && !!window.chrome.webstore;
 							}),
-							(c[b("BrowserDetectionFeature").IE] = function() {
+							(c.ie = function() {
 								return !window.ActiveXObject;
 							}),
-							(c[b("BrowserDetectionFeature").WC] = function() {
+							(c.wc = function() {
 								return "willChange" in document.documentElement.style;
 							}),
-							(c[b("BrowserDetectionFeature").DEVORIENT] = function() {
+							(c.devorient = function() {
 								return "DeviceOrientationEvent" in window;
 							}),
-							(c[b("BrowserDetectionFeature").DEVMOTION] = function() {
+							(c.devmotion = function() {
 								return "DeviceMotionEvent" in window;
 							}),
-							(c[b("BrowserDetectionFeature").SRCSET] = function() {
+							(c.srcset = function() {
 								return "srcset" in document.createElement("img");
 							}),
-							(c[b("BrowserDetectionFeature").AVAIL_DIMENSIONS] = function() {
+							(c.avail_dimensions = function() {
 								return screen.availHeight <= 1 || screen.availWidth <= 1;
 							}),
-							(c[
-								b("BrowserDetectionFeature").COLOR_AND_PIXEL_DEPTH
-							] = function() {
+							(c.colorPixelDepth = function() {
 								return (
 									screen.colorDepth <= 8 ||
 									screen.pixelDepth <= 8 ||
 									window.devicePixelRatio <= 0
 								);
 							}),
-							(c[b("BrowserDetectionFeature").DIMENSIONS] = function() {
+							(c.dimensions = function() {
 								return screen.height <= 1 || screen.width <= 1;
 							}),
-							(c[b("BrowserDetectionFeature").TOP_WINDOW_DRIVER] = function() {
+							(c.topWindowDriver = function() {
 								return top == null ||
 									top.window == null ||
 									(document.location.ancestorOrigins != null &&
@@ -7992,7 +7842,7 @@ try {
 									? void 0
 									: ES(top.window.name, "indexOf", !0, "driver") > -1;
 							}),
-							(c[b("BrowserDetectionFeature").DOM_AUTOMATION] = function() {
+							(c.domAutomation = function() {
 								return (
 									document.documentElement.hasAttribute("webdriver") ||
 									window.domAutomation != null ||
@@ -8000,34 +7850,34 @@ try {
 									window._WEBDRIVER_ELEM_CACHE != null
 								);
 							}),
-							(c[b("BrowserDetectionFeature").WEBDRIVER_CACHE] = function() {
+							(c.webdriverCache = function() {
 								return window._WEBDRIVER_ELEM_CACHE != null;
 							}),
-							(c[b("BrowserDetectionFeature").EXTERNAL_URL] = function() {
+							(c.externalUrl = function() {
 								return window.isExternalUrlSafeForNavigation != null;
 							}),
-							(c[b("BrowserDetectionFeature").OPERA_A] = function() {
+							(c.operaA = function() {
 								return (
 									window.opera != null &&
 									window.opera._browserjsran != null &&
 									window.opera.browserjsran === 0
 								);
 							}),
-							(c[b("BrowserDetectionFeature").OPERA_B] = function() {
+							(c.operaB = function() {
 								return (
 									window.opera != null &&
 									window.opera._browserjsran != null &&
 									window.opera.browserjsran === !1
 								);
 							}),
-							(c[b("BrowserDetectionFeature").WEB_DRIVER] = function() {
+							(c.webDriver = function() {
 								return (
 									window.webdriver != null ||
 									document.webdriver != null ||
 									document.documentElement.hasAttribute("webdriver")
 								);
 							}),
-							(c[b("BrowserDetectionFeature").ENGINE] = function() {
+							(c.engine = function() {
 								__p && __p();
 								var a = {},
 									b = [],
@@ -8070,7 +7920,7 @@ try {
 								for (var i in d) d[i] > d[c] && (c = i);
 								return c;
 							}),
-							(c[b("BrowserDetectionFeature").IE_EXTERNAL] = function() {
+							(c.ieExternal = function() {
 								var a = [
 										"AddChannel",
 										"AddDesktopComponent",
@@ -8164,7 +8014,7 @@ try {
 									}
 								return ES("JSON", "stringify", !1, b);
 							}),
-							(c[b("BrowserDetectionFeature").FONT_DIFF] = function() {
+							(c.fontDiff = function() {
 								__p && __p();
 								var a = document.createElement("div"),
 									b = document.createElement("div");
@@ -8189,7 +8039,7 @@ try {
 								document.body.removeChild(a);
 								return b;
 							}),
-							(c[b("BrowserDetectionFeature").FONTS] = function() {
+							(c.fonts = function() {
 								__p && __p();
 								var a = [
 										"Ubuntu",
@@ -8258,11 +8108,7 @@ try {
 					);
 					__d(
 						"ANWebVideoLogger.anweb",
-						[
-							"AdNetworkVideoEventType",
-							"AudienceNetworkVideoLoggingUtils",
-							"PluginBrowserFeatures"
-						],
+						["AudienceNetworkVideoLoggingUtils", "PluginBrowserFeatures"],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
@@ -8301,39 +8147,36 @@ try {
 									if (this.$2 != a)
 										throw new Error("players should be the same");
 								};
-								c.logMRCEvent = function(a, c, d, e, f, g) {
-									f = this.$10(c, d, e, a);
-									this.$11(b("AdNetworkVideoEventType").VIDEO_MRC, f);
+								c.logMRCEvent = function(a, b, c, d, e, f) {
+									e = this.$10(b, c, d, a);
+									this.$11(3, e);
 								};
 								c.logImpressionEvent = function(a, b, c, d) {
 									this.$6();
 								};
 								c.logMoatSivt = function() {};
-								c.logViewableImpressionEvent = function(a, c, d) {
-									c = this.$10(c, d, null, a);
-									this.$11(
-										b("AdNetworkVideoEventType").VIDEO_VIEWABLE_IMPRESSION,
-										c
-									);
+								c.logViewableImpressionEvent = function(a, b, c) {
+									b = this.$10(b, c, null, a);
+									this.$11(10, b);
 								};
-								c.logTimeEvent = function(a, c, d, e, f, g, h) {
-									f = this.$10(a, c, d, e);
-									this.$11(b("AdNetworkVideoEventType").VIDEO_TIME, f);
-									h();
+								c.logTimeEvent = function(a, b, c, d, e, f, g) {
+									e = this.$10(a, b, c, d);
+									this.$11(2, e);
+									g();
 								};
 								c.logMuteEvent = function() {
 									if (!this.$2.isMuted()) return;
-									this.$12(b("AdNetworkVideoEventType").VIDEO_MUTE);
+									this.$12(6);
 								};
 								c.logUnMuteEvent = function() {
 									if (this.$2.isMuted()) return;
-									this.$12(b("AdNetworkVideoEventType").VIDEO_UNMUTE);
+									this.$12(7);
 								};
 								c.$9 = function() {
-									this.$12(b("AdNetworkVideoEventType").VIDEO_PAUSE);
+									this.$12(4);
 								};
 								c.$8 = function() {
-									this.$12(b("AdNetworkVideoEventType").VIDEO_UNPAUSE);
+									this.$12(5);
 								};
 								c.$12 = function(a) {
 									this.$11(a, { time: this.$2.getCurrentTime() });
@@ -9819,65 +9662,36 @@ try {
 						null
 					);
 					__d(
-						"AdQualityViewabilityDetection",
-						[],
-						function(a, b, c, d, e, f) {
-							e.exports = ES("Object", "freeze", !1, {
-								AMP: "amp",
-								FLASH: "fl",
-								GEOMETRIC: "geo",
-								INSTANT_ARTICLES: "ia",
-								IE_MOUSE: "ie-m",
-								INTERSECTION_OBSERVER: "io",
-								MOZILLA_INNER_SCREEN: "moz-is",
-								MRAID: "mr",
-								MOAT: "mt",
-								NACL: "nacl",
-								NONE: "n",
-								PAGE_VISIBILITY: "pv",
-								PLAIN_VAST: "plain-vast",
-								RAF: "raf",
-								SAFEFRAME: "sf",
-								SDK_ANDROID: "sdk-android",
-								SDK_IOS: "sdk-ios",
-								SDK_MEASUREMENT_PLUGIN_ANDROID: "sdk-mp-android",
-								SDK_MEASUREMENT_PLUGIN_IOS: "sdk-mp-ios"
-							});
-						},
-						null
-					);
-					__d(
 						"AdQualityMeasurementResult.adquality",
-						["AdQualityViewabilityDetection"],
+						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
 								__p && __p();
-								a.unknownResult = function(c, d) {
-									c === void 0 && (c = b("AdQualityViewabilityDetection").NONE);
-									d === void 0 && (d = "");
-									return new a({ vd: c, r: d });
+								a.unknownResult = function(b, c) {
+									b === void 0 && (b = "n");
+									c === void 0 && (c = "");
+									return new a({ vd: b, r: c });
 								};
 								function a(a) {
-									var c = a.ar,
-										d = a.e,
-										e = a.vd,
-										f = a.r,
-										g = a.vr,
-										h = a.cont;
+									var b = a.ar,
+										c = a.e,
+										d = a.vd,
+										e = a.r,
+										f = a.vr,
+										g = a.cont;
 									a = a.maa;
-									this.$3 = e;
-									this.$5 = g;
-									this.$1 = c;
+									this.$3 = d;
+									this.$5 = f;
+									this.$1 = b;
 									this.$7 = a;
-									this.$2 = d || null;
-									this.$4 =
-										e === b("AdQualityViewabilityDetection").NONE ? "" : f || e;
-									this.$6 = h || !1;
+									this.$2 = c || null;
+									this.$4 = d === "n" ? "" : e || d;
+									this.$6 = g || !1;
 								}
-								var c = a.prototype;
-								c.appendResult = function(a) {
+								var b = a.prototype;
+								b.appendResult = function(a) {
 									this.$5 || (this.$5 = a.$5),
 										this.$1 || (this.$1 = a.$1),
 										(this.$4 = a.$4),
@@ -9885,7 +9699,7 @@ try {
 										(this.$6 = a.$6),
 										(this.$7 = this.$7 || a.$7);
 								};
-								c.getData = function() {
+								b.getData = function() {
 									var a = null;
 									if (this.$2)
 										try {
@@ -9900,37 +9714,37 @@ try {
 										viewableRatio: this.getViewableRatio()
 									};
 								};
-								c.getAdRect = function() {
+								b.getAdRect = function() {
 									return this.$1;
 								};
-								c.getError = function() {
+								b.getError = function() {
 									return this.$2;
 								};
-								c.getMaxAdArea = function() {
+								b.getMaxAdArea = function() {
 									return this.$7;
 								};
-								c.getIsContinuous = function() {
+								b.getIsContinuous = function() {
 									return this.$6;
 								};
-								c.getViewableRect = function() {
+								b.getViewableRect = function() {
 									return this.$5;
 								};
-								c.getViewableRatio = function() {
+								b.getViewableRatio = function() {
 									return this.$8(function(a) {
 										return a.area();
 									});
 								};
-								c.getViewableHeightRatio = function() {
+								b.getViewableHeightRatio = function() {
 									return this.$8(function(a) {
 										return a.height;
 									});
 								};
-								c.getViewableWidthRatio = function() {
+								b.getViewableWidthRatio = function() {
 									return this.$8(function(a) {
 										return a.width;
 									});
 								};
-								c.$8 = function(a) {
+								b.$8 = function(a) {
 									var b = this.$1,
 										c = this.$5;
 									return (c && a(c) === 0) || (b && a(b) === 0)
@@ -9939,13 +9753,13 @@ try {
 											? a(c) / a(b)
 											: null;
 								};
-								c.getViewabilityDetection = function() {
+								b.getViewabilityDetection = function() {
 									return this.$3;
 								};
-								c.getReason = function() {
+								b.getReason = function() {
 									return this.$4;
 								};
-								c.isConclusive = function() {
+								b.isConclusive = function() {
 									return typeof this.getViewableRatio() === "number";
 								};
 								return a;
@@ -10173,7 +9987,6 @@ try {
 							"AdQualityMeasurement.adquality",
 							"AdQualityMeasurementResult.adquality",
 							"AdQualityUtils.adquality",
-							"AdQualityViewabilityDetection",
 							"AMPContextLoader",
 							"Rectangle.adquality"
 						],
@@ -10209,9 +10022,7 @@ try {
 									};
 									e.$AMPMeasurement1 = null;
 									e.$AMPMeasurement2 = null;
-									e.__viewabilityDetection = b(
-										"AdQualityViewabilityDetection"
-									).AMP;
+									e.__viewabilityDetection = "amp";
 									e.$AMPMeasurement3 = null;
 									e.$AMPMeasurement4 = null;
 									b("AMPContextLoader")
@@ -10338,20 +10149,20 @@ try {
 					);
 					__d(
 						"AdQualityStatistics.adquality",
-						["AdQualityScreenOrientation", "AdQualityViewabilityDetection"],
+						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
 							a = (function() {
 								__p && __p();
-								function a(a, c, d) {
-									c === void 0 && (c = 0.05),
-										d === void 0 && (d = 0.33),
+								function a(a, b, c) {
+									b === void 0 && (b = 0.05),
+										c === void 0 && (c = 0.33),
 										(this.$23 = a),
-										(this.$2 = c),
-										(this.$28 = d),
+										(this.$2 = b),
+										(this.$28 = c),
 										this.resetNonContinuousStatistics(),
-										(this.$20 = b("AdQualityViewabilityDetection").NONE),
+										(this.$20 = "n"),
 										(this.$21 = ""),
 										(this.$5 = 0),
 										(this.$7 = 0),
@@ -10361,14 +10172,14 @@ try {
 										(this.$11 = 0),
 										(this.$27 = {
 											maxAdAreaNotFullscreen: 0,
-											screenOrientation: b("AdQualityScreenOrientation").UNKNOWN
+											screenOrientation: "u"
 										});
 								}
-								var c = a.prototype;
-								c.getViewableRatio = function() {
+								var b = a.prototype;
+								b.getViewableRatio = function() {
 									return this.$23;
 								};
-								c.getData = function() {
+								b.getData = function() {
 									return {
 										audibleSeconds: this.$1,
 										avgPlaybackRate: isFinite(this.$18 / this.$24)
@@ -10392,7 +10203,7 @@ try {
 										maxAdArea: this.$27
 									};
 								};
-								c.registerProgress = function(a, b) {
+								b.registerProgress = function(a, b) {
 									__p && __p();
 									this.$14 += a;
 									var c = b.getViewableRatio() || 0;
@@ -10420,7 +10231,7 @@ try {
 									b.getIsContinuous() || (this.$7 = 0);
 									this.$10 = Math.max(this.$10, this.$7);
 								};
-								c.registerVolume = function(a, b, c) {
+								b.registerVolume = function(a, b, c) {
 									__p && __p();
 									this.$25++;
 									this.$19 += b;
@@ -10433,10 +10244,10 @@ try {
 									(!c || !b) && (this.$5 = 0);
 									this.$9 = Math.max(this.$9, this.$5);
 								};
-								c.registerPlaybackRate = function(a, b) {
+								b.registerPlaybackRate = function(a, b) {
 									(this.$24 += a), (this.$18 += b * a);
 								};
-								c.resetNonContinuousStatistics = function() {
+								b.resetNonContinuousStatistics = function() {
 									(this.$1 = 0),
 										(this.$3 = null),
 										(this.$4 = 0),
@@ -10869,7 +10680,6 @@ try {
 						[
 							"AdQualityMeasurement.adquality",
 							"AdQualityMeasurementResult.adquality",
-							"AdQualityViewabilityDetection",
 							"HTMLElementFrameContext.adquality",
 							"PageVisibility.adquality",
 							"Rectangle.adquality"
@@ -10886,9 +10696,7 @@ try {
 									e.$GeometricMeasurement1 = c;
 									d = new (b("HTMLElementFrameContext.adquality"))(c, d);
 									e.$GeometricMeasurement2 = !!(d.viewportRect && d.offsetRect);
-									e.__viewabilityDetection = b(
-										"AdQualityViewabilityDetection"
-									).GEOMETRIC;
+									e.__viewabilityDetection = "geo";
 									e.$GeometricMeasurement3 = new (b(
 										"PageVisibility.adquality"
 									))(c.ownerDocument);
@@ -10960,7 +10768,6 @@ try {
 						[
 							"AdQualityMeasurement.adquality",
 							"AdQualityMeasurementResult.adquality",
-							"AdQualityViewabilityDetection",
 							"HTMLElementFrameContext.adquality",
 							"PageVisibility.adquality",
 							"Rectangle.adquality",
@@ -11015,9 +10822,7 @@ try {
 												"PageVisibility.adquality"
 											))(c.ownerDocument);
 										}));
-									e.__viewabilityDetection = b(
-										"AdQualityViewabilityDetection"
-									).INTERSECTION_OBSERVER;
+									e.__viewabilityDetection = "io";
 									return e;
 								}
 								var d = c.prototype;
@@ -11093,7 +10898,6 @@ try {
 						[
 							"AdQualityMeasurement.adquality",
 							"AdQualityMeasurementResult.adquality",
-							"AdQualityViewabilityDetection",
 							"HTMLElementFrameContext.adquality",
 							"Rectangle.adquality",
 							"nullthrows"
@@ -11110,9 +10914,7 @@ try {
 									e.$SafeframeMeasurement1 = new (b(
 										"HTMLElementFrameContext.adquality"
 									))(c, d).getSafeFrameAPI();
-									e.__viewabilityDetection = b(
-										"AdQualityViewabilityDetection"
-									).SAFEFRAME;
+									e.__viewabilityDetection = "sf";
 									return e;
 								}
 								var d = c.prototype;
@@ -11675,7 +11477,6 @@ try {
 						[
 							"AdQualityMeasurementResult.adquality",
 							"AdQualityUtils.adquality",
-							"AdQualityViewabilityDetection",
 							"BaseXDomainScreenMeasurement.adquality",
 							"HTMLElementFrameContext.adquality"
 						],
@@ -11699,9 +11500,7 @@ try {
 									var e;
 									e = a.call(this, c, d) || this;
 									e.$IEXDomainScreenMeasurement1 = null;
-									e.__viewabilityDetection = b(
-										"AdQualityViewabilityDetection"
-									).IE_MOUSE;
+									e.__viewabilityDetection = "ie-m";
 									c = new (b("HTMLElementFrameContext.adquality"))(c, d);
 									e.$IEXDomainScreenMeasurement3 = c.isCrossDomain();
 									if (!e.isAvailable())
@@ -11771,7 +11570,6 @@ try {
 						[
 							"AdQualityMeasurement.adquality",
 							"AdQualityMeasurementResult.adquality",
-							"AdQualityViewabilityDetection",
 							"Rectangle.adquality"
 						],
 						function(a, b, c, d, e, f) {
@@ -11783,13 +11581,11 @@ try {
 							a = (function(a) {
 								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
-								function c(c, d) {
-									d = a.call(this, c, d) || this;
-									d.$InstantArticleMeasurement1 = c;
-									d.__viewabilityDetection = b(
-										"AdQualityViewabilityDetection"
-									).INSTANT_ARTICLES;
-									return d;
+								function c(b, c) {
+									c = a.call(this, b, c) || this;
+									c.$InstantArticleMeasurement1 = b;
+									c.__viewabilityDetection = "ia";
+									return c;
 								}
 								var d = c.prototype;
 								d.isAvailable = function() {
@@ -11841,7 +11637,6 @@ try {
 						"MozInnerScreenMeasurement.adquality",
 						[
 							"AdQualityUtils.adquality",
-							"AdQualityViewabilityDetection",
 							"BaseXDomainScreenMeasurement.adquality"
 						],
 						function(a, b, c, d, e, f) {
@@ -11850,26 +11645,24 @@ try {
 							var g = b("AdQualityUtils.adquality").getFirefoxVersion;
 							a = (function(a) {
 								__p && __p();
-								babelHelpers.inheritsLoose(c, a);
-								function c(c, d) {
-									c = a.call(this, c, d) || this;
-									c.__viewabilityDetection = b(
-										"AdQualityViewabilityDetection"
-									).MOZILLA_INNER_SCREEN;
-									return c;
+								babelHelpers.inheritsLoose(b, a);
+								function b(b, c) {
+									b = a.call(this, b, c) || this;
+									b.__viewabilityDetection = "moz-is";
+									return b;
 								}
-								var d = c.prototype;
-								d.isAvailable = function() {
+								var c = b.prototype;
+								c.isAvailable = function() {
 									var a = g();
 									return typeof a === "number" && a >= 3;
 								};
-								d.__getAdOffset = function() {
+								c.__getAdOffset = function() {
 									var a = this.__parentWindow,
 										b = a.mozInnerScreenX;
 									a = a.mozInnerScreenY;
 									return b === void 0 || a === void 0 ? null : { x: b, y: a };
 								};
-								return c;
+								return b;
 							})(b("BaseXDomainScreenMeasurement.adquality"));
 							e.exports = a;
 						},
@@ -12065,7 +11858,6 @@ try {
 						[
 							"AdQualityMeasurementResult.adquality",
 							"AdQualityUtils.adquality",
-							"AdQualityViewabilityDetection",
 							"BaseBeaconXMeasurement.adquality",
 							"HTMLElementFrameContext.adquality",
 							"SimplePromise.adquality",
@@ -12107,9 +11899,7 @@ try {
 									};
 									e.$RafBeaconMeasurement1 = c;
 									e.$RafBeaconMeasurement2 = !!i();
-									e.__viewabilityDetection = b(
-										"AdQualityViewabilityDetection"
-									).RAF;
+									e.__viewabilityDetection = "raf";
 									e.$RafBeaconMeasurement8 = 0;
 									e.$RafBeaconMeasurement3 = new (b(
 										"HTMLElementFrameContext.adquality"
@@ -12814,29 +12604,8 @@ try {
 						null
 					);
 					__d(
-						"ANMWebMediator",
-						[],
-						function(a, b, c, d, e, f) {
-							e.exports = ES("Object", "freeze", !1, {
-								AMP: "AMP",
-								APPNEXUS: "APPNEXUS",
-								APPNEXUS_ASYNC: "APPNEXUS_ASYNC",
-								FIRSTIMPRESSION_IO: "FIRSTIMPRESSION.IO",
-								GOOGLE_FRIENDLY_IFRAME: "GOOGLE_FRIENDLY_IFRAME",
-								GOOGLE_SAFE_FRAME: "GOOGLE_SAFE_FRAME",
-								NONE: "NONE",
-								SHARETHROUGH: "SHARETHROUGH",
-								SMART_ADSERVER_ASYNC: "SMART_ADSERVER_ASYNC",
-								SMART_ADSERVER_SYNC: "SMART_ADSERVER_SYNC",
-								UNKNOWN: "UNKNOWN",
-								UNKNOWN_SAFE_FRAME: "UNKNOWN_SAFE_FRAME"
-							});
-						},
-						null
-					);
-					__d(
 						"MediationDetector",
-						["AMPContextLoader", "ANMWebMediator", "ANUtils", "nullthrows"],
+						["AMPContextLoader", "ANUtils", "nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
@@ -12847,8 +12616,7 @@ try {
 									var c = this;
 									this.$2 = function() {
 										__p && __p();
-										if (c.$1.getNestLevel() === 0)
-											return b("ANMWebMediator").NONE;
+										if (c.$1.getNestLevel() === 0) return "NONE";
 										for (
 											var a = c.$1.ancestorIframes,
 												d = ES("Array", "isArray", !1, a),
@@ -12875,8 +12643,7 @@ try {
 											f = f;
 											if (f.src) {
 												f = b("ANUtils").extractDomain(f.src);
-												if (f === c.$1.pageDomain)
-													return b("ANMWebMediator").NONE;
+												if (f === c.$1.pageDomain) return "NONE";
 											}
 										}
 										return null;
@@ -12886,8 +12653,8 @@ try {
 										if (a.length > 0 && c.$1.getSafeFrameAPI()) {
 											a = b("ANUtils").extractDomain(a[0]);
 											if (window.googletag && a === "tpc.googlesyndication.com")
-												return b("ANMWebMediator").GOOGLE_SAFE_FRAME;
-											else return b("ANMWebMediator").UNKNOWN_SAFE_FRAME;
+												return "GOOGLE_SAFE_FRAME";
+											else return "UNKNOWN_SAFE_FRAME";
 										}
 										return null;
 									};
@@ -12895,7 +12662,7 @@ try {
 										var a = c.$1.ancestorIframes;
 										return a.length > 0 &&
 											ES(a[0].id, "indexOf", !0, "google_ads_iframe_") === 0
-											? b("ANMWebMediator").GOOGLE_FRIENDLY_IFRAME
+											? "GOOGLE_FRIENDLY_IFRAME"
 											: null;
 									};
 									this.$8 = function() {
@@ -12904,7 +12671,7 @@ try {
 											(ES(a[0].classList, "contains", !0, "str-fan-iframe") ||
 												b("nullthrows")(a[0].parentElement).id ===
 													"str-fan-placeholder")
-											? b("ANMWebMediator").SHARETHROUGH
+											? "SHARETHROUGH"
 											: null;
 									};
 									this.$9 = function() {
@@ -12912,7 +12679,7 @@ try {
 										return a.length > 0 &&
 											ES(a[0].classList, "contains", !0, "fiSafeFrame") &&
 											window.parent.fiQuery
-											? b("ANMWebMediator").FIRSTIMPRESSION_IO
+											? "FIRSTIMPRESSION.IO"
 											: null;
 									};
 									this.$1 = a;
@@ -12929,14 +12696,14 @@ try {
 										this.$8,
 										this.$9
 									];
-									for (var c = 0; c < a.length; c++) {
-										var d = a[c];
+									for (var b = 0; b < a.length; b++) {
+										var c = a[b];
 										try {
-											d = d();
-											if (d) return d;
+											c = c();
+											if (c) return c;
 										} catch (a) {}
 									}
-									return b("ANMWebMediator").UNKNOWN;
+									return "UNKNOWN";
 								};
 								c.$6 = function() {
 									return window.sas &&
@@ -12944,21 +12711,19 @@ try {
 											'script[src*="www.smartadserver.com/"]'
 										)
 										? window.sas_ajax
-											? b("ANMWebMediator").SMART_ADSERVER_ASYNC
-											: b("ANMWebMediator").SMART_ADSERVER_SYNC
+											? "SMART_ADSERVER_ASYNC"
+											: "SMART_ADSERVER_SYNC"
 										: null;
 								};
 								c.$7 = function() {
 									if (window.ADNXSMediation && window.ADNXSMediation.adFilled)
 										if (window.ADNXSAsync || window.ADNXSMediation.isAsync())
-											return b("ANMWebMediator").APPNEXUS_ASYNC;
-										else return b("ANMWebMediator").APPNEXUS;
+											return "APPNEXUS_ASYNC";
+										else return "APPNEXUS";
 									return null;
 								};
 								c.$3 = function() {
-									return b("AMPContextLoader").isAMP()
-										? b("ANMWebMediator").AMP
-										: null;
+									return b("AMPContextLoader").isAMP() ? "AMP" : null;
 								};
 								return a;
 							})();
@@ -13227,14 +12992,10 @@ try {
 							"ANLogger",
 							"ANMoatSivt",
 							"ANMultiAdsSingleCard",
-							"ANMWebAdElement",
-							"ANMWebUnifiedLoggingXOutOrigin",
-							"ANMWebXOutClientEvent",
 							"ANPageNavigationManager",
 							"ANRewardedVideoPlayer",
 							"ANStitchedImage",
 							"ANTextOnlyLoader",
-							"ANUnifiedLoggingClickEvent",
 							"ANUtils",
 							"ANWebTwoStepClickDialog",
 							"ANWebVideoLogger.anweb",
@@ -13245,7 +13006,6 @@ try {
 							"AudienceNetworkVideoMonitor",
 							"HTMLElementFrameContext.adquality",
 							"JSSDKCssConfig",
-							"LogLevels",
 							"MediationDetector",
 							"OnScreenBehaviorManager.anweb",
 							"PlayVideoWhenOnScreenBehavior.anweb",
@@ -13319,7 +13079,7 @@ try {
 									this.$10 = a.displayFormat || a.format || "300x250";
 									this.tagJsIframeAppendedTime = a.tagJsIframeAppendedTime;
 									this.$23 = new (b("ANLogger"))(
-										b("LogLevels").ERROR,
+										3,
 										a.tagJsInitTime,
 										b("ANUtils").getNavigationStart(),
 										this.$33(),
@@ -13430,7 +13190,7 @@ try {
 													e
 											  )
 											: null,
-										i = b("ANMWebUnifiedLoggingXOutOrigin").INLINE_CONDENSED;
+										i = "inline-condensed";
 									g = this.$37().$48;
 									if (g != null) {
 										var j = new (b("ANXOut"))({
@@ -13446,28 +13206,24 @@ try {
 													(j.setOverlayBackgroundColor(h.getBackgroundColor()),
 													h.resize(),
 													c.resize(d.$15, h.getAdHeight())),
-													d.$23.event(b("ANMWebXOutClientEvent").START, i);
+													d.$23.event("ADNW_XOUT_START", i);
 											},
 											onXOutCancel: function() {
 												h &&
 													c &&
 													(h.restoreOriginalStyles(),
 													c.resize(d.$15, h.getAdHeight())),
-													d.$23.event(b("ANMWebXOutClientEvent").CANCEL, i);
+													d.$23.event("ADNW_XOUT_CANCEL", i);
 											},
 											onXOutOption: function(a) {
 												d.sendToFacebook({
 													name: "xout",
 													params: { key: d.$33(), reason: a, type: i }
 												}),
-													d.$23.event(
-														b("ANMWebXOutClientEvent").SELECT_OPTION,
-														a
-													);
+													d.$23.event("ADNW_XOUT_OPTION", a);
 											},
 											onXOutFinish: function() {
-												d.$27.adClosed(),
-													d.$23.event(b("ANMWebXOutClientEvent").FINISH);
+												d.$27.adClosed(), d.$23.event("ADNW_XOUT_FINISH");
 											}
 										});
 										j.render();
@@ -13513,9 +13269,7 @@ try {
 										$63: e.playWhenMostlyVisible === !0,
 										$64: a.topDomain
 									};
-									this.$23.setLogLevel(
-										this.$37().$46.logLevel || b("LogLevels").ERROR
-									);
+									this.$23.setLogLevel(this.$37().$46.logLevel || 3);
 									this.$23.frameReady();
 									this.$23.setUnifiedLoggingURL(a.unifiedLoggingURL);
 									this.$1 = b("getTime")();
@@ -13781,8 +13535,7 @@ try {
 										params: { key: this.$33(), payload: a }
 									});
 									this.$23.eventWithParams(this.$73("ADNW_ADIMPRESSION"));
-									this.$40() &&
-										this.$23.event(b("ANMWebXOutClientEvent").HAS_INLINE_XOUT);
+									this.$40() && this.$23.event("ADNW_HAS_INLINE_XOUT");
 									this.$83();
 								};
 								c.$83 = function() {
@@ -14101,7 +13854,7 @@ try {
 											var f = b("getTime")(),
 												g = b("nullthrows")(c.href),
 												h = b("ANUtils").maybeHTMLElement(e.target);
-											h = h ? d.$100(h) : b("ANMWebAdElement").UNKNOWN;
+											h = h ? d.$100(h) : "UNKNOWN";
 											var i = {};
 											if (d.$18) {
 												var j = d.$18.getDimensions(),
@@ -14149,7 +13902,7 @@ try {
 											j =
 												d.$37().$60 &&
 												d.$23.isPublisherSideLoggingSupported() &&
-												a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK;
+												a === 0;
 											j &&
 												g === "" &&
 												(d.$23.error("pub_logging_no_href"), (j = !1));
@@ -14184,11 +13937,9 @@ try {
 												  d.$37().$52 &&
 														g &&
 														!e &&
-														a ===
-															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK &&
+														a === 0 &&
 														d.$24.openNewTab(g));
-											a === b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK &&
-												(d.$3 = f);
+											a === 0 && (d.$3 = f);
 											if (d.$37().$52 || e) {
 												h = new (b("ANBounceBackManager"))(window.document);
 												h.onBounceBack(function(a) {
@@ -14212,61 +13963,34 @@ try {
 													b("nullthrows")(c.adIcon)
 												)
 												.onConfirm(function(a) {
-													(d.$25 = !0),
-														e(
-															b("ANUnifiedLoggingClickEvent").BILLABLE_CLICK,
-															a
-														);
+													(d.$25 = !0), e(0, a);
 												})
 												.onDismiss(function(a) {
-													(d.$25 = !1),
-														e(
-															b("ANUnifiedLoggingClickEvent").TWO_STEP_CANCEL,
-															a
-														);
+													(d.$25 = !1), e(12, a);
 												});
 										},
 										g = function(a) {
 											var c = b("getTime")(),
 												g = b("ANUtils").maybeHTMLElement(a.target);
-											g = g ? d.$100(g) : b("ANMWebAdElement").UNKNOWN;
+											g = g ? d.$100(g) : "UNKNOWN";
 											var h = d.$37().$46.minClickDelay,
 												i = d.$37().$46.minClickDelayImpression;
 											i && d.$2 && d.$2 + i > c && !d.$4
-												? ((d.$4 = !0),
-												  e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a))
+												? ((d.$4 = !0), e(10, a))
 												: h && d.$1 && d.$1 + h > c && !d.$4
-													? ((d.$4 = !0),
-													  e(b("ANUnifiedLoggingClickEvent").CLICK_GUARD, a))
+													? ((d.$4 = !0), e(10, a))
 													: d.$101()
 														? !d.$14 &&
 														  d.$37().$46.useTwoStepClick === !0 &&
 														  !d.$25
-															? (e(
-																	b("ANUnifiedLoggingClickEvent")
-																		.TWO_STEP_DIALOG,
-																	a
-															  ),
-															  f())
-															: e(
-																	b("ANUnifiedLoggingClickEvent").CLICK_GUARD,
-																	a
-															  )
+															? (e(11, a), f())
+															: e(10, a)
 														: ES(d.$37().$57, "includes", !0, g) &&
 														  !d.$14 &&
 														  d.$37().$46.useTwoStepClick === !0 &&
 														  !d.$25
-															? (e(
-																	b("ANUnifiedLoggingClickEvent")
-																		.TWO_STEP_DIALOG,
-																	a
-															  ),
-															  f())
-															: e(
-																	b("ANUnifiedLoggingClickEvent")
-																		.BILLABLE_CLICK,
-																	a
-															  );
+															? (e(11, a), f())
+															: e(0, a);
 											a.preventDefault();
 											a.stopPropagation();
 										};
@@ -14302,16 +14026,14 @@ try {
 										)),
 										this.$18.attachBehaviorManager(this.$20));
 								};
-								c.$102 = function(a, c, d, e, f, g, h) {
-									d.loaded = !0;
-									this.$16 = a.getElementsByClassName(
-										b("ANMWebAdElement").FB_AD_MEDIA
-									);
-									for (f = 0; f < this.$16.length; f++)
-										this.$87(a, this.$16[f], c, d, e, h);
-									this.$103(a, d, g);
-									c = a.getElementsByClassName(b("ANMWebAdElement").FB_AD_ICON);
-									for (f = 0; f < c.length; f++) c[f].appendChild(this.$104(d));
+								c.$102 = function(a, b, c, d, e, f, g) {
+									c.loaded = !0;
+									this.$16 = a.getElementsByClassName("fbAdMedia");
+									for (e = 0; e < this.$16.length; e++)
+										this.$87(a, this.$16[e], b, c, d, g);
+									this.$103(a, c, f);
+									b = a.getElementsByClassName("fbAdIcon");
+									for (e = 0; e < b.length; e++) b[e].appendChild(this.$104(c));
 								};
 								c.$105 = function(a) {
 									a = b("nullthrows")(a.ownerDocument.body);
@@ -14333,56 +14055,48 @@ try {
 										);
 									return d;
 								};
-								c.$106 = function(a, c, d, e, f, g, h) {
+								c.$106 = function(a, b, c, d, e, f, g) {
 									__p && __p();
-									this.$16 = a.getElementsByClassName(
-										b("ANMWebAdElement").FB_AD_MEDIA
-									);
-									var i = this.$16.length > 0,
-										j = ES("Array", "from", !1, this.$16);
-									for (var k = 0; k < j.length; k++) {
-										var l = j[k];
-										this.$78(d, e, f, l);
-										this.$87(a, l, c, d, e, h);
+									this.$16 = a.getElementsByClassName("fbAdMedia");
+									var h = this.$16.length > 0,
+										i = ES("Array", "from", !1, this.$16);
+									for (var j = 0; j < i.length; j++) {
+										var k = i[j];
+										this.$78(c, d, e, k);
+										this.$87(a, k, b, c, d, g);
 									}
-									this.$103(a, d, g);
-									l = a.getElementsByClassName(b("ANMWebAdElement").FB_AD_ICON);
-									j = ES("Array", "from", !1, l);
-									for (var k = 0; k < j.length; k++) {
-										c = j[k];
-										c.appendChild(this.$104(d));
+									this.$103(a, c, f);
+									k = a.getElementsByClassName("fbAdIcon");
+									i = ES("Array", "from", !1, k);
+									for (var j = 0; j < i.length; j++) {
+										b = i[j];
+										b.appendChild(this.$104(c));
 									}
-									return i;
+									return h;
 								};
-								c.$103 = function(a, c, d) {
+								c.$103 = function(a, b, c) {
 									__p && __p();
-									var e;
-									d = a.getElementsByClassName(
-										b("ANMWebAdElement").FB_AD_TITLE
-									);
-									for (e = 0; e < d.length; e++)
-										d[e].textContent = c.adTitle || "";
-									d = a.getElementsByClassName(
-										b("ANMWebAdElement").FB_AD_SUBTITLE
-									);
-									for (e = 0; e < d.length; e++)
-										d[e].textContent = c.adSubtitle || "";
-									d = a.getElementsByClassName(b("ANMWebAdElement").FB_AD_BODY);
-									for (e = 0; e < d.length; e++)
-										d[e].textContent = c.adBody || "";
-									d = a.getElementsByClassName("fbAdSocialContext");
-									for (e = 0; e < d.length; e++)
-										d[e].textContent = c.adSocialContext || "";
-									if (c.adCallToAction == null || c.href == null)
+									var d;
+									c = a.getElementsByClassName("fbAdTitle");
+									for (d = 0; d < c.length; d++)
+										c[d].textContent = b.adTitle || "";
+									c = a.getElementsByClassName("fbAdSubtitle");
+									for (d = 0; d < c.length; d++)
+										c[d].textContent = b.adSubtitle || "";
+									c = a.getElementsByClassName("fbAdBody");
+									for (d = 0; d < c.length; d++)
+										c[d].textContent = b.adBody || "";
+									c = a.getElementsByClassName("fbAdSocialContext");
+									for (d = 0; d < c.length; d++)
+										c[d].textContent = b.adSocialContext || "";
+									if (b.adCallToAction == null || b.href == null)
 										a.classList.add("fbAdNoCallToAction");
 									else {
-										d = a.getElementsByClassName(
-											b("ANMWebAdElement").FB_AD_CALL_TO_ACTION
-										);
-										for (e = 0; e < d.length; e++)
-											d[e].textContent = c.adCallToAction || "";
-										d = a.getElementsByClassName("fbAdLink");
-										for (e = 0; e < d.length; e++) this.$95(d[e], c);
+										c = a.getElementsByClassName("fbAdCallToAction");
+										for (d = 0; d < c.length; d++)
+											c[d].textContent = b.adCallToAction || "";
+										c = a.getElementsByClassName("fbAdLink");
+										for (d = 0; d < c.length; d++) this.$95(c[d], b);
 									}
 								};
 								c.$104 = function(a) {
@@ -14480,8 +14194,8 @@ try {
 								};
 								c.$100 = function(a) {
 									__p && __p();
-									var c;
-									c = ((c = {
+									var b;
+									b = ((b = {
 										fbAdCallToAction: "fbAdCallToAction",
 										fbAdTitle: "fbAdTitle",
 										fbAdBody: "fbAdBody",
@@ -14490,18 +14204,18 @@ try {
 										fbAdMediaCenter: "fbAdMediaCenter",
 										fbAdMedia: "fbAdMedia"
 									}),
-									(c._74vg = "fbTwoStepDialog"),
-									c);
-									var d = this.$42();
-									for (var e in c) {
-										var f = d.getElementsByClassName(e);
-										f = ES("Array", "from", !1, f);
-										for (var g = 0; g < f.length; g++) {
-											var h = f[g];
-											if (a === h || ES(h, "contains", !0, a)) return c[e];
+									(b._74vg = "fbTwoStepDialog"),
+									b);
+									var c = this.$42();
+									for (var d in b) {
+										var e = c.getElementsByClassName(d);
+										e = ES("Array", "from", !1, e);
+										for (var f = 0; f < e.length; f++) {
+											var g = e[f];
+											if (a === g || ES(g, "contains", !0, a)) return b[d];
 										}
 									}
-									return b("ANMWebAdElement").UNKNOWN;
+									return "UNKNOWN";
 								};
 								c.$84 = function() {
 									return this.$37().$46.videoMrcImpression === !0;
@@ -14680,13 +14394,7 @@ try {
 					);
 					__d(
 						"ANMultiAdsUnit",
-						[
-							"ANFullWidthLoader",
-							"ANLogger",
-							"ANUtils",
-							"LogLevels",
-							"nullthrows"
-						],
+						["ANFullWidthLoader", "ANLogger", "ANUtils", "nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
@@ -14697,7 +14405,7 @@ try {
 									(this.$1 = a),
 										(this.$2 = c),
 										(this.$3 = new (b("ANLogger"))(
-											b("LogLevels").ERROR,
+											3,
 											d.tagJsInitTime,
 											b("ANUtils").getNavigationStart(),
 											b("ANUtils").onlyString(d.data.key),
@@ -14752,9 +14460,7 @@ try {
 									var i = this.$8 / 2,
 										j = h.resize(this.$8, i * c);
 									if (e && !j)
-										this.$3.setLogLevel(
-											this.$1[0].features.logLevel || b("LogLevels").ERROR
-										),
+										this.$3.setLogLevel(this.$1[0].features.logLevel || 3),
 											this.$3.frameReady(),
 											this.$3.setUnifiedLoggingURL(
 												this.$1[0].unifiedLoggingURL
@@ -15142,7 +14848,6 @@ try {
 							"ANRecirculationInfiniteScroll",
 							"ANRecirculationUnit",
 							"ANUtils",
-							"LogLevels",
 							"VPAIDDomUtils",
 							"getTime",
 							"nullthrows"
@@ -15158,7 +14863,7 @@ try {
 									this.$1 = !1;
 									this.$2 = a;
 									this.$3 = new (b("ANLogger"))(
-										b("LogLevels").ERROR,
+										3,
 										a.tagJsInitTime,
 										b("ANUtils").getNavigationStart(),
 										this.$4(),
@@ -15466,25 +15171,25 @@ try {
 										this.renderAd(a, i, b, c, d);
 									}
 								};
-								c.adLoaded = function(a, c, d, e, f, g) {
+								c.adLoaded = function(a, b, c, d, e, f) {
 									__p && __p();
 									if (this.$1) {
 										this.$3.error("Multiple ADLOADED attempted.");
 										return;
 									}
 									if (a.errorCode === void 0) {
-										var h = a.features;
-										this.$3.setLogLevel(h.logLevel || b("LogLevels").ERROR);
+										var g = a.features;
+										this.$3.setLogLevel(g.logLevel || 3);
 										this.$3.frameReady();
-										this.$10(a, c, d, e, f, g);
+										this.$10(a, b, c, d, e, f);
 										this.$1 = !0;
 									} else if (a.success === void 0) {
 										this.$3.error();
-										e(a.errorCode, a.errorMsg, a.placementId);
+										d(a.errorCode, a.errorMsg, a.placementId);
 										return;
 									} else {
 										this.$3.error();
-										e("1099", "Invalid ad data", a.placementId);
+										d("1099", "Invalid ad data", a.placementId);
 										return;
 									}
 								};
@@ -15685,7 +15390,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001157438","namespace":"FB","message":"' +
+				'","revision":"1001162967","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
