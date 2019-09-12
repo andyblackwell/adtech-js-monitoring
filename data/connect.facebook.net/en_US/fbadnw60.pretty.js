@@ -1,4 +1,4 @@
-/*1568245492,,JIT Construction: v1001162967,en_US*/
+/*1568302242,,JIT Construction: v1001166518,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4295,14 +4295,15 @@ try {
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var g = -1,
-								h = 0,
-								i = 1,
-								j = [
+							var g = "\u2026",
+								h = -1,
+								i = 0,
+								j = 1,
+								k = [
 									/^https?:\/\/itunes\.apple\.com\/([^\/]+\/)?app\//,
 									/^market:\/\/details/
 								];
-							function k(a) {
+							function l(a) {
 								var b = ES(
 									a,
 									"indexOf",
@@ -4312,31 +4313,31 @@ try {
 								);
 								return b === -1 ? a : a.substring(0, b);
 							}
-							function l(a) {
-								var b = k(a);
+							function m(a) {
+								var b = l(a);
 								a = ES(a, "indexOf", !0, ":", ES(a, "indexOf", !0, "://") + 3);
 								a !== -1 && (b = b.substring(0, a));
 								a = ES(b, "indexOf", !0, "://");
 								return a === -1 ? b : b.substring(a + 3);
 							}
-							function m() {
+							function n() {
 								var a = location.ancestorOrigins || [],
 									b = a[a.length - 1] || location.origin;
 								a = a[a.length - 2] || location.origin;
-								if (n(b) && o(a)) return a;
+								if (o(b) && p(a)) return a;
 								else return b;
 							}
 							function a() {
-								return l(m());
+								return m(n());
 							}
-							var n = function(a) {
+							var o = function(a) {
 								var b = /^https?:\/\/www\.google(\.com?)?.\w{2,3}$/;
 								return !!a.match(b);
 							};
-							function o(a) {
+							function p(a) {
 								return ES(a, "endsWith", !0, "cdn.ampproject.org");
 							}
-							function p(a) {
+							function q(a) {
 								var b;
 								ES(a, "indexOf", !0, "://") > -1
 									? (b = a.split("/")[2])
@@ -4347,11 +4348,11 @@ try {
 								return b;
 							}
 							function c(a, b) {
-								a = p(a);
+								a = q(a);
 								a = a.substring(a.length - b.length);
 								return a === b;
 							}
-							function q(a) {
+							function r(a) {
 								a === void 0 && (a = null);
 								a = a || window;
 								var b = [a];
@@ -4362,7 +4363,7 @@ try {
 								return b.reverse();
 							}
 							function d() {
-								var a = r();
+								var a = s();
 								a =
 									(a.performance &&
 										a.performance.timing &&
@@ -4370,12 +4371,12 @@ try {
 									0;
 								return a;
 							}
-							function r() {
-								return q()[0];
+							function s() {
+								return r()[0];
 							}
-							function s(a) {
+							function t(a) {
 								__p && __p();
-								var b = q();
+								var b = r();
 								for (var c = 0; c < b.length; c++) {
 									var d = b[c],
 										e = d.ADNW || {};
@@ -4389,12 +4390,12 @@ try {
 								throw new Error("no_writable_global");
 							}
 							function f() {
-								return s("v55");
+								return t("v55");
 							}
-							function t() {
-								return s("v60");
+							function u() {
+								return t("v60");
 							}
-							function u(a) {
+							function v(a) {
 								if (a instanceof Node) return a;
 								return a &&
 									a.ownerDocument &&
@@ -4404,22 +4405,22 @@ try {
 									? a
 									: null;
 							}
-							function v(a) {
-								a = u(a);
+							function w(a) {
+								a = v(a);
 								return a &&
 									(a instanceof HTMLElement ||
 										a instanceof a.ownerDocument.defaultView.HTMLElement)
 									? a
 									: null;
 							}
-							function w(a) {
+							function x(a) {
 								return a &&
 									(a instanceof HTMLBodyElement ||
 										a instanceof a.ownerDocument.defaultView.HTMLBodyElement)
 									? a
 									: null;
 							}
-							function x(a) {
+							function y(a) {
 								return !!(
 									a &&
 									a.id &&
@@ -4427,27 +4428,27 @@ try {
 										a.hasAttribute("data-google-query-id"))
 								);
 							}
-							function y(a) {
+							function z(a) {
 								return a.ownerDocument.defaultView.frameElement;
 							}
-							function z(a) {
+							function A(a) {
 								return !!(a && a.id && a.id.match(/^google_ads_iframe_/));
 							}
-							function A(a) {
+							function B(a) {
 								while (a != null) {
-									if (z(a)) return !0;
-									a = y(a);
+									if (A(a)) return !0;
+									a = z(a);
 								}
 								return !1;
 							}
-							function B(a) {
-								var b = y(a);
+							function C(a) {
+								var b = z(a);
 								if (b == null) return;
-								if (!z(b)) return;
-								E(b, "100%", b.clientHeight);
-								E(b, "100%", a.clientHeight);
+								if (!A(b)) return;
+								F(b, "100%", b.clientHeight);
+								F(b, "100%", a.clientHeight);
 							}
-							function C(a, c) {
+							function D(a, c) {
 								__p && __p();
 								var d = c.ownerDocument;
 								d = d.createElement("iframe");
@@ -4458,20 +4459,20 @@ try {
 								a.appendChild(c);
 								a.style.margin = "0";
 								d.style.border = "none";
-								E(d, "100%", null);
+								F(d, "100%", null);
 								return d;
 							}
-							function D(a) {
+							function E(a) {
 								return a == null ? "" : typeof a === "string" ? a : a + "px";
 							}
-							function E(a, b, c) {
+							function F(a, b, c) {
 								b === void 0 && (b = null);
 								c === void 0 && (c = null);
 								if (!a) return;
-								a.style.width = D(b);
-								a.style.height = D(c);
+								a.style.width = E(b);
+								a.style.height = E(c);
 							}
-							function F(a, b) {
+							function G(a, b) {
 								return document.defaultView &&
 									document.defaultView.getComputedStyle
 									? document.defaultView
@@ -4479,45 +4480,45 @@ try {
 											.getPropertyValue(b)
 									: "";
 							}
-							function G(a) {
+							function H(a) {
 								return !!(a && a.id && a.id.match(/^apstag-f-iframe-/));
 							}
-							function H(a) {
-								G(a) && (a = a.ownerDocument.defaultView.frameElement);
-								a = a.parentElement && a.parentElement.parentElement;
-								return x(a) ? a : null;
-							}
 							function I(a) {
-								var b = a.ownerDocument.defaultView;
-								return parseInt(b.getComputedStyle(a).width, 10);
+								H(a) && (a = a.ownerDocument.defaultView.frameElement);
+								a = a.parentElement && a.parentElement.parentElement;
+								return y(a) ? a : null;
 							}
 							function J(a) {
 								var b = a.ownerDocument.defaultView;
+								return parseInt(b.getComputedStyle(a).width, 10);
+							}
+							function K(a) {
+								var b = a.ownerDocument.defaultView;
 								return parseInt(b.getComputedStyle(a).height, 10);
 							}
-							function K() {
+							function L() {
 								return window.screen.width;
 							}
-							function L() {
+							function M() {
 								return window.screen.height;
 							}
-							function M() {
+							function N() {
 								return (
 									b("ScreenOrientation.adquality").getScreenOrientation() == "v"
 								);
 							}
-							function N(a) {
+							function O(a) {
 								if (!a) return !1;
-								for (var b = 0; b < j.length; b++) {
-									var c = j[b];
+								for (var b = 0; b < k.length; b++) {
+									var c = k[b];
 									if (a.match(c)) return !0;
 								}
 								return !1;
 							}
-							function O(a) {
+							function P(a) {
 								a = a;
 								while (a) {
-									G(a) && (a = a.ownerDocument.defaultView.frameElement);
+									H(a) && (a = a.ownerDocument.defaultView.frameElement);
 									if (
 										window.getComputedStyle(a).overflowX !== "visible" ||
 										!a.parentElement
@@ -4527,59 +4528,61 @@ try {
 								}
 								return a;
 							}
-							function P(a) {
+							function Q(a) {
 								a = a.getBoundingClientRect();
 								var b = a.left;
-								a = K() - a.right;
+								a = L() - a.right;
 								return Math.max(a, b);
 							}
-							function Q(a) {
+							function R(a) {
 								return a.scrollHeight > a.clientHeight + 3;
 							}
-							function R(a, b, c) {
+							function S(a, b, c) {
 								__p && __p();
-								var d = c.slice(0, b).join(" ") + "\u2026";
+								var d = c.slice(0, b).join(" ") + g;
 								a.textContent = d;
-								if (Q(a)) return i;
-								if (b >= c.length) return h;
-								a.textContent = c.slice(0, b + 1).join(" ") + "\u2026";
-								if (Q(a)) {
+								if (R(a)) return j;
+								if (b >= c.length) return i;
+								a.textContent = c.slice(0, b + 1).join(" ") + g;
+								if (R(a)) {
 									a.textContent = d;
-									return h;
+									return i;
 								}
 								a.textContent = d;
-								return g;
+								return h;
 							}
-							function S(a) {
-								if (!Q(a)) return;
+							function T(a) {
+								if (!R(a)) return;
 								var b = a.textContent.split(" "),
 									c = 0,
 									d = b.length - 1;
 								while (c <= d) {
 									var e = Math.floor((c + d) / 2),
-										f = R(a, e, b);
-									if (f === h) break;
-									f === i ? (d = e - 1) : (c = e + 1);
+										f = S(a, e, b);
+									if (f === i) break;
+									f === j ? (d = e - 1) : (c = e + 1);
 								}
 							}
-							function T(a) {
+							function U(a, b) {
+								b === void 0 && (b = function() {});
 								a = a.querySelectorAll("[data-auto-fit-text=true]");
-								for (var b = 0; b < a.length; b++) S(a[b]);
+								for (var c = 0; c < a.length; c++)
+									T(a[c]), ES(a[c].textContent, "trim", !0) === g && b();
 							}
-							function U(a) {
+							function V(a) {
 								var b = !1;
 								return function() {
 									b || ((b = !0), a.apply(void 0, arguments));
 								};
 							}
-							function V(a) {
+							function W(a) {
 								if (typeof a === "string") return a;
 								else return "";
 							}
-							function W(a, b, c) {
+							function X(a, b, c) {
 								a.contentWindow.postMessage(c, b);
 							}
-							function X(a) {
+							function Y(a) {
 								return a instanceof Promise
 									? !0
 									: a !== null &&
@@ -4587,57 +4590,57 @@ try {
 											typeof a.then === "function" &&
 											typeof a["catch"] === "function";
 							}
-							function Y(a) {
+							function Z(a) {
 								return !a || !a.nodeType || a.nodeType !== Node.ELEMENT_NODE
 									? null
 									: a;
 							}
-							function Z(a) {
+							function $(a) {
 								if (a.nodeName === "BODY") return !1;
 								var b = window.getComputedStyle(a).overflowY;
 								if (b === "scroll" || b === "auto") return !1;
-								return J(a) > L() * 2 ? !1 : !0;
+								return K(a) > M() * 2 ? !1 : !0;
 							}
 							e.exports = {
-								autofitIfInDfpIframe: B,
-								calculateLargestMargin: P,
-								cssSize: D,
-								extractOrigin: k,
-								extractDomain: l,
-								extractHostname: p,
-								findWidestParentElement: O,
-								getDFPRoot: H,
-								getElementWidth: I,
-								getElementHeight: J,
-								getContainingIframe: y,
-								getScreenHeight: L,
-								getScreenWidth: K,
-								getStyle: F,
+								autofitIfInDfpIframe: C,
+								calculateLargestMargin: Q,
+								cssSize: E,
+								extractOrigin: l,
+								extractDomain: m,
+								extractHostname: q,
+								findWidestParentElement: P,
+								getDFPRoot: I,
+								getElementWidth: J,
+								getElementHeight: K,
+								getContainingIframe: z,
+								getScreenHeight: M,
+								getScreenWidth: L,
+								getStyle: G,
 								getNavigationStart: d,
-								getTopMostAccessibleWindow: r,
+								getTopMostAccessibleWindow: s,
 								getV55TagStateContainer: f,
-								getV60TagStateContainer: t,
-								getWindowHierarchy: q,
-								isA9Container: G,
-								isAppStoreURL: N,
-								isInDfpIframe: A,
-								isDfpContainer: x,
-								isPromiseLike: X,
+								getV60TagStateContainer: u,
+								getWindowHierarchy: r,
+								isA9Container: H,
+								isAppStoreURL: O,
+								isInDfpIframe: B,
+								isDfpContainer: y,
+								isPromiseLike: Y,
 								isSameRootDomain: c,
-								maybeHTMLElement: v,
-								maybeHTMLBodyElement: w,
-								maybeNode: u,
-								once: U,
-								onlyString: V,
-								resizeElement: E,
-								screenIsPortrait: M,
-								sendToFacebook: W,
-								truncateTextToFitElement: S,
-								autofitTextWhereNeeded: T,
+								maybeHTMLElement: w,
+								maybeHTMLBodyElement: x,
+								maybeNode: v,
+								once: V,
+								onlyString: W,
+								resizeElement: F,
+								screenIsPortrait: N,
+								sendToFacebook: X,
+								truncateTextToFitElement: T,
+								autofitTextWhereNeeded: U,
 								getTopDomain: a,
-								wrapInIframe: C,
-								checkHTMLElement: Y,
-								shouldContinueTraversing: Z
+								wrapInIframe: D,
+								checkHTMLElement: Z,
+								shouldContinueTraversing: $
 							};
 						},
 						null
@@ -13386,7 +13389,9 @@ try {
 										d = new (b("ANMultiAdsSingleCard"))(this.$15, this.$42());
 										d.resizeAd();
 									}
-									b("ANUtils").autofitTextWhereNeeded(this.$42());
+									b("ANUtils").autofitTextWhereNeeded(this.$42(), function() {
+										f.$23.event("ADNW_TEXT_AUTOFIT_ERROR");
+									});
 								};
 								c.$73 = function(a) {
 									var c = this.$18;
@@ -15042,6 +15047,7 @@ try {
 										this.$2.adInputData.recircdisablepages === !0;
 									var r, s;
 									m || ((r = p.getBottomOverlay()), (s = p.getTopOverlay()));
+									j.recircShouldEnableEagerInfiniteScroll && (r = null);
 									if (
 										n &&
 										j.maxPageRecirc != null &&
@@ -15390,7 +15396,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001162967","namespace":"FB","message":"' +
+				'","revision":"1001166518","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
