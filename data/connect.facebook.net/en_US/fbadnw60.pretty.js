@@ -1,4 +1,4 @@
-/*1568670247,,JIT Construction: v1001179551,en_US*/
+/*1568730716,,JIT Construction: v1001183496,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4515,16 +4515,20 @@ try {
 								}
 								return !1;
 							}
-							function P(a) {
+							function P(a, b) {
 								a = a;
 								while (a) {
 									H(a) && (a = a.ownerDocument.defaultView.frameElement);
 									if (
 										window.getComputedStyle(a).overflowX !== "visible" ||
-										!a.parentElement
+										(!b && !a.parentElement)
 									)
 										break;
-									a = a.parentElement;
+									!b
+										? (a = a.parentElement)
+										: (a = a.parentElement
+												? a.parentElement
+												: a.ownerDocument.defaultView.frameElement);
 								}
 								return a;
 							}
@@ -13434,16 +13438,16 @@ try {
 								};
 								c.$68 = function() {
 									var a = 300,
-										c = b("ANUtils").getScreenWidth(),
-										d = this.$35() || this.$11;
-									d = b("ANUtils").findWidestParentElement(d);
-									var e = b("ANUtils").calculateLargestMargin(d);
-									this.$15 = c - e * 2;
-									var f = this.$37().$46.fwResizeGKs;
-									f && f.iframe_resize_parent === !0 && (this.$15 = c);
+										c = this.$37().$46.fwResizeGKs;
+									c = c && c.iframe_resize_parent === !0;
+									var d = b("ANUtils").getScreenWidth(),
+										e = this.$35() || this.$11;
+									e = b("ANUtils").findWidestParentElement(e, c);
+									c = b("ANUtils").calculateLargestMargin(e);
+									this.$15 = d - c * 2;
 									this.$15 < a &&
-										((this.$15 = a), (e = d.getBoundingClientRect().right - a));
-									return e;
+										((this.$15 = a), (c = e.getBoundingClientRect().right - a));
+									return c;
 								};
 								c.$66 = function() {
 									__p && __p();
@@ -14439,7 +14443,7 @@ try {
 									var a = 300,
 										c = b("ANUtils").getScreenWidth(),
 										d = b("ANUtils").getContainingIframe(this.$2) || this.$2;
-									d = b("ANUtils").findWidestParentElement(d);
+									d = b("ANUtils").findWidestParentElement(d, null);
 									var e = b("ANUtils").calculateLargestMargin(d);
 									this.$8 = c - e * 2;
 									this.$8 < a &&
@@ -15403,7 +15407,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001179551","namespace":"FB","message":"' +
+				'","revision":"1001183496","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
