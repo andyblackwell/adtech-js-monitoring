@@ -1,4 +1,4 @@
-/*1568754905,,JIT Construction: v1001185123,en_US*/
+/*1568823679,,JIT Construction: v1001188893,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4924,10 +4924,10 @@ try {
 								};
 								b.$3 = function() {
 									var a = this;
-									this.$1.addEventListener("touchstart", function() {
+									this.$1.addEventListener("touchend", function() {
 										a.$4();
 									});
-									this.$2.addEventListener("touchstart", function() {
+									this.$2.addEventListener("touchend", function() {
 										a.$5();
 									});
 								};
@@ -13325,7 +13325,8 @@ try {
 										? (this.$11.style.display = "")
 										: (this.$49(a) &&
 												(this.$39() ? this.$66() : this.$67(),
-												this.$37().$46.resizeMediaView &&
+												(this.$37().$46.resizeMediaView ||
+													this.$37().$46.shouldResizeBanner) &&
 													((this.$11.style.visibility = "hidden"),
 													(g = this.$68()))),
 										  this.$69(
@@ -13337,7 +13338,8 @@ try {
 										  ));
 									this.$42().classList.add("fbAdLoaded");
 									this.$37().$62 && d(a.placementId);
-									this.$37().$46.resizeMediaView
+									this.$37().$46.resizeMediaView ||
+									this.$37().$46.shouldResizeBanner
 										? window.setTimeout(function() {
 												__p && __p();
 												var d = new (b("ANFullWidthLoader"))(
@@ -13403,7 +13405,10 @@ try {
 									this.$34().addEventListener("beforeunload", function() {
 										f.$23.event("ADNW_PAGE_UNLOADED"), f.$74();
 									});
-									if (this.$37().$46.useBannerV2) {
+									if (
+										this.$37().$46.useBannerV2 ||
+										this.$37().$46.bannerTwoStepClick
+									) {
 										e = new (b("ANBanner"))(this.$42());
 										e.init();
 									} else if (
@@ -14869,8 +14874,22 @@ try {
 						null
 					);
 					__d(
+						"AdNetworkRecirculationTagOptionsInfiniteScroll",
+						[],
+						function(a, b, c, d, e, f) {
+							e.exports = ES("Object", "freeze", !1, {
+								CONSERVATIVE: "conservative",
+								EAGER: "eager",
+								OFF: "off",
+								AUTO: "auto"
+							});
+						},
+						null
+					);
+					__d(
 						"ANCoreProxy",
 						[
+							"AdNetworkRecirculationTagOptionsInfiniteScroll",
 							"ANAdManager",
 							"ANLogger",
 							"ANMultiAdsUnit",
@@ -14950,34 +14969,35 @@ try {
 									__p && __p();
 									var i = this,
 										j = a.features,
-										k = this.$2.rootElement,
-										l = null,
-										m = this.$5(a),
-										n = j.maxPageRecirc != null && j.maxPageRecirc > 0,
-										o = this.$2.recircpageidx || 0;
-									if (n && o === 0) {
-										var p = g("fbRecircPage-0"),
-											q = this.$2.rootElement;
-										q.appendChild(p);
-										k = p;
+										k = a.recirculation,
+										l = this.$2.rootElement,
+										m = null,
+										n = this.$5(a),
+										o = j.maxPageRecirc != null && j.maxPageRecirc > 0,
+										p = this.$2.recircpageidx || 0;
+									if (o && p === 0) {
+										var q = g("fbRecircPage-0"),
+											r = this.$2.rootElement;
+										r.appendChild(q);
+										l = q;
 									}
 									if (
-										!b("ANUtils").isInDfpIframe(k) &&
+										!b("ANUtils").isInDfpIframe(l) &&
 										j.wrapRecirculationInIframe
 									) {
-										q = document.createElement("div");
-										k.innerHTML = "";
-										k.appendChild(q);
+										r = document.createElement("div");
+										l.innerHTML = "";
+										l.appendChild(r);
 										j.wrapRecirculationInIframe &&
-											(l = b("ANUtils").wrapInIframe(k, q));
-										k = q;
+											(m = b("ANUtils").wrapInIframe(l, r));
+										l = r;
 									}
-									a.wrapperMarkup && (k.innerHTML = a.wrapperMarkup);
-									p = b("ANRecirculationUnit").render(
+									a.wrapperMarkup && (l.innerHTML = a.wrapperMarkup);
+									q = b("ANRecirculationUnit").render(
 										b("nullthrows")(a.recommendedContent),
-										m,
-										o,
-										k,
+										n,
+										p,
+										l,
 										b("nullthrows")(a.wrapperItemMarkup),
 										j,
 										function(a, b) {
@@ -14992,7 +15012,7 @@ try {
 													payload: {
 														type: b("ANMWebUnifiedLoggingRecirculationEvent")
 															.IMPRESSION,
-														page: o,
+														page: p,
 														index: a
 													}
 												}
@@ -15023,7 +15043,7 @@ try {
 													payload: {
 														type: b("ANMWebUnifiedLoggingRecirculationEvent")
 															.CLICK,
-														page: o,
+														page: p,
 														index: a
 													}
 												}
@@ -15053,7 +15073,7 @@ try {
 											);
 										},
 										function() {
-											f && f(a.placementId, { hasInfiniteScroll: n });
+											f && f(a.placementId, { hasInfiniteScroll: o });
 										},
 										function() {
 											h &&
@@ -15064,34 +15084,40 @@ try {
 												);
 										}
 									);
-									q = !1;
+									r = !1;
 									j.shouldShowLoadMoreButton &&
-										(q = j.shouldShowLoadMoreButton);
-									m =
+										(r = j.shouldShowLoadMoreButton);
+									n =
 										this.$2.adInputData &&
 										this.$2.adInputData.recircdisablepages === !0;
-									var r, s;
-									m || ((r = p.getBottomOverlay()), (s = p.getTopOverlay()));
-									j.recircShouldEnableEagerInfiniteScroll && (r = null);
+									var s, t;
+									n || ((s = q.getBottomOverlay()), (t = q.getTopOverlay()));
+									n =
+										!!j.recircShouldEnableEagerInfiniteScroll ||
+										(k &&
+											k.options.infinite_scroll ===
+												b("AdNetworkRecirculationTagOptionsInfiniteScroll")
+													.EAGER);
+									n && (s = null);
 									if (
-										n &&
+										o &&
 										j.maxPageRecirc != null &&
-										o < j.maxPageRecirc &&
+										p < j.maxPageRecirc &&
 										!j.recircBlank
 									) {
-										m = this.$2.data.recircUnitId;
-										var t = this.$2.adInputData,
-											u = this.$2.tagStateContainer;
-										if (m != null && t != null && u != null) {
-											p = new (b("ANRecirculationInfiniteScroll"))({
-												currentPage: o,
-												element: k,
-												nextPageTriggerElement: s,
-												unit: p,
-												cancelPageTriggerElement: r,
-												showLoadMoreButton: q,
-												unitId: m,
-												adInputData: t,
+										k = this.$2.data.recircUnitId;
+										n = this.$2.adInputData;
+										var u = this.$2.tagStateContainer;
+										if (k != null && n != null && u != null) {
+											q = new (b("ANRecirculationInfiniteScroll"))({
+												currentPage: p,
+												element: l,
+												nextPageTriggerElement: t,
+												unit: q,
+												cancelPageTriggerElement: s,
+												showLoadMoreButton: r,
+												unitId: k,
+												adInputData: n,
 												tagStateContainer: u,
 												logger: this.$3,
 												onCancelledPage: function() {
@@ -15104,7 +15130,7 @@ try {
 																type: b(
 																	"ANMWebUnifiedLoggingRecirculationEvent"
 																).CANCEL_PAGE_LOAD,
-																page: o + 1,
+																page: p + 1,
 																index: -1
 															}
 														}
@@ -15137,13 +15163,13 @@ try {
 													});
 												}
 											});
-											p.observe();
+											q.observe();
 										}
 									}
-									if (l != null) {
-										q = b("nullthrows")(l.contentDocument.body);
-										q.style.overflowY = "hidden";
-										b("ANUtils").resizeElement(l, "100%", k.clientHeight);
+									if (m != null) {
+										r = b("nullthrows")(m.contentDocument.body);
+										r.style.overflowY = "hidden";
+										b("ANUtils").resizeElement(m, "100%", l.clientHeight);
 									}
 								};
 								c.$9 = function(a, c, d, e, f, g) {
@@ -15421,7 +15447,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001185123","namespace":"FB","message":"' +
+				'","revision":"1001188893","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
