@@ -1,4 +1,4 @@
-/*1568902128,,JIT Construction: v1001194092,en_US*/
+/*1568913306,,JIT Construction: v1001194494,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -13455,17 +13455,28 @@ try {
 									}
 								};
 								c.$68 = function() {
+									__p && __p();
 									var a = 300,
-										c = this.$37().$46.fwResizeGKs;
-									c = c && c.iframe_resize_parent === !0;
-									var d = b("ANUtils").getScreenWidth(),
-										e = this.$35() || this.$11;
-									e = b("ANUtils").findWidestParentElement(e, c);
-									c = b("ANUtils").calculateLargestMargin(e);
-									this.$15 = d - c * 2;
-									this.$15 < a &&
-										((this.$15 = a), (c = e.getBoundingClientRect().right - a));
-									return c;
+										c = 375,
+										d = this.$37().$46.fwResizeGKs;
+									d = d && d.iframe_resize_parent === !0;
+									var e = b("ANUtils").getScreenWidth(),
+										f = this.$35() || this.$11;
+									f = b("ANUtils").findWidestParentElement(f, d);
+									d = b("ANUtils").calculateLargestMargin(f);
+									this.$15 = e - d * 2;
+									if (this.$15 < a)
+										(this.$15 = a), (d = f.getBoundingClientRect().right - a);
+									else if (
+										this.$15 > c &&
+										!!this.$37().$46.showMultiAds &&
+										!!this.$37().$46.shouldLimitHeight
+									) {
+										e = this.$15 - c;
+										d += e / 2;
+										this.$15 = c;
+									}
+									return d;
 								};
 								c.$66 = function() {
 									__p && __p();
@@ -14436,7 +14447,7 @@ try {
 							var g = "MULTI_ADS_FW_RESIZE_FAIL";
 							a = (function() {
 								__p && __p();
-								function a(a, c, d, e, f, g, h) {
+								function a(a, c, d, e, f, g, h, i) {
 									(this.$1 = a),
 										(this.$2 = c),
 										(this.$3 = new (b("ANLogger"))(
@@ -14447,29 +14458,37 @@ try {
 											d.iframe,
 											d.domain
 										)),
-										(this.$4 = e),
-										(this.$5 = f),
-										(this.$6 = g),
-										(this.$7 = h),
+										(this.$4 = f),
+										(this.$5 = g),
+										(this.$6 = h),
+										(this.$7 = i),
+										(this.$9 = e),
 										(this.$8 = 0);
 								}
-								a.render = function(b, c, d, e, f, g, h) {
-									b = new a(b, c, d, e, f, g, h);
-									b.$9();
+								a.render = function(b, c, d, e, f, g, h, i) {
+									b = new a(b, c, d, e, f, g, h, i);
+									b.$10();
 								};
 								var c = a.prototype;
-								c.$10 = function() {
+								c.$11 = function() {
+									__p && __p();
 									var a = 300,
-										c = b("ANUtils").getScreenWidth(),
-										d = b("ANUtils").getContainingIframe(this.$2) || this.$2;
-									d = b("ANUtils").findWidestParentElement(d, null);
-									var e = b("ANUtils").calculateLargestMargin(d);
-									this.$8 = c - e * 2;
-									this.$8 < a &&
-										((this.$8 = a), (e = d.getBoundingClientRect().right - a));
-									return e;
+										c = 375,
+										d = b("ANUtils").getScreenWidth(),
+										e = b("ANUtils").getContainingIframe(this.$2) || this.$2;
+									e = b("ANUtils").findWidestParentElement(e, null);
+									var f = b("ANUtils").calculateLargestMargin(e);
+									this.$8 = d - f * 2;
+									if (this.$8 < a)
+										(this.$8 = a), (f = e.getBoundingClientRect().right - a);
+									else if (this.$8 > c && this.$9) {
+										d = this.$8 - c;
+										f += d / 2;
+										this.$8 = c;
+									}
+									return f;
 								};
-								c.$9 = function() {
+								c.$10 = function() {
 									__p && __p();
 									var a = this.$2.querySelectorAll(".fbSlot");
 									if (a.length === 0) {
@@ -14481,7 +14500,7 @@ try {
 										d = this.$1[0].creativeMarkupBackup,
 										e = !!d,
 										f = b("ANUtils").getContainingIframe(this.$2),
-										h = this.$10();
+										h = this.$11();
 									h = new (b("ANFullWidthLoader"))(
 										!0,
 										f,
@@ -15184,6 +15203,7 @@ try {
 										j,
 										i,
 										this.$2,
+										!!this.$2.data.features.shouldLimitHeight,
 										function(a, b) {
 											h.renderAd(a, b, c, d, e);
 										},
@@ -15450,7 +15470,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001194092","namespace":"FB","message":"' +
+				'","revision":"1001194494","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
