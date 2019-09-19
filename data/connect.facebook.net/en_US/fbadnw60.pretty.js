@@ -1,4 +1,4 @@
-/*1568913306,,JIT Construction: v1001194494,en_US*/
+/*1568936286,,JIT Construction: v1001196994,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -14585,7 +14585,7 @@ try {
 						null
 					);
 					__d(
-						"ANRecirculationInfiniteScroll",
+						"ANRecirculationPagination",
 						[
 							"ANGenericViewabilityObserver",
 							"ANUtils",
@@ -14906,14 +14906,27 @@ try {
 						null
 					);
 					__d(
+						"AdNetworkRecirculationTagOptionsShowMoreButton",
+						[],
+						function(a, b, c, d, e, f) {
+							e.exports = ES("Object", "freeze", !1, {
+								ON: "on",
+								OFF: "off",
+								AUTO: "auto"
+							});
+						},
+						null
+					);
+					__d(
 						"ANCoreProxy",
 						[
 							"AdNetworkRecirculationTagOptionsInfiniteScroll",
+							"AdNetworkRecirculationTagOptionsShowMoreButton",
 							"ANAdManager",
 							"ANLogger",
 							"ANMultiAdsUnit",
 							"ANMWebUnifiedLoggingRecirculationEvent",
-							"ANRecirculationInfiniteScroll",
+							"ANRecirculationPagination",
 							"ANRecirculationUnit",
 							"ANUtils",
 							"VPAIDDomUtils",
@@ -15102,20 +15115,21 @@ try {
 												);
 										}
 									);
-									q = !1;
-									j.shouldShowLoadMoreButton &&
-										(q = j.shouldShowLoadMoreButton);
-									m = b("nullthrows")(
+									q = b("nullthrows")(
 										a.recirculation,
 										"Recirculation payload is not available"
 									);
-									m = m.options.infinite_scroll;
+									m = q.options.infinite_scroll;
+									q = q.options.show_more_button;
 									var r =
 										m !==
 										b("AdNetworkRecirculationTagOptionsInfiniteScroll").OFF;
 									m =
 										m ===
 										b("AdNetworkRecirculationTagOptionsInfiniteScroll").EAGER;
+									q =
+										q ===
+										b("AdNetworkRecirculationTagOptionsShowMoreButton").ON;
 									var s, t;
 									r &&
 										((s = m ? null : p.getBottomOverlay()),
@@ -15131,7 +15145,7 @@ try {
 										r = this.$2.adInputData;
 										var u = this.$2.tagStateContainer;
 										if (m != null && r != null && u != null) {
-											p = new (b("ANRecirculationInfiniteScroll"))({
+											p = new (b("ANRecirculationPagination"))({
 												currentPage: o,
 												element: k,
 												nextPageTriggerElement: t,
@@ -15470,7 +15484,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001194494","namespace":"FB","message":"' +
+				'","revision":"1001196994","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
