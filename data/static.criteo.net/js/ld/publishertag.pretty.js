@@ -772,7 +772,7 @@
 			"number" == typeof window.PREBID_TIMEOUT ? window.PREBID_TIMEOUT : void 0;
 		return e && t ? Math.min(e, t) : e || t || void 0;
 	}
-	var PublisherTagVersion = 69,
+	var PublisherTagVersion = 73,
 		DirectBiddingMetric = function(e, t, i, o, n, r, a, s, d, c, l, u, p) {
 			(this.publisherTagVersion = e),
 				(this.slots = t),
@@ -2336,7 +2336,8 @@
 				e
 			);
 		})(),
-		standaloneProfileId = 184;
+		standaloneProfileId = 184,
+		standaloneAdBlockProfileId = 275;
 	function RequestBids(e, t, i) {
 		RequestBidsWithProfileId(e, standaloneProfileId, t, i);
 	}
@@ -2381,7 +2382,7 @@
 				n = window.criteo_pubtag.context,
 				r = StandaloneAdBlockFlagManager.create();
 			if (r.adBlockFlagEnabled()) {
-				n.isAdBlocked = !0;
+				(t = standaloneAdBlockProfileId), (n.isAdBlocked = !0);
 				var a = StandalonePlaceholder.tryInsertPlaceholders(y.placements);
 				if (0 === a.length) return;
 				y.placements = a;
@@ -2726,6 +2727,7 @@
 				(this.minduration = d),
 				(this.startdelay = c);
 		},
+		publisherTagHasBeenPreFetched = void 0 === window.pbjs,
 		PrebidMediaTypes,
 		Or;
 	(Or = PrebidMediaTypes || (PrebidMediaTypes = {})),
@@ -2735,11 +2737,12 @@
 	var Prebid = (function() {
 			function o(e, t, i, o, n) {
 				var r, a;
-				(this.timer = new DirectBiddingTimer(
-					new DirectBiddingMetricBuilder(),
-					o.auctionStart,
-					resolvePrebidTimeout(o.timeout)
-				)),
+				(this.ProfileIdPTPrefetch = 274),
+					(this.timer = new DirectBiddingTimer(
+						new DirectBiddingMetricBuilder(),
+						o.auctionStart,
+						resolvePrebidTimeout(o.timeout)
+					)),
 					(this.auctionId = o.auctionId),
 					(this.bidRequests = i),
 					(this.slots = []);
@@ -2789,7 +2792,7 @@
 						window.criteo_pubtag.context,
 						this.metricsManager,
 						new DirectBiddingUrlBuilder(!1),
-						e,
+						publisherTagHasBeenPreFetched ? this.ProfileIdPTPrefetch : e,
 						a,
 						r,
 						t,
@@ -3191,19 +3194,34 @@
 		(au[(au.InFriendlyIframe = 1)] = "InFriendlyIframe"),
 		(au[(au.InUnfriendlyIframe = 2)] = "InUnfriendlyIframe"),
 		(au[(au.DirectIntegration = 3)] = "DirectIntegration");
-	var ViewabilityComputer = (function() {
+	var DocumentHelper = (function() {
+			function e() {}
+			return (
+				(e.tryWrite = function(e) {
+					for (var t = [], i = 1; i < arguments.length; i++)
+						t[i - 1] = arguments[i];
+					return "loading" === e.readyState && (e.write.apply(e, t), !0);
+				}),
+				e
+			);
+		})(),
+		ViewabilityComputer = (function() {
 			function r() {}
 			return (
 				(r.GetAtfRatio = function(e, t) {
 					var i = document.getElementById(t);
 					if (e.displayContext === DisplayContext.DirectIntegration) {
 						if (null !== i) return r.GetRatioAboveFold(i);
-						document.write(
-							"<div id='compute_visibility_helper' width='0px' height='0px'></div>"
-						);
-						var o = document.getElementById("compute_visibility_helper"),
-							n = r.GetRatioAboveFold(o);
-						return o.parentElement.removeChild(o), n;
+						if (
+							DocumentHelper.tryWrite(
+								document,
+								"<div id='compute_visibility_helper' width='0px' height='0px'></div>"
+							)
+						) {
+							var o = document.getElementById("compute_visibility_helper"),
+								n = r.GetRatioAboveFold(o);
+							return o.parentElement.removeChild(o), n;
+						}
 					}
 					if (e.displayContext === DisplayContext.InFriendlyIframe)
 						return r.GetRatioAboveFold(frameElement);
@@ -3222,8 +3240,8 @@
 				r
 			);
 		})(),
-		__extends$14 = ((mu = function(e, t) {
-			return (mu =
+		__extends$14 = ((ru = function(e, t) {
+			return (ru =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3237,13 +3255,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			mu(e, t),
+			ru(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		mu,
+		ru,
 		DisplayEvent = (function(n) {
 			function e(e, t, i) {
 				var o = n.call(this, e) || this;
@@ -3269,12 +3287,12 @@
 			);
 		})(AbstractEvent),
 		HandlerType,
-		Lu;
-	(Lu = HandlerType || (HandlerType = {})),
-		(Lu[(Lu.AFR = 0)] = "AFR"),
-		(Lu[(Lu.AJS = 1)] = "AJS");
-	var __extends$15 = ((Mu = function(e, t) {
-			return (Mu =
+		Qu;
+	(Qu = HandlerType || (HandlerType = {})),
+		(Qu[(Qu.AFR = 0)] = "AFR"),
+		(Qu[(Qu.AJS = 1)] = "AJS");
+	var __extends$15 = ((Ru = function(e, t) {
+			return (Ru =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3288,13 +3306,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Mu(e, t),
+			Ru(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Mu,
+		Ru,
 		DisplayEventAFR = (function(a) {
 			function n(e, t, i) {
 				var o = a.call(this, n.NAME, e, t) || this;
@@ -3342,8 +3360,8 @@
 				n
 			);
 		})(DisplayEvent),
-		__extends$16 = ((nv = function(e, t) {
-			return (nv =
+		__extends$16 = ((sv = function(e, t) {
+			return (sv =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3357,13 +3375,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			nv(e, t),
+			sv(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		nv,
+		sv,
 		DisplayEventAsync = (function(_super) {
 			function DisplayEventAsync(e, t) {
 				return _super.call(this, DisplayEventAsync.NAME, e, t) || this;
@@ -3444,8 +3462,8 @@
 				DisplayEventAsync
 			);
 		})(DisplayEvent),
-		__extends$17 = ((Xv = function(e, t) {
-			return (Xv =
+		__extends$17 = ((aw = function(e, t) {
+			return (aw =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3459,13 +3477,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Xv(e, t),
+			aw(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Xv,
+		aw,
 		DisplayEventSync = (function(i) {
 			function o(e, t) {
 				return i.call(this, o.NAME, e, t) || this;
@@ -3488,8 +3506,8 @@
 				o
 			);
 		})(DisplayEvent),
-		__extends$18 = ((ow = function(e, t) {
-			return (ow =
+		__extends$18 = ((tw = function(e, t) {
+			return (tw =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3503,13 +3521,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			ow(e, t),
+			tw(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		ow,
+		tw,
 		DisplayInputParameters = (function(i) {
 			function e(e) {
 				var t = i.call(this) || this;
@@ -3895,7 +3913,7 @@
 			);
 		})(),
 		StorageOrigin,
-		iy;
+		ny;
 	function tryDecodeURIComponent(t, i) {
 		try {
 			return decodeURIComponent(t);
@@ -3917,10 +3935,10 @@
 			}
 		);
 	}
-	(iy = StorageOrigin || (StorageOrigin = {})),
-		(iy[(iy.None = 0)] = "None"),
-		(iy[(iy.Cookie = 1)] = "Cookie"),
-		(iy[(iy.LocalStorage = 2)] = "LocalStorage");
+	(ny = StorageOrigin || (StorageOrigin = {})),
+		(ny[(ny.None = 0)] = "None"),
+		(ny[(ny.Cookie = 1)] = "Cookie"),
+		(ny[(ny.LocalStorage = 2)] = "LocalStorage");
 	var CookieSynchronizer = (function() {
 			function o(e, t, i) {
 				(this.isDebug = t),
