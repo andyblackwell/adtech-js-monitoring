@@ -1,4 +1,4 @@
-/*1568823679,,JIT Construction: v1001188893,en_US*/
+/*1568902128,,JIT Construction: v1001194092,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -14969,35 +14969,34 @@ try {
 									__p && __p();
 									var i = this,
 										j = a.features,
-										k = a.recirculation,
-										l = this.$2.rootElement,
-										m = null,
-										n = this.$5(a),
-										o = j.maxPageRecirc != null && j.maxPageRecirc > 0,
-										p = this.$2.recircpageidx || 0;
-									if (o && p === 0) {
-										var q = g("fbRecircPage-0"),
-											r = this.$2.rootElement;
-										r.appendChild(q);
-										l = q;
+										k = this.$2.rootElement,
+										l = null,
+										m = this.$5(a),
+										n = j.maxPageRecirc != null && j.maxPageRecirc > 0,
+										o = this.$2.recircpageidx || 0;
+									if (n && o === 0) {
+										var p = g("fbRecircPage-0"),
+											q = this.$2.rootElement;
+										q.appendChild(p);
+										k = p;
 									}
 									if (
-										!b("ANUtils").isInDfpIframe(l) &&
+										!b("ANUtils").isInDfpIframe(k) &&
 										j.wrapRecirculationInIframe
 									) {
-										r = document.createElement("div");
-										l.innerHTML = "";
-										l.appendChild(r);
+										q = document.createElement("div");
+										k.innerHTML = "";
+										k.appendChild(q);
 										j.wrapRecirculationInIframe &&
-											(m = b("ANUtils").wrapInIframe(l, r));
-										l = r;
+											(l = b("ANUtils").wrapInIframe(k, q));
+										k = q;
 									}
-									a.wrapperMarkup && (l.innerHTML = a.wrapperMarkup);
-									q = b("ANRecirculationUnit").render(
+									a.wrapperMarkup && (k.innerHTML = a.wrapperMarkup);
+									p = b("ANRecirculationUnit").render(
 										b("nullthrows")(a.recommendedContent),
-										n,
-										p,
-										l,
+										m,
+										o,
+										k,
 										b("nullthrows")(a.wrapperItemMarkup),
 										j,
 										function(a, b) {
@@ -15012,7 +15011,7 @@ try {
 													payload: {
 														type: b("ANMWebUnifiedLoggingRecirculationEvent")
 															.IMPRESSION,
-														page: p,
+														page: o,
 														index: a
 													}
 												}
@@ -15043,7 +15042,7 @@ try {
 													payload: {
 														type: b("ANMWebUnifiedLoggingRecirculationEvent")
 															.CLICK,
-														page: p,
+														page: o,
 														index: a
 													}
 												}
@@ -15073,7 +15072,7 @@ try {
 											);
 										},
 										function() {
-											f && f(a.placementId, { hasInfiniteScroll: o });
+											f && f(a.placementId, { hasInfiniteScroll: n });
 										},
 										function() {
 											h &&
@@ -15084,40 +15083,44 @@ try {
 												);
 										}
 									);
-									r = !1;
+									q = !1;
 									j.shouldShowLoadMoreButton &&
-										(r = j.shouldShowLoadMoreButton);
-									n =
-										this.$2.adInputData &&
-										this.$2.adInputData.recircdisablepages === !0;
+										(q = j.shouldShowLoadMoreButton);
+									m = b("nullthrows")(
+										a.recirculation,
+										"Recirculation payload is not available"
+									);
+									m = m.options.infinite_scroll;
+									var r =
+										m !==
+										b("AdNetworkRecirculationTagOptionsInfiniteScroll").OFF;
+									m =
+										m ===
+										b("AdNetworkRecirculationTagOptionsInfiniteScroll").EAGER;
 									var s, t;
-									n || ((s = q.getBottomOverlay()), (t = q.getTopOverlay()));
-									n =
-										!!j.recircShouldEnableEagerInfiniteScroll ||
-										(k &&
-											k.options.infinite_scroll ===
-												b("AdNetworkRecirculationTagOptionsInfiniteScroll")
-													.EAGER);
-									n && (s = null);
+									r &&
+										((s = m ? null : p.getBottomOverlay()),
+										(t = p.getTopOverlay()));
 									if (
-										o &&
+										n &&
 										j.maxPageRecirc != null &&
-										p < j.maxPageRecirc &&
-										!j.recircBlank
+										o < j.maxPageRecirc &&
+										!j.recircBlank &&
+										(r || q)
 									) {
-										k = this.$2.data.recircUnitId;
-										n = this.$2.adInputData;
+										m = this.$2.data.recircUnitId;
+										r = this.$2.adInputData;
 										var u = this.$2.tagStateContainer;
-										if (k != null && n != null && u != null) {
-											q = new (b("ANRecirculationInfiniteScroll"))({
-												currentPage: p,
-												element: l,
+										if (m != null && r != null && u != null) {
+											p = new (b("ANRecirculationInfiniteScroll"))({
+												currentPage: o,
+												element: k,
 												nextPageTriggerElement: t,
-												unit: q,
+												unit: p,
 												cancelPageTriggerElement: s,
-												showLoadMoreButton: r,
-												unitId: k,
-												adInputData: n,
+												showLoadMoreButton: q,
+												unitId: m,
+												adInputData: r,
 												tagStateContainer: u,
 												logger: this.$3,
 												onCancelledPage: function() {
@@ -15130,7 +15133,7 @@ try {
 																type: b(
 																	"ANMWebUnifiedLoggingRecirculationEvent"
 																).CANCEL_PAGE_LOAD,
-																page: p + 1,
+																page: o + 1,
 																index: -1
 															}
 														}
@@ -15163,13 +15166,13 @@ try {
 													});
 												}
 											});
-											q.observe();
+											p.observe();
 										}
 									}
-									if (m != null) {
-										r = b("nullthrows")(m.contentDocument.body);
-										r.style.overflowY = "hidden";
-										b("ANUtils").resizeElement(m, "100%", l.clientHeight);
+									if (l != null) {
+										q = b("nullthrows")(l.contentDocument.body);
+										q.style.overflowY = "hidden";
+										b("ANUtils").resizeElement(l, "100%", k.clientHeight);
 									}
 								};
 								c.$9 = function(a, c, d, e, f, g) {
@@ -15447,7 +15450,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001188893","namespace":"FB","message":"' +
+				'","revision":"1001194092","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
