@@ -80,9 +80,9 @@
 		},
 		pa = function() {},
 		p = function(a) {
-			a.u = void 0;
+			a.v = void 0;
 			a.f = function() {
-				return a.u ? a.u : (a.u = new a());
+				return a.v ? a.v : (a.v = new a());
 			};
 		},
 		qa = function(a) {
@@ -236,7 +236,7 @@
 	z.prototype.a = function() {
 		return this.c.toString();
 	};
-	z.prototype.s = !0;
+	z.prototype.u = !0;
 	z.prototype.b = function() {
 		return 1;
 	};
@@ -322,7 +322,7 @@
 	A.prototype.a = function() {
 		return this.c.toString();
 	};
-	A.prototype.s = !0;
+	A.prototype.u = !0;
 	A.prototype.b = function() {
 		return 1;
 	};
@@ -351,7 +351,7 @@
 		this.i = bb;
 		this.g = null;
 	};
-	C.prototype.s = !0;
+	C.prototype.u = !0;
 	C.prototype.b = function() {
 		return this.g;
 	};
@@ -368,7 +368,7 @@
 			if (a instanceof C) return a;
 			var b = "object" == typeof a,
 				c = null;
-			b && a.s && (c = a.b());
+			b && a.u && (c = a.b());
 			a = Ra(b && a.j ? a.a() : String(a));
 			return G(a, c);
 		},
@@ -425,7 +425,7 @@
 		I = function(a, b, c, e) {
 			a.a = null;
 			b || (b = []);
-			a.C = void 0;
+			a.o = void 0;
 			a.c = -1;
 			a.h = b;
 			a: {
@@ -1014,7 +1014,7 @@
 		Pc = function(a, b) {
 			var c = this,
 				e = void 0 === b ? {} : b;
-			b = void 0 === e.A ? !1 : e.A;
+			b = void 0 === e.B ? !1 : e.B;
 			var d = void 0 === e.D ? {} : e.D;
 			e = void 0 === e.H ? [] : e.H;
 			this.a = a;
@@ -1149,7 +1149,7 @@
 		Zc.f().a(a);
 	};
 	var bd = function(a, b) {
-			var c = { A: S(211), D: S(227), H: S(226) };
+			var c = { B: S(211), D: S(227), H: S(226) };
 			var e = void 0 === e ? Ec() : e;
 			e.hasOwnProperty("init-done")
 				? (Q(yc, e)(
@@ -1265,7 +1265,7 @@
 			m: function() {
 				return 0 < V[8];
 			},
-			v: function() {
+			w: function() {
 				V[8]++;
 			},
 			F: function() {
@@ -1274,20 +1274,20 @@
 			G: function() {
 				V[8] = 0;
 			},
-			o: function() {},
+			s: function() {},
 			I: function() {
 				return !1;
 			},
-			B: function() {
+			C: function() {
 				return V[5];
 			},
-			w: jd
+			A: jd
 		},
 		od = {
 			m: function() {
 				return V[6];
 			},
-			v: function() {
+			w: function() {
 				V[6] = !0;
 			},
 			F: function() {
@@ -1296,14 +1296,14 @@
 			G: function() {
 				V[6] = !1;
 			},
-			o: function() {},
+			s: function() {},
 			I: function() {
 				return ".google.com" != V[1] && 2 < ++md;
 			},
-			B: function() {
+			C: function() {
 				return V[7];
 			},
-			w: function(a) {
+			A: function(a) {
 				ld(function() {
 					jd(a);
 				});
@@ -1319,7 +1319,7 @@
 				k.google_image_requests.push(b);
 			}
 		};
-	nd.o = function() {
+	nd.s = function() {
 		if (!nd.m()) {
 			var a = k.document,
 				b = function(d) {
@@ -1334,7 +1334,7 @@
 					d = ub(d);
 					jb(f, d);
 					try {
-						(a.head || a.body || a.documentElement).appendChild(f), nd.v();
+						(a.head || a.body || a.documentElement).appendChild(f), nd.w();
 					} catch (g) {}
 				},
 				c = V[1];
@@ -1347,7 +1347,7 @@
 			}, 1e3);
 		}
 	};
-	od.o = function() {
+	od.s = function() {
 		if (!od.m()) {
 			var a = k.document,
 				b = hd("sync.js", V[1]);
@@ -1375,13 +1375,13 @@
 					">");
 			ld(function() {
 				a.write(f);
-				od.v();
+				od.w();
 			});
 		}
 	};
 	var pd = function(a) {
 			id();
-			(U[3] >= +new Date() && U[2] >= +new Date()) || a.o();
+			(U[3] >= +new Date() && U[2] >= +new Date()) || a.s();
 		},
 		rd = function() {
 			k.processGoogleToken =
@@ -1410,7 +1410,7 @@
 			b = b.pucrd || "";
 			id();
 			1 == c ? a.G() : a.F();
-			if (!e && a.I()) fd(".google.com") && (V[1] = ".google.com"), a.o();
+			if (!e && a.I()) fd(".google.com") && (V[1] = ".google.com"), a.s();
 			else {
 				var m = (T.googleToken = T.googleToken || {}),
 					w =
@@ -1438,8 +1438,8 @@
 						(m[6] = b),
 						id();
 				if (w || !a.m()) {
-					c = a.B();
-					for (e = 0; e < c.length; e++) a.w(c[e]);
+					c = a.C();
+					for (e = 0; e < c.length; e++) a.A(c[e]);
 					c.length = 0;
 				}
 			}
@@ -1460,7 +1460,7 @@
 			this.g = void 0 === b ? "jserror" : b;
 			this.b = null;
 			this.c = void 0 === c ? 0.01 : c;
-			this.C = this.i;
+			this.o = this.i;
 		},
 		xd = function(a, b) {
 			a.b = b;
@@ -1503,7 +1503,7 @@
 					vd() &&
 					(W.clearMarks("goog_" + b.label + "_" + b.uniqueId + "_start"),
 					W.clearMarks("goog_" + b.label + "_" + b.uniqueId + "_end")),
-				!a.C(420, e, a.c, void 0, a.g))
+				!a.o(420, e, a.c, void 0, a.g))
 			)
 				throw e;
 		}
@@ -1556,23 +1556,25 @@
 		};
 	var Y = function() {
 			var a = this;
-			this.c = this.a = 0;
-			this.g = new PerformanceObserver(
+			this.b = this.g = this.a = 0;
+			this.i = new PerformanceObserver(
 				Dd(640, function(b) {
 					b = ba(b.getEntries());
 					for (var c = b.next(); !c.done; c = b.next()) {
 						c = c.value;
 						if ("layout-shift" === c.entryType) {
 							var e = c;
-							e.hadRecentInput || (a.a += e.value);
+							e.hadRecentInput || (a.a += Number(e.value));
 						}
 						"largest-contentful-paint" === c.entryType &&
-							(a.c = c.renderTime || c.loadTime);
+							((e = c), (a.g = Math.floor(e.renderTime || e.loadTime)));
+						"first-input" === c.entryType &&
+							(a.b = Number((c.processingStart - c.startTime).toFixed(3)));
 					}
 				})
 			);
-			this.i = !1;
-			this.b = Dd(641, this.b.bind(this));
+			this.o = !1;
+			this.c = Dd(641, this.c.bind(this));
 		},
 		Ed = function() {};
 	Y.prototype = da(Ed.prototype);
@@ -1585,31 +1587,35 @@
 					var Gd = Object.getOwnPropertyDescriptor(Ed, Fd);
 					Gd && Object.defineProperty(Y, Fd, Gd);
 				} else Y[Fd] = Ed[Fd];
-	Y.prototype.b = function() {
+	Y.prototype.c = function() {
 		var a = document;
-		2 !==
-			({ visible: 1, hidden: 2, prerender: 3, preview: 4, unloaded: 5 }[
-				a.visibilityState ||
-					a.webkitVisibilityState ||
-					a.mozVisibilityState ||
-					""
-			] || 0) ||
-			this.i ||
-			((this.i = !0),
-			this.g.takeRecords(),
-			window.fetch(
+		if (
+			2 ===
+				({ visible: 1, hidden: 2, prerender: 3, preview: 4, unloaded: 5 }[
+					a.visibilityState ||
+						a.webkitVisibilityState ||
+						a.mozVisibilityState ||
+						""
+				] || 0) &&
+			!this.o
+		) {
+			this.o = !0;
+			this.i.takeRecords();
+			a =
 				"https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics&cls=" +
-					this.a +
-					"&lcp=" +
-					this.c,
-				{
-					keepalive: !0,
-					credentials: "include",
-					redirect: "follow",
-					method: "get",
-					mode: "no-cors"
-				}
-			));
+				this.a.toFixed(3);
+			a += "&lcp=" + Math.floor(this.g);
+			0 < this.b && (a += "&fid=" + this.b);
+			var b = Fc.f().b();
+			a += "&eid=" + b.join();
+			window.fetch(a, {
+				keepalive: !0,
+				credentials: "include",
+				redirect: "follow",
+				method: "get",
+				mode: "no-cors"
+			});
+		}
 	};
 	var Hd = function() {
 		return k.googletag || (k.googletag = {});
@@ -1706,7 +1712,7 @@
 			return Cb("3") || 0;
 		},
 		Qd = function() {
-			return "2019091901";
+			return "2019092602";
 		},
 		Rd = Hd();
 	Rd.hasOwnProperty("getVersion") || (Rd.getVersion = Qd);
@@ -1804,18 +1810,22 @@
 				new Vd(c);
 				Fc.f().a(12);
 				Fc.f().a(5);
-				Yc(200) || ((h = S(150)), id(), fd(h) && (V[1] = h));
+				Yc(200) || Yc(220) || ((h = S(150)), id(), fd(h) && (V[1] = h));
 				try {
 					if (
 						d.PerformanceObserver &&
 						(d.PerformanceLongTaskTiming && Bd(d), Yc(203))
 					) {
 						var t = new Y();
-						t.g.observe({
-							entryTypes: ["layout-shift", "largest-contentful-paint"],
+						t.i.observe({
+							entryTypes: [
+								"layout-shift",
+								"largest-contentful-paint",
+								"first-input"
+							],
 							buffered: !0
 						});
-						document.addEventListener("visibilitychange", t.b);
+						document.addEventListener("visibilitychange", t.c);
 					}
 				} catch (Xd) {}
 				if ((t = td(d)))
@@ -1824,7 +1834,7 @@
 							d.google_js_reporting_queue || []),
 						2048 > d.length && d.push(t);
 				d = Yc(187) ? new y(v, "modern_") : Da;
-				d = [zd, d, new y(v, "2019091901"), Ad];
+				d = [zd, d, new y(v, "2019092602"), Ad];
 				t = "";
 				for (h = 0; h < d.length; h++) t += Ca(d[h]);
 				d = new z(Ea, t, null);
@@ -1924,22 +1934,17 @@
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
 		[null, 13, null, [null, 1]],
-		[146, null, null, [1]],
 		[null, 7, null, [null, 0.1]],
 		[167, null, null, [1]],
 		[20, null, null, [], [[[1, [[4, null, 1]]], [1]]]],
-		[181, null, null, [1]],
 		[130, null, null, [1]],
-		[126, null, null, [1]],
 		[193, null, null, [1]],
-		[90, null, null, [1]],
 		[158, null, null, [1]],
 		[156, null, null, [1]],
 		[157, null, null, [1]],
 		[105, null, null, [1]],
 		[8, null, null, [1]],
 		[55, null, null, [1]],
-		[179, null, null, [1]],
 		[197, null, null, [1]],
 		[null, 8, null, [null, -1]],
 		[null, 28, null, [null, 0.01]],
@@ -1953,9 +1958,10 @@
 				[[4, null, 15, null, null, null, null, ["7646"]], [null, 16384]]
 			]
 		],
+		[67, null, null, [1]],
 		[45, null, null, []],
 		[null, null, 2, [null, null, "1-0-35"]],
-		[194, null, null, [1]]
+		[165, null, null, [1]]
 	],
 	[
 		[
@@ -2082,7 +2088,6 @@
 				[50, [[21062414], [21062415, [[64, null, null, [1]]]]]],
 				[50, [[21062420], [21062421, [[42, null, null, [1]]]]]],
 				[50, [[21062452], [21062453, [[43, null, null, [1]]]]]],
-				[50, [[21062724], [21062725, [[67, null, null, [1]]]]], null, 13],
 				[
 					10,
 					[
@@ -2107,13 +2112,6 @@
 						[21062899],
 						[21062900, [[98, null, null, [1]]]],
 						[21062901, [[98, null, null, [1]]]]
-					]
-				],
-				[
-					5,
-					[
-						[21062916, [[98, null, null, [1]]]],
-						[21062917, [[98, null, null, [1]]]]
 					]
 				],
 				[1, [[21062970], [21062971, [[109, null, null, [1]]]]]],
@@ -2154,41 +2152,9 @@
 				],
 				[1, [[21063145], [21063146, [[112, null, null, [1]]]]]],
 				[1, [[21063147], [21063148, [[99, null, null, [1]]]]]],
-				[
-					1000,
-					[
-						[
-							21063165,
-							null,
-							[3, [[6, null, null, 1, null, 0], [6, null, null, 1, null, 5]]]
-						],
-						[
-							21063166,
-							[[114, null, null, [1]]],
-							[3, [[6, null, null, 1, null, 1], [6, null, null, 1, null, 6]]]
-						]
-					],
-					[4, null, 3]
-				],
 				[10, [[21063167], [21063168, [[102, null, null, [1]]]]]],
 				[50, [[21063202], [21063203, [[123, null, null, [1]]]]]],
 				[10, [[21063204], [21063205, [[47, null, null, [1]]]]]],
-				[
-					1000,
-					[
-						[
-							21063316,
-							null,
-							[3, [[6, null, null, 1, null, 2], [6, null, null, 1, null, 7]]]
-						],
-						[
-							21063317,
-							[[114, null, null, [1]]],
-							[3, [[6, null, null, 1, null, 3], [6, null, null, 1, null, 8]]]
-						]
-					],
-					[4, null, 3]
-				],
 				[
 					5,
 					[
@@ -2232,13 +2198,6 @@
 				],
 				[50, [[21064169], [21064170, [[168, null, null, [1]]]]]],
 				[10, [[21064211], [21064212, [[177, null, null, [1]]]]]],
-				[
-					1,
-					[
-						[21064227],
-						[21064228, [[159, null, null, [1]], [139, null, null, [1]]]]
-					]
-				],
 				[
 					10,
 					[
@@ -2385,7 +2344,6 @@
 					]
 				],
 				[50, [[21064520], [21064521, [[130, null, null, []]]]]],
-				[50, [[21064526], [21064527, [[165, null, null, [1]]]]]],
 				[
 					null,
 					[
@@ -2400,7 +2358,7 @@
 						[21064550, [[156, null, null, []], [157, null, null, []]]]
 					]
 				],
-				[10, [[21064568], [21064569, [[204, null, null, [1]]]]]],
+				[50, [[21064568], [21064569, [[204, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -2433,13 +2391,30 @@
 					15
 				],
 				[
-					null,
+					1,
 					[
 						[21064608],
 						[21064609, [[null, 7, null, [null, 1]], [212, null, null, [1]]]]
 					]
 				],
 				[10, [[21064617], [21064618]]],
+				[
+					5,
+					[
+						[21064623, [[98, null, null, [1]]]],
+						[21064624, [[98, null, null, [1]]]]
+					]
+				],
+				[10, [[21064651], [21064652, [[214, null, null, [1]]]]]],
+				[
+					10,
+					[
+						[21064678, [[159, null, null, [1]]]],
+						[21064679, [[159, null, null, [1]], [139, null, null, [1]]]]
+					],
+					null,
+					16
+				],
 				[
 					1000,
 					[
@@ -2464,7 +2439,10 @@
 				[1, [[108809132], [108809133, [[45, null, null, [1]]]]]],
 				[10, [[370204026], [370204027], [370204053]]],
 				[null, [[676982689]]],
-				[null, [[676982691]]]
+				[null, [[676982691]]],
+				[null, [[676982863], [676982882]]],
+				[null, [[676982960], [676982994], [676982996]]],
+				[null, [[676982975], [676982980]]]
 			]
 		],
 		[
@@ -2542,6 +2520,8 @@
 				[null, [[676982681]]],
 				[null, [[676982690, [[199, null, null, [1]], [201, null, null, [1]]]]]],
 				[null, [[676982692, [[199, null, null, [1]], [201, null, null, [1]]]]]],
+				[null, [[676982961, [[212, null, null, [1]]]]]],
+				[null, [[676982998, [[212, null, null, [1]]]]]],
 				[null, [[676983663]]]
 			]
 		],
@@ -2671,18 +2651,6 @@
 					],
 					null,
 					12
-				],
-				[
-					1000,
-					[
-						[
-							21064509,
-							[[67, null, null, [1]]],
-							[12, null, null, null, 3, null, "googRestrictGetHtml"]
-						]
-					],
-					null,
-					13
 				],
 				[
 					10,
@@ -2883,18 +2851,18 @@
 					1000,
 					[
 						[
-							21064619,
+							21064680,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21064619]],
+								[null, 24, null, [null, 21064680]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21064619]]
+								[null, 25, null, [null, 21064680]]
 							],
 							[6, null, null, 4, null, 2]
 						],
 						[
-							21064620,
+							21064681,
 							[
 								[null, 7, null, [null, 1]],
 								[60, null, null, [1]],
@@ -2915,7 +2883,8 @@
 				[
 					50,
 					[[21064102], [21064103, [[159, null, null, [1]]]]],
-					[2, [[4, null, 12]]]
+					[2, [[4, null, 12]]],
+					16
 				],
 				[
 					1000,
