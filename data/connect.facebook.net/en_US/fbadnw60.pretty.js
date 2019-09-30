@@ -1,4 +1,4 @@
-/*1569843420,,JIT Construction: v1001232922,en_US*/
+/*1569853768,,JIT Construction: v1001233152,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4915,26 +4915,29 @@ try {
 							a = (function() {
 								__p && __p();
 								function a(a) {
-									(this.$1 = a.getElementsByClassName(h)[0]),
+									(this.$1 = this.$3(a)),
 										(this.$2 = a.getElementsByClassName(g)[0]);
 								}
 								var b = a.prototype;
 								b.init = function() {
-									this.$3();
+									this.$4();
 								};
-								b.$3 = function() {
-									var a = this;
-									this.$1.addEventListener("touchend", function() {
-										a.$4();
-									});
-									this.$2.addEventListener("touchend", function() {
-										a.$5();
-									});
+								b.$3 = function(a) {
+									return a.getElementsByClassName(h)[0];
 								};
 								b.$4 = function() {
-									this.$2.classList.remove("hidden");
+									var a = this;
+									this.$1.addEventListener("touchend", function() {
+										a.$5();
+									});
+									this.$2.addEventListener("touchend", function() {
+										a.$6();
+									});
 								};
 								b.$5 = function() {
+									this.$2.classList.remove("hidden");
+								};
+								b.$6 = function() {
 									this.$2.classList.add("hidden");
 								};
 								return a;
@@ -15482,7 +15485,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001232922","namespace":"FB","message":"' +
+				'","revision":"1001233152","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
