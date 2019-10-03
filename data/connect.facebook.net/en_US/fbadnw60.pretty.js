@@ -1,4 +1,4 @@
-/*1569986097,,JIT Construction: v1001243234,en_US*/
+/*1570138743,,JIT Construction: v1001252197,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4822,7 +4822,7 @@ try {
 									var a = document.createElement("div");
 									a.className = "fbAdChoices";
 									a.style.backgroundColor = "#ccc";
-									a.style.borderBottomLeftRadius = "4px";
+									this.$9(a);
 									a.style.cursor = "pointer";
 									a.style.right = "0";
 									a.style.padding = "2px";
@@ -4864,19 +4864,27 @@ try {
 									a.style.width = "12px";
 									return a;
 								};
-								c.$9 = function(a) {
+								c.$10 = function(a) {
 									(a.style.top = "0"),
 										this.$4.showMultiAds === !0 &&
 										this.$4.resizeMediaView === !0
 											? (a.style.right = "12px")
-											: (a.style.right = "0");
+											: this.$4.useBannerV3 === !0
+												? (a.style.left = "0")
+												: (a.style.right = "0");
+								};
+								c.$9 = function(a) {
+									this.$4.useBannerV3 === !0
+										? ((a.style.borderTopLeftRadius = "4px"),
+										  (a.style.borderBottomRightRadius = "4px"))
+										: (a.style.borderBottomLeftRadius = "4px");
 								};
 								c.render = function() {
 									__p && __p();
 									var a = this,
 										c = document.createElement("iframe");
 									c.style.position = "absolute";
-									this.$9(c);
+									this.$10(c);
 									c.style.border = "0";
 									c.style.height = "16px";
 									c.style.width = "18px";
@@ -13417,10 +13425,7 @@ try {
 									this.$34().addEventListener("beforeunload", function() {
 										f.$23.event("ADNW_PAGE_UNLOADED"), f.$74();
 									});
-									if (
-										this.$37().$46.useBannerV2 ||
-										this.$37().$46.bannerTwoStepClick
-									) {
+									if (this.$37().$46.bannerTwoStepClick) {
 										e = new (b("ANBanner"))(this.$42());
 										e.init();
 									} else if (
@@ -13695,7 +13700,7 @@ try {
 									else return 1.9;
 								};
 								c.$87 = function(a, c, d, e, f, g) {
-									this.$37().$46.useBannerV2 || this.$37().$46.isIab
+									this.$37().$46.isIab || this.$37().$46.useBannerV3
 										? (this.$88(c, e), (this.$31 = "image"))
 										: this.$77(f) && d
 											? (this.$89(c, b("nullthrows")(f)),
@@ -13815,7 +13820,8 @@ try {
 										: a.appendChild(c);
 									b.adImageAspectRatio &&
 										(b.adImageAspectRatio < 1.9 ||
-											!!this.$37().$46.showMultiAds) &&
+											!!this.$37().$46.showMultiAds ||
+											this.$37().$46.useBannerV3) &&
 										this.$96(c);
 								};
 								c.$93 = function(a, c) {
@@ -15494,7 +15500,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001243234","namespace":"FB","message":"' +
+				'","revision":"1001252197","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
