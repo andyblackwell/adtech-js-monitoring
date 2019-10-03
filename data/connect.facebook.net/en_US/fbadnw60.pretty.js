@@ -1,4 +1,4 @@
-/*1570138743,,JIT Construction: v1001252197,en_US*/
+/*1570143730,,JIT Construction: v1001252656,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4918,34 +4918,32 @@ try {
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var g = "adnwBannerCallToActionOverlay",
-								h = "adnwBannerWords";
+							var g = "fbBannerCallToActionOverlay",
+								h = "fbInteractiveBanner";
 							a = (function() {
 								__p && __p();
 								function a(a) {
-									(this.$1 = this.$3(a)),
+									(this.$1 = a.getElementsByClassName(h)),
 										(this.$2 = a.getElementsByClassName(g)[0]);
 								}
 								var b = a.prototype;
 								b.init = function() {
-									this.$4();
+									this.$3();
 								};
-								b.$3 = function(a) {
-									return a.getElementsByClassName(h)[0];
-								};
-								b.$4 = function() {
+								b.$3 = function() {
 									var a = this;
-									this.$1.addEventListener("touchend", function() {
+									for (var b = 0; b < this.$1.length; b++)
+										this.$1[b].addEventListener("touchend", function() {
+											a.$4();
+										});
+									this.$2.addEventListener("touchend", function() {
 										a.$5();
 									});
-									this.$2.addEventListener("touchend", function() {
-										a.$6();
-									});
 								};
-								b.$5 = function() {
+								b.$4 = function() {
 									this.$2.classList.remove("hidden");
 								};
-								b.$6 = function() {
+								b.$5 = function() {
 									this.$2.classList.add("hidden");
 								};
 								return a;
@@ -15500,7 +15498,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001252197","namespace":"FB","message":"' +
+				'","revision":"1001252656","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
