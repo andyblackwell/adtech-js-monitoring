@@ -1,4 +1,4 @@
-/*1570451065,,JIT Construction: v1001261289,en_US*/
+/*1570486763,,JIT Construction: v1001263545,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -5868,12 +5868,6 @@ try {
 										h(b("joinClasses")("fbAdIcon", "_7_ce"))
 									]);
 								};
-								c.$21 = function() {
-									return h(b("joinClasses")("fbAdLink", "_85o_"), [
-										h(b("joinClasses")("fbAdIcon", "_7_ce")),
-										h(b("joinClasses")("fbAdSubtitle", "_7_c-"))
-									]);
-								};
 								c.$14 = function() {
 									var a = h("_7_d0");
 									this.$5.push(a);
@@ -5888,32 +5882,6 @@ try {
 									this.$5.push(a);
 									this.$6++;
 									return h("_7_d1", [a, h("_7_d0", [this.$14(), this.$14()])]);
-								};
-								c.$22 = function() {
-									__p && __p();
-									var a = h("_7_d0");
-									this.$5.push(a);
-									this.$6++;
-									var b = h("_7_d0");
-									this.$5.push(b);
-									this.$6++;
-									var c = h("_7_d0");
-									this.$5.push(c);
-									this.$6++;
-									return h("_7_d1", [a, b, c]);
-								};
-								c.$23 = function() {
-									var a = h("_7_d0");
-									this.$5.push(a);
-									this.$6++;
-									var b = h("_7_d0");
-									this.$5.push(b);
-									this.$6++;
-									return h("_7_d1", [
-										a,
-										b,
-										h("_7_d0", [this.$14(), this.$14()])
-									]);
 								};
 								c.$16 = function() {
 									var a = this.$5[this.$7];
@@ -6383,10 +6351,10 @@ try {
 										(this.$6 = h),
 										(this.$9 = []),
 										(this.$10 = g + j++),
-										(this.$14 = k),
+										(this.$12 = k),
 										(this.$11 = i),
-										(this.$15 = l),
-										(this.$16 = m),
+										(this.$13 = l),
+										(this.$14 = m),
 										this.$2
 											? ((this.$7 = "iframe"),
 											  (this.$8 = new (b("ANFullWidthIFrame"))(
@@ -6395,7 +6363,7 @@ try {
 													this.$4,
 													this.$6,
 													this.$11,
-													this.$14,
+													this.$12,
 													!1,
 													!!m
 											  )))
@@ -6405,68 +6373,68 @@ try {
 													this.$4,
 													i,
 													k,
-													this.$15
+													this.$13
 											  )));
 								}
 								var c = a.prototype;
 								c.resize = function(a, c) {
 									__p && __p();
 									var d = !1;
-									if (this.$1 && this.$14) {
-										d = this.$17();
+									if (this.$1 && this.$12) {
+										d = this.$15();
 										if (!d && this.$1) {
-											this.$18();
+											this.$16();
 											return !1;
 										}
 									} else
 										this.$2 &&
-											this.$19() &&
+											this.$17() &&
 											(this.$8 = new (b("ANFullWidthIFrame"))(
 												this.$2,
 												this.$3,
 												this.$4,
 												this.$6,
 												this.$11,
-												this.$14,
+												this.$12,
 												!0,
-												!!this.$16
+												!!this.$14
 											));
 									this.$8.resize(a, c);
 									this.$3.style.visibility = "";
-									if (!this.$14) return !0;
+									if (!this.$12) return !0;
 									a = d;
-									this.$1 && d && (a = this.$20());
-									this.$18();
+									this.$1 && d && (a = this.$18());
+									this.$16();
 									return a;
 								};
 								c.restoreOriginalStyles = function() {
 									this.$8.restoreOriginalStyles();
 								};
-								c.$18 = function() {
+								c.$16 = function() {
 									while (this.$9.length) {
 										var a = this.$9.pop();
 										delete a.dataset[this.$10];
 									}
 								};
-								c.$21 = function() {
+								c.$19 = function() {
 									return this.$2 ? this.$2 : this.$3;
 								};
-								c.$17 = function() {
+								c.$15 = function() {
 									__p && __p();
-									var a = this.$21();
+									var a = this.$19();
 									if (!a) return !1;
 									var c = b("ANUtils").isA9Container(this.$2);
 									if (a.ownerDocument.defaultView.frameElement && !c)
-										if (this.$2 && this.$19())
+										if (this.$2 && this.$17())
 											this.$8 = new (b("ANFullWidthIFrame"))(
 												this.$2,
 												this.$3,
 												this.$4,
 												this.$6,
 												this.$11,
-												this.$14,
+												this.$12,
 												!0,
-												!!this.$16
+												!!this.$14
 											);
 										else {
 											this.$6.event(h, "iframe");
@@ -6476,7 +6444,7 @@ try {
 									c = 0;
 									var d = "";
 									while (a && b("ANUtils").shouldContinueTraversing(a))
-										(d = d || this.$22(a, c)),
+										(d = d || this.$20(a, c)),
 											(a.dataset[this.$10] =
 												b("ANUtils").getElementHeight(a) + ""),
 											this.$9.push(a),
@@ -6488,14 +6456,14 @@ try {
 									}
 									return !0;
 								};
-								c.$19 = function() {
+								c.$17 = function() {
 									return (
 										this.$7 === "iframe" &&
-										this.$15 &&
-										this.$15.iframe_resize_parent === !0
+										this.$13 &&
+										this.$13.iframe_resize_parent === !0
 									);
 								};
-								c.$22 = function(a, c) {
+								c.$20 = function(a, c) {
 									__p && __p();
 									var d = b("ANUtils").getStyle(a, "position");
 									if (d && d !== "static" && !(c === 0 && d === "relative"))
@@ -6530,7 +6498,7 @@ try {
 										else return "position_" + c;
 									return "";
 								};
-								c.$23 = function(a) {
+								c.$21 = function(a) {
 									return Object.prototype.hasOwnProperty.call(
 										a.dataset,
 										this.$10
@@ -6539,11 +6507,11 @@ try {
 												parseInt(a.dataset[this.$10], 10)
 										: null;
 								};
-								c.$20 = function() {
+								c.$18 = function() {
 									__p && __p();
-									var a = this.$21();
+									var a = this.$19();
 									if (!a) return !1;
-									var c = this.$15 && this.$15.off_screen_10;
+									var c = this.$13 && this.$13.off_screen_10;
 									c = c ? 10 : 0;
 									if (this.$2) {
 										var d = this.$2.getBoundingClientRect();
@@ -6556,7 +6524,7 @@ try {
 										}
 									}
 									while (a && b("ANUtils").shouldContinueTraversing(a)) {
-										d = this.$23(a);
+										d = this.$21(a);
 										if (d == null) {
 											this.$6.event(i, "height_null");
 											return !1;
@@ -8996,7 +8964,6 @@ try {
 							"ANWebVideoPlayerControls",
 							"NativePromise",
 							"VPAIDDomUtils",
-							"joinClasses",
 							"nullthrows"
 						],
 						function(a, b, c, d, e, f, g, h) {
@@ -15498,7 +15465,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001261289","namespace":"FB","message":"' +
+				'","revision":"1001263545","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
