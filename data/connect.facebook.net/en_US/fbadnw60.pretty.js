@@ -1,4 +1,4 @@
-/*1570143730,,JIT Construction: v1001252656,en_US*/
+/*1570451065,,JIT Construction: v1001261289,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -13817,7 +13817,7 @@ try {
 										? a.insertBefore(c, a.firstChild)
 										: a.appendChild(c);
 									b.adImageAspectRatio &&
-										(b.adImageAspectRatio < 1.9 ||
+										(b.adImageAspectRatio < 1.92 ||
 											!!this.$37().$46.showMultiAds ||
 											this.$37().$46.useBannerV3) &&
 										this.$96(c);
@@ -15498,7 +15498,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001252656","namespace":"FB","message":"' +
+				'","revision":"1001261289","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
