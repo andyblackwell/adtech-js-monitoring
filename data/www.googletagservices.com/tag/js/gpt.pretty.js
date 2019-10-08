@@ -32,11 +32,11 @@
 	else {
 		var fa;
 		a: {
-			var ha = { L: !0 },
+			var ha = { M: !0 },
 				ia = {};
 			try {
 				ia.__proto__ = ha;
-				fa = ia.L;
+				fa = ia.M;
 				break a;
 			} catch (a) {}
 			fa = !1;
@@ -246,7 +246,7 @@
 		Da = new v(u, "");
 	var y = function(a, b, c) {
 		this.c = (a === Ea && b) || "";
-		this.K = (a === Ea && c) || null;
+		this.L = (a === Ea && c) || null;
 		this.g = Fa;
 	};
 	y.prototype.j = !0;
@@ -1045,8 +1045,8 @@
 			var c = this,
 				e = void 0 === b ? {} : b;
 			b = void 0 === e.B ? !1 : e.B;
-			var d = void 0 === e.F ? {} : e.F;
-			e = void 0 === e.I ? [] : e.I;
+			var d = void 0 === e.G ? {} : e.G;
+			e = void 0 === e.J ? [] : e.J;
 			this.a = a;
 			this.i = b;
 			this.c = d;
@@ -1197,7 +1197,7 @@
 		$c.f().a(a);
 	};
 	var cd = function(a, b) {
-			var c = { B: S(211), F: S(227), I: S(226) };
+			var c = { B: S(211), G: S(227), J: S(226) };
 			var e = void 0 === e ? Dc() : e;
 			e.hasOwnProperty("init-done")
 				? (Q(xc, e)(
@@ -1236,7 +1236,7 @@
 		var d = a.createElement("link");
 		try {
 			d.rel = "preload";
-			if (b instanceof y) var f = b.K ? b.K : Ga(b).toString();
+			if (b instanceof y) var f = b.L ? b.L : Ga(b).toString();
 			else {
 				if (b instanceof z) var g = Wa(b);
 				else {
@@ -1316,14 +1316,14 @@
 			w: function() {
 				V[8]++;
 			},
-			G: function() {
+			H: function() {
 				0 < V[8] && V[8]--;
 			},
-			H: function() {
+			I: function() {
 				V[8] = 0;
 			},
 			s: function() {},
-			J: function() {
+			K: function() {
 				return !1;
 			},
 			C: function() {
@@ -1338,14 +1338,14 @@
 			w: function() {
 				V[6] = !0;
 			},
-			G: function() {
-				V[6] = !1;
-			},
 			H: function() {
 				V[6] = !1;
 			},
+			I: function() {
+				V[6] = !1;
+			},
 			s: function() {},
-			J: function() {
+			K: function() {
 				return ".google.com" != V[1] && 2 < ++nd;
 			},
 			C: function() {
@@ -1457,8 +1457,8 @@
 				h = b["1p_jar"] || "";
 			b = b.pucrd || "";
 			jd();
-			1 == c ? a.H() : a.G();
-			if (!e && a.J()) gd(".google.com") && (V[1] = ".google.com"), a.s();
+			1 == c ? a.I() : a.H();
+			if (!e && a.K()) gd(".google.com") && (V[1] = ".google.com"), a.s();
 			else {
 				var n = (T.googleToken = T.googleToken || {}),
 					w =
@@ -1604,8 +1604,9 @@
 		};
 	var Y = function() {
 			var a = this;
-			this.b = this.i = this.c = this.a = 0;
-			this.o = new PerformanceObserver(
+			this.g = this.o = this.b = this.a = 0;
+			this.i = !1;
+			this.D = new PerformanceObserver(
 				Ed(640, function(b) {
 					b = ba(b.getEntries());
 					for (var c = b.next(); !c.done; c = b.next()) {
@@ -1614,17 +1615,18 @@
 							var e = c;
 							e.hadRecentInput ||
 								((a.a += Number(e.value)),
-								Number(e.value) > a.c && (a.c = Number(e.value)));
+								Number(e.value) > a.b && (a.b = Number(e.value)));
 						}
 						"largest-contentful-paint" === c.entryType &&
-							((e = c), (a.i = Math.floor(e.renderTime || e.loadTime)));
+							((e = c), (a.o = Math.floor(e.renderTime || e.loadTime)));
 						"first-input" === c.entryType &&
-							(a.b = Number((c.processingStart - c.startTime).toFixed(3)));
+							((a.g = Number((c.processingStart - c.startTime).toFixed(3))),
+							(a.i = !0));
 					}
 				})
 			);
-			this.D = !1;
-			this.g = Ed(641, this.g.bind(this));
+			this.F = !1;
+			this.c = Ed(641, this.c.bind(this));
 		},
 		Fd = function() {};
 	Y.prototype = da(Fd.prototype);
@@ -1637,7 +1639,7 @@
 					var Hd = Object.getOwnPropertyDescriptor(Fd, Gd);
 					Hd && Object.defineProperty(Y, Gd, Hd);
 				} else Y[Gd] = Fd[Gd];
-	Y.prototype.g = function() {
+	Y.prototype.c = function() {
 		var a = document;
 		if (
 			2 ===
@@ -1647,16 +1649,16 @@
 						a.mozVisibilityState ||
 						""
 				] || 0) &&
-			!this.D
+			!this.F
 		) {
-			this.D = !0;
-			this.o.takeRecords();
-			a =
-				"https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics&cls=" +
-				this.a.toFixed(3);
-			a += "&mls=" + this.c.toFixed(3);
-			a += "&lcp=" + Math.floor(this.i);
-			0 < this.b && (a += "&fid=" + this.b);
+			this.F = !0;
+			this.D.takeRecords();
+			a = "https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics";
+			window.LayoutShift &&
+				((a += "&cls=" + this.a.toFixed(3)),
+				(a += "&mls=" + this.b.toFixed(3)));
+			window.LargestContentfulPaint && (a += "&lcp=" + Math.floor(this.o));
+			window.PerformanceEventTiming && this.i && (a += "&fid=" + this.g);
 			var b = Ec.f().b();
 			a += "&eid=" + b.join();
 			window.fetch(a, {
@@ -1760,10 +1762,10 @@
 			return 0 === Od(S(172));
 		};
 	var Qd = function() {
-			return Bb("3") || 0;
+			return Bb("5") || 0;
 		},
 		Rd = function() {
-			return "2019100301";
+			return "2019100701";
 		},
 		Sd = Id();
 	Sd.hasOwnProperty("getVersion") || (Sd.getVersion = Rd);
@@ -1868,7 +1870,7 @@
 						(d.PerformanceLongTaskTiming && Cd(d), Zc(203))
 					) {
 						var t = new Y();
-						t.o.observe({
+						t.D.observe({
 							entryTypes: [
 								"layout-shift",
 								"largest-contentful-paint",
@@ -1876,7 +1878,7 @@
 							],
 							buffered: !0
 						});
-						document.addEventListener("visibilitychange", t.g);
+						document.addEventListener("visibilitychange", t.c);
 					}
 				} catch (Yd) {}
 				if ((t = ud(d)))
@@ -1885,7 +1887,7 @@
 							d.google_js_reporting_queue || []),
 						2048 > d.length && d.push(t);
 				d = Zc(187) ? new v(u, "modern_") : Da;
-				d = [Ad, d, new v(u, "2019100301"), Bd];
+				d = [Ad, d, new v(u, "2019100701"), Bd];
 				t = "";
 				for (h = 0; h < d.length; h++) t += Ca(d[h]);
 				d = new y(Ea, t, null);
@@ -2038,6 +2040,7 @@
 					],
 					14
 				],
+				[null, [[21064695], [21064696], [21064697]]],
 				[null, [[676982416]]],
 				[null, [[676982680]]],
 				[null, [[676982682]]]
@@ -2446,6 +2449,7 @@
 					16
 				],
 				[50, [[21064687], [21064688, [[null, 1, null, [null, 8192]]]]]],
+				[1, [[21064712], [21064713, [[229, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -2469,6 +2473,7 @@
 				],
 				[1, [[108809132], [108809133, [[45, null, null, [1]]]]]],
 				[10, [[370204026], [370204027], [370204053]]],
+				[null, [[676982686]]],
 				[null, [[676982689]]],
 				[null, [[676982691]]],
 				[null, [[676982863], [676982882]]],
@@ -2521,15 +2526,6 @@
 				[
 					null,
 					[
-						[21064299],
-						[21064300],
-						[21064301, [[null, 19, null, [null, 30]]]],
-						[21064302, [[null, 19, null, [null, 30]], [150, null, null, [1]]]]
-					]
-				],
-				[
-					null,
-					[
 						[21064500],
 						[21064501, [[136, null, null, [1]]]],
 						[21064502, [[136, null, null, [1]], [137, null, null, [1]]]]
@@ -2556,6 +2552,7 @@
 				],
 				[null, [[676982417]]],
 				[null, [[676982681]]],
+				[null, [[676982687, [[199, null, null, [1]], [201, null, null, [1]]]]]],
 				[null, [[676982690, [[199, null, null, [1]], [201, null, null, [1]]]]]],
 				[null, [[676982692, [[199, null, null, [1]], [201, null, null, [1]]]]]],
 				[null, [[676982961, [[212, null, null, [1]]]]]],
@@ -2896,33 +2893,6 @@
 					1
 				],
 				[
-					1000,
-					[
-						[
-							21064698,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21064698]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21064698]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21064699,
-							[
-								[null, 7, null, [null, 1]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]]
-							],
-							[6, null, null, 4, null, 5]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
 					10,
 					[
 						[21064700],
@@ -2934,24 +2904,24 @@
 					1000,
 					[
 						[
-							21064710,
+							21064756,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21064710]],
+								[null, 24, null, [null, 21064756]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21064710]]
+								[null, 25, null, [null, 21064756]]
 							],
-							[6, null, null, 4, null, 2]
+							[6, null, null, 4, null, 4]
 						],
 						[
-							21064711,
+							21064757,
 							[
 								[null, 7, null, [null, 1]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]]
 							],
-							[6, null, null, 4, null, 3]
+							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
