@@ -1,4 +1,4 @@
-/*1570579502,,JIT Construction: v1001269584,en_US*/
+/*1570655322,,JIT Construction: v1001274026,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4227,7 +4227,9 @@ try {
 										: this.$7 && (this.$11(d), this.$1.applyChanges());
 								};
 								c.$10 = function(a, c, d, e) {
-									c = b("nullthrows")(c.parentElement);
+									c = b("nullthrows")(
+										b("ANUtils").maybeHTMLElement(c.parentElement)
+									);
 									this.$1.addChanges(a, {
 										overflow: "visible",
 										"margin-left": "auto",
@@ -4246,7 +4248,7 @@ try {
 								};
 								c.$11 = function(a) {
 									this.$1.addChanges(a, { "max-width": "none" });
-									a = a.parentElement;
+									a = b("ANUtils").maybeHTMLElement(a.parentElement);
 									if (!a) return;
 									var c = this.$6 - a.getBoundingClientRect().left;
 									this.$1.addChanges(a, {
@@ -4292,7 +4294,7 @@ try {
 											this.$1.addChanges(this.$2, { display: "block" }));
 									}
 									this.$1.applyChanges();
-									d = this.$3.parentElement;
+									d = b("ANUtils").maybeHTMLElement(this.$3.parentElement);
 									var e = !1;
 									this.$6 && (e = this.$6.inline_resize_parent);
 									d &&
@@ -4311,7 +4313,9 @@ try {
 										a.parentElement &&
 										a.parentElement.parentElement &&
 										a.parentElement.parentElement.parentElement;
-									return a && b("ANUtils").isDfpContainer(a) ? a : null;
+									return a && b("ANUtils").isDfpContainer(a)
+										? b("ANUtils").maybeHTMLElement(a)
+										: null;
 								};
 								c.$8 = function() {
 									var a = this.$3,
@@ -4514,7 +4518,7 @@ try {
 									__p && __p();
 									var a = this.$20();
 									if (!a) return !1;
-									var c = this.$13 && this.$13.off_screen_10;
+									var c = this.$13 != null && this.$13.off_screen_10 === !0;
 									c = c ? 10 : 0;
 									if (this.$2) {
 										var d = this.$2.getBoundingClientRect();
@@ -13765,7 +13769,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001269584","namespace":"FB","message":"' +
+				'","revision":"1001274026","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
