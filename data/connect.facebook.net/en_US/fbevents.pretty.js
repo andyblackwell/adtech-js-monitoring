@@ -18,8 +18,8 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-fbq.version = "2.9.4";
-fbq._releaseSegment = "canary";
+fbq.version = "2.9.5";
+fbq._releaseSegment = "stable";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
 	var e = { exports: {} };
@@ -49,49 +49,7 @@ fbq.pendingConfigs = ["global_config"];
 			})()
 		)
 			return;
-		var g = (function() {
-				function a(a, b) {
-					var c = [],
-						d = !0,
-						e = !1,
-						f = void 0;
-					try {
-						for (
-							var a = a[
-									typeof Symbol === "function" ? Symbol.iterator : "@@iterator"
-								](),
-								g;
-							!(d = (g = a.next()).done);
-							d = !0
-						) {
-							c.push(g.value);
-							if (b && c.length === b) break;
-						}
-					} catch (a) {
-						(e = !0), (f = a);
-					} finally {
-						try {
-							!d && a["return"] && a["return"]();
-						} finally {
-							if (e) throw f;
-						}
-					}
-					return c;
-				}
-				return function(b, c) {
-					if (Array.isArray(b)) return b;
-					else if (
-						(typeof Symbol === "function" ? Symbol.iterator : "@@iterator") in
-						Object(b)
-					)
-						return a(b, c);
-					else
-						throw new TypeError(
-							"Invalid attempt to destructure non-iterable instance"
-						);
-				};
-			})(),
-			h =
+		var g =
 				typeof Symbol === "function" &&
 				typeof (typeof Symbol === "function"
 					? Symbol.iterator
@@ -110,7 +68,7 @@ fbq.pendingConfigs = ["global_config"];
 								? "symbol"
 								: typeof a;
 					  },
-			i = (function() {
+			h = (function() {
 				function a(a, b) {
 					for (var c = 0; c < b.length; c++) {
 						var d = b[c];
@@ -126,13 +84,13 @@ fbq.pendingConfigs = ["global_config"];
 					return b;
 				};
 			})();
-		function j(a) {
+		function i(a) {
 			if (Array.isArray(a)) {
 				for (var b = 0, c = Array(a.length); b < a.length; b++) c[b] = a[b];
 				return c;
 			} else return Array.from(a);
 		}
-		function k(a, b) {
+		function j(a, b) {
 			if (!(a instanceof b))
 				throw new TypeError("Cannot call a class as a function");
 		}
@@ -151,7 +109,7 @@ fbq.pendingConfigs = ["global_config"];
 				f.fbIsModuleLoaded(b) || (f.__fbeventsModules[b] = a);
 			}));
 		f.ensureModuleRegistered("SignalsFBEventsBaseEvent", function() {
-			return (function(g, h, c, d) {
+			return (function(g, b, c, d) {
 				var e = { exports: {} };
 				e.exports;
 				(function() {
@@ -161,12 +119,12 @@ fbq.pendingConfigs = ["global_config"];
 						c = a.keys;
 					a = (function() {
 						function a(b) {
-							k(this, a),
+							j(this, a),
 								(this._regKey = 0),
 								(this._subscriptions = {}),
 								(this._coerceArgs = b || null);
 						}
-						i(a, [
+						h(a, [
 							{
 								key: "listen",
 								value: function(a) {
@@ -214,7 +172,7 @@ fbq.pendingConfigs = ["global_config"];
 										this._coerceArgs != null
 											? this._coerceArgs.apply(this, arguments)
 											: null;
-									return a == null ? [] : this.trigger.apply(this, j(a));
+									return a == null ? [] : this.trigger.apply(this, i(a));
 								}
 							}
 						]);
@@ -225,232 +183,10 @@ fbq.pendingConfigs = ["global_config"];
 				return e.exports;
 			})(a, b, c, d);
 		});
-		f.ensureModuleRegistered(
-			"signalsFBEventsCoerceParameterExtractors",
-			function() {
-				return (function(g, i, j, k) {
-					var e = { exports: {} };
-					e.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsUtils"),
-							b = a.filter,
-							c = a.map,
-							d = f.getFbeventsModules(
-								"signalsFBEventsCoerceStandardParameter"
-							);
-						function g(a) {
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							var b = a.domain_uri,
-								c = a.event_type,
-								d = a.extractor_type;
-							a = a.id;
-							b = typeof b === "string" ? b : null;
-							c = c != null && typeof c === "string" && c !== "" ? c : null;
-							a = a != null && typeof a === "string" && a !== "" ? a : null;
-							d =
-								d === "CONSTANT_VALUE" ||
-								d === "CSS" ||
-								d === "GLOBAL_VARIABLE" ||
-								d === "GTM" ||
-								d === "JSON_LD" ||
-								d === "META_TAG" ||
-								d === "OPEN_GRAPH" ||
-								d === "RDFA" ||
-								d === "SCHEMA_DOT_ORG" ||
-								d === "URI"
-									? d
-									: null;
-							return b != null && c != null && a != null && d != null
-								? { domain_uri: b, event_type: c, extractor_type: d, id: a }
-								: null;
-						}
-						function i(a) {
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							a = a.extractor_config;
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							var b = a.parameter_type;
-							a = a.value;
-							b = d(b);
-							a = a != null && typeof a === "string" && a !== "" ? a : null;
-							return b != null && a != null
-								? { parameter_type: b, value: a }
-								: null;
-						}
-						function j(a) {
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							var b = a.parameter_type;
-							a = a.selector;
-							b = d(b);
-							a = a != null && typeof a === "string" && a !== "" ? a : null;
-							return b != null && a != null
-								? { parameter_type: b, selector: a }
-								: null;
-						}
-						function k(a) {
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							a = a.extractor_config;
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							a = a.parameter_selectors;
-							if (Array.isArray(a)) {
-								a = c(a, j);
-								var d = b(a, Boolean);
-								if (a.length === d.length) return { parameter_selectors: d };
-							}
-							return null;
-						}
-						function l(a) {
-							var b = g(a);
-							if (
-								b == null ||
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							var c = b.domain_uri,
-								d = b.event_type,
-								e = b.extractor_type;
-							b = b.id;
-							if (e === "CSS") {
-								var f = k(a);
-								if (f != null)
-									return {
-										domain_uri: c,
-										event_type: d,
-										extractor_config: f,
-										extractor_type: "CSS",
-										id: b
-									};
-							}
-							if (e === "CONSTANT_VALUE") {
-								f = i(a);
-								if (f != null)
-									return {
-										domain_uri: c,
-										event_type: d,
-										extractor_config: f,
-										extractor_type: "CONSTANT_VALUE",
-										id: b
-									};
-							}
-							if (e === "GLOBAL_VARIABLE")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "GLOBAL_VARIABLE",
-									id: b
-								};
-							if (e === "GTM")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "GTM",
-									id: b
-								};
-							if (e === "JSON_LD")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "JSON_LD",
-									id: b
-								};
-							if (e === "META_TAG")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "META_TAG",
-									id: b
-								};
-							if (e === "OPEN_GRAPH")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "OPEN_GRAPH",
-									id: b
-								};
-							if (e === "RDFA")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "RDFA",
-									id: b
-								};
-							if (e === "SCHEMA_DOT_ORG")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "SCHEMA_DOT_ORG",
-									id: b
-								};
-							return e === "URI"
-								? { domain_uri: c, event_type: d, extractor_type: "URI", id: b }
-								: null;
-						}
-						e.exports = l;
-					})();
-					return e.exports;
-				})(a, b, c, d);
-			}
-		);
-		f.ensureModuleRegistered("signalsFBEventsCoercePixel", function() {
-			return (function(g, i, j, k) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("signalsFBEventsCoercePixelID"),
-						b = f.getFbeventsModules("signalsFBEventsCoerceUserData");
-					function c(c) {
-						if (
-							c == null ||
-							(typeof c === "undefined" ? "undefined" : h(c)) !== "object"
-						)
-							return null;
-						var d = c.eventCount,
-							e = c.id,
-							f = c.userData;
-						c = c.userDataFormFields;
-						d = typeof d === "number" ? d : null;
-						e = a(e);
-						f = b(f);
-						c = b(c);
-						return e != null && f != null && d != null && c != null
-							? { eventCount: d, id: e, userData: f, userDataFormFields: c }
-							: null;
-					}
-					e.exports = c;
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
 		f.ensureModuleRegistered("signalsFBEventsCoercePixelID", function() {
 			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
+				var e = { exports: {} };
+				e.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsLogging"),
@@ -484,228 +220,47 @@ fbq.pendingConfigs = ["global_config"];
 						b({ pixelID: "unknown", type: "INVALID_PIXEL_ID" });
 						return null;
 					}
-					k.exports = d;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered(
-			"signalsFBEventsCoerceStandardParameter",
-			function() {
-				return (function(g, h, i, j) {
-					var k = { exports: {} };
-					k.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsUtils");
-						a = a.FBSet;
-						var b = new a([
-							"content_category",
-							"content_ids",
-							"content_name",
-							"content_type",
-							"currency",
-							"contents",
-							"num_items",
-							"order_id",
-							"predicted_ltv",
-							"search_string",
-							"status",
-							"subscription_id",
-							"value",
-							"id",
-							"item_price",
-							"quantity",
-							"ct",
-							"db",
-							"em",
-							"external_id",
-							"fn",
-							"ge",
-							"ln",
-							"namespace",
-							"ph",
-							"st",
-							"zp"
-						]);
-						function c(a) {
-							return typeof a === "string" && b.has(a) ? a : null;
-						}
-						k.exports = c;
-					})();
-					return k.exports;
-				})(a, b, c, d);
-			}
-		);
-		f.ensureModuleRegistered("signalsFBEventsCoerceUserData", function() {
-			return (function(g, i, j, k) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
-						b = a.each,
-						c = a.keys;
-					function d(a) {
-						if (
-							(typeof a === "undefined" ? "undefined" : h(a)) !== "object" ||
-							a == null
-						)
-							return null;
-						var d = {};
-						b(c(a), function(b) {
-							var c = a[b];
-							typeof c === "string" && (d[b] = c);
-						});
-						return d;
-					}
 					e.exports = d;
 				})();
 				return e.exports;
 			})(a, b, c, d);
 		});
-		f.ensureModuleRegistered("SignalsFBEventsConfigLoadedEvent", function() {
+		f.ensureModuleRegistered("signalsFBEventsGetIwlUrl", function() {
 			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixelID");
-					function c(a) {
-						a = b(a);
-						return a != null ? [a] : null;
-					}
-					a = new a(c);
-					k.exports = a;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsEvents", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("SignalsFBEventsConfigLoadedEvent"),
-						c = f.getFbeventsModules("SignalsFBEventsFiredEvent"),
-						d = f.getFbeventsModules("SignalsFBEventsGetCustomParametersEvent"),
-						e = f.getFbeventsModules("SignalsFBEventsGetIWLParametersEvent"),
-						g = f.getFbeventsModules("SignalsFBEventsIWLBootStrapEvent"),
-						h = f.getFbeventsModules("SignalsFBEventsPIIAutomatchedEvent"),
-						i = f.getFbeventsModules("SignalsFBEventsPIIConflictingEvent"),
-						j = f.getFbeventsModules("SignalsFBEventsPIIInvalidatedEvent"),
-						l = f.getFbeventsModules("SignalsFBEventsPluginLoadedEvent"),
-						m = f.getFbeventsModules("SignalsFBEventsSetIWLExtractorsEvent");
-					b = {
-						configLoaded: b,
-						execEnd: new a(),
-						fired: c,
-						getCustomParameters: d,
-						getIWLParameters: e,
-						iwlBootstrap: g,
-						piiAutomatched: h,
-						piiConflicting: i,
-						piiInvalidated: j,
-						pluginLoaded: l,
-						setIWLExtractors: m
-					};
-					k.exports = b;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsFiredEvent", function() {
-			return (function(g, i, j, k) {
 				var e = { exports: {} };
 				e.exports;
 				(function() {
 					"use strict";
-					var a =
-							Object.assign ||
-							function(a) {
-								for (var b = 1; b < arguments.length; b++) {
-									var c = arguments[b];
-									for (var d in c)
-										Object.prototype.hasOwnProperty.call(c, d) && (a[d] = c[d]);
-								}
-								return a;
-							},
-						b = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						c = f.getFbeventsModules("SignalsParamList");
-					function d(b, d, e) {
-						var f = null;
-						(b === "GET" || b === "POST" || b === "BEACON") && (f = b);
-						b = d instanceof c ? d : null;
-						d =
-							(typeof e === "undefined" ? "undefined" : h(e)) === "object"
-								? a({}, e)
-								: null;
-						return f != null && b != null && d != null ? [f, b, d] : null;
-					}
-					b = new b(d);
-					e.exports = b;
+					var a = f.getFbeventsModules("signalsFBEventsGetTier");
+					e.exports = function(b, c) {
+						c = a(c);
+						c = c == null ? "www.facebook.com" : "www." + c + ".facebook.com";
+						return "https://" + c + "/signals/iwl.js?pixel_id=" + b;
+					};
 				})();
 				return e.exports;
 			})(a, b, c, d);
 		});
-		f.ensureModuleRegistered(
-			"SignalsFBEventsGetCustomParametersEvent",
-			function() {
-				return (function(g, h, i, j) {
-					var k = { exports: {} };
-					k.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-							b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-						function c(a, c) {
-							a = b(a);
-							c = c != null && typeof c === "string" ? c : null;
-							return a != null && c != null ? [a, c] : null;
-						}
-						a = new a(c);
-						k.exports = a;
-					})();
-					return k.exports;
-				})(a, b, c, d);
-			}
-		);
-		f.ensureModuleRegistered(
-			"SignalsFBEventsGetIWLParametersEvent",
-			function() {
-				return (function(g, i, j, k) {
-					var e = { exports: {} };
-					e.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-							b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-						function c() {
-							for (var a = arguments.length, c = Array(a), d = 0; d < a; d++)
-								c[d] = arguments[d];
-							var e = c[0];
-							if (
-								e == null ||
-								(typeof e === "undefined" ? "undefined" : h(e)) !== "object"
-							)
-								return null;
-							var f = e.unsafePixel,
-								g = e.unsafeTarget,
-								i = b(f),
-								j = g instanceof HTMLElement ? g : null;
-							return i != null && j != null ? [{ pixel: i, target: j }] : null;
-						}
-						e.exports = new a(c);
-					})();
-					return e.exports;
-				})(a, b, c, d);
-			}
-		);
+		f.ensureModuleRegistered("signalsFBEventsGetTier", function() {
+			return (function(f, g, h, i) {
+				var j = { exports: {} };
+				j.exports;
+				(function() {
+					"use strict";
+					var a = /^https:\/\/www\.([A-Za-z0-9\.]+)\.facebook\.com\/tr\/?$/,
+						b = ["https://www.facebook.com/tr", "https://www.facebook.com/tr/"];
+					j.exports = function(c) {
+						if (b.indexOf(c) !== -1) return null;
+						var d = a.exec(c);
+						if (d == null) throw new Error("Malformed tier: " + c);
+						return d[1];
+					};
+				})();
+				return j.exports;
+			})(a, b, c, d);
+		});
 		f.ensureModuleRegistered("SignalsFBEventsIWLBootStrapEvent", function() {
-			return (function(g, i, j, k) {
+			return (function(h, i, j, d) {
 				var e = { exports: {} };
 				e.exports;
 				(function() {
@@ -718,12 +273,12 @@ fbq.pendingConfigs = ["global_config"];
 						var e = c[0];
 						if (
 							e == null ||
-							(typeof e === "undefined" ? "undefined" : h(e)) !== "object"
+							(typeof e === "undefined" ? "undefined" : g(e)) !== "object"
 						)
 							return null;
 						var f = e.graphToken,
-							g = e.pixelID,
-							i = b(g);
+							h = e.pixelID,
+							i = b(h);
 						return f != null && typeof f === "string" && i != null
 							? [{ graphToken: f, pixelID: i }]
 							: null;
@@ -736,22 +291,21 @@ fbq.pendingConfigs = ["global_config"];
 		});
 		f.ensureModuleRegistered("SignalsFBEventsLogging", function() {
 			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
+				var e = { exports: {} };
+				e.exports;
 				(function() {
 					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsNetworkUtils"),
-						b = a.sendPOST;
-					a = f.getFbeventsModules("SignalsFBEventsUtils");
-					var c = a.isInstanceOf,
-						d = f.getFbeventsModules("SignalsParamList"),
-						e = !1;
-					function h() {
-						e = !0;
+					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
+						b = a.isInstanceOf,
+						c = f.getFbeventsModules("SignalsParamList"),
+						d = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
+						h = !1;
+					function i() {
+						h = !0;
 					}
-					var i = !0;
-					function j() {
-						i = !1;
+					var j = !0;
+					function k() {
+						j = !1;
 					}
 					var l = "console",
 						m = "warn";
@@ -887,20 +441,20 @@ fbq.pendingConfigs = ["global_config"];
 									g.fbq && g.fbq._releaseSegment
 										? g.fbq._releaseSegment
 										: "unknown";
-							if ((i && f < 0.01) || h === "canary") {
-								f = new d(null);
+							if ((j && f < 0.01) || h === "canary") {
+								f = new c(null);
 								f.append("p", "pixel");
 								f.append(
 									"v",
 									g.fbq && g.fbq.version ? g.fbq.version : "unknown"
 								);
 								f.append("e", a.toString());
-								c(a, Error) &&
+								b(a, Error) &&
 									(f.append("f", a.fileName),
 									f.append("s", a.stackTrace || a.stack));
 								f.append("ue", e ? "1" : "0");
 								f.append("rs", h);
-								b(f, "https://connect.facebook.net/log/error");
+								d(f, "https://connect.facebook.net/log/error");
 							}
 						} catch (a) {}
 					}
@@ -914,411 +468,107 @@ fbq.pendingConfigs = ["global_config"];
 						v(new Error(b), !0);
 					}
 					function x(a) {
-						v(a, !1), e && q(a.toString());
+						v(a, !1), h && q(a.toString());
 					}
 					a = {
 						consoleWarn: n,
 						disableAllLogging: p,
-						disableSampling: j,
-						enableVerboseDebugLogging: h,
+						disableSampling: k,
+						enableVerboseDebugLogging: i,
 						logError: x,
 						logUserError: w
 					};
-					k.exports = a;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsNetworkUtils", function() {
-			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsProxyState"),
-						b = f.getFbeventsModules("SignalsFBEventsQE"),
-						c = f.getFbeventsModules("SignalsFBEventsUtils"),
-						d = c.listenOnce;
-					function i(b, c) {
-						return c != null && a.getShouldProxy() ? c : b;
-					}
-					var j = {
-						UNSENT: 0,
-						OPENED: 1,
-						HEADERS_RECEIVED: 2,
-						LOADING: 3,
-						DONE: 4
-					};
-					c = function c() {
-						var e = this;
-						k(this, c);
-						this.sendGET = function(b, c, d) {
-							b.replaceEntry("rqm", "GET");
-							var f = b.toQueryString();
-							f = i(c, d) + "?" + f;
-							if (f.length < 2048) {
-								var g = new Image();
-								if (d != null) {
-									var h = a.getShouldProxy();
-									g.onerror = function() {
-										a.setShouldProxy(!0), h || e.sendGET(b, c, d);
-									};
-								}
-								g.src = f;
-								return !0;
-							}
-							return !1;
-						};
-						this.sendPOST = function(a, c, d) {
-							var f = b.get("xhr_cors_post");
-							if (f) {
-								a.append("exp", f.code);
-								if (f.isInExperimentGroup) return e._sendXHRPost(a, c, d);
-							}
-							return e._sendFormPOST(a, c, d);
-						};
-						this._sendXHRPost = function(b, c, d) {
-							b.replaceEntry("rqm", "xhrPOST");
-							var f = new XMLHttpRequest(),
-								g = function() {
-									if (d != null) {
-										var f = a.getShouldProxy();
-										a.setShouldProxy(!0);
-										f || e.sendPOST(b, c, d);
-									}
-								};
-							if ("withCredentials" in f)
-								(f.withCredentials = !0),
-									f.open("POST", c, !1),
-									(f.onreadystatechange = function() {
-										if (f.readyState !== j.DONE) return;
-										f.status !== 200 && g();
-									});
-							else if (XDomainRequest != void 0)
-								(f = new XDomainRequest()), f.open("POST", c), (f.onerror = g);
-							else return !1;
-							f.send(b.toFormData());
-							return !0;
-						};
-						this._sendFormPOST = function(c, f, j) {
-							c.replaceEntry("rqm", "formPOST");
-							var k = b.get("set_timeout_post");
-							k && c.append("exp", k.code);
-							var l =
-									"fb" +
-									Math.random()
-										.toString()
-										.replace(".", ""),
-								m = h.createElement("form");
-							m.method = "post";
-							m.action = i(f, j);
-							m.target = l;
-							m.acceptCharset = "utf-8";
-							m.style.display = "none";
-							var n = !!(g.attachEvent && !g.addEventListener),
-								o = h.createElement("iframe");
-							n && (o.name = l);
-							o.src = "about:blank";
-							o.id = l;
-							o.name = l;
-							m.appendChild(o);
-							d(o, "load", function() {
-								c.each(function(a, b) {
-									var c = h.createElement("input");
-									c.name = decodeURIComponent(a);
-									c.value = b;
-									m.appendChild(c);
-								}),
-									d(o, "load", function() {
-										m.parentNode && m.parentNode.removeChild(m);
-									}),
-									k &&
-									k.isInExperimentGroup &&
-									c.get("ev") === "SubscribedButtonClick"
-										? setTimeout(function() {
-												return m.submit();
-										  })
-										: m.submit();
-							});
-							if (j != null) {
-								var p = a.getShouldProxy();
-								o.onerror = function() {
-									a.setShouldProxy(!0), p || e.sendPOST(c, f, j);
-								};
-							}
-							h.body != null && h.body.appendChild(m);
-							return !0;
-						};
-						this.sendBeacon = function(b, c, d) {
-							b.append("rqm", "SB");
-							if (g.navigator && g.navigator.sendBeacon) {
-								var f = g.navigator.sendBeacon(i(c, d), b.toFormData());
-								if (d != null && !f) {
-									f = a.getShouldProxy();
-									a.setShouldProxy(!0);
-									f || e.sendBeacon(b, c, d);
-								}
-								return !0;
-							}
-							return !1;
-						};
-					};
-					e.exports = new c();
+					e.exports = a;
 				})();
 				return e.exports;
 			})(a, b, c, d);
 		});
-		f.ensureModuleRegistered("SignalsFBEventsOptTrackingOptions", function() {
+		f.ensureModuleRegistered("SignalsFBEventsNetworkConfig", function() {
 			return (function(f, g, h, i) {
 				var j = { exports: {} };
 				j.exports;
 				(function() {
 					"use strict";
-					j.exports = {
-						AUTO_CONFIG_OPT_OUT: 1 << 0,
-						AUTO_CONFIG: 1 << 1,
-						CONFIG_LOADING: 1 << 2,
-						SUPPORTS_DEFINE_PROPERTY: 1 << 3,
-						SUPPORTS_SEND_BEACON: 1 << 4,
-						HAS_INVALIDATED_PII: 1 << 5,
-						SHOULD_PROXY: 1 << 6,
-						IS_HEADLESS: 1 << 7,
-						IS_SELENIUM: 1 << 8,
-						HAS_DETECTION_FAILED: 1 << 9,
-						HAS_CONFLICTING_PII: 1 << 10,
-						HAS_AUTOMATCHED_PII: 1 << 11
-					};
-				})();
-				return j.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsPIIAutomatchedEvent", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-					function c(a) {
-						a = b(a);
-						return a != null ? [a] : null;
-					}
-					a = new a(c);
-					k.exports = a;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsPIIConflictingEvent", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-					function c(a) {
-						a = b(a);
-						return a != null ? [a] : null;
-					}
-					a = new a(c);
-					k.exports = a;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsPIIInvalidatedEvent", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-					function c(a) {
-						a = b(a);
-						return a != null ? [a] : null;
-					}
-					k.exports = new a(c);
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsPlugin", function() {
-			return (function(f, g, h, i) {
-				var j = { exports: {} };
-				j.exports;
-				(function() {
-					"use strict";
-					var a = function a(b) {
-						k(this, a),
-							(this.__fbEventsPlugin = 1),
-							(this.plugin = b),
-							(this.__fbEventsPlugin = 1);
-					};
+					var a = { ENDPOINT: "https://www.facebook.com/tr/" };
 					j.exports = a;
 				})();
 				return j.exports;
 			})(a, b, c, d);
 		});
-		f.ensureModuleRegistered("SignalsFBEventsPluginLoadedEvent", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent");
-					function b(a) {
-						a = a != null && typeof a === "string" ? a : null;
-						return a != null ? [a] : null;
-					}
-					k.exports = new a(b);
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsProxyState", function() {
+		f.ensureModuleRegistered("SignalsFBEventsPlugin", function() {
 			return (function(f, g, h, i) {
-				var j = { exports: {} };
-				j.exports;
-				(function() {
-					"use strict";
-					var a = !1;
-					j.exports = {
-						getShouldProxy: function() {
-							return a;
-						},
-						setShouldProxy: function(b) {
-							a = b;
-						}
-					};
-				})();
-				return j.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsQE", function() {
-			return (function(f, h, j, d) {
 				var e = { exports: {} };
 				e.exports;
 				(function() {
 					"use strict";
-					var a = function() {
-						return Math.random();
+					var a = function a(b) {
+						j(this, a),
+							(this.__fbEventsPlugin = 1),
+							(this.plugin = b),
+							(this.__fbEventsPlugin = 1);
 					};
-					function b(b) {
-						var c = a();
-						for (var d = 0; d < b.length; d++) {
-							var e = b[d],
-								f = e.passRate,
-								h = g(e.range, 2),
-								i = h[0];
-							h = h[1];
-							if (f < 0 || f > 1)
-								throw new Error(
-									"passRate should be between 0 and 1 in " + e.name
-								);
-							if (c >= i && c < h) {
-								i = a() < f;
-								return {
-									code: e.code + (i ? "1" : "0"),
-									isInExperimentGroup: i,
-									name: e.name
-								};
-							}
-						}
-						return null;
-					}
-					var c = (function() {
-						function a() {
-							k(this, a),
-								(this._groups = []),
-								(this._result = null),
-								(this._hasRolled = !1);
-						}
-						i(a, [
-							{
-								key: "setExperimentGroups",
-								value: function(a) {
-									(this._groups = a),
-										(this._result = null),
-										(this._hasRolled = !1);
-								}
-							},
-							{
-								key: "get",
-								value: function(a) {
-									if (!this._hasRolled) {
-										var c = b(this._groups);
-										c != null && (this._result = c);
-										this._hasRolled = !0;
-									}
-									if (a == null || a === "") return this._result;
-									return this._result != null && this._result.name === a
-										? this._result
-										: null;
-								}
-							}
-						]);
-						return a;
-					})();
-					e.exports = new c();
+					e.exports = a;
 				})();
 				return e.exports;
 			})(a, b, c, d);
 		});
-		f.ensureModuleRegistered(
-			"SignalsFBEventsSetIWLExtractorsEvent",
-			function() {
-				return (function(g, i, j, k) {
-					var e = { exports: {} };
-					e.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-							b = f.getFbeventsModules("SignalsFBEventsUtils"),
-							c = b.filter,
-							d = b.map,
-							g = f.getFbeventsModules(
-								"signalsFBEventsCoerceParameterExtractors"
-							),
-							i = f.getFbeventsModules("signalsFBEventsCoercePixelID");
-						function j() {
-							for (var a = arguments.length, b = Array(a), e = 0; e < a; e++)
-								b[e] = arguments[e];
-							var f = b[0];
-							if (
-								f == null ||
-								(typeof f === "undefined" ? "undefined" : h(f)) !== "object"
-							)
-								return null;
-							var j = f.pixelID,
-								k = f.extractors,
-								l = i(j),
-								m = Array.isArray(k) ? d(k, g) : null,
-								n = m != null ? c(m, Boolean) : null;
-							return n != null &&
-								m != null &&
-								n.length === m.length &&
-								l != null
-								? [{ extractors: n, pixelID: l }]
-								: null;
-						}
-						b = new a(j);
-						e.exports = b;
-					})();
-					return e.exports;
-				})(a, b, c, d);
-			}
-		);
+		f.ensureModuleRegistered("signalsFBEventsSendFormPOST", function() {
+			return (function(g, h, i, j) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
+						b = f.getFbeventsModules("SignalsFBEventsUtils"),
+						c = b.listenOnce;
+					function d(b, d) {
+						b.replaceEntry("rqm", "formPOST");
+						var e =
+								"fb" +
+								Math.random()
+									.toString()
+									.replace(".", ""),
+							f = h.createElement("form");
+						f.method = "post";
+						f.action = d != null ? d : a.ENDPOINT;
+						f.target = e;
+						f.acceptCharset = "utf-8";
+						f.style.display = "none";
+						d = !!(g.attachEvent && !g.addEventListener);
+						var i = h.createElement("iframe");
+						d && (i.name = e);
+						i.src = "about:blank";
+						i.id = e;
+						i.name = e;
+						f.appendChild(i);
+						c(i, "load", function() {
+							b.each(function(a, b) {
+								var c = h.createElement("input");
+								c.name = decodeURIComponent(a);
+								c.value = b;
+								f.appendChild(c);
+							}),
+								c(i, "load", function() {
+									f.parentNode && f.parentNode.removeChild(f);
+								}),
+								f.submit();
+						});
+						h.body != null && h.body.appendChild(f);
+						return !0;
+					}
+					e.exports = d;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
 		f.ensureModuleRegistered("SignalsFBEventsUtils", function() {
-			return (function(f, g, j, d) {
+			return (function(f, i, c, d) {
 				var e = { exports: {} };
 				e.exports;
 				(function() {
 					"use strict";
 					var a = Object.prototype.toString,
-						b = !("addEventListener" in g);
+						b = !("addEventListener" in i);
 					function c(a, b) {
 						return b != null && a instanceof b;
 					}
@@ -1333,7 +583,7 @@ fbq.pendingConfigs = ["global_config"];
 							(typeof a === "string" && /^\d+$/.test(a))
 						);
 					}
-					var j =
+					var k =
 						Number.isInteger ||
 						function(a) {
 							return (
@@ -1341,7 +591,7 @@ fbq.pendingConfigs = ["global_config"];
 							);
 						};
 					function l(a) {
-						return j(a) && a >= 0 && a <= Number.MAX_SAFE_INTEGER;
+						return k(a) && a >= 0 && a <= Number.MAX_SAFE_INTEGER;
 					}
 					function m(a, c, d) {
 						var e = b ? "on" + c : c;
@@ -1367,7 +617,7 @@ fbq.pendingConfigs = ["global_config"];
 					function r(a) {
 						if (Object.keys) return Object.keys(a);
 						if (
-							(typeof a === "undefined" ? "undefined" : h(a)) !== "object" &&
+							(typeof a === "undefined" ? "undefined" : g(a)) !== "object" &&
 							(typeof a !== "function" || a === null)
 						)
 							throw new TypeError("Object.keys called on non-object");
@@ -1459,9 +709,9 @@ fbq.pendingConfigs = ["global_config"];
 					x["default"] = x;
 					var A = (function() {
 						function a(b) {
-							k(this, a), (this.items = b || []);
+							j(this, a), (this.items = b || []);
 						}
-						i(a, [
+						h(a, [
 							{
 								key: "has",
 								value: function(a) {
@@ -1498,7 +748,7 @@ fbq.pendingConfigs = ["global_config"];
 						isArray: d,
 						isEmptyObject: v,
 						isInstanceOf: c,
-						isInteger: j,
+						isInteger: k,
 						isNumber: f,
 						isSafeInteger: l,
 						keys: r,
@@ -1516,7 +766,7 @@ fbq.pendingConfigs = ["global_config"];
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsParamList", function() {
-			return (function(f, g, j, d) {
+			return (function(f, i, c, d) {
 				var e = { exports: {} };
 				e.exports;
 				(function() {
@@ -1530,14 +780,1664 @@ fbq.pendingConfigs = ["global_config"];
 					}
 					function d(a) {
 						if (a === null || a === void 0) return !0;
-						a = typeof a === "undefined" ? "undefined" : h(a);
+						a = typeof a === "undefined" ? "undefined" : g(a);
 						return a === "number" || a === "boolean" || a === "string";
 					}
 					var f = (function() {
 						function e(a) {
-							k(this, e), (this._params = []), (this._piiTranslator = a);
+							j(this, e), (this._params = []), (this._piiTranslator = a);
 						}
-						i(
+						h(
+							e,
+							[
+								{
+									key: "containsKey",
+									value: function(a) {
+										for (var b = 0; b < this._params.length; b++)
+											if (this._params[b].name === a) return !0;
+										return !1;
+									}
+								},
+								{
+									key: "get",
+									value: function(a) {
+										a = a;
+										for (var b = 0; b < this._params.length; b++)
+											if (this._params[b].name === a)
+												return this._params[b].value;
+										return null;
+									}
+								},
+								{
+									key: "getAllParams",
+									value: function() {
+										return this._params;
+									}
+								},
+								{
+									key: "replaceEntry",
+									value: function(a, b) {
+										var c = 0;
+										while (c < this._params.length)
+											this._params[c].name === a
+												? this._params.splice(c, 1)
+												: c++;
+										this.append(a, b);
+									}
+								},
+								{
+									key: "addRange",
+									value: function(a) {
+										var c = this;
+										a.each(function(a, d) {
+											return c._append({ name: a, value: d }, b, !1);
+										});
+									}
+								},
+								{
+									key: "append",
+									value: function(b, c) {
+										var d =
+											arguments.length > 2 && arguments[2] !== void 0
+												? arguments[2]
+												: !1;
+										this._append(
+											{ name: encodeURIComponent(b), value: c },
+											a,
+											d
+										);
+										return this;
+									}
+								},
+								{
+									key: "appendHash",
+									value: function(b) {
+										var c =
+											arguments.length > 1 && arguments[1] !== void 0
+												? arguments[1]
+												: !1;
+										for (var d in b)
+											Object.prototype.hasOwnProperty.call(b, d) &&
+												this._append(
+													{ name: encodeURIComponent(d), value: b[d] },
+													a,
+													c
+												);
+										return this;
+									}
+								},
+								{
+									key: "_append",
+									value: function(b, e, f) {
+										var g = b.name;
+										b = b.value;
+										d(b)
+											? this._appendPrimitive(g, b, f)
+											: e === a
+												? this._appendObject(g, b, f)
+												: this._appendPrimitive(g, c(b), f);
+									}
+								},
+								{
+									key: "_translateValue",
+									value: function(a, b, c) {
+										if (typeof b === "boolean") return b ? "true" : "false";
+										if (!c) return "" + b;
+										if (!this._piiTranslator) throw new Error();
+										return this._piiTranslator(a, "" + b);
+									}
+								},
+								{
+									key: "_appendPrimitive",
+									value: function(a, b, c) {
+										if (b != null) {
+											b = this._translateValue(a, b, c);
+											b != null && this._params.push({ name: a, value: b });
+										}
+									}
+								},
+								{
+									key: "_appendObject",
+									value: function(a, c, d) {
+										var e = null;
+										for (var f in c)
+											if (Object.prototype.hasOwnProperty.call(c, f)) {
+												var g = a + "[" + encodeURIComponent(f) + "]";
+												try {
+													this._append({ name: g, value: c[f] }, b, d);
+												} catch (a) {
+													e == null && (e = a);
+												}
+											}
+										if (e != null) throw e;
+									}
+								},
+								{
+									key: "each",
+									value: function(a) {
+										for (var b = 0; b < this._params.length; b++) {
+											var c = this._params[b],
+												d = c.name;
+											c = c.value;
+											a(d, c);
+										}
+									}
+								},
+								{
+									key: "toQueryString",
+									value: function() {
+										var a = [];
+										this.each(function(b, c) {
+											a.push(b + "=" + encodeURIComponent(c));
+										});
+										return a.join("&");
+									}
+								},
+								{
+									key: "toFormData",
+									value: function() {
+										var a = new FormData();
+										this.each(function(b, c) {
+											a.append(b, c);
+										});
+										return a;
+									}
+								}
+							],
+							[
+								{
+									key: "fromHash",
+									value: function(a, b) {
+										return new e(b).appendHash(a);
+									}
+								}
+							]
+						);
+						return e;
+					})();
+					e.exports = f;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered(
+			"SignalsFBEvents.plugins.iwlbootstrapper",
+			function() {
+				return (function(g, h, i, j) {
+					var e = { exports: {} };
+					e.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsIWLBootStrapEvent"),
+							b = f.getFbeventsModules("SignalsFBEventsLogging"),
+							c = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
+							d = f.getFbeventsModules("SignalsFBEventsPlugin"),
+							i = f.getFbeventsModules("signalsFBEventsGetIwlUrl"),
+							j = f.getFbeventsModules("signalsFBEventsGetTier"),
+							k = b.logUserError,
+							l = /^https:\/\/.*\.facebook\.com$/i,
+							m = "FACEBOOK_IWL_CONFIG_STORAGE_KEY",
+							n = g.sessionStorage
+								? g.sessionStorage
+								: {
+										getItem: function(a) {
+											return null;
+										},
+										removeItem: function(a) {},
+										setItem: function(a, b) {}
+								  };
+						e.exports = new d(function(b, d) {
+							function e(a, b) {
+								var d = h.createElement("script");
+								d.async = !0;
+								d.onload = function() {
+									if (!g.FacebookIWL || !g.FacebookIWL.init) return;
+									var a = j(c.ENDPOINT);
+									a != null &&
+										g.FacebookIWL.set &&
+										g.FacebookIWL.set("tier", a);
+									b();
+								};
+								g.FacebookIWLSessionEnd = function() {
+									n.removeItem(m), g.close();
+								};
+								d.src = i(a, c.ENDPOINT);
+								h.body && h.body.appendChild(d);
+							}
+							var o = !1,
+								p = function(a) {
+									return !!(
+										d &&
+										d.pixelsByID &&
+										Object.prototype.hasOwnProperty.call(d.pixelsByID, a)
+									);
+								};
+							function q() {
+								if (o) return;
+								var a = n.getItem(m);
+								if (!a) return;
+								a = JSON.parse(a);
+								var b = a.pixelID,
+									c = a.graphToken,
+									d = a.sessionStartTime;
+								o = !0;
+								e(b, function() {
+									var a = p(b) ? b : null;
+									g.FacebookIWL.init(a, c, d);
+								});
+							}
+							function r(a) {
+								if (o) return;
+								e(a, function() {
+									return g.FacebookIWL.showConfirmModal(a);
+								});
+							}
+							function s(a, b, c) {
+								n.setItem(
+									m,
+									JSON.stringify({
+										graphToken: a,
+										pixelID: b,
+										sessionStartTime: c
+									})
+								),
+									q();
+							}
+							a.listen(function(a) {
+								var b = a.graphToken;
+								a = a.pixelID;
+								s(b, a);
+								g.FacebookIWLSessionEnd = function() {
+									return n.removeItem(m);
+								};
+							});
+							function b(a) {
+								var b = a.data,
+									c = b.graphToken,
+									e = b.msg_type,
+									f = b.pixelID;
+								b = b.sessionStartTime;
+								if (
+									d &&
+									d.pixelsByID &&
+									d.pixelsByID[f] &&
+									d.pixelsByID[f].codeless === "false"
+								) {
+									k({ pixelID: f, type: "SITE_CODELESS_OPT_OUT" });
+									return;
+								}
+								if (
+									n.getItem(m) ||
+									!l.test(a.origin) ||
+									!(
+										a.data &&
+										(e === "FACEBOOK_IWL_BOOTSTRAP" ||
+											e === "FACEBOOK_IWL_CONFIRM_DOMAIN")
+									)
+								)
+									return;
+								switch (e) {
+									case "FACEBOOK_IWL_BOOTSTRAP":
+										a.source.postMessage(
+											"FACEBOOK_IWL_BOOTSTRAP_ACK",
+											a.origin
+										);
+										s(c, f, b);
+										break;
+									case "FACEBOOK_IWL_CONFIRM_DOMAIN":
+										a.source.postMessage(
+											"FACEBOOK_IWL_CONFIRM_DOMAIN_ACK",
+											a.origin
+										);
+										r(f);
+										break;
+								}
+							}
+							if (n.getItem(m)) {
+								q();
+								return;
+							}
+							g.opener && g.addEventListener("message", b);
+						});
+					})();
+					return e.exports;
+				})(a, b, c, d);
+			}
+		);
+		e.exports = f.getFbeventsModules("SignalsFBEvents.plugins.iwlbootstrapper");
+		f.registerPlugin &&
+			f.registerPlugin("fbevents.plugins.iwlbootstrapper", e.exports);
+		f.ensureModuleRegistered("fbevents.plugins.iwlbootstrapper", function() {
+			return e.exports;
+		});
+	})();
+})(window, document, location, history);
+(function(a, b, c, d) {
+	var e = { exports: {} };
+	e.exports;
+	(function() {
+		var f = a.fbq;
+		f.execStart = a.performance && a.performance.now && a.performance.now();
+		if (
+			!(function() {
+				var b = a.postMessage || function() {};
+				if (!f) {
+					b(
+						{
+							action: "FB_LOG",
+							logType: "Facebook Pixel Error",
+							logMessage: "Pixel code is not installed correctly on this page"
+						},
+						"*"
+					);
+					"error" in console &&
+						console.error(
+							"Facebook Pixel Error: Pixel code is not installed correctly on this page"
+						);
+					return !1;
+				}
+				return !0;
+			})()
+		)
+			return;
+		var g =
+				typeof Symbol === "function" &&
+				typeof (typeof Symbol === "function"
+					? Symbol.iterator
+					: "@@iterator") === "symbol"
+					? function(a) {
+							return typeof a;
+					  }
+					: function(a) {
+							return a &&
+								typeof Symbol === "function" &&
+								a.constructor === Symbol &&
+								a !==
+									(typeof Symbol === "function"
+										? Symbol.prototype
+										: "@@prototype")
+								? "symbol"
+								: typeof a;
+					  },
+			h = (function() {
+				function a(a, b) {
+					for (var c = 0; c < b.length; c++) {
+						var d = b[c];
+						d.enumerable = d.enumerable || !1;
+						d.configurable = !0;
+						"value" in d && (d.writable = !0);
+						Object.defineProperty(a, d.key, d);
+					}
+				}
+				return function(b, c, d) {
+					c && a(b.prototype, c);
+					d && a(b, d);
+					return b;
+				};
+			})();
+		function i(a) {
+			if (Array.isArray(a)) {
+				for (var b = 0, c = Array(a.length); b < a.length; b++) c[b] = a[b];
+				return c;
+			} else return Array.from(a);
+		}
+		function j(a, b) {
+			if (!(a instanceof b))
+				throw new TypeError("Cannot call a class as a function");
+		}
+		f.__fbeventsModules ||
+			((f.__fbeventsModules = {}),
+			(f.__fbeventsResolvedModules = {}),
+			(f.getFbeventsModules = function(a) {
+				f.__fbeventsResolvedModules[a] ||
+					(f.__fbeventsResolvedModules[a] = f.__fbeventsModules[a]());
+				return f.__fbeventsResolvedModules[a];
+			}),
+			(f.fbIsModuleLoaded = function(a) {
+				return !!f.__fbeventsModules[a];
+			}),
+			(f.ensureModuleRegistered = function(b, a) {
+				f.fbIsModuleLoaded(b) || (f.__fbeventsModules[b] = a);
+			}));
+		f.ensureModuleRegistered("SignalsFBEventsBaseEvent", function() {
+			return (function(g, b, c, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
+						b = a.map,
+						c = a.keys;
+					a = (function() {
+						function a(b) {
+							j(this, a),
+								(this._regKey = 0),
+								(this._subscriptions = {}),
+								(this._coerceArgs = b || null);
+						}
+						h(a, [
+							{
+								key: "listen",
+								value: function(a) {
+									var b = this,
+										c = "" + this._regKey++;
+									this._subscriptions[c] = a;
+									return function() {
+										delete b._subscriptions[c];
+									};
+								}
+							},
+							{
+								key: "listenOnce",
+								value: function(a) {
+									var b = null,
+										c = function() {
+											b && b();
+											b = null;
+											return a.apply(void 0, arguments);
+										};
+									b = this.listen(c);
+									return b;
+								}
+							},
+							{
+								key: "trigger",
+								value: function() {
+									var a = this;
+									for (
+										var d = arguments.length, e = Array(d), f = 0;
+										f < d;
+										f++
+									)
+										e[f] = arguments[f];
+									return b(c(this._subscriptions), function(b) {
+										var c;
+										return (c = a._subscriptions)[b].apply(c, e);
+									});
+								}
+							},
+							{
+								key: "triggerWeakly",
+								value: function() {
+									var a =
+										this._coerceArgs != null
+											? this._coerceArgs.apply(this, arguments)
+											: null;
+									return a == null ? [] : this.trigger.apply(this, i(a));
+								}
+							}
+						]);
+						return a;
+					})();
+					e.exports = a;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered(
+			"signalsFBEventsCoerceParameterExtractors",
+			function() {
+				return (function(h, i, j, d) {
+					var e = { exports: {} };
+					e.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsUtils"),
+							b = a.filter,
+							c = a.map,
+							d = f.getFbeventsModules(
+								"signalsFBEventsCoerceStandardParameter"
+							);
+						function h(a) {
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : g(a)) !== "object"
+							)
+								return null;
+							var b = a.domain_uri,
+								c = a.event_type,
+								d = a.extractor_type;
+							a = a.id;
+							b = typeof b === "string" ? b : null;
+							c = c != null && typeof c === "string" && c !== "" ? c : null;
+							a = a != null && typeof a === "string" && a !== "" ? a : null;
+							d =
+								d === "CONSTANT_VALUE" ||
+								d === "CSS" ||
+								d === "GLOBAL_VARIABLE" ||
+								d === "GTM" ||
+								d === "JSON_LD" ||
+								d === "META_TAG" ||
+								d === "OPEN_GRAPH" ||
+								d === "RDFA" ||
+								d === "SCHEMA_DOT_ORG" ||
+								d === "URI"
+									? d
+									: null;
+							return b != null && c != null && a != null && d != null
+								? { domain_uri: b, event_type: c, extractor_type: d, id: a }
+								: null;
+						}
+						function i(a) {
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : g(a)) !== "object"
+							)
+								return null;
+							a = a.extractor_config;
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : g(a)) !== "object"
+							)
+								return null;
+							var b = a.parameter_type;
+							a = a.value;
+							b = d(b);
+							a = a != null && typeof a === "string" && a !== "" ? a : null;
+							return b != null && a != null
+								? { parameter_type: b, value: a }
+								: null;
+						}
+						function j(a) {
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : g(a)) !== "object"
+							)
+								return null;
+							var b = a.parameter_type;
+							a = a.selector;
+							b = d(b);
+							a = a != null && typeof a === "string" && a !== "" ? a : null;
+							return b != null && a != null
+								? { parameter_type: b, selector: a }
+								: null;
+						}
+						function k(a) {
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : g(a)) !== "object"
+							)
+								return null;
+							a = a.extractor_config;
+							if (
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : g(a)) !== "object"
+							)
+								return null;
+							a = a.parameter_selectors;
+							if (Array.isArray(a)) {
+								a = c(a, j);
+								var d = b(a, Boolean);
+								if (a.length === d.length) return { parameter_selectors: d };
+							}
+							return null;
+						}
+						function l(a) {
+							var b = h(a);
+							if (
+								b == null ||
+								a == null ||
+								(typeof a === "undefined" ? "undefined" : g(a)) !== "object"
+							)
+								return null;
+							var c = b.domain_uri,
+								d = b.event_type,
+								e = b.extractor_type;
+							b = b.id;
+							if (e === "CSS") {
+								var f = k(a);
+								if (f != null)
+									return {
+										domain_uri: c,
+										event_type: d,
+										extractor_config: f,
+										extractor_type: "CSS",
+										id: b
+									};
+							}
+							if (e === "CONSTANT_VALUE") {
+								f = i(a);
+								if (f != null)
+									return {
+										domain_uri: c,
+										event_type: d,
+										extractor_config: f,
+										extractor_type: "CONSTANT_VALUE",
+										id: b
+									};
+							}
+							if (e === "GLOBAL_VARIABLE")
+								return {
+									domain_uri: c,
+									event_type: d,
+									extractor_type: "GLOBAL_VARIABLE",
+									id: b
+								};
+							if (e === "GTM")
+								return {
+									domain_uri: c,
+									event_type: d,
+									extractor_type: "GTM",
+									id: b
+								};
+							if (e === "JSON_LD")
+								return {
+									domain_uri: c,
+									event_type: d,
+									extractor_type: "JSON_LD",
+									id: b
+								};
+							if (e === "META_TAG")
+								return {
+									domain_uri: c,
+									event_type: d,
+									extractor_type: "META_TAG",
+									id: b
+								};
+							if (e === "OPEN_GRAPH")
+								return {
+									domain_uri: c,
+									event_type: d,
+									extractor_type: "OPEN_GRAPH",
+									id: b
+								};
+							if (e === "RDFA")
+								return {
+									domain_uri: c,
+									event_type: d,
+									extractor_type: "RDFA",
+									id: b
+								};
+							if (e === "SCHEMA_DOT_ORG")
+								return {
+									domain_uri: c,
+									event_type: d,
+									extractor_type: "SCHEMA_DOT_ORG",
+									id: b
+								};
+							return e === "URI"
+								? { domain_uri: c, event_type: d, extractor_type: "URI", id: b }
+								: null;
+						}
+						e.exports = l;
+					})();
+					return e.exports;
+				})(a, b, c, d);
+			}
+		);
+		f.ensureModuleRegistered("signalsFBEventsCoercePixel", function() {
+			return (function(h, i, j, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("signalsFBEventsCoercePixelID"),
+						b = f.getFbeventsModules("signalsFBEventsCoerceUserData");
+					function c(c) {
+						if (
+							c == null ||
+							(typeof c === "undefined" ? "undefined" : g(c)) !== "object"
+						)
+							return null;
+						var d = c.eventCount,
+							e = c.id,
+							f = c.userData;
+						c = c.userDataFormFields;
+						d = typeof d === "number" ? d : null;
+						e = a(e);
+						f = b(f);
+						c = b(c);
+						return e != null && f != null && d != null && c != null
+							? { eventCount: d, id: e, userData: f, userDataFormFields: c }
+							: null;
+					}
+					e.exports = c;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("signalsFBEventsCoercePixelID", function() {
+			return (function(g, h, i, j) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsLogging"),
+						b = a.logUserError;
+					a = f.getFbeventsModules("SignalsFBEventsUtils");
+					var c = a.isSafeInteger;
+					function d(a) {
+						if (typeof a === "number") {
+							if (!c(a)) {
+								b({ pixelID: a.toString(), type: "INVALID_PIXEL_ID" });
+								return null;
+							}
+							return a.toString();
+						}
+						if (typeof a === "string") {
+							var d = /^[1-9][0-9]{0,25}$/;
+							if (!d.test(a)) {
+								b({ pixelID: a, type: "INVALID_PIXEL_ID" });
+								return null;
+							}
+							return a;
+						}
+						if (a === void 0) {
+							b({ pixelID: "undefined", type: "INVALID_PIXEL_ID" });
+							return null;
+						}
+						if (a === null) {
+							b({ pixelID: "null", type: "INVALID_PIXEL_ID" });
+							return null;
+						}
+						b({ pixelID: "unknown", type: "INVALID_PIXEL_ID" });
+						return null;
+					}
+					e.exports = d;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered(
+			"signalsFBEventsCoerceStandardParameter",
+			function() {
+				return (function(g, h, i, j) {
+					var e = { exports: {} };
+					e.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsUtils");
+						a = a.FBSet;
+						var b = new a([
+							"content_category",
+							"content_ids",
+							"content_name",
+							"content_type",
+							"currency",
+							"contents",
+							"num_items",
+							"order_id",
+							"predicted_ltv",
+							"search_string",
+							"status",
+							"subscription_id",
+							"value",
+							"id",
+							"item_price",
+							"quantity",
+							"ct",
+							"db",
+							"em",
+							"external_id",
+							"fn",
+							"ge",
+							"ln",
+							"namespace",
+							"ph",
+							"st",
+							"zp"
+						]);
+						function c(a) {
+							return typeof a === "string" && b.has(a) ? a : null;
+						}
+						e.exports = c;
+					})();
+					return e.exports;
+				})(a, b, c, d);
+			}
+		);
+		f.ensureModuleRegistered("signalsFBEventsCoerceUserData", function() {
+			return (function(h, i, j, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
+						b = a.each,
+						c = a.keys;
+					function d(a) {
+						if (
+							(typeof a === "undefined" ? "undefined" : g(a)) !== "object" ||
+							a == null
+						)
+							return null;
+						var d = {};
+						b(c(a), function(b) {
+							var c = a[b];
+							typeof c === "string" && (d[b] = c);
+						});
+						return d;
+					}
+					e.exports = d;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsConfigLoadedEvent", function() {
+			return (function(g, h, i, j) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+						b = f.getFbeventsModules("signalsFBEventsCoercePixelID");
+					function c(a) {
+						a = b(a);
+						return a != null ? [a] : null;
+					}
+					a = new a(c);
+					e.exports = a;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsEvents", function() {
+			return (function(g, h, i, j) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+						b = f.getFbeventsModules("SignalsFBEventsConfigLoadedEvent"),
+						c = f.getFbeventsModules("SignalsFBEventsFiredEvent"),
+						d = f.getFbeventsModules("SignalsFBEventsGetCustomParametersEvent"),
+						g = f.getFbeventsModules("SignalsFBEventsGetIWLParametersEvent"),
+						h = f.getFbeventsModules("SignalsFBEventsIWLBootStrapEvent"),
+						i = f.getFbeventsModules("SignalsFBEventsPIIAutomatchedEvent"),
+						j = f.getFbeventsModules("SignalsFBEventsPIIConflictingEvent"),
+						k = f.getFbeventsModules("SignalsFBEventsPIIInvalidatedEvent"),
+						l = f.getFbeventsModules("SignalsFBEventsPluginLoadedEvent"),
+						m = f.getFbeventsModules("SignalsFBEventsSetIWLExtractorsEvent");
+					b = {
+						configLoaded: b,
+						execEnd: new a(),
+						fired: c,
+						getCustomParameters: d,
+						getIWLParameters: g,
+						iwlBootstrap: h,
+						piiAutomatched: i,
+						piiConflicting: j,
+						piiInvalidated: k,
+						pluginLoaded: l,
+						setIWLExtractors: m
+					};
+					e.exports = b;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsFiredEvent", function() {
+			return (function(h, i, j, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a =
+							Object.assign ||
+							function(a) {
+								for (var b = 1; b < arguments.length; b++) {
+									var c = arguments[b];
+									for (var d in c)
+										Object.prototype.hasOwnProperty.call(c, d) && (a[d] = c[d]);
+								}
+								return a;
+							},
+						b = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+						c = f.getFbeventsModules("SignalsParamList");
+					function d(b, d, e) {
+						var f = null;
+						(b === "GET" || b === "POST" || b === "BEACON") && (f = b);
+						b = d instanceof c ? d : null;
+						d =
+							(typeof e === "undefined" ? "undefined" : g(e)) === "object"
+								? a({}, e)
+								: null;
+						return f != null && b != null && d != null ? [f, b, d] : null;
+					}
+					b = new b(d);
+					e.exports = b;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered(
+			"SignalsFBEventsGetCustomParametersEvent",
+			function() {
+				return (function(g, h, i, j) {
+					var e = { exports: {} };
+					e.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+							b = f.getFbeventsModules("signalsFBEventsCoercePixel");
+						function c(a, c) {
+							a = b(a);
+							c = c != null && typeof c === "string" ? c : null;
+							return a != null && c != null ? [a, c] : null;
+						}
+						a = new a(c);
+						e.exports = a;
+					})();
+					return e.exports;
+				})(a, b, c, d);
+			}
+		);
+		f.ensureModuleRegistered(
+			"SignalsFBEventsGetIWLParametersEvent",
+			function() {
+				return (function(h, i, j, d) {
+					var e = { exports: {} };
+					e.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+							b = f.getFbeventsModules("signalsFBEventsCoercePixel");
+						function c() {
+							for (var a = arguments.length, c = Array(a), d = 0; d < a; d++)
+								c[d] = arguments[d];
+							var e = c[0];
+							if (
+								e == null ||
+								(typeof e === "undefined" ? "undefined" : g(e)) !== "object"
+							)
+								return null;
+							var f = e.unsafePixel,
+								h = e.unsafeTarget,
+								i = b(f),
+								j = h instanceof HTMLElement ? h : null;
+							return i != null && j != null ? [{ pixel: i, target: j }] : null;
+						}
+						e.exports = new a(c);
+					})();
+					return e.exports;
+				})(a, b, c, d);
+			}
+		);
+		f.ensureModuleRegistered("SignalsFBEventsIWLBootStrapEvent", function() {
+			return (function(h, i, j, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+						b = f.getFbeventsModules("signalsFBEventsCoercePixelID");
+					function c() {
+						for (var a = arguments.length, c = Array(a), d = 0; d < a; d++)
+							c[d] = arguments[d];
+						var e = c[0];
+						if (
+							e == null ||
+							(typeof e === "undefined" ? "undefined" : g(e)) !== "object"
+						)
+							return null;
+						var f = e.graphToken,
+							h = e.pixelID,
+							i = b(h);
+						return f != null && typeof f === "string" && i != null
+							? [{ graphToken: f, pixelID: i }]
+							: null;
+					}
+					a = new a(c);
+					e.exports = a;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsLogging", function() {
+			return (function(g, h, i, j) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
+						b = a.isInstanceOf,
+						c = f.getFbeventsModules("SignalsParamList"),
+						d = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
+						h = !1;
+					function i() {
+						h = !0;
+					}
+					var j = !0;
+					function k() {
+						j = !1;
+					}
+					var l = "console",
+						m = "warn";
+					function n(a) {
+						g[l] && g[l][m] && g[l][m](a);
+					}
+					var o = !1;
+					function p() {
+						o = !0;
+					}
+					function q(a) {
+						if (o) return;
+						n("[Facebook Pixel] - " + a);
+					}
+					var r = "Facebook Pixel Error",
+						s = g.postMessage ? g.postMessage.bind(g) : function() {},
+						t = {};
+					function u(a) {
+						switch (a.type) {
+							case "FBQ_NO_METHOD_NAME":
+								return "You must provide an argument to fbq().";
+							case "INVALID_FBQ_METHOD":
+								var b = a.method;
+								return "\"fbq('" + b + "', ...);\" is not a valid fbq command.";
+							case "INVALID_PIXEL_ID":
+								b = a.pixelID;
+								return "Invalid PixelID: " + b + ".";
+							case "DUPLICATE_PIXEL_ID":
+								b = a.pixelID;
+								return "Duplicate Pixel ID: " + b + ".";
+							case "SET_METADATA_ON_UNINITIALIZED_PIXEL_ID":
+								b = a.metadataValue;
+								var c = a.pixelID;
+								return (
+									"Trying to set argument " +
+									b +
+									" for uninitialized Pixel ID " +
+									c +
+									"."
+								);
+							case "CONFLICTING_VERSIONS":
+								return "Multiple pixels with conflicting versions were detected on this page.";
+							case "MULTIPLE_PIXELS":
+								return "Multiple pixels were detected on this page.";
+							case "UNSUPPORTED_METADATA_ARGUMENT":
+								b = a.metadata;
+								return "Unsupported metadata argument: " + b + ".";
+							case "REQUIRED_PARAM_MISSING":
+								c = a.param;
+								b = a.eventName;
+								return (
+									"Required parameter '" +
+									c +
+									"' is missing for event '" +
+									b +
+									"'."
+								);
+							case "INVALID_PARAM":
+								c = a.param;
+								b = a.eventName;
+								return (
+									"Parameter '" + c + "' is invalid for event '" + b + "'."
+								);
+							case "NO_EVENT_NAME":
+								return 'Missing event name. Track events must be logged with an event name fbq("track", eventName)';
+							case "NONSTANDARD_EVENT":
+								c = a.eventName;
+								return (
+									"You are sending a non-standard event '" +
+									c +
+									"'. The preferred way to send these events is using trackCustom. See 'https://developers.facebook.com/docs/ads-for-websites/pixel-events/#events' for more information."
+								);
+							case "NEGATIVE_EVENT_PARAM":
+								b = a.param;
+								c = a.eventName;
+								return (
+									"Parameter '" + b + "' is negative for event '" + c + "'."
+								);
+							case "PII_INVALID_TYPE":
+								b = a.key_type;
+								c = a.key_val;
+								return (
+									"An invalid " +
+									b +
+									" was specified for '" +
+									c +
+									"'. This data will not be sent with any events for this Pixel."
+								);
+							case "PII_UNHASHED_PII":
+								b = a.key;
+								return (
+									"The value for the '" +
+									b +
+									"' key appeared to be PII. This data will not be sent with any events for this Pixel."
+								);
+							case "INVALID_CONSENT_ACTION":
+								c = a.action;
+								return (
+									"\"fbq('" +
+									c +
+									"', ...);\" is not a valid fbq('consent', ...) action. Valid actions are 'revoke' and 'grant'."
+								);
+							case "INVALID_JSON_LD":
+								b = a.jsonLd;
+								return (
+									"Unable to parse JSON-LD tag. Malformed JSON found: '" +
+									b +
+									"'."
+								);
+							case "SITE_CODELESS_OPT_OUT":
+								c = a.pixelID;
+								return (
+									"Unable to open Codeless events interface for pixel as the site has opted out. Pixel ID: " +
+									c +
+									"."
+								);
+							case "PIXEL_NOT_INITIALIZED":
+								b = a.pixelID;
+								return "Pixel " + b + " not found";
+							default:
+								x(
+									new Error(
+										"INVALID_USER_ERROR - " + a.type + " - " + JSON.stringify(a)
+									)
+								);
+								return "Invalid User Error.";
+						}
+					}
+					function v(a, e) {
+						try {
+							var f = Math.random(),
+								h =
+									g.fbq && g.fbq._releaseSegment
+										? g.fbq._releaseSegment
+										: "unknown";
+							if ((j && f < 0.01) || h === "canary") {
+								f = new c(null);
+								f.append("p", "pixel");
+								f.append(
+									"v",
+									g.fbq && g.fbq.version ? g.fbq.version : "unknown"
+								);
+								f.append("e", a.toString());
+								b(a, Error) &&
+									(f.append("f", a.fileName),
+									f.append("s", a.stackTrace || a.stack));
+								f.append("ue", e ? "1" : "0");
+								f.append("rs", h);
+								d(f, "https://connect.facebook.net/log/error");
+							}
+						} catch (a) {}
+					}
+					function w(a) {
+						var b = JSON.stringify(a);
+						if (!Object.prototype.hasOwnProperty.call(t, b)) t[b] = !0;
+						else return;
+						b = u(a);
+						q(b);
+						s({ action: "FB_LOG", logMessage: b, logType: r }, "*");
+						v(new Error(b), !0);
+					}
+					function x(a) {
+						v(a, !1), h && q(a.toString());
+					}
+					a = {
+						consoleWarn: n,
+						disableAllLogging: p,
+						disableSampling: k,
+						enableVerboseDebugLogging: i,
+						logError: x,
+						logUserError: w
+					};
+					e.exports = a;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsNetworkConfig", function() {
+			return (function(f, g, h, i) {
+				var j = { exports: {} };
+				j.exports;
+				(function() {
+					"use strict";
+					var a = { ENDPOINT: "https://www.facebook.com/tr/" };
+					j.exports = a;
+				})();
+				return j.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsOptTrackingOptions", function() {
+			return (function(f, g, h, i) {
+				var j = { exports: {} };
+				j.exports;
+				(function() {
+					"use strict";
+					j.exports = {
+						AUTO_CONFIG_OPT_OUT: 1 << 0,
+						AUTO_CONFIG: 1 << 1,
+						CONFIG_LOADING: 1 << 2,
+						SUPPORTS_DEFINE_PROPERTY: 1 << 3,
+						SUPPORTS_SEND_BEACON: 1 << 4,
+						HAS_INVALIDATED_PII: 1 << 5,
+						SHOULD_PROXY: 1 << 6,
+						IS_HEADLESS: 1 << 7,
+						IS_SELENIUM: 1 << 8,
+						HAS_DETECTION_FAILED: 1 << 9,
+						HAS_CONFLICTING_PII: 1 << 10,
+						HAS_AUTOMATCHED_PII: 1 << 11
+					};
+				})();
+				return j.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsPIIAutomatchedEvent", function() {
+			return (function(g, h, i, j) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
+					function c(a) {
+						a = b(a);
+						return a != null ? [a] : null;
+					}
+					a = new a(c);
+					e.exports = a;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsPIIConflictingEvent", function() {
+			return (function(g, h, i, j) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
+					function c(a) {
+						a = b(a);
+						return a != null ? [a] : null;
+					}
+					a = new a(c);
+					e.exports = a;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsPIIInvalidatedEvent", function() {
+			return (function(g, h, i, j) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
+					function c(a) {
+						a = b(a);
+						return a != null ? [a] : null;
+					}
+					e.exports = new a(c);
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsPlugin", function() {
+			return (function(f, g, h, i) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = function a(b) {
+						j(this, a),
+							(this.__fbEventsPlugin = 1),
+							(this.plugin = b),
+							(this.__fbEventsPlugin = 1);
+					};
+					e.exports = a;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsPluginLoadedEvent", function() {
+			return (function(g, h, i, j) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent");
+					function b(a) {
+						a = a != null && typeof a === "string" ? a : null;
+						return a != null ? [a] : null;
+					}
+					e.exports = new a(b);
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsProxyState", function() {
+			return (function(f, g, h, i) {
+				var j = { exports: {} };
+				j.exports;
+				(function() {
+					"use strict";
+					var a = !1;
+					j.exports = {
+						getShouldProxy: function() {
+							return a;
+						},
+						setShouldProxy: function(b) {
+							a = b;
+						}
+					};
+				})();
+				return j.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("signalsFBEventsSendFormPOST", function() {
+			return (function(g, h, i, j) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
+						b = f.getFbeventsModules("SignalsFBEventsUtils"),
+						c = b.listenOnce;
+					function d(b, d) {
+						b.replaceEntry("rqm", "formPOST");
+						var e =
+								"fb" +
+								Math.random()
+									.toString()
+									.replace(".", ""),
+							f = h.createElement("form");
+						f.method = "post";
+						f.action = d != null ? d : a.ENDPOINT;
+						f.target = e;
+						f.acceptCharset = "utf-8";
+						f.style.display = "none";
+						d = !!(g.attachEvent && !g.addEventListener);
+						var i = h.createElement("iframe");
+						d && (i.name = e);
+						i.src = "about:blank";
+						i.id = e;
+						i.name = e;
+						f.appendChild(i);
+						c(i, "load", function() {
+							b.each(function(a, b) {
+								var c = h.createElement("input");
+								c.name = decodeURIComponent(a);
+								c.value = b;
+								f.appendChild(c);
+							}),
+								c(i, "load", function() {
+									f.parentNode && f.parentNode.removeChild(f);
+								}),
+								f.submit();
+						});
+						h.body != null && h.body.appendChild(f);
+						return !0;
+					}
+					e.exports = d;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered(
+			"SignalsFBEventsSetIWLExtractorsEvent",
+			function() {
+				return (function(h, i, j, d) {
+					var e = { exports: {} };
+					e.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+							b = f.getFbeventsModules("SignalsFBEventsUtils"),
+							c = b.filter,
+							d = b.map,
+							h = f.getFbeventsModules(
+								"signalsFBEventsCoerceParameterExtractors"
+							),
+							i = f.getFbeventsModules("signalsFBEventsCoercePixelID");
+						function j() {
+							for (var a = arguments.length, b = Array(a), e = 0; e < a; e++)
+								b[e] = arguments[e];
+							var f = b[0];
+							if (
+								f == null ||
+								(typeof f === "undefined" ? "undefined" : g(f)) !== "object"
+							)
+								return null;
+							var j = f.pixelID,
+								k = f.extractors,
+								l = i(j),
+								m = Array.isArray(k) ? d(k, h) : null,
+								n = m != null ? c(m, Boolean) : null;
+							return n != null &&
+								m != null &&
+								n.length === m.length &&
+								l != null
+								? [{ extractors: n, pixelID: l }]
+								: null;
+						}
+						b = new a(j);
+						e.exports = b;
+					})();
+					return e.exports;
+				})(a, b, c, d);
+			}
+		);
+		f.ensureModuleRegistered("SignalsFBEventsUtils", function() {
+			return (function(f, i, c, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = Object.prototype.toString,
+						b = !("addEventListener" in i);
+					function c(a, b) {
+						return b != null && a instanceof b;
+					}
+					function d(b) {
+						return Array.isArray
+							? Array.isArray(b)
+							: a.call(b) === "[object Array]";
+					}
+					function f(a) {
+						return (
+							typeof a === "number" ||
+							(typeof a === "string" && /^\d+$/.test(a))
+						);
+					}
+					var k =
+						Number.isInteger ||
+						function(a) {
+							return (
+								typeof a === "number" && isFinite(a) && Math.floor(a) === a
+							);
+						};
+					function l(a) {
+						return k(a) && a >= 0 && a <= Number.MAX_SAFE_INTEGER;
+					}
+					function m(a, c, d) {
+						var e = b ? "on" + c : c;
+						c = b ? a.attachEvent : a.addEventListener;
+						var f = b ? a.detachEvent : a.removeEventListener,
+							g = function b() {
+								f && f.call(a, e, b, !1), d();
+							};
+						c && c.call(a, e, g, !1);
+					}
+					var n = Object.prototype.hasOwnProperty,
+						o = !{ toString: null }.propertyIsEnumerable("toString"),
+						p = [
+							"toString",
+							"toLocaleString",
+							"valueOf",
+							"hasOwnProperty",
+							"isPrototypeOf",
+							"propertyIsEnumerable",
+							"constructor"
+						],
+						q = p.length;
+					function r(a) {
+						if (Object.keys) return Object.keys(a);
+						if (
+							(typeof a === "undefined" ? "undefined" : g(a)) !== "object" &&
+							(typeof a !== "function" || a === null)
+						)
+							throw new TypeError("Object.keys called on non-object");
+						var b = [];
+						for (var c in a) n.call(a, c) && b.push(c);
+						if (o) for (var d = 0; d < q; d++) n.call(a, p[d]) && b.push(p[d]);
+						return b;
+					}
+					function s(a, b) {
+						if (Array.prototype.map) return Array.prototype.map.call(a, b);
+						if (a == null) throw new TypeError(" array is null or not defined");
+						a = Object(a);
+						var c = a.length >>> 0;
+						if (typeof b !== "function")
+							throw new TypeError(b + " is not a function");
+						var d = new Array(c),
+							e = 0;
+						while (e < c) {
+							var f;
+							e in a && ((f = a[e]), (f = b(null, f, e, a)), (d[e] = f));
+							e++;
+						}
+						return d;
+					}
+					function t(a, b, c) {
+						if (Array.prototype.reduce)
+							return Array.prototype.reduce.call(a, b, c);
+						if (a == null) throw new TypeError(" array is null or not defined");
+						if (typeof b !== "function")
+							throw new TypeError(b + " is not a function");
+						var d = Object(a),
+							e = d.length >>> 0,
+							f = 0;
+						if (c != null) c = c;
+						else {
+							while (f < e && !(f in d)) f++;
+							if (f >= e)
+								throw new TypeError(
+									"Reduce of empty array with no initial value"
+								);
+							c = d[f++];
+						}
+						while (f < e) f in d && (c = b(c, d[f], f, a)), f++;
+						return c;
+					}
+					function u(a) {
+						if (this == null)
+							throw new TypeError(
+								"Array.prototype.some called on null or undefined"
+							);
+						if (Array.prototype.some) return Array.prototype.some.call(this, a);
+						if (typeof a !== "function") throw new TypeError();
+						var b = Object(this),
+							c = b.length >>> 0,
+							d = arguments.length >= 2 ? arguments[1] : void 0;
+						for (var e = 0; e < c; e++)
+							if (e in b && a.call(d, b[e], e, b)) return !0;
+						return !1;
+					}
+					function v(a) {
+						return r(a).length === 0;
+					}
+					function w(a) {
+						if (this === void 0 || this === null) throw new TypeError();
+						var b = Object(this),
+							c = b.length >>> 0;
+						if (typeof a !== "function") throw new TypeError();
+						var d = [],
+							e = arguments.length >= 2 ? arguments[1] : void 0;
+						for (var f = 0; f < c; f++)
+							if (f in b) {
+								var g = b[f];
+								a.call(e, g, f, b) && d.push(g);
+							}
+						return d;
+					}
+					function x(a, b) {
+						try {
+							return b(a);
+						} catch (a) {
+							if (a instanceof TypeError)
+								if (y.test(a)) return null;
+								else if (z.test(a)) return void 0;
+							throw a;
+						}
+					}
+					var y = /^null | null$|^[^(]* null /i,
+						z = /^undefined | undefined$|^[^(]* undefined /i;
+					x["default"] = x;
+					var A = (function() {
+						function a(b) {
+							j(this, a), (this.items = b || []);
+						}
+						h(a, [
+							{
+								key: "has",
+								value: function(a) {
+									return u.call(this.items, function(b) {
+										return b === a;
+									});
+								}
+							},
+							{
+								key: "add",
+								value: function(a) {
+									this.items.push(a);
+								}
+							}
+						]);
+						return a;
+					})();
+					function B(a) {
+						return a;
+					}
+					function C(a, b) {
+						return a == null || b == null ? !1 : a.indexOf(b) >= 0;
+					}
+					A = {
+						FBSet: A,
+						castTo: B,
+						each: function(a, b) {
+							s.call(this, a, b);
+						},
+						filter: function(a, b) {
+							return w.call(a, b);
+						},
+						idx: x,
+						isArray: d,
+						isEmptyObject: v,
+						isInstanceOf: c,
+						isInteger: k,
+						isNumber: f,
+						isSafeInteger: l,
+						keys: r,
+						listenOnce: m,
+						map: s,
+						reduce: t,
+						some: function(a, b) {
+							return u.call(a, b);
+						},
+						stringIncludes: C
+					};
+					e.exports = A;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsParamList", function() {
+			return (function(f, i, c, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = "deep",
+						b = "shallow";
+					function c(a) {
+						return JSON === void 0 || JSON === null || !JSON.stringify
+							? Object.prototype.toString.call(a)
+							: JSON.stringify(a);
+					}
+					function d(a) {
+						if (a === null || a === void 0) return !0;
+						a = typeof a === "undefined" ? "undefined" : g(a);
+						return a === "number" || a === "boolean" || a === "string";
+					}
+					var f = (function() {
+						function e(a) {
+							j(this, e), (this._params = []), (this._piiTranslator = a);
+						}
+						h(
 							e,
 							[
 								{
@@ -1712,20 +2612,20 @@ fbq.pendingConfigs = ["global_config"];
 		});
 		f.ensureModuleRegistered("SignalsFBEvents.plugins.opttracking", function() {
 			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
+				var e = { exports: {} };
+				e.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsEvents"),
 						b = a.getCustomParameters,
 						c = a.piiAutomatched,
 						d = a.piiConflicting,
-						e = a.piiInvalidated,
-						h = f.getFbeventsModules("SignalsFBEventsOptTrackingOptions");
+						h = a.piiInvalidated,
+						i = f.getFbeventsModules("SignalsFBEventsOptTrackingOptions");
 					a = f.getFbeventsModules("SignalsFBEventsPlugin");
-					var i = f.getFbeventsModules("SignalsFBEventsProxyState"),
-						j = f.getFbeventsModules("SignalsFBEventsUtils"),
-						l = j.some,
+					var j = f.getFbeventsModules("SignalsFBEventsProxyState"),
+						k = f.getFbeventsModules("SignalsFBEventsUtils"),
+						l = k.some,
 						m = !1;
 					function n() {
 						try {
@@ -1793,17 +2693,17 @@ fbq.pendingConfigs = ["global_config"];
 							b = 0,
 							c = 0;
 						try {
-							(a = p(s(), h.IS_SELENIUM)), (b = p(t(), h.IS_HEADLESS));
+							(a = p(s(), i.IS_SELENIUM)), (b = p(t(), i.IS_HEADLESS));
 						} catch (a) {
-							c = h.HAS_DETECTION_FAILED;
+							c = i.HAS_DETECTION_FAILED;
 						}
 						return { hasDetectionFailed: c, isHeadless: b, isSelenium: a };
 					}
-					j = new a(function(a, g) {
+					k = new a(function(a, e) {
 						if (m) return;
-						var j = {};
-						e.listen(function(a) {
-							a != null && (j[typeof a === "string" ? a : a.id] = !0);
+						var g = {};
+						h.listen(function(a) {
+							a != null && (g[typeof a === "string" ? a : a.id] = !0);
 						});
 						var k = {};
 						d.listen(function(a) {
@@ -1814,28 +2714,28 @@ fbq.pendingConfigs = ["global_config"];
 							a != null && (l[typeof a === "string" ? a : a.id] = !0);
 						});
 						b.listen(function(b) {
-							var c = g.optIns,
+							var c = e.optIns,
 								d = p(
 									b != null && c.isOptedOut(b.id, "AutomaticSetup"),
-									h.AUTO_CONFIG_OPT_OUT
+									i.AUTO_CONFIG_OPT_OUT
 								);
 							c = p(
 								b != null && c.isOptedIn(b.id, "AutomaticSetup"),
-								h.AUTO_CONFIG
+								i.AUTO_CONFIG
 							);
-							var e = p(a.disableConfigLoading !== !0, h.CONFIG_LOADING),
-								f = p(n(), h.SUPPORTS_DEFINE_PROPERTY),
-								m = p(o(), h.SUPPORTS_SEND_BEACON),
-								q = p(b != null && k[b.id], h.HAS_CONFLICTING_PII),
-								r = p(b != null && j[b.id], h.HAS_INVALIDATED_PII);
-							b = p(b != null && l[b.id], h.HAS_AUTOMATCHED_PII);
-							var s = p(i.getShouldProxy(), h.SHOULD_PROXY),
+							var f = p(a.disableConfigLoading !== !0, i.CONFIG_LOADING),
+								h = p(n(), i.SUPPORTS_DEFINE_PROPERTY),
+								m = p(o(), i.SUPPORTS_SEND_BEACON),
+								q = p(b != null && k[b.id], i.HAS_CONFLICTING_PII),
+								r = p(b != null && g[b.id], i.HAS_INVALIDATED_PII);
+							b = p(b != null && l[b.id], i.HAS_AUTOMATCHED_PII);
+							var s = p(j.getShouldProxy(), i.SHOULD_PROXY),
 								t = v();
 							d =
 								d |
 								c |
-								e |
 								f |
+								h |
 								m |
 								r |
 								s |
@@ -1848,1776 +2748,16 @@ fbq.pendingConfigs = ["global_config"];
 						});
 						m = !0;
 					});
-					j.OPTIONS = h;
-					k.exports = j;
+					k.OPTIONS = i;
+					e.exports = k;
 				})();
-				return k.exports;
+				return e.exports;
 			})(a, b, c, d);
 		});
 		e.exports = f.getFbeventsModules("SignalsFBEvents.plugins.opttracking");
 		f.registerPlugin &&
 			f.registerPlugin("fbevents.plugins.opttracking", e.exports);
 		f.ensureModuleRegistered("fbevents.plugins.opttracking", function() {
-			return e.exports;
-		});
-	})();
-})(window, document, location, history);
-(function(a, b, c, d) {
-	var e = { exports: {} };
-	e.exports;
-	(function() {
-		var f = a.fbq;
-		f.execStart = a.performance && a.performance.now && a.performance.now();
-		if (
-			!(function() {
-				var b = a.postMessage || function() {};
-				if (!f) {
-					b(
-						{
-							action: "FB_LOG",
-							logType: "Facebook Pixel Error",
-							logMessage: "Pixel code is not installed correctly on this page"
-						},
-						"*"
-					);
-					"error" in console &&
-						console.error(
-							"Facebook Pixel Error: Pixel code is not installed correctly on this page"
-						);
-					return !1;
-				}
-				return !0;
-			})()
-		)
-			return;
-		var g = (function() {
-				function a(a, b) {
-					var c = [],
-						d = !0,
-						e = !1,
-						f = void 0;
-					try {
-						for (
-							var a = a[
-									typeof Symbol === "function" ? Symbol.iterator : "@@iterator"
-								](),
-								g;
-							!(d = (g = a.next()).done);
-							d = !0
-						) {
-							c.push(g.value);
-							if (b && c.length === b) break;
-						}
-					} catch (a) {
-						(e = !0), (f = a);
-					} finally {
-						try {
-							!d && a["return"] && a["return"]();
-						} finally {
-							if (e) throw f;
-						}
-					}
-					return c;
-				}
-				return function(b, c) {
-					if (Array.isArray(b)) return b;
-					else if (
-						(typeof Symbol === "function" ? Symbol.iterator : "@@iterator") in
-						Object(b)
-					)
-						return a(b, c);
-					else
-						throw new TypeError(
-							"Invalid attempt to destructure non-iterable instance"
-						);
-				};
-			})(),
-			h =
-				typeof Symbol === "function" &&
-				typeof (typeof Symbol === "function"
-					? Symbol.iterator
-					: "@@iterator") === "symbol"
-					? function(a) {
-							return typeof a;
-					  }
-					: function(a) {
-							return a &&
-								typeof Symbol === "function" &&
-								a.constructor === Symbol &&
-								a !==
-									(typeof Symbol === "function"
-										? Symbol.prototype
-										: "@@prototype")
-								? "symbol"
-								: typeof a;
-					  },
-			i = (function() {
-				function a(a, b) {
-					for (var c = 0; c < b.length; c++) {
-						var d = b[c];
-						d.enumerable = d.enumerable || !1;
-						d.configurable = !0;
-						"value" in d && (d.writable = !0);
-						Object.defineProperty(a, d.key, d);
-					}
-				}
-				return function(b, c, d) {
-					c && a(b.prototype, c);
-					d && a(b, d);
-					return b;
-				};
-			})();
-		function j(a) {
-			if (Array.isArray(a)) {
-				for (var b = 0, c = Array(a.length); b < a.length; b++) c[b] = a[b];
-				return c;
-			} else return Array.from(a);
-		}
-		function k(a, b) {
-			if (!(a instanceof b))
-				throw new TypeError("Cannot call a class as a function");
-		}
-		f.__fbeventsModules ||
-			((f.__fbeventsModules = {}),
-			(f.__fbeventsResolvedModules = {}),
-			(f.getFbeventsModules = function(a) {
-				f.__fbeventsResolvedModules[a] ||
-					(f.__fbeventsResolvedModules[a] = f.__fbeventsModules[a]());
-				return f.__fbeventsResolvedModules[a];
-			}),
-			(f.fbIsModuleLoaded = function(a) {
-				return !!f.__fbeventsModules[a];
-			}),
-			(f.ensureModuleRegistered = function(b, a) {
-				f.fbIsModuleLoaded(b) || (f.__fbeventsModules[b] = a);
-			}));
-		f.ensureModuleRegistered("SignalsFBEventsBaseEvent", function() {
-			return (function(g, h, c, d) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
-						b = a.map,
-						c = a.keys;
-					a = (function() {
-						function a(b) {
-							k(this, a),
-								(this._regKey = 0),
-								(this._subscriptions = {}),
-								(this._coerceArgs = b || null);
-						}
-						i(a, [
-							{
-								key: "listen",
-								value: function(a) {
-									var b = this,
-										c = "" + this._regKey++;
-									this._subscriptions[c] = a;
-									return function() {
-										delete b._subscriptions[c];
-									};
-								}
-							},
-							{
-								key: "listenOnce",
-								value: function(a) {
-									var b = null,
-										c = function() {
-											b && b();
-											b = null;
-											return a.apply(void 0, arguments);
-										};
-									b = this.listen(c);
-									return b;
-								}
-							},
-							{
-								key: "trigger",
-								value: function() {
-									var a = this;
-									for (
-										var d = arguments.length, e = Array(d), f = 0;
-										f < d;
-										f++
-									)
-										e[f] = arguments[f];
-									return b(c(this._subscriptions), function(b) {
-										var c;
-										return (c = a._subscriptions)[b].apply(c, e);
-									});
-								}
-							},
-							{
-								key: "triggerWeakly",
-								value: function() {
-									var a =
-										this._coerceArgs != null
-											? this._coerceArgs.apply(this, arguments)
-											: null;
-									return a == null ? [] : this.trigger.apply(this, j(a));
-								}
-							}
-						]);
-						return a;
-					})();
-					e.exports = a;
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered(
-			"signalsFBEventsCoerceParameterExtractors",
-			function() {
-				return (function(g, i, j, k) {
-					var e = { exports: {} };
-					e.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsUtils"),
-							b = a.filter,
-							c = a.map,
-							d = f.getFbeventsModules(
-								"signalsFBEventsCoerceStandardParameter"
-							);
-						function g(a) {
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							var b = a.domain_uri,
-								c = a.event_type,
-								d = a.extractor_type;
-							a = a.id;
-							b = typeof b === "string" ? b : null;
-							c = c != null && typeof c === "string" && c !== "" ? c : null;
-							a = a != null && typeof a === "string" && a !== "" ? a : null;
-							d =
-								d === "CONSTANT_VALUE" ||
-								d === "CSS" ||
-								d === "GLOBAL_VARIABLE" ||
-								d === "GTM" ||
-								d === "JSON_LD" ||
-								d === "META_TAG" ||
-								d === "OPEN_GRAPH" ||
-								d === "RDFA" ||
-								d === "SCHEMA_DOT_ORG" ||
-								d === "URI"
-									? d
-									: null;
-							return b != null && c != null && a != null && d != null
-								? { domain_uri: b, event_type: c, extractor_type: d, id: a }
-								: null;
-						}
-						function i(a) {
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							a = a.extractor_config;
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							var b = a.parameter_type;
-							a = a.value;
-							b = d(b);
-							a = a != null && typeof a === "string" && a !== "" ? a : null;
-							return b != null && a != null
-								? { parameter_type: b, value: a }
-								: null;
-						}
-						function j(a) {
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							var b = a.parameter_type;
-							a = a.selector;
-							b = d(b);
-							a = a != null && typeof a === "string" && a !== "" ? a : null;
-							return b != null && a != null
-								? { parameter_type: b, selector: a }
-								: null;
-						}
-						function k(a) {
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							a = a.extractor_config;
-							if (
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							a = a.parameter_selectors;
-							if (Array.isArray(a)) {
-								a = c(a, j);
-								var d = b(a, Boolean);
-								if (a.length === d.length) return { parameter_selectors: d };
-							}
-							return null;
-						}
-						function l(a) {
-							var b = g(a);
-							if (
-								b == null ||
-								a == null ||
-								(typeof a === "undefined" ? "undefined" : h(a)) !== "object"
-							)
-								return null;
-							var c = b.domain_uri,
-								d = b.event_type,
-								e = b.extractor_type;
-							b = b.id;
-							if (e === "CSS") {
-								var f = k(a);
-								if (f != null)
-									return {
-										domain_uri: c,
-										event_type: d,
-										extractor_config: f,
-										extractor_type: "CSS",
-										id: b
-									};
-							}
-							if (e === "CONSTANT_VALUE") {
-								f = i(a);
-								if (f != null)
-									return {
-										domain_uri: c,
-										event_type: d,
-										extractor_config: f,
-										extractor_type: "CONSTANT_VALUE",
-										id: b
-									};
-							}
-							if (e === "GLOBAL_VARIABLE")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "GLOBAL_VARIABLE",
-									id: b
-								};
-							if (e === "GTM")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "GTM",
-									id: b
-								};
-							if (e === "JSON_LD")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "JSON_LD",
-									id: b
-								};
-							if (e === "META_TAG")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "META_TAG",
-									id: b
-								};
-							if (e === "OPEN_GRAPH")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "OPEN_GRAPH",
-									id: b
-								};
-							if (e === "RDFA")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "RDFA",
-									id: b
-								};
-							if (e === "SCHEMA_DOT_ORG")
-								return {
-									domain_uri: c,
-									event_type: d,
-									extractor_type: "SCHEMA_DOT_ORG",
-									id: b
-								};
-							return e === "URI"
-								? { domain_uri: c, event_type: d, extractor_type: "URI", id: b }
-								: null;
-						}
-						e.exports = l;
-					})();
-					return e.exports;
-				})(a, b, c, d);
-			}
-		);
-		f.ensureModuleRegistered("signalsFBEventsCoercePixel", function() {
-			return (function(g, i, j, k) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("signalsFBEventsCoercePixelID"),
-						b = f.getFbeventsModules("signalsFBEventsCoerceUserData");
-					function c(c) {
-						if (
-							c == null ||
-							(typeof c === "undefined" ? "undefined" : h(c)) !== "object"
-						)
-							return null;
-						var d = c.eventCount,
-							e = c.id,
-							f = c.userData;
-						c = c.userDataFormFields;
-						d = typeof d === "number" ? d : null;
-						e = a(e);
-						f = b(f);
-						c = b(c);
-						return e != null && f != null && d != null && c != null
-							? { eventCount: d, id: e, userData: f, userDataFormFields: c }
-							: null;
-					}
-					e.exports = c;
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("signalsFBEventsCoercePixelID", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsLogging"),
-						b = a.logUserError;
-					a = f.getFbeventsModules("SignalsFBEventsUtils");
-					var c = a.isSafeInteger;
-					function d(a) {
-						if (typeof a === "number") {
-							if (!c(a)) {
-								b({ pixelID: a.toString(), type: "INVALID_PIXEL_ID" });
-								return null;
-							}
-							return a.toString();
-						}
-						if (typeof a === "string") {
-							var d = /^[1-9][0-9]{0,25}$/;
-							if (!d.test(a)) {
-								b({ pixelID: a, type: "INVALID_PIXEL_ID" });
-								return null;
-							}
-							return a;
-						}
-						if (a === void 0) {
-							b({ pixelID: "undefined", type: "INVALID_PIXEL_ID" });
-							return null;
-						}
-						if (a === null) {
-							b({ pixelID: "null", type: "INVALID_PIXEL_ID" });
-							return null;
-						}
-						b({ pixelID: "unknown", type: "INVALID_PIXEL_ID" });
-						return null;
-					}
-					k.exports = d;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered(
-			"signalsFBEventsCoerceStandardParameter",
-			function() {
-				return (function(g, h, i, j) {
-					var k = { exports: {} };
-					k.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsUtils");
-						a = a.FBSet;
-						var b = new a([
-							"content_category",
-							"content_ids",
-							"content_name",
-							"content_type",
-							"currency",
-							"contents",
-							"num_items",
-							"order_id",
-							"predicted_ltv",
-							"search_string",
-							"status",
-							"subscription_id",
-							"value",
-							"id",
-							"item_price",
-							"quantity",
-							"ct",
-							"db",
-							"em",
-							"external_id",
-							"fn",
-							"ge",
-							"ln",
-							"namespace",
-							"ph",
-							"st",
-							"zp"
-						]);
-						function c(a) {
-							return typeof a === "string" && b.has(a) ? a : null;
-						}
-						k.exports = c;
-					})();
-					return k.exports;
-				})(a, b, c, d);
-			}
-		);
-		f.ensureModuleRegistered("signalsFBEventsCoerceUserData", function() {
-			return (function(g, i, j, k) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
-						b = a.each,
-						c = a.keys;
-					function d(a) {
-						if (
-							(typeof a === "undefined" ? "undefined" : h(a)) !== "object" ||
-							a == null
-						)
-							return null;
-						var d = {};
-						b(c(a), function(b) {
-							var c = a[b];
-							typeof c === "string" && (d[b] = c);
-						});
-						return d;
-					}
-					e.exports = d;
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsConfigLoadedEvent", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixelID");
-					function c(a) {
-						a = b(a);
-						return a != null ? [a] : null;
-					}
-					a = new a(c);
-					k.exports = a;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsEvents", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("SignalsFBEventsConfigLoadedEvent"),
-						c = f.getFbeventsModules("SignalsFBEventsFiredEvent"),
-						d = f.getFbeventsModules("SignalsFBEventsGetCustomParametersEvent"),
-						e = f.getFbeventsModules("SignalsFBEventsGetIWLParametersEvent"),
-						g = f.getFbeventsModules("SignalsFBEventsIWLBootStrapEvent"),
-						h = f.getFbeventsModules("SignalsFBEventsPIIAutomatchedEvent"),
-						i = f.getFbeventsModules("SignalsFBEventsPIIConflictingEvent"),
-						j = f.getFbeventsModules("SignalsFBEventsPIIInvalidatedEvent"),
-						l = f.getFbeventsModules("SignalsFBEventsPluginLoadedEvent"),
-						m = f.getFbeventsModules("SignalsFBEventsSetIWLExtractorsEvent");
-					b = {
-						configLoaded: b,
-						execEnd: new a(),
-						fired: c,
-						getCustomParameters: d,
-						getIWLParameters: e,
-						iwlBootstrap: g,
-						piiAutomatched: h,
-						piiConflicting: i,
-						piiInvalidated: j,
-						pluginLoaded: l,
-						setIWLExtractors: m
-					};
-					k.exports = b;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsFiredEvent", function() {
-			return (function(g, i, j, k) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a =
-							Object.assign ||
-							function(a) {
-								for (var b = 1; b < arguments.length; b++) {
-									var c = arguments[b];
-									for (var d in c)
-										Object.prototype.hasOwnProperty.call(c, d) && (a[d] = c[d]);
-								}
-								return a;
-							},
-						b = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						c = f.getFbeventsModules("SignalsParamList");
-					function d(b, d, e) {
-						var f = null;
-						(b === "GET" || b === "POST" || b === "BEACON") && (f = b);
-						b = d instanceof c ? d : null;
-						d =
-							(typeof e === "undefined" ? "undefined" : h(e)) === "object"
-								? a({}, e)
-								: null;
-						return f != null && b != null && d != null ? [f, b, d] : null;
-					}
-					b = new b(d);
-					e.exports = b;
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered(
-			"SignalsFBEventsGetCustomParametersEvent",
-			function() {
-				return (function(g, h, i, j) {
-					var k = { exports: {} };
-					k.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-							b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-						function c(a, c) {
-							a = b(a);
-							c = c != null && typeof c === "string" ? c : null;
-							return a != null && c != null ? [a, c] : null;
-						}
-						a = new a(c);
-						k.exports = a;
-					})();
-					return k.exports;
-				})(a, b, c, d);
-			}
-		);
-		f.ensureModuleRegistered(
-			"SignalsFBEventsGetIWLParametersEvent",
-			function() {
-				return (function(g, i, j, k) {
-					var e = { exports: {} };
-					e.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-							b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-						function c() {
-							for (var a = arguments.length, c = Array(a), d = 0; d < a; d++)
-								c[d] = arguments[d];
-							var e = c[0];
-							if (
-								e == null ||
-								(typeof e === "undefined" ? "undefined" : h(e)) !== "object"
-							)
-								return null;
-							var f = e.unsafePixel,
-								g = e.unsafeTarget,
-								i = b(f),
-								j = g instanceof HTMLElement ? g : null;
-							return i != null && j != null ? [{ pixel: i, target: j }] : null;
-						}
-						e.exports = new a(c);
-					})();
-					return e.exports;
-				})(a, b, c, d);
-			}
-		);
-		f.ensureModuleRegistered("SignalsFBEventsIWLBootStrapEvent", function() {
-			return (function(g, i, j, k) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixelID");
-					function c() {
-						for (var a = arguments.length, c = Array(a), d = 0; d < a; d++)
-							c[d] = arguments[d];
-						var e = c[0];
-						if (
-							e == null ||
-							(typeof e === "undefined" ? "undefined" : h(e)) !== "object"
-						)
-							return null;
-						var f = e.graphToken,
-							g = e.pixelID,
-							i = b(g);
-						return f != null && typeof f === "string" && i != null
-							? [{ graphToken: f, pixelID: i }]
-							: null;
-					}
-					a = new a(c);
-					e.exports = a;
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsLogging", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsNetworkUtils"),
-						b = a.sendPOST;
-					a = f.getFbeventsModules("SignalsFBEventsUtils");
-					var c = a.isInstanceOf,
-						d = f.getFbeventsModules("SignalsParamList"),
-						e = !1;
-					function h() {
-						e = !0;
-					}
-					var i = !0;
-					function j() {
-						i = !1;
-					}
-					var l = "console",
-						m = "warn";
-					function n(a) {
-						g[l] && g[l][m] && g[l][m](a);
-					}
-					var o = !1;
-					function p() {
-						o = !0;
-					}
-					function q(a) {
-						if (o) return;
-						n("[Facebook Pixel] - " + a);
-					}
-					var r = "Facebook Pixel Error",
-						s = g.postMessage ? g.postMessage.bind(g) : function() {},
-						t = {};
-					function u(a) {
-						switch (a.type) {
-							case "FBQ_NO_METHOD_NAME":
-								return "You must provide an argument to fbq().";
-							case "INVALID_FBQ_METHOD":
-								var b = a.method;
-								return "\"fbq('" + b + "', ...);\" is not a valid fbq command.";
-							case "INVALID_PIXEL_ID":
-								b = a.pixelID;
-								return "Invalid PixelID: " + b + ".";
-							case "DUPLICATE_PIXEL_ID":
-								b = a.pixelID;
-								return "Duplicate Pixel ID: " + b + ".";
-							case "SET_METADATA_ON_UNINITIALIZED_PIXEL_ID":
-								b = a.metadataValue;
-								var c = a.pixelID;
-								return (
-									"Trying to set argument " +
-									b +
-									" for uninitialized Pixel ID " +
-									c +
-									"."
-								);
-							case "CONFLICTING_VERSIONS":
-								return "Multiple pixels with conflicting versions were detected on this page.";
-							case "MULTIPLE_PIXELS":
-								return "Multiple pixels were detected on this page.";
-							case "UNSUPPORTED_METADATA_ARGUMENT":
-								b = a.metadata;
-								return "Unsupported metadata argument: " + b + ".";
-							case "REQUIRED_PARAM_MISSING":
-								c = a.param;
-								b = a.eventName;
-								return (
-									"Required parameter '" +
-									c +
-									"' is missing for event '" +
-									b +
-									"'."
-								);
-							case "INVALID_PARAM":
-								c = a.param;
-								b = a.eventName;
-								return (
-									"Parameter '" + c + "' is invalid for event '" + b + "'."
-								);
-							case "NO_EVENT_NAME":
-								return 'Missing event name. Track events must be logged with an event name fbq("track", eventName)';
-							case "NONSTANDARD_EVENT":
-								c = a.eventName;
-								return (
-									"You are sending a non-standard event '" +
-									c +
-									"'. The preferred way to send these events is using trackCustom. See 'https://developers.facebook.com/docs/ads-for-websites/pixel-events/#events' for more information."
-								);
-							case "NEGATIVE_EVENT_PARAM":
-								b = a.param;
-								c = a.eventName;
-								return (
-									"Parameter '" + b + "' is negative for event '" + c + "'."
-								);
-							case "PII_INVALID_TYPE":
-								b = a.key_type;
-								c = a.key_val;
-								return (
-									"An invalid " +
-									b +
-									" was specified for '" +
-									c +
-									"'. This data will not be sent with any events for this Pixel."
-								);
-							case "PII_UNHASHED_PII":
-								b = a.key;
-								return (
-									"The value for the '" +
-									b +
-									"' key appeared to be PII. This data will not be sent with any events for this Pixel."
-								);
-							case "INVALID_CONSENT_ACTION":
-								c = a.action;
-								return (
-									"\"fbq('" +
-									c +
-									"', ...);\" is not a valid fbq('consent', ...) action. Valid actions are 'revoke' and 'grant'."
-								);
-							case "INVALID_JSON_LD":
-								b = a.jsonLd;
-								return (
-									"Unable to parse JSON-LD tag. Malformed JSON found: '" +
-									b +
-									"'."
-								);
-							case "SITE_CODELESS_OPT_OUT":
-								c = a.pixelID;
-								return (
-									"Unable to open Codeless events interface for pixel as the site has opted out. Pixel ID: " +
-									c +
-									"."
-								);
-							case "PIXEL_NOT_INITIALIZED":
-								b = a.pixelID;
-								return "Pixel " + b + " not found";
-							default:
-								x(
-									new Error(
-										"INVALID_USER_ERROR - " + a.type + " - " + JSON.stringify(a)
-									)
-								);
-								return "Invalid User Error.";
-						}
-					}
-					function v(a, e) {
-						try {
-							var f = Math.random(),
-								h =
-									g.fbq && g.fbq._releaseSegment
-										? g.fbq._releaseSegment
-										: "unknown";
-							if ((i && f < 0.01) || h === "canary") {
-								f = new d(null);
-								f.append("p", "pixel");
-								f.append(
-									"v",
-									g.fbq && g.fbq.version ? g.fbq.version : "unknown"
-								);
-								f.append("e", a.toString());
-								c(a, Error) &&
-									(f.append("f", a.fileName),
-									f.append("s", a.stackTrace || a.stack));
-								f.append("ue", e ? "1" : "0");
-								f.append("rs", h);
-								b(f, "https://connect.facebook.net/log/error");
-							}
-						} catch (a) {}
-					}
-					function w(a) {
-						var b = JSON.stringify(a);
-						if (!Object.prototype.hasOwnProperty.call(t, b)) t[b] = !0;
-						else return;
-						b = u(a);
-						q(b);
-						s({ action: "FB_LOG", logMessage: b, logType: r }, "*");
-						v(new Error(b), !0);
-					}
-					function x(a) {
-						v(a, !1), e && q(a.toString());
-					}
-					a = {
-						consoleWarn: n,
-						disableAllLogging: p,
-						disableSampling: j,
-						enableVerboseDebugLogging: h,
-						logError: x,
-						logUserError: w
-					};
-					k.exports = a;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsNetworkUtils", function() {
-			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsProxyState"),
-						b = f.getFbeventsModules("SignalsFBEventsQE"),
-						c = f.getFbeventsModules("SignalsFBEventsUtils"),
-						d = c.listenOnce;
-					function i(b, c) {
-						return c != null && a.getShouldProxy() ? c : b;
-					}
-					var j = {
-						UNSENT: 0,
-						OPENED: 1,
-						HEADERS_RECEIVED: 2,
-						LOADING: 3,
-						DONE: 4
-					};
-					c = function c() {
-						var e = this;
-						k(this, c);
-						this.sendGET = function(b, c, d) {
-							b.replaceEntry("rqm", "GET");
-							var f = b.toQueryString();
-							f = i(c, d) + "?" + f;
-							if (f.length < 2048) {
-								var g = new Image();
-								if (d != null) {
-									var h = a.getShouldProxy();
-									g.onerror = function() {
-										a.setShouldProxy(!0), h || e.sendGET(b, c, d);
-									};
-								}
-								g.src = f;
-								return !0;
-							}
-							return !1;
-						};
-						this.sendPOST = function(a, c, d) {
-							var f = b.get("xhr_cors_post");
-							if (f) {
-								a.append("exp", f.code);
-								if (f.isInExperimentGroup) return e._sendXHRPost(a, c, d);
-							}
-							return e._sendFormPOST(a, c, d);
-						};
-						this._sendXHRPost = function(b, c, d) {
-							b.replaceEntry("rqm", "xhrPOST");
-							var f = new XMLHttpRequest(),
-								g = function() {
-									if (d != null) {
-										var f = a.getShouldProxy();
-										a.setShouldProxy(!0);
-										f || e.sendPOST(b, c, d);
-									}
-								};
-							if ("withCredentials" in f)
-								(f.withCredentials = !0),
-									f.open("POST", c, !1),
-									(f.onreadystatechange = function() {
-										if (f.readyState !== j.DONE) return;
-										f.status !== 200 && g();
-									});
-							else if (XDomainRequest != void 0)
-								(f = new XDomainRequest()), f.open("POST", c), (f.onerror = g);
-							else return !1;
-							f.send(b.toFormData());
-							return !0;
-						};
-						this._sendFormPOST = function(c, f, j) {
-							c.replaceEntry("rqm", "formPOST");
-							var k = b.get("set_timeout_post");
-							k && c.append("exp", k.code);
-							var l =
-									"fb" +
-									Math.random()
-										.toString()
-										.replace(".", ""),
-								m = h.createElement("form");
-							m.method = "post";
-							m.action = i(f, j);
-							m.target = l;
-							m.acceptCharset = "utf-8";
-							m.style.display = "none";
-							var n = !!(g.attachEvent && !g.addEventListener),
-								o = h.createElement("iframe");
-							n && (o.name = l);
-							o.src = "about:blank";
-							o.id = l;
-							o.name = l;
-							m.appendChild(o);
-							d(o, "load", function() {
-								c.each(function(a, b) {
-									var c = h.createElement("input");
-									c.name = decodeURIComponent(a);
-									c.value = b;
-									m.appendChild(c);
-								}),
-									d(o, "load", function() {
-										m.parentNode && m.parentNode.removeChild(m);
-									}),
-									k &&
-									k.isInExperimentGroup &&
-									c.get("ev") === "SubscribedButtonClick"
-										? setTimeout(function() {
-												return m.submit();
-										  })
-										: m.submit();
-							});
-							if (j != null) {
-								var p = a.getShouldProxy();
-								o.onerror = function() {
-									a.setShouldProxy(!0), p || e.sendPOST(c, f, j);
-								};
-							}
-							h.body != null && h.body.appendChild(m);
-							return !0;
-						};
-						this.sendBeacon = function(b, c, d) {
-							b.append("rqm", "SB");
-							if (g.navigator && g.navigator.sendBeacon) {
-								var f = g.navigator.sendBeacon(i(c, d), b.toFormData());
-								if (d != null && !f) {
-									f = a.getShouldProxy();
-									a.setShouldProxy(!0);
-									f || e.sendBeacon(b, c, d);
-								}
-								return !0;
-							}
-							return !1;
-						};
-					};
-					e.exports = new c();
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsPerformanceTiming", function() {
-			return (function(g, h, j, d) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a =
-							Object.assign ||
-							function(a) {
-								for (var b = 1; b < arguments.length; b++) {
-									var c = arguments[b];
-									for (var d in c)
-										Object.prototype.hasOwnProperty.call(c, d) && (a[d] = c[d]);
-								}
-								return a;
-							},
-						b = f.getFbeventsModules("SignalsFBEventsEvents"),
-						c = b.execEnd,
-						d = b.getCustomParameters,
-						h = b.pluginLoaded;
-					b = (function() {
-						function b(e) {
-							var i = this;
-							k(this, b);
-							this._execEnd = null;
-							this._fires = [];
-							this._pageStartTime = g.performance.timing.fetchStart;
-							this._startOffset =
-								this._pageStartTime - g.performance.timing.navigationStart;
-							if (e.execStart != null)
-								this._execStart = e.execStart - this._startOffset;
-							else
-								throw new Error("fbq.execStart must be set in the base code.");
-							h.listen(function() {
-								return i.execEnd();
-							});
-							c.listen(function() {
-								return i.execEnd();
-							});
-							d.listen(function() {
-								return a({}, i.fire());
-							});
-						}
-						i(b, [
-							{
-								key: "execEnd",
-								value: function() {
-									this._execEnd = g.performance.now() - this._startOffset;
-								}
-							},
-							{
-								key: "fire",
-								value: function() {
-									this._fires.unshift(g.performance.now() - this._startOffset);
-									return {
-										ttf: this._fires[0].toString(),
-										tts: this._execStart.toString(),
-										ttse:
-											this._execEnd != null ? this._execEnd.toString() : null
-									};
-								}
-							}
-						]);
-						return b;
-					})();
-					b.supported =
-						g.performance && g.performance.now && !!g.performance.timing;
-					e.exports = b;
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsPIIAutomatchedEvent", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-					function c(a) {
-						a = b(a);
-						return a != null ? [a] : null;
-					}
-					a = new a(c);
-					k.exports = a;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsPIIConflictingEvent", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-					function c(a) {
-						a = b(a);
-						return a != null ? [a] : null;
-					}
-					a = new a(c);
-					k.exports = a;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsPIIInvalidatedEvent", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-					function c(a) {
-						a = b(a);
-						return a != null ? [a] : null;
-					}
-					k.exports = new a(c);
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsPlugin", function() {
-			return (function(f, g, h, i) {
-				var j = { exports: {} };
-				j.exports;
-				(function() {
-					"use strict";
-					var a = function a(b) {
-						k(this, a),
-							(this.__fbEventsPlugin = 1),
-							(this.plugin = b),
-							(this.__fbEventsPlugin = 1);
-					};
-					j.exports = a;
-				})();
-				return j.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsPluginLoadedEvent", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent");
-					function b(a) {
-						a = a != null && typeof a === "string" ? a : null;
-						return a != null ? [a] : null;
-					}
-					k.exports = new a(b);
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsProxyState", function() {
-			return (function(f, g, h, i) {
-				var j = { exports: {} };
-				j.exports;
-				(function() {
-					"use strict";
-					var a = !1;
-					j.exports = {
-						getShouldProxy: function() {
-							return a;
-						},
-						setShouldProxy: function(b) {
-							a = b;
-						}
-					};
-				})();
-				return j.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEventsQE", function() {
-			return (function(f, h, j, d) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = function() {
-						return Math.random();
-					};
-					function b(b) {
-						var c = a();
-						for (var d = 0; d < b.length; d++) {
-							var e = b[d],
-								f = e.passRate,
-								h = g(e.range, 2),
-								i = h[0];
-							h = h[1];
-							if (f < 0 || f > 1)
-								throw new Error(
-									"passRate should be between 0 and 1 in " + e.name
-								);
-							if (c >= i && c < h) {
-								i = a() < f;
-								return {
-									code: e.code + (i ? "1" : "0"),
-									isInExperimentGroup: i,
-									name: e.name
-								};
-							}
-						}
-						return null;
-					}
-					var c = (function() {
-						function a() {
-							k(this, a),
-								(this._groups = []),
-								(this._result = null),
-								(this._hasRolled = !1);
-						}
-						i(a, [
-							{
-								key: "setExperimentGroups",
-								value: function(a) {
-									(this._groups = a),
-										(this._result = null),
-										(this._hasRolled = !1);
-								}
-							},
-							{
-								key: "get",
-								value: function(a) {
-									if (!this._hasRolled) {
-										var c = b(this._groups);
-										c != null && (this._result = c);
-										this._hasRolled = !0;
-									}
-									if (a == null || a === "") return this._result;
-									return this._result != null && this._result.name === a
-										? this._result
-										: null;
-								}
-							}
-						]);
-						return a;
-					})();
-					e.exports = new c();
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered(
-			"SignalsFBEventsSetIWLExtractorsEvent",
-			function() {
-				return (function(g, i, j, k) {
-					var e = { exports: {} };
-					e.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-							b = f.getFbeventsModules("SignalsFBEventsUtils"),
-							c = b.filter,
-							d = b.map,
-							g = f.getFbeventsModules(
-								"signalsFBEventsCoerceParameterExtractors"
-							),
-							i = f.getFbeventsModules("signalsFBEventsCoercePixelID");
-						function j() {
-							for (var a = arguments.length, b = Array(a), e = 0; e < a; e++)
-								b[e] = arguments[e];
-							var f = b[0];
-							if (
-								f == null ||
-								(typeof f === "undefined" ? "undefined" : h(f)) !== "object"
-							)
-								return null;
-							var j = f.pixelID,
-								k = f.extractors,
-								l = i(j),
-								m = Array.isArray(k) ? d(k, g) : null,
-								n = m != null ? c(m, Boolean) : null;
-							return n != null &&
-								m != null &&
-								n.length === m.length &&
-								l != null
-								? [{ extractors: n, pixelID: l }]
-								: null;
-						}
-						b = new a(j);
-						e.exports = b;
-					})();
-					return e.exports;
-				})(a, b, c, d);
-			}
-		);
-		f.ensureModuleRegistered("SignalsFBEventsUtils", function() {
-			return (function(f, g, j, d) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = Object.prototype.toString,
-						b = !("addEventListener" in g);
-					function c(a, b) {
-						return b != null && a instanceof b;
-					}
-					function d(b) {
-						return Array.isArray
-							? Array.isArray(b)
-							: a.call(b) === "[object Array]";
-					}
-					function f(a) {
-						return (
-							typeof a === "number" ||
-							(typeof a === "string" && /^\d+$/.test(a))
-						);
-					}
-					var j =
-						Number.isInteger ||
-						function(a) {
-							return (
-								typeof a === "number" && isFinite(a) && Math.floor(a) === a
-							);
-						};
-					function l(a) {
-						return j(a) && a >= 0 && a <= Number.MAX_SAFE_INTEGER;
-					}
-					function m(a, c, d) {
-						var e = b ? "on" + c : c;
-						c = b ? a.attachEvent : a.addEventListener;
-						var f = b ? a.detachEvent : a.removeEventListener,
-							g = function b() {
-								f && f.call(a, e, b, !1), d();
-							};
-						c && c.call(a, e, g, !1);
-					}
-					var n = Object.prototype.hasOwnProperty,
-						o = !{ toString: null }.propertyIsEnumerable("toString"),
-						p = [
-							"toString",
-							"toLocaleString",
-							"valueOf",
-							"hasOwnProperty",
-							"isPrototypeOf",
-							"propertyIsEnumerable",
-							"constructor"
-						],
-						q = p.length;
-					function r(a) {
-						if (Object.keys) return Object.keys(a);
-						if (
-							(typeof a === "undefined" ? "undefined" : h(a)) !== "object" &&
-							(typeof a !== "function" || a === null)
-						)
-							throw new TypeError("Object.keys called on non-object");
-						var b = [];
-						for (var c in a) n.call(a, c) && b.push(c);
-						if (o) for (var d = 0; d < q; d++) n.call(a, p[d]) && b.push(p[d]);
-						return b;
-					}
-					function s(a, b) {
-						if (Array.prototype.map) return Array.prototype.map.call(a, b);
-						if (a == null) throw new TypeError(" array is null or not defined");
-						a = Object(a);
-						var c = a.length >>> 0;
-						if (typeof b !== "function")
-							throw new TypeError(b + " is not a function");
-						var d = new Array(c),
-							e = 0;
-						while (e < c) {
-							var f;
-							e in a && ((f = a[e]), (f = b(null, f, e, a)), (d[e] = f));
-							e++;
-						}
-						return d;
-					}
-					function t(a, b, c) {
-						if (Array.prototype.reduce)
-							return Array.prototype.reduce.call(a, b, c);
-						if (a == null) throw new TypeError(" array is null or not defined");
-						if (typeof b !== "function")
-							throw new TypeError(b + " is not a function");
-						var d = Object(a),
-							e = d.length >>> 0,
-							f = 0;
-						if (c != null) c = c;
-						else {
-							while (f < e && !(f in d)) f++;
-							if (f >= e)
-								throw new TypeError(
-									"Reduce of empty array with no initial value"
-								);
-							c = d[f++];
-						}
-						while (f < e) f in d && (c = b(c, d[f], f, a)), f++;
-						return c;
-					}
-					function u(a) {
-						if (this == null)
-							throw new TypeError(
-								"Array.prototype.some called on null or undefined"
-							);
-						if (Array.prototype.some) return Array.prototype.some.call(this, a);
-						if (typeof a !== "function") throw new TypeError();
-						var b = Object(this),
-							c = b.length >>> 0,
-							d = arguments.length >= 2 ? arguments[1] : void 0;
-						for (var e = 0; e < c; e++)
-							if (e in b && a.call(d, b[e], e, b)) return !0;
-						return !1;
-					}
-					function v(a) {
-						return r(a).length === 0;
-					}
-					function w(a) {
-						if (this === void 0 || this === null) throw new TypeError();
-						var b = Object(this),
-							c = b.length >>> 0;
-						if (typeof a !== "function") throw new TypeError();
-						var d = [],
-							e = arguments.length >= 2 ? arguments[1] : void 0;
-						for (var f = 0; f < c; f++)
-							if (f in b) {
-								var g = b[f];
-								a.call(e, g, f, b) && d.push(g);
-							}
-						return d;
-					}
-					function x(a, b) {
-						try {
-							return b(a);
-						} catch (a) {
-							if (a instanceof TypeError)
-								if (y.test(a)) return null;
-								else if (z.test(a)) return void 0;
-							throw a;
-						}
-					}
-					var y = /^null | null$|^[^(]* null /i,
-						z = /^undefined | undefined$|^[^(]* undefined /i;
-					x["default"] = x;
-					var A = (function() {
-						function a(b) {
-							k(this, a), (this.items = b || []);
-						}
-						i(a, [
-							{
-								key: "has",
-								value: function(a) {
-									return u.call(this.items, function(b) {
-										return b === a;
-									});
-								}
-							},
-							{
-								key: "add",
-								value: function(a) {
-									this.items.push(a);
-								}
-							}
-						]);
-						return a;
-					})();
-					function B(a) {
-						return a;
-					}
-					function C(a, b) {
-						return a == null || b == null ? !1 : a.indexOf(b) >= 0;
-					}
-					A = {
-						FBSet: A,
-						castTo: B,
-						each: function(a, b) {
-							s.call(this, a, b);
-						},
-						filter: function(a, b) {
-							return w.call(a, b);
-						},
-						idx: x,
-						isArray: d,
-						isEmptyObject: v,
-						isInstanceOf: c,
-						isInteger: j,
-						isNumber: f,
-						isSafeInteger: l,
-						keys: r,
-						listenOnce: m,
-						map: s,
-						reduce: t,
-						some: function(a, b) {
-							return u.call(a, b);
-						},
-						stringIncludes: C
-					};
-					e.exports = A;
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsParamList", function() {
-			return (function(f, g, j, d) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = "deep",
-						b = "shallow";
-					function c(a) {
-						return JSON === void 0 || JSON === null || !JSON.stringify
-							? Object.prototype.toString.call(a)
-							: JSON.stringify(a);
-					}
-					function d(a) {
-						if (a === null || a === void 0) return !0;
-						a = typeof a === "undefined" ? "undefined" : h(a);
-						return a === "number" || a === "boolean" || a === "string";
-					}
-					var f = (function() {
-						function e(a) {
-							k(this, e), (this._params = []), (this._piiTranslator = a);
-						}
-						i(
-							e,
-							[
-								{
-									key: "containsKey",
-									value: function(a) {
-										for (var b = 0; b < this._params.length; b++)
-											if (this._params[b].name === a) return !0;
-										return !1;
-									}
-								},
-								{
-									key: "get",
-									value: function(a) {
-										a = a;
-										for (var b = 0; b < this._params.length; b++)
-											if (this._params[b].name === a)
-												return this._params[b].value;
-										return null;
-									}
-								},
-								{
-									key: "getAllParams",
-									value: function() {
-										return this._params;
-									}
-								},
-								{
-									key: "replaceEntry",
-									value: function(a, b) {
-										var c = 0;
-										while (c < this._params.length)
-											this._params[c].name === a
-												? this._params.splice(c, 1)
-												: c++;
-										this.append(a, b);
-									}
-								},
-								{
-									key: "addRange",
-									value: function(a) {
-										var c = this;
-										a.each(function(a, d) {
-											return c._append({ name: a, value: d }, b, !1);
-										});
-									}
-								},
-								{
-									key: "append",
-									value: function(b, c) {
-										var d =
-											arguments.length > 2 && arguments[2] !== void 0
-												? arguments[2]
-												: !1;
-										this._append(
-											{ name: encodeURIComponent(b), value: c },
-											a,
-											d
-										);
-										return this;
-									}
-								},
-								{
-									key: "appendHash",
-									value: function(b) {
-										var c =
-											arguments.length > 1 && arguments[1] !== void 0
-												? arguments[1]
-												: !1;
-										for (var d in b)
-											Object.prototype.hasOwnProperty.call(b, d) &&
-												this._append(
-													{ name: encodeURIComponent(d), value: b[d] },
-													a,
-													c
-												);
-										return this;
-									}
-								},
-								{
-									key: "_append",
-									value: function(b, e, f) {
-										var g = b.name;
-										b = b.value;
-										d(b)
-											? this._appendPrimitive(g, b, f)
-											: e === a
-												? this._appendObject(g, b, f)
-												: this._appendPrimitive(g, c(b), f);
-									}
-								},
-								{
-									key: "_translateValue",
-									value: function(a, b, c) {
-										if (typeof b === "boolean") return b ? "true" : "false";
-										if (!c) return "" + b;
-										if (!this._piiTranslator) throw new Error();
-										return this._piiTranslator(a, "" + b);
-									}
-								},
-								{
-									key: "_appendPrimitive",
-									value: function(a, b, c) {
-										if (b != null) {
-											b = this._translateValue(a, b, c);
-											b != null && this._params.push({ name: a, value: b });
-										}
-									}
-								},
-								{
-									key: "_appendObject",
-									value: function(a, c, d) {
-										var e = null;
-										for (var f in c)
-											if (Object.prototype.hasOwnProperty.call(c, f)) {
-												var g = a + "[" + encodeURIComponent(f) + "]";
-												try {
-													this._append({ name: g, value: c[f] }, b, d);
-												} catch (a) {
-													e == null && (e = a);
-												}
-											}
-										if (e != null) throw e;
-									}
-								},
-								{
-									key: "each",
-									value: function(a) {
-										for (var b = 0; b < this._params.length; b++) {
-											var c = this._params[b],
-												d = c.name;
-											c = c.value;
-											a(d, c);
-										}
-									}
-								},
-								{
-									key: "toQueryString",
-									value: function() {
-										var a = [];
-										this.each(function(b, c) {
-											a.push(b + "=" + encodeURIComponent(c));
-										});
-										return a.join("&");
-									}
-								},
-								{
-									key: "toFormData",
-									value: function() {
-										var a = new FormData();
-										this.each(function(b, c) {
-											a.append(b, c);
-										});
-										return a;
-									}
-								}
-							],
-							[
-								{
-									key: "fromHash",
-									value: function(a, b) {
-										return new e(b).appendHash(a);
-									}
-								}
-							]
-						);
-						return e;
-					})();
-					e.exports = f;
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEvents.plugins.performance", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsPerformanceTiming"),
-						b = f.getFbeventsModules("SignalsFBEventsPlugin");
-					k.exports = new b(function(b) {
-						a.supported && !b.__performance && (b.__performance = new a(b));
-					});
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
-		e.exports = f.getFbeventsModules("SignalsFBEvents.plugins.performance");
-		f.registerPlugin &&
-			f.registerPlugin("fbevents.plugins.performance", e.exports);
-		f.ensureModuleRegistered("fbevents.plugins.performance", function() {
 			return e.exports;
 		});
 	})();
@@ -4505,26 +3645,34 @@ fbq.pendingConfigs = ["global_config"];
 							Microdata: !0,
 							MicrodataJsonLd: !0,
 							Timespent: !0
+						},
+						x = {
+							Track: 0,
+							TrackCustom: 4,
+							TrackSingle: 1,
+							TrackSingleCustom: 2,
+							TrackSingleSystem: 3,
+							TrackSystem: 5
 						};
 					o = ["InferredEvents", "Microdata"];
-					var x = { AutomaticSetup: o },
-						y = {
+					var y = { AutomaticSetup: o },
+						z = {
 							AutomaticMatching: ["inferredevents", "identity"],
 							AutomaticMatchingForPartnerIntegrations: [
 								"automaticmatchingforpartnerintegrations"
 							],
 							FirstPartyCookies: ["cookie"],
 							IWLBootstrapper: ["iwlbootstrapper"],
-							IWLParameters: ["iwlparameters", "inferredEvents"],
+							IWLParameters: ["iwlparameters", "inferredevents"],
 							InferredEvents: ["inferredevents", "identity"],
 							Microdata: ["microdata", "identity"],
 							MicrodataJsonLd: ["jsonld_microdata"],
 							Timespent: ["timespent"]
 						};
-					function z(a) {
-						return !!(w[a] || x[a]);
+					function A(a) {
+						return !!(w[a] || y[a]);
 					}
-					function A(a, b, c) {
+					function B(a, b, c) {
 						m.loadJSFile(
 							m.CONFIG.CDN_BASE_URL +
 								"signals/config/" +
@@ -4540,7 +3688,7 @@ fbq.pendingConfigs = ["global_config"];
 							var e = this;
 							l(this, d);
 							this.VALID_FEATURES = w;
-							this.optIns = new n(x);
+							this.optIns = new n(y);
 							this.configsLoaded = {};
 							this.locks = j.global;
 							this.pluginConfig = c;
@@ -4562,17 +3710,17 @@ fbq.pendingConfigs = ["global_config"];
 											arguments.length > 2 && arguments[2] !== void 0
 												? arguments[2]
 												: !1;
-									if (typeof b !== "string" || !z(b))
+									if (typeof b !== "string" || !A(b))
 										throw new Error(
 											'Invalid Argument: "' +
 												b +
 												'" is not a valid opt-in feature'
 										);
-									z(b) &&
+									A(b) &&
 										(this.optIns.optIn(a, b, d),
-										q([b].concat(k(x[b] || [])), function(a) {
-											y[a] &&
-												q(y[a], function(a) {
+										q([b].concat(k(y[b] || [])), function(a) {
+											z[a] &&
+												q(z[a], function(a) {
 													return c.fbq.loadPlugin(a);
 												});
 										}));
@@ -4618,36 +3766,51 @@ fbq.pendingConfigs = ["global_config"];
 								key: "trackSingle",
 								value: function(a, c, d, e) {
 									b.validateEventAndLog(c, d);
-									return this.trackSingleGeneric(a, c, d, e);
+									return this.trackSingleGeneric(a, c, d, x.TrackSingle, e);
 								}
 							},
 							{
 								key: "trackSingleCustom",
 								value: function(a, b, c, d) {
-									return this.trackSingleGeneric(a, b, c, d);
+									return this.trackSingleGeneric(
+										a,
+										b,
+										c,
+										x.TrackSingleCustom,
+										d
+									);
 								}
 							},
 							{
 								key: "trackSingleSystem",
 								value: function(a, b, c, d) {
-									return this.trackSingleGeneric(b, c, d, null, a);
+									return this.trackSingleGeneric(
+										b,
+										c,
+										d,
+										x.TrackSingleSystem,
+										null,
+										a
+									);
 								}
 							},
 							{
 								key: "trackSingleGeneric",
-								value: function(a, b, c, d, e) {
-									a = typeof a === "string" ? a : a.id;
+								value: function(b, c, d, e, f, g) {
+									b = typeof b === "string" ? b : b.id;
 									if (
-										!Object.prototype.hasOwnProperty.call(this.pixelsByID, a)
+										!Object.prototype.hasOwnProperty.call(this.pixelsByID, b)
 									) {
-										var f = { pixelID: a, type: "PIXEL_NOT_INITIALIZED" };
-										e == null ? v(f) : u(new Error(f.type + " " + f.pixelID));
+										var h = { pixelID: b, type: "PIXEL_NOT_INITIALIZED" };
+										g == null ? v(h) : u(new Error(h.type + " " + h.pixelID));
 										return this;
 									}
-									f = this.getDefaultSendData(a, b, d);
-									f.customData = c;
-									e != null && (f.customParameters = { es: e });
-									this.fire(f, !1);
+									h = this.getDefaultSendData(b, c, f);
+									h.customData = d;
+									g != null && (h.customParameters = { es: g });
+									x[e] != null &&
+										(h.customParameters = a({}, h.customParameters, { tm: e }));
+									this.fire(h, !1);
 									return this;
 								}
 							},
@@ -4788,7 +3951,7 @@ fbq.pendingConfigs = ["global_config"];
 										t(this.fbq.pendingConfigs, function(b) {
 											return b === a;
 										}) === !1) &&
-										A(
+										B(
 											a,
 											this.VERSION,
 											this.RELEASE_SEGMENT != null
@@ -5076,11 +4239,10 @@ fbq.pendingConfigs = ["global_config"];
 				k.exports;
 				(function() {
 					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsNetworkUtils"),
-						b = a.sendPOST;
-					a = f.getFbeventsModules("SignalsFBEventsUtils");
-					var c = a.isInstanceOf,
-						d = f.getFbeventsModules("SignalsParamList"),
+					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
+						b = a.isInstanceOf,
+						c = f.getFbeventsModules("SignalsParamList"),
+						d = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
 						e = !1;
 					function h() {
 						e = !0;
@@ -5224,19 +4386,19 @@ fbq.pendingConfigs = ["global_config"];
 										? g.fbq._releaseSegment
 										: "unknown";
 							if ((i && f < 0.01) || h === "canary") {
-								f = new d(null);
+								f = new c(null);
 								f.append("p", "pixel");
 								f.append(
 									"v",
 									g.fbq && g.fbq.version ? g.fbq.version : "unknown"
 								);
 								f.append("e", a.toString());
-								c(a, Error) &&
+								b(a, Error) &&
 									(f.append("f", a.fileName),
 									f.append("s", a.stackTrace || a.stack));
 								f.append("ue", e ? "1" : "0");
 								f.append("rs", h);
-								b(f, "https://connect.facebook.net/log/error");
+								d(f, "https://connect.facebook.net/log/error");
 							}
 						} catch (a) {}
 					}
@@ -5393,143 +4555,16 @@ fbq.pendingConfigs = ["global_config"];
 				return l.exports;
 			})(a, b, c, d);
 		});
-		f.ensureModuleRegistered("SignalsFBEventsNetworkUtils", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
+		f.ensureModuleRegistered("SignalsFBEventsNetworkConfig", function() {
+			return (function(f, g, h, i) {
+				var j = { exports: {} };
+				j.exports;
 				(function() {
 					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsProxyState"),
-						b = f.getFbeventsModules("SignalsFBEventsQE"),
-						c = f.getFbeventsModules("SignalsFBEventsUtils"),
-						d = c.listenOnce;
-					function e(b, c) {
-						return c != null && a.getShouldProxy() ? c : b;
-					}
-					var i = {
-						UNSENT: 0,
-						OPENED: 1,
-						HEADERS_RECEIVED: 2,
-						LOADING: 3,
-						DONE: 4
-					};
-					c = function c() {
-						var f = this;
-						l(this, c);
-						this.sendGET = function(b, c, d) {
-							b.replaceEntry("rqm", "GET");
-							var g = b.toQueryString();
-							g = e(c, d) + "?" + g;
-							if (g.length < 2048) {
-								var h = new Image();
-								if (d != null) {
-									var i = a.getShouldProxy();
-									h.onerror = function() {
-										a.setShouldProxy(!0), i || f.sendGET(b, c, d);
-									};
-								}
-								h.src = g;
-								return !0;
-							}
-							return !1;
-						};
-						this.sendPOST = function(a, c, d) {
-							var e = b.get("xhr_cors_post");
-							if (e) {
-								a.append("exp", e.code);
-								if (e.isInExperimentGroup) return f._sendXHRPost(a, c, d);
-							}
-							return f._sendFormPOST(a, c, d);
-						};
-						this._sendXHRPost = function(b, c, d) {
-							b.replaceEntry("rqm", "xhrPOST");
-							var e = new XMLHttpRequest(),
-								g = function() {
-									if (d != null) {
-										var e = a.getShouldProxy();
-										a.setShouldProxy(!0);
-										e || f.sendPOST(b, c, d);
-									}
-								};
-							if ("withCredentials" in e)
-								(e.withCredentials = !0),
-									e.open("POST", c, !1),
-									(e.onreadystatechange = function() {
-										if (e.readyState !== i.DONE) return;
-										e.status !== 200 && g();
-									});
-							else if (XDomainRequest != void 0)
-								(e = new XDomainRequest()), e.open("POST", c), (e.onerror = g);
-							else return !1;
-							e.send(b.toFormData());
-							return !0;
-						};
-						this._sendFormPOST = function(c, i, j) {
-							c.replaceEntry("rqm", "formPOST");
-							var k = b.get("set_timeout_post");
-							k && c.append("exp", k.code);
-							var l =
-									"fb" +
-									Math.random()
-										.toString()
-										.replace(".", ""),
-								m = h.createElement("form");
-							m.method = "post";
-							m.action = e(i, j);
-							m.target = l;
-							m.acceptCharset = "utf-8";
-							m.style.display = "none";
-							var n = !!(g.attachEvent && !g.addEventListener),
-								o = h.createElement("iframe");
-							n && (o.name = l);
-							o.src = "about:blank";
-							o.id = l;
-							o.name = l;
-							m.appendChild(o);
-							d(o, "load", function() {
-								c.each(function(a, b) {
-									var c = h.createElement("input");
-									c.name = decodeURIComponent(a);
-									c.value = b;
-									m.appendChild(c);
-								}),
-									d(o, "load", function() {
-										m.parentNode && m.parentNode.removeChild(m);
-									}),
-									k &&
-									k.isInExperimentGroup &&
-									c.get("ev") === "SubscribedButtonClick"
-										? setTimeout(function() {
-												return m.submit();
-										  })
-										: m.submit();
-							});
-							if (j != null) {
-								var p = a.getShouldProxy();
-								o.onerror = function() {
-									a.setShouldProxy(!0), p || f.sendPOST(c, i, j);
-								};
-							}
-							h.body != null && h.body.appendChild(m);
-							return !0;
-						};
-						this.sendBeacon = function(b, c, d) {
-							b.append("rqm", "SB");
-							if (g.navigator && g.navigator.sendBeacon) {
-								var h = g.navigator.sendBeacon(e(c, d), b.toFormData());
-								if (d != null && !h) {
-									h = a.getShouldProxy();
-									a.setShouldProxy(!0);
-									h || f.sendBeacon(b, c, d);
-								}
-								return !0;
-							}
-							return !1;
-						};
-					};
-					k.exports = new c();
+					var a = { ENDPOINT: "https://www.facebook.com/tr/" };
+					j.exports = a;
 				})();
-				return k.exports;
+				return j.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsOptIn", function() {
@@ -5819,25 +4854,6 @@ fbq.pendingConfigs = ["global_config"];
 				return e.exports;
 			})(a, b, c, d);
 		});
-		f.ensureModuleRegistered("SignalsFBEventsProxyState", function() {
-			return (function(f, g, h, i) {
-				var j = { exports: {} };
-				j.exports;
-				(function() {
-					"use strict";
-					var a = !1;
-					j.exports = {
-						getShouldProxy: function() {
-							return a;
-						},
-						setShouldProxy: function(b) {
-							a = b;
-						}
-					};
-				})();
-				return j.exports;
-			})(a, b, c, d);
-		});
 		f.ensureModuleRegistered("SignalsFBEventsQE", function() {
 			return (function(f, h, j, k) {
 				var e = { exports: {} };
@@ -5955,6 +4971,150 @@ fbq.pendingConfigs = ["global_config"];
 				})(a, b, c, d);
 			}
 		);
+		f.ensureModuleRegistered("signalsFBEventsSendBeacon", function() {
+			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
+						b = a.ENDPOINT;
+					function c(a) {
+						a.append("rqm", "SB");
+						return g.navigator && g.navigator.sendBeacon
+							? g.navigator.sendBeacon(b, a.toFormData())
+							: !1;
+					}
+					k.exports = c;
+				})();
+				return k.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("signalsFBEventsSendFormPOST", function() {
+			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
+						b = f.getFbeventsModules("SignalsFBEventsUtils"),
+						c = b.listenOnce;
+					function d(b, d) {
+						b.replaceEntry("rqm", "formPOST");
+						var e =
+								"fb" +
+								Math.random()
+									.toString()
+									.replace(".", ""),
+							f = h.createElement("form");
+						f.method = "post";
+						f.action = d != null ? d : a.ENDPOINT;
+						f.target = e;
+						f.acceptCharset = "utf-8";
+						f.style.display = "none";
+						d = !!(g.attachEvent && !g.addEventListener);
+						var i = h.createElement("iframe");
+						d && (i.name = e);
+						i.src = "about:blank";
+						i.id = e;
+						i.name = e;
+						f.appendChild(i);
+						c(i, "load", function() {
+							b.each(function(a, b) {
+								var c = h.createElement("input");
+								c.name = decodeURIComponent(a);
+								c.value = b;
+								f.appendChild(c);
+							}),
+								c(i, "load", function() {
+									f.parentNode && f.parentNode.removeChild(f);
+								}),
+								f.submit();
+						});
+						h.body != null && h.body.appendChild(f);
+						return !0;
+					}
+					k.exports = d;
+				})();
+				return k.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("signalsFBEventsSendGET", function() {
+			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
+						b = a.ENDPOINT,
+						c = 2048;
+					function d(a) {
+						var d =
+							arguments.length > 1 && arguments[1] !== void 0
+								? arguments[1]
+								: !1;
+						a.replaceEntry("rqm", d ? "FGET" : "GET");
+						var e = a.toQueryString(),
+							f = b + "?" + e;
+						if (d || f.length < c) {
+							var g = new Image();
+							g.src = f;
+							return !0;
+						}
+						return !1;
+					}
+					k.exports = d;
+				})();
+				return k.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("signalsFBEventsSendXHR", function() {
+			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsLogging"),
+						b = a.logError,
+						c = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
+						d = f.getFbeventsModules("SignalsParamList"),
+						e = 200,
+						g = {
+							UNSENT: 0,
+							OPENED: 1,
+							HEADERS_RECEIVED: 2,
+							LOADING: 3,
+							DONE: 4
+						},
+						h =
+							typeof XMLHttpRequest !== "undefined" &&
+							"withCredentials" in new XMLHttpRequest();
+					function i(a, c) {
+						var d = new XMLHttpRequest();
+						d.withCredentials = !0;
+						d.open("POST", c, !1);
+						d.onreadystatechange = function() {
+							if (d.readyState !== g.DONE) return;
+							d.status !== e && b(new Error("Failed XHR Request"));
+						};
+						d.send(a);
+					}
+					function j(a) {
+						var b =
+							arguments.length > 1 && arguments[1] !== void 0
+								? arguments[1]
+								: c.ENDPOINT;
+						if (!h) return !1;
+						a instanceof d && a.append("rqm", "xhr");
+						var e = a instanceof d ? a.toFormData() : a;
+						i(e, b);
+						return !0;
+					}
+					k.exports = j;
+				})();
+				return k.exports;
+			})(a, b, c, d);
+		});
 		f.ensureModuleRegistered(
 			"SignalsFBEventsSetIWLExtractorsEvent",
 			function() {
@@ -6006,17 +5166,16 @@ fbq.pendingConfigs = ["global_config"];
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsLogging"),
-						b = f.getFbeventsModules("SignalsFBEventsNetworkUtils"),
-						c = b.sendPOST,
-						d = f.getFbeventsModules("SignalsParamList");
-					b = 0.01;
-					var e = Math.random(),
+						b = f.getFbeventsModules("SignalsParamList"),
+						c = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
+						d = 0.01,
+						e = Math.random(),
 						h =
 							g.fbq && g.fbq._releaseSegment
 								? g.fbq._releaseSegment
 								: "unknown",
-						i = e < b || h === "canary";
-					function j(b) {
+						i = e < d || h === "canary";
+					function j(d) {
 						var e =
 								arguments.length > 1 && arguments[1] !== void 0
 									? arguments[1]
@@ -6027,30 +5186,20 @@ fbq.pendingConfigs = ["global_config"];
 									: !1;
 						if (!f && !i) return;
 						try {
-							var j = new d(null);
+							var j = new b(null);
 							j.append("v", g.fbq && g.fbq.version ? g.fbq.version : "unknown");
 							j.append("rs", h);
-							j.append("e", b);
+							j.append("e", d);
 							j.append("p", e);
 							c(j, "https://connect.facebook.net/log/fbevents_telemetry/");
 						} catch (b) {
 							a.logError(b);
 						}
 					}
-					function l() {
-						j("COALESCE_INIT");
-					}
-					function m(a) {
-						j("COALESCE_COMPLETE", a);
-					}
-					function n(a) {
+					function l(a) {
 						j("FBMQ_FORWARDED", a, !0);
 					}
-					k.exports = {
-						logStartBatch: l,
-						logEndBatch: m,
-						logMobileNativeForwarding: n
-					};
+					k.exports = { logMobileNativeForwarding: l };
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -6462,32 +5611,30 @@ fbq.pendingConfigs = ["global_config"];
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsEvents"),
 						b = a.fired,
-						c = f.getFbeventsModules("SignalsFBEventsNetworkUtils"),
-						d = f.getFbeventsModules("SignalsFBEventsQE"),
-						e = f.getFbeventsModules("SignalsFBEventsTelemetry"),
-						j = f.getFbeventsModules("SignalsParamList"),
-						l = {
-							ENDPOINT: "https://www.facebook.com/tr/",
-							PROXY_ENDPOINT: null
-						},
-						m = g.top !== g,
-						n = !1;
+						c = f.getFbeventsModules("SignalsFBEventsQE"),
+						d = f.getFbeventsModules("SignalsParamList"),
+						e = f.getFbeventsModules("signalsFBEventsSendBeacon"),
+						j = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
+						l = f.getFbeventsModules("signalsFBEventsSendGET"),
+						m = f.getFbeventsModules("signalsFBEventsSendXHR"),
+						n = g.top !== g,
+						o = !1;
 					a = function(a) {
-						n = a;
+						o = a;
 					};
-					a(s());
-					function o(a) {
+					a(r());
+					function p(a) {
 						var b = a.customData,
 							c = a.customParams,
-							d = a.eventName,
-							e = a.id;
+							e = a.eventName,
+							f = a.id;
 						a = a.piiTranslator;
-						a = new j(a);
-						a.append("id", e);
-						a.append("ev", d);
+						a = new d(a);
+						a.append("id", f);
+						a.append("ev", e);
 						a.append("dl", i.href);
 						a.append("rl", h.referrer);
-						a.append("if", m);
+						a.append("if", n);
 						a.append("ts", new Date().valueOf());
 						a.append("cd", b);
 						a.append("sw", g.screen.width);
@@ -6495,47 +5642,45 @@ fbq.pendingConfigs = ["global_config"];
 						c && a.addRange(c);
 						return a;
 					}
-					var p = 0;
-					function q() {
-						var a = p;
-						p = 0;
-						e.logEndBatch(a);
+					function q(a) {
+						var d = a.customData,
+							f = a.customParams,
+							g = a.eventName;
+						a = p(a);
+						var h = c.get("new_waterfall");
+						if (h != null) {
+							a.append("exp", h.code);
+							if (h.isInExperimentGroup) {
+								if (l(a)) {
+									b.trigger("GET", a, d);
+									return;
+								}
+								if (e(a)) {
+									b.trigger("BEACON", a, d);
+									return;
+								}
+								if (m(a)) {
+									b.trigger("XHR", a, d);
+									return;
+								}
+								l(a, !0);
+								b.trigger("FGET", a, d);
+								return;
+							}
+						}
+						h = !!f && f.containsKey("es") && f.get("es") === "timespent";
+						if ((h || (!o && g === "SubscribedButtonClick")) && e(a)) {
+							b.trigger("BEACON", a, d);
+							return;
+						}
+						if (l(a)) {
+							b.trigger("GET", a, d);
+							return;
+						}
+						j(a);
+						b.trigger("POST", a, d);
 					}
-					function r(a) {
-						var f = a.customData,
-							g = a.customParams,
-							h = a.eventName;
-						a = o(a);
-						var i = d.get();
-						if (i != null) {
-							var j = i.name === "send_coalescence_telemetry";
-							j &&
-								p === 0 &&
-								i.isInExperimentGroup &&
-								(e.logStartBatch(), setTimeout(q, 0));
-							i.name === "a_a_test_experiment" && a.append("exp", i.code);
-						}
-						p++;
-						j = !!g && g.containsKey("es") && g.get("es") === "timespent";
-						i = [a, l.ENDPOINT, l.PROXY_ENDPOINT];
-						if (
-							(j || (!n && h === "SubscribedButtonClick")) &&
-							c.sendBeacon.apply(c, i)
-						) {
-							b.trigger("BEACON", a, f);
-							return;
-						}
-						if (c.sendGET.apply(c, i)) {
-							b.trigger("GET", a, f);
-							return;
-						}
-						if (c.sendPOST.apply(c, i)) {
-							b.trigger("POST", a, f);
-							return;
-						}
-						throw new Error("No working send method found for this fire.");
-					}
-					function s() {
+					function r() {
 						var a = g.chrome,
 							b = g.navigator,
 							c = b.vendor,
@@ -6551,18 +5696,13 @@ fbq.pendingConfigs = ["global_config"];
 							e === !1
 						);
 					}
-					function t(a) {
+					function s(a) {
 						if (g.navigator && g.navigator.sendBeacon) {
-							a = o(a);
-							c.sendBeacon(a, l.ENDPOINT);
+							a = p(a);
+							e(a);
 						}
 					}
-					k.exports = {
-						CONFIG: l,
-						sendBeaconPII: t,
-						sendEvent: r,
-						setIsChrome: a
-					};
+					k.exports = { sendBeaconPII: s, sendEvent: q, setIsChrome: a };
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -6578,130 +5718,131 @@ fbq.pendingConfigs = ["global_config"];
 						g.performance && typeof g.performance.now === "function"
 							? g.performance.now()
 							: null;
-					var b = a.getFbeventsModules("SignalsFBEventsQE"),
-						c = a.getFbeventsModules("SignalsParamList"),
-						d = a.getFbeventsModules("SignalsPixelEndpoint"),
-						m = a.getFbeventsModules("SignalsFBEventsUtils"),
-						n = a.getFbeventsModules("SignalsFBEventsLogging"),
-						o = a.getFbeventsModules("SignalsEventValidation"),
-						p = a.getFbeventsModules("SignalsFBEventsFBQ"),
-						q = a.getFbeventsModules("SignalsFBEventsJSLoader"),
-						r = a.getFbeventsModules("SignalsFBEventsFireLock"),
-						s = a.getFbeventsModules("SignalsFBEventsMobileAppBridge"),
-						t = a.getFbeventsModules("signalsFBEventsInjectMethod"),
-						u = a.getFbeventsModules("signalsFBEventsMakeSafe"),
-						v = a.getFbeventsModules("signalsFBEventsResolveLegacyArguments"),
-						w = a.getFbeventsModules("SignalsFBEventsPluginManager"),
-						x = a.getFbeventsModules("signalsFBEventsCoercePixelID"),
-						y = a.getFbeventsModules("SignalsFBEventsEvents"),
-						z = m.each,
-						A = m.FBSet,
-						B = m.isEmptyObject,
-						C = m.isNumber,
-						D = m.keys;
-					m = y.execEnd;
-					var E = y.fired,
-						F = y.getCustomParameters,
-						aa = y.iwlBootstrap,
-						ba = y.piiInvalidated,
-						ca = y.setIWLExtractors,
-						da = n.logError,
-						G = n.logUserError,
-						H = r.global,
-						I = -1,
-						ea = Array.prototype.slice,
-						J = Object.prototype.hasOwnProperty,
-						K = i.href,
+					var b = a.getFbeventsModules("SignalsFBEventsNetworkConfig"),
+						c = a.getFbeventsModules("SignalsFBEventsQE"),
+						d = a.getFbeventsModules("SignalsParamList"),
+						m = a.getFbeventsModules("SignalsPixelEndpoint"),
+						n = a.getFbeventsModules("SignalsFBEventsUtils"),
+						o = a.getFbeventsModules("SignalsFBEventsLogging"),
+						p = a.getFbeventsModules("SignalsEventValidation"),
+						q = a.getFbeventsModules("SignalsFBEventsFBQ"),
+						r = a.getFbeventsModules("SignalsFBEventsJSLoader"),
+						s = a.getFbeventsModules("SignalsFBEventsFireLock"),
+						t = a.getFbeventsModules("SignalsFBEventsMobileAppBridge"),
+						u = a.getFbeventsModules("signalsFBEventsInjectMethod"),
+						v = a.getFbeventsModules("signalsFBEventsMakeSafe"),
+						w = a.getFbeventsModules("signalsFBEventsResolveLegacyArguments"),
+						x = a.getFbeventsModules("SignalsFBEventsPluginManager"),
+						y = a.getFbeventsModules("signalsFBEventsCoercePixelID"),
+						z = a.getFbeventsModules("SignalsFBEventsEvents"),
+						A = n.each,
+						B = n.FBSet,
+						C = n.isEmptyObject,
+						D = n.isNumber,
+						E = n.keys;
+					n = z.execEnd;
+					var aa = z.fired,
+						ba = z.getCustomParameters,
+						ca = z.iwlBootstrap,
+						da = z.piiInvalidated,
+						ea = z.setIWLExtractors,
+						fa = o.logError,
+						F = o.logUserError,
+						G = s.global,
+						H = -1,
+						ga = Array.prototype.slice,
+						I = Object.prototype.hasOwnProperty,
+						J = i.href,
+						K = !1,
 						L = !1,
-						M = !1,
-						N = [],
-						O = {},
-						P;
+						M = [],
+						N = {},
+						O;
 					h.referrer;
-					var Q = { PageView: new A(), PixelInitialized: new A() },
-						R = new p(a, O),
-						S = new w(R, H);
-					function fa(a) {
-						for (var b in a) J.call(a, b) && (this[b] = a[b]);
+					var P = { PageView: new B(), PixelInitialized: new B() },
+						Q = new q(a, N),
+						R = new x(Q, G);
+					function ha(a) {
+						for (var b in a) I.call(a, b) && (this[b] = a[b]);
 						return this;
 					}
-					function T() {
+					function S() {
 						try {
-							var b = ea.call(arguments);
-							if (H.isLocked() && b[0] !== "consent") {
+							var b = ga.call(arguments);
+							if (G.isLocked() && b[0] !== "consent") {
 								a.queue.push(arguments);
 								return;
 							}
-							var c = v(b),
+							var c = w(b),
 								d = [].concat(k(c.args)),
 								e = c.isLegacySyntax,
 								f = d.shift();
 							switch (f) {
 								case "addPixelId":
-									L = !0;
-									V.apply(this, d);
-									break;
-								case "init":
-									M = !0;
-									V.apply(this, d);
-									break;
-								case "set":
+									K = !0;
 									U.apply(this, d);
 									break;
+								case "init":
+									L = !0;
+									U.apply(this, d);
+									break;
+								case "set":
+									T.apply(this, d);
+									break;
 								case "track":
-									if (C(d[0])) {
-										ia.apply(this, d);
+									if (D(d[0])) {
+										ka.apply(this, d);
 										break;
 									}
 									if (e) {
-										X.apply(this, d);
+										W.apply(this, d);
 										break;
 									}
-									ha.apply(this, d);
+									ja.apply(this, d);
 									break;
 								case "trackCustom":
-									X.apply(this, d);
+									W.apply(this, d);
 									break;
 								case "send":
-									Y.apply(this, d);
+									X.apply(this, d);
 									break;
 								case "on":
 									var g = j(d),
 										h = g[0],
 										i = g.slice(1),
-										l = y[h];
+										l = z[h];
 									l && l.triggerWeakly(i);
 									break;
 								case "loadPlugin":
-									S.loadPlugin(d[0]);
+									R.loadPlugin(d[0]);
 									break;
 								default:
-									R.callMethod(arguments);
+									Q.callMethod(arguments);
 									break;
 							}
 						} catch (a) {
-							da(a);
+							fa(a);
 						}
 					}
-					function U(c) {
+					function T(d) {
 						for (
 							var e = arguments.length, f = Array(e > 1 ? e - 1 : 0), g = 1;
 							g < e;
 							g++
 						)
 							f[g - 1] = arguments[g];
-						switch (c) {
+						switch (d) {
 							case "endpoint":
 								var h = f[0];
 								if (typeof h !== "string")
 									throw new Error("endpoint value must be a string");
-								d.CONFIG.ENDPOINT = h;
+								b.ENDPOINT = h;
 								break;
 							case "cdn":
 								var i = f[0];
 								if (typeof i !== "string")
 									throw new Error("cdn value must be a string");
-								q.CONFIG.CDN_BASE_URL = i;
+								r.CONFIG.CDN_BASE_URL = i;
 								break;
 							case "releaseSegment":
 								var j = f[0];
@@ -6709,87 +5850,79 @@ fbq.pendingConfigs = ["global_config"];
 									throw new Error("releaseSegment value must be a string");
 								a._releaseSegment = j;
 								break;
-							case "proxy":
-								var k = f[0];
-								if (d.CONFIG.PROXY_ENDPOINT)
-									throw new Error("proxy has already been set");
-								if (typeof k !== "string")
-									throw new Error("endpoint value must be a string");
-								d.CONFIG.PROXY_ENDPOINT = k;
-								break;
 							case "autoConfig":
-								var l = f[0],
-									m = f[1],
-									n = l === !0 || l === "true" ? "optIn" : "optOut";
-								if (typeof m !== "string")
+								var k = f[0],
+									l = f[1],
+									m = k === !0 || k === "true" ? "optIn" : "optOut";
+								if (typeof l !== "string")
 									throw new Error(
 										"Invalid pixelID supplied to set autoConfig."
 									);
-								R.callMethod([n, m, "AutomaticSetup"]);
+								Q.callMethod([m, l, "AutomaticSetup"]);
 								break;
 							case "firstPartyCookies":
-								var o = f[0],
-									p = f[1],
-									r = o === !0 || o === "true" ? "optIn" : "optOut";
-								if (typeof p === "string")
-									R.callMethod([r, p, "FirstPartyCookies"]);
-								else if (p === void 0) R.disableFirstPartyCookies = !0;
+								var n = f[0],
+									o = f[1],
+									p = n === !0 || n === "true" ? "optIn" : "optOut";
+								if (typeof o === "string")
+									Q.callMethod([p, o, "FirstPartyCookies"]);
+								else if (o === void 0) Q.disableFirstPartyCookies = !0;
 								else
 									throw new Error(
 										"Invalid pixelID supplied to set cookie controls."
 									);
 								break;
 							case "experiments":
-								var t = f[0],
-									u = [],
-									v = D(t);
-								for (var w = 0; w < v.length; w++) u.push(t[v[w]]);
-								b.setExperimentGroups(u);
+								var q = f[0],
+									s = [],
+									u = E(q);
+								for (var v = 0; v < u.length; v++) s.push(q[u[v]]);
+								c.setExperimentGroups(s);
 								break;
 							case "mobileBridge":
-								var x = f[0],
-									y = f[1];
-								if (typeof x !== "string")
+								var w = f[0],
+									x = f[1];
+								if (typeof w !== "string")
 									throw new Error("Invalid pixelID supplied to set call.");
-								if (typeof y !== "string")
+								if (typeof x !== "string")
 									throw new Error("Invalid appID supplied to set call.");
-								s.registerBridge([x, y]);
+								t.registerBridge([w, x]);
 								break;
 							case "iwlExtractors":
-								var z = f[0],
-									A = f[1];
-								ca.triggerWeakly({ extractors: A, pixelID: z });
+								var y = f[0],
+									z = f[1];
+								ea.triggerWeakly({ extractors: z, pixelID: y });
 								break;
 							case "startIWLBootstrap":
-								var B = f[0],
-									C = f[1];
-								aa.triggerWeakly({ graphToken: B, pixelID: C });
+								var A = f[0],
+									B = f[1];
+								ca.triggerWeakly({ graphToken: A, pixelID: B });
 								break;
 							default:
-								var E = f[0],
-									F = f[1];
-								if (typeof c !== "string")
+								var C = f[0],
+									D = f[1];
+								if (typeof d !== "string")
 									throw new Error(
 										"The metadata setting provided in the 'set' call is invalid."
 									);
-								if (typeof E !== "string")
+								if (typeof C !== "string")
 									throw new Error("The metadata value must be a string.");
-								if (typeof F !== "string")
+								if (typeof D !== "string")
 									throw new Error("Invalid pixelID supplied to set call.");
-								ga(c, E, F);
+								ia(d, C, D);
 								break;
 						}
 					}
 					a._initHandlers = [];
 					a._initsDone = {};
-					function V(a, b, c) {
-						I = I === -1 ? Date.now() : I;
-						a = x(a);
+					function U(a, b, c) {
+						H = H === -1 ? Date.now() : H;
+						a = y(a);
 						if (a == null) return;
-						if (J.call(O, a)) {
-							b && B(O[a].userData)
-								? ((O[a].userData = b), S.loadPlugin("identity"))
-								: G({ pixelID: a, type: "DUPLICATE_PIXEL_ID" });
+						if (I.call(N, a)) {
+							b && C(N[a].userData)
+								? ((N[a].userData = b), R.loadPlugin("identity"))
+								: F({ pixelID: a, type: "DUPLICATE_PIXEL_ID" });
 							return;
 						}
 						c = {
@@ -6799,81 +5932,81 @@ fbq.pendingConfigs = ["global_config"];
 							userData: b || {},
 							userDataFormFields: {}
 						};
-						N.push(c);
-						O[a] = c;
-						b != null && S.loadPlugin("identity");
-						W();
-						R.loadConfig(a);
+						M.push(c);
+						N[a] = c;
+						b != null && R.loadPlugin("identity");
+						V();
+						Q.loadConfig(a);
 					}
-					function W() {
+					function V() {
 						for (var b = 0; b < a._initHandlers.length; b++) {
 							var c = a._initHandlers[b];
 							a._initsDone[b] || (a._initsDone[b] = {});
-							for (var d = 0; d < N.length; d++) {
-								var e = N[d];
+							for (var d = 0; d < M.length; d++) {
+								var e = M[d];
 								a._initsDone[b][e.id] || ((a._initsDone[b][e.id] = !0), c(e));
 							}
 						}
 					}
-					function ga(a, b, c) {
-						var d = o.validateMetadata(a);
-						d.error && G(d.error);
+					function ia(a, b, c) {
+						var d = p.validateMetadata(a);
+						d.error && F(d.error);
 						d.warnings &&
 							d.warnings.forEach(function(a) {
-								G(a);
+								F(a);
 							});
-						if (J.call(O, c)) {
-							for (var d = 0, e = N.length; d < e; d++)
-								if (N[d].id === c) {
-									N[d][a] = b;
+						if (I.call(N, c)) {
+							for (var d = 0, e = M.length; d < e; d++)
+								if (M[d].id === c) {
+									M[d][a] = b;
 									break;
 								}
-						} else G({ metadataValue: b, pixelID: c, type: "SET_METADATA_ON_UNINITIALIZED_PIXEL_ID" });
+						} else F({ metadataValue: b, pixelID: c, type: "SET_METADATA_ON_UNINITIALIZED_PIXEL_ID" });
 					}
-					function ha(a, b, c) {
+					function ja(a, b, c) {
 						(b = b || {}),
-							o.validateEventAndLog(a, b),
+							p.validateEventAndLog(a, b),
 							a === "CustomEvent" &&
 								typeof b.event === "string" &&
 								(a = b.event),
-							X.call(this, a, b, c);
+							W.call(this, a, b, c);
 					}
-					function X(a, b, c) {
-						for (var d = 0, e = N.length; d < e; d++) {
-							var f = N[d];
+					function W(a, b, c) {
+						for (var d = 0, e = M.length; d < e; d++) {
+							var f = M[d];
 							if (
 								!(a === "PageView" && this.allowDuplicatePageViews) &&
-								Object.prototype.hasOwnProperty.call(Q, a) &&
-								Q[a].has(f.id)
+								Object.prototype.hasOwnProperty.call(P, a) &&
+								P[a].has(f.id)
 							)
 								continue;
-							$({ customData: b, eventData: c, eventName: a, pixel: f });
-							Object.prototype.hasOwnProperty.call(Q, a) && Q[a].add(f.id);
+							Z({ customData: b, eventData: c, eventName: a, pixel: f });
+							Object.prototype.hasOwnProperty.call(P, a) && P[a].add(f.id);
 						}
 					}
-					function ia(a, b) {
-						$({ customData: b, eventName: a, pixel: null });
+					function ka(a, b) {
+						Z({ customData: b, eventName: a, pixel: null });
 					}
-					function Y(a, b, c) {
-						N.forEach(function(c) {
-							return $({ customData: b, eventName: a, pixel: c });
+					function X(a, b, c) {
+						M.forEach(function(c) {
+							return Z({ customData: b, eventName: a, pixel: c });
 						});
 					}
-					function Z(b, d) {
-						var e = new c(a.piiTranslator);
+					function Y(b, c) {
+						var e = new d(a.piiTranslator);
 						try {
 							e.append("ud", (b && b.userData) || {}, !0),
 								e.append("udff", (b && b.userDataFormFields) || {}, !0);
 						} catch (a) {
-							ba.trigger(b);
+							da.trigger(b);
 						}
 						e.append("v", a.version);
 						a._releaseSegment && e.append("r", a._releaseSegment);
 						e.append("a", b && b.agent ? b.agent : a.agent);
 						b && (e.append("ec", b.eventCount), b.eventCount++);
-						d = F.trigger(b, d);
-						z(d, function(a) {
-							return z(D(a), function(b) {
+						c = ba.trigger(b, c);
+						A(c, function(a) {
+							return A(E(a), function(b) {
 								if (e.containsKey(b))
 									throw new Error(
 										"Custom parameter " + b + " has already been specified."
@@ -6881,90 +6014,90 @@ fbq.pendingConfigs = ["global_config"];
 								else e.append(b, a[b]);
 							});
 						});
-						e.append("it", I);
-						d = b && b.codeless === "false";
-						e.append("coo", d);
+						e.append("it", H);
+						c = b && b.codeless === "false";
+						e.append("coo", c);
 						return e;
 					}
-					function $(a) {
+					function Z(a) {
 						var b = a.customData,
 							c = a.eventData,
-							e = a.eventName;
+							d = a.eventName;
 						a = a.pixel;
-						if (a != null && s.pixelHasActiveBridge(a)) {
-							s.sendEvent(a, e, b || {});
+						if (a != null && t.pixelHasActiveBridge(a)) {
+							t.sendEvent(a, d, b || {});
 							return;
 						}
-						var f = Z(a, e);
+						var e = Y(a, d);
 						if (c != null) {
 							c = c.eventID;
-							f.append("eid", c);
+							e.append("eid", c);
 						}
-						d.sendEvent({
+						m.sendEvent({
 							customData: b,
-							customParams: f,
-							eventName: e,
+							customParams: e,
+							eventName: d,
 							id: a ? a.id : null,
 							piiTranslator: null
 						});
 					}
-					function ja() {
-						while (a.queue.length && !H.isLocked()) {
+					function $() {
+						while (a.queue.length && !G.isLocked()) {
 							var b = a.queue.shift();
-							T.apply(a, b);
+							S.apply(a, b);
 						}
 					}
-					H.onUnlocked(function() {
-						ja();
+					G.onUnlocked(function() {
+						$();
 					});
-					a.pixelId && ((L = !0), V(a.pixelId));
-					((L && M) || g.fbq !== g._fbq) && G({ type: "CONFLICTING_VERSIONS" });
-					N.length > 1 && G({ type: "MULTIPLE_PIXELS" });
-					function ka() {
+					a.pixelId && ((K = !0), U(a.pixelId));
+					((K && L) || g.fbq !== g._fbq) && F({ type: "CONFLICTING_VERSIONS" });
+					M.length > 1 && F({ type: "MULTIPLE_PIXELS" });
+					function la() {
 						if (a.disablePushState === !0) return;
 						if (!l.pushState || !l.replaceState) return;
-						var b = u(function() {
-							P = K;
-							K = i.href;
-							if (K === P) return;
-							var a = new fa({ allowDuplicatePageViews: !0 });
-							T.call(a, "trackCustom", "PageView");
+						var b = v(function() {
+							O = J;
+							J = i.href;
+							if (J === O) return;
+							var a = new ha({ allowDuplicatePageViews: !0 });
+							S.call(a, "trackCustom", "PageView");
 						});
-						t(l, "pushState", b);
-						t(l, "replaceState", b);
+						u(l, "pushState", b);
+						u(l, "replaceState", b);
 						g.addEventListener("popstate", b, !1);
 					}
-					E.listenOnce(function() {
-						ka();
+					aa.listenOnce(function() {
+						la();
 					});
-					function la(b) {
-						a._initHandlers.push(b), W();
+					function ma(b) {
+						a._initHandlers.push(b), V();
 					}
-					function ma() {
-						return { pixelInitializationTime: I, pixels: N };
+					function na() {
+						return { pixelInitializationTime: H, pixels: M };
 					}
-					function na(a) {
-						(a.instance = R),
-							(a.callMethod = T),
+					function oa(a) {
+						(a.instance = Q),
+							(a.callMethod = S),
 							(a._initHandlers = []),
 							(a._initsDone = {}),
-							(a.send = Y),
-							(a.getEventCustomParameters = Z),
-							(a.addInitHandler = la),
-							(a.getState = ma),
-							(a.init = V),
-							(a.set = U),
+							(a.send = X),
+							(a.getEventCustomParameters = Y),
+							(a.addInitHandler = ma),
+							(a.getState = na),
+							(a.init = U),
+							(a.set = T),
 							(a.loadPlugin = function(a) {
-								return S.loadPlugin(a);
+								return R.loadPlugin(a);
 							}),
 							(a.registerPlugin = function(a, b) {
-								S.registerPlugin(a, b);
+								R.registerPlugin(a, b);
 							});
 					}
-					na(g.fbq);
-					ja();
-					e.exports = { doExport: na };
-					m.trigger();
+					oa(g.fbq);
+					$();
+					e.exports = { doExport: oa };
+					n.trigger();
 				})();
 				return e.exports;
 			})(a, b, c, d);
@@ -6980,9 +6113,9 @@ fbq.registerPlugin("global_config", {
 	__fbEventsPlugin: 1,
 	plugin: function(fbq, instance, config) {
 		fbq.loadPlugin("opttracking");
-		fbq.loadPlugin("performance");
 		fbq.set("experiments", {
-			"0": { name: "logDataLayer", range: [0, 0], code: "d", passRate: 0 }
+			"0": { name: "logDataLayer", range: [0, 0], code: "d", passRate: 0 },
+			"1": { name: "xhr_cors_post", range: [0, 0.5], code: "x", passRate: 0.5 }
 		});
 		instance.configLoaded("global_config");
 	}
