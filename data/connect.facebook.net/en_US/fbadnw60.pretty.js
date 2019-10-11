@@ -1,4 +1,4 @@
-/*1570655322,,JIT Construction: v1001274026,en_US*/
+/*1570794117,,JIT Construction: v1001283875,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -13550,25 +13550,29 @@ try {
 										this.renderAd(a, i, b, c, d);
 									}
 								};
-								c.adLoaded = function(a, b, c, d, e, f) {
+								c.adLoaded = function(a, c, d, e, f, g) {
 									__p && __p();
 									if (this.$1) {
 										this.$3.error("Multiple ADLOADED attempted.");
 										return;
 									}
+									g != null && (g = b("ANUtils").once(g));
+									var h = function(a, b, c) {
+										e(a, b, c), g && g(a, b, c);
+									};
 									if (a.errorCode === void 0) {
-										var g = a.features;
-										this.$3.setLogLevel(g.logLevel || 3);
+										var i = a.features;
+										this.$3.setLogLevel(i.logLevel || 3);
 										this.$3.frameReady();
-										this.$10(a, b, c, d, e, f);
+										this.$10(a, c, d, e, f, g);
 										this.$1 = !0;
 									} else if (a.success === void 0) {
 										this.$3.error();
-										d(a.errorCode, a.errorMsg, a.placementId);
+										h(a.errorCode, a.errorMsg, a.placementId);
 										return;
 									} else {
 										this.$3.error();
-										d("1099", "Invalid ad data", a.placementId);
+										h("1099", "Invalid ad data", a.placementId);
 										return;
 									}
 								};
@@ -13674,20 +13678,13 @@ try {
 											g,
 											a.iframe,
 											function() {
-												a.onAdLoaded(a.rootElement);
+												a.onAdLoaded && a.onAdLoaded(a.rootElement);
 											},
-											ES(a.onAdError, "bind", !0, a),
+											ES(a.onAdError || function() {}, "bind", !0, a),
 											function(b, c) {
 												a.onUnitLoaded && a.onUnitLoaded(a.rootElement, c);
 											},
-											function() {
-												a.onUnitError &&
-													a.onUnitError(
-														"",
-														"Recirculation unit failed to load",
-														a.placementId || a.placementid || ""
-													);
-											}
+											ES(a.onUnitError || function() {}, "bind", !0, a)
 										);
 									},
 									e = function(c, e) {
@@ -13769,7 +13766,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001274026","namespace":"FB","message":"' +
+				'","revision":"1001283875","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
