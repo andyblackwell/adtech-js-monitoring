@@ -1,4 +1,4 @@
-/*1570817095,,JIT Construction: v1001284426,en_US*/
+/*1571061436,,JIT Construction: v1001289459,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4340,10 +4340,11 @@ try {
 							var g = "fbOriginalHeightResizeChecks",
 								h = "ADNW_FW_PRE_RESIZE_CHECK_FAIL",
 								i = "ADNW_FW_POST_RESIZE_CHECK_FAIL",
-								j = 0;
+								j = "ADNW_FW_POST_RESIZE_CHECK_FAIL_OFF_SCREEN",
+								k = 0;
 							a = (function() {
 								__p && __p();
-								function a(a, c, d, e, f, h, i, k, l, m) {
+								function a(a, c, d, e, f, h, i, j, l, m) {
 									(this.$1 = a),
 										(this.$2 = c),
 										(this.$3 = d),
@@ -4351,8 +4352,8 @@ try {
 										(this.$5 = f),
 										(this.$6 = h),
 										(this.$9 = []),
-										(this.$10 = g + j++),
-										(this.$12 = k),
+										(this.$10 = g + k++),
+										(this.$12 = j),
 										(this.$11 = i),
 										(this.$13 = l),
 										(this.$14 = m != null && m.shouldResizeBanner),
@@ -4376,7 +4377,7 @@ try {
 													this.$3,
 													this.$4,
 													i,
-													k,
+													j,
 													this.$14,
 													this.$13
 											  )));
@@ -4527,6 +4528,16 @@ try {
 											d.right > b("ANUtils").getScreenWidth() + c
 										) {
 											this.$6.event(i, "off_screen");
+											d.right > b("ANUtils").getScreenWidth() + c &&
+												this.$6.event(
+													j,
+													"" +
+														d.left +
+														"," +
+														d.right +
+														"," +
+														(b("ANUtils").getScreenWidth() + c)
+												);
 											return !1;
 										}
 									}
@@ -13726,7 +13737,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001284426","namespace":"FB","message":"' +
+				'","revision":"1001289459","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
