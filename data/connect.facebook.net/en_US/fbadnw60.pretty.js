@@ -1,4 +1,4 @@
-/*1571160606,,JIT Construction: v1001295751,en_US*/
+/*1571174186,,JIT Construction: v1001297282,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2921,44 +2921,47 @@ try {
 							"use strict";
 							__p && __p();
 							var g = "fbBannerCallToActionOverlay",
-								h = "fbInteractiveBanner",
-								i = "adnwBannerIcon";
+								h = "fbBannerOverlay",
+								i = "fbInteractiveBanner",
+								j = "adnwBannerIcon";
 							a = (function() {
 								__p && __p();
 								function a(a, b) {
-									(this.$1 = a.getElementsByClassName(h)),
+									(this.$1 = a.getElementsByClassName(i)),
 										(this.$3 = a.getElementsByClassName(g)[0]),
-										(this.$4 = b),
-										b.bannerMovingMedia === !0 && this.$5(a),
-										(this.$2 = a.getElementsByClassName(i));
+										(this.$4 = a.getElementsByClassName(h)),
+										(this.$5 = b),
+										b.bannerMovingMedia === !0 && this.$6(a),
+										(this.$2 = a.getElementsByClassName(j));
 								}
 								var b = a.prototype;
 								b.init = function() {
-									this.$4.bannerTwoStepClick === !0 && this.$6();
+									this.$5.bannerTwoStepClick === !0 && this.$7();
 								};
-								b.$6 = function() {
+								b.$7 = function() {
 									__p && __p();
 									var a = this;
 									for (var b = 0; b < this.$1.length; b++)
 										this.$1[b].addEventListener("touchend", function() {
-											a.$7();
+											a.$8();
 										});
-									this.$3.addEventListener("touchend", function() {
-										a.$8();
-									});
-									if (this.$4.bannerTwoStepClickLowQuality === !0)
+									for (var b = 0; b < this.$4.length; b++)
+										this.$4[b].addEventListener("touchend", function() {
+											a.$9();
+										});
+									if (this.$5.bannerTwoStepClickLowQuality === !0)
 										for (var b = 0; b < this.$2.length; b++)
 											this.$2[b].addEventListener("touchend", function() {
-												a.$7();
+												a.$8();
 											});
 								};
-								b.$7 = function() {
+								b.$8 = function() {
 									this.$3.classList.remove("hidden");
 								};
-								b.$8 = function() {
+								b.$9 = function() {
 									this.$3.classList.add("hidden");
 								};
-								b.$5 = function(a) {
+								b.$6 = function(a) {
 									var b = a.getElementsByClassName("fbBannerMovingImage")[0];
 									a = a.getElementsByClassName(
 										"fbBannerCallToActionContainer"
@@ -4345,25 +4348,26 @@ try {
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							var g = "fbOriginalHeightResizeChecks",
-								h = "ADNW_FW_PRE_RESIZE_CHECK_FAIL",
-								i = "ADNW_FW_POST_RESIZE_CHECK_FAIL",
-								j = "ADNW_FW_POST_RESIZE_CHECK_FAIL_OFF_SCREEN",
-								k = 0;
+							var g = 300,
+								h = "fbOriginalHeightResizeChecks",
+								i = "ADNW_FW_PRE_RESIZE_CHECK_FAIL",
+								j = "ADNW_FW_POST_RESIZE_CHECK_FAIL",
+								k = "ADNW_FW_POST_RESIZE_CHECK_FAIL_OFF_SCREEN",
+								l = 0;
 							a = (function() {
 								__p && __p();
-								function a(a, c, d, e, f, h, i, j, l, m) {
+								function a(a, c, d, e, f, g, i, j, k, m) {
 									(this.$1 = a),
 										(this.$2 = c),
 										(this.$3 = d),
 										(this.$4 = e),
 										(this.$5 = f),
-										(this.$6 = h),
+										(this.$6 = g),
 										(this.$9 = []),
-										(this.$10 = g + k++),
+										(this.$10 = h + l++),
 										(this.$12 = j),
 										(this.$11 = i),
-										(this.$13 = l),
+										(this.$13 = k),
 										(this.$14 = m != null && m.shouldResizeBanner),
 										(this.$15 =
 											m != null && m.shouldResizeBanner && m.isStickyBanner),
@@ -4418,7 +4422,7 @@ try {
 									this.$3.style.visibility = "";
 									if (!this.$12) return !0;
 									a = d;
-									this.$1 && d && (a = this.$19());
+									this.$1 && d && (a = this.$19(c));
 									this.$17();
 									return a;
 								};
@@ -4453,7 +4457,7 @@ try {
 												this.$15
 											);
 										else {
-											this.$6.event(h, "iframe");
+											this.$6.event(i, "iframe");
 											return !1;
 										}
 									if (!b("ANUtils").screenIsPortrait()) return !1;
@@ -4467,7 +4471,7 @@ try {
 											(a = b("ANUtils").checkHTMLElement(a.parentElement)),
 											c++;
 									if (d) {
-										this.$6.event(h, d);
+										this.$6.event(i, d);
 										return !1;
 									}
 									return !0;
@@ -4523,43 +4527,50 @@ try {
 												parseInt(a.dataset[this.$10], 10)
 										: null;
 								};
-								c.$19 = function() {
+								c.$19 = function(a) {
 									__p && __p();
-									var a = this.$20();
-									if (!a) return !1;
-									var c = this.$13 != null && this.$13.off_screen_10 === !0;
-									c = c ? 10 : 0;
+									var c = this.$20();
+									if (!c) return !1;
+									var d = this.$13 != null && this.$13.off_screen_10 === !0;
+									d = d ? 10 : 0;
 									if (this.$2) {
-										var d = this.$2.getBoundingClientRect();
+										var e = this.$2.getBoundingClientRect();
 										if (
-											d.left < -c ||
-											d.right > b("ANUtils").getScreenWidth() + c
+											e.left < -d ||
+											e.right > b("ANUtils").getScreenWidth() + d
 										) {
-											this.$6.event(i, "off_screen");
-											d.right > b("ANUtils").getScreenWidth() + c &&
-												this.$6.event(
-													j,
+											this.$6.event(j, "off_screen");
+											e.right > b("ANUtils").getScreenWidth() + d &&
+												(this.$6.event(
+													k,
 													"" +
-														d.left +
+														e.left +
 														"," +
-														d.right +
+														e.right +
 														"," +
-														(b("ANUtils").getScreenWidth() + c)
-												);
+														(b("ANUtils").getScreenWidth() + d)
+												),
+												!!this.$13 &&
+													this.$13.off_screen_fallback === !0 &&
+													b("ANUtils").getScreenWidth() + d - e.left >= g &&
+													this.resize(
+														b("ANUtils").getScreenWidth() + d - e.left,
+														a
+													));
 											return !1;
 										}
 									}
-									while (a && b("ANUtils").shouldContinueTraversing(a)) {
-										d = this.$22(a);
+									while (c && b("ANUtils").shouldContinueTraversing(c)) {
+										d = this.$22(c);
 										if (d == null) {
-											this.$6.event(i, "height_null");
+											this.$6.event(j, "height_null");
 											return !1;
 										}
 										if (d === 0) {
-											this.$6.event(i, "height_unchanged");
+											this.$6.event(j, "height_unchanged");
 											return !1;
 										}
-										a = b("ANUtils").checkHTMLElement(a.parentElement);
+										c = b("ANUtils").checkHTMLElement(c.parentElement);
 									}
 									return !0;
 								};
@@ -13745,7 +13756,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001295751","namespace":"FB","message":"' +
+				'","revision":"1001297282","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
