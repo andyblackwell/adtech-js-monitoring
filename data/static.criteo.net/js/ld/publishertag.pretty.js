@@ -65,11 +65,10 @@
 						var i = LogLevel[e].toUpperCase(),
 							n = window.navigator.userAgent,
 							o = 0 < n.indexOf("MSIE ") || 0 < n.indexOf("Trident/");
-						window.console
-							? o
+						window.console &&
+							(o
 								? console.log("[PubTag] " + i + ": " + t)
-								: console.log("%cPubTag", CSS_LOG, i + ": " + t)
-							: e <= LogLevel.Error && alert("[PubTag] " + i + ": " + t);
+								: console.log("%cPubTag", CSS_LOG, i + ": " + t));
 					}
 				}),
 				(r.Debug = function(e) {
@@ -769,7 +768,7 @@
 			"number" == typeof window.PREBID_TIMEOUT ? window.PREBID_TIMEOUT : void 0;
 		return e && t ? Math.min(e, t) : e || t || void 0;
 	}
-	var PublisherTagVersion = 74,
+	var PublisherTagVersion = 75,
 		DirectBiddingMetric = function(e, t, i, n, o, r, a, s, d, c, l, u, p) {
 			(this.publisherTagVersion = e),
 				(this.slots = t),
@@ -2154,70 +2153,105 @@
 			);
 		})(InputParameters),
 		StandalonePlaceholder = (function() {
-			function c() {}
+			function u() {}
 			return (
-				(c.tryInsertPlaceholder = function(e, t) {
-					var i = document.getElementById(e);
+				(u.clearState = function() {
+					this.cloneByImpressionId = {};
+				}),
+				(u.tryInsertPlaceholder = function(e) {
+					var t = document.getElementById(e);
+					if (null === t) return !1;
+					if ((t.appendChild(this.createPlaceholder()), this.isVisible(t)))
+						return !0;
+					this.removePlaceholder(e);
+					var i = t.parentElement;
 					if (null === i) return !1;
-					var n = this.createPlaceholder(t);
+					var n = this.createClone(t);
 					return (
-						i.appendChild(n),
-						!!this.isVisible(i) || (this.removePlaceholder(e), !1)
+						i.insertBefore(n, t),
+						n.appendChild(this.createPlaceholder()),
+						this.isVisible(n)
+							? ((this.cloneByImpressionId[e] = n), !0)
+							: (i.removeChild(n), !1)
 					);
 				}),
-				(c.isVisible = function(e) {
+				(u.isVisible = function(e) {
 					return (
 						0 !== e.offsetWidth &&
 						0 !== e.offsetHeight &&
 						0 !== e.getClientRects().length
 					);
 				}),
-				(c.createPlaceholder = function(e) {
-					var t = document.createElement("div");
-					return (
-						(t.style.width = String(e.width) + "px"),
-						(t.style.height = String(e.height) + "px"),
-						(t.style.display = "block"),
-						(t.className = c.PLACEHOLDER_NAME),
-						t
-					);
+				(u.createClone = function(e) {
+					var t = e.cloneNode(!1);
+					return (t.id = this.generateRandomId()), (t.className = ""), t;
 				}),
-				(c.removePlaceholder = function(e) {
-					var t = document.getElementById(e);
-					if (null !== t)
-						for (
-							var i = 0, n = t.getElementsByClassName(c.PLACEHOLDER_NAME);
-							i < n.length;
-							i++
-						) {
-							var o = n[i];
-							null !== o.parentNode && o.parentNode.removeChild(o);
-						}
-				}),
-				(c.insertAdIFrame = function(e) {
-					var t = document.getElementById(e);
-					if (null === t) return null;
+				(u.generateRandomId = function() {
 					for (
-						var i = 0, n = t.getElementsByClassName(c.PLACEHOLDER_NAME);
-						i < n.length;
+						var e = "1234567890abcdefghijklmnopqrstuvwxyz", t = "", i = 0;
+						i < 20;
 						i++
 					) {
-						for (var o = n[i], r = 0, a = o.childNodes; r < a.length; r++) {
-							var s = a[r];
-							null !== s.parentNode && s.parentNode.removeChild(s);
+						var n = Math.floor(Math.random() * e.length);
+						t += e.charAt(n);
+					}
+					return t;
+				}),
+				(u.createPlaceholder = function() {
+					var e = document.createElement("div");
+					return (
+						(e.style.width = "1px"),
+						(e.style.height = "1px"),
+						(e.style.display = "block"),
+						(e.className = u.PLACEHOLDER_NAME),
+						e
+					);
+				}),
+				(u.removePlaceholder = function(e) {
+					var t = this.cloneByImpressionId[e];
+					if (void 0 === t) {
+						var i = document.getElementById(e);
+						if (null !== i)
+							for (
+								var n = 0, o = i.getElementsByClassName(u.PLACEHOLDER_NAME);
+								n < o.length;
+								n++
+							) {
+								var r = o[n];
+								null !== r.parentNode && r.parentNode.removeChild(r);
+							}
+					} else null !== t.parentNode && t.parentNode.removeChild(t);
+				}),
+				(u.insertAdIFrame = function(e) {
+					var t,
+						i = this.cloneByImpressionId[e];
+					if (void 0 !== i) t = i;
+					else {
+						var n = document.getElementById(e);
+						if (null === n) return null;
+						t = n;
+					}
+					for (
+						var o = 0, r = t.getElementsByClassName(u.PLACEHOLDER_NAME);
+						o < r.length;
+						o++
+					) {
+						for (var a = r[o], s = 0, d = a.childNodes; s < d.length; s++) {
+							var c = d[s];
+							null !== c.parentNode && c.parentNode.removeChild(c);
 						}
-						var d = this.createAdIFrame();
+						var l = this.createAdIFrame();
 						return (
-							o.appendChild(d),
-							(o.style.width = ""),
-							(o.style.height = ""),
-							(o.style.display = ""),
-							d
+							a.appendChild(l),
+							(a.style.width = ""),
+							(a.style.height = ""),
+							(a.style.display = ""),
+							l
 						);
 					}
 					return null;
 				}),
-				(c.createAdIFrame = function() {
+				(u.createAdIFrame = function() {
 					var e = document.createElement("iframe");
 					return (
 						(e.scrolling = "no"),
@@ -2229,27 +2263,24 @@
 						e
 					);
 				}),
-				(c.removePlaceholders = function(e, t) {
+				(u.removePlaceholders = function(e, t) {
 					void 0 === t && (t = []);
 					for (var i = 0, n = e; i < n.length; i++) {
 						var o = n[i].impId;
-						-1 === t.indexOf(o) && c.removePlaceholder(o);
+						-1 === t.indexOf(o) && u.removePlaceholder(o);
 					}
 				}),
-				(c.tryInsertPlaceholders = function(e) {
+				(u.tryInsertPlaceholders = function(e) {
 					for (var t = [], i = 0, n = e; i < n.length; i++) {
 						var o = n[i],
-							r = o.impId,
-							a =
-								void 0 === o.sizes || 1 !== o.sizes.length
-									? new Size(1, 1)
-									: o.sizes[0];
-						c.tryInsertPlaceholder(r, a) && t.push(o);
+							r = o.impId;
+						u.tryInsertPlaceholder(r) && t.push(o);
 					}
 					return t;
 				}),
-				(c.PLACEHOLDER_NAME = "criteo_placeholder"),
-				c
+				(u.PLACEHOLDER_NAME = "criteo_placeholder"),
+				(u.cloneByImpressionId = {}),
+				u
 			);
 		})(),
 		DirectBiddingPosition = function(e, t) {
@@ -2372,7 +2403,7 @@
 	}
 	var metricBuilders = {},
 		bidCaches = {};
-	function RequestBidsWithProfileId(e, t, m, i) {
+	function RequestBidsWithProfileId(e, t, v, i) {
 		var y = new StandaloneInputParameters(e);
 		if (checkInputParameters(y)) {
 			var n,
@@ -2383,8 +2414,8 @@
 				var a = StandalonePlaceholder.tryInsertPlaceholders(y.placements);
 				if (0 === a.length) return;
 				y.placements = a;
-				var s = m;
-				(m = function(e) {
+				var s = v;
+				(v = function(e) {
 					void 0 !== s && s(e),
 						e.forEach(function(e) {
 							var t = StandalonePlaceholder.insertAdIFrame(e.impressionId);
@@ -2399,7 +2430,7 @@
 							new AdBlocker().isAdBlocked(function(e) {
 								e ? r.enableAdBlockFlag() : r.disableAdBlockFlag();
 							}),
-							void 0 !== m && m([]);
+							void 0 !== v && v([]);
 					},
 					c = new DirectBiddingEventWithCaching(
 						t,
@@ -2465,13 +2496,13 @@
 							}
 							if (
 								(StandalonePlaceholder.removePlaceholders(y.placements, a),
-								void 0 !== m)
+								void 0 !== v)
 							) {
 								for (var h = [], f = 0, g = y.placements; f < g.length; f++) {
-									var v = g[f];
-									h.push(v.impId);
+									var m = g[f];
+									h.push(m.impId);
 								}
-								m(GetBids({ impressionIds: h }));
+								v(GetBids({ impressionIds: h }));
 							}
 						},
 						d,
@@ -2726,11 +2757,10 @@
 		},
 		publisherTagHasBeenPreFetched = void 0 === window.pbjs,
 		PrebidMediaTypes,
-		Kr;
-	(Kr = PrebidMediaTypes || (PrebidMediaTypes = {})),
-		(Kr.Native = "native"),
-		(Kr.Banner = "banner"),
-		(Kr.Video = "video");
+		Tr;
+	(Tr = PrebidMediaTypes || (PrebidMediaTypes = {})),
+		(Tr.Banner = "banner"),
+		(Tr.Video = "video");
 	var Prebid = (function() {
 			function n(e, t, i, n, o) {
 				var r, a;
@@ -2839,23 +2869,6 @@
 							'"];\n                    responseSlot.callback(responseSlot.payload);\n                    break;\n                }\n            }\n        </script>'
 					);
 				}),
-				(n.prototype.createPrebidNativeAd = function(e) {
-					return {
-						title: e.products[0].title,
-						body: e.products[0].description,
-						sponsoredBy: e.advertiser.description,
-						icon: e.advertiser.logo,
-						image: e.products[0].image,
-						clickUrl: e.products[0].click_url,
-						privacyLink: e.privacy.optout_click_url,
-						privacyIcon: e.privacy.optout_image_url,
-						cta: e.products[0].call_to_action,
-						price: e.products[0].price,
-						impressionTrackers: e.impression_pixels.map(function(e) {
-							return e.url;
-						})
-					};
-				}),
 				(n.prototype.getBidRequestForSlot = function(e) {
 					for (var t = 0, i = this.bidRequests; t < i.length; t++) {
 						var n = i[t];
@@ -2916,20 +2929,26 @@
 										height: c.height,
 										dealId: c.deal
 									};
-								c.native
-									? l.params.nativeCallback
-										? (h.ad = this.createCriteoNativeAdWithCallback(
-												u,
-												c.native,
-												l.params.nativeCallback
-										  ))
-										: ((h.native = this.createPrebidNativeAd(c.native)),
-										  (h.mediaType = PrebidMediaTypes.Native))
-									: c.video
+								if (c.native) {
+									if (!l.params.nativeCallback) {
+										Log.Error(
+											'The slot creative is native but we miss the nativeCallback parameter to render it."' +
+												c +
+												'"'
+										);
+										continue;
+									}
+									h.ad = this.createCriteoNativeAdWithCallback(
+										u,
+										c.native,
+										l.params.nativeCallback
+									);
+								} else
+									c.video
 										? ((h.vastUrl = c.displayurl),
 										  (h.mediaType = PrebidMediaTypes.Video))
-										: (h.ad = c.creative),
-									a.push(h);
+										: (h.ad = c.creative);
+								a.push(h);
 							} else
 								Log.Error('Could not get bid request for slot "' + c + '"');
 						}
@@ -2973,8 +2992,8 @@
 				n
 			);
 		})(),
-		__extends$13 = ((Ks = function(e, t) {
-			return (Ks =
+		__extends$13 = ((Rs = function(e, t) {
+			return (Rs =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -2988,13 +3007,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Ks(e, t),
+			Rs(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Ks,
+		Rs,
 		ConditionalEvent = (function(r) {
 			function a(e, t, i, n) {
 				var o = r.call(this, a.NAME) || this;
@@ -3024,11 +3043,11 @@
 			);
 		})(AbstractEvent),
 		AdFormatType,
-		bt;
-	(bt = AdFormatType || (AdFormatType = {})),
-		(bt[(bt.Classic = 0)] = "Classic"),
-		(bt[(bt.StickyFooter = 1)] = "StickyFooter"),
-		(bt[(bt.ScrollingBanner = 2)] = "ScrollingBanner");
+		it;
+	(it = AdFormatType || (AdFormatType = {})),
+		(it[(it.Classic = 0)] = "Classic"),
+		(it[(it.StickyFooter = 1)] = "StickyFooter"),
+		(it[(it.ScrollingBanner = 2)] = "ScrollingBanner");
 	var CookieHelper = (function() {
 			function h() {}
 			return (
@@ -3186,11 +3205,11 @@
 			);
 		})(),
 		DisplayContext,
-		Yt;
-	(Yt = DisplayContext || (DisplayContext = {})),
-		(Yt[(Yt.InFriendlyIframe = 1)] = "InFriendlyIframe"),
-		(Yt[(Yt.InUnfriendlyIframe = 2)] = "InUnfriendlyIframe"),
-		(Yt[(Yt.DirectIntegration = 3)] = "DirectIntegration");
+		du;
+	(du = DisplayContext || (DisplayContext = {})),
+		(du[(du.InFriendlyIframe = 1)] = "InFriendlyIframe"),
+		(du[(du.InUnfriendlyIframe = 2)] = "InUnfriendlyIframe"),
+		(du[(du.DirectIntegration = 3)] = "DirectIntegration");
 	var DocumentHelper = (function() {
 			function e() {}
 			return (
@@ -3237,8 +3256,8 @@
 				r
 			);
 		})(),
-		__extends$14 = ((nu = function(e, t) {
-			return (nu =
+		__extends$14 = ((uu = function(e, t) {
+			return (uu =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3252,13 +3271,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			nu(e, t),
+			uu(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		nu,
+		uu,
 		DisplayEvent = (function(o) {
 			function e(e, t, i) {
 				var n = o.call(this, e) || this;
@@ -3284,12 +3303,12 @@
 			);
 		})(AbstractEvent),
 		HandlerType,
-		Mu;
-	(Mu = HandlerType || (HandlerType = {})),
-		(Mu[(Mu.AFR = 0)] = "AFR"),
-		(Mu[(Mu.AJS = 1)] = "AJS");
-	var __extends$15 = ((Nu = function(e, t) {
-			return (Nu =
+		Tu;
+	(Tu = HandlerType || (HandlerType = {})),
+		(Tu[(Tu.AFR = 0)] = "AFR"),
+		(Tu[(Tu.AJS = 1)] = "AJS");
+	var __extends$15 = ((Uu = function(e, t) {
+			return (Uu =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3303,13 +3322,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Nu(e, t),
+			Uu(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Nu,
+		Uu,
 		DisplayEventAFR = (function(a) {
 			function o(e, t, i) {
 				var n = a.call(this, o.NAME, e, t) || this;
@@ -3357,8 +3376,8 @@
 				o
 			);
 		})(DisplayEvent),
-		__extends$16 = ((ov = function(e, t) {
-			return (ov =
+		__extends$16 = ((vv = function(e, t) {
+			return (vv =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3372,13 +3391,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			ov(e, t),
+			vv(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		ov,
+		vv,
 		DisplayEventAsync = (function(_super) {
 			function DisplayEventAsync(e, t) {
 				return _super.call(this, DisplayEventAsync.NAME, e, t) || this;
@@ -3459,8 +3478,8 @@
 				DisplayEventAsync
 			);
 		})(DisplayEvent),
-		__extends$17 = ((Yv = function(e, t) {
-			return (Yv =
+		__extends$17 = ((dw = function(e, t) {
+			return (dw =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3474,13 +3493,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Yv(e, t),
+			dw(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Yv,
+		dw,
 		DisplayEventSync = (function(i) {
 			function n(e, t) {
 				return i.call(this, n.NAME, e, t) || this;
@@ -3503,8 +3522,8 @@
 				n
 			);
 		})(DisplayEvent),
-		__extends$18 = ((pw = function(e, t) {
-			return (pw =
+		__extends$18 = ((ww = function(e, t) {
+			return (ww =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3518,13 +3537,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			pw(e, t),
+			ww(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		pw,
+		ww,
 		DisplayInputParameters = (function(i) {
 			function e(e) {
 				var t = i.call(this) || this;
@@ -3911,7 +3930,7 @@
 			);
 		})(),
 		StorageOrigin,
-		jy;
+		qy;
 	function tryDecodeURIComponent(t, i) {
 		try {
 			return decodeURIComponent(t);
@@ -3933,10 +3952,10 @@
 			}
 		);
 	}
-	(jy = StorageOrigin || (StorageOrigin = {})),
-		(jy[(jy.None = 0)] = "None"),
-		(jy[(jy.Cookie = 1)] = "Cookie"),
-		(jy[(jy.LocalStorage = 2)] = "LocalStorage");
+	(qy = StorageOrigin || (StorageOrigin = {})),
+		(qy[(qy.None = 0)] = "None"),
+		(qy[(qy.Cookie = 1)] = "Cookie"),
+		(qy[(qy.LocalStorage = 2)] = "LocalStorage");
 	var CookieSynchronizer = (function() {
 			function n(e, t, i) {
 				(this.isDebug = t),
