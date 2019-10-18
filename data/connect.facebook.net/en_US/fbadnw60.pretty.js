@@ -1,4 +1,4 @@
-/*1571254220,,JIT Construction: v1001301817,en_US*/
+/*1571403171,,JIT Construction: v1001312797,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2922,46 +2922,38 @@ try {
 							__p && __p();
 							var g = "fbBannerCallToActionOverlay",
 								h = "fbBannerOverlay",
-								i = "fbInteractiveBanner",
-								j = "adnwBannerIcon";
+								i = "fbInteractiveBanner";
 							a = (function() {
 								__p && __p();
 								function a(a, b) {
 									(this.$1 = a.getElementsByClassName(i)),
-										(this.$3 = a.getElementsByClassName(g)[0]),
-										(this.$4 = a.getElementsByClassName(h)),
-										(this.$5 = b),
-										b.bannerMovingMedia === !0 && this.$6(a),
-										(this.$2 = a.getElementsByClassName(j));
+										(this.$2 = a.getElementsByClassName(g)[0]),
+										(this.$3 = a.getElementsByClassName(h)),
+										(this.$4 = b),
+										b.bannerMovingMedia === !0 && this.$5(a);
 								}
 								var b = a.prototype;
 								b.init = function() {
-									this.$5.bannerTwoStepClick === !0 && this.$7();
+									this.$4.bannerTwoStepClick === !0 && this.$6();
 								};
-								b.$7 = function() {
-									__p && __p();
+								b.$6 = function() {
 									var a = this;
 									for (var b = 0; b < this.$1.length; b++)
 										this.$1[b].addEventListener("touchend", function() {
+											a.$7();
+										});
+									for (var b = 0; b < this.$3.length; b++)
+										this.$3[b].addEventListener("touchend", function() {
 											a.$8();
 										});
-									for (var b = 0; b < this.$4.length; b++)
-										this.$4[b].addEventListener("touchend", function() {
-											a.$9();
-										});
-									if (this.$5.bannerTwoStepClickLowQuality === !0)
-										for (var b = 0; b < this.$2.length; b++)
-											this.$2[b].addEventListener("touchend", function() {
-												a.$8();
-											});
+								};
+								b.$7 = function() {
+									this.$2.classList.remove("hidden");
 								};
 								b.$8 = function() {
-									this.$3.classList.remove("hidden");
+									this.$2.classList.add("hidden");
 								};
-								b.$9 = function() {
-									this.$3.classList.add("hidden");
-								};
-								b.$6 = function(a) {
+								b.$5 = function(a) {
 									var b = a.getElementsByClassName("fbBannerMovingImage")[0];
 									a = a.getElementsByClassName(
 										"fbBannerCallToActionContainer"
@@ -13756,7 +13748,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001301817","namespace":"FB","message":"' +
+				'","revision":"1001312797","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
