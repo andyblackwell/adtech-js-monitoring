@@ -1,4 +1,4 @@
-/*1571403171,,JIT Construction: v1001312797,en_US*/
+/*1571864010,,JIT Construction: v1001332443,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -4841,48 +4841,6 @@ try {
 									a.src = this.$1;
 									a.async = !0;
 									b("nullthrows")(this.$2.body).appendChild(a);
-								};
-								return a;
-							})();
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ANMultiAdsSingleCard",
-						["ANUtils"],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							__p && __p();
-							var g = 10,
-								h = 6,
-								i = 16;
-							a = (function() {
-								__p && __p();
-								function a(a, b) {
-									(this.$1 = a), (this.$2 = a / 2), (this.$3 = b);
-								}
-								var c = a.prototype;
-								c.resizeAd = function() {
-									this.$4(), this.$5();
-								};
-								c.$5 = function() {
-									var a = this.$2 - 2 * h,
-										c = this.$3.getElementsByClassName("fbAdMedia")[0];
-									b("ANUtils").resizeElement(c, a, a);
-								};
-								c.$4 = function() {
-									var a = this.$2 - 2 * h - 2 * g,
-										c = a,
-										d = this.$3.getElementsByClassName(
-											"adnwMultiAdsContent"
-										)[0],
-										e = this.$3.getElementsByClassName("fbAdBody")[0],
-										f = this.$3.getElementsByClassName("fbAdTitle")[0];
-									d.style.width = b("ANUtils").cssSize(a);
-									d = f.clientHeight;
-									a = Math.floor((c - 48 - d) / i);
-									e.style.maxHeight = b("ANUtils").cssSize(Math.max(0, a * i));
 								};
 								return a;
 							})();
@@ -11328,7 +11286,6 @@ try {
 							"ANLinkOpener",
 							"ANLogger",
 							"ANMoatSivt",
-							"ANMultiAdsSingleCard",
 							"ANPageNavigationManager",
 							"ANRewardedVideoPlayer",
 							"ANStitchedImage",
@@ -13748,7 +13705,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001312797","namespace":"FB","message":"' +
+				'","revision":"1001332443","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
