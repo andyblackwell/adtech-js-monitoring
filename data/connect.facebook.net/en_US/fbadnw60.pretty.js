@@ -1,4 +1,4 @@
-/*1571864010,,JIT Construction: v1001332443,en_US*/
+/*1571939694,,JIT Construction: v1001337263,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -3164,6 +3164,58 @@ try {
 						null
 					);
 					__d(
+						"OnScreenBehavior.anweb",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							__p && __p();
+							a = (function() {
+								__p && __p();
+								function a() {}
+								var b = a.prototype;
+								b.onPartiallyEntered = function() {};
+								b.onMostlyEntered = function() {};
+								b.onCompletelyEntered = function() {};
+								b.onPartiallyLeft = function() {};
+								b.onMostlyLeft = function() {};
+								b.onCompletelyLeft = function() {};
+								b.onBecameInvalid = function() {};
+								b.onBecameValid = function() {};
+								return a;
+							})();
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"ANCarouselAutoRotateBehavior",
+						["OnScreenBehavior.anweb"],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							__p && __p();
+							a = (function(a) {
+								__p && __p();
+								babelHelpers.inheritsLoose(b, a);
+								function b(b) {
+									var c;
+									c = a.call(this) || this;
+									c.$ANCarouselAutoRotateBehavior1 = b;
+									c.$ANCarouselAutoRotateBehavior2 = !1;
+									return c;
+								}
+								var c = b.prototype;
+								c.onPartiallyEntered = function() {
+									if (this.$ANCarouselAutoRotateBehavior2) return;
+									this.$ANCarouselAutoRotateBehavior2 = !0;
+									this.$ANCarouselAutoRotateBehavior1.startAutoRotate();
+								};
+								return b;
+							})(b("OnScreenBehavior.anweb"));
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"VPAIDDomUtils",
 						["nullthrows"],
 						function(a, b, c, d, e, f) {
@@ -3513,6 +3565,7 @@ try {
 						[
 							"csx",
 							"cx",
+							"ANCarouselAutoRotateBehavior",
 							"ANCarouselMotion",
 							"VPAIDDomUtils",
 							"ANCarouselItem"
@@ -3531,7 +3584,10 @@ try {
 								o = 4,
 								p = 1,
 								q = 8,
-								r = 1.2;
+								r = 1.2,
+								s = 4e3,
+								t = 2e3,
+								u = 1e3;
 							a = (function() {
 								__p && __p();
 								function a(a) {
@@ -3540,8 +3596,11 @@ try {
 										c = a.onEvent,
 										d = a.onCriticalAnimationStart,
 										e = a.onCriticalAnimationEnd,
-										f = a.onLoadEventCounter;
-									a = a.adFeatures;
+										f = a.onLoadEventCounter,
+										g = a.adFeatures;
+									a = a.onScreenBehaviorManager;
+									this.$21 = !1;
+									this.$23 = !1;
 									this.$10 = m;
 									this.$11 = n;
 									this.$12 = o;
@@ -3551,17 +3610,19 @@ try {
 									this.$9 = c || k;
 									this.onCriticalAnimationStart = d || k;
 									this.onCriticalAnimationEnd = e || k;
-									this.$16 = a;
+									this.$16 = g;
 									this.$18 = !!this.$16.useDPADesign;
 									this.$19 =
 										this.$16.dpaPriceLabels == null
 											? null
 											: this.$16.dpaPriceLabels.slice(1);
 									this.$20 = this.$16.showBlurredBackdrop === !0;
-									this.$21();
+									this.$21 = g.autoRotateCarousel === !0;
+									this.$24 = a;
+									this.$25();
 								}
 								var c = a.prototype;
-								c.$21 = function() {
+								c.$25 = function() {
 									__p && __p();
 									var a = this;
 									this.$8 = 0;
@@ -3572,9 +3633,9 @@ try {
 									this.$3 = [];
 									var d = [c];
 									this.$17 && (d = [c, i("_8edz")]);
-									c = [i("_2vfy", d), this.$22()];
+									c = [i("_2vfy", d), this.$26()];
 									this.$1 = i("_2vfx", c);
-									this.$17 && ((this.$4 = j(this.$1, "._8edz")), this.$23());
+									this.$17 && ((this.$4 = j(this.$1, "._8edz")), this.$27());
 									this.$5 = j(this.$1, "._2vf-");
 									this.$2 = j(this.$1, "._2vfy");
 									this.$15.addRequiredEvent();
@@ -3594,20 +3655,30 @@ try {
 										a.$5.appendChild(c.getElement());
 									});
 									this.$14 = new (b("ANCarouselMotion"))(this, function(b, c) {
-										a.$24(),
-											a.$17 && a.$25(),
+										(a.$23 = !0),
+											a.$28(),
+											a.$17 && a.$29(),
+											a.$21 && window.clearTimeout(a.$22),
 											a.$9("AN_CAROUSEL_EVENT_SWIPE", {
 												index: b,
 												direction: c
 											});
 									});
 									this.ensureSizes();
-									this.$26();
+									this.$30();
+									this.$31();
 								};
-								c.$27 = function() {
+								c.$31 = function() {
+									this.$21 &&
+										this.$24 &&
+										this.$24.addBehavior(
+											new (b("ANCarouselAutoRotateBehavior"))(this)
+										);
+								};
+								c.$32 = function() {
 									return this.$1.clientWidth;
 								};
-								c.$26 = function() {
+								c.$30 = function() {
 									var a = this;
 									this.$5.addEventListener("touchstart", function(b) {
 										a.$14.onMoveStart(l(b));
@@ -3616,41 +3687,41 @@ try {
 										a.$14.onMove(b, l(b));
 									});
 									this.$5.addEventListener("touchend", function(b) {
-										a.$14.onMoveEnd();
+										a.$21 && !a.$23 && a.startAutoRotate(), a.$14.onMoveEnd();
 									});
 								};
-								c.$28 = function(a) {
+								c.$33 = function(a) {
 									if (this.isWithinRange(a)) return a;
 									return a > 0 ? 0 : -this.getMaxOffset();
 								};
-								c.$29 = function() {
+								c.$34 = function() {
 									return this.$18
 										? this.$6.length === 2
 											? (this.$10 - 4 * this.$12 - 2 * q) / 2
 											: (this.$10 - 3 * this.$12) / 2 + 2 * this.$13
 										: this.$10;
 								};
-								c.$30 = function() {
+								c.$35 = function() {
 									return this.$18 ? o : 0;
 								};
-								c.$31 = function() {
+								c.$36 = function() {
 									return this.$18 ? p : 0;
 								};
-								c.$32 = function() {
+								c.$37 = function() {
 									return this.$10 > m ? r : 1;
 								};
-								c.$33 = function(a) {
+								c.$38 = function(a) {
 									return this.$18
 										? (this.$11 + 2 * this.$12) * a + q
 										: this.$11 * a;
 								};
-								c.$34 = function() {
+								c.$39 = function() {
 									return i("_8ed-");
 								};
-								c.$22 = function() {
+								c.$26 = function() {
 									var a = [];
 									for (var b = 0; b < this.$6.length; b++) {
-										var c = this.$34();
+										var c = this.$39();
 										a.push(c);
 										b === 0 && a[b].classList.add("_8ed_");
 									}
@@ -3662,16 +3733,16 @@ try {
 									this.$3 = a;
 									return c;
 								};
-								c.$24 = function() {
+								c.$28 = function() {
 									for (var a = 0; a < this.$6.length; a++)
 										this.isIndexVisible(a)
 											? this.$3[a].classList.add("_8ed_")
 											: this.$3[a].classList.remove("_8ed_");
 								};
-								c.$23 = function() {
+								c.$27 = function() {
 									this.$4 && (this.$4.innerText = "1/" + this.$6.length);
 								};
-								c.$25 = function() {
+								c.$29 = function() {
 									this.$4 &&
 										(this.$4.innerText = this.$8 + 1 + "/" + this.$6.length);
 								};
@@ -3705,13 +3776,13 @@ try {
 								};
 								c.isIndexVisible = function(a) {
 									var b = this.$14.getCurrentOffset();
-									a = this.$33(a);
+									a = this.$38(a);
 									return a >= b && a + this.$11 <= b + this.$10;
 								};
 								c["goto"] = function(a, b) {
 									var c = -a * (this.$11 + 2 * this.$12);
 									c += (this.$10 - this.$11 - 2 * this.$12) / 2 - 2 * this.$12;
-									c = this.$28(c);
+									c = this.$33(c);
 									this.$14.scrollToTransition(c, b);
 									this.$8 = a;
 								};
@@ -3729,11 +3800,11 @@ try {
 								c.ensureSizes = function() {
 									__p && __p();
 									var a = this;
-									this.$10 = this.$27() || m;
-									this.$11 = this.$29();
-									this.$12 = this.$30();
-									this.$13 = this.$31();
-									this.$1.style.fontSize = this.$32() * 100 + "px";
+									this.$10 = this.$32() || m;
+									this.$11 = this.$34();
+									this.$12 = this.$35();
+									this.$13 = this.$36();
+									this.$1.style.fontSize = this.$37() * 100 + "px";
 									this.$5.style.width = this.getFullWidth() + "px";
 									ES(this.$7, "forEach", !0, function(b, c) {
 										if (a.$18) {
@@ -3743,6 +3814,17 @@ try {
 											c.style.marginLeft = a.$12 + "px";
 										} else b.setItemSize(a.$11);
 									});
+								};
+								c.startAutoRotate = function(a) {
+									var b = this;
+									a === void 0 && (a = t);
+									window.clearTimeout(this.$22);
+									this.$22 = window.setTimeout(function() {
+										var a = (b.$8 + 1) % b.$6.length;
+										b["goto"](a, u);
+										b.$28();
+										b.startAutoRotate(s);
+									}, a);
 								};
 								return a;
 							})();
@@ -7525,30 +7607,6 @@ try {
 										a
 									);
 								};
-								return a;
-							})();
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"OnScreenBehavior.anweb",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							__p && __p();
-							a = (function() {
-								__p && __p();
-								function a() {}
-								var b = a.prototype;
-								b.onPartiallyEntered = function() {};
-								b.onMostlyEntered = function() {};
-								b.onCompletelyEntered = function() {};
-								b.onPartiallyLeft = function() {};
-								b.onMostlyLeft = function() {};
-								b.onCompletelyLeft = function() {};
-								b.onBecameInvalid = function() {};
-								b.onBecameValid = function() {};
 								return a;
 							})();
 							e.exports = a;
@@ -11989,7 +12047,8 @@ try {
 												}
 											},
 											onLoadEventCounter: this.$22,
-											adFeatures: this.$37().$46
+											adFeatures: this.$37().$46,
+											onScreenBehaviorManager: this.$20
 										});
 									a.appendChild(e.getElement());
 									e.ensureSizes();
@@ -13705,7 +13764,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001332443","namespace":"FB","message":"' +
+				'","revision":"1001337263","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
