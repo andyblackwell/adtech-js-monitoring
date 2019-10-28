@@ -768,7 +768,7 @@
 			"number" == typeof window.PREBID_TIMEOUT ? window.PREBID_TIMEOUT : void 0;
 		return e && t ? Math.min(e, t) : e || t || void 0;
 	}
-	var PublisherTagVersion = 75,
+	var PublisherTagVersion = 76,
 		DirectBiddingMetric = function(e, t, i, n, o, r, a, s, d, c, l, u, p) {
 			(this.publisherTagVersion = e),
 				(this.slots = t),
@@ -3998,28 +3998,43 @@
 						}
 				}),
 				(n.prototype.appendGumIframeIfDoesNotExist = function() {
-					var i = this,
+					var r = this,
 						e = this.createGumIframe();
 					this.topDoc.getElementById(n.SYNCFRAME_ID) ||
 						(this.topWin.addEventListener(
 							"message",
 							function(e) {
 								var t = e.data;
-								t &&
-									t.isCriteoMessage &&
-									(e.stopImmediatePropagation(),
-									t.optout
-										? (i.setClientSideOptOut(),
-										  i.deleteClientSideUid(),
-										  i.deleteClientSideIdfs(),
-										  i.deleteClientSideSecureId(),
-										  i.deleteBundle())
-										: (t.uid && i.setClientSideUid(t.uid),
-										  t.idfs && i.setClientSideIdfs(t.idfs),
-										  t.bundle && i.setBundle(t.bundle),
-										  t.removeSid
-												? i.deleteClientSideSecureId()
-												: t.sid && i.setClientSideSecureId(t.sid)));
+								if (t && t.isCriteoMessage)
+									if ((e.stopImmediatePropagation(), t.optout))
+										r.setClientSideOptOut(),
+											r.deleteClientSideUid(),
+											r.deleteClientSideIdfs(),
+											r.deleteClientSideSecureId(),
+											r.deleteBundle();
+									else {
+										if (
+											(t.uid && r.setClientSideUid(t.uid),
+											t.idfs && r.setClientSideIdfs(t.idfs),
+											t.callbacks)
+										)
+											for (
+												var i = 0,
+													n =
+														"string" == typeof t.callbacks
+															? [t.callbacks]
+															: t.callbacks;
+												i < n.length;
+												i++
+											) {
+												var o = n[i];
+												new Image().src = o;
+											}
+										else t.bundle && r.setBundle(t.bundle);
+										t.removeSid
+											? r.deleteClientSideSecureId()
+											: t.sid && r.setClientSideSecureId(t.sid);
+									}
 							},
 							!0
 						),
