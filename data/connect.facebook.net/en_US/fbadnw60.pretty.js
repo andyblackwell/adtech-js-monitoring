@@ -1,4 +1,4 @@
-/*1572323245,,JIT Construction: v1001354405,en_US*/
+/*1572352645,,JIT Construction: v1001355057,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -6675,15 +6675,23 @@ try {
 						function(a, b, c, d, e, f, g) {
 							"use strict";
 							__p && __p();
-							var h = b("VPAIDDomUtils").div;
+							var h = b("VPAIDDomUtils").div,
+								i = {
+									VISIBLE_ON_PAUSE: "VISIBLE_ON_PAUSE",
+									VISIBLE_ON_AUTOPLAY: "VISIBLE_ON_AUTOPLAY"
+								};
 							a = (function() {
 								__p && __p();
-								function a(a, b) {
-									this.$1 = this.$3(a, b);
+								function a(a) {
+									this.$1 = this.$3(a);
 								}
 								var b = a.prototype;
-								b.$3 = function(a, b) {
-									return h("_3c3s" + (a ? " _7kbt" : "") + (b ? " _7kbu" : ""));
+								b.$3 = function(a) {
+									return h(
+										"_3c3s" +
+											(a === i.VISIBLE_ON_PAUSE ? " _7kbt" : "") +
+											(a === i.VISIBLE_ON_AUTOPLAY ? " _7kbu" : "")
+									);
 								};
 								b.attach = function(a) {
 									this.$2 != null && (this.detach(), (this.$2 = null)),
@@ -6694,10 +6702,10 @@ try {
 									this.$1.parentNode && this.$1.parentNode.removeChild(this.$1);
 								};
 								a.pauseCard = function() {
-									return new a(!0, !1);
+									return new a(i.VISIBLE_ON_PAUSE);
 								};
 								a.autoplayCard = function() {
-									return new a(!1, !0);
+									return new a(i.VISIBLE_ON_AUTOPLAY);
 								};
 								return a;
 							})();
@@ -13762,7 +13770,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001354405","namespace":"FB","message":"' +
+				'","revision":"1001355057","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
