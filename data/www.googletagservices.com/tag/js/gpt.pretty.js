@@ -1781,7 +1781,6 @@
 						if ("layout-shift" === c.entryType) {
 							var d = c;
 							d.hadRecentInput ||
-								(S(241) && !(0.01 < d.value)) ||
 								((a.a += Number(d.value)),
 								Number(d.value) > a.b && (a.b = Number(d.value)),
 								(a.c += 1));
@@ -1948,10 +1947,10 @@
 			return 0 === Ud(T(172));
 		};
 	var Wd = function() {
-		return Ab("3") || 0;
+		return Ab("5") || 0;
 	};
 	Od("getVersion", function() {
-		return "2019102801";
+		return "2019102802";
 	});
 	var Xd = function() {
 		var a = {};
@@ -2015,7 +2014,7 @@
 		be = function() {
 			var a = Ba;
 			S(187) ? (a = w("modern_")) : S(234) && (a = w("legacy_"));
-			a = [Cd, Bd, a, w("2019102801"), w(".js")];
+			a = [Cd, Bd, a, w("2019102802"), w(".js")];
 			for (var b = "", c = 0; c < a.length; c++) b += Aa(a[c]);
 			a = new x(Ca, b);
 			var d = void 0 === d ? 0 : d;
@@ -2610,7 +2609,7 @@
 					17
 				],
 				[
-					1,
+					10,
 					[
 						[21065034],
 						[21065035, [[null, 32, null, []]]],
@@ -2870,12 +2869,30 @@
 						[
 							21064805,
 							null,
-							[4, null, 8, null, null, null, null, ["googletag.fifWin"]]
+							[
+								2,
+								[
+									[
+										1,
+										[[12, null, null, null, 3, null, "googEnableLoadingFix"]]
+									],
+									[4, null, 8, null, null, null, null, ["googletag.fifWin"]]
+								]
+							]
 						],
 						[
 							21064807,
 							[[237, null, null, [1]], [238, null, null, [1]]],
-							[4, null, 8, null, null, null, null, ["googletag.fifWin"]]
+							[
+								2,
+								[
+									[
+										1,
+										[[12, null, null, null, 3, null, "googEnableLoadingFix"]]
+									],
+									[4, null, 8, null, null, null, null, ["googletag.fifWin"]]
+								]
+							]
 						]
 					]
 				],
@@ -2964,33 +2981,6 @@
 						[21064825, [[220, null, null, [1]]]],
 						[21064826, [[239, null, null, [1]]]]
 					]
-				],
-				[
-					1000,
-					[
-						[
-							21065015,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21065015]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21065015]]
-							],
-							[6, null, null, 4, null, 6]
-						],
-						[
-							21065016,
-							[
-								[null, 7, null, [null, 1]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]]
-							],
-							[6, null, null, 4, null, 7]
-						]
-					],
-					[4, null, 3],
-					1
 				],
 				[
 					10,
@@ -3200,6 +3190,16 @@
 					],
 					[4, null, 3],
 					1
+				],
+				[
+					1000,
+					[
+						[
+							21065051,
+							[[237, null, null, [1]], [238, null, null, [1]]],
+							[12, null, null, null, 3, null, "googEnableLoadingFix"]
+						]
+					]
 				]
 			]
 		],
