@@ -17,7 +17,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.9";
+fbq.version = "2.9.10";
 fbq._releaseSegment = "stable";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -534,7 +534,7 @@ fbq.pendingConfigs = ["global_config"];
 					function g(a, b) {
 						var d = new XMLHttpRequest();
 						d.withCredentials = !0;
-						d.open("POST", b, !1);
+						d.open("POST", b);
 						d.onreadystatechange = function() {
 							if (d.readyState !== c.DONE) return;
 						};
@@ -2136,7 +2136,7 @@ fbq.pendingConfigs = ["global_config"];
 					function g(a, b) {
 						var d = new XMLHttpRequest();
 						d.withCredentials = !0;
-						d.open("POST", b, !1);
+						d.open("POST", b);
 						d.onreadystatechange = function() {
 							if (d.readyState !== c.DONE) return;
 						};
@@ -4262,8 +4262,9 @@ fbq.pendingConfigs = ["global_config"];
 									h = this.getDefaultSendData(b, c, f);
 									h.customData = d;
 									g != null && (h.customParameters = { es: g });
-									x[e] != null &&
-										(h.customParameters = a({}, h.customParameters, { tm: e }));
+									h.customParameters = a({}, h.customParameters, {
+										tm: "" + e
+									});
 									this.fire(h, !1);
 									return this;
 								}
@@ -5606,7 +5607,7 @@ fbq.pendingConfigs = ["global_config"];
 							b.trigger("GET", a, d);
 							return;
 						}
-						if (j(a)) {
+						if (g && j(a)) {
 							b.trigger("BEACON", a, d);
 							return;
 						}
@@ -5672,7 +5673,7 @@ fbq.pendingConfigs = ["global_config"];
 					function e(a, b) {
 						var d = new XMLHttpRequest();
 						d.withCredentials = !0;
-						d.open("POST", b, !1);
+						d.open("POST", b);
 						d.onreadystatechange = function() {
 							if (d.readyState !== c.DONE) return;
 						};
