@@ -768,8 +768,8 @@
 			"number" == typeof window.PREBID_TIMEOUT ? window.PREBID_TIMEOUT : void 0;
 		return e && t ? Math.min(e, t) : e || t || void 0;
 	}
-	var PublisherTagVersion = 76,
-		DirectBiddingMetric = function(e, t, i, n, o, r, a, s, d, c, l, u, p) {
+	var PublisherTagVersion = 77,
+		DirectBiddingMetric = function(e, t, i, n, o, r, a, s, d, c, l, u, p, h) {
 			(this.publisherTagVersion = e),
 				(this.slots = t),
 				(this.elapsed = i),
@@ -782,7 +782,8 @@
 				(this.setTargetingElapsed = c),
 				(this.adapterTimeout = l),
 				(this.adapterIsTimeout = u),
-				(this.timeToFirstByte = p);
+				(this.timeToFirstByte = p),
+				(this.requestGroupId = h);
 		},
 		DirectBiddingMetricSlot = function(e, t, i, n, o) {
 			(this.impressionId = e),
@@ -837,6 +838,9 @@
 				(e.prototype.withTimeToFirstByte = function(e) {
 					return (this.timeToFirstByte = e && Math.round(e)), this;
 				}),
+				(e.prototype.withRequestGroupId = function(e) {
+					return (this.requestGroupId = e), this;
+				}),
 				(e.prototype.addSlot = function(e, t, i, n) {
 					var o =
 						0 <
@@ -865,7 +869,8 @@
 							this.setTargetingElapsed,
 							this.adapterTimeout,
 							e,
-							this.timeToFirstByte
+							this.timeToFirstByte,
+							this.requestGroupId
 						)
 					);
 				}),
@@ -904,7 +909,7 @@
 			);
 		})(),
 		IntegrationMode,
-		Ve;
+		Xe;
 	function parse(e) {
 		switch (e.toLowerCase()) {
 			case "amp":
@@ -913,9 +918,9 @@
 				return IntegrationMode.Unspecified;
 		}
 	}
-	(Ve = IntegrationMode || (IntegrationMode = {})),
-		(Ve[(Ve.Unspecified = 0)] = "Unspecified"),
-		(Ve[(Ve.AMP = 1)] = "AMP");
+	(Xe = IntegrationMode || (IntegrationMode = {})),
+		(Xe[(Xe.Unspecified = 0)] = "Unspecified"),
+		(Xe[(Xe.AMP = 1)] = "AMP");
 	var DirectBiddingRequestBuilder = (function() {
 		function e(e, t, i, n, o, r, a, s, d, c, l) {
 			(this.slots = e),
@@ -1040,6 +1045,20 @@
 				if (n.name === e && n.duration) return Math.round(n.duration);
 			}
 	}
+	function generateUuid() {
+		var i = new Date().getTime();
+		return (
+			"undefined" != typeof performance &&
+				"function" == typeof performance.now &&
+				(i += performance.now()),
+			"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(e) {
+				var t = (i + 16 * Math.random()) % 16 | 0;
+				return (
+					(i = Math.floor(i / 16)), ("x" === e ? t : (3 & t) | 8).toString(16)
+				);
+			})
+		);
+	}
 	var DirectBiddingTimer = (function() {
 			function e(e, t, i) {
 				(this.hasSetTargetingBeenCalled = !1),
@@ -1077,6 +1096,7 @@
 				(e.prototype.finish = function(e) {
 					if (
 						(this.builder.withAdapterEndElapsed(this.timer.elapsed()),
+						this.builder.withRequestGroupId(generateUuid()),
 						e && 0 !== e.length)
 					)
 						for (var t = 0, i = e; t < i.length; t++) {
@@ -1111,8 +1131,8 @@
 				e
 			);
 		})(),
-		__extends$2 = ((Xf = function(e, t) {
-			return (Xf =
+		__extends$2 = ((ag = function(e, t) {
+			return (ag =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1126,13 +1146,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Xf(e, t),
+			ag(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Xf,
+		ag,
 		DirectBiddingEvent = (function(p) {
 			function h(e, t, i, n, o, r, a, s, d, c, l) {
 				var u = p.call(this, h.NAME) || this;
@@ -1228,8 +1248,8 @@
 				h
 			);
 		})(AbstractEvent),
-		__extends$3 = ((Qg = function(e, t) {
-			return (Qg =
+		__extends$3 = ((Vg = function(e, t) {
+			return (Vg =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1243,13 +1263,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Qg(e, t),
+			Vg(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Qg,
+		Vg,
 		DirectBiddingEventWithCaching = (function(h) {
 			function f(e, t, i, n, o, r, a, s, d, c, l) {
 				var u = h.call(this, f.NAME) || this,
@@ -1534,8 +1554,8 @@
 		return typeof e[t] === i ? e[t] : void 0;
 	}
 	var BidEventTarget = function() {},
-		__extends$4 = ((Fi = function(e, t) {
-			return (Fi =
+		__extends$4 = ((Ki = function(e, t) {
+			return (Ki =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1549,13 +1569,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Fi(e, t),
+			Ki(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Fi,
+		Ki,
 		BidEventContainerTarget = (function(_super) {
 			function BidEventContainerTarget(e, t) {
 				var i = _super.call(this) || this;
@@ -1589,8 +1609,8 @@
 				BidEventContainerTarget
 			);
 		})(BidEventTarget),
-		__extends$5 = ((Xi = function(e, t) {
-			return (Xi =
+		__extends$5 = ((aj = function(e, t) {
+			return (aj =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1604,13 +1624,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Xi(e, t),
+			aj(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Xi,
+		aj,
 		BidEventDocumentTarget = (function(i) {
 			function e(e) {
 				var t = i.call(this) || this;
@@ -1638,8 +1658,8 @@
 				e
 			);
 		})(BidEventTarget),
-		__extends$6 = ((pj = function(e, t) {
-			return (pj =
+		__extends$6 = ((uj = function(e, t) {
+			return (uj =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1653,13 +1673,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			pj(e, t),
+			uj(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		pj,
+		uj,
 		Custom = (function(i) {
 			function n(e) {
 				var t = i.call(this, n.NAME) || this;
@@ -1695,8 +1715,8 @@
 				e
 			);
 		})(),
-		__extends$7 = ((Nj = function(e, t) {
-			return (Nj =
+		__extends$7 = ((Sj = function(e, t) {
+			return (Sj =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1710,13 +1730,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Nj(e, t),
+			Sj(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Nj,
+		Sj,
 		DisplayUrlBidResponseSlot = (function(c) {
 			function e(e, t, i, n, o, r, a, s) {
 				var d = c.call(this, e, t, i, n, o, r, s) || this;
@@ -1739,8 +1759,8 @@
 				e
 			);
 		})(BidResponseSlot),
-		__extends$8 = ((jk = function(e, t) {
-			return (jk =
+		__extends$8 = ((ok = function(e, t) {
+			return (ok =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1754,13 +1774,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			jk(e, t),
+			ok(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		jk,
+		ok,
 		HtmlCreativeBidResponseSlot = (function(c) {
 			function e(e, t, i, n, o, r, a, s) {
 				var d = c.call(this, e, t, i, n, o, r, s) || this;
@@ -1861,8 +1881,8 @@
 				h
 			);
 		})(),
-		__extends$9 = ((nl = function(e, t) {
-			return (nl =
+		__extends$9 = ((sl = function(e, t) {
+			return (sl =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1876,13 +1896,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			nl(e, t),
+			sl(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		nl,
+		sl,
 		NativeBidResponseSlot = (function(l) {
 			function e(e, t, i, n, o, r, a, s, d) {
 				var c = l.call(this, e, t, i, n, o, r, d) || this;
@@ -1937,8 +1957,8 @@
 				e
 			);
 		})(),
-		__extends$10 = ((Ul = function(e, t) {
-			return (Ul =
+		__extends$10 = ((Zl = function(e, t) {
+			return (Zl =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1952,13 +1972,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Ul(e, t),
+			Zl(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Ul,
+		Zl,
 		RenderAdInputParameters = (function(i) {
 			function e(e) {
 				var t = i.call(this) || this;
@@ -2011,22 +2031,8 @@
 				(t.ADBLOCK_FLAG_LIFETIME = 864e5),
 				t
 			);
-		})();
-	function generateUuid() {
-		var i = new Date().getTime();
-		return (
-			"undefined" != typeof performance &&
-				"function" == typeof performance.now &&
-				(i += performance.now()),
-			"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(e) {
-				var t = (i + 16 * Math.random()) % 16 | 0;
-				return (
-					(i = Math.floor(i / 16)), ("x" === e ? t : (3 & t) | 8).toString(16)
-				);
-			})
-		);
-	}
-	var DirectBiddingSlot = function(e, t, i, n, o, r, a, s) {
+		})(),
+		DirectBiddingSlot = function(e, t, i, n, o, r, a, s) {
 			(this.slotId = generateUuid().replace(/-/g, "")),
 				(this.impId = e),
 				(this.zoneId = t),
@@ -2037,8 +2043,8 @@
 				(this.mediaTypes = a),
 				(this.video = s);
 		},
-		__extends$11 = ((Am = function(e, t) {
-			return (Am =
+		__extends$11 = ((Cm = function(e, t) {
+			return (Cm =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -2052,13 +2058,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Am(e, t),
+			Cm(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Am,
+		Cm,
 		PlacementInputParameters = (function(t) {
 			function e(e) {
 				var o = t.call(this) || this;
@@ -2092,8 +2098,8 @@
 			}
 			return __extends$11(e, t), e;
 		})(InputParameters),
-		__extends$12 = ((Ym = function(e, t) {
-			return (Ym =
+		__extends$12 = (($m = function(e, t) {
+			return ($m =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -2107,13 +2113,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Ym(e, t),
+			$m(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Ym,
+		$m,
 		StandaloneInputParameters = (function(i) {
 			function e(e) {
 				var t = i.call(this) || this;
@@ -2755,21 +2761,19 @@
 				(this.minduration = d),
 				(this.startdelay = c);
 		},
-		publisherTagHasBeenPreFetched = void 0 === window.pbjs,
 		PrebidMediaTypes,
-		Tr;
-	(Tr = PrebidMediaTypes || (PrebidMediaTypes = {})),
-		(Tr.Banner = "banner"),
-		(Tr.Video = "video");
+		Vr;
+	(Vr = PrebidMediaTypes || (PrebidMediaTypes = {})),
+		(Vr.Banner = "banner"),
+		(Vr.Video = "video");
 	var Prebid = (function() {
 			function n(e, t, i, n, o) {
 				var r, a;
-				(this.ProfileIdPTPrefetch = 274),
-					(this.timer = new DirectBiddingTimer(
-						new DirectBiddingMetricBuilder(),
-						n.auctionStart,
-						resolvePrebidTimeout(n.timeout)
-					)),
+				(this.timer = new DirectBiddingTimer(
+					new DirectBiddingMetricBuilder(),
+					n.auctionStart,
+					resolvePrebidTimeout(n.timeout)
+				)),
 					(this.auctionId = n.auctionId),
 					(this.bidRequests = i),
 					(this.slots = []);
@@ -2819,7 +2823,7 @@
 						window.criteo_pubtag.context,
 						this.metricsManager,
 						new DirectBiddingUrlBuilder(!1),
-						publisherTagHasBeenPreFetched ? this.ProfileIdPTPrefetch : e,
+						e,
 						a,
 						r,
 						t,
@@ -2992,8 +2996,8 @@
 				n
 			);
 		})(),
-		__extends$13 = ((Rs = function(e, t) {
-			return (Rs =
+		__extends$13 = ((Ts = function(e, t) {
+			return (Ts =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3007,13 +3011,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Rs(e, t),
+			Ts(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Rs,
+		Ts,
 		ConditionalEvent = (function(r) {
 			function a(e, t, i, n) {
 				var o = r.call(this, a.NAME) || this;
@@ -3043,11 +3047,11 @@
 			);
 		})(AbstractEvent),
 		AdFormatType,
-		it;
-	(it = AdFormatType || (AdFormatType = {})),
-		(it[(it.Classic = 0)] = "Classic"),
-		(it[(it.StickyFooter = 1)] = "StickyFooter"),
-		(it[(it.ScrollingBanner = 2)] = "ScrollingBanner");
+		kt;
+	(kt = AdFormatType || (AdFormatType = {})),
+		(kt[(kt.Classic = 0)] = "Classic"),
+		(kt[(kt.StickyFooter = 1)] = "StickyFooter"),
+		(kt[(kt.ScrollingBanner = 2)] = "ScrollingBanner");
 	var CookieHelper = (function() {
 			function h() {}
 			return (
@@ -3205,11 +3209,11 @@
 			);
 		})(),
 		DisplayContext,
-		du;
-	(du = DisplayContext || (DisplayContext = {})),
-		(du[(du.InFriendlyIframe = 1)] = "InFriendlyIframe"),
-		(du[(du.InUnfriendlyIframe = 2)] = "InUnfriendlyIframe"),
-		(du[(du.DirectIntegration = 3)] = "DirectIntegration");
+		fu;
+	(fu = DisplayContext || (DisplayContext = {})),
+		(fu[(fu.InFriendlyIframe = 1)] = "InFriendlyIframe"),
+		(fu[(fu.InUnfriendlyIframe = 2)] = "InUnfriendlyIframe"),
+		(fu[(fu.DirectIntegration = 3)] = "DirectIntegration");
 	var DocumentHelper = (function() {
 			function e() {}
 			return (
@@ -3256,8 +3260,8 @@
 				r
 			);
 		})(),
-		__extends$14 = ((uu = function(e, t) {
-			return (uu =
+		__extends$14 = ((wu = function(e, t) {
+			return (wu =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3271,13 +3275,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			uu(e, t),
+			wu(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		uu,
+		wu,
 		DisplayEvent = (function(o) {
 			function e(e, t, i) {
 				var n = o.call(this, e) || this;
@@ -3303,12 +3307,12 @@
 			);
 		})(AbstractEvent),
 		HandlerType,
-		Tu;
-	(Tu = HandlerType || (HandlerType = {})),
-		(Tu[(Tu.AFR = 0)] = "AFR"),
-		(Tu[(Tu.AJS = 1)] = "AJS");
-	var __extends$15 = ((Uu = function(e, t) {
-			return (Uu =
+		Vu;
+	(Vu = HandlerType || (HandlerType = {})),
+		(Vu[(Vu.AFR = 0)] = "AFR"),
+		(Vu[(Vu.AJS = 1)] = "AJS");
+	var __extends$15 = ((Wu = function(e, t) {
+			return (Wu =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3322,13 +3326,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Uu(e, t),
+			Wu(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Uu,
+		Wu,
 		DisplayEventAFR = (function(a) {
 			function o(e, t, i) {
 				var n = a.call(this, o.NAME, e, t) || this;
@@ -3376,8 +3380,8 @@
 				o
 			);
 		})(DisplayEvent),
-		__extends$16 = ((vv = function(e, t) {
-			return (vv =
+		__extends$16 = ((xv = function(e, t) {
+			return (xv =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3391,13 +3395,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			vv(e, t),
+			xv(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		vv,
+		xv,
 		DisplayEventAsync = (function(_super) {
 			function DisplayEventAsync(e, t) {
 				return _super.call(this, DisplayEventAsync.NAME, e, t) || this;
@@ -3478,8 +3482,8 @@
 				DisplayEventAsync
 			);
 		})(DisplayEvent),
-		__extends$17 = ((dw = function(e, t) {
-			return (dw =
+		__extends$17 = ((fw = function(e, t) {
+			return (fw =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3493,13 +3497,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			dw(e, t),
+			fw(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		dw,
+		fw,
 		DisplayEventSync = (function(i) {
 			function n(e, t) {
 				return i.call(this, n.NAME, e, t) || this;
@@ -3522,8 +3526,8 @@
 				n
 			);
 		})(DisplayEvent),
-		__extends$18 = ((ww = function(e, t) {
-			return (ww =
+		__extends$18 = ((yw = function(e, t) {
+			return (yw =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3537,13 +3541,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			ww(e, t),
+			yw(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		ww,
+		yw,
 		DisplayInputParameters = (function(i) {
 			function e(e) {
 				var t = i.call(this) || this;
@@ -3930,7 +3934,7 @@
 			);
 		})(),
 		StorageOrigin,
-		qy;
+		sy;
 	function tryDecodeURIComponent(t, i) {
 		try {
 			return decodeURIComponent(t);
@@ -3952,10 +3956,10 @@
 			}
 		);
 	}
-	(qy = StorageOrigin || (StorageOrigin = {})),
-		(qy[(qy.None = 0)] = "None"),
-		(qy[(qy.Cookie = 1)] = "Cookie"),
-		(qy[(qy.LocalStorage = 2)] = "LocalStorage");
+	(sy = StorageOrigin || (StorageOrigin = {})),
+		(sy[(sy.None = 0)] = "None"),
+		(sy[(sy.Cookie = 1)] = "Cookie"),
+		(sy[(sy.LocalStorage = 2)] = "LocalStorage");
 	var CookieSynchronizer = (function() {
 			function n(e, t, i) {
 				(this.isDebug = t),
@@ -4103,19 +4107,8 @@
 				(n.prototype.deleteClientSideSecureId = function() {
 					this.deleteFromAllStorage(n.SECURE_ID_COOKIE_NAME);
 				}),
-				(n.prototype.getLocalWebId = function() {
-					var e = this.getFromAllStorages(n.LOCAL_WEB_ID_COOKIE_NAME);
-					if (this.canWriteCookies) {
-						var t = e.value;
-						t || (t = generateUuid()),
-							this.writeOnAllStorages(
-								n.LOCAL_WEB_ID_COOKIE_NAME,
-								String(t),
-								n.GUID_RETENTION_TIME_HOUR
-							),
-							(e = this.getFromAllStorages(n.LOCAL_WEB_ID_COOKIE_NAME));
-					}
-					return (e.value && e) || { value: "NA", origin: StorageOrigin.None };
+				(n.prototype.getClientSideLocalWebId = function() {
+					return this.getFromAllStorages(n.LOCAL_WEB_ID_COOKIE_NAME);
 				}),
 				(n.prototype.checkCookiesAreWriteable = function() {
 					var e = "cto_writeable";
@@ -4169,7 +4162,7 @@
 						t = this.getClientSideIdfs(),
 						i = this.getClientSideOptOut(),
 						n = this.getClientSideSecureId(),
-						o = this.getLocalWebId(),
+						o = this.getClientSideLocalWebId(),
 						r = this.getBundle(),
 						a = this.getTld(),
 						s = encodeURIComponent(parseUri(this.topUrl).hostname),
