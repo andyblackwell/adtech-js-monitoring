@@ -17,7 +17,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.10";
+fbq.version = "2.9.11";
 fbq._releaseSegment = "stable";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -83,13 +83,49 @@ fbq.pendingConfigs = ["global_config"];
 					return b;
 				};
 			})();
-		function i(a) {
+		function i(a, b, c) {
+			b in a
+				? Object.defineProperty(a, b, {
+						value: c,
+						enumerable: !0,
+						configurable: !0,
+						writable: !0
+				  })
+				: (a[b] = c);
+			return a;
+		}
+		function j(a, b) {
+			if (!a)
+				throw new ReferenceError(
+					"this hasn't been initialised - super() hasn't been called"
+				);
+			return b && (typeof b === "object" || typeof b === "function") ? b : a;
+		}
+		function k(a, b) {
+			if (typeof b !== "function" && b !== null)
+				throw new TypeError(
+					"Super expression must either be null or a function, not " + typeof b
+				);
+			a.prototype = Object.create(b && b.prototype, {
+				constructor: {
+					value: a,
+					enumerable: !1,
+					writable: !0,
+					configurable: !0
+				}
+			});
+			b &&
+				(Object.setPrototypeOf
+					? Object.setPrototypeOf(a, b)
+					: (a.__proto__ = b));
+		}
+		function l(a) {
 			if (Array.isArray(a)) {
 				for (var b = 0, c = Array(a.length); b < a.length; b++) c[b] = a[b];
 				return c;
 			} else return Array.from(a);
 		}
-		function j(a, b) {
+		function m(a, b) {
 			if (!(a instanceof b))
 				throw new TypeError("Cannot call a class as a function");
 		}
@@ -108,7 +144,7 @@ fbq.pendingConfigs = ["global_config"];
 				f.fbIsModuleLoaded(b) || (f.__fbeventsModules[b] = a);
 			}));
 		f.ensureModuleRegistered("SignalsFBEventsBaseEvent", function() {
-			return (function(g, b, c, d) {
+			return (function(g, i, j, k) {
 				var e = { exports: {} };
 				e.exports;
 				(function() {
@@ -118,7 +154,7 @@ fbq.pendingConfigs = ["global_config"];
 						c = a.keys;
 					a = (function() {
 						function a(b) {
-							j(this, a),
+							m(this, a),
 								(this._regKey = 0),
 								(this._subscriptions = {}),
 								(this._coerceArgs = b || null);
@@ -171,7 +207,7 @@ fbq.pendingConfigs = ["global_config"];
 										this._coerceArgs != null
 											? this._coerceArgs.apply(this, arguments)
 											: null;
-									return a == null ? [] : this.trigger.apply(this, i(a));
+									return a == null ? [] : this.trigger.apply(this, l(a));
 								}
 							}
 						]);
@@ -184,60 +220,46 @@ fbq.pendingConfigs = ["global_config"];
 		});
 		f.ensureModuleRegistered("signalsFBEventsCoercePixelID", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsLogging"),
 						b = a.logUserError;
-					a = f.getFbeventsModules("SignalsFBEventsUtils");
-					var c = a.isSafeInteger;
-					function d(a) {
-						if (typeof a === "number") {
-							if (!c(a)) {
-								b({ pixelID: a.toString(), type: "INVALID_PIXEL_ID" });
-								return null;
-							}
-							return a.toString();
-						}
-						if (typeof a === "string") {
-							var d = /^[1-9][0-9]{0,25}$/;
-							if (!d.test(a)) {
-								b({ pixelID: a, type: "INVALID_PIXEL_ID" });
-								return null;
-							}
-							return a;
-						}
-						if (a === void 0) {
-							b({ pixelID: "undefined", type: "INVALID_PIXEL_ID" });
+					a = f.getFbeventsModules("SignalsFBEventsTyped");
+					var c = a.Typed,
+						d = a.coerce;
+					function e(a) {
+						a = d(a, c.fbid());
+						if (a == null) {
+							var e = JSON.stringify(a);
+							b({
+								pixelID: e != null ? e : "undefined",
+								type: "INVALID_PIXEL_ID"
+							});
 							return null;
 						}
-						if (a === null) {
-							b({ pixelID: "null", type: "INVALID_PIXEL_ID" });
-							return null;
-						}
-						b({ pixelID: "unknown", type: "INVALID_PIXEL_ID" });
-						return null;
+						return a;
 					}
-					e.exports = d;
+					k.exports = e;
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("signalsFBEventsGetIwlUrl", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("signalsFBEventsGetTier");
-					e.exports = function(b, c) {
+					k.exports = function(b, c) {
 						c = a(c);
 						c = c == null ? "www.facebook.com" : "www." + c + ".facebook.com";
 						return "https://" + c + "/signals/iwl.js?pixel_id=" + b;
 					};
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("signalsFBEventsGetTier", function() {
@@ -259,9 +281,9 @@ fbq.pendingConfigs = ["global_config"];
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsIWLBootStrapEvent", function() {
-			return (function(h, i, j, d) {
-				var e = { exports: {} };
-				e.exports;
+			return (function(h, i, j, k) {
+				var l = { exports: {} };
+				l.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
@@ -283,48 +305,78 @@ fbq.pendingConfigs = ["global_config"];
 							: null;
 					}
 					a = new a(c);
-					e.exports = a;
+					l.exports = a;
 				})();
-				return e.exports;
+				return l.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsJSLoader", function() {
+			return (function(f, g, h, i) {
+				var j = { exports: {} };
+				j.exports;
+				(function() {
+					"use strict";
+					var a = { CDN_BASE_URL: "https://connect.facebook.net/" };
+					function b() {
+						var b = g.getElementsByTagName("script");
+						for (var c = 0; c < b.length; c++) {
+							var d = b[c];
+							if (d && d.src && d.src.indexOf(a.CDN_BASE_URL) !== -1) return d;
+						}
+						return null;
+					}
+					function c(a) {
+						var c = g.createElement("script");
+						c.src = a;
+						c.async = !0;
+						a = b();
+						a && a.parentNode
+							? a.parentNode.insertBefore(c, a)
+							: g.head && g.head.firstChild && g.head.appendChild(c);
+					}
+					j.exports = { CONFIG: a, loadJSFile: c };
+				})();
+				return j.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsLogging", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
 						b = a.isInstanceOf,
 						c = f.getFbeventsModules("SignalsParamList"),
-						d = f.getFbeventsModules("signalsFBEventsSendXHR"),
+						d = f.getFbeventsModules("signalsFBEventsSendGET"),
+						e = f.getFbeventsModules("SignalsFBEventsJSLoader"),
 						h = !1;
 					function i() {
 						h = !0;
 					}
 					var j = !0;
-					function k() {
+					function l() {
 						j = !1;
 					}
-					var l = "console",
-						m = "warn";
-					function n(a) {
-						g[l] && g[l][m] && g[l][m](a);
+					var m = "console",
+						n = "warn";
+					function o(a) {
+						g[m] && g[m][n] && g[m][n](a);
 					}
-					var o = !1;
-					function p() {
-						o = !0;
+					var p = !1;
+					function q() {
+						p = !0;
 					}
-					function q(a) {
-						if (o) return;
-						n("[Facebook Pixel] - " + a);
+					function r(a) {
+						if (p) return;
+						o("[Facebook Pixel] - " + a);
 					}
-					var r = "Facebook Pixel Error",
-						s = function() {
+					var s = "Facebook Pixel Error",
+						t = function() {
 							g.postMessage != null && g.postMessage.apply(g, arguments);
 						},
-						t = {};
-					function u(a) {
+						u = {};
+					function v(a) {
 						switch (a.type) {
 							case "FBQ_NO_METHOD_NAME":
 								return "You must provide an argument to fbq().";
@@ -427,7 +479,7 @@ fbq.pendingConfigs = ["global_config"];
 								b = a.pixelID;
 								return "Pixel " + b + " not found";
 							default:
-								x(
+								y(
 									new Error(
 										"INVALID_USER_ERROR - " + a.type + " - " + JSON.stringify(a)
 									)
@@ -435,53 +487,56 @@ fbq.pendingConfigs = ["global_config"];
 								return "Invalid User Error.";
 						}
 					}
-					function v(a, e) {
+					function w(a, f) {
 						try {
-							var f = Math.random(),
-								h =
+							var h = Math.random(),
+								i =
 									g.fbq && g.fbq._releaseSegment
 										? g.fbq._releaseSegment
 										: "unknown";
-							if ((j && f < 0.01) || h === "canary") {
-								f = new c(null);
-								f.append("p", "pixel");
-								f.append(
+							if ((j && h < 0.01) || i === "canary") {
+								h = new c(null);
+								h.append("p", "pixel");
+								h.append(
 									"v",
 									g.fbq && g.fbq.version ? g.fbq.version : "unknown"
 								);
-								f.append("e", a.toString());
+								h.append("e", a.toString());
 								b(a, Error) &&
-									(f.append("f", a.fileName),
-									f.append("s", a.stackTrace || a.stack));
-								f.append("ue", e ? "1" : "0");
-								f.append("rs", h);
-								d(f, "https://connect.facebook.net/log/error");
+									(h.append("f", a.fileName),
+									h.append("s", a.stackTrace || a.stack));
+								h.append("ue", f ? "1" : "0");
+								h.append("rs", i);
+								d(h, {
+									url: e.CONFIG.CDN_BASE_URL + "/log/error",
+									ignoreRequestLengthCheck: !0
+								});
 							}
 						} catch (a) {}
 					}
-					function w(a) {
-						var b = JSON.stringify(a);
-						if (!Object.prototype.hasOwnProperty.call(t, b)) t[b] = !0;
-						else return;
-						b = u(a);
-						q(b);
-						s({ action: "FB_LOG", logMessage: b, logType: r }, "*");
-						v(new Error(b), !0);
-					}
 					function x(a) {
-						v(a, !1), h && q(a.toString());
+						var b = JSON.stringify(a);
+						if (!Object.prototype.hasOwnProperty.call(u, b)) u[b] = !0;
+						else return;
+						b = v(a);
+						r(b);
+						t({ action: "FB_LOG", logMessage: b, logType: s }, "*");
+						w(new Error(b), !0);
+					}
+					function y(a) {
+						w(a, !1), h && r(a.toString());
 					}
 					a = {
-						consoleWarn: n,
-						disableAllLogging: p,
-						disableSampling: k,
+						consoleWarn: o,
+						disableAllLogging: q,
+						disableSampling: l,
 						enableVerboseDebugLogging: i,
-						logError: x,
-						logUserError: w
+						logError: y,
+						logUserError: x
 					};
-					e.exports = a;
+					k.exports = a;
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsNetworkConfig", function() {
@@ -498,68 +553,258 @@ fbq.pendingConfigs = ["global_config"];
 		});
 		f.ensureModuleRegistered("SignalsFBEventsPlugin", function() {
 			return (function(f, g, h, i) {
-				var e = { exports: {} };
-				e.exports;
+				var j = { exports: {} };
+				j.exports;
 				(function() {
 					"use strict";
 					var a = function a(b) {
-						j(this, a),
+						m(this, a),
 							(this.__fbEventsPlugin = 1),
 							(this.plugin = b),
 							(this.__fbEventsPlugin = 1);
 					};
-					e.exports = a;
+					j.exports = a;
 				})();
-				return e.exports;
+				return j.exports;
 			})(a, b, c, d);
 		});
-		f.ensureModuleRegistered("signalsFBEventsSendXHR", function() {
+		f.ensureModuleRegistered("signalsFBEventsSendGET", function() {
 			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
+						b = 2048;
+					function c(c, d) {
+						d = d || {};
+						var e = d.ignoreRequestLengthCheck;
+						e = e === void 0 ? !1 : e;
+						d = d.url;
+						d = d === void 0 ? a.ENDPOINT : d;
+						c.replaceEntry("rqm", e ? "FGET" : "GET");
+						c = c.toQueryString();
+						d = d + "?" + c;
+						if (e || d.length < b) {
+							c = new Image();
+							c.src = d;
+							return !0;
+						}
+						return !1;
+					}
+					k.exports = c;
+				})();
+				return k.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsTyped", function() {
+			return (function(h, l, c, d) {
 				var e = { exports: {} };
 				e.exports;
 				(function() {
 					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
-						b = f.getFbeventsModules("SignalsParamList"),
-						c = {
-							UNSENT: 0,
-							OPENED: 1,
-							HEADERS_RECEIVED: 2,
-							LOADING: 3,
-							DONE: 4
-						},
-						d =
-							typeof XMLHttpRequest !== "undefined" &&
-							"withCredentials" in new XMLHttpRequest();
-					function g(a, b) {
-						var d = new XMLHttpRequest();
-						d.withCredentials = !0;
-						d.open("POST", b);
-						d.onreadystatechange = function() {
-							if (d.readyState !== c.DONE) return;
+					var a =
+							Object.assign ||
+							function(a) {
+								for (var b = 1; b < arguments.length; b++) {
+									var c = arguments[b];
+									for (var d in c)
+										Object.prototype.hasOwnProperty.call(c, d) && (a[d] = c[d]);
+								}
+								return a;
+							},
+						b = f.getFbeventsModules("SignalsFBEventsUtils");
+					b.filter;
+					b.map;
+					var c = b.reduce;
+					b = f.getFbeventsModules("SignalsFBEventsUtils");
+					var d = b.isSafeInteger,
+						h = (function(b) {
+							k(a, b);
+							function a() {
+								var b =
+									arguments.length > 0 && arguments[0] !== void 0
+										? arguments[0]
+										: "";
+								m(this, a);
+								var c = j(
+									this,
+									(a.__proto__ || Object.getPrototypeOf(a)).call(this, b)
+								);
+								c.name = "FBEventsCoercionError";
+								return c;
+							}
+							return a;
+						})(Error);
+					function l(a) {
+						return Object.values(a);
+					}
+					function n() {
+						return function(a) {
+							if (typeof a !== "boolean") throw new h();
+							return a;
 						};
-						d.send(a);
 					}
-					function h(c) {
-						var e =
-							arguments.length > 1 && arguments[1] !== void 0
-								? arguments[1]
-								: a.ENDPOINT;
-						if (!d) return !1;
-						c instanceof b && c.append("rqm", "xhr");
-						var f = c instanceof b ? c.toFormData() : c;
-						g(f, e);
-						return !0;
+					function o() {
+						return function(a) {
+							if (typeof a !== "number") throw new h();
+							return a;
+						};
 					}
-					e.exports = h;
+					function p() {
+						return function(a) {
+							if (typeof a !== "string") throw new h();
+							return a;
+						};
+					}
+					function q() {
+						return function(a) {
+							if (
+								(typeof a === "undefined" ? "undefined" : g(a)) !== "object" ||
+								Array.isArray(a) ||
+								a == null
+							)
+								throw new h();
+							return a;
+						};
+					}
+					function r() {
+						return function(a) {
+							if (a == null || !Array.isArray(a)) throw new h();
+							return a;
+						};
+					}
+					function s(a) {
+						return function(b) {
+							if (l(a).includes(b)) return b;
+							throw new h();
+						};
+					}
+					function t(a) {
+						return function(b) {
+							return y(b, F.array()).map(a);
+						};
+					}
+					function u(b, d) {
+						return function(e) {
+							var b = y(e, F.object());
+							return c(
+								Object.keys(b),
+								function(c, e) {
+									return a({}, c, i({}, e, d(b[e])));
+								},
+								{}
+							);
+						};
+					}
+					function v(a) {
+						return function(b) {
+							return b == null ? null : a(b);
+						};
+					}
+					function w(b) {
+						return function(d) {
+							var c = y(d, F.object());
+							d = Object.keys(b).reduce(function(d, e) {
+								if (d == null) return null;
+								var f = b[e],
+									g = c[e];
+								f = f(g);
+								return a({}, d, i({}, e, f));
+							}, {});
+							return d;
+						};
+					}
+					function x(a, b) {
+						try {
+							return b(a);
+						} catch (a) {
+							if (a.name === "FBEventsCoercionError") return null;
+							throw a;
+						}
+					}
+					function y(a, b) {
+						return b(a);
+					}
+					function z(a) {
+						return function(b) {
+							b = y(b, F.string());
+							if (a.test(b)) return b;
+							throw new h();
+						};
+					}
+					function A(a) {
+						if (!a) throw new h();
+					}
+					function B(a) {
+						return function(b) {
+							b = y(b, r());
+							A(b.length === a.length);
+							return b.map(function(b, c) {
+								return y(b, a[c]);
+							});
+						};
+					}
+					function C(a) {
+						var b = a.def,
+							c = a.validators;
+						return function(a) {
+							var d = y(a, b);
+							c.forEach(function(a) {
+								if (!a(d)) throw new h();
+							});
+							return d;
+						};
+					}
+					var D = /^[1-9][0-9]{0,25}$/;
+					function E() {
+						return C({
+							def: function(a) {
+								var b = x(a, F.number());
+								if (b != null) {
+									F.assert(d(b));
+									return "" + b;
+								}
+								return y(a, F.string());
+							},
+							validators: [
+								function(a) {
+									return D.test(a);
+								}
+							]
+						});
+					}
+					var F = {
+						allowNull: v,
+						array: r,
+						arrayOf: t,
+						assert: A,
+						boolean: n,
+						enumeration: s,
+						fbid: E,
+						mapOf: u,
+						matches: z,
+						number: o,
+						object: q,
+						objectWithFields: w,
+						string: p,
+						tuple: B,
+						withValidation: C
+					};
+					e.exports = {
+						Typed: F,
+						coerce: x,
+						enforce: y,
+						FBEventsCoercionError: h
+					};
 				})();
 				return e.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsUtils", function() {
-			return (function(f, i, c, d) {
-				var e = { exports: {} };
-				e.exports;
+			return (function(f, i, j, k) {
+				var l = { exports: {} };
+				l.exports;
 				(function() {
 					"use strict";
 					var a = Object.prototype.toString,
@@ -572,23 +817,23 @@ fbq.pendingConfigs = ["global_config"];
 							? Array.isArray(b)
 							: a.call(b) === "[object Array]";
 					}
-					function f(a) {
+					function e(a) {
 						return (
 							typeof a === "number" ||
 							(typeof a === "string" && /^\d+$/.test(a))
 						);
 					}
-					var k =
+					var f =
 						Number.isInteger ||
 						function(a) {
 							return (
 								typeof a === "number" && isFinite(a) && Math.floor(a) === a
 							);
 						};
-					function l(a) {
-						return k(a) && a >= 0 && a <= Number.MAX_SAFE_INTEGER;
+					function j(a) {
+						return f(a) && a >= 0 && a <= Number.MAX_SAFE_INTEGER;
 					}
-					function m(a, c, d) {
+					function k(a, c, d) {
 						var e = b ? "on" + c : c;
 						c = b ? a.attachEvent : a.addEventListener;
 						var f = b ? a.detachEvent : a.removeEventListener,
@@ -704,7 +949,7 @@ fbq.pendingConfigs = ["global_config"];
 					x["default"] = x;
 					var A = (function() {
 						function a(b) {
-							j(this, a), (this.items = b || []);
+							m(this, a), (this.items = b || []);
 						}
 						h(a, [
 							{
@@ -743,11 +988,11 @@ fbq.pendingConfigs = ["global_config"];
 						isArray: d,
 						isEmptyObject: v,
 						isInstanceOf: c,
-						isInteger: k,
-						isNumber: f,
-						isSafeInteger: l,
+						isInteger: f,
+						isNumber: e,
+						isSafeInteger: j,
 						keys: r,
-						listenOnce: m,
+						listenOnce: k,
 						map: s,
 						reduce: t,
 						some: function(a, b) {
@@ -755,15 +1000,15 @@ fbq.pendingConfigs = ["global_config"];
 						},
 						stringIncludes: C
 					};
-					e.exports = A;
+					l.exports = A;
 				})();
-				return e.exports;
+				return l.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsParamList", function() {
-			return (function(f, i, c, d) {
-				var e = { exports: {} };
-				e.exports;
+			return (function(f, i, j, k) {
+				var l = { exports: {} };
+				l.exports;
 				(function() {
 					"use strict";
 					var a = "deep",
@@ -778,9 +1023,9 @@ fbq.pendingConfigs = ["global_config"];
 						a = typeof a === "undefined" ? "undefined" : g(a);
 						return a === "number" || a === "boolean" || a === "string";
 					}
-					var f = (function() {
+					var e = (function() {
 						function e(a) {
-							j(this, e), (this._params = []), (this._piiTranslator = a);
+							m(this, e), (this._params = []), (this._piiTranslator = a);
 						}
 						h(
 							e,
@@ -950,26 +1195,26 @@ fbq.pendingConfigs = ["global_config"];
 						);
 						return e;
 					})();
-					e.exports = f;
+					l.exports = e;
 				})();
-				return e.exports;
+				return l.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered(
 			"SignalsFBEvents.plugins.iwlbootstrapper",
 			function() {
 				return (function(g, h, i, j) {
-					var e = { exports: {} };
-					e.exports;
+					var k = { exports: {} };
+					k.exports;
 					(function() {
 						"use strict";
 						var a = f.getFbeventsModules("SignalsFBEventsIWLBootStrapEvent"),
 							b = f.getFbeventsModules("SignalsFBEventsLogging"),
 							c = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
 							d = f.getFbeventsModules("SignalsFBEventsPlugin"),
-							i = f.getFbeventsModules("signalsFBEventsGetIwlUrl"),
-							j = f.getFbeventsModules("signalsFBEventsGetTier"),
-							k = b.logUserError,
+							e = f.getFbeventsModules("signalsFBEventsGetIwlUrl"),
+							i = f.getFbeventsModules("signalsFBEventsGetTier"),
+							j = b.logUserError,
 							l = /^https:\/\/.*\.facebook\.com$/i,
 							m = "FACEBOOK_IWL_CONFIG_STORAGE_KEY",
 							n = g.sessionStorage
@@ -981,13 +1226,13 @@ fbq.pendingConfigs = ["global_config"];
 										removeItem: function(a) {},
 										setItem: function(a, b) {}
 								  };
-						e.exports = new d(function(b, d) {
-							function e(a, b) {
+						k.exports = new d(function(b, d) {
+							function k(a, b) {
 								var d = h.createElement("script");
 								d.async = !0;
 								d.onload = function() {
 									if (!g.FacebookIWL || !g.FacebookIWL.init) return;
-									var a = j(c.ENDPOINT);
+									var a = i(c.ENDPOINT);
 									a != null &&
 										g.FacebookIWL.set &&
 										g.FacebookIWL.set("tier", a);
@@ -996,7 +1241,7 @@ fbq.pendingConfigs = ["global_config"];
 								g.FacebookIWLSessionEnd = function() {
 									n.removeItem(m), g.close();
 								};
-								d.src = i(a, c.ENDPOINT);
+								d.src = e(a, c.ENDPOINT);
 								h.body && h.body.appendChild(d);
 							}
 							var o = !1,
@@ -1016,14 +1261,14 @@ fbq.pendingConfigs = ["global_config"];
 									c = a.graphToken,
 									d = a.sessionStartTime;
 								o = !0;
-								e(b, function() {
+								k(b, function() {
 									var a = p(b) ? b : null;
 									g.FacebookIWL.init(a, c, d);
 								});
 							}
 							function r(a) {
 								if (o) return;
-								e(a, function() {
+								k(a, function() {
 									return g.FacebookIWL.showConfirmModal(a);
 								});
 							}
@@ -1058,7 +1303,7 @@ fbq.pendingConfigs = ["global_config"];
 									d.pixelsByID[f] &&
 									d.pixelsByID[f].codeless === "false"
 								) {
-									k({ pixelID: f, type: "SITE_CODELESS_OPT_OUT" });
+									j({ pixelID: f, type: "SITE_CODELESS_OPT_OUT" });
 									return;
 								}
 								if (
@@ -1095,7 +1340,7 @@ fbq.pendingConfigs = ["global_config"];
 							g.opener && g.addEventListener("message", b);
 						});
 					})();
-					return e.exports;
+					return k.exports;
 				})(a, b, c, d);
 			}
 		);
@@ -1170,13 +1415,49 @@ fbq.pendingConfigs = ["global_config"];
 					return b;
 				};
 			})();
-		function i(a) {
+		function i(a, b, c) {
+			b in a
+				? Object.defineProperty(a, b, {
+						value: c,
+						enumerable: !0,
+						configurable: !0,
+						writable: !0
+				  })
+				: (a[b] = c);
+			return a;
+		}
+		function j(a, b) {
+			if (!a)
+				throw new ReferenceError(
+					"this hasn't been initialised - super() hasn't been called"
+				);
+			return b && (typeof b === "object" || typeof b === "function") ? b : a;
+		}
+		function k(a, b) {
+			if (typeof b !== "function" && b !== null)
+				throw new TypeError(
+					"Super expression must either be null or a function, not " + typeof b
+				);
+			a.prototype = Object.create(b && b.prototype, {
+				constructor: {
+					value: a,
+					enumerable: !1,
+					writable: !0,
+					configurable: !0
+				}
+			});
+			b &&
+				(Object.setPrototypeOf
+					? Object.setPrototypeOf(a, b)
+					: (a.__proto__ = b));
+		}
+		function l(a) {
 			if (Array.isArray(a)) {
 				for (var b = 0, c = Array(a.length); b < a.length; b++) c[b] = a[b];
 				return c;
 			} else return Array.from(a);
 		}
-		function j(a, b) {
+		function m(a, b) {
 			if (!(a instanceof b))
 				throw new TypeError("Cannot call a class as a function");
 		}
@@ -1195,7 +1476,7 @@ fbq.pendingConfigs = ["global_config"];
 				f.fbIsModuleLoaded(b) || (f.__fbeventsModules[b] = a);
 			}));
 		f.ensureModuleRegistered("SignalsFBEventsBaseEvent", function() {
-			return (function(g, b, c, d) {
+			return (function(g, i, j, k) {
 				var e = { exports: {} };
 				e.exports;
 				(function() {
@@ -1205,7 +1486,7 @@ fbq.pendingConfigs = ["global_config"];
 						c = a.keys;
 					a = (function() {
 						function a(b) {
-							j(this, a),
+							m(this, a),
 								(this._regKey = 0),
 								(this._subscriptions = {}),
 								(this._coerceArgs = b || null);
@@ -1258,7 +1539,7 @@ fbq.pendingConfigs = ["global_config"];
 										this._coerceArgs != null
 											? this._coerceArgs.apply(this, arguments)
 											: null;
-									return a == null ? [] : this.trigger.apply(this, i(a));
+									return a == null ? [] : this.trigger.apply(this, l(a));
 								}
 							}
 						]);
@@ -1272,9 +1553,9 @@ fbq.pendingConfigs = ["global_config"];
 		f.ensureModuleRegistered(
 			"signalsFBEventsCoerceParameterExtractors",
 			function() {
-				return (function(h, i, j, d) {
-					var e = { exports: {} };
-					e.exports;
+				return (function(h, i, j, k) {
+					var l = { exports: {} };
+					l.exports;
 					(function() {
 						"use strict";
 						var a = f.getFbeventsModules("SignalsFBEventsUtils"),
@@ -1283,7 +1564,7 @@ fbq.pendingConfigs = ["global_config"];
 							d = f.getFbeventsModules(
 								"signalsFBEventsCoerceStandardParameter"
 							);
-						function h(a) {
+						function e(a) {
 							if (
 								a == null ||
 								(typeof a === "undefined" ? "undefined" : g(a)) !== "object"
@@ -1313,7 +1594,7 @@ fbq.pendingConfigs = ["global_config"];
 								? { domain_uri: b, event_type: c, extractor_type: d, id: a }
 								: null;
 						}
-						function i(a) {
+						function h(a) {
 							if (
 								a == null ||
 								(typeof a === "undefined" ? "undefined" : g(a)) !== "object"
@@ -1333,7 +1614,7 @@ fbq.pendingConfigs = ["global_config"];
 								? { parameter_type: b, value: a }
 								: null;
 						}
-						function j(a) {
+						function i(a) {
 							if (
 								a == null ||
 								(typeof a === "undefined" ? "undefined" : g(a)) !== "object"
@@ -1347,7 +1628,7 @@ fbq.pendingConfigs = ["global_config"];
 								? { parameter_type: b, selector: a }
 								: null;
 						}
-						function k(a) {
+						function j(a) {
 							if (
 								a == null ||
 								(typeof a === "undefined" ? "undefined" : g(a)) !== "object"
@@ -1361,14 +1642,14 @@ fbq.pendingConfigs = ["global_config"];
 								return null;
 							a = a.parameter_selectors;
 							if (Array.isArray(a)) {
-								a = c(a, j);
+								a = c(a, i);
 								var d = b(a, Boolean);
 								if (a.length === d.length) return { parameter_selectors: d };
 							}
 							return null;
 						}
-						function l(a) {
-							var b = h(a);
+						function k(a) {
+							var b = e(a);
 							if (
 								b == null ||
 								a == null ||
@@ -1377,93 +1658,93 @@ fbq.pendingConfigs = ["global_config"];
 								return null;
 							var c = b.domain_uri,
 								d = b.event_type,
-								e = b.extractor_type;
+								f = b.extractor_type;
 							b = b.id;
-							if (e === "CSS") {
-								var f = k(a);
-								if (f != null)
+							if (f === "CSS") {
+								var i = j(a);
+								if (i != null)
 									return {
 										domain_uri: c,
 										event_type: d,
-										extractor_config: f,
+										extractor_config: i,
 										extractor_type: "CSS",
 										id: b
 									};
 							}
-							if (e === "CONSTANT_VALUE") {
-								f = i(a);
-								if (f != null)
+							if (f === "CONSTANT_VALUE") {
+								i = h(a);
+								if (i != null)
 									return {
 										domain_uri: c,
 										event_type: d,
-										extractor_config: f,
+										extractor_config: i,
 										extractor_type: "CONSTANT_VALUE",
 										id: b
 									};
 							}
-							if (e === "GLOBAL_VARIABLE")
+							if (f === "GLOBAL_VARIABLE")
 								return {
 									domain_uri: c,
 									event_type: d,
 									extractor_type: "GLOBAL_VARIABLE",
 									id: b
 								};
-							if (e === "GTM")
+							if (f === "GTM")
 								return {
 									domain_uri: c,
 									event_type: d,
 									extractor_type: "GTM",
 									id: b
 								};
-							if (e === "JSON_LD")
+							if (f === "JSON_LD")
 								return {
 									domain_uri: c,
 									event_type: d,
 									extractor_type: "JSON_LD",
 									id: b
 								};
-							if (e === "META_TAG")
+							if (f === "META_TAG")
 								return {
 									domain_uri: c,
 									event_type: d,
 									extractor_type: "META_TAG",
 									id: b
 								};
-							if (e === "OPEN_GRAPH")
+							if (f === "OPEN_GRAPH")
 								return {
 									domain_uri: c,
 									event_type: d,
 									extractor_type: "OPEN_GRAPH",
 									id: b
 								};
-							if (e === "RDFA")
+							if (f === "RDFA")
 								return {
 									domain_uri: c,
 									event_type: d,
 									extractor_type: "RDFA",
 									id: b
 								};
-							if (e === "SCHEMA_DOT_ORG")
+							if (f === "SCHEMA_DOT_ORG")
 								return {
 									domain_uri: c,
 									event_type: d,
 									extractor_type: "SCHEMA_DOT_ORG",
 									id: b
 								};
-							return e === "URI"
+							return f === "URI"
 								? { domain_uri: c, event_type: d, extractor_type: "URI", id: b }
 								: null;
 						}
-						e.exports = l;
+						l.exports = k;
 					})();
-					return e.exports;
+					return l.exports;
 				})(a, b, c, d);
 			}
 		);
 		f.ensureModuleRegistered("signalsFBEventsCoercePixel", function() {
-			return (function(h, i, j, d) {
-				var e = { exports: {} };
-				e.exports;
+			return (function(h, i, j, k) {
+				var l = { exports: {} };
+				l.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("signalsFBEventsCoercePixelID"),
@@ -1486,59 +1767,45 @@ fbq.pendingConfigs = ["global_config"];
 							? { eventCount: d, id: e, userData: f, userDataFormFields: c }
 							: null;
 					}
-					e.exports = c;
+					l.exports = c;
 				})();
-				return e.exports;
+				return l.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("signalsFBEventsCoercePixelID", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsLogging"),
 						b = a.logUserError;
-					a = f.getFbeventsModules("SignalsFBEventsUtils");
-					var c = a.isSafeInteger;
-					function d(a) {
-						if (typeof a === "number") {
-							if (!c(a)) {
-								b({ pixelID: a.toString(), type: "INVALID_PIXEL_ID" });
-								return null;
-							}
-							return a.toString();
-						}
-						if (typeof a === "string") {
-							var d = /^[1-9][0-9]{0,25}$/;
-							if (!d.test(a)) {
-								b({ pixelID: a, type: "INVALID_PIXEL_ID" });
-								return null;
-							}
-							return a;
-						}
-						if (a === void 0) {
-							b({ pixelID: "undefined", type: "INVALID_PIXEL_ID" });
+					a = f.getFbeventsModules("SignalsFBEventsTyped");
+					var c = a.Typed,
+						d = a.coerce;
+					function e(a) {
+						a = d(a, c.fbid());
+						if (a == null) {
+							var e = JSON.stringify(a);
+							b({
+								pixelID: e != null ? e : "undefined",
+								type: "INVALID_PIXEL_ID"
+							});
 							return null;
 						}
-						if (a === null) {
-							b({ pixelID: "null", type: "INVALID_PIXEL_ID" });
-							return null;
-						}
-						b({ pixelID: "unknown", type: "INVALID_PIXEL_ID" });
-						return null;
+						return a;
 					}
-					e.exports = d;
+					k.exports = e;
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered(
 			"signalsFBEventsCoerceStandardParameter",
 			function() {
 				return (function(g, h, i, j) {
-					var e = { exports: {} };
-					e.exports;
+					var k = { exports: {} };
+					k.exports;
 					(function() {
 						"use strict";
 						var a = f.getFbeventsModules("SignalsFBEventsUtils");
@@ -1575,16 +1842,16 @@ fbq.pendingConfigs = ["global_config"];
 						function c(a) {
 							return typeof a === "string" && b.has(a) ? a : null;
 						}
-						e.exports = c;
+						k.exports = c;
 					})();
-					return e.exports;
+					return k.exports;
 				})(a, b, c, d);
 			}
 		);
 		f.ensureModuleRegistered("signalsFBEventsCoerceUserData", function() {
-			return (function(h, i, j, d) {
-				var e = { exports: {} };
-				e.exports;
+			return (function(h, i, j, k) {
+				var l = { exports: {} };
+				l.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
@@ -1603,15 +1870,15 @@ fbq.pendingConfigs = ["global_config"];
 						});
 						return d;
 					}
-					e.exports = d;
+					l.exports = d;
 				})();
-				return e.exports;
+				return l.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsConfigLoadedEvent", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
@@ -1621,26 +1888,26 @@ fbq.pendingConfigs = ["global_config"];
 						return a != null ? [a] : null;
 					}
 					a = new a(c);
-					e.exports = a;
+					k.exports = a;
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsEvents", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
 						b = f.getFbeventsModules("SignalsFBEventsConfigLoadedEvent"),
 						c = f.getFbeventsModules("SignalsFBEventsFiredEvent"),
 						d = f.getFbeventsModules("SignalsFBEventsGetCustomParametersEvent"),
-						g = f.getFbeventsModules("SignalsFBEventsGetIWLParametersEvent"),
-						h = f.getFbeventsModules("SignalsFBEventsIWLBootStrapEvent"),
-						i = f.getFbeventsModules("SignalsFBEventsPIIAutomatchedEvent"),
-						j = f.getFbeventsModules("SignalsFBEventsPIIConflictingEvent"),
-						k = f.getFbeventsModules("SignalsFBEventsPIIInvalidatedEvent"),
+						e = f.getFbeventsModules("SignalsFBEventsGetIWLParametersEvent"),
+						g = f.getFbeventsModules("SignalsFBEventsIWLBootStrapEvent"),
+						h = f.getFbeventsModules("SignalsFBEventsPIIAutomatchedEvent"),
+						i = f.getFbeventsModules("SignalsFBEventsPIIConflictingEvent"),
+						j = f.getFbeventsModules("SignalsFBEventsPIIInvalidatedEvent"),
 						l = f.getFbeventsModules("SignalsFBEventsPluginLoadedEvent"),
 						m = f.getFbeventsModules("SignalsFBEventsSetIWLExtractorsEvent");
 					b = {
@@ -1648,23 +1915,23 @@ fbq.pendingConfigs = ["global_config"];
 						execEnd: new a(),
 						fired: c,
 						getCustomParameters: d,
-						getIWLParameters: g,
-						iwlBootstrap: h,
-						piiAutomatched: i,
-						piiConflicting: j,
-						piiInvalidated: k,
+						getIWLParameters: e,
+						iwlBootstrap: g,
+						piiAutomatched: h,
+						piiConflicting: i,
+						piiInvalidated: j,
 						pluginLoaded: l,
 						setIWLExtractors: m
 					};
-					e.exports = b;
+					k.exports = b;
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsFiredEvent", function() {
-			return (function(h, i, j, d) {
-				var e = { exports: {} };
-				e.exports;
+			return (function(h, i, j, k) {
+				var l = { exports: {} };
+				l.exports;
 				(function() {
 					"use strict";
 					var a =
@@ -1690,17 +1957,17 @@ fbq.pendingConfigs = ["global_config"];
 						return f != null && b != null && d != null ? [f, b, d] : null;
 					}
 					b = new b(d);
-					e.exports = b;
+					l.exports = b;
 				})();
-				return e.exports;
+				return l.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered(
 			"SignalsFBEventsGetCustomParametersEvent",
 			function() {
 				return (function(g, h, i, j) {
-					var e = { exports: {} };
-					e.exports;
+					var k = { exports: {} };
+					k.exports;
 					(function() {
 						"use strict";
 						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
@@ -1711,18 +1978,18 @@ fbq.pendingConfigs = ["global_config"];
 							return a != null && c != null ? [a, c] : null;
 						}
 						a = new a(c);
-						e.exports = a;
+						k.exports = a;
 					})();
-					return e.exports;
+					return k.exports;
 				})(a, b, c, d);
 			}
 		);
 		f.ensureModuleRegistered(
 			"SignalsFBEventsGetIWLParametersEvent",
 			function() {
-				return (function(h, i, j, d) {
-					var e = { exports: {} };
-					e.exports;
+				return (function(h, i, j, k) {
+					var l = { exports: {} };
+					l.exports;
 					(function() {
 						"use strict";
 						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
@@ -1742,16 +2009,16 @@ fbq.pendingConfigs = ["global_config"];
 								j = h instanceof HTMLElement ? h : null;
 							return i != null && j != null ? [{ pixel: i, target: j }] : null;
 						}
-						e.exports = new a(c);
+						l.exports = new a(c);
 					})();
-					return e.exports;
+					return l.exports;
 				})(a, b, c, d);
 			}
 		);
 		f.ensureModuleRegistered("SignalsFBEventsIWLBootStrapEvent", function() {
-			return (function(h, i, j, d) {
-				var e = { exports: {} };
-				e.exports;
+			return (function(h, i, j, k) {
+				var l = { exports: {} };
+				l.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
@@ -1773,48 +2040,78 @@ fbq.pendingConfigs = ["global_config"];
 							: null;
 					}
 					a = new a(c);
-					e.exports = a;
+					l.exports = a;
 				})();
-				return e.exports;
+				return l.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsJSLoader", function() {
+			return (function(f, g, h, i) {
+				var j = { exports: {} };
+				j.exports;
+				(function() {
+					"use strict";
+					var a = { CDN_BASE_URL: "https://connect.facebook.net/" };
+					function b() {
+						var b = g.getElementsByTagName("script");
+						for (var c = 0; c < b.length; c++) {
+							var d = b[c];
+							if (d && d.src && d.src.indexOf(a.CDN_BASE_URL) !== -1) return d;
+						}
+						return null;
+					}
+					function c(a) {
+						var c = g.createElement("script");
+						c.src = a;
+						c.async = !0;
+						a = b();
+						a && a.parentNode
+							? a.parentNode.insertBefore(c, a)
+							: g.head && g.head.firstChild && g.head.appendChild(c);
+					}
+					j.exports = { CONFIG: a, loadJSFile: c };
+				})();
+				return j.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsLogging", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
 						b = a.isInstanceOf,
 						c = f.getFbeventsModules("SignalsParamList"),
-						d = f.getFbeventsModules("signalsFBEventsSendXHR"),
+						d = f.getFbeventsModules("signalsFBEventsSendGET"),
+						e = f.getFbeventsModules("SignalsFBEventsJSLoader"),
 						h = !1;
 					function i() {
 						h = !0;
 					}
 					var j = !0;
-					function k() {
+					function l() {
 						j = !1;
 					}
-					var l = "console",
-						m = "warn";
-					function n(a) {
-						g[l] && g[l][m] && g[l][m](a);
+					var m = "console",
+						n = "warn";
+					function o(a) {
+						g[m] && g[m][n] && g[m][n](a);
 					}
-					var o = !1;
-					function p() {
-						o = !0;
+					var p = !1;
+					function q() {
+						p = !0;
 					}
-					function q(a) {
-						if (o) return;
-						n("[Facebook Pixel] - " + a);
+					function r(a) {
+						if (p) return;
+						o("[Facebook Pixel] - " + a);
 					}
-					var r = "Facebook Pixel Error",
-						s = function() {
+					var s = "Facebook Pixel Error",
+						t = function() {
 							g.postMessage != null && g.postMessage.apply(g, arguments);
 						},
-						t = {};
-					function u(a) {
+						u = {};
+					function v(a) {
 						switch (a.type) {
 							case "FBQ_NO_METHOD_NAME":
 								return "You must provide an argument to fbq().";
@@ -1917,7 +2214,7 @@ fbq.pendingConfigs = ["global_config"];
 								b = a.pixelID;
 								return "Pixel " + b + " not found";
 							default:
-								x(
+								y(
 									new Error(
 										"INVALID_USER_ERROR - " + a.type + " - " + JSON.stringify(a)
 									)
@@ -1925,53 +2222,56 @@ fbq.pendingConfigs = ["global_config"];
 								return "Invalid User Error.";
 						}
 					}
-					function v(a, e) {
+					function w(a, f) {
 						try {
-							var f = Math.random(),
-								h =
+							var h = Math.random(),
+								i =
 									g.fbq && g.fbq._releaseSegment
 										? g.fbq._releaseSegment
 										: "unknown";
-							if ((j && f < 0.01) || h === "canary") {
-								f = new c(null);
-								f.append("p", "pixel");
-								f.append(
+							if ((j && h < 0.01) || i === "canary") {
+								h = new c(null);
+								h.append("p", "pixel");
+								h.append(
 									"v",
 									g.fbq && g.fbq.version ? g.fbq.version : "unknown"
 								);
-								f.append("e", a.toString());
+								h.append("e", a.toString());
 								b(a, Error) &&
-									(f.append("f", a.fileName),
-									f.append("s", a.stackTrace || a.stack));
-								f.append("ue", e ? "1" : "0");
-								f.append("rs", h);
-								d(f, "https://connect.facebook.net/log/error");
+									(h.append("f", a.fileName),
+									h.append("s", a.stackTrace || a.stack));
+								h.append("ue", f ? "1" : "0");
+								h.append("rs", i);
+								d(h, {
+									url: e.CONFIG.CDN_BASE_URL + "/log/error",
+									ignoreRequestLengthCheck: !0
+								});
 							}
 						} catch (a) {}
 					}
-					function w(a) {
-						var b = JSON.stringify(a);
-						if (!Object.prototype.hasOwnProperty.call(t, b)) t[b] = !0;
-						else return;
-						b = u(a);
-						q(b);
-						s({ action: "FB_LOG", logMessage: b, logType: r }, "*");
-						v(new Error(b), !0);
-					}
 					function x(a) {
-						v(a, !1), h && q(a.toString());
+						var b = JSON.stringify(a);
+						if (!Object.prototype.hasOwnProperty.call(u, b)) u[b] = !0;
+						else return;
+						b = v(a);
+						r(b);
+						t({ action: "FB_LOG", logMessage: b, logType: s }, "*");
+						w(new Error(b), !0);
+					}
+					function y(a) {
+						w(a, !1), h && r(a.toString());
 					}
 					a = {
-						consoleWarn: n,
-						disableAllLogging: p,
-						disableSampling: k,
+						consoleWarn: o,
+						disableAllLogging: q,
+						disableSampling: l,
 						enableVerboseDebugLogging: i,
-						logError: x,
-						logUserError: w
+						logError: y,
+						logUserError: x
 					};
-					e.exports = a;
+					k.exports = a;
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsNetworkConfig", function() {
@@ -2012,8 +2312,8 @@ fbq.pendingConfigs = ["global_config"];
 		});
 		f.ensureModuleRegistered("SignalsFBEventsPIIAutomatchedEvent", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
@@ -2023,15 +2323,15 @@ fbq.pendingConfigs = ["global_config"];
 						return a != null ? [a] : null;
 					}
 					a = new a(c);
-					e.exports = a;
+					k.exports = a;
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsPIIConflictingEvent", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
@@ -2041,15 +2341,15 @@ fbq.pendingConfigs = ["global_config"];
 						return a != null ? [a] : null;
 					}
 					a = new a(c);
-					e.exports = a;
+					k.exports = a;
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsPIIInvalidatedEvent", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
@@ -2058,32 +2358,32 @@ fbq.pendingConfigs = ["global_config"];
 						a = b(a);
 						return a != null ? [a] : null;
 					}
-					e.exports = new a(c);
+					k.exports = new a(c);
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsPlugin", function() {
 			return (function(f, g, h, i) {
-				var e = { exports: {} };
-				e.exports;
+				var j = { exports: {} };
+				j.exports;
 				(function() {
 					"use strict";
 					var a = function a(b) {
-						j(this, a),
+						m(this, a),
 							(this.__fbEventsPlugin = 1),
 							(this.plugin = b),
 							(this.__fbEventsPlugin = 1);
 					};
-					e.exports = a;
+					j.exports = a;
 				})();
-				return e.exports;
+				return j.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsPluginLoadedEvent", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent");
@@ -2091,9 +2391,9 @@ fbq.pendingConfigs = ["global_config"];
 						a = a != null && typeof a === "string" ? a : null;
 						return a != null ? [a] : null;
 					}
-					e.exports = new a(b);
+					k.exports = new a(b);
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsProxyState", function() {
@@ -2115,78 +2415,64 @@ fbq.pendingConfigs = ["global_config"];
 				return j.exports;
 			})(a, b, c, d);
 		});
-		f.ensureModuleRegistered("signalsFBEventsSendXHR", function() {
+		f.ensureModuleRegistered("signalsFBEventsSendGET", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
-						b = f.getFbeventsModules("SignalsParamList"),
-						c = {
-							UNSENT: 0,
-							OPENED: 1,
-							HEADERS_RECEIVED: 2,
-							LOADING: 3,
-							DONE: 4
-						},
-						d =
-							typeof XMLHttpRequest !== "undefined" &&
-							"withCredentials" in new XMLHttpRequest();
-					function g(a, b) {
-						var d = new XMLHttpRequest();
-						d.withCredentials = !0;
-						d.open("POST", b);
-						d.onreadystatechange = function() {
-							if (d.readyState !== c.DONE) return;
-						};
-						d.send(a);
+						b = 2048;
+					function c(c, d) {
+						d = d || {};
+						var e = d.ignoreRequestLengthCheck;
+						e = e === void 0 ? !1 : e;
+						d = d.url;
+						d = d === void 0 ? a.ENDPOINT : d;
+						c.replaceEntry("rqm", e ? "FGET" : "GET");
+						c = c.toQueryString();
+						d = d + "?" + c;
+						if (e || d.length < b) {
+							c = new Image();
+							c.src = d;
+							return !0;
+						}
+						return !1;
 					}
-					function h(c) {
-						var e =
-							arguments.length > 1 && arguments[1] !== void 0
-								? arguments[1]
-								: a.ENDPOINT;
-						if (!d) return !1;
-						c instanceof b && c.append("rqm", "xhr");
-						var f = c instanceof b ? c.toFormData() : c;
-						g(f, e);
-						return !0;
-					}
-					e.exports = h;
+					k.exports = c;
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered(
 			"SignalsFBEventsSetIWLExtractorsEvent",
 			function() {
-				return (function(h, i, j, d) {
-					var e = { exports: {} };
-					e.exports;
+				return (function(h, i, j, k) {
+					var l = { exports: {} };
+					l.exports;
 					(function() {
 						"use strict";
 						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
 							b = f.getFbeventsModules("SignalsFBEventsUtils"),
 							c = b.filter,
 							d = b.map,
-							h = f.getFbeventsModules(
+							e = f.getFbeventsModules(
 								"signalsFBEventsCoerceParameterExtractors"
 							),
-							i = f.getFbeventsModules("signalsFBEventsCoercePixelID");
-						function j() {
-							for (var a = arguments.length, b = Array(a), e = 0; e < a; e++)
-								b[e] = arguments[e];
-							var f = b[0];
+							h = f.getFbeventsModules("signalsFBEventsCoercePixelID");
+						function i() {
+							for (var a = arguments.length, b = Array(a), f = 0; f < a; f++)
+								b[f] = arguments[f];
+							var i = b[0];
 							if (
-								f == null ||
-								(typeof f === "undefined" ? "undefined" : g(f)) !== "object"
+								i == null ||
+								(typeof i === "undefined" ? "undefined" : g(i)) !== "object"
 							)
 								return null;
-							var j = f.pixelID,
-								k = f.extractors,
-								l = i(j),
-								m = Array.isArray(k) ? d(k, h) : null,
+							var j = i.pixelID,
+								k = i.extractors,
+								l = h(j),
+								m = Array.isArray(k) ? d(k, e) : null,
 								n = m != null ? c(m, Boolean) : null;
 							return n != null &&
 								m != null &&
@@ -2195,17 +2481,221 @@ fbq.pendingConfigs = ["global_config"];
 								? [{ extractors: n, pixelID: l }]
 								: null;
 						}
-						b = new a(j);
-						e.exports = b;
+						b = new a(i);
+						l.exports = b;
 					})();
-					return e.exports;
+					return l.exports;
 				})(a, b, c, d);
 			}
 		);
-		f.ensureModuleRegistered("SignalsFBEventsUtils", function() {
-			return (function(f, i, c, d) {
+		f.ensureModuleRegistered("SignalsFBEventsTyped", function() {
+			return (function(h, l, c, d) {
 				var e = { exports: {} };
 				e.exports;
+				(function() {
+					"use strict";
+					var a =
+							Object.assign ||
+							function(a) {
+								for (var b = 1; b < arguments.length; b++) {
+									var c = arguments[b];
+									for (var d in c)
+										Object.prototype.hasOwnProperty.call(c, d) && (a[d] = c[d]);
+								}
+								return a;
+							},
+						b = f.getFbeventsModules("SignalsFBEventsUtils");
+					b.filter;
+					b.map;
+					var c = b.reduce;
+					b = f.getFbeventsModules("SignalsFBEventsUtils");
+					var d = b.isSafeInteger,
+						h = (function(b) {
+							k(a, b);
+							function a() {
+								var b =
+									arguments.length > 0 && arguments[0] !== void 0
+										? arguments[0]
+										: "";
+								m(this, a);
+								var c = j(
+									this,
+									(a.__proto__ || Object.getPrototypeOf(a)).call(this, b)
+								);
+								c.name = "FBEventsCoercionError";
+								return c;
+							}
+							return a;
+						})(Error);
+					function l(a) {
+						return Object.values(a);
+					}
+					function n() {
+						return function(a) {
+							if (typeof a !== "boolean") throw new h();
+							return a;
+						};
+					}
+					function o() {
+						return function(a) {
+							if (typeof a !== "number") throw new h();
+							return a;
+						};
+					}
+					function p() {
+						return function(a) {
+							if (typeof a !== "string") throw new h();
+							return a;
+						};
+					}
+					function q() {
+						return function(a) {
+							if (
+								(typeof a === "undefined" ? "undefined" : g(a)) !== "object" ||
+								Array.isArray(a) ||
+								a == null
+							)
+								throw new h();
+							return a;
+						};
+					}
+					function r() {
+						return function(a) {
+							if (a == null || !Array.isArray(a)) throw new h();
+							return a;
+						};
+					}
+					function s(a) {
+						return function(b) {
+							if (l(a).includes(b)) return b;
+							throw new h();
+						};
+					}
+					function t(a) {
+						return function(b) {
+							return y(b, F.array()).map(a);
+						};
+					}
+					function u(b, d) {
+						return function(e) {
+							var b = y(e, F.object());
+							return c(
+								Object.keys(b),
+								function(c, e) {
+									return a({}, c, i({}, e, d(b[e])));
+								},
+								{}
+							);
+						};
+					}
+					function v(a) {
+						return function(b) {
+							return b == null ? null : a(b);
+						};
+					}
+					function w(b) {
+						return function(d) {
+							var c = y(d, F.object());
+							d = Object.keys(b).reduce(function(d, e) {
+								if (d == null) return null;
+								var f = b[e],
+									g = c[e];
+								f = f(g);
+								return a({}, d, i({}, e, f));
+							}, {});
+							return d;
+						};
+					}
+					function x(a, b) {
+						try {
+							return b(a);
+						} catch (a) {
+							if (a.name === "FBEventsCoercionError") return null;
+							throw a;
+						}
+					}
+					function y(a, b) {
+						return b(a);
+					}
+					function z(a) {
+						return function(b) {
+							b = y(b, F.string());
+							if (a.test(b)) return b;
+							throw new h();
+						};
+					}
+					function A(a) {
+						if (!a) throw new h();
+					}
+					function B(a) {
+						return function(b) {
+							b = y(b, r());
+							A(b.length === a.length);
+							return b.map(function(b, c) {
+								return y(b, a[c]);
+							});
+						};
+					}
+					function C(a) {
+						var b = a.def,
+							c = a.validators;
+						return function(a) {
+							var d = y(a, b);
+							c.forEach(function(a) {
+								if (!a(d)) throw new h();
+							});
+							return d;
+						};
+					}
+					var D = /^[1-9][0-9]{0,25}$/;
+					function E() {
+						return C({
+							def: function(a) {
+								var b = x(a, F.number());
+								if (b != null) {
+									F.assert(d(b));
+									return "" + b;
+								}
+								return y(a, F.string());
+							},
+							validators: [
+								function(a) {
+									return D.test(a);
+								}
+							]
+						});
+					}
+					var F = {
+						allowNull: v,
+						array: r,
+						arrayOf: t,
+						assert: A,
+						boolean: n,
+						enumeration: s,
+						fbid: E,
+						mapOf: u,
+						matches: z,
+						number: o,
+						object: q,
+						objectWithFields: w,
+						string: p,
+						tuple: B,
+						withValidation: C
+					};
+					e.exports = {
+						Typed: F,
+						coerce: x,
+						enforce: y,
+						FBEventsCoercionError: h
+					};
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsUtils", function() {
+			return (function(f, i, j, k) {
+				var l = { exports: {} };
+				l.exports;
 				(function() {
 					"use strict";
 					var a = Object.prototype.toString,
@@ -2218,23 +2708,23 @@ fbq.pendingConfigs = ["global_config"];
 							? Array.isArray(b)
 							: a.call(b) === "[object Array]";
 					}
-					function f(a) {
+					function e(a) {
 						return (
 							typeof a === "number" ||
 							(typeof a === "string" && /^\d+$/.test(a))
 						);
 					}
-					var k =
+					var f =
 						Number.isInteger ||
 						function(a) {
 							return (
 								typeof a === "number" && isFinite(a) && Math.floor(a) === a
 							);
 						};
-					function l(a) {
-						return k(a) && a >= 0 && a <= Number.MAX_SAFE_INTEGER;
+					function j(a) {
+						return f(a) && a >= 0 && a <= Number.MAX_SAFE_INTEGER;
 					}
-					function m(a, c, d) {
+					function k(a, c, d) {
 						var e = b ? "on" + c : c;
 						c = b ? a.attachEvent : a.addEventListener;
 						var f = b ? a.detachEvent : a.removeEventListener,
@@ -2350,7 +2840,7 @@ fbq.pendingConfigs = ["global_config"];
 					x["default"] = x;
 					var A = (function() {
 						function a(b) {
-							j(this, a), (this.items = b || []);
+							m(this, a), (this.items = b || []);
 						}
 						h(a, [
 							{
@@ -2389,11 +2879,11 @@ fbq.pendingConfigs = ["global_config"];
 						isArray: d,
 						isEmptyObject: v,
 						isInstanceOf: c,
-						isInteger: k,
-						isNumber: f,
-						isSafeInteger: l,
+						isInteger: f,
+						isNumber: e,
+						isSafeInteger: j,
 						keys: r,
-						listenOnce: m,
+						listenOnce: k,
 						map: s,
 						reduce: t,
 						some: function(a, b) {
@@ -2401,15 +2891,15 @@ fbq.pendingConfigs = ["global_config"];
 						},
 						stringIncludes: C
 					};
-					e.exports = A;
+					l.exports = A;
 				})();
-				return e.exports;
+				return l.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsParamList", function() {
-			return (function(f, i, c, d) {
-				var e = { exports: {} };
-				e.exports;
+			return (function(f, i, j, k) {
+				var l = { exports: {} };
+				l.exports;
 				(function() {
 					"use strict";
 					var a = "deep",
@@ -2424,9 +2914,9 @@ fbq.pendingConfigs = ["global_config"];
 						a = typeof a === "undefined" ? "undefined" : g(a);
 						return a === "number" || a === "boolean" || a === "string";
 					}
-					var f = (function() {
+					var e = (function() {
 						function e(a) {
-							j(this, e), (this._params = []), (this._piiTranslator = a);
+							m(this, e), (this._params = []), (this._piiTranslator = a);
 						}
 						h(
 							e,
@@ -2596,27 +3086,27 @@ fbq.pendingConfigs = ["global_config"];
 						);
 						return e;
 					})();
-					e.exports = f;
+					l.exports = e;
 				})();
-				return e.exports;
+				return l.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEvents.plugins.opttracking", function() {
 			return (function(g, h, i, j) {
-				var e = { exports: {} };
-				e.exports;
+				var k = { exports: {} };
+				k.exports;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsEvents"),
 						b = a.getCustomParameters,
 						c = a.piiAutomatched,
 						d = a.piiConflicting,
-						h = a.piiInvalidated,
-						i = f.getFbeventsModules("SignalsFBEventsOptTrackingOptions");
+						e = a.piiInvalidated,
+						h = f.getFbeventsModules("SignalsFBEventsOptTrackingOptions");
 					a = f.getFbeventsModules("SignalsFBEventsPlugin");
-					var j = f.getFbeventsModules("SignalsFBEventsProxyState"),
-						k = f.getFbeventsModules("SignalsFBEventsUtils"),
-						l = k.some,
+					var i = f.getFbeventsModules("SignalsFBEventsProxyState"),
+						j = f.getFbeventsModules("SignalsFBEventsUtils"),
+						l = j.some,
 						m = !1;
 					function n() {
 						try {
@@ -2684,17 +3174,17 @@ fbq.pendingConfigs = ["global_config"];
 							b = 0,
 							c = 0;
 						try {
-							(a = p(s(), i.IS_SELENIUM)), (b = p(t(), i.IS_HEADLESS));
+							(a = p(s(), h.IS_SELENIUM)), (b = p(t(), h.IS_HEADLESS));
 						} catch (a) {
-							c = i.HAS_DETECTION_FAILED;
+							c = h.HAS_DETECTION_FAILED;
 						}
 						return { hasDetectionFailed: c, isHeadless: b, isSelenium: a };
 					}
-					k = new a(function(a, e) {
+					j = new a(function(a, g) {
 						if (m) return;
-						var g = {};
-						h.listen(function(a) {
-							a != null && (g[typeof a === "string" ? a : a.id] = !0);
+						var j = {};
+						e.listen(function(a) {
+							a != null && (j[typeof a === "string" ? a : a.id] = !0);
 						});
 						var k = {};
 						d.listen(function(a) {
@@ -2705,28 +3195,28 @@ fbq.pendingConfigs = ["global_config"];
 							a != null && (l[typeof a === "string" ? a : a.id] = !0);
 						});
 						b.listen(function(b) {
-							var c = e.optIns,
+							var c = g.optIns,
 								d = p(
 									b != null && c.isOptedOut(b.id, "AutomaticSetup"),
-									i.AUTO_CONFIG_OPT_OUT
+									h.AUTO_CONFIG_OPT_OUT
 								);
 							c = p(
 								b != null && c.isOptedIn(b.id, "AutomaticSetup"),
-								i.AUTO_CONFIG
+								h.AUTO_CONFIG
 							);
-							var f = p(a.disableConfigLoading !== !0, i.CONFIG_LOADING),
-								h = p(n(), i.SUPPORTS_DEFINE_PROPERTY),
-								m = p(o(), i.SUPPORTS_SEND_BEACON),
-								q = p(b != null && k[b.id], i.HAS_CONFLICTING_PII),
-								r = p(b != null && g[b.id], i.HAS_INVALIDATED_PII);
-							b = p(b != null && l[b.id], i.HAS_AUTOMATCHED_PII);
-							var s = p(j.getShouldProxy(), i.SHOULD_PROXY),
+							var e = p(a.disableConfigLoading !== !0, h.CONFIG_LOADING),
+								f = p(n(), h.SUPPORTS_DEFINE_PROPERTY),
+								m = p(o(), h.SUPPORTS_SEND_BEACON),
+								q = p(b != null && k[b.id], h.HAS_CONFLICTING_PII),
+								r = p(b != null && j[b.id], h.HAS_INVALIDATED_PII);
+							b = p(b != null && l[b.id], h.HAS_AUTOMATCHED_PII);
+							var s = p(i.getShouldProxy(), h.SHOULD_PROXY),
 								t = v();
 							d =
 								d |
 								c |
+								e |
 								f |
-								h |
 								m |
 								r |
 								s |
@@ -2739,10 +3229,10 @@ fbq.pendingConfigs = ["global_config"];
 						});
 						m = !0;
 					});
-					k.OPTIONS = i;
-					e.exports = k;
+					j.OPTIONS = h;
+					k.exports = j;
 				})();
-				return e.exports;
+				return k.exports;
 			})(a, b, c, d);
 		});
 		e.exports = f.getFbeventsModules("SignalsFBEvents.plugins.opttracking");
@@ -3294,46 +3784,6 @@ fbq.pendingConfigs = ["global_config"];
 				return k.exports;
 			})(a, b, c, d);
 		});
-		f.ensureModuleRegistered("signalsFBEventsCoerceExperiments", function() {
-			return (function(g, h, i, j) {
-				var k = { exports: {} };
-				k.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsCoercePrimitives"),
-						b = a.coerceArrayOf;
-					a.coerceBoolean;
-					var c = a.coerceNumber;
-					a.coerceObject;
-					var d = a.coerceObjectWithFields,
-						e = a.coerceString,
-						g = f.getFbeventsModules(
-							"signalsFBEventsCoerceLegacyExperimentGroups"
-						);
-					function h(a) {
-						var f = g(a);
-						return f != null
-							? f.map(function(a) {
-									var b = a.name,
-										c = a.code,
-										d = a.range;
-									a = a.passRate;
-									return {
-										allocation: d[1] - d[0],
-										code: c,
-										name: b,
-										passRate: a
-									};
-							  })
-							: b(a, function(a) {
-									return d(a, { allocation: c, code: e, name: e, passRate: c });
-							  });
-					}
-					k.exports = h;
-				})();
-				return k.exports;
-			})(a, b, c, d);
-		});
 		f.ensureModuleRegistered(
 			"signalsFBEventsCoerceInferedEventsConfig",
 			function() {
@@ -3348,79 +3798,11 @@ fbq.pendingConfigs = ["global_config"];
 						function c(a) {
 							return b(a, {
 								buttonSelector: function(a) {
-									return a === "extended";
+									return a === "extended" ? "extended" : null;
 								}
 							});
 						}
 						k.exports = c;
-					})();
-					return k.exports;
-				})(a, b, c, d);
-			}
-		);
-		f.ensureModuleRegistered(
-			"signalsFBEventsCoerceLegacyExperimentGroups",
-			function() {
-				return (function(i, j, k, l) {
-					var m = { exports: {} };
-					m.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsTyped"),
-							b = a.Typed,
-							c = a.coerce,
-							d = a.enforce;
-						function e(a) {
-							return a != null &&
-								(typeof a === "undefined" ? "undefined" : h(a)) === "object"
-								? Object.values(a)
-								: null;
-						}
-						var i = function(a) {
-								a = d(a, b.array());
-								b.assert(a.length === 2);
-								a = g(a, 2);
-								var c = a[0];
-								a = a[1];
-								return [d(c, b.number()), d(a, b.number())];
-							},
-							j = function(a) {
-								a = Array.isArray(a) ? a : e(a);
-								return d(
-									a,
-									b.arrayOf(
-										b.objectWithFields({
-											code: b.string(),
-											name: b.string(),
-											passRate: b.number(),
-											range: i
-										})
-									)
-								);
-							};
-						m.exports = function(a) {
-							return c(a, j);
-						};
-					})();
-					return m.exports;
-				})(a, b, c, d);
-			}
-		);
-		f.ensureModuleRegistered(
-			"signalsFBEventsCoerceMicrodataConfig",
-			function() {
-				return (function(g, h, i, j) {
-					var k = { exports: {} };
-					k.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsCoercePrimitives"),
-							b = a.coerceNumber,
-							c = a.coerceObjectWithFields;
-						function d(a) {
-							return c(a, { waitTimeMs: b });
-						}
-						k.exports = d;
 					})();
 					return k.exports;
 				})(a, b, c, d);
@@ -3656,36 +4038,22 @@ fbq.pendingConfigs = ["global_config"];
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsLogging"),
 						b = a.logUserError;
-					a = f.getFbeventsModules("SignalsFBEventsUtils");
-					var c = a.isSafeInteger;
-					function d(a) {
-						if (typeof a === "number") {
-							if (!c(a)) {
-								b({ pixelID: a.toString(), type: "INVALID_PIXEL_ID" });
-								return null;
-							}
-							return a.toString();
-						}
-						if (typeof a === "string") {
-							var d = /^[1-9][0-9]{0,25}$/;
-							if (!d.test(a)) {
-								b({ pixelID: a, type: "INVALID_PIXEL_ID" });
-								return null;
-							}
-							return a;
-						}
-						if (a === void 0) {
-							b({ pixelID: "undefined", type: "INVALID_PIXEL_ID" });
+					a = f.getFbeventsModules("SignalsFBEventsTyped");
+					var c = a.Typed,
+						d = a.coerce;
+					function e(a) {
+						a = d(a, c.fbid());
+						if (a == null) {
+							var e = JSON.stringify(a);
+							b({
+								pixelID: e != null ? e : "undefined",
+								type: "INVALID_PIXEL_ID"
+							});
 							return null;
 						}
-						if (a === null) {
-							b({ pixelID: "null", type: "INVALID_PIXEL_ID" });
-							return null;
-						}
-						b({ pixelID: "unknown", type: "INVALID_PIXEL_ID" });
-						return null;
+						return a;
 					}
-					k.exports = d;
+					k.exports = e;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -3802,31 +4170,6 @@ fbq.pendingConfigs = ["global_config"];
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered(
-			"signalsFBEventsCoerceProhibitedSourcesConfig",
-			function() {
-				return (function(g, h, i, j) {
-					var k = { exports: {} };
-					k.exports;
-					(function() {
-						"use strict";
-						var a = f.getFbeventsModules("SignalsFBEventsCoercePrimitives"),
-							b = a.coerceObjectWithFields,
-							c = a.coerceArrayOf,
-							d = a.coerceObject;
-						function e(a) {
-							return b(a, {
-								prohibitedSources: function(a) {
-									return c(a, d);
-								}
-							});
-						}
-						k.exports = e;
-					})();
-					return k.exports;
-				})(a, b, c, d);
-			}
-		);
-		f.ensureModuleRegistered(
 			"signalsFBEventsCoerceStandardParameter",
 			function() {
 				return (function(g, h, i, j) {
@@ -3925,33 +4268,33 @@ fbq.pendingConfigs = ["global_config"];
 				l.exports;
 				(function() {
 					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsTyped"),
-						b = a.coerce,
-						c = a.Typed;
-					a = f.getFbeventsModules("signalsFBEventsCoerceMicrodataConfig");
-					var d = f.getFbeventsModules("signalsFBEventsCoercePixelID"),
-						e = f.getFbeventsModules("signalsFBEventsCoerceBatchingConfig"),
-						g = f.getFbeventsModules(
-							"signalsFBEventsCoerceProhibitedSourcesConfig"
-						),
-						h = f.getFbeventsModules(
+					var a = f.getFbeventsModules("SignalsFBEventsQE"),
+						b = f.getFbeventsModules("SignalsFBEventsProhibitedSourcesTypedef"),
+						c = f.getFbeventsModules("SignalsFBEventsMicrodataConfigTypedef"),
+						d = f.getFbeventsModules("SignalsFBEventsTyped"),
+						e = d.coerce,
+						g = d.Typed,
+						h = f.getFbeventsModules("signalsFBEventsCoercePixelID");
+					d = f.getFbeventsModules("signalsFBEventsCoerceBatchingConfig");
+					var j = f.getFbeventsModules(
 							"signalsFBEventsCoerceAutomaticMatchingConfig"
 						),
-						j = f.getFbeventsModules(
+						k = f.getFbeventsModules(
 							"signalsFBEventsCoerceInferedEventsConfig"
 						),
-						k = f.getFbeventsModules("SignalsFBEventsQE"),
-						m = "global",
-						n = {
-							automaticMatching: h,
-							batching: e,
-							inferredEvents: j,
-							microdata: a,
-							prohibitedSources: g
+						m = f.getFbeventsModules("SignalsFBEventsLogging"),
+						n = m.logError,
+						p = "global",
+						q = {
+							automaticMatching: j,
+							batching: d,
+							inferredEvents: k,
+							microdata: c,
+							prohibitedSources: b
 						};
-					h = (function() {
-						function a() {
-							o(this, a),
+					m = (function() {
+						function b() {
+							o(this, b),
 								(this._configStore = {
 									automaticMatching: {},
 									batching: {},
@@ -3960,48 +4303,62 @@ fbq.pendingConfigs = ["global_config"];
 									prohibitedSources: {}
 								});
 						}
-						i(a, [
+						i(b, [
 							{
 								key: "set",
-								value: function(a, e, f) {
-									a = a == null ? m : d(a);
+								value: function(a, b, c) {
+									a = a == null ? p : h(a);
 									if (a == null) return;
-									e = b(e, c.string());
-									if (e == null) return;
-									if (this._configStore[e] == null) return;
-									this._configStore[e][a] = n[e] != null ? n[e](f) : f;
+									b = e(b, g.string());
+									if (b == null) return;
+									if (this._configStore[b] == null) return;
+									this._configStore[b][a] = q[b] != null ? q[b](c) : c;
 								}
 							},
 							{
 								key: "setExperimental",
-								value: function(a) {
-									a = b(
-										a,
-										c.objectWithFields({
-											config: c.object(),
-											experimentName: c.string(),
-											pixelID: d,
-											pluginName: c.string()
+								value: function(b) {
+									b = e(
+										b,
+										g.objectWithFields({
+											config: g.object(),
+											experimentName: g.string(),
+											pixelID: h,
+											pluginName: g.string()
 										})
 									);
-									if (a == null) return;
-									var e = a.config,
-										f = a.experimentName,
-										g = a.pixelID;
-									a = a.pluginName;
-									k.isInTest(f) && this.set(g, a, e);
+									if (b == null) return;
+									var c = b.config,
+										d = b.experimentName,
+										f = b.pixelID;
+									b = b.pluginName;
+									a.isInTest(d) && this.set(f, b, c);
 								}
 							},
 							{
 								key: "get",
 								value: function(a, b) {
-									return this._configStore[b][a != null ? a : m];
+									return this._configStore[b][a != null ? a : p];
+								}
+							},
+							{
+								key: "getAutomaticMatchingConfig",
+								value: function(a) {
+									n(new Error("Calling legacy api getAutomaticMatchingConfig"));
+									return this.get(a, "automaticMatching");
+								}
+							},
+							{
+								key: "getInferredEventsConfig",
+								value: function(a) {
+									n(new Error("Calling legacy api getInferredEventsConfig"));
+									return this.get(a, "inferredEvents");
 								}
 							}
 						]);
-						return a;
+						return b;
 					})();
-					l.exports = new h();
+					l.exports = new m();
 				})();
 				return l.exports;
 			})(a, b, c, d);
@@ -4049,10 +4406,34 @@ fbq.pendingConfigs = ["global_config"];
 					"use strict";
 					j.exports = {
 						BATCHING_EXPERIMENT: "batching",
-						SEND_BEACON_STRING_EXPERIMENT: "send_beacon_string"
+						SEND_BEACON_STRING_EXPERIMENT: "send_beacon_string",
+						SEND_XHR_EXPERIMENT: "send_xhr"
 					};
 				})();
 				return j.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsExperimentsTypedef", function() {
+			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsTyped"),
+						b = a.Typed;
+					a.coerce;
+					a.enforce;
+					a = b.arrayOf(
+						b.objectWithFields({
+							allocation: b.number(),
+							code: b.string(),
+							name: b.string(),
+							passRate: b.number()
+						})
+					);
+					k.exports = a;
+				})();
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsFBQ", function() {
@@ -4719,6 +5100,55 @@ fbq.pendingConfigs = ["global_config"];
 				return j.exports;
 			})(a, b, c, d);
 		});
+		f.ensureModuleRegistered(
+			"SignalsFBEventsLegacyExperimentGroupsTypedef",
+			function() {
+				return (function(g, i, j, k) {
+					var l = { exports: {} };
+					l.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsTyped"),
+							b = a.Typed;
+						a.coerce;
+						var c = a.enforce;
+						a = f.getFbeventsModules("SignalsFBEventsTypeVersioning");
+						a = a.upgrade;
+						function d(a) {
+							return a != null &&
+								(typeof a === "undefined" ? "undefined" : h(a)) === "object"
+								? Object.values(a)
+								: null;
+						}
+						var e = function(a) {
+							a = Array.isArray(a) ? a : d(a);
+							return c(
+								a,
+								b.arrayOf(
+									b.objectWithFields({
+										code: b.string(),
+										name: b.string(),
+										passRate: b.number(),
+										range: b.tuple([b.number(), b.number()])
+									})
+								)
+							);
+						};
+						function g(a) {
+							var b = a.name,
+								c = a.code,
+								d = a.range;
+							a = a.passRate;
+							return { allocation: d[1] - d[0], code: c, name: b, passRate: a };
+						}
+						l.exports = a(e, function(a) {
+							return a.map(g);
+						});
+					})();
+					return l.exports;
+				})(a, b, c, d);
+			}
+		);
 		f.ensureModuleRegistered("SignalsFBEventsLogging", function() {
 			return (function(g, h, i, j) {
 				var k = { exports: {} };
@@ -4728,34 +5158,35 @@ fbq.pendingConfigs = ["global_config"];
 					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
 						b = a.isInstanceOf,
 						c = f.getFbeventsModules("SignalsParamList"),
-						d = f.getFbeventsModules("signalsFBEventsSendXHR"),
-						e = !1;
-					function h() {
-						e = !0;
+						d = f.getFbeventsModules("signalsFBEventsSendGET"),
+						e = f.getFbeventsModules("SignalsFBEventsJSLoader"),
+						h = !1;
+					function i() {
+						h = !0;
 					}
-					var i = !0;
-					function j() {
-						i = !1;
+					var j = !0;
+					function l() {
+						j = !1;
 					}
-					var l = "console",
-						m = "warn";
-					function n(a) {
-						g[l] && g[l][m] && g[l][m](a);
+					var m = "console",
+						n = "warn";
+					function o(a) {
+						g[m] && g[m][n] && g[m][n](a);
 					}
-					var o = !1;
-					function p() {
-						o = !0;
+					var p = !1;
+					function q() {
+						p = !0;
 					}
-					function q(a) {
-						if (o) return;
-						n("[Facebook Pixel] - " + a);
+					function r(a) {
+						if (p) return;
+						o("[Facebook Pixel] - " + a);
 					}
-					var r = "Facebook Pixel Error",
-						s = function() {
+					var s = "Facebook Pixel Error",
+						t = function() {
 							g.postMessage != null && g.postMessage.apply(g, arguments);
 						},
-						t = {};
-					function u(a) {
+						u = {};
+					function v(a) {
 						switch (a.type) {
 							case "FBQ_NO_METHOD_NAME":
 								return "You must provide an argument to fbq().";
@@ -4858,7 +5289,7 @@ fbq.pendingConfigs = ["global_config"];
 								b = a.pixelID;
 								return "Pixel " + b + " not found";
 							default:
-								x(
+								y(
 									new Error(
 										"INVALID_USER_ERROR - " + a.type + " - " + JSON.stringify(a)
 									)
@@ -4866,49 +5297,52 @@ fbq.pendingConfigs = ["global_config"];
 								return "Invalid User Error.";
 						}
 					}
-					function v(a, e) {
+					function w(a, f) {
 						try {
-							var f = Math.random(),
-								h =
+							var h = Math.random(),
+								i =
 									g.fbq && g.fbq._releaseSegment
 										? g.fbq._releaseSegment
 										: "unknown";
-							if ((i && f < 0.01) || h === "canary") {
-								f = new c(null);
-								f.append("p", "pixel");
-								f.append(
+							if ((j && h < 0.01) || i === "canary") {
+								h = new c(null);
+								h.append("p", "pixel");
+								h.append(
 									"v",
 									g.fbq && g.fbq.version ? g.fbq.version : "unknown"
 								);
-								f.append("e", a.toString());
+								h.append("e", a.toString());
 								b(a, Error) &&
-									(f.append("f", a.fileName),
-									f.append("s", a.stackTrace || a.stack));
-								f.append("ue", e ? "1" : "0");
-								f.append("rs", h);
-								d(f, "https://connect.facebook.net/log/error");
+									(h.append("f", a.fileName),
+									h.append("s", a.stackTrace || a.stack));
+								h.append("ue", f ? "1" : "0");
+								h.append("rs", i);
+								d(h, {
+									url: e.CONFIG.CDN_BASE_URL + "/log/error",
+									ignoreRequestLengthCheck: !0
+								});
 							}
 						} catch (a) {}
 					}
-					function w(a) {
-						var b = JSON.stringify(a);
-						if (!Object.prototype.hasOwnProperty.call(t, b)) t[b] = !0;
-						else return;
-						b = u(a);
-						q(b);
-						s({ action: "FB_LOG", logMessage: b, logType: r }, "*");
-						v(new Error(b), !0);
-					}
 					function x(a) {
-						v(a, !1), e && q(a.toString());
+						var b = JSON.stringify(a);
+						if (!Object.prototype.hasOwnProperty.call(u, b)) u[b] = !0;
+						else return;
+						b = v(a);
+						r(b);
+						t({ action: "FB_LOG", logMessage: b, logType: s }, "*");
+						w(new Error(b), !0);
+					}
+					function y(a) {
+						w(a, !1), h && r(a.toString());
 					}
 					a = {
-						consoleWarn: n,
-						disableAllLogging: p,
-						disableSampling: j,
-						enableVerboseDebugLogging: h,
-						logError: x,
-						logUserError: w
+						consoleWarn: o,
+						disableAllLogging: q,
+						disableSampling: l,
+						enableVerboseDebugLogging: i,
+						logError: y,
+						logUserError: x
 					};
 					k.exports = a;
 				})();
@@ -4940,6 +5374,32 @@ fbq.pendingConfigs = ["global_config"];
 				return k.exports;
 			})(a, b, c, d);
 		});
+		f.ensureModuleRegistered(
+			"SignalsFBEventsMicrodataConfigTypedef",
+			function() {
+				return (function(g, h, i, j) {
+					var k = { exports: {} };
+					k.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsTyped");
+						a = a.Typed;
+						a = a.objectWithFields({
+							waitTimeMs: a.withValidation({
+								def: a.number(),
+								validators: [
+									function(a) {
+										return a > 0 && a < 1e4;
+									}
+								]
+							})
+						});
+						k.exports = a;
+					})();
+					return k.exports;
+				})(a, b, c, d);
+			}
+		);
 		f.ensureModuleRegistered("SignalsFBEventsMobileAppBridge", function() {
 			return (function(g, i, j, k) {
 				var l = { exports: {} };
@@ -5342,18 +5802,46 @@ fbq.pendingConfigs = ["global_config"];
 				return m.exports;
 			})(a, b, c, d);
 		});
+		f.ensureModuleRegistered(
+			"SignalsFBEventsProhibitedSourcesTypedef",
+			function() {
+				return (function(g, h, i, j) {
+					var k = { exports: {} };
+					k.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsTyped"),
+							b = a.Typed;
+						a.coerce;
+						a = b.objectWithFields({
+							prohibitedSources: b.arrayOf(
+								b.objectWithFields({ domain: b.allowNull(b.string()) })
+							)
+						});
+						k.exports = a;
+					})();
+					return k.exports;
+				})(a, b, c, d);
+			}
+		);
 		f.ensureModuleRegistered("SignalsFBEventsQE", function() {
 			return (function(h, j, k, l) {
 				var m = { exports: {} };
 				m.exports;
 				(function() {
 					"use strict";
-					var a = f.getFbeventsModules("signalsFBEventsCoerceExperiments"),
-						b = function() {
+					var a = f.getFbeventsModules("SignalsFBEventsExperimentsTypedef"),
+						b = f.getFbeventsModules(
+							"SignalsFBEventsLegacyExperimentGroupsTypedef"
+						),
+						c = f.getFbeventsModules("SignalsFBEventsTypeVersioning"),
+						d = f.getFbeventsModules("SignalsFBEventsTyped"),
+						e = d.coerce,
+						h = function() {
 							return Math.random();
 						};
-					function c(a) {
-						var c = a.reduce(function(b, c, a) {
+					function j(a) {
+						var b = a.reduce(function(b, c, a) {
 								if (a === 0) {
 									b.push([0, c.allocation]);
 									return b;
@@ -5364,37 +5852,37 @@ fbq.pendingConfigs = ["global_config"];
 								b.push([a, a + c.allocation]);
 								return b;
 							}, []),
-							d = b();
-						for (var e = 0; e < a.length; e++) {
-							var f = a[e],
-								h = f.passRate,
-								i = f.code;
-							f = f.name;
-							var j = g(c[e], 2),
+							c = h();
+						for (var d = 0; d < a.length; d++) {
+							var e = a[d],
+								f = e.passRate,
+								i = e.code;
+							e = e.name;
+							var j = g(b[d], 2),
 								k = j[0];
 							j = j[1];
-							if (d >= k && d < j) {
-								k = b() < h;
+							if (c >= k && c < j) {
+								k = h() < f;
 								return {
 									code: i + (k ? "1" : "0"),
 									isInExperimentGroup: k,
-									name: f
+									name: e
 								};
 							}
 						}
 						return null;
 					}
-					var d = (function() {
-						function b() {
-							o(this, b), (this._result = null), (this._hasRolled = !1);
+					d = (function() {
+						function d() {
+							o(this, d), (this._result = null), (this._hasRolled = !1);
 						}
-						i(b, [
+						i(d, [
 							{
 								key: "setExperiments",
-								value: function(b) {
-									b = a(b);
-									b != null &&
-										((this._experiments = b),
+								value: function(d) {
+									d = e(d, c.waterfall([b, a]));
+									d != null &&
+										((this._experiments = d),
 										(this._hasRolled = !1),
 										(this._result = null));
 								}
@@ -5405,7 +5893,7 @@ fbq.pendingConfigs = ["global_config"];
 									if (!this._hasRolled) {
 										var b = this._experiments;
 										if (b == null) return null;
-										b = c(b);
+										b = j(b);
 										b != null && (this._result = b);
 										this._hasRolled = !0;
 									}
@@ -5437,7 +5925,7 @@ fbq.pendingConfigs = ["global_config"];
 								}
 							}
 						]);
-						return b;
+						return d;
 					})();
 					m.exports = new d();
 				})();
@@ -5511,7 +5999,7 @@ fbq.pendingConfigs = ["global_config"];
 							return a.toQueryString();
 						});
 						a = new e().appendHash({ batch: 1, events: a });
-						a = i(a) || h(a) || j(a) || i(a, !0);
+						a = i(a) || h(a) || j(a) || i(a, { ignoreRequestLengthCheck: !0 });
 						a || c(new Error("could not send batch"));
 					}
 					var m = new a(l);
@@ -5537,11 +6025,14 @@ fbq.pendingConfigs = ["global_config"];
 						c = f.getFbeventsModules("SignalsFBEventsExperimentNames"),
 						d = c.SEND_BEACON_STRING_EXPERIMENT;
 					function e(c) {
-						c.append("rqm", "SB");
 						if (g.navigator && g.navigator.sendBeacon)
-							if (a.isInTest(d))
+							if (a.isInTest(d)) {
+								c.replaceEntry("rqm", "SB");
 								return g.navigator.sendBeacon(b.ENDPOINT, c.toQueryString());
-							else return g.navigator.sendBeacon(b.ENDPOINT, c.toFormData());
+							} else {
+								c.replaceEntry("rqm", "SB");
+								return g.navigator.sendBeacon(b.ENDPOINT, c.toFormData());
+							}
 						return !1;
 					}
 					k.exports = e;
@@ -5563,13 +6054,15 @@ fbq.pendingConfigs = ["global_config"];
 						j = f.getFbeventsModules("signalsFBEventsSendBeacon"),
 						l = f.getFbeventsModules("signalsFBEventsSendGET"),
 						m = f.getFbeventsModules("signalsFBEventsSendXHR"),
-						n = f.getFbeventsModules("signalsFBEventsGetIsChrome");
+						n = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
+						o = f.getFbeventsModules("signalsFBEventsGetIsChrome");
 					a = f.getFbeventsModules("SignalsFBEventsExperimentNames");
-					var o = a.BATCHING_EXPERIMENT,
-						p = a.SEND_BEACON_STRING_EXPERIMENT,
-						q = g.top !== g,
-						r = "SubscribedButtonClick";
-					function s(a) {
+					var p = a.BATCHING_EXPERIMENT,
+						q = a.SEND_BEACON_STRING_EXPERIMENT,
+						r = a.SEND_XHR_EXPERIMENT,
+						s = g.top !== g,
+						t = "SubscribedButtonClick";
+					function u(a) {
 						var b = a.customData,
 							e = a.customParams,
 							f = a.eventName,
@@ -5580,7 +6073,7 @@ fbq.pendingConfigs = ["global_config"];
 						a.append("ev", f);
 						a.append("dl", i.href);
 						a.append("rl", h.referrer);
-						a.append("if", q);
+						a.append("if", s);
 						a.append("ts", new Date().valueOf());
 						a.append("cd", b);
 						a.append("sw", g.screen.width);
@@ -5589,17 +6082,17 @@ fbq.pendingConfigs = ["global_config"];
 						a.appendHash(c.getCustomDataPayload());
 						return a;
 					}
-					function t(a) {
+					function v(a) {
 						var d = a.customData,
 							f = a.eventName;
-						a = s(a);
-						if (c.isInTest(o)) {
+						a = u(a);
+						if (c.isInTest(p)) {
 							e(a);
 							b.trigger("BATCH", a, d);
 							return;
 						}
-						var g = c.isInTestOrControl(p) || !n();
-						if (g && f === r && j(a)) {
+						var g = c.isInTestOrControl(q) || !o();
+						if (g && f === t && j(a)) {
 							b.trigger("BEACON", a, d);
 							return;
 						}
@@ -5611,15 +6104,68 @@ fbq.pendingConfigs = ["global_config"];
 							b.trigger("BEACON", a, d);
 							return;
 						}
-						if (m(a)) {
-							b.trigger("XHR", a, d);
+						if (c.isInTest(r)) {
+							if (m(a)) {
+								b.trigger("XHR", a, d);
+								return;
+							}
+							l(a, { ignoreRequestLengthCheck: !0 });
+							b.trigger("FGET", a, d);
 							return;
 						}
-						l(a, !0);
-						b.trigger("FGET", a, d);
-						return;
+						n(a);
+						b.trigger("POST", a, d);
 					}
-					k.exports = t;
+					k.exports = v;
+				})();
+				return k.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("signalsFBEventsSendFormPOST", function() {
+			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
+						b = f.getFbeventsModules("SignalsFBEventsUtils"),
+						c = b.listenOnce;
+					function d(b, d) {
+						b.replaceEntry("rqm", "formPOST");
+						var e =
+								"fb" +
+								Math.random()
+									.toString()
+									.replace(".", ""),
+							f = h.createElement("form");
+						f.method = "post";
+						f.action = d != null ? d : a.ENDPOINT;
+						f.target = e;
+						f.acceptCharset = "utf-8";
+						f.style.display = "none";
+						d = !!(g.attachEvent && !g.addEventListener);
+						var i = h.createElement("iframe");
+						d && (i.name = e);
+						i.src = "about:blank";
+						i.id = e;
+						i.name = e;
+						f.appendChild(i);
+						c(i, "load", function() {
+							b.each(function(a, b) {
+								var c = h.createElement("input");
+								c.name = decodeURIComponent(a);
+								c.value = b;
+								f.appendChild(c);
+							}),
+								c(i, "load", function() {
+									f.parentNode && f.parentNode.removeChild(f);
+								}),
+								f.submit();
+						});
+						h.body != null && h.body.appendChild(f);
+						return !0;
+					}
+					k.exports = d;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -5632,17 +6178,18 @@ fbq.pendingConfigs = ["global_config"];
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
 						b = 2048;
-					function c(c) {
-						var d =
-							arguments.length > 1 && arguments[1] !== void 0
-								? arguments[1]
-								: !1;
-						c.replaceEntry("rqm", d ? "FGET" : "GET");
-						var e = c.toQueryString(),
-							f = a.ENDPOINT + "?" + e;
-						if (d || f.length < b) {
-							var g = new Image();
-							g.src = f;
+					function c(c, d) {
+						d = d || {};
+						var e = d.ignoreRequestLengthCheck;
+						e = e === void 0 ? !1 : e;
+						d = d.url;
+						d = d === void 0 ? a.ENDPOINT : d;
+						c.replaceEntry("rqm", e ? "FGET" : "GET");
+						c = c.toQueryString();
+						d = d + "?" + c;
+						if (e || d.length < b) {
+							c = new Image();
+							c.src = d;
 							return !0;
 						}
 						return !1;
@@ -5660,37 +6207,45 @@ fbq.pendingConfigs = ["global_config"];
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
 						b = f.getFbeventsModules("SignalsParamList"),
-						c = {
+						c = f.getFbeventsModules("SignalsFBEventsLogging"),
+						d = c.logError,
+						e = {
 							UNSENT: 0,
 							OPENED: 1,
 							HEADERS_RECEIVED: 2,
 							LOADING: 3,
 							DONE: 4
 						},
-						d =
+						g =
 							typeof XMLHttpRequest !== "undefined" &&
 							"withCredentials" in new XMLHttpRequest();
-					function e(a, b) {
-						var d = new XMLHttpRequest();
-						d.withCredentials = !0;
-						d.open("POST", b);
-						d.onreadystatechange = function() {
-							if (d.readyState !== c.DONE) return;
+					function h(a, b) {
+						var c = new XMLHttpRequest();
+						c.withCredentials = !0;
+						c.open("POST", b);
+						c.onreadystatechange = function() {
+							if (c.readyState !== e.DONE) return;
+							c.status !== 200 &&
+								d(
+									new Error(
+										"Error sending XHR " + c.status + " - " + c.statusText
+									)
+								);
 						};
-						d.send(a);
+						c.send(a);
 					}
-					function g(c) {
-						var f =
+					function i(c) {
+						var d =
 							arguments.length > 1 && arguments[1] !== void 0
 								? arguments[1]
 								: a.ENDPOINT;
-						if (!d) return !1;
-						c instanceof b && c.append("rqm", "xhr");
-						var g = c instanceof b ? c.toFormData() : c;
-						e(g, f);
+						if (!g) return !1;
+						c instanceof b && c.replaceEntry("rqm", "xhr");
+						var e = c instanceof b ? c.toFormData() : c;
+						h(e, d);
 						return !0;
 					}
-					k.exports = g;
+					k.exports = i;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -5803,8 +6358,10 @@ fbq.pendingConfigs = ["global_config"];
 						b = f.getFbeventsModules("SignalsFBEventsUtils");
 					b.filter;
 					b.map;
-					var c = b.reduce,
-						d = (function(b) {
+					var c = b.reduce;
+					b = f.getFbeventsModules("SignalsFBEventsUtils");
+					var d = b.isSafeInteger,
+						g = (function(b) {
 							l(a, b);
 							function a() {
 								var b =
@@ -5821,58 +6378,58 @@ fbq.pendingConfigs = ["global_config"];
 							}
 							return a;
 						})(Error);
-					function g(a) {
+					function i(a) {
 						return Object.values(a);
-					}
-					function i() {
-						return function(a) {
-							if (typeof a !== "boolean") throw new d();
-							return a;
-						};
 					}
 					function j() {
 						return function(a) {
-							if (typeof a !== "number") throw new d();
+							if (typeof a !== "boolean") throw new g();
 							return a;
 						};
 					}
 					function n() {
 						return function(a) {
-							if (typeof a !== "string") throw new d();
+							if (typeof a !== "number") throw new g();
 							return a;
 						};
 					}
 					function p() {
+						return function(a) {
+							if (typeof a !== "string") throw new g();
+							return a;
+						};
+					}
+					function q() {
 						return function(a) {
 							if (
 								(typeof a === "undefined" ? "undefined" : h(a)) !== "object" ||
 								Array.isArray(a) ||
 								a == null
 							)
-								throw new d();
+								throw new g();
 							return a;
 						};
 					}
-					function q() {
+					function r() {
 						return function(a) {
-							if (a == null || !Array.isArray(a)) throw new d();
+							if (a == null || !Array.isArray(a)) throw new g();
 							return a;
-						};
-					}
-					function r(a) {
-						return function(b) {
-							if (g(a).includes(b)) return b;
-							throw new d();
 						};
 					}
 					function s(a) {
 						return function(b) {
-							return x(b, A.array()).map(a);
+							if (i(a).includes(b)) return b;
+							throw new g();
 						};
 					}
-					function t(b, d) {
+					function t(a) {
+						return function(b) {
+							return y(b, F.array()).map(a);
+						};
+					}
+					function u(b, d) {
 						return function(e) {
-							var b = x(e, A.object());
+							var b = y(e, F.object());
 							return c(
 								Object.keys(b),
 								function(c, e) {
@@ -5882,14 +6439,14 @@ fbq.pendingConfigs = ["global_config"];
 							);
 						};
 					}
-					function u(a) {
+					function v(a) {
 						return function(b) {
 							return b == null ? null : a(b);
 						};
 					}
-					function v(b) {
+					function w(b) {
 						return function(d) {
-							var c = x(d, A.object());
+							var c = y(d, F.object());
 							d = Object.keys(b).reduce(function(d, e) {
 								if (d == null) return null;
 								var f = b[e],
@@ -5900,7 +6457,7 @@ fbq.pendingConfigs = ["global_config"];
 							return d;
 						};
 					}
-					function w(a, b) {
+					function x(a, b) {
 						try {
 							return b(a);
 						} catch (a) {
@@ -5908,42 +6465,138 @@ fbq.pendingConfigs = ["global_config"];
 							throw a;
 						}
 					}
-					function x(a, b) {
+					function y(a, b) {
 						return b(a);
 					}
-					function y(a) {
+					function z(a) {
 						return function(b) {
-							b = x(b, A.string());
-							if (!a.test(b)) return b;
-							throw new d();
+							b = y(b, F.string());
+							if (a.test(b)) return b;
+							throw new g();
 						};
 					}
-					function z(a) {
-						if (a === !0) return;
-						throw new d();
+					function A(a) {
+						if (!a) throw new g();
 					}
-					var A = {
-						allowNull: u,
-						array: q,
-						arrayOf: s,
-						assert: z,
-						boolean: i,
-						enumeration: r,
-						mapOf: t,
-						matches: y,
-						number: j,
-						object: p,
-						objectWithFields: v,
-						string: n
+					function B(a) {
+						return function(b) {
+							b = y(b, r());
+							A(b.length === a.length);
+							return b.map(function(b, c) {
+								return y(b, a[c]);
+							});
+						};
+					}
+					function C(a) {
+						var b = a.def,
+							c = a.validators;
+						return function(a) {
+							var d = y(a, b);
+							c.forEach(function(a) {
+								if (!a(d)) throw new g();
+							});
+							return d;
+						};
+					}
+					var D = /^[1-9][0-9]{0,25}$/;
+					function E() {
+						return C({
+							def: function(a) {
+								var b = x(a, F.number());
+								if (b != null) {
+									F.assert(d(b));
+									return "" + b;
+								}
+								return y(a, F.string());
+							},
+							validators: [
+								function(a) {
+									return D.test(a);
+								}
+							]
+						});
+					}
+					var F = {
+						allowNull: v,
+						array: r,
+						arrayOf: t,
+						assert: A,
+						boolean: j,
+						enumeration: s,
+						fbid: E,
+						mapOf: u,
+						matches: z,
+						number: n,
+						object: q,
+						objectWithFields: w,
+						string: p,
+						tuple: B,
+						withValidation: C
 					};
 					e.exports = {
-						Typed: A,
-						coerce: w,
-						enforce: x,
-						FBEventsCoercionError: d
+						Typed: F,
+						coerce: x,
+						enforce: y,
+						FBEventsCoercionError: g
 					};
 				})();
 				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsTypeVersioning", function() {
+			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					var a = f.getFbeventsModules("SignalsFBEventsTyped");
+					a.coerce;
+					var b = a.enforce,
+						c = a.FBEventsCoercionError;
+					function d(a) {
+						return function(d) {
+							var e = !0,
+								f = !1,
+								g = void 0;
+							try {
+								for (
+									var h = a[
+											typeof Symbol === "function"
+												? Symbol.iterator
+												: "@@iterator"
+										](),
+										i;
+									!(e = (i = h.next()).done);
+									e = !0
+								) {
+									i = i.value;
+									try {
+										return b(d, i);
+									} catch (a) {
+										if (a.name === "FBEventsCoercionError") continue;
+										throw a;
+									}
+								}
+							} catch (a) {
+								(f = !0), (g = a);
+							} finally {
+								try {
+									!e && h["return"] && h["return"]();
+								} finally {
+									if (f) throw g;
+								}
+							}
+							throw new c();
+						};
+					}
+					function e(a, c) {
+						return function(d) {
+							return c(b(d, a));
+						};
+					}
+					a = { waterfall: d, upgrade: e };
+					k.exports = a;
+				})();
+				return k.exports;
 			})(a, b, c, d);
 		});
 		f.ensureModuleRegistered("SignalsFBEventsUtils", function() {
@@ -6377,37 +7030,37 @@ fbq.pendingConfigs = ["global_config"];
 						B = m.FBSet,
 						C = m.isEmptyObject,
 						D = m.isNumber,
-						aa = m.keys;
+						E = m.keys;
 					m = z.execEnd;
-					var ba = z.fired,
-						ca = z.getCustomParameters,
-						da = z.iwlBootstrap,
-						ea = z.piiInvalidated,
-						fa = z.setIWLExtractors,
-						ga = o.logError,
-						E = o.logUserError,
-						F = s.global,
-						G = -1,
-						ha = Array.prototype.slice,
-						H = Object.prototype.hasOwnProperty,
-						I = i.href,
-						J = !1,
-						K = !1,
-						L = [],
-						M = {},
-						N;
+					var F = z.fired,
+						aa = z.getCustomParameters,
+						ba = z.iwlBootstrap,
+						ca = z.piiInvalidated,
+						da = z.setIWLExtractors,
+						ea = o.logError,
+						G = o.logUserError,
+						H = s.global,
+						I = -1,
+						fa = Array.prototype.slice,
+						J = Object.prototype.hasOwnProperty,
+						K = i.href,
+						L = !1,
+						M = !1,
+						N = [],
+						O = {},
+						P;
 					h.referrer;
-					var O = { PageView: new B(), PixelInitialized: new B() },
-						P = new q(a, M),
-						Q = new x(P, F);
-					function ia(a) {
-						for (var b in a) H.call(a, b) && (this[b] = a[b]);
+					var Q = { PageView: new B(), PixelInitialized: new B() },
+						R = new q(a, O),
+						S = new x(R, H);
+					function ga(a) {
+						for (var b in a) J.call(a, b) && (this[b] = a[b]);
 						return this;
 					}
-					function R() {
+					function T() {
 						try {
-							var b = ha.call(arguments);
-							if (F.isLocked() && b[0] !== "consent") {
+							var b = fa.call(arguments);
+							if (H.isLocked() && b[0] !== "consent") {
 								a.queue.push(arguments);
 								return;
 							}
@@ -6417,32 +7070,32 @@ fbq.pendingConfigs = ["global_config"];
 								f = d.shift();
 							switch (f) {
 								case "addPixelId":
-									J = !0;
-									T.apply(this, d);
+									L = !0;
+									V.apply(this, d);
 									break;
 								case "init":
-									K = !0;
-									T.apply(this, d);
+									M = !0;
+									V.apply(this, d);
 									break;
 								case "set":
-									S.apply(this, d);
+									U.apply(this, d);
 									break;
 								case "track":
 									if (D(d[0])) {
-										la.apply(this, d);
+										ja.apply(this, d);
 										break;
 									}
 									if (e) {
-										V.apply(this, d);
+										X.apply(this, d);
 										break;
 									}
-									ka.apply(this, d);
+									ia.apply(this, d);
 									break;
 								case "trackCustom":
-									V.apply(this, d);
+									X.apply(this, d);
 									break;
 								case "send":
-									W.apply(this, d);
+									Y.apply(this, d);
 									break;
 								case "on":
 									var g = j(d),
@@ -6452,17 +7105,17 @@ fbq.pendingConfigs = ["global_config"];
 									k && k.triggerWeakly(i);
 									break;
 								case "loadPlugin":
-									Q.loadPlugin(d[0]);
+									S.loadPlugin(d[0]);
 									break;
 								default:
-									P.callMethod(arguments);
+									R.callMethod(arguments);
 									break;
 							}
 						} catch (a) {
-							ga(a);
+							ea(a);
 						}
 					}
-					function S(d) {
+					function U(d) {
 						for (
 							var e = arguments.length, f = Array(e > 1 ? e - 1 : 0), g = 1;
 							g < e;
@@ -6496,15 +7149,15 @@ fbq.pendingConfigs = ["global_config"];
 									throw new Error(
 										"Invalid pixelID supplied to set autoConfig."
 									);
-								P.callMethod([m, l, "AutomaticSetup"]);
+								R.callMethod([m, l, "AutomaticSetup"]);
 								break;
 							case "firstPartyCookies":
 								var n = f[0],
 									o = f[1],
 									p = n === !0 || n === "true" ? "optIn" : "optOut";
 								if (typeof o === "string")
-									P.callMethod([p, o, "FirstPartyCookies"]);
-								else if (o === void 0) P.disableFirstPartyCookies = !0;
+									R.callMethod([p, o, "FirstPartyCookies"]);
+								else if (o === void 0) R.disableFirstPartyCookies = !0;
 								else
 									throw new Error(
 										"Invalid pixelID supplied to set cookie controls."
@@ -6525,12 +7178,12 @@ fbq.pendingConfigs = ["global_config"];
 							case "iwlExtractors":
 								var u = f[0],
 									v = f[1];
-								fa.triggerWeakly({ extractors: v, pixelID: u });
+								da.triggerWeakly({ extractors: v, pixelID: u });
 								break;
 							case "startIWLBootstrap":
 								var w = f[0],
 									x = f[1];
-								da.triggerWeakly({ graphToken: w, pixelID: x });
+								ba.triggerWeakly({ graphToken: w, pixelID: x });
 								break;
 							default:
 								var y = f[0],
@@ -6543,20 +7196,20 @@ fbq.pendingConfigs = ["global_config"];
 									throw new Error("The metadata value must be a string.");
 								if (typeof z !== "string")
 									throw new Error("Invalid pixelID supplied to set call.");
-								ja(d, y, z);
+								ha(d, y, z);
 								break;
 						}
 					}
 					a._initHandlers = [];
 					a._initsDone = {};
-					function T(a, b, c) {
-						G = G === -1 ? Date.now() : G;
+					function V(a, b, c) {
+						I = I === -1 ? Date.now() : I;
 						a = y(a);
 						if (a == null) return;
-						if (H.call(M, a)) {
-							b && C(M[a].userData)
-								? ((M[a].userData = b), Q.loadPlugin("identity"))
-								: E({ pixelID: a, type: "DUPLICATE_PIXEL_ID" });
+						if (J.call(O, a)) {
+							b && C(O[a].userData)
+								? ((O[a].userData = b), S.loadPlugin("identity"))
+								: G({ pixelID: a, type: "DUPLICATE_PIXEL_ID" });
 							return;
 						}
 						c = {
@@ -6566,81 +7219,81 @@ fbq.pendingConfigs = ["global_config"];
 							userData: b || {},
 							userDataFormFields: {}
 						};
-						L.push(c);
-						M[a] = c;
-						b != null && Q.loadPlugin("identity");
-						U();
-						P.loadConfig(a);
+						N.push(c);
+						O[a] = c;
+						b != null && S.loadPlugin("identity");
+						W();
+						R.loadConfig(a);
 					}
-					function U() {
+					function W() {
 						for (var b = 0; b < a._initHandlers.length; b++) {
 							var c = a._initHandlers[b];
 							a._initsDone[b] || (a._initsDone[b] = {});
-							for (var d = 0; d < L.length; d++) {
-								var e = L[d];
+							for (var d = 0; d < N.length; d++) {
+								var e = N[d];
 								a._initsDone[b][e.id] || ((a._initsDone[b][e.id] = !0), c(e));
 							}
 						}
 					}
-					function ja(a, b, c) {
+					function ha(a, b, c) {
 						var d = p.validateMetadata(a);
-						d.error && E(d.error);
+						d.error && G(d.error);
 						d.warnings &&
 							d.warnings.forEach(function(a) {
-								E(a);
+								G(a);
 							});
-						if (H.call(M, c)) {
-							for (var d = 0, e = L.length; d < e; d++)
-								if (L[d].id === c) {
-									L[d][a] = b;
+						if (J.call(O, c)) {
+							for (var d = 0, e = N.length; d < e; d++)
+								if (N[d].id === c) {
+									N[d][a] = b;
 									break;
 								}
-						} else E({ metadataValue: b, pixelID: c, type: "SET_METADATA_ON_UNINITIALIZED_PIXEL_ID" });
+						} else G({ metadataValue: b, pixelID: c, type: "SET_METADATA_ON_UNINITIALIZED_PIXEL_ID" });
 					}
-					function ka(a, b, c) {
+					function ia(a, b, c) {
 						(b = b || {}),
 							p.validateEventAndLog(a, b),
 							a === "CustomEvent" &&
 								typeof b.event === "string" &&
 								(a = b.event),
-							V.call(this, a, b, c);
+							X.call(this, a, b, c);
 					}
-					function V(a, b, c) {
-						for (var d = 0, e = L.length; d < e; d++) {
-							var f = L[d];
+					function X(a, b, c) {
+						for (var d = 0, e = N.length; d < e; d++) {
+							var f = N[d];
 							if (
 								!(a === "PageView" && this.allowDuplicatePageViews) &&
-								Object.prototype.hasOwnProperty.call(O, a) &&
-								O[a].has(f.id)
+								Object.prototype.hasOwnProperty.call(Q, a) &&
+								Q[a].has(f.id)
 							)
 								continue;
-							Y({ customData: b, eventData: c, eventName: a, pixel: f });
-							Object.prototype.hasOwnProperty.call(O, a) && O[a].add(f.id);
+							$({ customData: b, eventData: c, eventName: a, pixel: f });
+							Object.prototype.hasOwnProperty.call(Q, a) && Q[a].add(f.id);
 						}
 					}
-					function la(a, b) {
-						Y({ customData: b, eventName: a, pixel: null });
+					function ja(a, b) {
+						$({ customData: b, eventName: a, pixel: null });
 					}
-					function W(a, b, c) {
-						L.forEach(function(c) {
-							return Y({ customData: b, eventName: a, pixel: c });
+					function Y(a, b, c) {
+						N.forEach(function(c) {
+							return $({ customData: b, eventName: a, pixel: c });
 						});
 					}
-					function X(b, c) {
+					function Z(b, c) {
 						var e = new d(a.piiTranslator);
 						try {
 							e.append("ud", (b && b.userData) || {}, !0),
 								e.append("udff", (b && b.userDataFormFields) || {}, !0);
 						} catch (a) {
-							ea.trigger(b);
+							ca.trigger(b);
 						}
 						e.append("v", a.version);
 						a._releaseSegment && e.append("r", a._releaseSegment);
 						e.append("a", b && b.agent ? b.agent : a.agent);
 						b && (e.append("ec", b.eventCount), b.eventCount++);
-						c = ca.trigger(b, c);
+						c = aa.trigger(b, c);
 						A(c, function(a) {
-							return A(aa(a), function(b) {
+							return A(E(a), function(b) {
 								if (e.containsKey(b))
 									throw new Error(
 										"Custom parameter " + b + " has already been specified."
@@ -6648,12 +7301,12 @@ fbq.pendingConfigs = ["global_config"];
 								else e.append(b, a[b]);
 							});
 						});
-						e.append("it", G);
+						e.append("it", I);
 						c = b && b.codeless === "false";
 						e.append("coo", c);
 						return e;
 					}
-					function Y(a) {
+					function $(a) {
 						var b = a.customData,
 							c = a.eventData,
 							d = a.eventName;
@@ -6662,7 +7315,7 @@ fbq.pendingConfigs = ["global_config"];
 							t.sendEvent(a, d, b || {});
 							return;
 						}
-						var f = X(a, d);
+						var f = Z(a, d);
 						if (c != null) {
 							c = c.eventID;
 							f.append("eid", c);
@@ -6675,62 +7328,62 @@ fbq.pendingConfigs = ["global_config"];
 							piiTranslator: null
 						});
 					}
-					function Z() {
-						while (a.queue.length && !F.isLocked()) {
+					function ka() {
+						while (a.queue.length && !H.isLocked()) {
 							var b = a.queue.shift();
-							R.apply(a, b);
+							T.apply(a, b);
 						}
 					}
-					F.onUnlocked(function() {
-						Z();
+					H.onUnlocked(function() {
+						ka();
 					});
-					a.pixelId && ((J = !0), T(a.pixelId));
-					((J && K) || g.fbq !== g._fbq) && E({ type: "CONFLICTING_VERSIONS" });
-					L.length > 1 && E({ type: "MULTIPLE_PIXELS" });
-					function ma() {
+					a.pixelId && ((L = !0), V(a.pixelId));
+					((L && M) || g.fbq !== g._fbq) && G({ type: "CONFLICTING_VERSIONS" });
+					N.length > 1 && G({ type: "MULTIPLE_PIXELS" });
+					function la() {
 						if (a.disablePushState === !0) return;
 						if (!k.pushState || !k.replaceState) return;
 						var b = v(function() {
-							N = I;
-							I = i.href;
-							if (I === N) return;
-							var a = new ia({ allowDuplicatePageViews: !0 });
-							R.call(a, "trackCustom", "PageView");
+							P = K;
+							K = i.href;
+							if (K === P) return;
+							var a = new ga({ allowDuplicatePageViews: !0 });
+							T.call(a, "trackCustom", "PageView");
 						});
 						u(k, "pushState", b);
 						u(k, "replaceState", b);
 						g.addEventListener("popstate", b, !1);
 					}
-					ba.listenOnce(function() {
-						ma();
+					F.listenOnce(function() {
+						la();
 					});
-					function na(b) {
-						a._initHandlers.push(b), U();
+					function ma(b) {
+						a._initHandlers.push(b), W();
 					}
-					function oa() {
-						return { pixelInitializationTime: G, pixels: L };
+					function na() {
+						return { pixelInitializationTime: I, pixels: N };
 					}
-					function $(a) {
-						(a.instance = P),
-							(a.callMethod = R),
+					function oa(a) {
+						(a.instance = R),
+							(a.callMethod = T),
 							(a._initHandlers = []),
 							(a._initsDone = {}),
-							(a.send = W),
-							(a.getEventCustomParameters = X),
-							(a.addInitHandler = na),
-							(a.getState = oa),
-							(a.init = T),
-							(a.set = S),
+							(a.send = Y),
+							(a.getEventCustomParameters = Z),
+							(a.addInitHandler = ma),
+							(a.getState = na),
+							(a.init = V),
+							(a.set = U),
 							(a.loadPlugin = function(a) {
-								return Q.loadPlugin(a);
+								return S.loadPlugin(a);
 							}),
 							(a.registerPlugin = function(a, b) {
-								Q.registerPlugin(a, b);
+								S.registerPlugin(a, b);
 							});
 					}
-					$(g.fbq);
-					Z();
-					l.exports = { doExport: $ };
+					oa(g.fbq);
+					ka();
+					l.exports = { doExport: oa };
 					m.trigger();
 				})();
 				return l.exports;
