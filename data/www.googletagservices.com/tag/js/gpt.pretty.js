@@ -2007,10 +2007,10 @@
 			return 0 === $d(T(172));
 		};
 	var be = function() {
-		return Eb("3") || 0;
+		return Eb("5") || 0;
 	};
 	Ud("getVersion", function() {
-		return "2019111201";
+		return "2019111401";
 	});
 	var ce = function() {
 		var a = {};
@@ -2066,7 +2066,7 @@
 	var ge = function() {
 			var a =
 				void 0 === a
-					? Ha([Id, w("/tag/js/fetch_frame_"), w("2019111201"), w(".html")])
+					? Ha([Id, w("/tag/js/fetch_frame_"), w("2019111401"), w(".html")])
 					: a;
 			var b = rb();
 			b.style.display = "none";
@@ -2096,7 +2096,7 @@
 		je = function() {
 			var a = Ba;
 			S(187) ? (a = w("modern_")) : S(234) && (a = w("legacy_"));
-			a = Ha([Hd, Gd, a, w("2019111201"), w(".js")]);
+			a = Ha([Hd, Gd, a, w("2019111401"), w(".js")]);
 			var b = ed();
 			return b ? Ga(a, String(b)) : a;
 		},
@@ -2212,6 +2212,27 @@
 		[null, 32, null, [null, 20]]
 	],
 	[
+		[
+			3,
+			[
+				[
+					null,
+					[
+						[
+							21065148,
+							null,
+							[4, null, 6, null, null, null, null, ["21064523"]]
+						],
+						[
+							21065149,
+							[[null, 35, null, [null, 10]]],
+							[4, null, 6, null, null, null, null, ["21064523"]]
+						]
+					],
+					[4, null, 9, null, null, null, null, ["LayoutShift"]]
+				]
+			]
+		],
 		[
 			12,
 			[
@@ -2633,18 +2654,6 @@
 					]
 				],
 				[
-					1,
-					[
-						[21065056],
-						[
-							21065057,
-							[[null, null, null, [null, null, null, ["adk", "adks"]], null, 7]]
-						]
-					],
-					null,
-					15
-				],
-				[
 					1000,
 					[
 						[
@@ -2832,6 +2841,7 @@
 						[21064640, [[74, null, null, [1]], [198, null, null, [1]]]]
 					]
 				],
+				[null, [[21065147, [[null, 32, null, [null, 4]]]]]],
 				[
 					null,
 					[
@@ -2972,7 +2982,7 @@
 					12
 				],
 				[
-					250,
+					500,
 					[
 						[
 							21064805,
@@ -3240,76 +3250,13 @@
 							21065058,
 							[
 								[null, 24, null, [null, 21065058]],
-								[
-									237,
-									null,
-									null,
-									[],
-									[
-										[
-											[
-												4,
-												null,
-												8,
-												null,
-												null,
-												null,
-												null,
-												["googletag.fifWin"]
-											],
-											[1]
-										]
-									]
-								],
-								[null, 25, null, [null, 21065058]],
-								[
-									238,
-									null,
-									null,
-									[],
-									[
-										[
-											[
-												4,
-												null,
-												8,
-												null,
-												null,
-												null,
-												null,
-												["googletag.fifWin"]
-											],
-											[1]
-										]
-									]
-								]
+								[null, 25, null, [null, 21065058]]
 							]
 						],
 						[
 							21065059,
 							[
 								[null, 24, null, [null, 21065059]],
-								[
-									237,
-									null,
-									null,
-									[],
-									[
-										[
-											[
-												4,
-												null,
-												8,
-												null,
-												null,
-												null,
-												null,
-												["googletag.fifWin"]
-											],
-											[1]
-										]
-									]
-								],
 								[null, 25, null, [null, 21065059]],
 								[
 									234,
@@ -3366,33 +3313,10 @@
 											[1]
 										]
 									]
-								],
-								[
-									238,
-									null,
-									null,
-									[],
-									[
-										[
-											[
-												4,
-												null,
-												8,
-												null,
-												null,
-												null,
-												null,
-												["googletag.fifWin"]
-											],
-											[1]
-										]
-									]
 								]
 							]
 						]
-					],
-					null,
-					18
+					]
 				],
 				[
 					1,
@@ -3426,6 +3350,33 @@
 								[null, 28, null, [null, 0.1]]
 							],
 							[6, null, null, 4, null, 3]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21065156,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21065156]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21065156]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21065157,
+							[
+								[null, 7, null, [null, 1]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]]
+							],
+							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
