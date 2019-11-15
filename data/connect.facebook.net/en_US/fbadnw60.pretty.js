@@ -1,4 +1,4 @@
-/*1573730913,,JIT Construction: v1001430940,en_US*/
+/*1573796313,,JIT Construction: v1001436623,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -13333,33 +13333,32 @@ try {
 									var i = this,
 										j = a.features,
 										k = this.$2.rootElement,
-										l = k,
-										m = null,
-										n = this.$5(a),
-										o = j.maxPageRecirc != null && j.maxPageRecirc > 0,
-										p = this.$2.recircpageidx || 0;
-									if (o && p === 0) {
-										var q = g("fbRecircPage-0"),
-											r = this.$2.rootElement;
-										r.appendChild(q);
-										k = q;
+										l = null,
+										m = this.$5(a),
+										n = j.maxPageRecirc != null && j.maxPageRecirc > 0,
+										o = this.$2.recircpageidx || 0;
+									if (n && o === 0) {
+										var p = g("fbRecircPage-0"),
+											q = this.$2.rootElement;
+										q.appendChild(p);
+										k = p;
 									}
 									if (
 										!b("ANUtils").isInDfpIframe(k) &&
 										j.wrapRecirculationInIframe
 									) {
-										r = document.createElement("div");
+										q = document.createElement("div");
 										k.innerHTML = "";
-										k.appendChild(r);
+										k.appendChild(q);
 										j.wrapRecirculationInIframe &&
-											(m = b("ANUtils").wrapInIframe(k, r));
-										k = r;
+											(l = b("ANUtils").wrapInIframe(k, q));
+										k = q;
 									}
 									a.wrapperMarkup && (k.innerHTML = a.wrapperMarkup);
-									q = b("ANRecirculationUnit").render(
+									p = b("ANRecirculationUnit").render(
 										b("nullthrows")(a.recommendedContent),
-										n,
-										p,
+										m,
+										o,
 										k,
 										b("nullthrows")(a.wrapperItemMarkup),
 										j,
@@ -13375,7 +13374,7 @@ try {
 													payload: {
 														type: b("ANMWebUnifiedLoggingRecirculationEvent")
 															.IMPRESSION,
-														page: p,
+														page: o,
 														index: a
 													}
 												}
@@ -13406,7 +13405,7 @@ try {
 													payload: {
 														type: b("ANMWebUnifiedLoggingRecirculationEvent")
 															.CLICK,
-														page: p,
+														page: o,
 														index: a
 													}
 												}
@@ -13436,7 +13435,7 @@ try {
 											);
 										},
 										function() {
-											f && f(a.placementId, { hasInfiniteScroll: o });
+											f && f(a.placementId, { hasInfiniteScroll: n });
 										},
 										function() {
 											h &&
@@ -13447,46 +13446,46 @@ try {
 												);
 										}
 									);
-									r = b("nullthrows")(
+									q = b("nullthrows")(
 										a.recirculation,
 										"Recirculation payload is not available"
 									);
-									n = r.options.infinite_scroll;
-									r = r.options.show_more_button;
-									var s =
-										n !==
+									m = q.options.infinite_scroll;
+									q = q.options.show_more_button;
+									var r =
+										m !==
 										b("AdNetworkRecirculationTagOptionsInfiniteScroll").OFF;
-									n =
-										n ===
+									m =
+										m ===
 										b("AdNetworkRecirculationTagOptionsInfiniteScroll").EAGER;
-									r =
-										r ===
+									q =
+										q ===
 										b("AdNetworkRecirculationTagOptionsShowMoreButton").ON;
-									var t, u;
-									s &&
-										((t = n ? null : q.getBottomOverlay()),
-										(u = q.getTopOverlay()));
+									var s, t;
+									r &&
+										((s = m ? null : p.getBottomOverlay()),
+										(t = p.getTopOverlay()));
 									if (
-										o &&
+										n &&
 										j.maxPageRecirc != null &&
-										p < j.maxPageRecirc &&
+										o < j.maxPageRecirc &&
 										!j.recircBlank &&
-										(s || r)
+										(r || q)
 									) {
-										n = this.$2.data.recircUnitId;
-										s = this.$2.adInputData;
-										var v = this.$2.tagStateContainer;
-										if (n != null && s != null && v != null) {
-											q = new (b("ANRecirculationPagination"))({
-												currentPage: p,
+										m = this.$2.data.recircUnitId;
+										r = this.$2.adInputData;
+										var u = this.$2.tagStateContainer;
+										if (m != null && r != null && u != null) {
+											p = new (b("ANRecirculationPagination"))({
+												currentPage: o,
 												element: k,
-												nextPageTriggerElement: u,
-												unit: q,
-												cancelPageTriggerElement: t,
-												showLoadMoreButton: r,
-												unitId: n,
-												adInputData: s,
-												tagStateContainer: v,
+												nextPageTriggerElement: t,
+												unit: p,
+												cancelPageTriggerElement: s,
+												showLoadMoreButton: q,
+												unitId: m,
+												adInputData: r,
+												tagStateContainer: u,
 												logger: this.$3,
 												onCancelledPage: function() {
 													i.sendToFacebook({
@@ -13498,7 +13497,7 @@ try {
 																type: b(
 																	"ANMWebUnifiedLoggingRecirculationEvent"
 																).CANCEL_PAGE_LOAD,
-																page: p + 1,
+																page: o + 1,
 																index: -1
 															}
 														}
@@ -13531,18 +13530,17 @@ try {
 													});
 												}
 											});
-											q.observe();
+											p.observe();
 										}
 									}
-									if (m != null) {
-										r = b("nullthrows")(m.contentDocument.body);
-										r.style.overflowY = "hidden";
-										b("ANUtils").resizeElement(m, "100%", k.clientHeight);
+									if (l != null) {
+										q = b("nullthrows")(l.contentDocument.body);
+										q.style.overflowY = "hidden";
+										b("ANUtils").resizeElement(l, "100%", k.clientHeight);
 									}
-									l.clientWidth === window.screen.width &&
-										p === 0 &&
-										((l.style.paddingLeft = "5px"),
-										(l.style.paddingRight = "5px"));
+									k.clientWidth === window.screen.width &&
+										((k.style.paddingLeft = "5px"),
+										(k.style.paddingRight = "5px"));
 								};
 								c.$9 = function(a, c, d, e, f, g) {
 									var h = this,
@@ -13817,7 +13815,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001430940","namespace":"FB","message":"' +
+				'","revision":"1001436623","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
