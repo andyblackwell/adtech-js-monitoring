@@ -17,7 +17,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.13";
+fbq.version = "2.9.14";
 fbq._releaseSegment = "stable";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -970,6 +970,9 @@ fbq.pendingConfigs = ["global_config"];
 					function C(a, b) {
 						return a == null || b == null ? !1 : a.indexOf(b) >= 0;
 					}
+					function D(a, b) {
+						return a == null || b == null ? !1 : a.indexOf(b) === 0;
+					}
 					A = {
 						FBSet: A,
 						castTo: B,
@@ -993,7 +996,8 @@ fbq.pendingConfigs = ["global_config"];
 						some: function(a, b) {
 							return u.call(a, b);
 						},
-						stringIncludes: C
+						stringIncludes: C,
+						stringStartsWith: D
 					};
 					l.exports = A;
 				})();
@@ -2856,6 +2860,9 @@ fbq.pendingConfigs = ["global_config"];
 					function C(a, b) {
 						return a == null || b == null ? !1 : a.indexOf(b) >= 0;
 					}
+					function D(a, b) {
+						return a == null || b == null ? !1 : a.indexOf(b) === 0;
+					}
 					A = {
 						FBSet: A,
 						castTo: B,
@@ -2879,7 +2886,8 @@ fbq.pendingConfigs = ["global_config"];
 						some: function(a, b) {
 							return u.call(a, b);
 						},
-						stringIncludes: C
+						stringIncludes: C,
+						stringStartsWith: D
 					};
 					l.exports = A;
 				})();
@@ -6554,35 +6562,13 @@ fbq.pendingConfigs = ["global_config"];
 						c = a.FBEventsCoercionError;
 					function d(a) {
 						return function(d) {
-							var e = !0,
-								f = !1,
-								g = void 0;
-							try {
-								for (
-									var h = a[
-											typeof Symbol === "function"
-												? Symbol.iterator
-												: "@@iterator"
-										](),
-										i;
-									!(e = (i = h.next()).done);
-									e = !0
-								) {
-									i = i.value;
-									try {
-										return b(d, i);
-									} catch (a) {
-										if (a.name === "FBEventsCoercionError") continue;
-										throw a;
-									}
-								}
-							} catch (a) {
-								(f = !0), (g = a);
-							} finally {
+							for (var e = 0; e < a.length; e++) {
+								var f = a[e];
 								try {
-									!e && h["return"] && h["return"]();
-								} finally {
-									if (f) throw g;
+									return b(d, f);
+								} catch (a) {
+									if (a.name === "FBEventsCoercionError") continue;
+									throw a;
 								}
 							}
 							throw new c();
@@ -6764,6 +6750,9 @@ fbq.pendingConfigs = ["global_config"];
 					function C(a, b) {
 						return a == null || b == null ? !1 : a.indexOf(b) >= 0;
 					}
+					function D(a, b) {
+						return a == null || b == null ? !1 : a.indexOf(b) === 0;
+					}
 					A = {
 						FBSet: A,
 						castTo: B,
@@ -6787,7 +6776,8 @@ fbq.pendingConfigs = ["global_config"];
 						some: function(a, b) {
 							return u.call(a, b);
 						},
-						stringIncludes: C
+						stringIncludes: C,
+						stringStartsWith: D
 					};
 					l.exports = A;
 				})();
@@ -7391,9 +7381,7 @@ fbq.registerPlugin("global_config", {
 	__fbEventsPlugin: 1,
 	plugin: function(fbq, instance, config) {
 		fbq.loadPlugin("opttracking");
-		fbq.set("experiments", [
-			{ allocation: 0.01, code: "b", name: "batching", passRate: 0.5 }
-		]);
+		fbq.set("experiments", []);
 		config.set(null, "batching", { batchWaitTimeMs: 501, maxBatchSize: 10 });
 		config.set(null, "microdata", { waitTimeMs: 500 });
 		instance.configLoaded("global_config");
