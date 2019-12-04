@@ -1,4 +1,4 @@
-/*1573796313,,JIT Construction: v1001436623,en_US*/
+/*1575419093,,JIT Construction: v1001489394,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -11446,6 +11446,7 @@ try {
 									"fbAdCallToAction",
 									"fbAdIcon",
 									"fbAdMedia",
+									"fbAdRotatingCallToAction",
 									"fbAdSubtitle",
 									"fbAdTitle",
 									"fbTwoStepDialog",
@@ -12599,6 +12600,7 @@ try {
 										fbAdMedia: "fbAdMedia"
 									}),
 									(b._74vg = "fbTwoStepDialog"),
+									(b.fbAdRotatingCallToAction = "fbAdRotatingCallToAction"),
 									b);
 									var c = this.$42();
 									for (var d in b) {
@@ -13815,7 +13817,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001436623","namespace":"FB","message":"' +
+				'","revision":"1001489394","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
