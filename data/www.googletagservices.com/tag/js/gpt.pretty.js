@@ -2036,7 +2036,7 @@
 		return Eb("3") || 0;
 	};
 	Vd("getVersion", function() {
-		return "2019120901";
+		return "2019121002";
 	});
 	var de = function() {
 		var a = {};
@@ -2092,7 +2092,7 @@
 	var he = function() {
 		var a =
 			void 0 === a
-				? Ia([Jd, w("/tag/js/fetch_frame_"), w("2019120901"), w(".html")])
+				? Ia([Jd, w("/tag/js/fetch_frame_"), w("2019121002"), w(".html")])
 				: a;
 		var b = sb();
 		b.style.display = "none";
@@ -2118,7 +2118,7 @@
 		je = function() {
 			var a = Ba;
 			P(187) ? (a = w("modern_")) : P(234) && (a = w("legacy_"));
-			a = Ia([Id, Hd, a, w("2019120901"), w(".js")]);
+			a = Ia([Id, Hd, a, w("2019121002"), w(".js")]);
 			var b = Fc();
 			return b ? Ha(a, String(b)) : a;
 		},
@@ -2247,6 +2247,7 @@
 		[null, 33, null, [null, 250]],
 		[269, null, null, [1]],
 		[221, null, null, [1]],
+		[142, null, null, [1]],
 		[
 			238,
 			null,
@@ -3126,33 +3127,6 @@
 					17
 				],
 				[
-					1000,
-					[
-						[
-							21065234,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21065234]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21065234]]
-							],
-							[6, null, null, 4, null, 6]
-						],
-						[
-							21065235,
-							[
-								[null, 7, null, [null, 1]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]]
-							],
-							[6, null, null, 4, null, 7]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
 					50,
 					[
 						[
@@ -3202,33 +3176,6 @@
 				[
 					1000,
 					[
-						[
-							21065276,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21065276]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21065276]]
-							],
-							[6, null, null, 4, null, 8]
-						],
-						[
-							21065277,
-							[
-								[null, 7, null, [null, 1]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]]
-							],
-							[6, null, null, 4, null, 9]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
 						[21065297, null, [6, null, null, 1, null, 10]],
 						[
 							21065298,
@@ -3252,18 +3199,18 @@
 					1000,
 					[
 						[
-							21065300,
+							21065311,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21065300]],
+								[null, 24, null, [null, 21065311]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21065300]]
+								[null, 25, null, [null, 21065311]]
 							],
 							[6, null, null, 4, null, 2]
 						],
 						[
-							21065301,
+							21065312,
 							[
 								[null, 7, null, [null, 1]],
 								[60, null, null, [1]],
@@ -3329,7 +3276,6 @@
 		[
 			13,
 			[
-				[10, [[21064708], [21064709, [[215, null, null, [1]]]]]],
 				[
 					100,
 					[
@@ -3384,6 +3330,16 @@
 						]
 					],
 					[4, null, 9, null, null, null, null, ["LayoutShift"]]
+				],
+				[
+					1,
+					[
+						[21065304],
+						[21065305, [[215, null, null, [1]], [null, 37, null, []]]],
+						[21065306, [[215, null, null, [1]], [null, 37, null, [null, 100]]]],
+						[21065307, [[215, null, null, [1]], [null, 37, null, [null, 250]]]],
+						[21065308, [[215, null, null, [1]], [null, 37, null, [null, 1000]]]]
+					]
 				]
 			]
 		]
