@@ -40,9 +40,9 @@
 			"name": "Criteo",
 			"tags": ["Criteo", "prebid"],
 			"url": "https://static.criteo.net/js/ld/publishertag.js",
-			"version": "78",
+			"version": "79",
 			"versionRegex": "PublisherTagVersion=([0-9]+),",
-			"etag": "W/\"5df3c81f-164f0\""
+			"etag": "W/\"5dfd029e-17429\""
 		},
 		{
 			"name": "Amazon TAM",
