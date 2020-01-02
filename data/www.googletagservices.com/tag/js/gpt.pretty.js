@@ -1,5 +1,9 @@
 (function(E) {
-	var window = this;
+	var window = this; /*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
 	var aa = function(a) {
 			var b = 0;
 			return function() {
@@ -341,11 +345,7 @@
 		},
 		Sa = function(a, b) {
 			return a < b ? -1 : a > b ? 1 : 0;
-		}; /*
-
- Copyright The Closure Library Authors.
- SPDX-License-Identifier: Apache-2.0
-*/
+		};
 	var y = function(a, b) {
 		this.c = (a === Ua && b) || "";
 		this.g = Va;
@@ -1114,7 +1114,26 @@
 			}
 			return Ic;
 		};
-	var Kc = function() {
+	var Q = function() {
+			this.a = function() {};
+			this.b = function() {
+				return [];
+			};
+		},
+		Kc = function(a, b, c) {
+			a.a = function(d) {
+				O(nc, b, function() {
+					return [];
+				})(d, c);
+			};
+			a.b = function() {
+				return O(oc, b, function() {
+					return [];
+				})(c);
+			};
+		};
+	k(Q);
+	var Lc = function() {
 		var a = {};
 		this[3] = ((a[8] = function(b) {
 			return !!na(b);
@@ -1132,6 +1151,9 @@
 		}),
 		(a[22] = function() {
 			return Hb();
+		}),
+		(a[6] = function(b) {
+			return t(Q.f().b(), parseInt(b, 10));
 		}),
 		a);
 		a = {};
@@ -1164,30 +1186,11 @@
 		}),
 		a);
 	};
-	k(Kc);
-	var Lc = function() {
+	k(Lc);
+	var Mc = function() {
 		var a = void 0 === a ? h : a;
 		return a.ggeac || (a.ggeac = {});
 	};
-	var Q = function() {
-			this.a = function() {};
-			this.b = function() {
-				return [];
-			};
-		},
-		Mc = function(a, b, c) {
-			a.a = function(d) {
-				O(nc, b, function() {
-					return [];
-				})(d, c);
-			};
-			a.b = function() {
-				return O(oc, b, function() {
-					return [];
-				})(c);
-			};
-		};
-	k(Q);
 	var Oc = function(a) {
 		D(this, a, Nc, null);
 	};
@@ -1378,11 +1381,12 @@
 	var hd = function(a) {
 		gd.f().a(a);
 	};
-	var jd = function(a, b) {
-			var c = { D: S(211), I: S(227), N: S(226) },
+	var kd = function(a) {
+			var b = id.f(),
+				c = { D: S(211), I: S(227), N: S(226) },
 				d = void 0,
 				e = 2;
-			d = void 0 === d ? Lc() : d;
+			d = void 0 === d ? Mc() : d;
 			e = void 0 === e ? 0 : e;
 			d.hasOwnProperty("init-done")
 				? (O(xc, d)(
@@ -1397,31 +1401,31 @@
 						e
 				  ),
 				  b && O(zc, d)(b),
-				  id(d, e))
+				  jd(d, e))
 				: (fd(Wc(Vc.f(), I(a, R, 2), e, c), d),
 				  Ac(d),
 				  Bc(d),
 				  Cc(d),
-				  id(d, e),
+				  jd(d, e),
 				  hc(I(a, K, 1), e),
 				  (Vb = Vb || !(!c || !c.U)),
-				  hd(Kc.f()),
+				  hd(Lc.f()),
 				  b && hd(b));
 		},
-		id = function(a, b) {
-			a = void 0 === a ? Lc() : a;
+		jd = function(a, b) {
+			a = void 0 === a ? Mc() : a;
 			b = void 0 === b ? 0 : b;
 			var c = a,
 				d = b;
 			d = void 0 === d ? 0 : d;
-			Mc(Q.f(), c, d);
+			Kc(Q.f(), c, d);
 			c = a;
 			b = void 0 === b ? 0 : b;
 			Ec(Dc.f(), c, b);
 			gd.f().a = O(zc, a);
 			Dc.f().a();
 		};
-	var kd = function(a, b, c) {
+	var ld = function(a, b, c) {
 		var d = "script";
 		d = void 0 === d ? "" : d;
 		var e = a.createElement("link");
@@ -1451,18 +1455,18 @@
 				a.appendChild(e);
 			} catch (n) {}
 	};
-	var ld = /^\.google\.(com?\.)?[a-z]{2,3}$/,
-		md = /\.(cn|com\.bi|do|sl|ba|by|ma|am)$/,
-		nd = function(a) {
-			return ld.test(a) && !md.test(a);
-		},
+	var md = /^\.google\.(com?\.)?[a-z]{2,3}$/,
+		nd = /\.(cn|com\.bi|do|sl|ba|by|ma|am)$/,
 		od = function(a) {
+			return md.test(a) && !nd.test(a);
+		},
+		pd = function(a) {
 			return a.replace(/[\W]/g, function(b) {
 				return "&#" + b.charCodeAt() + ";";
 			});
 		},
 		T = h,
-		pd = function(a, b) {
+		qd = function(a, b) {
 			a = "https://adservice" + (b + "/adsid/integrator." + a);
 			b = ["domain=" + encodeURIComponent(h.location.hostname)];
 			U[3] >= +new Date() && b.push("adsid=" + encodeURIComponent(U[1]));
@@ -1470,20 +1474,20 @@
 		},
 		U,
 		V,
-		qd = function() {
+		rd = function() {
 			T = h;
 			U = T.googleToken = T.googleToken || {};
 			var a = +new Date();
 			(U[1] && U[3] > a && 0 < U[2]) ||
 				((U[1] = ""), (U[2] = -1), (U[3] = -1), (U[4] = ""), (U[6] = ""));
 			V = T.googleIMState = T.googleIMState || {};
-			nd(V[1]) || (V[1] = ".google.com");
+			od(V[1]) || (V[1] = ".google.com");
 			m(V[5]) || (V[5] = []);
 			"boolean" !== typeof V[6] && (V[6] = !1);
 			m(V[7]) || (V[7] = []);
 			"number" !== typeof V[8] && (V[8] = 0);
 		},
-		rd = function(a) {
+		sd = function(a) {
 			try {
 				a();
 			} catch (b) {
@@ -1492,15 +1496,15 @@
 				}, 0);
 			}
 		},
-		td = function(a) {
+		ud = function(a) {
 			"complete" == h.document.readyState ||
 			"loaded" == h.document.readyState ||
 			(h.document.currentScript && h.document.currentScript.async)
-				? sd(3)
+				? td(3)
 				: a();
 		},
-		ud = 0,
-		vd = {
+		vd = 0,
+		wd = {
 			o: function() {
 				return 0 < V[8];
 			},
@@ -1520,9 +1524,9 @@
 			F: function() {
 				return V[5];
 			},
-			C: rd
+			C: sd
 		},
-		wd = {
+		xd = {
 			o: function() {
 				return V[6];
 			},
@@ -1537,18 +1541,18 @@
 			},
 			s: function() {},
 			O: function() {
-				return ".google.com" != V[1] && 2 < ++ud;
+				return ".google.com" != V[1] && 2 < ++vd;
 			},
 			F: function() {
 				return V[7];
 			},
 			C: function(a) {
-				td(function() {
-					rd(a);
+				ud(function() {
+					sd(a);
 				});
 			}
 		},
-		sd = function(a) {
+		td = function(a) {
 			if (1e-5 > Math.random()) {
 				h.google_image_requests || (h.google_image_requests = []);
 				var b = h.document.createElement("img");
@@ -1558,13 +1562,13 @@
 				h.google_image_requests.push(b);
 			}
 		};
-	vd.s = function() {
-		if (!vd.o()) {
+	wd.s = function() {
+		if (!wd.o()) {
 			var a = h.document,
 				b = function(e) {
-					e = pd("js", e);
+					e = qd("js", e);
 					var f = Fb();
-					kd(a, e, f);
+					ld(a, e, f);
 					f = a.createElement("script");
 					f.type = "text/javascript";
 					f.onerror = function() {
@@ -1573,7 +1577,7 @@
 					e = ub(e);
 					jb(f, e);
 					try {
-						(a.head || a.body || a.documentElement).appendChild(f), vd.A();
+						(a.head || a.body || a.documentElement).appendChild(f), wd.A();
 					} catch (g) {}
 				},
 				c = V[1];
@@ -1586,16 +1590,16 @@
 			}, 1e3);
 		}
 	};
-	wd.s = function() {
-		if (!wd.o()) {
+	xd.s = function() {
+		if (!xd.o()) {
 			var a = h.document,
-				b = pd("sync.js", V[1]);
-			kd(a, b);
-			b = od(b);
+				b = qd("sync.js", V[1]);
+			ld(a, b);
+			b = pd(b);
 			var c = kb("script"),
 				d = "",
 				e = Fb();
-			e && (d = 'nonce="' + od(e) + '"');
+			e && (d = 'nonce="' + pd(e) + '"');
 			var f =
 				"<" +
 				c +
@@ -1612,33 +1616,33 @@
 					'>processGoogleTokenSync({"newToken":"FBS"},5);</' +
 					c +
 					">");
-			td(function() {
+			ud(function() {
 				a.write(f);
-				wd.A();
+				xd.A();
 			});
 		}
 	};
-	var xd = function(a) {
-			qd();
+	var yd = function(a) {
+			rd();
 			(U[3] >= +new Date() && U[2] >= +new Date()) || a.s();
 		},
-		zd = function() {
+		Ad = function() {
 			h.processGoogleToken =
 				h.processGoogleToken ||
 				function(a, b) {
-					return yd(vd, a, b);
+					return zd(wd, a, b);
 				};
-			xd(vd);
+			yd(wd);
 		},
-		Ad = function() {
+		Bd = function() {
 			h.processGoogleTokenSync =
 				h.processGoogleTokenSync ||
 				function(a, b) {
-					return yd(wd, a, b);
+					return zd(xd, a, b);
 				};
-			xd(wd);
+			yd(xd);
 		},
-		yd = function(a, b, c) {
+		zd = function(a, b, c) {
 			b = void 0 === b ? {} : b;
 			c = void 0 === c ? 0 : c;
 			var d = b.newToken || "",
@@ -1647,9 +1651,9 @@
 				g = parseInt(b.validLifetimeSecs || "", 10),
 				l = b["1p_jar"] || "";
 			b = b.pucrd || "";
-			qd();
+			rd();
 			1 == c ? a.L() : a.K();
-			if (!d && a.O()) nd(".google.com") && (V[1] = ".google.com"), a.s();
+			if (!d && a.O()) od(".google.com") && (V[1] = ".google.com"), a.s();
 			else {
 				var n = (T.googleToken = T.googleToken || {}),
 					ua =
@@ -1668,14 +1672,14 @@
 					(e = +new Date()),
 						(f = e + 1e3 * f),
 						(g = e + 1e3 * g),
-						sd(c),
+						td(c),
 						(n[5] = c),
 						(n[1] = d),
 						(n[2] = f),
 						(n[3] = g),
 						(n[4] = l),
 						(n[6] = b),
-						qd();
+						rd();
 				if (ua || !a.o()) {
 					c = a.F();
 					for (d = 0; d < c.length; d++) a.C(c[d]);
@@ -1683,28 +1687,28 @@
 				}
 			}
 		};
-	var Bd = function(a) {
+	var Cd = function(a) {
 		a = void 0 === a ? h : a;
 		return (a = a.performance) && a.now ? a.now() : null;
 	};
 	var W = h.performance,
-		Cd = !!(W && W.mark && W.measure && W.clearMarks),
-		Dd = u(function() {
+		Dd = !!(W && W.mark && W.measure && W.clearMarks),
+		Ed = u(function() {
 			var a;
-			if ((a = Cd)) (a = Jc()), (a = !!a.indexOf && 0 <= a.indexOf("1337"));
+			if ((a = Dd)) (a = Jc()), (a = !!a.indexOf && 0 <= a.indexOf("1337"));
 			return a;
 		});
-	var Ed = function(a, b, c) {
+	var Fd = function(a, b, c) {
 			this.a = void 0 === a ? null : a;
 			this.g = void 0 === b ? "jserror" : b;
 			this.b = null;
 			this.c = void 0 === c ? 0.01 : c;
 			this.l = this.i;
 		},
-		Fd = function(a, b) {
+		Gd = function(a, b) {
 			a.b = b;
 		};
-	Ed.prototype.i = function(a, b, c, d, e) {
+	Fd.prototype.i = function(a, b, c, d, e) {
 		c = void 0 === c ? this.c : c;
 		e = void 0 === e ? this.g : e;
 		if (Math.random() > c) return !1;
@@ -1728,7 +1732,7 @@
 			(h.error_rep_loaded = !0));
 		return !1;
 	};
-	var Gd = function(a, b) {
+	var Hd = function(a, b) {
 		try {
 			var c = a.a && a.a.start("420", 3);
 			b();
@@ -1739,7 +1743,7 @@
 					c &&
 					(b = c) &&
 					W &&
-					Dd() &&
+					Ed() &&
 					(W.clearMarks("goog_" + b.label + "_" + b.uniqueId + "_start"),
 					W.clearMarks("goog_" + b.label + "_" + b.uniqueId + "_end")),
 				!a.l(420, d, a.c, void 0, a.g))
@@ -1747,10 +1751,10 @@
 				throw d;
 		}
 	};
-	var Hd = w("gpt/pubads_impl_"),
-		Id = w("https://securepubads.g.doubleclick.net/"),
-		Jd = w("https://ff.doubleclick.net");
-	var Kd = function(a) {
+	var Id = w("gpt/pubads_impl_"),
+		Jd = w("https://securepubads.g.doubleclick.net/"),
+		Kd = w("https://ff.doubleclick.net");
+	var Ld = function(a) {
 		if (!a.google_ltobserver) {
 			var b = new a.PerformanceObserver(function(c) {
 				var d = (a.google_lt_queue = a.google_lt_queue || []);
@@ -1762,17 +1766,17 @@
 			a.google_ltobserver = b;
 		}
 	};
-	var Ld = function(a) {
-			var b = Bd(a);
+	var Md = function(a) {
+			var b = Cd(a);
 			b &&
 				((b = { label: "1", type: 9, value: b }),
 				(a = a.google_js_reporting_queue = a.google_js_reporting_queue || []),
 				2048 > a.length && a.push(b));
 		},
-		Md = function(a, b, c) {
+		Nd = function(a, b, c) {
 			var d = window;
 			return function() {
-				var e = Bd(),
+				var e = Cd(),
 					f = 3;
 				try {
 					var g = b.apply(this, arguments);
@@ -1786,7 +1790,7 @@
 						((e = {
 							label: a.toString(),
 							value: e,
-							duration: (Bd() || 0) - e,
+							duration: (Cd() || 0) - e,
 							type: f
 						}),
 						(f = d.google_js_reporting_queue =
@@ -1796,9 +1800,9 @@
 				return g;
 			};
 		},
-		Nd = function(a, b) {
-			return Md(a, b, function(c, d) {
-				new Ed().i(c, d);
+		Od = function(a, b) {
+			return Nd(a, b, function(c, d) {
+				new Fd().i(c, d);
 			});
 		};
 	function X(a, b) {
@@ -1824,10 +1828,10 @@
 					X("pvsid", this.S);
 				b += X("test", 1);
 				b += "&top=" + (this.M ? 1 : 0);
-				Od(b);
+				Qd(b);
 			}
 			this.R = new PerformanceObserver(
-				Nd(640, function(c) {
+				Od(640, function(c) {
 					c = ba(c.getEntries());
 					for (var d = c.next(); !d.done; d = c.next()) {
 						d = d.value;
@@ -1853,20 +1857,20 @@
 				})
 			);
 			this.B = !1;
-			this.w = Nd(641, this.w.bind(this));
+			this.w = Od(641, this.w.bind(this));
 		},
-		Qd = function() {};
-	Y.prototype = da(Qd.prototype);
+		Rd = function() {};
+	Y.prototype = da(Rd.prototype);
 	Y.prototype.constructor = Y;
-	if (ja) ja(Y, Qd);
+	if (ja) ja(Y, Rd);
 	else
-		for (var Rd in Qd)
-			if ("prototype" != Rd)
+		for (var Sd in Rd)
+			if ("prototype" != Sd)
 				if (Object.defineProperties) {
-					var Sd = Object.getOwnPropertyDescriptor(Qd, Rd);
-					Sd && Object.defineProperty(Y, Rd, Sd);
-				} else Y[Rd] = Qd[Rd];
-	var Td = function() {
+					var Td = Object.getOwnPropertyDescriptor(Rd, Sd);
+					Td && Object.defineProperty(Y, Sd, Td);
+				} else Y[Sd] = Rd[Sd];
+	var Ud = function() {
 		var a = new Y();
 		a.R.observe({
 			entryTypes: [
@@ -1924,10 +1928,10 @@
 			a = a + b + X("pvsid", this.S);
 			this.J && (a += X("test", 1));
 			a += "&top=" + (this.M ? 1 : 0);
-			Od(a);
+			Qd(a);
 		}
 	};
-	function Od(a) {
+	function Qd(a) {
 		window.fetch(a, {
 			keepalive: !0,
 			credentials: "include",
@@ -1936,14 +1940,14 @@
 			mode: "no-cors"
 		});
 	}
-	var Ud = function() {
+	var Vd = function() {
 			return h.googletag || (h.googletag = {});
 		},
-		Vd = function(a, b) {
-			var c = Ud();
+		Wd = function(a, b) {
+			var c = Vd();
 			c.hasOwnProperty(a) || (c[a] = b);
 		},
-		Wd = function(a, b) {
+		Xd = function(a, b) {
 			a.addEventListener
 				? a.addEventListener("load", b, !1)
 				: a.attachEvent && a.attachEvent("onload", b);
@@ -1969,6 +1973,7 @@
 		246: [],
 		227: {},
 		226: [],
+		248: 0,
 		228: "//www.googletagservices.com/pubconsole/"
 	};
 	Z[6] = (function(a, b) {
@@ -1991,24 +1996,24 @@
 	Z[148] = Ub;
 	Z[221] = /^true$/.test("");
 	Z[204] = Eb("{{MOD}}", -1);
-	var Xd = function() {
+	var Yd = function() {
 		sa(this, Z);
 	};
-	k(Xd);
+	k(Yd);
 	var S = function(a) {
-			return Xd.f()[a];
+			return Yd.f()[a];
 		},
-		Yd = Ud(),
-		Zd = Xd.f();
-	sa(Zd, Yd._vars_);
-	Yd._vars_ = Zd;
-	var $d = function(a, b) {
+		Zd = Vd(),
+		$d = Yd.f();
+	sa($d, Zd._vars_);
+	Zd._vars_ = $d;
+	var ae = function(a, b) {
 		a = [a];
 		for (var c = b.length - 1; 0 <= c; --c) a.push(typeof b[c], b[c]);
 		return a.join("\x0B");
 	};
-	var ae = (function(a, b) {
-			var c = b || $d;
+	var be = (function(a, b) {
+			var c = b || ae;
 			return function() {
 				var d = this || h;
 				d = d.closure_memoize_cache_ || (d.closure_memoize_cache_ = {});
@@ -2026,21 +2031,21 @@
 					: 2;
 			},
 			function(a, b) {
-				return a + "\x0B" + (b[0] && b[0].src);
+				return a + "\x0B" + (b && b[0] && b[0].src);
 			}
 		),
-		be = function() {
-			return 0 === ae(S(172));
+		ce = function() {
+			return 0 === be(S(172));
 		};
-	var ce = function() {
-		return Eb("3") || 0;
-	};
-	Vd("getVersion", function() {
-		return "2019121002";
-	});
 	var de = function() {
+		return Eb("7") || 0;
+	};
+	Wd("getVersion", function() {
+		return "2020010201";
+	});
+	var id = function() {
 		var a = {};
-		this[3] = ((a[3] = be),
+		this[3] = ((a[3] = ce),
 		(a[2] = S(36)),
 		(a[17] = function(b) {
 			for (var c = [], d = 0; d < arguments.length; ++d) c[d] = arguments[d];
@@ -2065,34 +2070,28 @@
 		this[4] = ((a[1] = function() {
 			return S(204);
 		}),
-		(a[4] = ce),
+		(a[4] = de),
 		a);
 		this[5] = {};
 	};
-	k(de);
+	k(id);
 	var ee = [],
-		ge = function(a) {
-			a = fe(new Sc(S(246)), new Sc(a || ee));
-			var b = de.f();
-			b[3][6] = function(c) {
-				return t(Q.f().b(), parseInt(c, 10));
-			};
-			jd(a, b);
-		},
-		fe = function(a, b) {
-			if (!I(a, K, 1).length && I(b, K, 1).length) {
-				var c = I(b, K, 1);
-				rb(a, 1, c);
+		fe = function(a) {
+			var b = new Sc(S(246));
+			a = new Sc(a || ee);
+			if (!I(b, K, 1).length && I(a, K, 1).length) {
+				var c = I(a, K, 1);
+				rb(b, 1, c);
 			}
-			!I(a, R, 2).length &&
-				I(b, R, 2).length &&
-				((b = I(b, R, 2)), rb(a, 2, b));
-			return a;
+			!I(b, R, 2).length &&
+				I(a, R, 2).length &&
+				((a = I(a, R, 2)), rb(b, 2, a));
+			kd(b);
 		};
-	var he = function() {
+	var ge = function() {
 		var a =
 			void 0 === a
-				? Ia([Jd, w("/tag/js/fetch_frame_"), w("2019121002"), w(".html")])
+				? Ia([Kd, w("/tag/js/fetch_frame_"), w("2020010201"), w(".html")])
 				: a;
 		var b = sb();
 		b.style.display = "none";
@@ -2107,7 +2106,7 @@
 		};
 		b.addEventListener && b.addEventListener("load", d, !1);
 	};
-	var ie = function(a) {
+	var he = function(a) {
 			var b = a.currentScript;
 			return (
 				"complete" != a.readyState &&
@@ -2115,14 +2114,14 @@
 				!(b && b.async)
 			);
 		},
-		je = function() {
+		ie = function() {
 			var a = Ba;
 			P(187) ? (a = w("modern_")) : P(234) && (a = w("legacy_"));
-			a = Ia([Id, Hd, a, w("2019121002"), w(".js")]);
+			a = Ia([Jd, Id, a, w("2020010201"), w(".js")]);
 			var b = Fc();
 			return b ? Ha(a, String(b)) : a;
 		},
-		ke = function(a, b) {
+		je = function(a, b) {
 			var c;
 			if (!(c = a.currentScript))
 				a: {
@@ -2137,47 +2136,47 @@
 					c = null;
 				}
 			a = c;
-			Xd.f()[172] = a;
-			new ge(b);
+			Yd.f()[172] = a;
+			new fe(b);
 			Q.f().a(12);
 			Q.f().a(5);
-			P(200) || P(220) || ((b = S(150)), qd(), nd(b) && (V[1] = b));
+			P(200) || P(220) || ((b = S(150)), rd(), od(b) && (V[1] = b));
 		},
-		le = function(a, b, c) {
-			var d = Ud();
+		ke = function(a, b, c) {
+			var d = Vd();
 			a = a || d.fifWin || window;
 			b = b || a.document;
 			var e = d.fifWin ? window : a;
-			Vd("cmd", []);
+			Wd("cmd", []);
 			if (d.evalScripts) d.evalScripts();
 			else {
-				ke(b, c);
+				je(b, c);
 				try {
 					a.PerformanceObserver &&
-						(a.PerformanceLongTaskTiming && Kd(a),
+						(a.PerformanceLongTaskTiming && Ld(a),
 						P(203) &&
 							!window.google_plmetrics &&
-							(Td(), (window.google_plmetrics = !0)));
+							(Ud(), (window.google_plmetrics = !0)));
 				} catch (n) {}
-				Ld(a);
-				a = je();
+				Md(a);
+				a = ie();
 				c = P(200) || P(239);
-				if (ie(b)) {
+				if (he(b)) {
 					var f = "gpt-impl-" + Math.random();
 					try {
 						ib(b, fb(a, { id: f }));
 					} catch (n) {}
-					b.getElementById(f) && ((d._loadStarted_ = !0), c || Ad());
+					b.getElementById(f) && ((d._loadStarted_ = !0), c || Bd());
 				}
 				if (!d._loadStarted_) {
-					c || zd();
+					c || Ad();
 					b = d.fifWin ? e.document : b;
 					var g = b.createElement("script");
 					jb(g, a);
 					g.async = !0;
 					var l = b.head || b.body || b.documentElement;
 					"complete" !== e.document.readyState && d.fifWin
-						? Wd(e, function() {
+						? Xd(e, function() {
 								return void l.appendChild(g);
 						  })
 						: l.appendChild(g);
@@ -2187,30 +2186,30 @@
 				e &&
 					((e = function() {
 						var n = document.getElementsByName("gpt_fetch_frame");
-						(n.length && n[0]) || he();
+						(n.length && n[0]) || ge();
 					}),
 					d ? e() : setTimeout(e, 1e3));
 			}
 		};
-	var me;
+	var le;
 	a: {
 		try {
 			if (m(E)) {
-				me = E;
+				le = E;
 				break a;
 			}
 		} catch (a) {}
-		me = [];
+		le = [];
 	}
 	(function(a, b, c) {
-		var d = new Ed(null, "gpt_exception", 0.01);
-		Fd(d, function(e) {
+		var d = new Fd(null, "gpt_exception", 0.01);
+		Gd(d, function(e) {
 			e.methodId = 420;
 		});
-		Gd(d, function() {
-			return le(a, b, c);
+		Hd(d, function() {
+			return ke(a, b, c);
 		});
-	})(void 0, void 0, me);
+	})(void 0, void 0, le);
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
 		[null, 13, null, [null, 1]],
@@ -2279,7 +2278,7 @@
 				],
 				[null, [[21064695], [21064696], [21064697]]],
 				[null, [[21065001], [21065002]]],
-				[null, [[44711889], [44711890], [44711891], [44711892]]],
+				[null, [[44711889], [44711890], [44711891], [44711892], [44712407]]],
 				[null, [[44711893]]],
 				[null, [[676982680]]]
 			]
@@ -2391,7 +2390,6 @@
 						[21062797, null, [4, null, 8, null, null, null, null, ["Map"]]]
 					]
 				],
-				[50, [[21062818], [21062819, [[93, null, null, [1]]]]]],
 				[50, [[21062832], [21062833, [[89, null, null, [1]]]]], null, 12],
 				[50, [[21062888], [21062889, [[101, null, null, [1]]]]]],
 				[
@@ -2603,7 +2601,7 @@
 					17
 				],
 				[
-					null,
+					1,
 					[
 						[21065052],
 						[21065053, [[246, null, null, [1]]]],
@@ -2640,7 +2638,6 @@
 					]
 				],
 				[50, [[21065202], [21065203, [[null, 32, null, [null, 5]]]]]],
-				[50, [[21065210], [21065211, [[42, null, null, []]]]]],
 				[10, [[21065232], [21065233]]],
 				[10, [[21065238], [21065239, [[250, null, null, [1]]]]]],
 				[
@@ -2662,18 +2659,8 @@
 						]
 					]
 				],
-				[1, [[21065302]], null, 15],
-				[
-					1,
-					[
-						[
-							21065303,
-							[[null, null, null, [null, null, null, ["uule"]], null, 7]]
-						]
-					],
-					null,
-					15
-				],
+				[50, [[21065309], [21065310, [[268, null, null, [1]]]]]],
+				[10, [[21065313], [21065314, [[264, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -2694,7 +2681,7 @@
 				[10, [[370204026], [370204027], [370204053]]],
 				[null, [[425301911]]],
 				[null, [[676982691]]],
-				[null, [[676982693], [676982706], [676982707]]],
+				[null, [[676982693], [676982707]]],
 				[null, [[676982863], [676982882]]],
 				[null, [[676982960], [676982994], [676982996]]],
 				[null, [[676982975], [676982980]]]
@@ -2769,7 +2756,7 @@
 					]
 				],
 				[null, [[21065147, [[null, 32, null, [null, 3]]]]]],
-				[null, [[44711894], [44711895], [44711896]]],
+				[null, [[44711894], [44711895], [44711896], [44712408]]],
 				[
 					null,
 					[
@@ -2795,8 +2782,19 @@
 				[
 					1000,
 					[
-						[21062785, [[23, null, null, []]], [7, null, null, 5, null, 50]],
-						[21062786, [[23, null, null, [1]]], [8, null, null, 5, null, 949]]
+						[
+							21062785,
+							[[23, null, null, []]],
+							[2, [[8, null, null, 5, null, -1], [7, null, null, 5, null, 50]]]
+						],
+						[
+							21062786,
+							[[23, null, null, [1]]],
+							[
+								2,
+								[[8, null, null, 5, null, 949], [7, null, null, 5, null, 1000]]
+							]
+						]
 					],
 					[
 						2,
@@ -2844,8 +2842,19 @@
 				[
 					1000,
 					[
-						[21063916, [[23, null, null, []]], [7, null, null, 5, null, 50]],
-						[21063917, [[23, null, null, [1]]], [8, null, null, 5, null, 949]],
+						[
+							21063916,
+							[[23, null, null, []]],
+							[2, [[8, null, null, 5, null, -1], [7, null, null, 5, null, 50]]]
+						],
+						[
+							21063917,
+							[[23, null, null, [1]]],
+							[
+								2,
+								[[8, null, null, 5, null, 949], [7, null, null, 5, null, 1000]]
+							]
+						],
 						[21064113, [[23, null, null, [1]]]]
 					],
 					[
@@ -3127,7 +3136,7 @@
 					17
 				],
 				[
-					50,
+					null,
 					[
 						[
 							21065270,
@@ -3176,47 +3185,112 @@
 				[
 					1000,
 					[
-						[21065297, null, [6, null, null, 1, null, 10]],
 						[
-							21065298,
-							[[244, null, null, [1]], [245, null, null, [1]]],
-							[6, null, null, 1, null, 11]
+							21065326,
+							null,
+							[2, [[8, null, null, 1, null, 9], [7, null, null, 1, null, 20]]]
 						],
 						[
-							21065299,
-							[
-								[244, null, null, [1]],
-								[245, null, null, [1]],
-								[257, null, null, [1]]
-							],
-							[6, null, null, 1, null, 12]
+							21065327,
+							[[244, null, null, [1]], [245, null, null, [1]]],
+							[2, [[8, null, null, 1, null, 19], [7, null, null, 1, null, 30]]]
 						]
 					],
 					[4, null, 3],
 					19
 				],
 				[
+					1,
+					[
+						[21065328],
+						[
+							21065329,
+							[
+								[244, null, null, [1]],
+								[245, null, null, [1]],
+								[257, null, null, [1]]
+							]
+						]
+					],
+					null,
+					19
+				],
+				[
 					1000,
 					[
 						[
-							21065311,
+							21065331,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21065311]],
+								[null, 24, null, [null, 21065331]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21065311]]
+								[null, 25, null, [null, 21065331]]
 							],
 							[6, null, null, 4, null, 2]
 						],
 						[
-							21065312,
+							21065332,
 							[
 								[null, 7, null, [null, 1]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]]
 							],
 							[6, null, null, 4, null, 3]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21065333,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21065333]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21065333]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21065334,
+							[
+								[null, 7, null, [null, 1]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]]
+							],
+							[6, null, null, 4, null, 5]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21065335,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21065335]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21065335]]
+							],
+							[6, null, null, 4, null, 6]
+						],
+						[
+							21065336,
+							[
+								[null, 7, null, [null, 1]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]]
+							],
+							[6, null, null, 4, null, 7]
 						]
 					],
 					[4, null, 3],
@@ -3246,7 +3320,7 @@
 						[21065167, [[139, null, null, []]]],
 						[21065168, [[159, null, null, []], [139, null, null, []]]]
 					],
-					[2, [[4, null, 12]]],
+					[4, null, 12],
 					16
 				]
 			]
