@@ -1,4 +1,4 @@
-/*1576018039,,JIT Construction: v1001522807,en_US*/
+/*1578363098,,JIT Construction: v1001581657,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2868,12 +2868,9 @@ try {
 								};
 								c.$10 = function(a) {
 									(a.style.top = "0"),
-										this.$4.showMultiAds === !0 &&
-										this.$4.resizeMediaView === !0
-											? (a.style.right = "12px")
-											: this.$4.useBannerV3 === !0
-												? (a.style.left = "0")
-												: (a.style.right = "0");
+										this.$4.useBannerV3 === !0
+											? (a.style.left = "0")
+											: (a.style.right = "0");
 								};
 								c.$9 = function(a) {
 									this.$4.useBannerV3 === !0
@@ -11614,7 +11611,7 @@ try {
 									);
 								};
 								c.$50 = function() {
-									return !this.$37().$46.showMultiAds;
+									return !0;
 								};
 								c.$51 = function() {
 									var a = !!this.$37().$46.isIab,
@@ -12733,108 +12730,6 @@ try {
 						null
 					);
 					__d(
-						"ANMultiAdsUnit",
-						["ANFullWidthLoader", "ANLogger", "ANUtils", "nullthrows"],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							__p && __p();
-							var g = "MULTI_ADS_FW_RESIZE_FAIL",
-								h = 375;
-							a = (function() {
-								__p && __p();
-								function a(a, c, d, e, f, g, h, i) {
-									(this.$1 = a),
-										(this.$2 = c),
-										(this.$3 = new (b("ANLogger"))(
-											3,
-											d.tagJsInitTime,
-											b("ANUtils").getNavigationStart(),
-											b("ANUtils").onlyString(d.data.key),
-											d.iframe,
-											d.domain
-										)),
-										(this.$4 = f),
-										(this.$5 = g),
-										(this.$6 = h),
-										(this.$7 = i),
-										(this.$9 = e),
-										(this.$8 = 0);
-								}
-								a.render = function(b, c, d, e, f, g, h, i) {
-									b = new a(b, c, d, e, f, g, h, i);
-									b.$10();
-								};
-								var c = a.prototype;
-								c.$11 = function() {
-									var a = 300,
-										c = b("ANUtils").getScreenWidth(),
-										d = b("ANUtils").getContainingIframe(this.$2) || this.$2;
-									d = b("ANUtils").findWidestParentElement(d, null);
-									var e = b("ANUtils").calculateLargestMargin(d);
-									this.$8 = c - e * 2;
-									this.$8 < a &&
-										((this.$8 = a), (e = d.getBoundingClientRect().right - a));
-									return e;
-								};
-								c.$10 = function() {
-									__p && __p();
-									var a = this.$2.querySelectorAll(".fbSlot");
-									if (a.length === 0) {
-										this.$7 && this.$7();
-										this.$5 && this.$5();
-										return;
-									}
-									var c = a.length,
-										d = this.$1[0].creativeMarkupBackup,
-										e = !!d,
-										f = b("ANUtils").getContainingIframe(this.$2),
-										i = this.$11();
-									i = new (b("ANFullWidthLoader"))(
-										!0,
-										f,
-										this.$2,
-										this.$2,
-										this.$8,
-										this.$3,
-										i,
-										!0
-									);
-									var j = h,
-										k = i.resize(this.$8, j * c);
-									if (e && !k)
-										this.$3.setLogLevel(this.$1[0].features.logLevel || 3),
-											this.$3.frameReady(),
-											this.$3.setUnifiedLoggingURL(
-												this.$1[0].unifiedLoggingURL
-											),
-											this.$3.event(g),
-											(b("nullthrows")(d).use_carousel_stitch = !0),
-											i.restoreOriginalStyles(),
-											(this.$1[0].creativeMarkup = b("nullthrows")(d)),
-											(this.$1[0].features.resizeMediaView = !1),
-											this.$4(this.$1[0], this.$2);
-									else {
-										f === null &&
-											(i.restoreOriginalStyles(),
-											(this.$2.style.height = "auto"));
-										e = 0;
-										for (var k = 0; k < c; k++) {
-											d = a[k];
-											d.style.height = j + "px";
-											f = this.$1[e++];
-											this.$4(f, d);
-										}
-										e === 0 && this.$5 && this.$5();
-										this.$6 && this.$6();
-									}
-								};
-								return a;
-							})();
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"ANGenericViewabilityObserver",
 						[
 							"AdQualityViewabilityMonitor",
@@ -13212,7 +13107,6 @@ try {
 							"AdNetworkRecirculationTagOptionsShowMoreButton",
 							"ANAdManager",
 							"ANLogger",
-							"ANMultiAdsUnit",
 							"ANMWebUnifiedLoggingRecirculationEvent",
 							"ANRecirculationPagination",
 							"ANRecirculationUnit",
@@ -13499,61 +13393,24 @@ try {
 										((k.style.paddingLeft = "5px"),
 										(k.style.paddingRight = "5px"));
 								};
-								c.$9 = function(a, c, d, e, f, g) {
-									var h = this,
-										i = this.$2.rootElement,
-										j = this.$5(a);
-									a.wrapperMarkup && (i.innerHTML = a.wrapperMarkup);
-									b("ANMultiAdsUnit").render(
-										j,
-										i,
-										this.$2,
-										!!this.$2.data.features.shouldLimitHeight,
-										function(a, b) {
-											h.renderAd(a, b, c, d);
-										},
-										function() {
-											return e(
-												a.errorCode || "1097",
-												a.errorMsg || "Error rendering multi ads unit",
-												a.placementId
-											);
-										},
-										function() {
-											f && f(a.placementId);
-										},
-										function() {
-											g &&
-												g(
-													a.errorCode || "1097",
-													a.errorMsg || "Error rendering multi ads unit",
-													a.placementId
-												);
-										}
-									);
-								};
-								c.$10 = function(a, b, c, d, e, f) {
+								c.$9 = function(a, b, c, d, e, f) {
 									__p && __p();
-									var g = !!a.recommendedContent,
-										h = !g && !!a.wrapperMarkup;
+									var g = !!a.recommendedContent;
 									if (g) {
 										this.$8(a, b, c, d, e, f);
 										return;
-									} else if (h) {
-										this.$9(a, b, c, d, e, f);
-										return;
 									}
 									g = this.$5(a);
-									h = g.length > 1;
-									d = this.$2.rootElement;
-									for (var e = 0; e < g.length; e++) {
-										f = g[e];
-										a = d;
-										h &&
-											((a = document.createElement("div")),
-											(a.className = "fbAdSlot-" + e),
-											d.appendChild(a));
-										this.renderAd(f, a, b, c);
+									d = g.length > 1;
+									e = this.$2.rootElement;
+									for (var f = 0; f < g.length; f++) {
+										a = g[f];
+										var h = e;
+										d &&
+											((h = document.createElement("div")),
+											(h.className = "fbAdSlot-" + f),
+											e.appendChild(h));
+										this.renderAd(a, h, b, c);
 									}
 								};
 								c.adLoaded = function(a, c, d, e, f, g) {
@@ -13570,7 +13427,7 @@ try {
 										var i = a.features;
 										this.$3.setLogLevel(i.logLevel || 3);
 										this.$3.frameReady();
-										this.$10(a, c, d, e, f, g);
+										this.$9(a, c, d, e, f, g);
 										this.$1 = !0;
 									} else if (a.success === void 0) {
 										this.$3.error();
@@ -13772,7 +13629,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001522807","namespace":"FB","message":"' +
+				'","revision":"1001581657","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
