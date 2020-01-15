@@ -1,4 +1,4 @@
-/*1578363098,,JIT Construction: v1001581657,en_US*/
+/*1579123652,,JIT Construction: v1001608345,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -5286,30 +5286,29 @@ try {
 								m = b("sdk.fbt")._("Continue");
 							a = (function() {
 								__p && __p();
-								function a(a, b, c, d) {
+								function a(a, b, c) {
 									(this.$1 = a),
 										(this.$2 = b),
 										(this.$4 = c),
-										(this.$5 = d),
-										(this.$6 = []),
-										(this.$7 = []);
+										(this.$5 = []),
+										(this.$6 = []);
 								}
-								a.openDialog = function(b, c, d, e, f) {
-									c = new a(c, d, e, f);
-									c.$8();
-									c.$9(b);
+								a.openDialog = function(b, c, d, e) {
+									c = new a(c, d, e);
+									c.$7();
+									c.$8(b);
 									return c;
 								};
 								var c = a.prototype;
 								c.onConfirm = function(a) {
-									this.$6.push(a);
+									this.$5.push(a);
 									return this;
 								};
 								c.onDismiss = function(a) {
-									this.$7.push(a);
+									this.$6.push(a);
 									return this;
 								};
-								c.$8 = function() {
+								c.$7 = function() {
 									__p && __p();
 									var a = this,
 										c = this.$3;
@@ -5342,47 +5341,13 @@ try {
 												: (g = b("nullthrows")(
 														b("nullthrows")(c).querySelector("._727j")
 												  ));
-											if (e === g) a.$10(d);
-											else if (a.$5) {
-												var h = (g = b("nullthrows"))(
-														g(c).querySelector("._727k")
-													),
-													j = g(g(c).querySelector("._727l")),
-													k = g(g(c).querySelector("._727m"));
-												g = g(g(c).querySelector("._727n"));
-												if (e === h || e === j || e === k || e === g)
-													for (
-														var h = a.$6,
-															j = ES("Array", "isArray", !1, h),
-															k = 0,
-															h = j
-																? h
-																: h[
-																		typeof Symbol === "function"
-																			? Symbol.iterator
-																			: "@@iterator"
-																  ]();
-														;
-
-													) {
-														if (j) {
-															if (k >= h.length) break;
-															g = h[k++];
-														} else {
-															k = h.next();
-															if (k.done) break;
-															g = k.value;
-														}
-														g = g;
-														g(d);
-													}
-												else e !== f && !ES(f, "contains", !0, e) && a.$10(d);
-											} else if (e === f || ES(f, "contains", !0, e))
+											if (e === g) a.$9(d);
+											else if (e === f || ES(f, "contains", !0, e))
 												for (
-													var g = a.$6,
-														k = ES("Array", "isArray", !1, g),
-														j = 0,
-														g = k
+													var g = a.$5,
+														f = ES("Array", "isArray", !1, g),
+														e = 0,
+														g = f
 															? g
 															: g[
 																	typeof Symbol === "function"
@@ -5392,23 +5357,24 @@ try {
 													;
 
 												) {
-													if (k) {
-														if (j >= g.length) break;
-														h = g[j++];
+													var h;
+													if (f) {
+														if (e >= g.length) break;
+														h = g[e++];
 													} else {
-														j = g.next();
-														if (j.done) break;
-														h = j.value;
+														e = g.next();
+														if (e.done) break;
+														h = e.value;
 													}
-													f = h;
-													f(d);
+													h = h;
+													h(d);
 												}
-											else a.$10(d);
+											else a.$9(d);
 										});
 									}
 									this.$3 = c;
 								};
-								c.$10 = function(a) {
+								c.$9 = function(a) {
 									__p && __p();
 									var c = this,
 										d = b("nullthrows")(this.$3);
@@ -5418,7 +5384,7 @@ try {
 										__p && __p();
 										d.parentNode && d.parentNode.removeChild(d);
 										for (
-											var b = c.$7,
+											var b = c.$6,
 												e = ES("Array", "isArray", !1, b),
 												f = 0,
 												b = e
@@ -5445,7 +5411,7 @@ try {
 										}
 									}, 300);
 								};
-								c.$9 = function(a) {
+								c.$8 = function(a) {
 									var c = this;
 									a.appendChild(b("nullthrows")(this.$3));
 									window.setTimeout(function() {
@@ -12328,8 +12294,7 @@ try {
 													d.$42(),
 													b("nullthrows")(c.adSubtitle),
 													b("nullthrows")(c.adIcon),
-													!!d.$37().$46.padTwoStepClickCloseArea,
-													!!d.$37().$46.ignoreWhitespaceInTwoStepClick
+													!!d.$37().$46.padTwoStepClickCloseArea
 												)
 												.onConfirm(function(a) {
 													(d.$25 = !0), e(0, a);
@@ -13629,7 +13594,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001581657","namespace":"FB","message":"' +
+				'","revision":"1001608345","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
