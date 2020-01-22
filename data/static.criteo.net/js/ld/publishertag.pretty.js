@@ -832,7 +832,7 @@
 			"number" == typeof window.PREBID_TIMEOUT ? window.PREBID_TIMEOUT : void 0;
 		return e && t ? Math.min(e, t) : e || t || void 0;
 	}
-	var PublisherTagVersion = 80,
+	var PublisherTagVersion = 81,
 		DirectBiddingMetric = function(
 			e,
 			t,
@@ -1264,12 +1264,16 @@
 			}
 		else this.builder.addSlot("");
 		return (
-			this.builder.withTimeToFirstByte(this.computeTimeToFirstByte()),
+			this.builder.withTimeToFirstByte(bh.computeTimeToFirstByte()),
 			this.build()
 		);
 	}),
-	(bh.prototype.computeTimeToFirstByte = function() {
-		if (void 0 !== window.performance) {
+	(bh.computeTimeToFirstByte = function() {
+		if (
+			void 0 !== window.performance &&
+			void 0 !== window.performance.getEntriesByType &&
+			"function" == typeof window.performance.getEntriesByType
+		) {
 			var e = window.performance.getEntriesByType("resource");
 			if (void 0 !== e) {
 				var t = e.filter(function(e) {
@@ -1366,22 +1370,34 @@
 				a.sendRequest(l),
 					u.send(
 						function(e) {
-							a.requestReceived();
-							var t = tryParseJson(e) || {},
-								i = extractExtraData(t);
-							void 0 !== o.callbackSuccess &&
-								o.callbackSuccess(JSON.stringify(t), i),
-								o.metricsManager.storeMetric(a.finish(t.sid, i.slots));
+							try {
+								a.requestReceived();
+								var t = tryParseJson(e) || {},
+									i = extractExtraData(t);
+								void 0 !== o.callbackSuccess &&
+									o.callbackSuccess(JSON.stringify(t), i),
+									o.metricsManager.storeMetric(a.finish(t.sid, i.slots));
+							} catch (e) {
+								Log.Error("Error onSuccess: " + e.toString());
+							}
 						},
 						function(e, t) {
-							a.requestReceived(),
-								void 0 !== o.callbackError && o.callbackError(e, t),
-								o.metricsManager.storeMetric(a.finish());
+							try {
+								a.requestReceived(),
+									void 0 !== o.callbackError && o.callbackError(e, t),
+									o.metricsManager.storeMetric(a.finish());
+							} catch (e) {
+								Log.Error("Error onError: " + e.toString());
+							}
 						},
 						function() {
-							a.requestReceived(!0),
-								void 0 !== o.callbackTimeout && o.callbackTimeout(),
-								o.metricsManager.storeMetric(a.finish());
+							try {
+								a.requestReceived(!0),
+									void 0 !== o.callbackTimeout && o.callbackTimeout(),
+									o.metricsManager.storeMetric(a.finish());
+							} catch (e) {
+								Log.Error("Error onTimeout: " + e.toString());
+							}
 						},
 						this.timeout
 					);
@@ -1421,8 +1437,8 @@
 			p
 		);
 	}
-	var __extends$3 = ((oi = function(e, t) {
-			return (oi =
+	var __extends$3 = ((ri = function(e, t) {
+			return (ri =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1436,16 +1452,16 @@
 			function i() {
 				this.constructor = e;
 			}
-			oi(e, t),
+			ri(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		oi,
-		DirectBiddingEventWithCaching = ((zi = AbstractEvent),
-		__extends$3(Ai, zi),
-		(Ai.prototype.eval = function(t) {
+		ri,
+		DirectBiddingEventWithCaching = ((Ci = AbstractEvent),
+		__extends$3(Di, Ci),
+		(Di.prototype.eval = function(t) {
 			var i = this,
 				e = this.gdprPrivacyProvider.readyToRetrieve(),
 				o = this.ccpaPrivacyProvider.readyToRetrieve();
@@ -1472,7 +1488,7 @@
 						}, s);
 			} else this.evalWithCmp(t, void 0, void 0);
 		}),
-		(Ai.prototype.evalWithCmp = function(e, t, i) {
+		(Di.prototype.evalWithCmp = function(e, t, i) {
 			var o = this;
 			if (this.cache.silentModeEnabled())
 				return (
@@ -1488,7 +1504,7 @@
 				this.directBiddingEvent.setCCPAIabConsent(i),
 				this.directBiddingEvent.evalWithTimeout(e, this.timeout);
 		}),
-		(Ai.prototype.onSuccess = function(e, t) {
+		(Di.prototype.onSuccess = function(e, t) {
 			if (((this.hasResponded = !0), void 0 !== t)) {
 				var i = tryParseJson(e);
 				this.cache.handleResponse(this.slots, i, t, this.hasTimeouted);
@@ -1496,17 +1512,17 @@
 			this.hasTimeouted || this.callbackSuccess(e, t),
 				this.cache.clearExpiredItems();
 		}),
-		(Ai.prototype.onError = function(e, t) {
+		(Di.prototype.onError = function(e, t) {
 			(this.hasResponded = !0),
 				this.hasTimeouted || this.callbackError(e, t),
 				this.cache.clearExpiredItems();
 		}),
-		(Ai.prototype.onHttpTimeout = function() {
+		(Di.prototype.onHttpTimeout = function() {
 			(this.hasResponded = !0),
 				this.hasTimeouted || this.callbackTimeout(),
 				this.cache.clearExpiredItems();
 		}),
-		(Ai.prototype.onTimeout = function() {
+		(Di.prototype.onTimeout = function() {
 			if (!this.hasResponded) {
 				this.hasTimeouted = !0;
 				var e = this.cache.getCachedBids(this.slots);
@@ -1527,17 +1543,17 @@
 					  this.callbackSuccess(JSON.stringify({ slots: e }), void 0));
 			}
 		}),
-		(Ai.prototype.getMetricBuilder = function() {
+		(Di.prototype.getMetricBuilder = function() {
 			return this.directBiddingEvent.getMetricBuilder();
 		}),
-		(Ai.prototype.getBidCache = function() {
+		(Di.prototype.getBidCache = function() {
 			return this.cache;
 		}),
-		(Ai.NAME = "directbidding"),
-		Ai),
-		zi;
-	function Ai(e, t, i, o, r, n, a, s, d, c, l, u, p, h) {
-		var f = zi.call(this, Ai.NAME) || this,
+		(Di.NAME = "directbidding"),
+		Di),
+		Ci;
+	function Di(e, t, i, o, r, n, a, s, d, c, l, u, p, h) {
+		var f = Ci.call(this, Di.NAME) || this,
 			g = Math.max(10 * (a || 3e3), 3e3);
 		return (
 			(f.cache = new DirectBiddingCache(window.criteo_pubtag.context, i, s)),
@@ -1636,7 +1652,7 @@
 			void 0 !== i && (o = __assign(__assign({}, o), { crt_deal: [i] })), o
 		);
 	}
-	var DFPKeyValueTargeter = ((Mj.prototype.setKeyValuesForAllSlots = function(
+	var DFPKeyValueTargeter = ((Pj.prototype.setKeyValuesForAllSlots = function(
 		t
 	) {
 		var i = this;
@@ -1647,7 +1663,7 @@
 					i.googletag.pubads().setTargeting(e, t[e] + ""));
 		});
 	}),
-	(Mj.prototype.setKeyValuePerSlot = function(t, i) {
+	(Pj.prototype.setKeyValuePerSlot = function(t, i) {
 		var o = this.googletag
 			.pubads()
 			.getSlots()
@@ -1664,7 +1680,7 @@
 								(o[0].clearTargeting(e), o[0].setTargeting(e, i[e] + ""));
 				  });
 	}),
-	(Mj.prototype.resetKeyValuesForSlots = function(t) {
+	(Pj.prototype.resetKeyValuesForSlots = function(t) {
 		var e = this,
 			i = createEmptyDFPTargeting();
 		this.googletag
@@ -1679,8 +1695,8 @@
 				});
 			});
 	}),
-	Mj);
-	function Mj() {
+	Pj);
+	function Pj() {
 		void 0 === window.googletag && (window.googletag = {}),
 			(this.googletag = window.googletag),
 			(this.googletag.cmd = this.googletag.cmd || []);
@@ -1701,8 +1717,8 @@
 		return typeof e[t] === i ? e[t] : void 0;
 	}
 	var BidEventTarget = function() {},
-		__extends$4 = ((fk = function(e, t) {
-			return (fk =
+		__extends$4 = ((ik = function(e, t) {
+			return (ik =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1716,13 +1732,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			fk(e, t),
+			ik(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		fk,
+		ik,
 		BidEventContainerTarget = (function(_super) {
 			function BidEventContainerTarget(e, t) {
 				var i = _super.call(this) || this;
@@ -1756,8 +1772,8 @@
 				BidEventContainerTarget
 			);
 		})(BidEventTarget),
-		__extends$5 = ((xk = function(e, t) {
-			return (xk =
+		__extends$5 = ((Ak = function(e, t) {
+			return (Ak =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1771,35 +1787,35 @@
 			function i() {
 				this.constructor = e;
 			}
-			xk(e, t),
+			Ak(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		xk,
-		BidEventDocumentTarget = ((Ik = BidEventTarget),
-		__extends$5(Jk, Ik),
-		(Jk.prototype.ResizeFrame = function(e, t) {
+		Ak,
+		BidEventDocumentTarget = ((Lk = BidEventTarget),
+		__extends$5(Mk, Lk),
+		(Mk.prototype.ResizeFrame = function(e, t) {
 			if (this.document.defaultView && this.document.defaultView.frameElement) {
 				var i = this.document.defaultView.frameElement;
 				(i.width = e.toString()), (i.height = t.toString());
 			}
 		}),
-		(Jk.prototype.Write = function(e) {
+		(Mk.prototype.Write = function(e) {
 			this.document.open(), this.document.write(e), this.document.close();
 		}),
-		(Jk.prototype.LoadScript = function(e) {
+		(Mk.prototype.LoadScript = function(e) {
 			this.Write("<script type='text/javascript' src='" + e + "'></script>");
 		}),
-		Jk),
-		Ik;
-	function Jk(e) {
-		var t = Ik.call(this) || this;
+		Mk),
+		Lk;
+	function Mk(e) {
+		var t = Lk.call(this) || this;
 		return (t.document = e), t;
 	}
-	var __extends$6 = ((Rk = function(e, t) {
-			return (Rk =
+	var __extends$6 = ((Uk = function(e, t) {
+			return (Uk =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1813,33 +1829,33 @@
 			function i() {
 				this.constructor = e;
 			}
-			Rk(e, t),
+			Uk(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Rk,
-		Custom = ((al = AbstractEvent),
-		__extends$6(bl, al),
-		(bl.prototype.eval = function(e) {
+		Uk,
+		Custom = ((dl = AbstractEvent),
+		__extends$6(el, dl),
+		(el.prototype.eval = function(e) {
 			this.callback && this.callback.apply(this);
 		}),
-		(bl.NAME = "genericEvent"),
-		bl),
-		al;
-	function bl(e) {
-		var t = al.call(this, bl.NAME) || this;
+		(el.NAME = "genericEvent"),
+		el),
+		dl;
+	function el(e) {
+		var t = dl.call(this, el.NAME) || this;
 		return (t.callback = e), t;
 	}
-	var BidResponseSlot = ((fl.prototype.generateRandomId = function() {
+	var BidResponseSlot = ((il.prototype.generateRandomId = function() {
 		return Math.random()
 			.toString(36)
 			.replace(/[^a-z]+/g, "")
 			.substr(0, 6);
 	}),
-	fl);
-	function fl(e, t, i, o, r, n, a) {
+	il);
+	function il(e, t, i, o, r, n, a) {
 		(this.id = this.generateRandomId()),
 			(this.slotId = e),
 			(this.impressionId = t),
@@ -1849,8 +1865,8 @@
 			(this.zoneId = n),
 			(this.dealCode = a);
 	}
-	var __extends$7 = ((nl = function(e, t) {
-			return (nl =
+	var __extends$7 = ((ql = function(e, t) {
+			return (ql =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1864,16 +1880,16 @@
 			function i() {
 				this.constructor = e;
 			}
-			nl(e, t),
+			ql(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		nl,
-		DisplayUrlBidResponseSlot = ((yl = BidResponseSlot),
-		__extends$7(zl, yl),
-		(zl.prototype.GenerateEvent = function(e) {
+		ql,
+		DisplayUrlBidResponseSlot = ((Bl = BidResponseSlot),
+		__extends$7(Cl, Bl),
+		(Cl.prototype.GenerateEvent = function(e) {
 			var t = this;
 			return (
 				e.ResizeFrame(this.width, this.height),
@@ -1882,17 +1898,17 @@
 				})
 			);
 		}),
-		(zl.prototype.GenerateMessage = function() {
+		(Cl.prototype.GenerateMessage = function() {
 			return { displayUrl: this.displayUrl };
 		}),
-		zl),
-		yl;
-	function zl(e, t, i, o, r, n, a, s) {
-		var d = yl.call(this, e, t, i, o, r, n, s) || this;
+		Cl),
+		Bl;
+	function Cl(e, t, i, o, r, n, a, s) {
+		var d = Bl.call(this, e, t, i, o, r, n, s) || this;
 		return (d.displayUrl = a), d;
 	}
-	var __extends$8 = ((Ll = function(e, t) {
-			return (Ll =
+	var __extends$8 = ((Ol = function(e, t) {
+			return (Ol =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -1906,16 +1922,16 @@
 			function i() {
 				this.constructor = e;
 			}
-			Ll(e, t),
+			Ol(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Ll,
-		HtmlCreativeBidResponseSlot = ((Wl = BidResponseSlot),
-		__extends$8(Xl, Wl),
-		(Xl.prototype.GenerateEvent = function(e) {
+		Ol,
+		HtmlCreativeBidResponseSlot = ((Zl = BidResponseSlot),
+		__extends$8($l, Zl),
+		($l.prototype.GenerateEvent = function(e) {
 			var t = this;
 			return (
 				e.ResizeFrame(this.width, this.height),
@@ -1924,23 +1940,23 @@
 				})
 			);
 		}),
-		(Xl.prototype.GenerateMessage = function() {
+		($l.prototype.GenerateMessage = function() {
 			return { creative: this.creative };
 		}),
-		Xl),
-		Wl;
-	function Xl(e, t, i, o, r, n, a, s) {
-		var d = Wl.call(this, e, t, i, o, r, n, s) || this;
+		$l),
+		Zl;
+	function $l(e, t, i, o, r, n, a, s) {
+		var d = Zl.call(this, e, t, i, o, r, n, s) || this;
 		return (d.creative = a), d;
 	}
-	var LineItemRange = ((hm.createLineItemRangesFromString = function(e) {
+	var LineItemRange = ((km.createLineItemRangesFromString = function(e) {
 		for (var t = [], i = 0, o = e.split(";"); i < o.length; i++) {
 			var r = o[i],
 				n = r.split(".."),
-				a = hm.roundToDecimal(n[0], 2),
+				a = km.roundToDecimal(n[0], 2),
 				s = n[1].split(":"),
-				d = hm.roundToDecimal(s[0], 2),
-				c = hm.roundToDecimal(s[1], 2);
+				d = km.roundToDecimal(s[0], 2),
+				c = km.roundToDecimal(s[1], 2);
 			if (isNaN(a) || isNaN(d) || isNaN(c) || 0 === c) {
 				Log.Warning("Could not parse range parameter: " + r);
 				break;
@@ -1957,7 +1973,7 @@
 						"Lower bound (" + a + ") greater than upper bound (" + d + ")"
 				  )
 				: p
-					? t.push(new hm(a, d, c))
+					? t.push(new km(a, d, c))
 					: Log.Warning(
 							"Range (" + l + ") is not divisible by increment (" + c + ")"
 					  );
@@ -1973,38 +1989,38 @@
 			t
 		);
 	}),
-	(hm.getDefaultDenseLineItemRanges = function() {
-		return [new hm(0, 3, 0.01), new hm(3, 8, 0.05), new hm(8, 20, 0.5)];
+	(km.getDefaultDenseLineItemRanges = function() {
+		return [new km(0, 3, 0.01), new km(3, 8, 0.05), new km(8, 20, 0.5)];
 	}),
-	(hm.computeLineItemPricebandValue = function(e, t) {
-		0 === t.length && (t = hm.getDefaultDenseLineItemRanges());
+	(km.computeLineItemPricebandValue = function(e, t) {
+		0 === t.length && (t = km.getDefaultDenseLineItemRanges());
 		for (var i = 0, o = t; i < o.length; i++) {
 			var r = o[i];
 			if (e <= r.upperBound && e > r.lowerBound) {
 				var n = Math.floor(e / r.increment + 1e-4) * r.increment;
-				return hm.formatPriceBand(n);
+				return km.formatPriceBand(n);
 			}
 		}
 		return e < t[0].lowerBound
 			? void 0
 			: e === t[0].lowerBound
-				? hm.formatPriceBand(t[0].lowerBound)
-				: hm.formatPriceBand(t[t.length - 1].upperBound);
+				? km.formatPriceBand(t[0].lowerBound)
+				: km.formatPriceBand(t[t.length - 1].upperBound);
 	}),
-	(hm.formatPriceBand = function(e) {
+	(km.formatPriceBand = function(e) {
 		return e.toFixed(2);
 	}),
-	(hm.roundToDecimal = function(e, t) {
+	(km.roundToDecimal = function(e, t) {
 		var i = parseFloat(e),
 			o = Math.pow(10, t);
 		return Math.round(i * o) / o;
 	}),
-	hm);
-	function hm(e, t, i) {
+	km);
+	function km(e, t, i) {
 		(this.lowerBound = e), (this.upperBound = t), (this.increment = i);
 	}
-	var __extends$9 = ((Pm = function(e, t) {
-			return (Pm =
+	var __extends$9 = ((Sm = function(e, t) {
+			return (Sm =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -2018,16 +2034,16 @@
 			function i() {
 				this.constructor = e;
 			}
-			Pm(e, t),
+			Sm(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Pm,
-		NativeBidResponseSlot = (($m = BidResponseSlot),
-		__extends$9(_m, $m),
-		(_m.prototype.GenerateEvent = function(e) {
+		Sm,
+		NativeBidResponseSlot = ((bn = BidResponseSlot),
+		__extends$9(cn, bn),
+		(cn.prototype.GenerateEvent = function(e) {
 			var t = this;
 			return "function" != typeof this.nativeCallback
 				? (Log.Error(
@@ -2043,19 +2059,19 @@
 							return t.nativeCallback(t.nativePayload);
 					  });
 		}),
-		(_m.prototype.GenerateMessage = function() {
+		(cn.prototype.GenerateMessage = function() {
 			return { nativePayload: this.nativePayload };
 		}),
-		_m),
-		$m;
-	function _m(e, t, i, o, r, n, a, s, d) {
-		var c = $m.call(this, e, t, i, o, r, n, d) || this;
+		cn),
+		bn;
+	function cn(e, t, i, o, r, n, a, s, d) {
+		var c = bn.call(this, e, t, i, o, r, n, d) || this;
 		return (c.nativeCallback = a), (c.nativePayload = s), c;
 	}
-	var InputParameters = ((nn.prototype.addParameter = function(e, t) {
+	var InputParameters = ((qn.prototype.addParameter = function(e, t) {
 		this.paramParser[e.toLowerCase()] = t;
 	}),
-	(nn.prototype.tryFillParameters = function(e) {
+	(qn.prototype.tryFillParameters = function(e) {
 		for (var t in e)
 			if (void 0 !== e[t]) {
 				var i = t.toLowerCase();
@@ -2064,8 +2080,8 @@
 					: Log.Warning("Unknown parameter: " + t);
 			}
 	}),
-	nn);
-	function nn() {
+	qn);
+	function qn() {
 		var t = this;
 		(this.integrationMode = IntegrationMode.Unspecified),
 			(this.paramParser = {}),
@@ -2073,8 +2089,8 @@
 				t.integrationMode = parse(e);
 			});
 	}
-	var __extends$10 = ((vn = function(e, t) {
-			return (vn =
+	var __extends$10 = ((yn = function(e, t) {
+			return (yn =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -2088,19 +2104,19 @@
 			function i() {
 				this.constructor = e;
 			}
-			vn(e, t),
+			yn(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		vn,
-		RenderAdInputParameters = ((Gn = InputParameters),
-		__extends$10(Hn, Gn),
-		Hn),
-		Gn;
-	function Hn(e) {
-		var t = Gn.call(this) || this;
+		yn,
+		RenderAdInputParameters = ((Jn = InputParameters),
+		__extends$10(Kn, Jn),
+		Kn),
+		Jn;
+	function Kn(e) {
+		var t = Jn.call(this) || this;
 		return (
 			(t.bidId = void 0),
 			(t.document = window.document),
@@ -2114,34 +2130,34 @@
 			t.addParameter("containerId", function(e) {
 				t.containerId = e;
 			}),
-			Gn.prototype.tryFillParameters.call(t, e),
+			Jn.prototype.tryFillParameters.call(t, e),
 			t
 		);
 	}
-	var StandaloneAdBlockFlagManager = ((Nn.create = function() {
-		return new Nn();
+	var StandaloneAdBlockFlagManager = ((Qn.create = function() {
+		return new Qn();
 	}),
-	(Nn.prototype.adBlockFlagEnabled = function() {
+	(Qn.prototype.adBlockFlagEnabled = function() {
 		if (!this.localStorageEnabled) return !1;
-		var e = Nn.ADBLOCK_FLAG_KEY;
+		var e = Qn.ADBLOCK_FLAG_KEY;
 		return null !== this.localStorageHelper.getItem(e);
 	}),
-	(Nn.prototype.enableAdBlockFlag = function() {
+	(Qn.prototype.enableAdBlockFlag = function() {
 		if (this.localStorageEnabled) {
-			var e = Nn.ADBLOCK_FLAG_KEY;
-			this.localStorageHelper.setItem(e, "1", Nn.ADBLOCK_FLAG_LIFETIME);
+			var e = Qn.ADBLOCK_FLAG_KEY;
+			this.localStorageHelper.setItem(e, "1", Qn.ADBLOCK_FLAG_LIFETIME);
 		}
 	}),
-	(Nn.prototype.disableAdBlockFlag = function() {
+	(Qn.prototype.disableAdBlockFlag = function() {
 		if (this.localStorageEnabled) {
-			var e = Nn.ADBLOCK_FLAG_KEY;
+			var e = Qn.ADBLOCK_FLAG_KEY;
 			this.localStorageHelper.removeItem(e);
 		}
 	}),
-	(Nn.ADBLOCK_FLAG_KEY = "criteo_adblock_flag"),
-	(Nn.ADBLOCK_FLAG_LIFETIME = 864e5),
-	Nn);
-	function Nn() {
+	(Qn.ADBLOCK_FLAG_KEY = "criteo_adblock_flag"),
+	(Qn.ADBLOCK_FLAG_LIFETIME = 864e5),
+	Qn);
+	function Qn() {
 		(this.localStorageHelper = new LocalStorageHelper()),
 			(this.localStorageEnabled = this.localStorageHelper.checkLocalStorage());
 	}
@@ -2156,8 +2172,8 @@
 				(this.mediaTypes = a),
 				(this.video = s);
 		},
-		__extends$11 = (($n = function(e, t) {
-			return ($n =
+		__extends$11 = ((bo = function(e, t) {
+			return (bo =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -2171,19 +2187,19 @@
 			function i() {
 				this.constructor = e;
 			}
-			$n(e, t),
+			bo(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		$n,
-		PlacementInputParameters = ((ko = InputParameters),
-		__extends$11(lo, ko),
-		lo),
-		ko;
-	function lo(e) {
-		var r = ko.call(this) || this;
+		bo,
+		PlacementInputParameters = ((no = InputParameters),
+		__extends$11(oo, no),
+		oo),
+		no;
+	function oo(e) {
+		var r = no.call(this) || this;
 		return (
 			(r.slotId = void 0),
 			(r.zoneId = void 0),
@@ -2208,12 +2224,12 @@
 			r.addParameter("publisherSubId", function(e) {
 				r.publisherSubId = e;
 			}),
-			ko.prototype.tryFillParameters.call(r, e),
+			no.prototype.tryFillParameters.call(r, e),
 			r
 		);
 	}
-	var __extends$12 = ((xo = function(e, t) {
-			return (xo =
+	var __extends$12 = ((Ao = function(e, t) {
+			return (Ao =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -2227,16 +2243,16 @@
 			function i() {
 				this.constructor = e;
 			}
-			xo(e, t),
+			Ao(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		xo,
-		StandaloneInputParameters = ((Io = InputParameters),
-		__extends$12(Jo, Io),
-		(Jo.prototype.deserializePlacementInput = function(e) {
+		Ao,
+		StandaloneInputParameters = ((Lo = InputParameters),
+		__extends$12(Mo, Lo),
+		(Mo.prototype.deserializePlacementInput = function(e) {
 			for (var t = [], i = 0, o = e; i < o.length; i++) {
 				var r = o[i],
 					n = new PlacementInputParameters(r);
@@ -2253,10 +2269,10 @@
 			}
 			return t;
 		}),
-		Jo),
-		Io;
-	function Jo(e) {
-		var t = Io.call(this) || this;
+		Mo),
+		Lo;
+	function Mo(e) {
+		var t = Lo.call(this) || this;
 		return (
 			(t.placements = void 0),
 			(t.networkId = void 0),
@@ -2266,14 +2282,14 @@
 			t.addParameter("placements", function(e) {
 				t.placements = t.deserializePlacementInput(e);
 			}),
-			Io.prototype.tryFillParameters.call(t, e),
+			Lo.prototype.tryFillParameters.call(t, e),
 			t
 		);
 	}
-	var StandalonePlaceholder = ((Uo.clearState = function() {
+	var StandalonePlaceholder = ((Xo.clearState = function() {
 		this.cloneByImpressionId = {};
 	}),
-	(Uo.tryInsertPlaceholder = function(e) {
+	(Xo.tryInsertPlaceholder = function(e) {
 		var t = document.getElementById(e);
 		if (null === t) return !1;
 		if ((t.appendChild(this.createPlaceholder()), this.isVisible(t))) return !0;
@@ -2289,18 +2305,18 @@
 				: (i.removeChild(o), !1)
 		);
 	}),
-	(Uo.isVisible = function(e) {
+	(Xo.isVisible = function(e) {
 		return (
 			0 !== e.offsetWidth &&
 			0 !== e.offsetHeight &&
 			0 !== e.getClientRects().length
 		);
 	}),
-	(Uo.createClone = function(e) {
+	(Xo.createClone = function(e) {
 		var t = e.cloneNode(!1);
 		return (t.id = this.generateRandomId()), (t.className = ""), t;
 	}),
-	(Uo.generateRandomId = function() {
+	(Xo.generateRandomId = function() {
 		for (
 			var e = "1234567890abcdefghijklmnopqrstuvwxyz", t = "", i = 0;
 			i < 20;
@@ -2311,23 +2327,23 @@
 		}
 		return t;
 	}),
-	(Uo.createPlaceholder = function() {
+	(Xo.createPlaceholder = function() {
 		var e = document.createElement("div");
 		return (
 			(e.style.width = "1px"),
 			(e.style.height = "1px"),
 			(e.style.display = "block"),
-			(e.className = Uo.PLACEHOLDER_NAME),
+			(e.className = Xo.PLACEHOLDER_NAME),
 			e
 		);
 	}),
-	(Uo.removePlaceholder = function(e) {
+	(Xo.removePlaceholder = function(e) {
 		var t = this.cloneByImpressionId[e];
 		if (void 0 === t) {
 			var i = document.getElementById(e);
 			if (null !== i)
 				for (
-					var o = 0, r = i.getElementsByClassName(Uo.PLACEHOLDER_NAME);
+					var o = 0, r = i.getElementsByClassName(Xo.PLACEHOLDER_NAME);
 					o < r.length;
 					o++
 				) {
@@ -2336,7 +2352,7 @@
 				}
 		} else null !== t.parentNode && t.parentNode.removeChild(t);
 	}),
-	(Uo.insertAdIFrame = function(e) {
+	(Xo.insertAdIFrame = function(e) {
 		var t,
 			i = this.cloneByImpressionId[e];
 		if (void 0 !== i) t = i;
@@ -2346,7 +2362,7 @@
 			t = o;
 		}
 		for (
-			var r = 0, n = t.getElementsByClassName(Uo.PLACEHOLDER_NAME);
+			var r = 0, n = t.getElementsByClassName(Xo.PLACEHOLDER_NAME);
 			r < n.length;
 			r++
 		) {
@@ -2365,7 +2381,7 @@
 		}
 		return null;
 	}),
-	(Uo.createAdIFrame = function() {
+	(Xo.createAdIFrame = function() {
 		var e = document.createElement("iframe");
 		return (
 			(e.scrolling = "no"),
@@ -2377,25 +2393,25 @@
 			e
 		);
 	}),
-	(Uo.removePlaceholders = function(e, t) {
+	(Xo.removePlaceholders = function(e, t) {
 		void 0 === t && (t = []);
 		for (var i = 0, o = e; i < o.length; i++) {
 			var r = o[i].impId;
-			-1 === t.indexOf(r) && Uo.removePlaceholder(r);
+			-1 === t.indexOf(r) && Xo.removePlaceholder(r);
 		}
 	}),
-	(Uo.tryInsertPlaceholders = function(e) {
+	(Xo.tryInsertPlaceholders = function(e) {
 		for (var t = [], i = 0, o = e; i < o.length; i++) {
 			var r = o[i],
 				n = r.impId;
-			Uo.tryInsertPlaceholder(n) && t.push(r);
+			Xo.tryInsertPlaceholder(n) && t.push(r);
 		}
 		return t;
 	}),
-	(Uo.PLACEHOLDER_NAME = "criteo_placeholder"),
-	(Uo.cloneByImpressionId = {}),
-	Uo);
-	function Uo() {}
+	(Xo.PLACEHOLDER_NAME = "criteo_placeholder"),
+	(Xo.cloneByImpressionId = {}),
+	Xo);
+	function Xo() {}
 	var DirectBiddingPosition = function(e, t) {
 			(this.top = e), (this.left = t);
 		},
@@ -2405,7 +2421,7 @@
 				(this.scrollTop = i),
 				(this.scrollLeft = o);
 		},
-		DomManipulationTools = ((Vp.getHighestAccessibleWindow = function(e) {
+		DomManipulationTools = ((Yp.getHighestAccessibleWindow = function(e) {
 			var t = e,
 				i = !1;
 			try {
@@ -2421,7 +2437,7 @@
 			}
 			return { topFrame: t, err: i };
 		}),
-		(Vp.getHighestAccessibleUrl = function(e) {
+		(Yp.getHighestAccessibleUrl = function(e) {
 			var t = e.topFrame;
 			if (!e.err) return t.location.href;
 			try {
@@ -2434,16 +2450,16 @@
 			} catch (e) {}
 			return t.document.referrer;
 		}),
-		(Vp.inIframe = function() {
+		(Yp.inIframe = function() {
 			try {
 				return window.self !== window.top;
 			} catch (e) {
 				return !0;
 			}
 		}),
-		Vp);
-	function Vp() {}
-	var ViewportComputer = ((gq.prototype.getViewport = function() {
+		Yp);
+	function Yp() {}
+	var ViewportComputer = ((jq.prototype.getViewport = function() {
 		var e = DomManipulationTools.getHighestAccessibleWindow(window).topFrame,
 			t = e.document,
 			i = e.innerWidth || t.documentElement.clientWidth || t.body.clientWidth,
@@ -2453,7 +2469,7 @@
 			n = t.documentElement.scrollLeft || t.body.scrollLeft;
 		return new DirectBiddingViewport(i, o, r, n);
 	}),
-	(gq.prototype.getSlotPosition = function(e) {
+	(jq.prototype.getSlotPosition = function(e) {
 		var t = e.impId,
 			i = document.getElementById(t);
 		if (null !== i) {
@@ -2461,8 +2477,8 @@
 			return new DirectBiddingPosition(o.top, o.left);
 		}
 	}),
-	gq);
-	function gq() {}
+	jq);
+	function jq() {}
 	var standaloneProfileId = 184,
 		standaloneAdBlockProfileId = 275;
 	function RequestBids(e, t, i) {
@@ -2786,7 +2802,7 @@
 	function SetCCPAExplicitOptOut(e) {
 		window.criteo_pubtag.context.ccpaOptout = e;
 	}
-	var AMP = ((Os.Standalone = function(r, n, a) {
+	var AMP = ((Rs.Standalone = function(r, n, a) {
 		RequestBids(
 			{
 				integrationmode: "amp",
@@ -2796,7 +2812,7 @@
 			},
 			function(e) {
 				if ("DFP" === r.adserver) {
-					Os.listenForCreativeRequests(e);
+					Rs.listenForCreativeRequests(e);
 					for (var t = 0, i = e; t < i.length; t++) {
 						var o = ComputeStandaloneDFPTargeting(i[t], r.lineItemRanges);
 						void 0 !== o && a(o);
@@ -2808,7 +2824,7 @@
 			r.timeout
 		);
 	}),
-	(Os.listenForCreativeRequests = function(s) {
+	(Rs.listenForCreativeRequests = function(s) {
 		window.addEventListener(
 			"message",
 			function(e) {
@@ -2827,8 +2843,8 @@
 			!1
 		);
 	}),
-	Os);
-	function Os() {}
+	Rs);
+	function Rs() {}
 	function GetIdfs() {
 		return window.criteo_pubtag.context.getIdfs();
 	}
@@ -2851,18 +2867,18 @@
 				(this.startdelay = c);
 		},
 		PrebidMediaTypes,
-		rt;
-	(rt = PrebidMediaTypes = PrebidMediaTypes || {}),
-		(rt.Native = "native"),
-		(rt.Banner = "banner"),
-		(rt.Video = "video");
-	var Prebid = ((st.prototype.setEnableSendAllBids = function(e) {
+		ut;
+	(ut = PrebidMediaTypes = PrebidMediaTypes || {}),
+		(ut.Native = "native"),
+		(ut.Banner = "banner"),
+		(ut.Video = "video");
+	var Prebid = ((vt.prototype.setEnableSendAllBids = function(e) {
 		this.enableSendAllBids = e;
 	}),
-	(st.prototype.buildCdbUrl = function() {
+	(vt.prototype.buildCdbUrl = function() {
 		return this.url;
 	}),
-	(st.prototype.buildCdbRequest = function() {
+	(vt.prototype.buildCdbRequest = function() {
 		if (this.cache.silentModeEnabled())
 			Log.Debug("Request ignored because the global silent mode is enabled");
 		else {
@@ -2873,15 +2889,15 @@
 			Log.Debug("Request ignored because it doesnt contain any slot");
 		}
 	}),
-	(st.GetAllAdapters = function() {
+	(vt.GetAllAdapters = function() {
 		return window.Criteo.prebid_adapters;
 	}),
-	(st.GetAdapter = function(e) {
+	(vt.GetAdapter = function(e) {
 		var t = "string" == typeof e ? e : e.bidRequests[0].auctionId,
-			i = st.GetAllAdapters();
+			i = vt.GetAllAdapters();
 		if (i && t in i) return i[t];
 	}),
-	(st.createCriteoNativeAdWithCallback = function(e, t, i) {
+	(vt.createCriteoNativeAdWithCallback = function(e, t, i) {
 		return (
 			(window.criteo_prebid_native_slots =
 				window.criteo_prebid_native_slots || {}),
@@ -2891,7 +2907,7 @@
 				'"];\n                    responseSlot.callback(responseSlot.payload);\n                    break;\n                }\n            }\n        </script>'
 		);
 	}),
-	(st.createPrebidNativeAd = function(e) {
+	(vt.createPrebidNativeAd = function(e) {
 		return {
 			title: e.products[0].title,
 			body: e.products[0].description,
@@ -2908,7 +2924,7 @@
 			})
 		};
 	}),
-	(st.prototype.getBidRequestForSlot = function(e) {
+	(vt.prototype.getBidRequestForSlot = function(e) {
 		for (var t = 0, i = this.bidRequests; t < i.length; t++) {
 			var o = i[t];
 			if (
@@ -2918,8 +2934,8 @@
 				return o;
 		}
 	}),
-	(st.getVideoInfoFromBidRequest = function(e) {
-		if (st.hasVideoMediaType(e))
+	(vt.getVideoInfoFromBidRequest = function(e) {
+		if (vt.hasVideoMediaType(e))
 			return new DirectBiddingSlotVideo(
 				e.mediaTypes.video.playerSize,
 				e.mediaTypes.video.mimes,
@@ -2933,14 +2949,14 @@
 				e.params.video.startdelay
 			);
 	}),
-	(st.hasVideoMediaType = function(e) {
+	(vt.hasVideoMediaType = function(e) {
 		return (
 			void 0 !== e.params &&
 			void 0 !== e.params.video &&
 			!(void 0 === e.mediaTypes || void 0 === e.mediaTypes.video)
 		);
 	}),
-	(st.prototype.interpretResponse = function(e, t) {
+	(vt.prototype.interpretResponse = function(e, t) {
 		this.timer.requestReceived();
 		var i = extractExtraData(e),
 			o = {};
@@ -2968,7 +2984,7 @@
 						};
 					if (c.native)
 						if (l.params.nativeCallback)
-							h.ad = st.createCriteoNativeAdWithCallback(
+							h.ad = vt.createCriteoNativeAdWithCallback(
 								u,
 								c.native,
 								l.params.nativeCallback
@@ -2978,7 +2994,7 @@
 								Log.Error("Not supporting non mediation mode");
 								continue;
 							}
-							(h.native = st.createPrebidNativeAd(c.native)),
+							(h.native = vt.createPrebidNativeAd(c.native)),
 								(h.mediaType = PrebidMediaTypes.Native);
 						}
 					else
@@ -2996,24 +3012,24 @@
 			a
 		);
 	}),
-	(st.prototype.handleBidWon = function(e) {
+	(vt.prototype.handleBidWon = function(e) {
 		this.updateMetric(e, function(e) {
 			e.adapterBidWon = !0;
 		});
 	}),
-	(st.prototype.handleBidTimeout = function() {
+	(vt.prototype.handleBidTimeout = function() {
 		this.timer.requestReceived(!0),
 			this.metricsManager.storeMetric(this.timer.finish()),
 			this.cache.clearExpiredItems();
 	}),
-	(st.prototype.handleSetTargeting = function(e) {
+	(vt.prototype.handleSetTargeting = function(e) {
 		var t = this;
 		this.timer.setTargeting(),
 			this.updateMetric(e, function() {
 				return t.timer.build();
 			});
 	}),
-	(st.prototype.updateMetric = function(e, t) {
+	(vt.prototype.updateMetric = function(e, t) {
 		for (var i = this.metricsManager.getMetrics(!1), o = 0; o < i.length; ++o)
 			for (var r = 0, n = i[o].slots; r < n.length; r++) {
 				var a = n[r];
@@ -3024,8 +3040,8 @@
 			}
 		this.metricsManager.setMetrics(i);
 	}),
-	st);
-	function st(e, t, i, o, r) {
+	vt);
+	function vt(e, t, i, o, r) {
 		var n, a;
 		(this.enableSendAllBids = !0),
 			(this.timer = new DirectBiddingTimer(
@@ -3049,7 +3065,7 @@
 					}),
 					c.params.publisherSubId,
 					c.mediaTypes,
-					st.getVideoInfoFromBidRequest(c)
+					vt.getVideoInfoFromBidRequest(c)
 				)
 			),
 				(n = c.params.networkId || n),
@@ -3094,8 +3110,8 @@
 			(window.Criteo.prebid_adapters = window.Criteo.prebid_adapters || {}),
 			(window.Criteo.prebid_adapters[this.auctionId] = this);
 	}
-	var __extends$13 = ((tu = function(e, t) {
-			return (tu =
+	var __extends$13 = ((wu = function(e, t) {
+			return (wu =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3109,33 +3125,33 @@
 			function i() {
 				this.constructor = e;
 			}
-			tu(e, t),
+			wu(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		tu,
-		ConditionalEvent = ((Eu = AbstractEvent),
-		__extends$13(Fu, Eu),
-		(Fu.prototype.canEval = function() {
+		wu,
+		ConditionalEvent = ((Hu = AbstractEvent),
+		__extends$13(Iu, Hu),
+		(Iu.prototype.canEval = function() {
 			return (
 				void 0 === this.conditionRequirement ||
 				this.conditionRequirement.apply(this)
 			);
 		}),
-		(Fu.prototype.eval = function(e) {
+		(Iu.prototype.eval = function(e) {
 			this.condition.apply(this)
 				? this.eventIfTrue.eval(e)
 				: this.eventIfFalse.eval(e);
 		}),
-		(Fu.NAME = "conditionalEvent"),
-		Fu),
-		Eu,
+		(Iu.NAME = "conditionalEvent"),
+		Iu),
+		Hu,
 		AdFormatType,
-		Mu;
-	function Fu(e, t, i, o) {
-		var r = Eu.call(this, Fu.NAME) || this;
+		Pu;
+	function Iu(e, t, i, o) {
+		var r = Hu.call(this, Iu.NAME) || this;
 		return (
 			(r.condition = e),
 			(r.eventIfTrue = t),
@@ -3144,30 +3160,30 @@
 			r
 		);
 	}
-	(Mu = AdFormatType = AdFormatType || {}),
-		(Mu[(Mu.Classic = 0)] = "Classic"),
-		(Mu[(Mu.StickyFooter = 1)] = "StickyFooter"),
-		(Mu[(Mu.ScrollingBanner = 2)] = "ScrollingBanner");
-	var CookieHelper = ((Nu.SetCookie = function(e, t, i, o, r) {
+	(Pu = AdFormatType = AdFormatType || {}),
+		(Pu[(Pu.Classic = 0)] = "Classic"),
+		(Pu[(Pu.StickyFooter = 1)] = "StickyFooter"),
+		(Pu[(Pu.ScrollingBanner = 2)] = "ScrollingBanner");
+	var CookieHelper = ((Qu.SetCookie = function(e, t, i, o, r) {
 		void 0 === r && (r = !1);
 		var n = o || document,
 			a = n.location.hostname,
 			s = new Date();
 		s.setTime(s.getTime() + 60 * i * 60 * 1e3);
 		var d = "expires=" + s.toUTCString();
-		if (!r) return Nu.setCookieString(e, t, d, void 0, n), a;
+		if (!r) return Qu.setCookieString(e, t, d, void 0, n), a;
 		for (var c = a.split("."), l = 0; l < c.length; ++l) {
 			var u = c.slice(c.length - l - 1, c.length).join(".");
-			Nu.setCookieString(e, t, d, u, n);
-			var p = Nu.GetCookie(e, o);
+			Qu.setCookieString(e, t, d, u, n);
+			var p = Qu.GetCookie(e, o);
 			if (p && p === t) return u;
 		}
 		return a;
 	}),
-	(Nu.DeleteCookie = function(e, t, i) {
-		void 0 === i && (i = !1), Nu.SetCookie(e, "", 0, t, i);
+	(Qu.DeleteCookie = function(e, t, i) {
+		void 0 === i && (i = !1), Qu.SetCookie(e, "", 0, t, i);
 	}),
-	(Nu.GetCookie = function(e, t) {
+	(Qu.GetCookie = function(e, t) {
 		for (var i = 0, o = (t || document).cookie.split(";"); i < o.length; i++) {
 			var r = o[i],
 				n = r.substr(0, r.indexOf("=")).replace(/^\s+|\s+$/g, ""),
@@ -3175,13 +3191,13 @@
 			if (n === e) return decodeURIComponent(a);
 		}
 	}),
-	(Nu.setCookieString = function(e, t, i, o, r) {
+	(Qu.setCookieString = function(e, t, i, o, r) {
 		var n = e + "=" + encodeURIComponent(t) + ";" + i + ";";
 		o && "" !== o && (n += "domain=." + o + ";"), (r.cookie = n + "path=/");
 	}),
-	Nu);
-	function Nu() {}
-	var AdvancedAdFormats = ((rv.prototype.CreateAdvancedAdFormatContainer = function(
+	Qu);
+	function Qu() {}
+	var AdvancedAdFormats = ((uv.prototype.CreateAdvancedAdFormatContainer = function(
 			e
 		) {
 			return this.adFormat === AdFormatType.StickyFooter
@@ -3190,13 +3206,13 @@
 					? this.CreateScrollingBannerContainer(e)
 					: void 0;
 		}),
-		(rv.prototype.IsUserOptout = function() {
+		(uv.prototype.IsUserOptout = function() {
 			return (
 				this.adFormat === AdFormatType.StickyFooter &&
 				"true" === CookieHelper.GetCookie("cto_sticky_closed")
 			);
 		}),
-		(rv.prototype.CreateStickyFooterContainer = function(e) {
+		(uv.prototype.CreateStickyFooterContainer = function(e) {
 			var t = document.createElement("div");
 			(t.style.position = "fixed"),
 				(t.style.zIndex = "2147483646"),
@@ -3244,7 +3260,7 @@
 			}
 			return o.id;
 		}),
-		(rv.prototype.CreateScrollingBannerContainer = function(e) {
+		(uv.prototype.CreateScrollingBannerContainer = function(e) {
 			var t,
 				i = this;
 			if (void 0 === e || "" === e)
@@ -3275,7 +3291,7 @@
 				t.id
 			);
 		}),
-		(rv.prototype.SetScrollingContainerPosition = function(e, t) {
+		(uv.prototype.SetScrollingContainerPosition = function(e, t) {
 			t - 10 <=
 			(window.pageYOffset ||
 				document.documentElement.scrollTop ||
@@ -3284,26 +3300,26 @@
 				? ((e.style.position = "fixed"), (e.style.top = "10px"))
 				: ((e.style.position = "static"), (e.style.top = "auto"));
 		}),
-		rv),
+		uv),
 		DisplayContext,
-		Hv;
-	function rv(e) {
+		Kv;
+	function uv(e) {
 		this.adFormat = e;
 	}
-	(Hv = DisplayContext = DisplayContext || {}),
-		(Hv[(Hv.InFriendlyIframe = 1)] = "InFriendlyIframe"),
-		(Hv[(Hv.InUnfriendlyIframe = 2)] = "InUnfriendlyIframe"),
-		(Hv[(Hv.DirectIntegration = 3)] = "DirectIntegration");
-	var DocumentHelper = ((Iv.tryWrite = function(e) {
+	(Kv = DisplayContext = DisplayContext || {}),
+		(Kv[(Kv.InFriendlyIframe = 1)] = "InFriendlyIframe"),
+		(Kv[(Kv.InUnfriendlyIframe = 2)] = "InUnfriendlyIframe"),
+		(Kv[(Kv.DirectIntegration = 3)] = "DirectIntegration");
+	var DocumentHelper = ((Lv.tryWrite = function(e) {
 		for (var t = [], i = 1; i < arguments.length; i++) t[i - 1] = arguments[i];
 		return "loading" === e.readyState && (e.write.apply(e, t), !0);
 	}),
-	Iv);
-	function Iv() {}
-	var ViewabilityComputer = ((Mv.GetAtfRatio = function(e, t) {
+	Lv);
+	function Lv() {}
+	var ViewabilityComputer = ((Pv.GetAtfRatio = function(e, t) {
 		var i = document.getElementById(t);
 		if (e.displayContext === DisplayContext.DirectIntegration) {
-			if (null !== i) return Mv.GetRatioAboveFold(i);
+			if (null !== i) return Pv.GetRatioAboveFold(i);
 			if (
 				DocumentHelper.tryWrite(
 					document,
@@ -3311,14 +3327,14 @@
 				)
 			) {
 				var o = document.getElementById("compute_visibility_helper"),
-					r = Mv.GetRatioAboveFold(o);
+					r = Pv.GetRatioAboveFold(o);
 				return o.parentElement.removeChild(o), r;
 			}
 		}
 		if (e.displayContext === DisplayContext.InFriendlyIframe)
-			return Mv.GetRatioAboveFold(frameElement);
+			return Pv.GetRatioAboveFold(frameElement);
 	}),
-	(Mv.GetRatioAboveFold = function(e) {
+	(Pv.GetRatioAboveFold = function(e) {
 		var t = new ViewportComputer().getViewport(),
 			i = t.height,
 			o = e.getBoundingClientRect(),
@@ -3329,10 +3345,10 @@
 				? 0
 				: (i - o.top - r) / e.offsetHeight;
 	}),
-	Mv);
-	function Mv() {}
-	var __extends$14 = ((Yv = function(e, t) {
-			return (Yv =
+	Pv);
+	function Pv() {}
+	var __extends$14 = ((_v = function(e, t) {
+			return (_v =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3346,22 +3362,22 @@
 			function i() {
 				this.constructor = e;
 			}
-			Yv(e, t),
+			_v(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Yv,
-		DisplayEvent = ((hw = AbstractEvent),
-		__extends$14(iw, hw),
-		(iw.prototype.eval = function(e) {
+		_v,
+		DisplayEvent = ((kw = AbstractEvent),
+		__extends$14(lw, kw),
+		(lw.prototype.eval = function(e) {
 			this.displayParameters.atfRatio = ViewabilityComputer.GetAtfRatio(
 				e.context,
 				this.displayParameters.containerid
 			);
 		}),
-		(iw.prototype.buildCasUrl = function(t, i, o, r, n) {
+		(lw.prototype.buildCasUrl = function(t, i, o, r, n) {
 			var a = this;
 			this.gdprPrivacyProvider.readyToRetrieve()
 				? this.gdprPrivacyProvider.retrieveGDPRConsentForPassback(function(e) {
@@ -3369,12 +3385,12 @@
 				  })
 				: t(this.urlBuilder.buildUrl(this.displayParameters, i, o, r, n));
 		}),
-		iw),
-		hw,
+		lw),
+		kw,
 		HandlerType,
-		vw;
-	function iw(e, t, i) {
-		var o = hw.call(this, e) || this;
+		yw;
+	function lw(e, t, i) {
+		var o = kw.call(this, e) || this;
 		return (
 			(o.displayParameters = i),
 			(o.urlBuilder = t),
@@ -3382,11 +3398,11 @@
 			o
 		);
 	}
-	(vw = HandlerType = HandlerType || {}),
-		(vw[(vw.AFR = 0)] = "AFR"),
-		(vw[(vw.AJS = 1)] = "AJS");
-	var __extends$15 = ((ww = function(e, t) {
-			return (ww =
+	(yw = HandlerType = HandlerType || {}),
+		(yw[(yw.AFR = 0)] = "AFR"),
+		(yw[(yw.AJS = 1)] = "AJS");
+	var __extends$15 = ((zw = function(e, t) {
+			return (zw =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3400,18 +3416,18 @@
 			function i() {
 				this.constructor = e;
 			}
-			ww(e, t),
+			zw(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		ww,
-		DisplayEventAFR = ((Hw = DisplayEvent),
-		__extends$15(Iw, Hw),
-		(Iw.prototype.eval = function(t) {
+		zw,
+		DisplayEventAFR = ((Kw = DisplayEvent),
+		__extends$15(Lw, Kw),
+		(Lw.prototype.eval = function(t) {
 			var i = this;
-			Hw.prototype.eval.call(this, t);
+			Kw.prototype.eval.call(this, t);
 			var o = this.displayParameters.containerid,
 				r = this.displayParameters.callbackSuccess,
 				n = this.displayParameters.callbackError;
@@ -3426,7 +3442,7 @@
 				HandlerType.AFR
 			);
 		}),
-		(Iw.prototype.loadIframe = function(e, t, i, o) {
+		(Lw.prototype.loadIframe = function(e, t, i, o) {
 			var r = document.createElement("iframe");
 			(r.src = e),
 				(r.id = t + "_cto_iframe"),
@@ -3445,15 +3461,15 @@
 				? n.appendChild(r)
 				: Log.Error('Target element "' + t + '" not found in the document');
 		}),
-		(Iw.NAME = "displayAfr"),
-		Iw),
-		Hw;
-	function Iw(e, t, i) {
-		var o = Hw.call(this, Iw.NAME, e, t) || this;
+		(Lw.NAME = "displayAfr"),
+		Lw),
+		Kw;
+	function Lw(e, t, i) {
+		var o = Kw.call(this, Lw.NAME, e, t) || this;
 		return (o.respectsEyeoDeal = i), o;
 	}
-	var __extends$16 = ((Zw = function(e, t) {
-			return (Zw =
+	var __extends$16 = ((ax = function(e, t) {
+			return (ax =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3467,13 +3483,13 @@
 			function i() {
 				this.constructor = e;
 			}
-			Zw(e, t),
+			ax(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Zw,
+		ax,
 		DisplayEventAsync = (function(_super) {
 			function DisplayEventAsync(e, t) {
 				return _super.call(this, DisplayEventAsync.NAME, e, t) || this;
@@ -3554,8 +3570,8 @@
 				DisplayEventAsync
 			);
 		})(DisplayEvent),
-		__extends$17 = ((Hx = function(e, t) {
-			return (Hx =
+		__extends$17 = ((Kx = function(e, t) {
+			return (Kx =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3569,35 +3585,35 @@
 			function i() {
 				this.constructor = e;
 			}
-			Hx(e, t),
+			Kx(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		Hx,
-		DisplayEventSync = ((Sx = DisplayEvent),
-		__extends$17(Tx, Sx),
-		(Tx.prototype.eval = function(e) {
+		Kx,
+		DisplayEventSync = ((Vx = DisplayEvent),
+		__extends$17(Wx, Vx),
+		(Wx.prototype.eval = function(e) {
 			var t = this;
-			Sx.prototype.eval.call(this, e),
+			Vx.prototype.eval.call(this, e),
 				this.buildCasUrl(function(e) {
 					t.loadScriptSync(e);
 				}, e.context);
 		}),
-		(Tx.prototype.loadScriptSync = function(e) {
+		(Wx.prototype.loadScriptSync = function(e) {
 			document.write(
 				"<script type='text/javascript' src='" + e + "'></script>"
 			);
 		}),
-		(Tx.NAME = "displaySync"),
-		Tx),
-		Sx;
-	function Tx(e, t) {
-		return Sx.call(this, Tx.NAME, e, t) || this;
+		(Wx.NAME = "displaySync"),
+		Wx),
+		Vx;
+	function Wx(e, t) {
+		return Vx.call(this, Wx.NAME, e, t) || this;
 	}
-	var __extends$18 = (($x = function(e, t) {
-			return ($x =
+	var __extends$18 = ((by = function(e, t) {
+			return (by =
 				Object.setPrototypeOf ||
 				({ __proto__: [] } instanceof Array &&
 					function(e, t) {
@@ -3611,16 +3627,16 @@
 			function i() {
 				this.constructor = e;
 			}
-			$x(e, t),
+			by(e, t),
 				(e.prototype =
 					null === t
 						? Object.create(t)
 						: ((i.prototype = t.prototype), new i()));
 		}),
-		$x,
-		DisplayInputParameters = ((jy = InputParameters),
-		__extends$18(ky, jy),
-		(ky.prototype.parseAdFormat = function(e) {
+		by,
+		DisplayInputParameters = ((my = InputParameters),
+		__extends$18(ny, my),
+		(ny.prototype.parseAdFormat = function(e) {
 			switch (e.toLowerCase()) {
 				case "stickyfooter":
 					return AdFormatType.StickyFooter;
@@ -3630,10 +3646,10 @@
 					return AdFormatType.Classic;
 			}
 		}),
-		ky),
-		jy;
-	function ky(e) {
-		var t = jy.call(this) || this;
+		ny),
+		my;
+	function ny(e) {
+		var t = my.call(this) || this;
 		return (
 			(t.zoneid = void 0),
 			(t.async = void 0),
@@ -3707,13 +3723,13 @@
 			t.addParameter("adFormat", function(e) {
 				t.adFormat = t.parseAdFormat(e);
 			}),
-			jy.prototype.tryFillParameters.call(t, e),
+			my.prototype.tryFillParameters.call(t, e),
 			t
 		);
 	}
-	var DisplayUrlBuilder = ((Gy.prototype.buildUrl = function(e, t, i, o, r, n) {
+	var DisplayUrlBuilder = ((Jy.prototype.buildUrl = function(e, t, i, o, r, n) {
 		var a =
-			(i === HandlerType.AFR ? Gy.CAS_URL_AFR : Gy.CAS_URL_AJS) +
+			(i === HandlerType.AFR ? Jy.CAS_URL_AFR : Jy.CAS_URL_AJS) +
 			"?ptv=" +
 			PublisherTagVersion;
 		if (!0 === t.isAdBlocked) {
@@ -3773,14 +3789,14 @@
 			a
 		);
 	}),
-	(Gy.prototype.getAbpParameter = function(e, t) {
+	(Jy.prototype.getAbpParameter = function(e, t) {
 		return (t.isAdBlocked ? 1 : 0) | (e.overrideZoneFloor ? 0 : 2);
 	}),
-	(Gy.CAS_URL_AJS = "https://cas.criteo.com/delivery/ajs.php"),
-	(Gy.CAS_URL_AFR = "https://cas.criteo.com/delivery/afr.php"),
-	Gy);
-	function Gy() {}
-	var EyeoDealValidator = ((Wy.prototype.respectsEyeoDeal = function(e) {
+	(Jy.CAS_URL_AJS = "https://cas.criteo.com/delivery/ajs.php"),
+	(Jy.CAS_URL_AFR = "https://cas.criteo.com/delivery/afr.php"),
+	Jy);
+	function Jy() {}
+	var EyeoDealValidator = ((Zy.prototype.respectsEyeoDeal = function(e) {
 		var t = document.getElementById(e);
 		if (!this.respectsSizeConstraints(t))
 			return (
@@ -3795,7 +3811,7 @@
 			o = i.respectsAdRatioConstraint;
 		return (
 			o
-				? ((Wy.atfRatio = i.newAtfRatio), (Wy.btfRatio = i.newBtfRatio))
+				? ((Zy.atfRatio = i.newAtfRatio), (Zy.btfRatio = i.newBtfRatio))
 				: Log.Debug(
 						"The element " +
 							e +
@@ -3804,7 +3820,7 @@
 			o
 		);
 	}),
-	(Wy.prototype.respectsSizeConstraints = function(e) {
+	(Zy.prototype.respectsSizeConstraints = function(e) {
 		var t = this.getAdLocationAttribute(e);
 		switch (t) {
 			case "above-content":
@@ -3821,25 +3837,25 @@
 				);
 		}
 	}),
-	(Wy.prototype.getAdLocationAttribute = function(e) {
+	(Zy.prototype.getAdLocationAttribute = function(e) {
 		return e.getAttribute("data-ad-loc") || void 0;
 	}),
-	(Wy.prototype.getNewRatiosFeatures = function(e) {
+	(Zy.prototype.getNewRatiosFeatures = function(e) {
 		var t = ViewabilityComputer.GetRatioAboveFold(e),
 			i = e.offsetHeight * e.offsetWidth,
 			o = screen.width * screen.height,
-			r = Wy.atfRatio + (t * i) / o,
-			n = Wy.btfRatio + ((1 - t) * i) / o;
+			r = Zy.atfRatio + (t * i) / o,
+			n = Zy.btfRatio + ((1 - t) * i) / o;
 		return {
 			respectsAdRatioConstraint: r <= 0.15 && n <= 0.25,
 			newAtfRatio: r,
 			newBtfRatio: n
 		};
 	}),
-	(Wy.atfRatio = 0),
-	(Wy.btfRatio = 0),
-	Wy);
-	function Wy() {}
+	(Zy.atfRatio = 0),
+	(Zy.btfRatio = 0),
+	Zy);
+	function Zy() {}
 	function DisplayAd(e) {
 		var t = new DisplayInputParameters(e);
 		if (((t.async = !1 !== t.async), void 0 !== t.zoneid))
@@ -3940,16 +3956,16 @@
 		}
 		return isVisible(e.parentNode);
 	}
-	var Polyfills = ((Dz.LoadPolyfills = function() {
-			Dz.DefineIsArray(), Dz.DefineIndexOf(), Dz.DefineFilter();
+	var Polyfills = ((Gz.LoadPolyfills = function() {
+			Gz.DefineIsArray(), Gz.DefineIndexOf(), Gz.DefineFilter();
 		}),
-		(Dz.DefineIsArray = function() {
+		(Gz.DefineIsArray = function() {
 			Array.isArray ||
 				(Array.isArray = function(e) {
 					return "[object Array]" === Object.prototype.toString.call(e);
 				});
 		}),
-		(Dz.DefineIndexOf = function() {
+		(Gz.DefineIndexOf = function() {
 			Array.prototype.indexOf ||
 				(Array.prototype.indexOf = function(e, t) {
 					if ((void 0 === t && (t = 0), void 0 === this))
@@ -3964,7 +3980,7 @@
 					return -1;
 				});
 		}),
-		(Dz.DefineFilter = function() {
+		(Gz.DefineFilter = function() {
 			Array.prototype.filter ||
 				(Array.prototype.filter = function(e) {
 					if (void 0 === this || void 0 === this) throw new TypeError();
@@ -3984,10 +4000,10 @@
 					return i;
 				});
 		}),
-		Dz),
+		Gz),
 		StorageOrigin,
-		Uz;
-	function Dz() {}
+		Xz;
+	function Gz() {}
 	function tryDecodeURIComponent(t, i) {
 		try {
 			return decodeURIComponent(t);
@@ -4009,34 +4025,34 @@
 			}
 		);
 	}
-	(Uz = StorageOrigin = StorageOrigin || {}),
-		(Uz[(Uz.None = 0)] = "None"),
-		(Uz[(Uz.Cookie = 1)] = "Cookie"),
-		(Uz[(Uz.LocalStorage = 2)] = "LocalStorage");
-	var CookieSynchronizer = ((Vz.isSafariBrowser = function() {
-		return null !== navigator.userAgent.match(Vz.SAFARI_CHECK_REGEX);
+	(Xz = StorageOrigin = StorageOrigin || {}),
+		(Xz[(Xz.None = 0)] = "None"),
+		(Xz[(Xz.Cookie = 1)] = "Cookie"),
+		(Xz[(Xz.LocalStorage = 2)] = "LocalStorage");
+	var CookieSynchronizer = ((Yz.isSafariBrowser = function() {
+		return null !== navigator.userAgent.match(Yz.SAFARI_CHECK_REGEX);
 	}),
-	(Vz.isAndroidBrowser = function() {
+	(Yz.isAndroidBrowser = function() {
 		return -1 < navigator.userAgent.toLowerCase().indexOf("android");
 	}),
-	(Vz.isFirefoxBrowser = function() {
+	(Yz.isFirefoxBrowser = function() {
 		return -1 < navigator.userAgent.toLowerCase().indexOf("firefox");
 	}),
-	(Vz.isEdgeChromiumBrowser = function() {
+	(Yz.isEdgeChromiumBrowser = function() {
 		return -1 < navigator.userAgent.toLowerCase().indexOf("edg/");
 	}),
-	(Vz.isEdgeLegacyBrowser = function() {
+	(Yz.isEdgeLegacyBrowser = function() {
 		return -1 < navigator.userAgent.toLowerCase().indexOf("edge/");
 	}),
-	(Vz.prototype.synchronizeCriteoUid = function(e) {
+	(Yz.prototype.synchronizeCriteoUid = function(e) {
 		var t = this;
 		if (
 			(e ||
-				Vz.isSafariBrowser() ||
-				Vz.isAndroidBrowser() ||
-				Vz.isFirefoxBrowser() ||
-				Vz.isEdgeChromiumBrowser() ||
-				Vz.isEdgeLegacyBrowser()) &&
+				Yz.isSafariBrowser() ||
+				Yz.isAndroidBrowser() ||
+				Yz.isFirefoxBrowser() ||
+				Yz.isEdgeChromiumBrowser() ||
+				Yz.isEdgeLegacyBrowser()) &&
 			this.topWin.addEventListener
 		)
 			if ("complete" === this.topDoc.readyState)
@@ -4051,10 +4067,10 @@
 					this.topDoc.addEventListener("DOMContentLoaded", i, !1);
 			}
 	}),
-	(Vz.prototype.appendGumIframeIfDoesNotExist = function() {
+	(Yz.prototype.appendGumIframeIfDoesNotExist = function() {
 		var n = this,
 			e = this.createGumIframe();
-		this.topDoc.getElementById(Vz.SYNCFRAME_ID) ||
+		this.topDoc.getElementById(Yz.SYNCFRAME_ID) ||
 			(this.topWin.addEventListener(
 				"message",
 				function(e) {
@@ -4094,88 +4110,88 @@
 			),
 			this.topDoc.body.appendChild(e));
 	}),
-	(Vz.prototype.getClientSideUid = function() {
-		return this.getFromAllStorages(Vz.GUID_COOKIE_NAME);
+	(Yz.prototype.getClientSideUid = function() {
+		return this.getFromAllStorages(Yz.GUID_COOKIE_NAME);
 	}),
-	(Vz.prototype.setClientSideUid = function(e) {
+	(Yz.prototype.setClientSideUid = function(e) {
 		this.writeOnAllStorages(
-			Vz.GUID_COOKIE_NAME,
+			Yz.GUID_COOKIE_NAME,
 			e,
-			Vz.GUID_RETENTION_TIME_HOUR
+			Yz.GUID_RETENTION_TIME_HOUR
 		);
 	}),
-	(Vz.prototype.deleteClientSideUid = function() {
-		this.deleteFromAllStorage(Vz.GUID_COOKIE_NAME);
+	(Yz.prototype.deleteClientSideUid = function() {
+		this.deleteFromAllStorage(Yz.GUID_COOKIE_NAME);
 	}),
-	(Vz.prototype.getBundle = function() {
-		return this.getFromAllStorages(Vz.BUNDLE_COOKIE_NAME);
+	(Yz.prototype.getBundle = function() {
+		return this.getFromAllStorages(Yz.BUNDLE_COOKIE_NAME);
 	}),
-	(Vz.prototype.setBundle = function(e) {
+	(Yz.prototype.setBundle = function(e) {
 		this.writeOnAllStorages(
-			Vz.BUNDLE_COOKIE_NAME,
+			Yz.BUNDLE_COOKIE_NAME,
 			e,
-			Vz.GUID_RETENTION_TIME_HOUR
+			Yz.GUID_RETENTION_TIME_HOUR
 		);
 	}),
-	(Vz.prototype.deleteBundle = function() {
-		this.deleteFromAllStorage(Vz.BUNDLE_COOKIE_NAME);
+	(Yz.prototype.deleteBundle = function() {
+		this.deleteFromAllStorage(Yz.BUNDLE_COOKIE_NAME);
 	}),
-	(Vz.prototype.getClientSideOptOut = function() {
-		var e = this.getFromAllStorages(Vz.OPTOUT_COOKIE_NAME);
+	(Yz.prototype.getClientSideOptOut = function() {
+		var e = this.getFromAllStorages(Yz.OPTOUT_COOKIE_NAME);
 		return { value: "1" === e.value, origin: e.origin };
 	}),
-	(Vz.prototype.setClientSideOptOut = function() {
+	(Yz.prototype.setClientSideOptOut = function() {
 		this.writeOnAllStorages(
-			Vz.OPTOUT_COOKIE_NAME,
+			Yz.OPTOUT_COOKIE_NAME,
 			"1",
-			Vz.OPTOUT_RETENTION_TIME_HOUR
+			Yz.OPTOUT_RETENTION_TIME_HOUR
 		);
 	}),
-	(Vz.prototype.deleteClientSideIdfs = function() {
-		this.deleteFromAllStorage(Vz.IDFS_COOKIE_NAME);
+	(Yz.prototype.deleteClientSideIdfs = function() {
+		this.deleteFromAllStorage(Yz.IDFS_COOKIE_NAME);
 	}),
-	(Vz.prototype.getClientSideIdfs = function() {
-		return this.getFromAllStorages(Vz.IDFS_COOKIE_NAME);
+	(Yz.prototype.getClientSideIdfs = function() {
+		return this.getFromAllStorages(Yz.IDFS_COOKIE_NAME);
 	}),
-	(Vz.prototype.setClientSideIdfs = function(e) {
+	(Yz.prototype.setClientSideIdfs = function(e) {
 		this.writeOnAllStorages(
-			Vz.IDFS_COOKIE_NAME,
+			Yz.IDFS_COOKIE_NAME,
 			e,
-			Vz.GUID_RETENTION_TIME_HOUR
+			Yz.GUID_RETENTION_TIME_HOUR
 		);
 	}),
-	(Vz.prototype.getClientSideSecureId = function() {
-		return this.getFromAllStorages(Vz.SECURE_ID_COOKIE_NAME);
+	(Yz.prototype.getClientSideSecureId = function() {
+		return this.getFromAllStorages(Yz.SECURE_ID_COOKIE_NAME);
 	}),
-	(Vz.prototype.setClientSideSecureId = function(e) {
+	(Yz.prototype.setClientSideSecureId = function(e) {
 		this.writeOnAllStorages(
-			Vz.SECURE_ID_COOKIE_NAME,
+			Yz.SECURE_ID_COOKIE_NAME,
 			e,
-			Vz.GUID_RETENTION_TIME_HOUR
+			Yz.GUID_RETENTION_TIME_HOUR
 		);
 	}),
-	(Vz.prototype.deleteClientSideSecureId = function() {
-		this.deleteFromAllStorage(Vz.SECURE_ID_COOKIE_NAME);
+	(Yz.prototype.deleteClientSideSecureId = function() {
+		this.deleteFromAllStorage(Yz.SECURE_ID_COOKIE_NAME);
 	}),
-	(Vz.prototype.getClientSideLocalWebId = function() {
-		return this.getFromAllStorages(Vz.LOCAL_WEB_ID_COOKIE_NAME);
+	(Yz.prototype.getClientSideLocalWebId = function() {
+		return this.getFromAllStorages(Yz.LOCAL_WEB_ID_COOKIE_NAME);
 	}),
-	(Vz.prototype.checkCookiesAreWriteable = function() {
+	(Yz.prototype.checkCookiesAreWriteable = function() {
 		var e = "cto_writeable";
 		CookieHelper.SetCookie(e, "1", 1, this.topDoc, !0);
 		var t = "1" === CookieHelper.GetCookie(e, this.topDoc);
 		return CookieHelper.DeleteCookie(e, this.topDoc, !0), t;
 	}),
-	(Vz.prototype.createGumIframe = function() {
+	(Yz.prototype.createGumIframe = function() {
 		var e = this.topDoc.createElement("iframe"),
 			t = this.buildSyncframeSrc();
-		return (e.src = t), (e.id = Vz.SYNCFRAME_ID), (e.style.display = "none"), e;
+		return (e.src = t), (e.id = Yz.SYNCFRAME_ID), (e.style.display = "none"), e;
 	}),
-	(Vz.prototype.writeOnAllStorages = function(e, t, i) {
+	(Yz.prototype.writeOnAllStorages = function(e, t, i) {
 		this.localStorageEnabled && this.localStorageHelper.setItem(e, t),
 			CookieHelper.SetCookie(e, t, i, this.topDoc, !0);
 	}),
-	(Vz.prototype.getFromAllStorages = function(e) {
+	(Yz.prototype.getFromAllStorages = function(e) {
 		var t,
 			i = CookieHelper.GetCookie(e, this.topDoc);
 		return (
@@ -4187,23 +4203,23 @@
 			}
 		);
 	}),
-	(Vz.prototype.deleteFromAllStorage = function(e) {
+	(Yz.prototype.deleteFromAllStorage = function(e) {
 		CookieHelper.DeleteCookie(e, this.topDoc, !0),
 			this.localStorageEnabled && this.localStorageHelper.removeItem(e);
 	}),
-	(Vz.prototype.getTld = function() {
+	(Yz.prototype.getTld = function() {
 		var e = CookieHelper.SetCookie(
-			Vz.TLD_TEST_COOKIE_NAME,
+			Yz.TLD_TEST_COOKIE_NAME,
 			"test",
 			1,
 			this.topDoc,
 			!0
 		);
 		return (
-			CookieHelper.DeleteCookie(Vz.TLD_TEST_COOKIE_NAME, this.topDoc, !0), e
+			CookieHelper.DeleteCookie(Yz.TLD_TEST_COOKIE_NAME, this.topDoc, !0), e
 		);
 	}),
-	(Vz.prototype.buildSyncframeSrc = function() {
+	(Yz.prototype.buildSyncframeSrc = function() {
 		var e = this.getClientSideUid(),
 			t = this.getClientSideIdfs(),
 			i = this.getClientSideOptOut(),
@@ -4234,19 +4250,19 @@
 				cw: c
 			}));
 	}),
-	(Vz.GUID_COOKIE_NAME = "cto_idcpy"),
-	(Vz.GUID_RETENTION_TIME_HOUR = 9360),
-	(Vz.IDFS_COOKIE_NAME = "cto_idfs"),
-	(Vz.SECURE_ID_COOKIE_NAME = "cto_sid"),
-	(Vz.LOCAL_WEB_ID_COOKIE_NAME = "cto_lwid"),
-	(Vz.BUNDLE_COOKIE_NAME = "cto_bundle"),
-	(Vz.OPTOUT_COOKIE_NAME = "cto_optout"),
-	(Vz.OPTOUT_RETENTION_TIME_HOUR = 43200),
-	(Vz.TLD_TEST_COOKIE_NAME = "cto_pub_test_tld"),
-	(Vz.SYNCFRAME_ID = "criteo-syncframe"),
-	(Vz.SAFARI_CHECK_REGEX = /^Mozilla\/5\.0 \([^)]+\) AppleWebKit\/[^ ]+ \(KHTML, like Gecko\) Version\/([^ ]+)( Mobile\/[^ ]+)? Safari\/[^ ]+$/i),
-	Vz);
-	function Vz(e, t, i) {
+	(Yz.GUID_COOKIE_NAME = "cto_idcpy"),
+	(Yz.GUID_RETENTION_TIME_HOUR = 9360),
+	(Yz.IDFS_COOKIE_NAME = "cto_idfs"),
+	(Yz.SECURE_ID_COOKIE_NAME = "cto_sid"),
+	(Yz.LOCAL_WEB_ID_COOKIE_NAME = "cto_lwid"),
+	(Yz.BUNDLE_COOKIE_NAME = "cto_bundle"),
+	(Yz.OPTOUT_COOKIE_NAME = "cto_optout"),
+	(Yz.OPTOUT_RETENTION_TIME_HOUR = 43200),
+	(Yz.TLD_TEST_COOKIE_NAME = "cto_pub_test_tld"),
+	(Yz.SYNCFRAME_ID = "criteo-syncframe"),
+	(Yz.SAFARI_CHECK_REGEX = /^Mozilla\/5\.0 \([^)]+\) AppleWebKit\/[^ ]+ \(KHTML, like Gecko\) Version\/([^ ]+)( Mobile\/[^ ]+)? Safari\/[^ ]+$/i),
+	Yz);
+	function Yz(e, t, i) {
 		(this.isDebug = t),
 			(this.topWin = e),
 			(this.topDoc = e.document),
@@ -4255,21 +4271,21 @@
 			(this.canWriteCookies = this.checkCookiesAreWriteable()),
 			(this.topUrl = i);
 	}
-	var Context = ((PA.prototype.getContextFlags = function() {
+	var Context = ((SA.prototype.getContextFlags = function() {
 		var e = "";
 		return (
 			(e += this.debugMode ? "&debug=1" : ""),
 			(e += this.noLog ? "&nolog=1" : "")
 		);
 	}),
-	(PA.prototype.getDisplayContext = function(e) {
+	(SA.prototype.getDisplayContext = function(e) {
 		return DomManipulationTools.inIframe()
 			? e.err
 				? DisplayContext.InUnfriendlyIframe
 				: DisplayContext.InFriendlyIframe
 			: DisplayContext.DirectIntegration;
 	}),
-	(PA.prototype.getQueryStringParams = function(e) {
+	(SA.prototype.getQueryStringParams = function(e) {
 		var t = {},
 			i = e.split("?");
 		if (1 < i.length)
@@ -4279,7 +4295,7 @@
 			}
 		return t;
 	}),
-	(PA.prototype.synchronizeCriteoUid = function() {
+	(SA.prototype.synchronizeCriteoUid = function() {
 		var e = this.cookieSynchronizerFactory();
 		(this.ctoIdOnPublisherDomain = e.getClientSideUid().value),
 			(this.isOptOut = e.getClientSideOptOut().value),
@@ -4288,20 +4304,20 @@
 			(this.bundle = e.getBundle().value),
 			e.synchronizeCriteoUid();
 	}),
-	(PA.prototype.getIdfs = function() {
+	(SA.prototype.getIdfs = function() {
 		return [this.idfs, this.secureId].join(":");
 	}),
-	(PA.prototype.setIdfs = function(e) {
+	(SA.prototype.setIdfs = function(e) {
 		var t = e.split(":");
 		t[0] && (this.idfs = t[0]), t[1] && (this.secureId = t[1]);
 	}),
-	(PA.prototype.computeShouldIgnoreSilentMode = function() {
+	(SA.prototype.computeShouldIgnoreSilentMode = function() {
 		return Math.floor(100 * Math.random()) < 5;
 	}),
-	(PA.prototype.setSilentModeIgnored = function() {
+	(SA.prototype.setSilentModeIgnored = function() {
 		this.silentModeIgnored = !0;
 	}),
-	(PA.prototype.checkIfUserHasOptOutForCCPA = function(t) {
+	(SA.prototype.checkIfUserHasOptOutForCCPA = function(t) {
 		var i = this;
 		this.ccpaPrivacyProvider.readyToRetrieve()
 			? this.ccpaPrivacyProvider.retrieveCCPAConsent(function(e) {
@@ -4309,8 +4325,8 @@
 			  })
 			: t(!1);
 	}),
-	PA);
-	function PA(e, t, i, o) {
+	SA);
+	function SA(e, t, i, o) {
 		var r = this;
 		this.charset = e.charset || e.characterSet || "";
 		var n = DomManipulationTools.getHighestAccessibleWindow(t);
@@ -4350,7 +4366,7 @@
 	function isConditionalEvent(e) {
 		return "conditionalEvent" === e.name;
 	}
-	var PublisherTag = ((pB.prototype.push = function() {
+	var PublisherTag = ((sB.prototype.push = function() {
 		for (var e = [], t = 0; t < arguments.length; t++) e[t] = arguments[t];
 		for (var i = 0, o = e; i < o.length; i++) {
 			var r = o[i];
@@ -4358,7 +4374,7 @@
 		}
 		this.evalEvents();
 	}),
-	(pB.prototype.evalEvents = function() {
+	(sB.prototype.evalEvents = function() {
 		for (var e = 0; e < this.events.length; ) {
 			var t = this.events[e];
 			if (isConditionalEvent(t) && !t.canEval()) e++;
@@ -4374,9 +4390,9 @@
 			}
 		}
 	}),
-	(pB.VERSION = PublisherTagVersion),
-	pB);
-	function pB() {
+	(sB.VERSION = PublisherTagVersion),
+	sB);
+	function sB() {
 		(this.standaloneBidder = new StandaloneDirectBidder()),
 			(this.events = []),
 			(this.context = new Context(document, window)),
