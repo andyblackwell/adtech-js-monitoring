@@ -1,4 +1,4 @@
-/*1579829957,,JIT Construction: v1001636255,en_US*/
+/*1580230739,,JIT Construction: v1001647722,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -7219,26 +7219,21 @@ try {
 									return this.$14;
 								};
 								c.play = function(a) {
-									__p && __p();
 									var c = this;
 									this.$7 = !0;
 									this.$6 = this.$6 && !a;
 									a = this.$13.play();
-									if (a instanceof Promise || i(a))
-										return a
-											.then(function() {
-												c.$12.classList.remove("_7juo"),
-													c.$12.classList.remove("_7kc2"),
-													c.$12.classList.remove("_7kc3");
-											})
-											["catch"](function(a) {
-												c.$12.classList.add("_7juo");
-												throw a;
-											});
-									else {
-										this.$12.classList.remove("_7juo");
-										return b("NativePromise").resolve();
-									}
+									i(a) || (a = b("NativePromise").resolve());
+									return a
+										.then(function() {
+											c.$12.classList.remove("_7juo"),
+												c.$12.classList.remove("_7kc2"),
+												c.$12.classList.remove("_7kc3");
+										})
+										["catch"](function(a) {
+											c.$12.classList.add("_7juo");
+											throw a;
+										});
 								};
 								c.pause = function(a) {
 									(this.$6 = this.$6 || !!a),
@@ -13616,7 +13611,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001636255","namespace":"FB","message":"' +
+				'","revision":"1001647722","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
