@@ -1,4 +1,4 @@
-/*1580230739,,JIT Construction: v1001647722,en_US*/
+/*1580421565,,JIT Construction: v1001659442,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -10525,9 +10525,6 @@ try {
 							"use strict";
 							__p && __p();
 							function g(a) {
-								return "<![EX[" + ES("JSON", "stringify", !1, j(a)) + "]]>";
-							}
-							function h(a) {
 								__p && __p();
 								try {
 									var b = n(a, /^([\s\S]*)<\!\[EX\[(\[.*\])\]\]>([\s\S]*)$/);
@@ -10540,7 +10537,11 @@ try {
 									d = d.slice(1);
 									e = m(e);
 									e.message = c + e.message + b;
-									d && d.length > 0 && (e.params = d);
+									d &&
+										d.length > 0 &&
+										(e.params = ES(d, "map", !0, function(a) {
+											return String(a);
+										}));
 									return e;
 								} catch (b) {
 									return {
@@ -10549,43 +10550,51 @@ try {
 									};
 								}
 							}
-							function b(a, b) {
-								if (a == null) return g(b);
-								var c = h(a.message),
-									d = b.forcedKey,
-									e = c.forcedKey;
-								d =
-									d != null && e != null
-										? d + "_" + e
-										: (d = d) != null
-											? d
-											: e;
-								return g({
-									forcedKey: d,
-									message: b.message + " from %s: %s",
-									params: [].concat((e = b.params) != null ? e : [], [
-										a.name,
-										i(c)
-									]),
-									taalOpcodes: (d = c.taalOpcodes) != null ? d : []
-								});
+							function b(a) {
+								return "<![EX[" + ES("JSON", "stringify", !1, j(a)) + "]]>";
 							}
-							function i(a) {
-								var b = a.message || "",
-									c = a.params || [],
-									d = 0;
-								a = b.replace(/%s/g, function() {
-									return d < c.length ? String(c[d++]) : "NOPARAM";
+							function h(a) {
+								if (a.messageFormat == null) return g(a.message);
+								var b = { message: a.messageFormat };
+								a.messageParams && (b.params = [].concat(a.messageParams));
+								a.forcedKey != null && (b.forcedKey = a.forcedKey);
+								a.taalOpcodes && (b.taalOpcodes = a.taalOpcodes);
+								return b;
+							}
+							function c(a, b) {
+								__p && __p();
+								var c = h(a);
+								if (ES("Object", "isFrozen", !1, a)) return;
+								a.messageFormat = b.message + " from %s: %s";
+								a.messageParams = l(b.params);
+								a.messageParams.push(a.name, i(c.message, l(c.params)));
+								b = b.forcedKey;
+								var d = c.forcedKey;
+								b =
+									b != null && d != null
+										? b + "_" + d
+										: (b = b) != null
+											? b
+											: d;
+								b != null && (a.forcedKey = b);
+								c.taalOpcodes != null && (a.taalOpcodes = c.taalOpcodes);
+							}
+							function i(a, b) {
+								var c = 0;
+								a = a.replace(/%s/g, function() {
+									return c < b.length ? b[c++] : "NOPARAM";
 								});
-								d < c.length &&
-									(a += " PARAMS" + ES("JSON", "stringify", !1, c.slice(d)));
+								c < b.length &&
+									(a += " PARAMS" + ES("JSON", "stringify", !1, b.slice(c)));
 								return a;
 							}
-							function c(a) {
-								return i(a) + k(a);
+							function d(a) {
+								var b = a.message || "",
+									c = l(a.params);
+								return i(b, c) + k(a);
 							}
 							function j(a) {
-								return [a.message + k(a)].concat(l(a));
+								return [a.message + k(a)].concat(l(a.params));
 							}
 							function k(a) {
 								var b = a.taalOpcodes;
@@ -10596,9 +10605,7 @@ try {
 								return c.length > 0 ? " TAAL[" + c.join(";") + "]" : "";
 							}
 							function l(a) {
-								return ES((a = a.params) != null ? a : [], "map", !0, function(
-									a
-								) {
+								return ES((a = a) != null ? a : [], "map", !0, function(a) {
 									return String(a);
 								});
 							}
@@ -10652,12 +10659,13 @@ try {
 								}
 							}
 							e.exports = a.ErrorSerializer = {
-								aggregateError: b,
-								parse: h,
-								stringify: g,
-								toFormattedMessage: c,
-								toFormattedMessageNoTAAL: i,
-								toMessageWithParams: j
+								aggregateError: c,
+								parseFromError: h,
+								stringify: b,
+								toFormattedMessage: d,
+								toReadableMessage: i,
+								toMessageWithParams: j,
+								toStringParams: l
 							};
 						},
 						3
@@ -13611,7 +13619,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001647722","namespace":"FB","message":"' +
+				'","revision":"1001659442","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
