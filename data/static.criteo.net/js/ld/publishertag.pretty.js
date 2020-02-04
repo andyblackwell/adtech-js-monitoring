@@ -834,7 +834,7 @@
 			"number" == typeof window.PREBID_TIMEOUT ? window.PREBID_TIMEOUT : void 0;
 		return e && t ? Math.min(e, t) : e || t || void 0;
 	}
-	var PublisherTagVersion = 82,
+	var PublisherTagVersion = 83,
 		DirectBiddingMetric = function(
 			e,
 			t,

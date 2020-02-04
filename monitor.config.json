@@ -5,14 +5,14 @@
 			"name": "Facebook Audience Network",
 			"tags": ["Facebook", "prebid"],
 			"url": "https://connect.facebook.net/en_US/fbadnw60.js",
-			"version": "1001666613",
+			"version": "1001672300",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
 			"diffIgnorePatterns": [
 				"JIT Construction",
 				"revision",
 				"static\\.xx\\.fbcdn\\.net"
 			],
-			"etag": "\"76694d5a057f117547cffa0abd5131b5\""
+			"etag": "\"cceab9d305dcc30baeff3202bfa053a4\""
 		},
 		{
 			"name": "Facebook Main",
@@ -40,9 +40,9 @@
 			"name": "Criteo",
 			"tags": ["Criteo", "prebid"],
 			"url": "https://static.criteo.net/js/ld/publishertag.js",
-			"version": "82",
+			"version": "83",
 			"versionRegex": "PublisherTagVersion=([0-9]+),",
-			"etag": "W/\"5e2b5465-176bc\""
+			"etag": "W/\"5e385715-176bc\""
 		},
 		{
 			"name": "Amazon TAM",
