@@ -2054,10 +2054,10 @@
 			return 0 === de(S(172));
 		};
 	var fe = function() {
-		return Fb("26") || 0;
+		return Fb("16") || 0;
 	};
 	Yd("getVersion", function() {
-		return "2020020306";
+		return "2020020310";
 	});
 	var kd = function() {
 		var a = {};
@@ -2122,7 +2122,7 @@
 		je = function() {
 			var a =
 				void 0 === a
-					? Ja([Md, w("/tag/js/fetch_frame_"), w("2020020306"), w(".html")])
+					? Ja([Md, w("/tag/js/fetch_frame_"), w("2020020310"), w(".html")])
 					: a;
 			var b = tb();
 			b.style.display = "none";
@@ -2146,7 +2146,7 @@
 		le = function() {
 			var a = Ca;
 			P(187) ? (a = w("modern_")) : P(234) && (a = w("legacy_"));
-			a = Ja([Ld, Kd, a, w("2020020306"), w(".js")]);
+			a = Ja([Ld, Kd, a, w("2020020310"), w(".js")]);
 			var b = Hc();
 			return b ? Ia(a, String(b)) : a;
 		},
