@@ -1,4 +1,4 @@
-/*1580529755,,JIT Construction: v1001666613,en_US*/
+/*1580863620,,JIT Construction: v1001675360,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -10524,18 +10524,19 @@ try {
 						function(a, b, c, d, e, f) {
 							"use strict";
 							__p && __p();
-							function g(a) {
+							var g = { debug: 1, info: 2, warn: 3, error: 4, fatal: 5 };
+							function h(a) {
 								__p && __p();
 								try {
-									var b = n(a, /^([\s\S]*)<\!\[EX\[(\[.*\])\]\]>([\s\S]*)$/);
-									if (!b) return m(a);
+									var b = o(a, /^([\s\S]*)<\!\[EX\[(\[.*\])\]\]>([\s\S]*)$/);
+									if (!b) return n(a);
 									var c = b[0],
 										d = b[1];
 									b = b[2];
 									d = ES("JSON", "parse", !1, d);
 									var e = d[0];
 									d = d.slice(1);
-									e = m(e);
+									e = n(e);
 									e.message = c + e.message + b;
 									d &&
 										d.length > 0 &&
@@ -10551,35 +10552,41 @@ try {
 								}
 							}
 							function b(a) {
-								return "<![EX[" + ES("JSON", "stringify", !1, j(a)) + "]]>";
+								return "<![EX[" + ES("JSON", "stringify", !1, k(a)) + "]]>";
 							}
-							function h(a) {
-								if (a.messageFormat == null) return g(a.message);
+							function i(a) {
+								if (a.messageFormat == null) return h(a.message);
 								var b = { message: a.messageFormat };
 								a.messageParams && (b.params = [].concat(a.messageParams));
-								a.forcedKey != null && (b.forcedKey = a.forcedKey);
+								b.forcedKey = a.forcedKey;
 								a.taalOpcodes && (b.taalOpcodes = a.taalOpcodes);
 								return b;
 							}
 							function c(a, b) {
 								__p && __p();
-								var c = h(a);
+								var c = i(a);
 								if (ES("Object", "isFrozen", !1, a)) return;
-								a.messageFormat = b.message + " from %s: %s";
-								a.messageParams = l(b.params);
-								a.messageParams.push(a.name, i(c.message, l(c.params)));
-								b = b.forcedKey;
-								var d = c.forcedKey;
-								b =
-									b != null && d != null
-										? b + "_" + d
-										: (b = b) != null
-											? b
-											: d;
-								b != null && (a.forcedKey = b);
+								b.type &&
+									((!a.type || g[a.type] > g[b.type]) && (a.type = b.type));
+								if (b.messageFormat != null) {
+									var d;
+									a.messageFormat =
+										((d = b.messageFormat) != null ? d : "") + " from %s: %s";
+									a.messageParams = (d = b.messageParams) != null ? d : [];
+									a.messageParams.push(a.name, j(c.message, m(c.params)));
+								}
+								d = b.forcedKey;
+								b = c.forcedKey;
+								d =
+									d != null && b != null
+										? d + "_" + b
+										: (d = d) != null
+											? d
+											: b;
+								a.forcedKey = d;
 								c.taalOpcodes != null && (a.taalOpcodes = c.taalOpcodes);
 							}
-							function i(a, b) {
+							function j(a, b) {
 								var c = 0;
 								a = a.replace(/%s/g, function() {
 									return c < b.length ? b[c++] : "NOPARAM";
@@ -10590,13 +10597,13 @@ try {
 							}
 							function d(a) {
 								var b = a.message || "",
-									c = l(a.params);
-								return i(b, c) + k(a);
-							}
-							function j(a) {
-								return [a.message + k(a)].concat(l(a.params));
+									c = m(a.params);
+								return j(b, c) + l(a);
 							}
 							function k(a) {
+								return [a.message + l(a)].concat(m(a.params));
+							}
+							function l(a) {
 								var b = a.taalOpcodes;
 								a = a.forcedKey;
 								var c = [];
@@ -10604,14 +10611,14 @@ try {
 								a && c.push("4" + a.replace(/[^\d\w]/g, "_"));
 								return c.length > 0 ? " TAAL[" + c.join(";") + "]" : "";
 							}
-							function l(a) {
+							function m(a) {
 								return ES((a = a) != null ? a : [], "map", !0, function(a) {
 									return String(a);
 								});
 							}
-							function m(a) {
+							function n(a) {
 								__p && __p();
-								var b = n(a, /^([\s\S]*) TAAL\[(.*)\]$/);
+								var b = o(a, /^([\s\S]*) TAAL\[(.*)\]$/);
 								b = (b = b) != null ? b : [a, null];
 								var c = b[0];
 								b = b[1];
@@ -10652,7 +10659,7 @@ try {
 								}
 								return c;
 							}
-							function n(a, b) {
+							function o(a, b) {
 								if (typeof a === "string") {
 									a = a.match(b);
 									if (a && a.length > 0) return a.slice(1);
@@ -10660,12 +10667,12 @@ try {
 							}
 							e.exports = a.ErrorSerializer = {
 								aggregateError: c,
-								parseFromError: h,
+								parseFromError: i,
 								stringify: b,
 								toFormattedMessage: d,
-								toReadableMessage: i,
-								toMessageWithParams: j,
-								toStringParams: l
+								toReadableMessage: j,
+								toMessageWithParams: k,
+								toStringParams: m
 							};
 						},
 						3
@@ -13619,7 +13626,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001666613","namespace":"FB","message":"' +
+				'","revision":"1001675360","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
