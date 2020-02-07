@@ -1,4 +1,4 @@
-/*1581041955,,JIT Construction: v1001686018,en_US*/
+/*1581069578,,JIT Construction: v1001687689,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -10569,22 +10569,24 @@ try {
 								b.type &&
 									((!a.type || g[a.type] > g[b.type]) && (a.type = b.type));
 								b.project != null && (a.project = b.project);
+								var d = c.message,
+									e = m(c.params);
 								if (b.messageFormat != null) {
-									var d;
-									a.messageFormat =
-										((d = b.messageFormat) != null ? d : "") + " from %s: %s";
-									a.messageParams = (d = b.messageParams) != null ? d : [];
-									a.messageParams.push(a.name, j(c.message, m(c.params)));
+									var f;
+									d += ". [Caught in: " + b.messageFormat + "]";
+									e.push.apply(e, (f = b.messageParams) != null ? f : []);
 								}
-								d = b.forcedKey;
-								b = c.forcedKey;
-								d =
-									d != null && b != null
-										? d + "_" + b
-										: (d = d) != null
-											? d
-											: b;
-								a.forcedKey = d;
+								a.messageFormat = d;
+								a.messageParams = e;
+								f = b.forcedKey;
+								d = c.forcedKey;
+								b =
+									f != null && d != null
+										? f + "_" + d
+										: (e = f) != null
+											? e
+											: d;
+								a.forcedKey = b;
 								c.taalOpcodes != null && (a.taalOpcodes = c.taalOpcodes);
 							}
 							function j(a, b) {
@@ -13627,7 +13629,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001686018","namespace":"FB","message":"' +
+				'","revision":"1001687689","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
