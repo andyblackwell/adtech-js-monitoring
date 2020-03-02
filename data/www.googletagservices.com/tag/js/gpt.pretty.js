@@ -1212,7 +1212,7 @@
 		D(this, a, Sc, null);
 	};
 	m(R, C);
-	var Qc = [1, 2, 3],
+	var Qc = [1, 4, 2, 3],
 		Sc = [2];
 	R.prototype.m = function() {
 		return G(this, 1, 0);
@@ -2034,10 +2034,10 @@
 			return 0 === ae(S(172));
 		};
 	var ce = function() {
-		return Eb("3") || 0;
+		return Eb("5") || 0;
 	};
 	Vd("getVersion", function() {
-		return "2020022701";
+		return "2020030201";
 	});
 	var hd = function() {
 		var a = {};
@@ -2085,24 +2085,27 @@
 			jd(b);
 		};
 	var fe = function(a, b) {
-			var c = xa(b),
-				d = function() {
-					c();
-					sb(a, "load", d);
-					sb(window, "message", e);
+			if (a.getAttribute("data-ready")) b();
+			else {
+				var c = xa(b),
+					d = function() {
+						c();
+						sb(a, "load", d);
+						sb(window, "message", e);
+					};
+				var e = function(f) {
+					"ready" === f.data &&
+						f.source === a.contentWindow &&
+						(c(), sb(a, "load", d), sb(window, "message", e));
 				};
-			var e = function(f) {
-				"ready" === f.data &&
-					f.source === a.contentWindow &&
-					(c(), sb(a, "load", d), sb(window, "message", e));
-			};
-			a.addEventListener && a.addEventListener("load", d, !1);
-			window.addEventListener && window.addEventListener("message", e, !1);
+				a.addEventListener && a.addEventListener("load", d, !1);
+				window.addEventListener && window.addEventListener("message", e, !1);
+			}
 		},
 		ge = function() {
 			var a =
 				void 0 === a
-					? Ua([Jd, w("/tag/js/fetch_frame_"), w("2020022701"), w(".html")])
+					? Ua([Jd, w("/tag/js/fetch_frame_"), w("2020030201"), w(".html")])
 					: a;
 			var b = tb();
 			b.style.display = "none";
@@ -2124,7 +2127,7 @@
 			);
 		},
 		ie = function() {
-			var a = Ua([Id, Hd, w("2020022701"), w(".js")]),
+			var a = Ua([Id, Hd, w("2020030201"), w(".js")]),
 				b = Ec();
 			return b ? Ta(a, String(b)) : a;
 		},
@@ -2189,7 +2192,7 @@
 						: l.appendChild(g);
 					d._loadStarted_ = !0;
 				}
-				d = (e = P(244)) && P(245);
+				d = (e = P(244)) && (P(245) || P(306) || P(307));
 				e &&
 					((e = function() {
 						var n = document.getElementsByName("gpt_fetch_frame");
@@ -2250,13 +2253,17 @@
 		[201, null, null, [1]],
 		[45, null, null, []],
 		[null, null, 2, [null, null, "1-0-37"]],
+		[215, null, null, [1]],
 		[null, 39, null, [null, 72]],
 		[null, 38, null, [null, 24]],
 		[null, 33, null, [null, 250]],
 		[269, null, null, [1]],
+		[261, null, null, [1]],
+		[272, null, null, [1]],
 		[221, null, null, [1]],
 		[300, null, null, [1]],
 		[288, null, null, [1]],
+		[299, null, null, [1]],
 		[
 			238,
 			null,
@@ -2530,8 +2537,7 @@
 				],
 				[50, [[21065516], [21065517, [[49, null, null, [1]]]]]],
 				[10, [[21065558], [21065559]]],
-				[10, [[21065575], [21065576, [[297, null, null, [1]]]]]],
-				[50, [[21065582], [21065583, [[299, null, null, [1]]]]]],
+				[50, [[21065575], [21065576, [[297, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -2541,7 +2547,23 @@
 					]
 				],
 				[10, [[21065588], [21065589, [[null, 42, null, [null, 100]]]]]],
-				[null, [[21065608], [21065609, [[291, null, null, [1]]]]]],
+				[
+					null,
+					[
+						[21065614],
+						[21065615, [[null, 45, null, [null, 0.1]], [291, null, null, [1]]]],
+						[
+							21065616,
+							[[null, 45, null, [null, 0.05]], [291, null, null, [1]]]
+						],
+						[
+							21065617,
+							[[null, 45, null, [null, 0.02]], [291, null, null, [1]]]
+						],
+						[21065620, [[null, 45, null, [null, 0.01]], [291, null, null, [1]]]]
+					]
+				],
+				[10, [[21065621], [21065622, [[301, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -2644,15 +2666,6 @@
 						[21064502, [[136, null, null, [1]], [137, null, null, [1]]]]
 					]
 				],
-				[
-					null,
-					[
-						[21064637],
-						[21064638],
-						[21064639, [[74, null, null, [1]]]],
-						[21064640, [[74, null, null, [1]], [198, null, null, [1]]]]
-					]
-				],
 				[null, [[21065147, [[null, 32, null, [null, 3]]]]]],
 				[
 					null,
@@ -2670,6 +2683,13 @@
 					[
 						[21065571],
 						[21065572, [[74, null, null, [1]], [198, null, null, [1]]]]
+					]
+				],
+				[
+					null,
+					[
+						[21065573],
+						[21065574, [[74, null, null, [1]], [198, null, null, [1]]]]
 					]
 				]
 			]
@@ -2888,6 +2908,60 @@
 					],
 					[4, null, 3],
 					1
+				],
+				[
+					1000,
+					[
+						[
+							21065627,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21065627]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21065627]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21065628,
+							[
+								[null, 7, null, [null, 1]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]]
+							],
+							[6, null, null, 4, null, 5]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21065629,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21065629]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21065629]]
+							],
+							[6, null, null, 4, null, 6]
+						],
+						[
+							21065630,
+							[
+								[null, 7, null, [null, 1]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]]
+							],
+							[6, null, null, 4, null, 7]
+						]
+					],
+					[4, null, 3],
+					1
 				]
 			]
 		],
@@ -3065,21 +3139,6 @@
 			12,
 			[
 				[
-					10,
-					[
-						[44713204],
-						[44713205],
-						[44713206, [[273, null, null, [1]], [261, null, null, [1]]]],
-						[44713207, [[261, null, null, [1]], [272, null, null, [1]]]],
-						[44713208, [[273, null, null, [1]], [271, null, null, [1]]]],
-						[44713209, [[272, null, null, [1]], [271, null, null, [1]]]]
-					],
-					null,
-					null,
-					null,
-					13
-				],
-				[
 					1,
 					[
 						[44713525, [[230, null, null, []]]],
@@ -3098,19 +3157,6 @@
 				],
 				[
 					50,
-					[
-						[44713860],
-						[44713861, [[261, null, null, [1]], [272, null, null, [1]]]]
-					],
-					null,
-					null,
-					null,
-					13,
-					null,
-					100
-				],
-				[
-					50,
 					[[44714061], [44714062, [[289, null, null, [1]]]]],
 					null,
 					null,
@@ -3118,6 +3164,19 @@
 					13,
 					null,
 					200
+				],
+				[
+					10,
+					[
+						[44715867],
+						[44715868, [[261, null, null, []], [272, null, null, []]]]
+					],
+					null,
+					null,
+					null,
+					13,
+					null,
+					100
 				],
 				[1, [[21064123], [21064124]]],
 				[
@@ -3167,9 +3226,7 @@
 						]
 					],
 					[4, null, 9, null, null, null, null, ["LayoutShift"]]
-				],
-				[500, [[21065304]]],
-				[500, [[21065305, [[215, null, null, [1]]]]]]
+				]
 			]
 		]
 	]
