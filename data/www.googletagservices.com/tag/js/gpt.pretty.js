@@ -1804,9 +1804,9 @@
 	}
 	var Y = function() {
 			var a = this;
-			this.G = this.P = this.i = this.g = this.b = 0;
+			this.G = this.P = this.l = this.i = this.c = 0;
 			this.H = !1;
-			this.l = this.c = this.a = 0;
+			this.w = this.g = this.b = 0;
 			if ("number" !== typeof h.goog_pvsid)
 				try {
 					Object.defineProperty(h, "goog_pvsid", {
@@ -1833,9 +1833,9 @@
 							var e = d;
 							e.hadRecentInput ||
 								(P(241) && !(0.01 < e.value)) ||
-								((a.b += Number(e.value)),
-								Number(e.value) > a.g && (a.g = Number(e.value)),
-								(a.i += 1));
+								((a.c += Number(e.value)),
+								Number(e.value) > a.i && (a.i = Number(e.value)),
+								(a.l += 1));
 						}
 						"largest-contentful-paint" === d.entryType &&
 							((e = d), (a.P = Math.floor(e.renderTime || e.loadTime)));
@@ -1844,14 +1844,14 @@
 							(a.G = Number((e.processingStart - e.startTime).toFixed(3))),
 							(a.H = !0));
 						"longtask" === d.entryType &&
-							((a.a += d.duration),
-							d.duration > a.c && (a.c = d.duration),
-							(a.l += 1));
+							((a.b += d.duration),
+							d.duration > a.g && (a.g = d.duration),
+							(a.w += 1));
 					}
 				})
 			);
 			this.B = !1;
-			this.w = Nd(641, this.w.bind(this));
+			this.a = Nd(641, this.a.bind(this));
 		},
 		Qd = function() {};
 	Y.prototype = da(Qd.prototype);
@@ -1875,9 +1875,10 @@
 			],
 			buffered: !P(240)
 		});
-		document.addEventListener("visibilitychange", a.w);
+		document.addEventListener("unload", a.a);
+		document.addEventListener("visibilitychange", a.a);
 	};
-	Y.prototype.w = function() {
+	Y.prototype.a = function() {
 		var a = document;
 		if (
 			2 ===
@@ -1893,15 +1894,15 @@
 			this.R.takeRecords();
 			a = "https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics";
 			window.LayoutShift &&
-				((a += "&cls=" + this.b.toFixed(3)),
-				(a += "&mls=" + this.g.toFixed(3)),
-				(a += X("nls", this.i)));
+				((a += "&cls=" + this.c.toFixed(3)),
+				(a += "&mls=" + this.i.toFixed(3)),
+				(a += X("nls", this.l)));
 			window.LargestContentfulPaint && (a += X("lcp", this.P));
 			window.PerformanceEventTiming && this.H && (a += X("fid", this.G));
 			window.PerformanceLongTaskTiming &&
-				((a += X("cbt", this.a)),
-				(a += X("mbt", this.c)),
-				(a += X("nlt", this.l)));
+				((a += X("cbt", this.b)),
+				(a += X("mbt", this.g)),
+				(a += X("nlt", this.w)));
 			for (
 				var b = 0,
 					c = ba(document.getElementsByTagName("iframe")),
@@ -2034,10 +2035,10 @@
 			return 0 === ae(S(172));
 		};
 	var ce = function() {
-		return Eb("3") || 0;
+		return Eb("7") || 0;
 	};
 	Vd("getVersion", function() {
-		return "2020030501";
+		return "2020030901";
 	});
 	var hd = function() {
 		var a = {};
@@ -2105,7 +2106,7 @@
 		ge = function() {
 			var a =
 				void 0 === a
-					? Ua([Jd, w("/tag/js/fetch_frame_"), w("2020030501"), w(".html")])
+					? Ua([Jd, w("/tag/js/fetch_frame_"), w("2020030901"), w(".html")])
 					: a;
 			var b = tb();
 			b.style.display = "none";
@@ -2127,7 +2128,7 @@
 			);
 		},
 		ie = function() {
-			var a = Ua([Id, Hd, w("2020030501"), w(".js")]),
+			var a = Ua([Id, Hd, w("2020030901"), w(".js")]),
 				b = Ec();
 			return b ? Ta(a, String(b)) : a;
 		},
@@ -2505,7 +2506,6 @@
 				],
 				[50, [[21065202], [21065203, [[null, 32, null, [null, 5]]]]]],
 				[10, [[21065238], [21065239, [[250, null, null, [1]]]]]],
-				[null, [[21065240], [21065241, [[262, null, null, [1]]]]]],
 				[50, [[21065352], [21065353, [[123, null, null, [1]]]]]],
 				[null, [[21065388], [21065389, [[54, null, null, [1]]]]]],
 				[50, [[21065390], [21065391, [[252, null, null, [1]]]]]],
@@ -2532,9 +2532,8 @@
 						[21065587, [[296, null, null, [1]], [275, null, null, [1]]]]
 					]
 				],
-				[10, [[21065588], [21065589, [[null, 42, null, [null, 100]]]]]],
 				[
-					null,
+					10,
 					[
 						[21065614],
 						[21065615, [[null, 45, null, [null, 0.1]], [291, null, null, [1]]]],
@@ -2551,7 +2550,7 @@
 				],
 				[50, [[21065621], [21065622, [[301, null, null, [1]]]]]],
 				[
-					1,
+					10,
 					[
 						[21065636],
 						[21065637, [[246, null, null, [1]]]],
@@ -2579,6 +2578,23 @@
 					19
 				],
 				[
+					10,
+					[
+						[21065658],
+						[21065659, [[null, 42, null, [null, 10]]]],
+						[21065660, [[null, 42, null, [null, 25]]]],
+						[21065661, [[null, 42, null, [null, 50]]]],
+						[21065662, [[null, 42, null, [null, 100]]]]
+					]
+				],
+				[
+					1,
+					[
+						[21065685],
+						[21065686, [[36, null, null, [1]], [35, null, null, [1]]]]
+					]
+				],
+				[
 					1000,
 					[
 						[
@@ -2594,7 +2610,6 @@
 					],
 					[4, null, 3]
 				],
-				[1, [[108809132], [108809133, [[45, null, null, [1]]]]]],
 				[
 					null,
 					[
@@ -2684,17 +2699,6 @@
 				[
 					null,
 					[
-						[21065463],
-						[21065464],
-						[21065465],
-						[21065466, [[263, null, null, [1]]]],
-						[21065467, [[267, null, null, [1]]]],
-						[21065468, [[286, null, null, [1]]]]
-					]
-				],
-				[
-					null,
-					[
 						[21065571],
 						[21065572, [[74, null, null, [1]], [198, null, null, [1]]]]
 					]
@@ -2704,6 +2708,17 @@
 					[
 						[21065573],
 						[21065574, [[74, null, null, [1]], [198, null, null, [1]]]]
+					]
+				],
+				[
+					null,
+					[
+						[21065693],
+						[21065694],
+						[21065695],
+						[21065696, [[263, null, null, [1]]]],
+						[21065697, [[267, null, null, [1]]]],
+						[21065698, [[286, null, null, [1]]]]
 					]
 				]
 			]
@@ -2897,60 +2912,6 @@
 					19
 				],
 				[
-					1000,
-					[
-						[
-							21065627,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21065627]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21065627]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21065628,
-							[
-								[null, 7, null, [null, 1]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]]
-							],
-							[6, null, null, 4, null, 5]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21065629,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21065629]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21065629]]
-							],
-							[6, null, null, 4, null, 6]
-						],
-						[
-							21065630,
-							[
-								[null, 7, null, [null, 1]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]]
-							],
-							[6, null, null, 4, null, 7]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
 					1,
 					[[21065645], [21065646, [[305, null, null, [1]]]]],
 					[4, null, 9, null, null, null, null, ["window.fetch"]]
@@ -2959,24 +2920,24 @@
 					1000,
 					[
 						[
-							21065656,
+							21065699,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21065656]],
+								[null, 24, null, [null, 21065699]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21065656]]
+								[null, 25, null, [null, 21065699]]
 							],
-							[6, null, null, 4, null, 2]
+							[6, null, null, 4, null, 6]
 						],
 						[
-							21065657,
+							21065700,
 							[
 								[null, 7, null, [null, 1]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]]
 							],
-							[6, null, null, 4, null, 3]
+							[6, null, null, 4, null, 7]
 						]
 					],
 					[4, null, 3],
