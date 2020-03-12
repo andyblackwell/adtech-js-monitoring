@@ -221,66 +221,7 @@
 				}
 			};
 		};
-	var ya = function(a) {
-			return /^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1];
-		},
-		Ga = function(a) {
-			if (!za.test(a)) return a;
-			-1 != a.indexOf("&") && (a = a.replace(Aa, "&amp;"));
-			-1 != a.indexOf("<") && (a = a.replace(Ba, "&lt;"));
-			-1 != a.indexOf(">") && (a = a.replace(Ca, "&gt;"));
-			-1 != a.indexOf('"') && (a = a.replace(Da, "&quot;"));
-			-1 != a.indexOf("'") && (a = a.replace(Ea, "&#39;"));
-			-1 != a.indexOf("\x00") && (a = a.replace(Fa, "&#0;"));
-			return a;
-		},
-		Aa = /&/g,
-		Ba = /</g,
-		Ca = />/g,
-		Da = /"/g,
-		Ea = /'/g,
-		Fa = /\x00/g,
-		za = /[\x00&<>"']/,
-		Ia = function(a, b) {
-			var c = 0;
-			a = ya(String(a)).split(".");
-			b = ya(String(b)).split(".");
-			for (var d = Math.max(a.length, b.length), e = 0; 0 == c && e < d; e++) {
-				var f = a[e] || "",
-					g = b[e] || "";
-				do {
-					f = /(\d*)(\D*)(.*)/.exec(f) || ["", "", "", ""];
-					g = /(\d*)(\D*)(.*)/.exec(g) || ["", "", "", ""];
-					if (0 == f[0].length && 0 == g[0].length) break;
-					c =
-						Ha(
-							0 == f[1].length ? 0 : parseInt(f[1], 10),
-							0 == g[1].length ? 0 : parseInt(g[1], 10)
-						) ||
-						Ha(0 == f[2].length, 0 == g[2].length) ||
-						Ha(f[2], g[2]);
-					f = f[3];
-					g = g[3];
-				} while (0 == c);
-			}
-			return c;
-		},
-		Ha = function(a, b) {
-			return a < b ? -1 : a > b ? 1 : 0;
-		};
-	var u;
-	a: {
-		var Ja = h.navigator;
-		if (Ja) {
-			var Ka = Ja.userAgent;
-			if (Ka) {
-				u = Ka;
-				break a;
-			}
-		}
-		u = "";
-	}
-	var La = {
+	var ya = {
 		area: !0,
 		base: !0,
 		br: !0,
@@ -298,53 +239,53 @@
 		track: !0,
 		wbr: !0
 	};
-	var v = function(a, b) {
-		this.b = (a === Ma && b) || "";
-		this.c = Na;
+	var u = function(a, b) {
+		this.b = (a === za && b) || "";
+		this.c = Aa;
 	};
-	v.prototype.j = !0;
-	v.prototype.a = function() {
+	u.prototype.j = !0;
+	u.prototype.a = function() {
 		return this.b;
 	};
-	var Oa = function(a) {
-			return a instanceof v && a.constructor === v && a.c === Na
+	var Ba = function(a) {
+			return a instanceof u && a.constructor === u && a.c === Aa
 				? a.b
 				: "type_error:Const";
 		},
-		w = function(a) {
-			return new v(Ma, a);
+		v = function(a) {
+			return new u(za, a);
 		},
-		Na = {},
-		Ma = {};
-	var x = function(a, b) {
-		this.c = (a === Pa && b) || "";
-		this.g = Qa;
+		Aa = {},
+		za = {};
+	var w = function(a, b) {
+		this.c = (a === Ca && b) || "";
+		this.g = Da;
 	};
-	x.prototype.j = !0;
-	x.prototype.a = function() {
+	w.prototype.j = !0;
+	w.prototype.a = function() {
 		return this.c.toString();
 	};
-	x.prototype.u = !0;
-	x.prototype.b = function() {
+	w.prototype.u = !0;
+	w.prototype.b = function() {
 		return 1;
 	};
-	var Ta = function(a, b) {
-			a = Ra.exec(y(a).toString());
+	var Ga = function(a, b) {
+			a = Ea.exec(x(a).toString());
 			var c = a[3] || "";
-			return new x(Pa, a[1] + Sa("?", a[2] || "", b) + Sa("#", c, void 0));
+			return new w(Ca, a[1] + Fa("?", a[2] || "", b) + Fa("#", c, void 0));
 		},
-		y = function(a) {
-			return a instanceof x && a.constructor === x && a.g === Qa
+		x = function(a) {
+			return a instanceof w && a.constructor === w && a.g === Da
 				? a.c
 				: "type_error:TrustedResourceUrl";
 		},
-		Ra = /^([^?#]*)(\?[^#]*)?(#[\s\S]*)?/,
-		Ua = function(a) {
-			for (var b = "", c = 0; c < a.length; c++) b += Oa(a[c]);
-			return new x(Pa, b);
+		Ea = /^([^?#]*)(\?[^#]*)?(#[\s\S]*)?/,
+		Ha = function(a) {
+			for (var b = "", c = 0; c < a.length; c++) b += Ba(a[c]);
+			return new w(Ca, b);
 		},
-		Qa = {},
-		Sa = function(a, b, c) {
+		Da = {},
+		Fa = function(a, b, c) {
 			if (null == c) return b;
 			if ("string" === typeof c) return c ? a + encodeURIComponent(c) : "";
 			for (var d in c) {
@@ -363,27 +304,86 @@
 			}
 			return b;
 		},
-		Pa = {};
-	var z = function(a, b) {
-		this.c = (a === Va && b) || "";
-		this.g = Wa;
+		Ca = {};
+	var Ia = function(a) {
+			return /^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1];
+		},
+		Qa = function(a) {
+			if (!Ja.test(a)) return a;
+			-1 != a.indexOf("&") && (a = a.replace(Ka, "&amp;"));
+			-1 != a.indexOf("<") && (a = a.replace(La, "&lt;"));
+			-1 != a.indexOf(">") && (a = a.replace(Ma, "&gt;"));
+			-1 != a.indexOf('"') && (a = a.replace(Na, "&quot;"));
+			-1 != a.indexOf("'") && (a = a.replace(Oa, "&#39;"));
+			-1 != a.indexOf("\x00") && (a = a.replace(Pa, "&#0;"));
+			return a;
+		},
+		Ka = /&/g,
+		La = /</g,
+		Ma = />/g,
+		Na = /"/g,
+		Oa = /'/g,
+		Pa = /\x00/g,
+		Ja = /[\x00&<>"']/,
+		Sa = function(a, b) {
+			var c = 0;
+			a = Ia(String(a)).split(".");
+			b = Ia(String(b)).split(".");
+			for (var d = Math.max(a.length, b.length), e = 0; 0 == c && e < d; e++) {
+				var f = a[e] || "",
+					g = b[e] || "";
+				do {
+					f = /(\d*)(\D*)(.*)/.exec(f) || ["", "", "", ""];
+					g = /(\d*)(\D*)(.*)/.exec(g) || ["", "", "", ""];
+					if (0 == f[0].length && 0 == g[0].length) break;
+					c =
+						Ra(
+							0 == f[1].length ? 0 : parseInt(f[1], 10),
+							0 == g[1].length ? 0 : parseInt(g[1], 10)
+						) ||
+						Ra(0 == f[2].length, 0 == g[2].length) ||
+						Ra(f[2], g[2]);
+					f = f[3];
+					g = g[3];
+				} while (0 == c);
+			}
+			return c;
+		},
+		Ra = function(a, b) {
+			return a < b ? -1 : a > b ? 1 : 0;
+		};
+	var y = function(a, b) {
+		this.c = (a === Ta && b) || "";
+		this.g = Ua;
 	};
-	z.prototype.j = !0;
-	z.prototype.a = function() {
+	y.prototype.j = !0;
+	y.prototype.a = function() {
 		return this.c.toString();
 	};
-	z.prototype.u = !0;
-	z.prototype.b = function() {
+	y.prototype.u = !0;
+	y.prototype.b = function() {
 		return 1;
 	};
-	var Xa = function(a) {
-			return a instanceof z && a.constructor === z && a.g === Wa
+	var Va = function(a) {
+			return a instanceof y && a.constructor === y && a.g === Ua
 				? a.c
 				: "type_error:SafeUrl";
 		},
-		Ya = /^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i,
-		Wa = {},
-		Va = {};
+		Wa = /^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i,
+		Ua = {},
+		Ta = {};
+	var z;
+	a: {
+		var Xa = h.navigator;
+		if (Xa) {
+			var Ya = Xa.userAgent;
+			if (Ya) {
+				z = Ya;
+				break a;
+			}
+		}
+		z = "";
+	}
 	var A = function() {
 		this.c = "";
 		this.i = Za;
@@ -407,7 +407,7 @@
 			var b = "object" == typeof a,
 				c = null;
 			b && a.u && (c = a.b());
-			a = Ga(b && a.j ? a.a() : String(a));
+			a = Qa(b && a.j ? a.a() : String(a));
 			return B(a, c);
 		},
 		bb = /^[a-zA-Z0-9-]+$/,
@@ -442,30 +442,30 @@
 					d = a[g];
 					if (null != d) {
 						c = g;
-						if (d instanceof v) d = Oa(d);
+						if (d instanceof u) d = Ba(d);
 						else {
 							if ("style" == c.toLowerCase()) throw Error("");
 							if (/^on/i.test(c)) throw Error("");
 							if (c.toLowerCase() in cb)
-								if (d instanceof x) d = y(d).toString();
-								else if (d instanceof z) d = Xa(d);
+								if (d instanceof w) d = x(d).toString();
+								else if (d instanceof y) d = Va(d);
 								else if ("string" === typeof d)
-									d instanceof z ||
+									d instanceof y ||
 										((d = "object" == typeof d && d.j ? d.a() : String(d)),
-										Ya.test(d) || (d = "about:invalid#zClosurez"),
-										(d = new z(Va, d))),
+										Wa.test(d) || (d = "about:invalid#zClosurez"),
+										(d = new y(Ta, d))),
 										(d = d.a());
 								else throw Error("");
 						}
 						d.j && (d = d.a());
-						c = c + '="' + Ga(String(d)) + '"';
+						c = c + '="' + Qa(String(d)) + '"';
 						e += " " + c;
 					}
 				}
 			var g = "<script" + e;
 			e = void 0;
 			null == e ? (e = []) : Array.isArray(e) || (e = [e]);
-			!0 === La.script
+			!0 === ya.script
 				? (g += ">")
 				: ((b = db(e)),
 				  (g += ">" + $a(b).toString() + "\x3c/script>"),
@@ -505,7 +505,7 @@
 			a.write($a(b));
 		},
 		ib = function(a, b) {
-			a.src = y(b);
+			a.src = x(b);
 			(b = ma()) && a.setAttribute("nonce", b);
 		};
 	var jb = function(a) {
@@ -608,27 +608,27 @@
 			a.a[b] = c;
 			pb(a, b, d);
 		};
-	var rb = function() {
-		return (
-			-1 != u.indexOf("iPad") ||
-			(-1 != u.indexOf("Android") && -1 == u.indexOf("Mobile")) ||
-			-1 != u.indexOf("Silk")
-		);
-	};
-	var sb = function(a, b, c) {
+	var rb = function(a, b, c) {
 		a.removeEventListener && a.removeEventListener(b, c, !1);
 	};
-	var tb = function() {
+	var sb = function() {
 		var a = document;
 		var b = "IFRAME";
 		"application/xhtml+xml" === a.contentType && (b = b.toLowerCase());
 		return a.createElement(b);
 	};
-	var vb = function(a) {
-			ub();
-			return new x(Pa, a);
+	var ub = function(a) {
+			tb();
+			return new w(Ca, a);
 		},
-		ub = oa;
+		tb = oa;
+	var vb = function() {
+		return (
+			-1 != z.indexOf("iPad") ||
+			(-1 != z.indexOf("Android") && -1 == z.indexOf("Mobile")) ||
+			-1 != z.indexOf("Silk")
+		);
+	};
 	var wb = /^(?:([^:/?#.]+):)?(?:\/\/(?:([^/?#]*)@)?([^/#?]*?)(?::([0-9]+))?(?=[/\\#?]|$))?([^?#]+)?(?:\?([^#]*))?(?:#([\s\S]*))?$/;
 	var Ab = function(a, b) {
 			if (!xb() && !yb()) {
@@ -681,7 +681,7 @@
 			return Cb("MSIE");
 		}),
 		Cb = function(a) {
-			return -1 != u.indexOf(a);
+			return -1 != z.indexOf(a);
 		},
 		Db = /^(-?[0-9.]{1,30})$/,
 		Eb = function(a, b) {
@@ -697,12 +697,12 @@
 			} catch (a) {}
 		},
 		Gb = t(function() {
-			return rb() ||
-				(-1 == u.indexOf("iPod") &&
-					-1 == u.indexOf("iPhone") &&
-					-1 == u.indexOf("Android") &&
-					-1 == u.indexOf("IEMobile"))
-				? rb()
+			return vb() ||
+				(-1 == z.indexOf("iPod") &&
+					-1 == z.indexOf("iPhone") &&
+					-1 == z.indexOf("Android") &&
+					-1 == z.indexOf("IEMobile"))
+				? vb()
 					? 1
 					: 0
 				: 2;
@@ -782,7 +782,7 @@
 					}
 				if (null != a) {
 					if (6 == b) return e === a;
-					if (9 == b) return 0 == Ia(e, a);
+					if (9 == b) return 0 == Sa(e, a);
 					if (d)
 						switch (b) {
 							case 7:
@@ -792,9 +792,9 @@
 							case 12:
 								return new RegExp(a).test(e);
 							case 10:
-								return -1 == Ia(e, a);
+								return -1 == Sa(e, a);
 							case 11:
-								return 1 == Ia(e, a);
+								return 1 == Sa(e, a);
 						}
 				}
 			}
@@ -1425,16 +1425,16 @@
 		var e = a.createElement("link");
 		try {
 			e.rel = "preload";
-			if (b instanceof x) var f = y(b).toString();
+			if (b instanceof w) var f = x(b).toString();
 			else {
-				if (b instanceof z) var g = Xa(b);
+				if (b instanceof y) var g = Va(b);
 				else {
-					if (b instanceof z) var l = b;
+					if (b instanceof y) var l = b;
 					else
 						(b = "object" == typeof b && b.j ? b.a() : String(b)),
-							Ya.test(b) || (b = "about:invalid#zClosurez"),
-							(l = new z(Va, b));
-					g = Xa(l);
+							Wa.test(b) || (b = "about:invalid#zClosurez"),
+							(l = new y(Ta, b));
+					g = Va(l);
 				}
 				f = g;
 			}
@@ -1568,7 +1568,7 @@
 					f.onerror = function() {
 						return h.processGoogleToken({}, 2);
 					};
-					e = vb(e);
+					e = ub(e);
 					ib(f, e);
 					try {
 						(a.head || a.body || a.documentElement).appendChild(f), vd.A();
@@ -1715,7 +1715,7 @@
 			(a = b.createElement("script")),
 			ib(
 				a,
-				vb(
+				ub(
 					h.location.protocol +
 						"//pagead2.googlesyndication.com/pagead/js/err_rep.js"
 				)
@@ -1745,9 +1745,9 @@
 				throw d;
 		}
 	};
-	var Hd = w("gpt/pubads_impl_"),
-		Id = w("https://securepubads.g.doubleclick.net/"),
-		Jd = w("https://ff.doubleclick.net");
+	var Hd = v("gpt/pubads_impl_"),
+		Id = v("https://securepubads.g.doubleclick.net/"),
+		Jd = v("https://ff.doubleclick.net");
 	var Kd = function(a) {
 		if (!a.google_ltobserver) {
 			var b = new a.PerformanceObserver(function(c) {
@@ -2035,10 +2035,10 @@
 			return 0 === ae(S(172));
 		};
 	var ce = function() {
-		return Eb("7") || 0;
+		return Eb("3") || 0;
 	};
 	Vd("getVersion", function() {
-		return "2020030901";
+		return "2020031201";
 	});
 	var hd = function() {
 		var a = {};
@@ -2091,13 +2091,13 @@
 				var c = xa(b),
 					d = function() {
 						c();
-						sb(a, "load", d);
-						sb(window, "message", e);
+						rb(a, "load", d);
+						rb(window, "message", e);
 					};
 				var e = function(f) {
 					"ready" === f.data &&
 						f.source === a.contentWindow &&
-						(c(), sb(a, "load", d), sb(window, "message", e));
+						(c(), rb(a, "load", d), rb(window, "message", e));
 				};
 				a.addEventListener && a.addEventListener("load", d, !1);
 				window.addEventListener && window.addEventListener("message", e, !1);
@@ -2106,14 +2106,14 @@
 		ge = function() {
 			var a =
 				void 0 === a
-					? Ua([Jd, w("/tag/js/fetch_frame_"), w("2020030901"), w(".html")])
+					? Ha([Jd, v("/tag/js/fetch_frame_"), v("2020031201"), v(".html")])
 					: a;
-			var b = tb();
+			var b = sb();
 			b.style.display = "none";
 			b.name = "gpt_fetch_frame";
 			var c = Ec();
-			a = c ? Ta(a, String(c)) : a;
-			b.src = y(a).toString();
+			a = c ? Ga(a, String(c)) : a;
+			b.src = x(a).toString();
 			document.documentElement.appendChild(b);
 			fe(b, function() {
 				b.setAttribute("data-ready", "true");
@@ -2128,9 +2128,9 @@
 			);
 		},
 		ie = function() {
-			var a = Ua([Id, Hd, w("2020030901"), w(".js")]),
+			var a = Ha([Id, Hd, v("2020031201"), v(".js")]),
 				b = Ec();
-			return b ? Ta(a, String(b)) : a;
+			return b ? Ga(a, String(b)) : a;
 		},
 		je = function(a, b) {
 			var c;
@@ -2224,6 +2224,7 @@
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
 		[null, 13, null, [null, 1]],
+		[297, null, null, [1]],
 		[null, 7, null, [null, 0.1]],
 		[167, null, null, [1]],
 		[20, null, null, [], [[[1, [[4, null, 1]]], [1]]]],
@@ -2473,7 +2474,7 @@
 						[21064624, [[98, null, null, [1]]]]
 					]
 				],
-				[10, [[21064712], [21064713, [[229, null, null, [1]]]]]],
+				[10, [[21064712], [21064713, [[229, null, null, [1]]]]], null, 20],
 				[1, [[21064758], [21064759, [[206, null, null, [1]]]]]],
 				[10, [[21065112], [21065113, [[162, null, null, [1]]]]]],
 				[10, [[21065138], [21065139, [[148, null, null, [1]]]]]],
@@ -2491,7 +2492,9 @@
 								[null, 41, null, [null, 2]]
 							]
 						]
-					]
+					],
+					null,
+					20
 				],
 				[
 					null,
@@ -2511,7 +2514,6 @@
 				[50, [[21065390], [21065391, [[252, null, null, [1]]]]]],
 				[50, [[21065392], [21065393, [[276, null, null, [1]]]]]],
 				[10, [[21065401], [21065402, [[280, null, null, [1]]]]]],
-				[50, [[21065432], [21065433, [[112, null, null, []]]]]],
 				[10, [[21065443], [21065444, [[139, null, null, [1]]]]]],
 				[
 					10,
@@ -2523,7 +2525,6 @@
 				],
 				[50, [[21065516], [21065517, [[49, null, null, [1]]]]]],
 				[10, [[21065558], [21065559]]],
-				[50, [[21065575], [21065576, [[297, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -2533,7 +2534,7 @@
 					]
 				],
 				[
-					10,
+					null,
 					[
 						[21065614],
 						[21065615, [[null, 45, null, [null, 0.1]], [291, null, null, [1]]]],
@@ -2548,7 +2549,6 @@
 						[21065620, [[null, 45, null, [null, 0.01]], [291, null, null, [1]]]]
 					]
 				],
-				[50, [[21065621], [21065622, [[301, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -2588,7 +2588,7 @@
 					]
 				],
 				[
-					1,
+					10,
 					[
 						[21065685],
 						[21065686, [[36, null, null, [1]], [35, null, null, [1]]]]
@@ -2737,96 +2737,19 @@
 					1000,
 					[
 						[
-							21062785,
-							[[23, null, null, []]],
-							[2, [[8, null, null, 5, null, -1], [7, null, null, 5, null, 50]]]
-						],
-						[
-							21062786,
-							[[23, null, null, [1]]],
-							[
-								2,
-								[[8, null, null, 5, null, 949], [7, null, null, 5, null, 1000]]
-							]
-						]
-					],
-					[
-						2,
-						[
-							[
-								12,
-								null,
-								null,
-								null,
-								2,
-								null,
-								"today\\.line\\.me/.+/(main|article)"
-							],
-							[4, null, 8, null, null, null, null, ["_gmptnl"]]
-						]
-					],
-					7
-				],
-				[
-					1000,
-					[
-						[
 							21062812,
 							[[23, null, null, [1]]],
-							[2, [[8, null, null, 5, null, 49], [7, null, null, 5, null, 950]]]
-						]
-					],
-					[
-						2,
-						[
-							[
-								12,
-								null,
-								null,
-								null,
-								2,
-								null,
-								"today\\.line\\.me/.+/(main|article)"
-							],
 							[4, null, 8, null, null, null, null, ["_gmptnl"]]
 						]
 					],
-					7
+					[12, null, null, null, 2, null, "today\\.line\\.me/.+/(main|article)"]
 				],
 				[
 					1000,
 					[
-						[
-							21063916,
-							[[23, null, null, []]],
-							[2, [[8, null, null, 5, null, -1], [7, null, null, 5, null, 50]]]
-						],
-						[
-							21063917,
-							[[23, null, null, [1]]],
-							[
-								2,
-								[[8, null, null, 5, null, 949], [7, null, null, 5, null, 1000]]
-							]
-						],
 						[
 							21064113,
 							[[23, null, null, [1]]],
-							[2, [[8, null, null, 5, null, 49], [7, null, null, 5, null, 950]]]
-						]
-					],
-					[
-						2,
-						[
-							[
-								12,
-								null,
-								null,
-								null,
-								2,
-								null,
-								"today\\.line\\.me/.+/(main|article)"
-							],
 							[
 								4,
 								null,
@@ -2839,30 +2762,7 @@
 							]
 						]
 					],
-					7
-				],
-				[
-					10,
-					[
-						[
-							21064029,
-							null,
-							[
-								4,
-								null,
-								8,
-								null,
-								null,
-								null,
-								null,
-								["webkit.messageHandlers._gmptnl"]
-							]
-						]
-					]
-				],
-				[
-					10,
-					[[21064030, null, [4, null, 8, null, null, null, null, ["_gmptnl"]]]]
+					[12, null, null, null, 2, null, "today\\.line\\.me/.+/(main|article)"]
 				],
 				[
 					1000,
@@ -2903,15 +2803,6 @@
 				],
 				[50, [[21065399], [21065400, [[274, null, null, [1]]]]]],
 				[
-					10,
-					[
-						[21065603],
-						[21065604, [[244, null, null, [1]], [245, null, null, [1]]]]
-					],
-					null,
-					19
-				],
-				[
 					1,
 					[[21065645], [21065646, [[305, null, null, [1]]]]],
 					[4, null, 9, null, null, null, null, ["window.fetch"]]
@@ -2938,6 +2829,44 @@
 								[null, 28, null, [null, 0.1]]
 							],
 							[6, null, null, 4, null, 7]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					10,
+					[
+						[21065707],
+						[21065708, [[244, null, null, [1]], [245, null, null, [1]]]],
+						[21065709, [[244, null, null, [1]], [307, null, null, [1]]]],
+						[21065710, [[244, null, null, [1]], [306, null, null, [1]]]]
+					],
+					null,
+					19
+				],
+				[
+					1000,
+					[
+						[
+							21065711,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21065711]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21065711]]
+							],
+							[6, null, null, 4, null, 2]
+						],
+						[
+							21065712,
+							[
+								[null, 7, null, [null, 1]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]]
+							],
+							[6, null, null, 4, null, 3]
 						]
 					],
 					[4, null, 3],
@@ -2997,7 +2926,9 @@
 								]
 							]
 						]
-					]
+					],
+					null,
+					20
 				],
 				[
 					1000,
@@ -3035,7 +2966,9 @@
 								]
 							]
 						]
-					]
+					],
+					null,
+					20
 				],
 				[
 					1000,
@@ -3073,7 +3006,9 @@
 								]
 							]
 						]
-					]
+					],
+					null,
+					20
 				],
 				[
 					1000,
@@ -3111,7 +3046,9 @@
 								]
 							]
 						]
-					]
+					],
+					null,
+					20
 				]
 			]
 		],
@@ -3144,19 +3081,6 @@
 					13,
 					null,
 					200
-				],
-				[
-					10,
-					[
-						[44715867],
-						[44715868, [[261, null, null, []], [272, null, null, []]]]
-					],
-					null,
-					null,
-					null,
-					13,
-					null,
-					100
 				],
 				[1, [[21064123], [21064124]]],
 				[
