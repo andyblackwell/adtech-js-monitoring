@@ -36,11 +36,11 @@
 	else {
 		var fa;
 		a: {
-			var ha = { T: !0 },
+			var ha = { U: !0 },
 				ia = {};
 			try {
 				ia.__proto__ = ha;
-				fa = ia.T;
+				fa = ia.U;
 				break a;
 			} catch (a) {}
 			fa = !1;
@@ -828,7 +828,7 @@
 	};
 	m(Sb, C);
 	var Qb = [5],
-		Rb = [[1, 2, 3, 6]];
+		Rb = [[1, 2, 3, 6, 7]];
 	var M = function() {
 		var a = {};
 		this.a = ((a[3] = {}), (a[4] = {}), (a[5] = {}), a);
@@ -1233,9 +1233,9 @@
 		Uc = function() {},
 		Vc = function(a, b, c, d) {
 			var e = void 0 === d ? {} : d;
-			d = void 0 === e.D ? !1 : e.D;
-			var f = void 0 === e.I ? {} : e.I;
-			e = void 0 === e.N ? [] : e.N;
+			d = void 0 === e.G ? !1 : e.G;
+			var f = void 0 === e.J ? {} : e.J;
+			e = void 0 === e.O ? [] : e.O;
 			a.a = b;
 			a.i = d;
 			a.g = f;
@@ -1389,7 +1389,7 @@
 	};
 	var jd = function(a) {
 			var b = hd.f(),
-				c = { D: T(211), I: T(227), N: T(226) },
+				c = { G: T(211), J: T(227), O: T(226) },
 				d = void 0,
 				e = 2;
 			d = void 0 === d ? Lc() : d;
@@ -1414,7 +1414,7 @@
 				  Bc(d),
 				  id(d, e),
 				  gc(J(a, L, 1), e),
-				  (Ub = Ub || !(!c || !c.U)),
+				  (Ub = Ub || !(!c || !c.V)),
 				  gd(Kc.f()),
 				  b && gd(b));
 		},
@@ -1514,45 +1514,45 @@
 			o: function() {
 				return 0 < W[8];
 			},
-			A: function() {
+			B: function() {
 				W[8]++;
 			},
-			K: function() {
+			L: function() {
 				0 < W[8] && W[8]--;
 			},
-			L: function() {
+			M: function() {
 				W[8] = 0;
 			},
 			s: function() {},
-			O: function() {
+			P: function() {
 				return !1;
 			},
-			F: function() {
+			H: function() {
 				return W[5];
 			},
-			C: rd
+			F: rd
 		},
 		wd = {
 			o: function() {
 				return W[6];
 			},
-			A: function() {
+			B: function() {
 				W[6] = !0;
-			},
-			K: function() {
-				W[6] = !1;
 			},
 			L: function() {
 				W[6] = !1;
 			},
+			M: function() {
+				W[6] = !1;
+			},
 			s: function() {},
-			O: function() {
+			P: function() {
 				return ".google.com" != W[1] && 2 < ++ud;
 			},
-			F: function() {
+			H: function() {
 				return W[7];
 			},
-			C: function(a) {
+			F: function(a) {
 				td(function() {
 					rd(a);
 				});
@@ -1583,7 +1583,7 @@
 					e = ub(e);
 					jb(f, e);
 					try {
-						(a.head || a.body || a.documentElement).appendChild(f), vd.A();
+						(a.head || a.body || a.documentElement).appendChild(f), vd.B();
 					} catch (g) {}
 				},
 				c = W[1];
@@ -1624,7 +1624,7 @@
 					">");
 			td(function() {
 				a.write(f);
-				wd.A();
+				wd.B();
 			});
 		}
 	};
@@ -1658,8 +1658,8 @@
 				l = b["1p_jar"] || "";
 			b = b.pucrd || "";
 			qd();
-			1 == c ? a.L() : a.K();
-			if (!d && a.O()) nd(".google.com") && (W[1] = ".google.com"), a.s();
+			1 == c ? a.M() : a.L();
+			if (!d && a.P()) nd(".google.com") && (W[1] = ".google.com"), a.s();
 			else {
 				var n = (U.googleToken = U.googleToken || {}),
 					ra =
@@ -1687,8 +1687,8 @@
 						(n[6] = b),
 						qd();
 				if (ra || !a.o()) {
-					c = a.F();
-					for (d = 0; d < c.length; d++) a.C(c[d]);
+					c = a.H();
+					for (d = 0; d < c.length; d++) a.F(c[d]);
 					c.length = 0;
 				}
 			}
@@ -1813,31 +1813,35 @@
 		};
 	var Od = function() {};
 	function Y(a, b) {
-		return "&" + a + "=" + Math.floor(b);
+		return null == b ? "&" + a + "=null" : "&" + a + "=" + Math.floor(b);
 	}
 	var Rd = function() {
 		var a = this;
-		this.G = this.P = this.l = this.i = this.c = 0;
-		this.H = !1;
-		this.w = this.g = this.b = 0;
-		if ("number" !== typeof h.goog_pvsid)
-			try {
-				Object.defineProperty(h, "goog_pvsid", {
-					value: Math.floor(Math.random() * Math.pow(2, 52))
-				});
-			} catch (c) {}
-		this.S = Number(h.goog_pvsid) || -1;
-		this.J = 0.1 > Math.random();
-		this.M = h === h.top;
-		if (this.J) {
-			var b =
-				"https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics" +
-				Y("pvsid", this.S);
-			b += Y("test", 1);
-			b += "&top=" + (this.M ? 1 : 0);
-			Qd(b);
+		this.I = this.S = this.w = this.l = this.g = 0;
+		this.K = !1;
+		this.A = this.i = this.c = 0;
+		this.N = 0.1 > Math.random();
+		this.R = h === h.top;
+		var b = document.querySelector("[data-google-query-id]");
+		if ((this.a = b ? b.getAttribute("data-google-query-id") : null)) b = null;
+		else {
+			if ("number" !== typeof h.goog_pvsid)
+				try {
+					Object.defineProperty(h, "goog_pvsid", {
+						value: Math.floor(Math.random() * Math.pow(2, 52))
+					});
+				} catch (c) {}
+			b = Number(h.goog_pvsid) || -1;
 		}
-		this.R = new PerformanceObserver(
+		this.C = b;
+		this.N &&
+			((b =
+				"https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics" +
+				(this.a ? "&qqid=" + encodeURIComponent(this.a) : Y("pvsid", this.C))),
+			(b += Y("test", 1)),
+			(b += "&top=" + (this.R ? 1 : 0)),
+			Qd(b));
+		this.T = new PerformanceObserver(
 			Nd(640, function(c) {
 				c = ba(c.getEntries());
 				for (var d = c.next(); !d.done; d = c.next()) {
@@ -1846,30 +1850,30 @@
 						var e = d;
 						e.hadRecentInput ||
 							(Q(241) && !(0.01 < e.value)) ||
-							((a.c += Number(e.value)),
-							Number(e.value) > a.i && (a.i = Number(e.value)),
-							(a.l += 1));
+							((a.g += Number(e.value)),
+							Number(e.value) > a.l && (a.l = Number(e.value)),
+							(a.w += 1));
 					}
 					"largest-contentful-paint" === d.entryType &&
-						((e = d), (a.P = Math.floor(e.renderTime || e.loadTime)));
+						((e = d), (a.S = Math.floor(e.renderTime || e.loadTime)));
 					"first-input" === d.entryType &&
 						((e = d),
-						(a.G = Number((e.processingStart - e.startTime).toFixed(3))),
-						(a.H = !0));
+						(a.I = Number((e.processingStart - e.startTime).toFixed(3))),
+						(a.K = !0));
 					"longtask" === d.entryType &&
-						((a.b += d.duration),
-						d.duration > a.g && (a.g = d.duration),
-						(a.w += 1));
+						((a.c += d.duration),
+						d.duration > a.i && (a.i = d.duration),
+						(a.A += 1));
 				}
 			})
 		);
-		this.B = !1;
-		this.a = Nd(641, this.a.bind(this));
+		this.D = !1;
+		this.b = Nd(641, this.b.bind(this));
 	};
 	ka(Rd, Od);
 	var Sd = function() {
 		var a = new Rd();
-		a.R.observe({
+		a.T.observe({
 			entryTypes: [
 				"layout-shift",
 				"largest-contentful-paint",
@@ -1878,10 +1882,10 @@
 			],
 			buffered: !Q(240)
 		});
-		document.addEventListener("unload", a.a);
-		document.addEventListener("visibilitychange", a.a);
+		document.addEventListener("unload", a.b);
+		document.addEventListener("visibilitychange", a.b);
 	};
-	Rd.prototype.a = function() {
+	Rd.prototype.b = function() {
 		var a = document;
 		if (
 			2 ===
@@ -1891,21 +1895,21 @@
 						a.mozVisibilityState ||
 						""
 				] || 0) &&
-			!this.B
+			!this.D
 		) {
-			this.B = !0;
-			this.R.takeRecords();
+			this.D = !0;
+			this.T.takeRecords();
 			a = "https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics";
 			window.LayoutShift &&
-				((a += "&cls=" + this.c.toFixed(3)),
-				(a += "&mls=" + this.i.toFixed(3)),
-				(a += Y("nls", this.l)));
-			window.LargestContentfulPaint && (a += Y("lcp", this.P));
-			window.PerformanceEventTiming && this.H && (a += Y("fid", this.G));
+				((a += "&cls=" + this.g.toFixed(3)),
+				(a += "&mls=" + this.l.toFixed(3)),
+				(a += Y("nls", this.w)));
+			window.LargestContentfulPaint && (a += Y("lcp", this.S));
+			window.PerformanceEventTiming && this.K && (a += Y("fid", this.I));
 			window.PerformanceLongTaskTiming &&
-				((a += Y("cbt", this.b)),
-				(a += Y("mbt", this.g)),
-				(a += Y("nlt", this.w)));
+				((a += Y("cbt", this.c)),
+				(a += Y("mbt", this.i)),
+				(a += Y("nlt", this.A)));
 			for (
 				var b = 0,
 					c = ba(document.getElementsByTagName("iframe")),
@@ -1922,10 +1926,10 @@
 			b = window.google_unique_id;
 			a += Y("ifi", "number" === typeof b ? b : 0);
 			b = R.f().b();
-			b = "&eid=" + encodeURIComponent(b.join());
-			a = a + b + Y("pvsid", this.S);
-			this.J && (a += Y("test", 1));
-			a += "&top=" + (this.M ? 1 : 0);
+			a += "&eid=" + encodeURIComponent(b.join());
+			this.N && (a += Y("test", 1));
+			a += "&top=" + (this.R ? 1 : 0);
+			a += this.a ? "&qqid=" + encodeURIComponent(this.a) : Y("pvsid", this.C);
 			Qd(a);
 		}
 	};
@@ -1957,7 +1961,7 @@
 						redirect: "follow",
 						method: "get",
 						mode: "no-cors",
-						X: { type: "srr-token-redemption", V: b, W: "none" }
+						Y: { type: "srr-token-redemption", W: b, X: "none" }
 					})
 					.then(function(c) {
 						if (!c.ok) throw Error("Network response was not ok");
@@ -2069,10 +2073,10 @@
 			return 0 === de(T(172));
 		};
 	var fe = function() {
-		return Eb("3") || 0;
+		return Eb("5") || 0;
 	};
 	Yd("getVersion", function() {
-		return "2020031902";
+		return "2020031904";
 	});
 	var hd = function() {
 		var a = {};
@@ -2140,7 +2144,7 @@
 		je = function() {
 			var a =
 				void 0 === a
-					? Ia([Jd, v("/tag/js/fetch_frame_"), v("2020031902"), v(".html")])
+					? Ia([Jd, v("/tag/js/fetch_frame_"), v("2020031904"), v(".html")])
 					: a;
 			var b = sb();
 			b.style.display = "none";
@@ -2162,7 +2166,7 @@
 			);
 		},
 		le = function() {
-			var a = Ia([Id, Hd, v("2020031902"), v(".js")]),
+			var a = Ia([Id, Hd, v("2020031904"), v(".js")]),
 				b = Ec();
 			return b ? Ha(a, String(b)) : a;
 		},
