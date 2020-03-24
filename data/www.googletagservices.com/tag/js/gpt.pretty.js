@@ -125,7 +125,7 @@
 			else if ("function" == b && "undefined" == typeof a.call) return "object";
 			return b;
 		},
-		sa = "closure_uid_" + ((1e9 * Math.random()) >>> 0),
+		ra = "closure_uid_" + ((1e9 * Math.random()) >>> 0),
 		ta = 0,
 		ua = function(a, b) {
 			for (var c in b) a[c] = b[c];
@@ -1262,8 +1262,8 @@
 						var n = J(g, L, 2);
 						n &&
 							(f
-								? p(ic(), function(ra) {
-										return gc(n, ra);
+								? p(ic(), function(sa) {
+										return gc(n, sa);
 								  })
 								: gc(n, c));
 					}
@@ -1488,9 +1488,9 @@
 				((V[1] = ""), (V[2] = -1), (V[3] = -1), (V[4] = ""), (V[6] = ""));
 			W = U.googleIMState = U.googleIMState || {};
 			nd(W[1]) || (W[1] = ".google.com");
-			Array.isArray(W[5]) || (W[5] = []);
+			"array" == qa(W[5]) || (W[5] = []);
 			"boolean" !== typeof W[6] && (W[6] = !1);
-			Array.isArray(W[7]) || (W[7] = []);
+			"array" == qa(W[7]) || (W[7] = []);
 			"number" !== typeof W[8] && (W[8] = 0);
 		},
 		rd = function(a) {
@@ -1662,7 +1662,7 @@
 			if (!d && a.P()) nd(".google.com") && (W[1] = ".google.com"), a.s();
 			else {
 				var n = (U.googleToken = U.googleToken || {}),
-					ra =
+					sa =
 						0 == c &&
 						d &&
 						"string" === typeof d &&
@@ -1674,7 +1674,7 @@
 						"string" === typeof l;
 				e = e && !a.o() && (!(V[3] >= +new Date()) || "NT" == V[1]);
 				var Pd = !(V[3] >= +new Date()) && 0 != c;
-				if (ra || e || Pd)
+				if (sa || e || Pd)
 					(e = +new Date()),
 						(f = e + 1e3 * f),
 						(g = e + 1e3 * g),
@@ -1686,7 +1686,7 @@
 						(n[4] = l),
 						(n[6] = b),
 						qd();
-				if (ra || !a.o()) {
+				if (sa || !a.o()) {
 					c = a.H();
 					for (d = 0; d < c.length; d++) a.F(c[d]);
 					c.length = 0;
@@ -2050,8 +2050,8 @@
 				var d = this || h;
 				d = d.closure_memoize_cache_ || (d.closure_memoize_cache_ = {});
 				var e =
-					(Object.prototype.hasOwnProperty.call(a, sa) && a[sa]) ||
-					(a[sa] = ++ta);
+					(Object.prototype.hasOwnProperty.call(a, ra) && a[ra]) ||
+					(a[ra] = ++ta);
 				e = c(e, arguments);
 				return d.hasOwnProperty(e) ? d[e] : (d[e] = a.apply(this, arguments));
 			};
@@ -2073,10 +2073,10 @@
 			return 0 === de(T(172));
 		};
 	var fe = function() {
-		return Eb("5") || 0;
+		return Eb("9") || 0;
 	};
 	Yd("getVersion", function() {
-		return "2020031904";
+		return "2020032302";
 	});
 	var hd = function() {
 		var a = {};
@@ -2144,7 +2144,7 @@
 		je = function() {
 			var a =
 				void 0 === a
-					? Ia([Jd, v("/tag/js/fetch_frame_"), v("2020031904"), v(".html")])
+					? Ia([Jd, v("/tag/js/fetch_frame_"), v("2020032302"), v(".html")])
 					: a;
 			var b = sb();
 			b.style.display = "none";
@@ -2166,7 +2166,7 @@
 			);
 		},
 		le = function() {
-			var a = Ia([Id, Hd, v("2020031904"), v(".js")]),
+			var a = Ia([Id, Hd, v("2020032302"), v(".js")]),
 				b = Ec();
 			return b ? Ha(a, String(b)) : a;
 		},
@@ -2248,7 +2248,7 @@
 	var oe;
 	a: {
 		try {
-			if (Array.isArray(E)) {
+			if ("array" == qa(E)) {
 				oe = E;
 				break a;
 			}
@@ -2397,7 +2397,6 @@
 					null,
 					3
 				],
-				[50, [[21062414], [21062415, [[64, null, null, [1]]]]]],
 				[50, [[21062452], [21062453, [[43, null, null, [1]]]]]],
 				[
 					10,
@@ -2548,7 +2547,6 @@
 				[50, [[21065390], [21065391, [[252, null, null, [1]]]]]],
 				[50, [[21065392], [21065393, [[276, null, null, [1]]]]]],
 				[10, [[21065401], [21065402, [[280, null, null, [1]]]]]],
-				[10, [[21065443], [21065444, [[139, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -2858,24 +2856,24 @@
 					1000,
 					[
 						[
-							21065749,
+							21065761,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21065749]],
+								[null, 24, null, [null, 21065761]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21065749]]
+								[null, 25, null, [null, 21065761]]
 							],
-							[6, null, null, 4, null, 2]
+							[6, null, null, 4, null, 6]
 						],
 						[
-							21065750,
+							21065762,
 							[
 								[null, 7, null, [null, 1]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]]
 							],
-							[6, null, null, 4, null, 3]
+							[6, null, null, 4, null, 7]
 						]
 					],
 					[4, null, 3],
@@ -2885,24 +2883,51 @@
 					1000,
 					[
 						[
-							21065753,
+							21065763,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21065753]],
+								[null, 24, null, [null, 21065763]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21065753]]
+								[null, 25, null, [null, 21065763]]
 							],
-							[6, null, null, 4, null, 4]
+							[6, null, null, 4, null, 8]
 						],
 						[
-							21065754,
+							21065764,
 							[
 								[null, 7, null, [null, 1]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]]
 							],
-							[6, null, null, 4, null, 5]
+							[6, null, null, 4, null, 9]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21065769,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21065769]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21065769]]
+							],
+							[6, null, null, 4, null, 2]
+						],
+						[
+							21065770,
+							[
+								[null, 7, null, [null, 1]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]]
+							],
+							[6, null, null, 4, null, 3]
 						]
 					],
 					[4, null, 3],
@@ -3092,23 +3117,6 @@
 			12,
 			[
 				[
-					1,
-					[
-						[44713525, [[230, null, null, []]]],
-						[44713528],
-						[44713529, [[230, null, null, []]]],
-						[44713538],
-						[44713539],
-						[44713540]
-					],
-					null,
-					null,
-					null,
-					13,
-					null,
-					800
-				],
-				[
 					50,
 					[[44714061], [44714062, [[289, null, null, [1]]]]],
 					null,
@@ -3122,7 +3130,8 @@
 					20,
 					[[21065724], [21065725, [[203, null, null, [1]]]]],
 					[4, null, 9, null, null, null, null, ["LayoutShift"]]
-				]
+				],
+				[10, [[44716866], [44716867, [[314, null, null, [1]]]]]]
 			]
 		],
 		[
