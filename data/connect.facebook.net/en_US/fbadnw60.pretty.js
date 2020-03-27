@@ -1,4 +1,4 @@
-/*1583884969,,JIT Construction: v1001819418,en_US*/
+/*1585285235,,JIT Construction: v1001907159,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -217,7 +217,6 @@ try {
 						"ES5ArrayPrototype",
 						[],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							var g = {};
 							g.map = function(a, b) {
 								if (typeof a !== "function") throw new TypeError();
@@ -285,7 +284,6 @@ try {
 						"ES5FunctionPrototype",
 						[],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							a = {};
 							a.bind = function(a) {
 								if (typeof this !== "function")
@@ -338,7 +336,6 @@ try {
 						"ES5Object",
 						["ie8DontEnum"],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							var g = {}.hasOwnProperty;
 							a = {};
 							function h() {}
@@ -379,7 +376,6 @@ try {
 						"ES5StringPrototype",
 						[],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							a = {};
 							a.trim = function() {
 								if (this == null)
@@ -425,7 +421,6 @@ try {
 							};
 							a.contains = a.includes;
 							a.repeat = function(a) {
-								__p && __p();
 								if (this == null)
 									throw new TypeError(
 										"String.prototype.repeat called on null or undefined"
@@ -449,10 +444,8 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = {
 								from: function(a) {
-									__p && __p();
 									if (a == null)
 										throw new TypeError("Object is null or undefined");
 									var b = arguments[1],
@@ -502,7 +495,6 @@ try {
 						"ES6ArrayPrototype",
 						[],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							var g = {
 								find: function(a, b) {
 									if (this == null)
@@ -590,7 +582,6 @@ try {
 						"ES6Number",
 						[],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							a = Math.pow(2, -52);
 							b = Math.pow(2, 53) - 1;
 							c = -1 * b;
@@ -640,11 +631,9 @@ try {
 						"ES6Object",
 						["ie8DontEnum"],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							var g = {}.hasOwnProperty;
 							a = {
 								assign: function(a) {
-									__p && __p();
 									if (a == null)
 										throw new TypeError(
 											"Object.assign target cannot be null or undefined"
@@ -681,7 +670,6 @@ try {
 						"ES7ArrayPrototype",
 						["ES5Array", "ES5ArrayPrototype"],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							var g = b("ES5Array").isArray,
 								h = b("ES5ArrayPrototype").indexOf;
 							function i(a) {
@@ -699,7 +687,6 @@ try {
 							a = {
 								includes: function(a) {
 									"use strict";
-									__p && __p();
 									if (
 										a !== void 0 &&
 										g(this) &&
@@ -729,7 +716,6 @@ try {
 						"ES7Object",
 						["ie8DontEnum"],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							var g = {}.hasOwnProperty;
 							a = {};
 							a.entries = function(a) {
@@ -779,14 +765,11 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = {},
 								h = { exports: g },
 								i;
 							function j() {
-								__p && __p();
 								(function() {
-									__p && __p();
 									var b = typeof i === "function" && i.amd,
 										c = { function: !0, object: !0 },
 										d = c[typeof g] && g && !g.nodeType && g,
@@ -802,7 +785,6 @@ try {
 										(j.global === j || j.window === j || j.self === j) &&
 										(e = j);
 									function k(b, a) {
-										__p && __p();
 										b || (b = e.Object());
 										a || (a = e.Object());
 										var d = b.Number || e.Number,
@@ -833,7 +815,6 @@ try {
 												r.getUTCMilliseconds() == 708;
 										} catch (a) {}
 										function s(b) {
-											__p && __p();
 											if (s[b] !== q) return s[b];
 											var c;
 											if (b == "bug-string-char-index") c = "a"[0] != "a";
@@ -965,7 +946,6 @@ try {
 													return o.call(this, a);
 												});
 											p = function(a, b) {
-												__p && __p();
 												var d = 0,
 													e,
 													f;
@@ -1045,7 +1025,6 @@ try {
 													},
 													G = "\\u00",
 													H = function(a) {
-														__p && __p();
 														var b = '"',
 															c = 0,
 															d = a.length,
@@ -1074,7 +1053,6 @@ try {
 														return b + '"';
 													},
 													I = function(a, b, c, d, e, f, g) {
-														__p && __p();
 														var h, i, j, k, m, r, s, t, z, B;
 														try {
 															h = b[a];
@@ -1183,7 +1161,6 @@ try {
 														}
 													};
 												a.stringify = function(a, b, d) {
-													__p && __p();
 													var e, f, g, h;
 													if (c[typeof b] && b)
 														if ((h = n.call(b)) == t) f = b;
@@ -1238,7 +1215,6 @@ try {
 														throw j();
 													},
 													O = function() {
-														__p && __p();
 														var a = M,
 															b = a.length,
 															c,
@@ -1371,7 +1347,6 @@ try {
 														return "$";
 													},
 													P = function(a) {
-														__p && __p();
 														var b, c;
 														a == "$" && N();
 														if (typeof a == "string") {
@@ -1513,7 +1488,6 @@ try {
 							"json3"
 						],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							var g = {}.toString,
 								h = {
 									"JSON.stringify": b("json3").stringify,
@@ -1540,7 +1514,6 @@ try {
 								"Array.prototype": b("ES7ArrayPrototype")
 							};
 							function a(a) {
-								__p && __p();
 								for (var b in a) {
 									if (!Object.prototype.hasOwnProperty.call(a, b)) continue;
 									var c = a[b],
@@ -1599,7 +1572,6 @@ try {
 						"sdk.babelHelpers",
 						["ES5FunctionPrototype", "ES5Object", "ES6Object"],
 						function(a, b, c, d, e, f) {
-							__p && __p();
 							var g = {},
 								h = Object.prototype.hasOwnProperty;
 							g.inheritsLoose = function(a, c) {
@@ -1611,10 +1583,8 @@ try {
 							};
 							g.inherits = g.inheritsLoose;
 							g.wrapNativeSuper = function(a) {
-								__p && __p();
 								var b = typeof Map === "function" ? new Map() : void 0;
 								g.wrapNativeSuper = function(a) {
-									__p && __p();
 									if (a === null) return null;
 									if (typeof a !== "function")
 										throw new TypeError(
@@ -2242,10 +2212,8 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = {
 								getScreenOrientation: function() {
-									__p && __p();
 									if (!window) return "u";
 									if (typeof window.orientation === "number")
 										return window.orientation === 0 ||
@@ -2296,7 +2264,6 @@ try {
 						["ScreenOrientation.adquality", "nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = "\u2026",
 								h = -1,
 								i = 0,
@@ -2377,7 +2344,6 @@ try {
 								return r()[0];
 							}
 							function t(a) {
-								__p && __p();
 								var b = r();
 								for (var c = 0; c < b.length; c++) {
 									var d = b[c],
@@ -2451,7 +2417,6 @@ try {
 								F(b, "100%", a.clientHeight);
 							}
 							function D(a, c) {
-								__p && __p();
 								var d = c.ownerDocument;
 								d = d.createElement("iframe");
 								a.appendChild(d);
@@ -2518,7 +2483,6 @@ try {
 								return !1;
 							}
 							function P(a, b) {
-								__p && __p();
 								a = a;
 								while (a) {
 									H(a) && (a = a.ownerDocument.defaultView.frameElement);
@@ -2545,7 +2509,6 @@ try {
 								return a.scrollHeight > a.clientHeight + 3;
 							}
 							function S(a, b, c, d) {
-								__p && __p();
 								d === void 0 && (d = " ");
 								var e = c.slice(0, b).join(d) + g;
 								a.textContent = e;
@@ -2560,7 +2523,6 @@ try {
 								return h;
 							}
 							function T(a, b) {
-								__p && __p();
 								b === void 0 && (b = " ");
 								if (!R(a)) return;
 								var c = a.textContent,
@@ -2664,12 +2626,10 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 0,
 								h = 1,
 								i = 2;
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									(this.$1 = g),
 										(this.$4 = []),
@@ -2739,7 +2699,6 @@ try {
 						["ANUtils", "SimplePromise.adquality"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = function(a) {
 								try {
 									return ES("JSON", "parse", !1, decodeURI(a.name))._context
@@ -2752,7 +2711,6 @@ try {
 								return a && a.sourceUrl;
 							}
 							var i = function(a, c) {
-								__p && __p();
 								var d = b("ANUtils").getTopMostAccessibleWindow();
 								if (h(d.context)) {
 									a(d.context);
@@ -2789,15 +2747,12 @@ try {
 						["nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a, b, c, d) {
 									(this.$1 = a), (this.$2 = b), (this.$3 = c), (this.$4 = d);
 								}
 								var c = a.prototype;
 								c.$5 = function(a) {
-									__p && __p();
 									var b = this.$6(),
 										c = this.$7();
 									b.appendChild(c);
@@ -2820,7 +2775,6 @@ try {
 									return b;
 								};
 								c.$6 = function() {
-									__p && __p();
 									var a = document.createElement("div");
 									a.className = "fbAdChoices";
 									a.style.backgroundColor = "#ccc";
@@ -2835,7 +2789,6 @@ try {
 									return a;
 								};
 								c.$7 = function() {
-									__p && __p();
 									var a = document.createElement("a");
 									a.innerText = "AdChoices";
 									a.href = b("nullthrows")(this.$2.adChoicesHref);
@@ -2879,7 +2832,6 @@ try {
 										: (a.style.borderBottomLeftRadius = "4px");
 								};
 								c.render = function() {
-									__p && __p();
 									var a = this,
 										c = document.createElement("iframe");
 									c.style.position = "absolute";
@@ -2916,12 +2868,10 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = "fbBannerCallToActionOverlay",
 								h = "fbBannerOverlay",
 								i = "fbInteractiveBanner";
 							a = (function() {
-								__p && __p();
 								function a(a, b) {
 									(this.$1 = a.getElementsByClassName(i)),
 										(this.$2 = a.getElementsByClassName(g)[0]),
@@ -2968,15 +2918,11 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = ["webkit", "moz", "ms", "o"];
 							a = (function() {
-								__p && __p();
 								function a(a) {
-									__p && __p();
 									var b = this;
 									this.$6 = function() {
-										__p && __p();
 										var a = b.getVisibilityState();
 										for (
 											var c = b.$5,
@@ -3044,15 +2990,12 @@ try {
 						["PageVisibility.adquality"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									(this.$1 = !1), (this.$2 = 0), (this.$4 = a), (this.$3 = []);
 								}
 								var c = a.prototype;
 								c.$5 = function() {
-									__p && __p();
 									var a = ES("Date", "now", !1) - this.$2;
 									for (
 										var b = this.$3,
@@ -3106,12 +3049,10 @@ try {
 						["ANUtils"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							function g(a) {
 								return a ? b("ANUtils").once(a) : null;
 							}
 							a = (function() {
-								__p && __p();
 								function a(a, b, c, d) {
 									(this.$1 = a),
 										(this.$2 = b),
@@ -3165,9 +3106,7 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a() {}
 								var b = a.prototype;
 								b.onPartiallyEntered = function() {};
@@ -3189,9 +3128,7 @@ try {
 						["OnScreenBehavior.anweb"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(b, a);
 								function b(b) {
 									var c;
@@ -3217,12 +3154,9 @@ try {
 						["nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = function a(c) {
-								__p && __p();
 								var d = this;
 								this.dom = function(a, b, c) {
-									__p && __p();
 									b === void 0 && (b = {});
 									c === void 0 && (c = []);
 									a = document.createElement(a);
@@ -3309,12 +3243,10 @@ try {
 						["csx", "cx", "VPAIDDomUtils", "nullthrows"],
 						function(a, b, c, d, e, f, g, h) {
 							"use strict";
-							__p && __p();
 							var i = b("VPAIDDomUtils").div,
 								j = b("VPAIDDomUtils").dom,
 								k = b("VPAIDDomUtils").find,
 								l = function(a, b) {
-									__p && __p();
 									b === void 0 && (b = []);
 									var c = document.createElement("a");
 									c.className = a;
@@ -3353,7 +3285,6 @@ try {
 								},
 								n = 62;
 							a = (function() {
-								__p && __p();
 								function a(a, c, d, e) {
 									(this.$4 = c),
 										(this.$1 = a),
@@ -3395,7 +3326,6 @@ try {
 									return l("_11u9", [i("_11ur", [i("_11us")])]);
 								};
 								c.$7 = function() {
-									__p && __p();
 									var a = this.$8();
 									this.$3 = k(a, "._11us");
 									var c = this.$4;
@@ -3424,7 +3354,6 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = function(a, b) {
 									(a.style.transform = b), (a.style.webkitTransform = b);
 								},
@@ -3449,7 +3378,6 @@ try {
 								p = 400,
 								q = 400;
 							b = (function() {
-								__p && __p();
 								function a(a, b) {
 									(this.$2 = !1),
 										(this.$6 = !1),
@@ -3488,7 +3416,6 @@ try {
 										(this.$6 = !1);
 								};
 								b.onMove = function(a, b) {
-									__p && __p();
 									var c = this;
 									if (this.$6)
 										if (this.$2) a.preventDefault();
@@ -3513,7 +3440,6 @@ try {
 									}
 								};
 								b.onMoveEnd = function() {
-									__p && __p();
 									var a = this;
 									if (!this.$2) return;
 									this.$9 && j(this.$9);
@@ -3569,7 +3495,6 @@ try {
 						],
 						function(a, b, c, d, e, f, g, h) {
 							"use strict";
-							__p && __p();
 							var i = b("VPAIDDomUtils").div,
 								j = b("VPAIDDomUtils").find,
 								k = function() {},
@@ -3586,9 +3511,7 @@ try {
 								t = 2e3,
 								u = 1e3;
 							a = (function() {
-								__p && __p();
 								function a(a) {
-									__p && __p();
 									var b = a.ads,
 										c = a.onEvent,
 										d = a.onCriticalAnimationStart,
@@ -3620,7 +3543,6 @@ try {
 								}
 								var c = a.prototype;
 								c.$25 = function() {
-									__p && __p();
 									var a = this;
 									this.$8 = 0;
 									this.$7 = [];
@@ -3795,7 +3717,6 @@ try {
 									return a > 0 ? !1 : a > -this.getMaxOffset();
 								};
 								c.ensureSizes = function() {
-									__p && __p();
 									var a = this;
 									this.$10 = this.$32() || m;
 									this.$11 = this.$34();
@@ -3855,12 +3776,9 @@ try {
 						["cx", "VPAIDDomUtils", "joinClasses", "nullthrows"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div;
 							a = (function() {
-								__p && __p();
 								function a(a) {
-									__p && __p();
 									var b = a.ads,
 										c = a.onLoadEventCounter,
 										d = a.adFeatures;
@@ -3996,7 +3914,6 @@ try {
 						["cx", "VPAIDDomUtils"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div,
 								i = b("VPAIDDomUtils").dom,
 								j = function(a, b) {
@@ -4024,9 +3941,7 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a() {
 									(this.$1 = 0), (this.$2 = !1), (this.$3 = []);
 								}
@@ -4045,7 +3960,6 @@ try {
 									this.$2 ? window.setTimeout(a, 0) : this.$3.push(a);
 								};
 								b.$4 = function() {
-									__p && __p();
 									for (
 										var a = this.$3,
 											b = ES("Array", "isArray", !1, a),
@@ -4087,7 +4001,6 @@ try {
 						["ANUtils", "nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 0;
 							function h() {
 								g++;
@@ -4105,7 +4018,6 @@ try {
 									: a.set(c, { property: c });
 							}
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									(this.$1 = new Map()),
 										(this.$2 = new Map()),
@@ -4122,7 +4034,6 @@ try {
 										  });
 								};
 								c.addChanges = function(a, c) {
-									__p && __p();
 									var d = this.$5(a);
 									this.$1.has(d) ||
 										(this.$1.set(d, new Map()), this.$2.set(d, new Map()));
@@ -4136,7 +4047,6 @@ try {
 									}
 								};
 								c.applyChanges = function() {
-									__p && __p();
 									for (
 										var a = this.$1.entries(),
 											c = ES("Array", "isArray", !1, a),
@@ -4195,7 +4105,6 @@ try {
 									}
 								};
 								c.restoreOriginalStyles = function() {
-									__p && __p();
 									for (
 										var a = this.$2.entries(),
 											c = ES("Array", "isArray", !1, a),
@@ -4271,9 +4180,7 @@ try {
 						["ANStyleChangeTracker", "ANUtils", "nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a, c, d, e, f, g, h, i, j) {
 									(this.$1 = new (b("ANStyleChangeTracker"))(i)),
 										(this.$2 = a),
@@ -4287,7 +4194,6 @@ try {
 								}
 								var c = a.prototype;
 								c.resize = function(a, c) {
-									__p && __p();
 									this.$7 || this.$1.resize(this.$4, a, c);
 									var d = this.$2;
 									if (this.$7) {
@@ -4354,9 +4260,7 @@ try {
 						["ANStyleChangeTracker", "ANUtils"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a, c, d, e, f, g) {
 									(this.$1 = new (b("ANStyleChangeTracker"))(f)),
 										(this.$2 = a),
@@ -4367,7 +4271,6 @@ try {
 								}
 								var c = a.prototype;
 								c.resize = function(a, c) {
-									__p && __p();
 									this.$1.resize(this.$3, a, c);
 									if (this.$5) {
 										this.$1.addChanges(this.$2, { display: "block" });
@@ -4423,7 +4326,6 @@ try {
 						["ANFullWidthIFrame", "ANFullWidthInline", "ANUtils"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 300,
 								h = "fbOriginalHeightResizeChecks",
 								i = "ADNW_FW_PRE_RESIZE_CHECK_FAIL",
@@ -4431,7 +4333,6 @@ try {
 								k = "ADNW_FW_POST_RESIZE_CHECK_FAIL_OFF_SCREEN",
 								l = 0;
 							a = (function() {
-								__p && __p();
 								function a(a, c, d, e, f, g, i, j, k, m) {
 									(this.$1 = a),
 										(this.$2 = c),
@@ -4472,7 +4373,6 @@ try {
 								}
 								var c = a.prototype;
 								c.resize = function(a, c) {
-									__p && __p();
 									var d = !1;
 									if (this.$1 && this.$12) {
 										d = this.$16();
@@ -4515,7 +4415,6 @@ try {
 									return this.$2 ? this.$2 : this.$3;
 								};
 								c.$16 = function() {
-									__p && __p();
 									var a = this.$20();
 									if (!a) return !1;
 									var c = b("ANUtils").isA9Container(this.$2);
@@ -4560,7 +4459,6 @@ try {
 									);
 								};
 								c.$21 = function(a, c) {
-									__p && __p();
 									var d = b("ANUtils").getStyle(a, "position");
 									if (
 										d &&
@@ -4609,7 +4507,6 @@ try {
 										: null;
 								};
 								c.$19 = function(a) {
-									__p && __p();
 									var c = this.$20();
 									if (!c) return !1;
 									var d = this.$13 != null && this.$13.off_screen_10 === !0;
@@ -4667,9 +4564,7 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									(this.$1 = a),
 										(this.$2 = document.createElement("a")),
@@ -4711,10 +4606,8 @@ try {
 						["ANUtils", "getTime", "nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = ["ADNW_PAGE_UNLOADED"];
 							a = (function() {
-								__p && __p();
 								function a(a, b, c, d, e, f) {
 									(this.$1 = a),
 										(this.$3 = b),
@@ -4731,7 +4624,6 @@ try {
 									this.$1 = a;
 								};
 								c.frameReady = function() {
-									__p && __p();
 									this.$9 = !0;
 									for (
 										var a = this.$7,
@@ -4890,10 +4782,8 @@ try {
 						["NativePromise", "nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 1e4;
 							a = (function() {
-								__p && __p();
 								function a(a, b) {
 									(this.$1 = a), (this.$2 = b);
 								}
@@ -4938,15 +4828,12 @@ try {
 						["PageVisibility.adquality"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									(this.$1 = !1), (this.$3 = a), (this.$2 = []);
 								}
 								var c = a.prototype;
 								c.$4 = function() {
-									__p && __p();
 									for (
 										var a = this.$2,
 											b = ES("Array", "isArray", !1, a),
@@ -4998,15 +4885,12 @@ try {
 						["cx", "ANUtils", "VPAIDDomUtils", "nullthrows"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div,
 								i = 31,
 								j = 4,
 								k = 4 * 1e3;
 							a = (function() {
-								__p && __p();
 								function a(a, c, d, e) {
-									__p && __p();
 									var f = this;
 									this.$1 = a;
 									this.$2 = c;
@@ -5037,7 +4921,6 @@ try {
 								}
 								var c = a.prototype;
 								c.makeRewarded = function() {
-									__p && __p();
 									var a = this,
 										b = this.$3.getVideoElement();
 									b.loop = !1;
@@ -5117,7 +5000,6 @@ try {
 									return a < j;
 								};
 								c.$13 = function() {
-									__p && __p();
 									var a = this,
 										c = b("nullthrows")(
 											this.$2.querySelector(".adnwRVProgressBar")
@@ -5151,10 +5033,8 @@ try {
 						["cx", "VPAIDDomUtils", "nullthrows"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div;
 							a = (function() {
-								__p && __p();
 								function a(a, b) {
 									(this.$1 = !1), (this.$2 = a), (this.$3 = b);
 								}
@@ -5212,9 +5092,7 @@ try {
 						["ANStyleChangeTracker", "ANUtils"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a, c, d, e) {
 									(this.$1 = new (b("ANStyleChangeTracker"))()),
 										(this.$2 = a),
@@ -5278,14 +5156,12 @@ try {
 						["csx", "cx", "ANUtils", "VPAIDDomUtils", "nullthrows", "sdk.fbt"],
 						function(a, b, c, d, e, f, g, h) {
 							"use strict";
-							__p && __p();
 							var i = b("ANUtils").maybeNode,
 								j = b("VPAIDDomUtils").div,
 								k = b("VPAIDDomUtils").span,
 								l = b("sdk.fbt")._("Continue to"),
 								m = b("sdk.fbt")._("Continue");
 							a = (function() {
-								__p && __p();
 								function a(a, b, c) {
 									(this.$1 = a),
 										(this.$2 = b),
@@ -5309,7 +5185,6 @@ try {
 									return this;
 								};
 								c.$7 = function() {
-									__p && __p();
 									var a = this,
 										c = this.$3;
 									if (!c) {
@@ -5328,7 +5203,6 @@ try {
 											c.querySelector("._727l")
 										).style.backgroundImage = "url(" + this.$2 + ")";
 										c.addEventListener("click", function(d) {
-											__p && __p();
 											var e = b("nullthrows")(i(d.target)),
 												f = b("nullthrows")(
 													b("nullthrows")(c).querySelector("._727i")
@@ -5375,13 +5249,11 @@ try {
 									this.$3 = c;
 								};
 								c.$9 = function(a) {
-									__p && __p();
 									var c = this,
 										d = b("nullthrows")(this.$3);
 									d.classList.remove("_727o");
 									b("nullthrows")(this.$3).style.opacity = "0";
 									window.setTimeout(function() {
-										__p && __p();
 										d.parentNode && d.parentNode.removeChild(d);
 										for (
 											var b = c.$6,
@@ -5429,7 +5301,6 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 1e3,
 								h = 100;
 							function i(a) {
@@ -5458,7 +5329,6 @@ try {
 								};
 							}
 							function b() {
-								__p && __p();
 								var a = h,
 									b = [],
 									c = window;
@@ -5606,10 +5476,8 @@ try {
 						["BrowserDetectionFeature", "FastBrowserDetectionFeature"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = {
 								getBrowserFeaturesMap: function(a) {
-									__p && __p();
 									var c = h(),
 										d = {},
 										e = {},
@@ -5787,7 +5655,6 @@ try {
 								return !!(a.getContext && a.getContext("2d"));
 							}),
 							(c.emoji = function() {
-								__p && __p();
 								if (!i.canvas()) return !1;
 								var a = window.devicePixelRatio || 1;
 								a = 12 * a;
@@ -5800,7 +5667,6 @@ try {
 								return b.getImageData(a, a, 1, 1).data[0] !== 0;
 							}),
 							(c.canvasfp = function() {
-								__p && __p();
 								if (!i.canvas()) return 0;
 								var a = document.createElement("canvas"),
 									b = a.getContext("2d"),
@@ -5965,7 +5831,6 @@ try {
 								);
 							}),
 							(c.engine = function() {
-								__p && __p();
 								var a = {},
 									b = [],
 									c = "unknown",
@@ -6102,7 +5967,6 @@ try {
 								return ES("JSON", "stringify", !1, b);
 							}),
 							(c.fontDiff = function() {
-								__p && __p();
 								var a = document.createElement("div"),
 									b = document.createElement("div");
 								a.style.top = "-1000px";
@@ -6127,7 +5991,6 @@ try {
 								return b;
 							}),
 							(c.fonts = function() {
-								__p && __p();
 								var a = [
 										"Ubuntu",
 										"Utopia",
@@ -6198,14 +6061,11 @@ try {
 						["AudienceNetworkVideoLoggingUtils", "PluginBrowserFeatures"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = b("AudienceNetworkVideoLoggingUtils").getFocus,
 								h = b("AudienceNetworkVideoLoggingUtils").getStatsFields,
 								i = b("AudienceNetworkVideoLoggingUtils").isIPhoneOrIPod;
 							a = (function() {
-								__p && __p();
 								function a(a, b, c, d, e, f) {
-									__p && __p();
 									var g = this;
 									this.$1 = a;
 									this.$2 = b;
@@ -6326,9 +6186,7 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									this.$1 = a;
 								}
@@ -6361,12 +6219,9 @@ try {
 						["cx", "VPAIDDomUtils", "joinClasses", "nullthrows"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div;
 							a = (function() {
-								__p && __p();
 								function a() {
-									__p && __p();
 									var a = this;
 									this.$13 = function(c) {
 										var d = b("nullthrows")(a.$10);
@@ -6439,7 +6294,6 @@ try {
 									return [j, a, c, d, e, g, f, i];
 								};
 								c.attach = function(a) {
-									__p && __p();
 									this.$10 != null && (this.detach(), (this.$10 = null));
 									this.$10 = a;
 									a.getElement().appendChild(this.$2);
@@ -6502,7 +6356,6 @@ try {
 						["cx", "VPAIDDomUtils", "nullthrows"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div,
 								i = {
 									MINIMAL: "MINIMAL",
@@ -6511,9 +6364,7 @@ try {
 									NO_PAUSE: "NO_PAUSE"
 								};
 							a = (function() {
-								__p && __p();
 								function a(a) {
-									__p && __p();
 									var c = this;
 									a === void 0 && (a = i.NORMAL);
 									this.$8 = function(a) {
@@ -6594,10 +6445,8 @@ try {
 						["cx", "VPAIDDomUtils", "joinClasses"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div;
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									var b = this;
 									this.$5 = function(a) {
@@ -6641,13 +6490,10 @@ try {
 						["cx", "VPAIDDomUtils", "nullthrows"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div,
 								i = { LEFT: "LEFT", RIGHT: "RIGHT" };
 							a = (function() {
-								__p && __p();
 								function a(a, c) {
-									__p && __p();
 									var d = this;
 									a === void 0 && (a = !1);
 									c === void 0 && (c = i.RIGHT);
@@ -6692,14 +6538,12 @@ try {
 						["cx", "VPAIDDomUtils"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div,
 								i = {
 									VISIBLE_ON_PAUSE: "VISIBLE_ON_PAUSE",
 									VISIBLE_ON_AUTOPLAY: "VISIBLE_ON_AUTOPLAY"
 								};
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									this.$1 = this.$3(a);
 								}
@@ -6736,12 +6580,9 @@ try {
 						["cx", "VPAIDDomUtils", "joinClasses", "nullthrows"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div;
 							a = (function() {
-								__p && __p();
 								function a(a) {
-									__p && __p();
 									var c = this;
 									this.$7 = function(a) {
 										var d = b("nullthrows")(c.$5);
@@ -6798,13 +6639,10 @@ try {
 						["cx", "VPAIDDomUtils", "joinClasses", "nullthrows"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div,
 								i = b("VPAIDDomUtils").span;
 							a = (function() {
-								__p && __p();
 								function a(a) {
-									__p && __p();
 									var c = this;
 									this.$7 = function(a) {
 										var d = b("nullthrows")(c.$5);
@@ -6878,11 +6716,9 @@ try {
 						["cx", "VPAIDDomUtils", "joinClasses"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div,
 								i = b("VPAIDDomUtils").span;
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									var b = this;
 									this.$5 = function(a) {
@@ -6929,12 +6765,9 @@ try {
 						["cx", "VPAIDDomUtils", "nullthrows"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div;
 							a = (function() {
-								__p && __p();
 								function a() {
-									__p && __p();
 									var a = this;
 									this.$10 = function(c) {
 										var d = b("nullthrows")(a.$7);
@@ -6986,7 +6819,6 @@ try {
 									return [e, a, b, c, d];
 								};
 								c.attach = function(a) {
-									__p && __p();
 									this.$7 != null && (this.detach(), (this.$7 = null));
 									this.$7 = a;
 									a.getElement().appendChild(this.$2);
@@ -7065,7 +6897,6 @@ try {
 						],
 						function(a, b, c, d, e, f, g, h) {
 							"use strict";
-							__p && __p();
 							var i = b("ANUtils").isPromiseLike,
 								j = b("ANWebMuteOnlyPlayerChrome").ANWebMuteOnlyPlayerChrome,
 								k = b("ANWebMuteOnlyPlayerChrome")
@@ -7084,7 +6915,6 @@ try {
 								pauseCard: "play_button"
 							});
 							function p(a) {
-								__p && __p();
 								a = a || o.controls;
 								if (a === "full") return new (b("ANWebVideoPlayerControls"))();
 								if (a === "full_vertical")
@@ -7128,9 +6958,7 @@ try {
 									: null;
 							}
 							a = (function() {
-								__p && __p();
 								function a(a, c, d, e, f, g) {
-									__p && __p();
 									var h = this;
 									this.$6 = !1;
 									this.$7 = !1;
@@ -7160,7 +6988,6 @@ try {
 								}
 								var c = a.prototype;
 								c.$15 = function() {
-									__p && __p();
 									var a = this,
 										b = l("_6pfr");
 									b.style.backgroundImage = "url(" + this.$2 + ")";
@@ -7270,10 +7097,8 @@ try {
 						["cx", "VPAIDDomUtils"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div;
 							a = (function() {
-								__p && __p();
 								function a(a, b, c, d, e, f) {
 									(this.$2 = a),
 										(this.$3 = b),
@@ -7284,7 +7109,6 @@ try {
 								}
 								var b = a.prototype;
 								b.$7 = function() {
-									__p && __p();
 									var a = this,
 										b = h(
 											"_6qhu" +
@@ -7338,16 +7162,13 @@ try {
 						["cx", "VPAIDDomUtils", "joinClasses"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div;
 							a = (function() {
-								__p && __p();
 								function a(a, b, c, d) {
 									(this.$3 = c), (this.$4 = d), (this.$1 = b), (this.$2 = a);
 								}
 								var c = a.prototype;
 								c.$5 = function(a, c, d, e, f) {
-									__p && __p();
 									c = h(b("joinClasses")("_6qhk", c));
 									var g = h("_6qhl");
 									g.textContent = a;
@@ -7412,10 +7233,8 @@ try {
 						["cx", "VPAIDDomUtils"],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div;
 							a = (function() {
-								__p && __p();
 								function a(a, b, c, d) {
 									(this.$3 = a), (this.$2 = b), (this.$1 = c), (this.$4 = d);
 								}
@@ -7494,10 +7313,8 @@ try {
 						],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = b("VPAIDDomUtils").div;
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									(this.$1 = a.parentEl),
 										(this.$5 = a.adIcon),
@@ -7562,7 +7379,6 @@ try {
 									this.$18(c.render());
 								};
 								c.$22 = function(a) {
-									__p && __p();
 									var c = this;
 									this.$10(a.option_type);
 									if (a.option_type === this.$7.follow_up_report) {
@@ -7636,9 +7452,7 @@ try {
 						["OnScreenBehavior.anweb"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(b, a);
 								function b(b, c) {
 									var d;
@@ -7688,10 +7502,8 @@ try {
 						["OnScreenBehavior.anweb"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 1e3;
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(b, a);
 								function b(b) {
 									var c;
@@ -7743,9 +7555,7 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								a.unknownResult = function(b, c) {
 									b === void 0 && (b = "n");
 									c === void 0 && (c = "");
@@ -7850,9 +7660,7 @@ try {
 						["AdQualityMeasurementResult.adquality"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a, b) {
 									this.__parentWindow = b;
 								}
@@ -7886,7 +7694,6 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							function g() {
 								var a = navigator.userAgent.toLowerCase();
 								a = a.match(/chrome\/(\d+)/);
@@ -7935,7 +7742,6 @@ try {
 								SAFARI: 38
 							});
 							function b(a) {
-								__p && __p();
 								if (g()) return k() ? m.CHROME_MAC : m.CHROME_WIN;
 								else if (h()) {
 									var b = a.screen,
@@ -7970,9 +7776,7 @@ try {
 						["AdQualityUtils.adquality"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a, b, c, d) {
 									(this.x = a || 0),
 										(this.y = b || 0),
@@ -8069,13 +7873,10 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = b("AdQualityUtils.adquality").getBrowserBarOffset;
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c(c, d) {
-									__p && __p();
 									var e;
 									e = a.call(this, c, d) || this;
 									e.$AMPMeasurement5 = function(a) {
@@ -8139,9 +7940,7 @@ try {
 						["AdQualityMeasurementResult.adquality"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									this.$1 = a;
 								}
@@ -8188,9 +7987,7 @@ try {
 						["ScreenOrientation.adquality"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a() {
 									this.$1 = { h: 0, u: 0, v: 0 };
 								}
@@ -8229,9 +8026,7 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a, b, c) {
 									b === void 0 && (b = 0.05),
 										c === void 0 && (c = 0.33),
@@ -8281,7 +8076,6 @@ try {
 									};
 								};
 								b.registerProgress = function(a, b) {
-									__p && __p();
 									this.$14 += a;
 									var c = b.getViewableRatio() || 0;
 									this.$20 = b.getViewabilityDetection();
@@ -8309,7 +8103,6 @@ try {
 									this.$10 = Math.max(this.$10, this.$7);
 								};
 								b.registerVolume = function(a, b, c) {
-									__p && __p();
 									this.$25++;
 									this.$19 += b;
 									this.$4 = this.$19 / this.$25;
@@ -8359,12 +8152,9 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 0.5;
 							a = (function() {
-								__p && __p();
 								function a(a) {
-									__p && __p();
 									var c = a.element,
 										d = a.parentWindow,
 										e = a.rules;
@@ -8403,7 +8193,6 @@ try {
 									});
 								};
 								c.registerProgress = function(a, c) {
-									__p && __p();
 									var d = this;
 									if (!this.$1) {
 										c && c(this.getStatistics());
@@ -8488,7 +8277,6 @@ try {
 						["ANUtils", "Rectangle.adquality"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 0,
 								h = 1,
 								i = 2,
@@ -8497,9 +8285,7 @@ try {
 								l = 1,
 								m = 2;
 							a = (function() {
-								__p && __p();
 								function a(c, d) {
-									__p && __p();
 									this.ancestorIframes = [];
 									this.ancestorURLs = [];
 									this.crossDomainWindowCount = 0;
@@ -8659,7 +8445,6 @@ try {
 									});
 								};
 								c.$1 = function(a) {
-									__p && __p();
 									var c = b("ANUtils").getWindowHierarchy(this.parentWindow);
 									for (
 										var c = c,
@@ -8700,7 +8485,6 @@ try {
 									return this.crossDomainWindowCount > 0;
 								};
 								c.getOverlayedArea = function(a) {
-									__p && __p();
 									try {
 										var b = this.topWindow,
 											c = this.ancestorIframes[this.ancestorIframes.length - 1];
@@ -8763,9 +8547,7 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c(c, d) {
 									var e;
@@ -8784,7 +8566,6 @@ try {
 									return this.$GeometricMeasurement2;
 								};
 								d.getMeasurement = function(a) {
-									__p && __p();
 									var c = new (b("HTMLElementFrameContext.adquality"))(
 											this.$GeometricMeasurement1,
 											this.__parentWindow
@@ -8852,15 +8633,12 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 300,
 								h = [];
 							for (var a = 0; a <= 10; a += 1) h.push(a / 10);
 							c = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c(c, d) {
-									__p && __p();
 									var e;
 									e = a.call(this, c, d) || this;
 									e.$IntersectionObserverMeasurement2 = c;
@@ -8868,7 +8646,6 @@ try {
 										(e.$IntersectionObserverMeasurement4 = new (b(
 											"SimplePromise.adquality"
 										))(function(a, f) {
-											__p && __p();
 											var i = window.setTimeout(function() {
 													return f();
 												}, g),
@@ -8911,7 +8688,6 @@ try {
 									return "IntersectionObserver" in this.__parentWindow;
 								};
 								d.getMeasurement = function(a) {
-									__p && __p();
 									var b = this;
 									if (this.$IntersectionObserverMeasurement1) {
 										this.$IntersectionObserverMeasurement6(a);
@@ -8931,7 +8707,6 @@ try {
 									);
 								};
 								d.$IntersectionObserverMeasurement6 = function(a) {
-									__p && __p();
 									if (!this.$IntersectionObserverMeasurement1) {
 										this.$IntersectionObserverMeasurement7(a);
 										return;
@@ -8981,9 +8756,7 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c(c, d) {
 									var e;
@@ -9038,10 +8811,8 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 100;
 							a = (function() {
-								__p && __p();
 								function a(a, c) {
 									this.$1 = !1;
 									this.$3 = null;
@@ -9077,7 +8848,6 @@ try {
 									(this.$3 = a), this.$7();
 								};
 								c.$7 = function() {
-									__p && __p();
 									var a = this;
 									if (this.$6 !== void 0) return;
 									this.$6 = window.setInterval(function() {
@@ -9109,7 +8879,6 @@ try {
 									});
 								};
 								c.getViewabilityStateType = function(a) {
-									__p && __p();
 									if (!a)
 										return { viewabilityLevels: [b("AdViewability").UNKNOWN] };
 									var c = a.getViewableRatio(),
@@ -9157,9 +8926,7 @@ try {
 						["OnScreenBehavior.anweb", "getTime"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c() {
 									var b;
@@ -9268,9 +9035,7 @@ try {
 						["getFullScreenElement"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a, b) {
 									b === void 0 && (b = !1),
 										(this.$1 = a),
@@ -9413,7 +9178,6 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 0.05,
 								h = 0.5,
 								i = 2,
@@ -9440,7 +9204,6 @@ try {
 								else return !0;
 							}
 							function c(a, b, c, d, e) {
-								__p && __p();
 								var f = d - a.videoTime;
 								if (f < 0) return !1;
 								if (e - d <= j && f <= j) return !0;
@@ -9465,9 +9228,7 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c(b, c) {
 									var d;
@@ -9486,7 +9247,6 @@ try {
 									return document.hidden === !0;
 								};
 								d.getMeasurement = function(a) {
-									__p && __p();
 									var c = b("Rectangle.adquality").RectangleFromClientRect(
 											this.$BaseXDomainScreenMeasurement1.getBoundingClientRect()
 										),
@@ -9559,7 +9319,6 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = b("AdQualityUtils.adquality").isIE11;
 							function h(a, b, c) {
 								a.addEventListener
@@ -9570,10 +9329,8 @@ try {
 							}
 							var i = 11;
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c(c, d) {
-									__p && __p();
 									var e;
 									e = a.call(this, c, d) || this;
 									e.$IEXDomainScreenMeasurement1 = null;
@@ -9651,12 +9408,10 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 24,
 								h = 2,
 								i = window.performance;
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c(b, c) {
 									c = a.call(this, b, c) || this;
@@ -9718,10 +9473,8 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = b("AdQualityUtils.adquality").getFirefoxVersion;
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(b, a);
 								function b(b, c) {
 									b = a.call(this, b, c) || this;
@@ -9755,7 +9508,6 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 4,
 								h = 1;
 							function i(a) {
@@ -9768,7 +9520,6 @@ try {
 								return a;
 							}
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c(b, c) {
 									c = a.call(this, b, c) || this;
@@ -9790,7 +9541,6 @@ try {
 									return !0;
 								};
 								d.getMeasurement = function(a) {
-									__p && __p();
 									var c = this,
 										d = i([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
 										e = i([].concat(d));
@@ -9810,7 +9560,6 @@ try {
 									b("SimplePromise.adquality")
 										.all(h)
 										.then(function(d) {
-											__p && __p();
 											d = d.reduce(function(a, b) {
 												return a + (b === "1" ? 1 : 0);
 											}, 0);
@@ -9884,10 +9633,8 @@ try {
 									return /iPhone|iPod/.test(a) ? h : g;
 								};
 								d.$BaseBeaconXMeasurement7 = function() {
-									__p && __p();
 									var a = this;
 									return new (b("SimplePromise.adquality"))(function(b, d) {
-										__p && __p();
 										var e = a.$BaseBeaconXMeasurement3.pop();
 										if (e) {
 											b(e);
@@ -9942,7 +9689,6 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = (a = b("AdQualityUtils.adquality")).getChromeVersion,
 								h = a.getFirefoxVersion,
 								i = a.getSafariVersion,
@@ -9951,10 +9697,8 @@ try {
 								l = 2,
 								m = 4;
 							c = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c(c, d) {
-									__p && __p();
 									var e;
 									e = a.call(this, c, d) || this;
 									e.$RafBeaconMeasurement5 = function(a) {
@@ -10000,7 +9744,6 @@ try {
 										a.prototype.destroy.call(this);
 								};
 								d.isAvailable = function() {
-									__p && __p();
 									if (!a.prototype.isAvailable.call(this)) return !1;
 									if (this.$RafBeaconMeasurement3) return !1;
 									if (j()) return !1;
@@ -10060,11 +9803,9 @@ try {
 									});
 								};
 								d.__setUpBeacon = function(a) {
-									__p && __p();
 									a = document.createElement("iframe");
 									a.sandbox = "allow-scripts";
 									var b = function() {
-										__p && __p();
 										var a = 2,
 											b = null;
 										window.isVisible = function(c, d) {
@@ -10097,7 +9838,6 @@ try {
 									return a;
 								};
 								d.__checkVisibility = function(a) {
-									__p && __p();
 									var c = this,
 										d = Math.random() + "";
 									return new (b("SimplePromise.adquality"))(function(b, e) {
@@ -10152,9 +9892,7 @@ try {
 						["AdQualityStatistics.adquality"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									(this.$1 = !1),
 										(this.$2 = a),
@@ -10164,7 +9902,6 @@ try {
 								}
 								var c = a.prototype;
 								c.registerProgress = function(a, c, d, e) {
-									__p && __p();
 									if (this.$1) return;
 									this.$3.registerProgress(a, c);
 									d = this.$3.getData().minViewableRatio || 0;
@@ -10207,10 +9944,8 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 5;
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c(c) {
 									var d;
@@ -10246,7 +9981,6 @@ try {
 									}
 								};
 								d.$AdQualityVideoDynamicIntervalTest5 = function(a, b, c) {
-									__p && __p();
 									var d = a.videoDuration,
 										e = a.videoTime,
 										f = a.loggingTimeInterval,
@@ -10523,10 +10257,8 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = { debug: 1, info: 2, warn: 3, error: 4, fatal: 5 };
 							function h(a) {
-								__p && __p();
 								try {
 									var b = o(a, /^([\s\S]*)<\!\[EX\[(\[.*\])\]\]>([\s\S]*)$/);
 									if (!b) return n(a);
@@ -10563,7 +10295,6 @@ try {
 								return b;
 							}
 							function c(a, b) {
-								__p && __p();
 								var c = i(a);
 								if (ES("Object", "isFrozen", !1, a)) return;
 								b.type &&
@@ -10626,7 +10357,6 @@ try {
 								});
 							}
 							function n(a) {
-								__p && __p();
 								var b = o(a, /^([\s\S]*) TAAL\[(.*)\]$/);
 								b = (b = b) != null ? b : [a, null];
 								var c = b[0];
@@ -10738,11 +10468,9 @@ try {
 						["Env", "TAAL", "ex", "sprintf"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g,
 								h = b("ex");
 							function a(a, c) {
-								__p && __p();
 								if (!a) {
 									var d = c;
 									for (
@@ -10810,10 +10538,8 @@ try {
 							"HTMLElementFrameContext.adquality"
 						],
 						function(a, b, c, d, e, f, g) {
-							__p && __p();
 							a = (function() {
 								"use strict";
-								__p && __p();
 								function a(a, c) {
 									(this.$9 = 0),
 										(this.$1 = a),
@@ -10832,7 +10558,6 @@ try {
 									this.$10 = !0;
 								};
 								c.getAdQualityManager = function() {
-									__p && __p();
 									var a = this;
 									if (this.$4) return this.$4;
 									var c = this.$1.getGatingConfig(),
@@ -10984,7 +10709,6 @@ try {
 									};
 								};
 								c.$11 = function(a) {
-									__p && __p();
 									a === void 0 && (a = null);
 									var b = this.$12().getDuration();
 									if (b <= 0) return;
@@ -11026,14 +10750,10 @@ try {
 						["AMPContextLoader", "ANUtils", "nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a(a) {
-									__p && __p();
 									var c = this;
 									this.$2 = function() {
-										__p && __p();
 										if (c.$1.getNestLevel() === 0) return "NONE";
 										for (
 											var a = c.$1.ancestorIframes,
@@ -11154,9 +10874,7 @@ try {
 						[],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function() {
-								__p && __p();
 								function a() {}
 								var b = a.prototype;
 								b.getState = function(a, b) {
@@ -11177,7 +10895,6 @@ try {
 						["OnScreenDefinition.anweb"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = ES("Object", "freeze", !1, {
 								invalid: -1,
 								"off-screen": 0,
@@ -11189,7 +10906,6 @@ try {
 								return g[a];
 							}
 							function i(a, b, c) {
-								__p && __p();
 								switch (b) {
 									case 3:
 										a.onCompletelyEntered();
@@ -11213,7 +10929,6 @@ try {
 								for (var d = b - 1; d >= c; d--) i(a, d, !1);
 							}
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									a === void 0 &&
 										(a = b("OnScreenDefinition.anweb").MOBILE_FEED),
@@ -11227,7 +10942,6 @@ try {
 									this.$4(a);
 								};
 								c.$4 = function(a) {
-									__p && __p();
 									if (a === this.$1) return;
 									var b = h(this.$1),
 										c = h(a);
@@ -11289,9 +11003,7 @@ try {
 						["OnScreenBehavior.anweb", "promiseDone.anweb"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							a = (function(a) {
-								__p && __p();
 								babelHelpers.inheritsLoose(c, a);
 								function c(b, c, d) {
 									var e;
@@ -11398,7 +11110,6 @@ try {
 						],
 						function(a, b, c, d, e, f, g) {
 							"use strict";
-							__p && __p();
 							var h = {
 									"300x250": [300, 250],
 									"320x50": [320, 50],
@@ -11431,9 +11142,7 @@ try {
 								};
 							}
 							a = (function() {
-								__p && __p();
 								function a(a, c) {
-									__p && __p();
 									var d = this;
 									this.$97 = function() {
 										var a = b("nullthrows")(d.$28);
@@ -11521,7 +11230,6 @@ try {
 									);
 								};
 								c.$45 = function(a, c) {
-									__p && __p();
 									var d = this,
 										e = this.$42();
 									if (!this.$40()) {
@@ -11628,7 +11336,6 @@ try {
 									return this.$42().offsetHeight;
 								};
 								c.renderAd = function(a, c, d) {
-									__p && __p();
 									var e = this,
 										f = a.features || {};
 									this.$26 = {
@@ -11697,7 +11404,6 @@ try {
 											isStickyBanner: this.$67()
 										};
 										window.setTimeout(function() {
-											__p && __p();
 											var c = new (b("ANFullWidthLoader"))(
 													h,
 													e.$35(),
@@ -11810,7 +11516,6 @@ try {
 									return c;
 								};
 								c.$63 = function() {
-									__p && __p();
 									var a = h[this.$10],
 										c = a[0];
 									a = a[1];
@@ -11831,7 +11536,6 @@ try {
 									this.$9 = d;
 								};
 								c.$64 = function() {
-									__p && __p();
 									var a = document.createElement("div");
 									a.style.textAlign = "center";
 									a.style.position = "relative";
@@ -11895,7 +11599,6 @@ try {
 									);
 								};
 								c.$80 = function() {
-									__p && __p();
 									if (this.$2) {
 										this.$23.error("Multiple ADIMPRESSION attempted.");
 										return;
@@ -11911,7 +11614,6 @@ try {
 									this.$82();
 								};
 								c.$82 = function() {
-									__p && __p();
 									var a = this,
 										c = this.$37().$58;
 									if (c == null) return;
@@ -11952,7 +11654,6 @@ try {
 											: "FRIENDLY_IFRAME";
 								};
 								c.$69 = function(a, b, c) {
-									__p && __p();
 									a = a && b;
 									if (a) {
 										b = a.getBoundingClientRect();
@@ -11966,7 +11667,6 @@ try {
 									return c;
 								};
 								c.$70 = function(a) {
-									__p && __p();
 									var c = this;
 									this.$18 = new (b("AdQualityViewabilityMonitor"))(
 										this.$19,
@@ -12054,7 +11754,6 @@ try {
 									this.$93(a, b[0]), this.$89(a, b.slice(1));
 								};
 								c.$89 = function(a, c) {
-									__p && __p();
 									var d = this,
 										e = new (b("ANCarousel"))({
 											parent: a,
@@ -12102,7 +11801,6 @@ try {
 									this.$7 = e;
 								};
 								c.$95 = function(a) {
-									__p && __p();
 									var c = b("nullthrows")(a.parentElement);
 									c.style.overflow = "hidden";
 									var d = c.ownerDocument.defaultView.getComputedStyle(c)
@@ -12138,7 +11836,6 @@ try {
 									a.appendChild(d.render(c[0], c[1]));
 								};
 								c.$91 = function(a, c, d) {
-									__p && __p();
 									var e = this;
 									if (!c.adVideo) throw new Error("No video for Ad.");
 									this.$22.addRequiredEvent();
@@ -12218,10 +11915,8 @@ try {
 										: this.$24.openNewTab(c);
 								};
 								c.$94 = function(a, c) {
-									__p && __p();
 									var d = this,
 										e = function(a, e) {
-											__p && __p();
 											var f = b("getTime")(),
 												g = b("nullthrows")(c.href),
 												h = b("ANUtils").maybeHTMLElement(e.target);
@@ -12409,7 +12104,6 @@ try {
 									return b;
 								};
 								c.$104 = function(a, b, c, d, e, f) {
-									__p && __p();
 									this.$16 = a.getElementsByClassName("fbAdMedia");
 									var g = this.$16.length > 0,
 										h = ES("Array", "from", !1, this.$16);
@@ -12428,7 +12122,6 @@ try {
 									return g;
 								};
 								c.$101 = function(a, b) {
-									__p && __p();
 									var c,
 										d = a.getElementsByClassName("fbAdTitle");
 									for (c = 0; c < d.length; c++)
@@ -12465,7 +12158,6 @@ try {
 									return d;
 								};
 								c.$96 = function(a) {
-									__p && __p();
 									var c = this,
 										d = document.createElement("img");
 									this.$37().$46.bannerMovingMedia || (d.style.height = "100%");
@@ -12546,7 +12238,6 @@ try {
 									return a;
 								};
 								c.$99 = function(a) {
-									__p && __p();
 									var b;
 									b = ((b = {
 										fbAdCallToAction: "fbAdCallToAction",
@@ -12578,7 +12269,6 @@ try {
 									return this.$37().$46.logPerformanceStats === !0;
 								};
 								c.$72 = function() {
-									__p && __p();
 									if (!this.$85() || this.$30) return;
 									var a = b("getTime")(),
 										c = b("ANUtils").getNavigationStart(),
@@ -12671,7 +12361,6 @@ try {
 									return a ? a : this.$11;
 								};
 								c.$67 = function() {
-									__p && __p();
 									if (this.$34() === null) return !1;
 									var a = this.$107();
 									if (!a) return !1;
@@ -12744,9 +12433,7 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = (function(b) {
-								__p && __p();
 								babelHelpers.inheritsLoose(a, b);
 								function a(a) {
 									var c;
@@ -12783,7 +12470,6 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = b("VPAIDDomUtils").div,
 								h = "lightgray",
 								i = function(a) {
@@ -12798,9 +12484,7 @@ try {
 									});
 								};
 							a = (function() {
-								__p && __p();
 								function a(a) {
-									__p && __p();
 									var c = this;
 									this.cancelNextPage = b("ANUtils").once(function() {
 										if (c.$2 || c.$1 == null) return;
@@ -12809,7 +12493,6 @@ try {
 										c.$3.onCancelledPage();
 									});
 									this.loadNextPage = b("ANUtils").once(function() {
-										__p && __p();
 										c.$1 = g("fbRecircPage-" + (c.$3.currentPage + 1));
 										var a = c.$1;
 										if (a == null) return;
@@ -12851,13 +12534,11 @@ try {
 											);
 								};
 								c.setUpLoadMoreButton = function() {
-									__p && __p();
 									var a = this,
 										b = this.$3.unit.getLoadMoreButton();
 									b &&
 										((b.style.display = "inline"),
 										(b.onclick = function() {
-											__p && __p();
 											a.$3.onLoadMoreButtonClick();
 											var c = a.$3.unit.getLoadMoreButtonLabel(),
 												d = a.$3.unit.getLoadMoreButtonSpinner();
@@ -12906,11 +12587,9 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = 1e4,
 								h = 1e3;
 							a = (function() {
-								__p && __p();
 								function a(a, c, d, e, f, g, h, i, j, k, l, m, n, o) {
 									(this.$1 = a),
 										(this.$2 = c),
@@ -13031,7 +12710,6 @@ try {
 									}, g);
 								};
 								c.$17 = function() {
-									__p && __p();
 									var a = this,
 										c = this.$4.querySelectorAll(".fbSlot"),
 										d = 0,
@@ -13123,10 +12801,8 @@ try {
 						],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = b("VPAIDDomUtils").div;
 							a = (function() {
-								__p && __p();
 								function a(a) {
 									var c = this;
 									this.$1 = !1;
@@ -13163,7 +12839,6 @@ try {
 									f.renderAd(a, d, e);
 								};
 								c.$5 = function(a) {
-									__p && __p();
 									var b = [],
 										c = a.keys,
 										d = a.nativeAds;
@@ -13186,7 +12861,6 @@ try {
 									return b("ANUtils").onlyString(this.$2.data.recircUnitId);
 								};
 								c.$8 = function(a, c, d, e, f, h) {
-									__p && __p();
 									var i = this,
 										j = a.features,
 										k = this.$2.rootElement,
@@ -13400,7 +13074,6 @@ try {
 										(k.style.paddingRight = "5px"));
 								};
 								c.$9 = function(a, b, c, d, e, f) {
-									__p && __p();
 									var g = !!a.recommendedContent;
 									if (g) {
 										this.$8(a, b, c, d, e, f);
@@ -13420,7 +13093,6 @@ try {
 									}
 								};
 								c.adLoaded = function(a, c, d, e, f, g) {
-									__p && __p();
 									if (this.$1) {
 										this.$3.error("Multiple ADLOADED attempted.");
 										return;
@@ -13456,10 +13128,8 @@ try {
 						["ANCoreProxy", "ANUtils", "getTime", "nullthrows"],
 						function(a, b, c, d, e, f) {
 							"use strict";
-							__p && __p();
 							var g = window;
 							function h(a, b) {
-								__p && __p();
 								var c = function(a) {
 										g.setTimeout(function() {
 											return b(a);
@@ -13497,14 +13167,12 @@ try {
 								}
 							}
 							var i = function(a, c) {
-								__p && __p();
 								if (a.rootElement.dataset.parsed) return;
 								a.rootElement.dataset.parsed = "true";
 								a.domain = b("ANUtils").extractOrigin(a.iframe.src);
 								a.data = {};
 								a.core = new (b("ANCoreProxy"))(a);
 								var d = function(c) {
-										__p && __p();
 										if (a.isAdLoaded) return;
 										a.isAdLoaded = !0;
 										var d = b("nullthrows")(c.iframeData),
@@ -13557,7 +13225,6 @@ try {
 										);
 									},
 									e = function(c, e) {
-										__p && __p();
 										if (e.source !== c.iframe.contentWindow) return;
 										c = b("nullthrows")(c.iframeData);
 										switch (e.name) {
@@ -13635,7 +13302,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001819418","namespace":"FB","message":"' +
+				'","revision":"1001907159","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
