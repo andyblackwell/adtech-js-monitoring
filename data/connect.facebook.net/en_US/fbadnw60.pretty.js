@@ -1,4 +1,4 @@
-/*1585285235,,JIT Construction: v1001907159,en_US*/
+/*1585718549,,JIT Construction: v1001927984,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -9678,12 +9678,369 @@ try {
 						null
 					);
 					__d(
+						"Env",
+						[],
+						function(a, b, c, d, e, f) {
+							b = {
+								ajaxpipe_token: null,
+								compat_iframe_token: null,
+								iframeKey: "",
+								iframeTarget: "",
+								iframeToken: "",
+								isCQuick: !1,
+								start: ES("Date", "now", !1),
+								nocatch: !1
+							};
+							a.Env && ES("Object", "assign", !1, b, a.Env);
+							a.Env = b;
+							e.exports = b;
+						},
+						null
+					);
+					__d(
+						"TAALOpcodes",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							a = {
+								PREVIOUS_FILE: 1,
+								PREVIOUS_FRAME: 2,
+								PREVIOUS_DIR: 3,
+								FORCED_KEY: 4
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"TAAL",
+						["TAALOpcodes"],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							a = {
+								blameToPreviousFile: function(a) {
+									return this.applyOpcodes(a, [b("TAALOpcodes").PREVIOUS_FILE]);
+								},
+								blameToPreviousFrame: function(a) {
+									return this.applyOpcodes(a, [
+										b("TAALOpcodes").PREVIOUS_FRAME
+									]);
+								},
+								blameToPreviousDirectory: function(a) {
+									return this.applyOpcodes(a, [b("TAALOpcodes").PREVIOUS_DIR]);
+								},
+								applyOpcodes: function(a, b) {
+									return b && b.length ? a + " TAAL[" + b.join(";") + "]" : a;
+								}
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"ErrorSerializer",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							var g = { debug: 1, info: 2, warn: 3, error: 4, fatal: 5 };
+							function h(a) {
+								try {
+									var b = o(a, /^([\s\S]*)<\!\[EX\[(\[.*\])\]\]>([\s\S]*)$/);
+									if (!b) return n(a);
+									var c = b[0],
+										d = b[1];
+									b = b[2];
+									d = ES("JSON", "parse", !1, d);
+									var e = d[0];
+									d = d.slice(1);
+									e = n(e);
+									e.message = c + e.message + b;
+									d &&
+										d.length > 0 &&
+										(e.params = ES(d, "map", !0, function(a) {
+											return String(a);
+										}));
+									return e;
+								} catch (b) {
+									return {
+										message: "Unable to parse error message %s because %s",
+										params: [a, b.message]
+									};
+								}
+							}
+							function b(a) {
+								return "<![EX[" + ES("JSON", "stringify", !1, k(a)) + "]]>";
+							}
+							function i(a) {
+								if (a.messageFormat == null) return h(a.message);
+								var b = { message: a.messageFormat };
+								a.messageParams && (b.params = [].concat(a.messageParams));
+								b.forcedKey = a.forcedKey;
+								a.taalOpcodes && (b.taalOpcodes = a.taalOpcodes);
+								return b;
+							}
+							function c(a, b) {
+								var c = i(a);
+								if (ES("Object", "isFrozen", !1, a)) return;
+								b.type &&
+									((!a.type || g[a.type] > g[b.type]) && (a.type = b.type));
+								if (b.fbloggerMetadata != null) {
+									var d = a.fbloggerMetadata || [];
+									d.push.apply(d, b.fbloggerMetadata);
+									a.fbloggerMetadata = d;
+								}
+								b.project != null && (a.project = b.project);
+								b.errorName != null && (a.errorName = b.errorName);
+								d = c.message;
+								var e = m(c.params);
+								if (b.messageFormat != null) {
+									var f;
+									d += ". [Caught in: " + b.messageFormat + "]";
+									e.push.apply(e, (f = b.messageParams) != null ? f : []);
+								}
+								a.messageFormat = d;
+								a.messageParams = e;
+								f = b.forcedKey;
+								d = c.forcedKey;
+								b =
+									f != null && d != null
+										? f + "_" + d
+										: (e = f) != null
+											? e
+											: d;
+								a.forcedKey = b;
+								c.taalOpcodes != null && (a.taalOpcodes = c.taalOpcodes);
+							}
+							function j(a, b) {
+								var c = 0;
+								a = a.replace(/%s/g, function() {
+									return c < b.length ? b[c++] : "NOPARAM";
+								});
+								c < b.length &&
+									(a += " PARAMS" + ES("JSON", "stringify", !1, b.slice(c)));
+								return a;
+							}
+							function d(a) {
+								var b = a.message || "",
+									c = m(a.params);
+								return j(b, c) + l(a);
+							}
+							function k(a) {
+								return [a.message + l(a)].concat(m(a.params));
+							}
+							function l(a) {
+								var b = a.taalOpcodes;
+								a = a.forcedKey;
+								var c = [];
+								b && c.push.apply(c, b);
+								a && c.push("4" + a.replace(/[^\d\w]/g, "_"));
+								return c.length > 0 ? " TAAL[" + c.join(";") + "]" : "";
+							}
+							function m(a) {
+								return ES((a = a) != null ? a : [], "map", !0, function(a) {
+									return String(a);
+								});
+							}
+							function n(a) {
+								var b = o(a, /^([\s\S]*) TAAL\[(.*)\]$/);
+								b = (b = b) != null ? b : [a, null];
+								var c = b[0];
+								b = b[1];
+								c = { message: c };
+								if (b) {
+									var d = [];
+									for (
+										var b = b.split(";"),
+											e = ES("Array", "isArray", !1, b),
+											f = 0,
+											b = e
+												? b
+												: b[
+														typeof Symbol === "function"
+															? Symbol.iterator
+															: "@@iterator"
+												  ]();
+										;
+
+									) {
+										var g;
+										if (e) {
+											if (f >= b.length) break;
+											g = b[f++];
+										} else {
+											f = b.next();
+											if (f.done) break;
+											g = f.value;
+										}
+										g = g;
+										if (g === "1" || g === "2" || g === "3")
+											d.push(parseInt(g, 10));
+										else if (g[0] === "4" && g.length > 1)
+											c.forcedKey = g.substring(1);
+										else return { message: a };
+									}
+									d.length > 0 && (c.taalOpcodes = d);
+								}
+								return c;
+							}
+							function o(a, b) {
+								if (typeof a === "string") {
+									a = a.match(b);
+									if (a && a.length > 0) return a.slice(1);
+								}
+							}
+							e.exports = a.ErrorSerializer = {
+								aggregateError: c,
+								parseFromError: i,
+								stringify: b,
+								toFormattedMessage: d,
+								toReadableMessage: j,
+								toMessageWithParams: k,
+								toStringParams: m
+							};
+						},
+						3
+					);
+					__d(
+						"ex",
+						["ErrorSerializer"],
+						function(a, b, c, d, e, f) {
+							function a(a) {
+								for (
+									var c = arguments.length,
+										d = new Array(c > 1 ? c - 1 : 0),
+										e = 1;
+									e < c;
+									e++
+								)
+									d[e - 1] = arguments[e];
+								var f = ES(d, "map", !0, function(a) {
+									return String(a);
+								});
+								return b("ErrorSerializer").stringify({
+									message: a,
+									params: f
+								});
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"sprintf",
+						[],
+						function(a, b, c, d, e, f) {
+							function a(a) {
+								for (
+									var b = arguments.length,
+										c = new Array(b > 1 ? b - 1 : 0),
+										d = 1;
+									d < b;
+									d++
+								)
+									c[d - 1] = arguments[d];
+								var e = 0;
+								return a.replace(/%s/g, function() {
+									return String(c[e++]);
+								});
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"invariant",
+						["Env", "TAAL", "ex", "sprintf"],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							var g,
+								h = b("ex");
+							function a(a, c) {
+								if (!a) {
+									var d = c;
+									for (
+										var e = arguments.length,
+											f = new Array(e > 2 ? e - 2 : 0),
+											g = 2;
+										g < e;
+										g++
+									)
+										f[g - 2] = arguments[g];
+									if (typeof d === "number") {
+										var j = i(d, f),
+											k = j.message,
+											l = j.decoderLink;
+										d = k;
+										f.unshift(l);
+									} else if (d === void 0) {
+										d = "Invariant: ";
+										for (var m = 0; m < f.length; m++) d += "%s,";
+									}
+									d = b("TAAL").blameToPreviousFrame(d);
+									var n = new Error(h.apply(void 0, [d].concat(f)));
+									n.name = "Invariant Violation";
+									n.messageWithParams = [d].concat(f);
+									throw n;
+								}
+							}
+							function i(a, c) {
+								var d = "Minified invariant #" + a + "; %s";
+								c.length > 0 &&
+									(d +=
+										" Params: " +
+										ES(c, "map", !0, function(a) {
+											return "%s";
+										}).join(", "));
+								a =
+									(g || (g = b("Env"))).show_invariant_decoder === !0
+										? "visit " + j(a, c) + " to see the full message."
+										: "";
+								return { message: d, decoderLink: a };
+							}
+							function j(a, b) {
+								a =
+									"https://our.intern.facebook.com/intern/invariant/" + a + "/";
+								b.length > 0 &&
+									(a +=
+										"?" +
+										ES(b, "map", !0, function(a, b) {
+											return "args[" + b + "]=" + encodeURIComponent(String(a));
+										}).join("&"));
+								return a;
+							}
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"SecurePostMessage",
+						["invariant"],
+						function(a, b, c, d, e, f, g) {
+							"use strict";
+							var h = "*";
+							a = {
+								sendMessageToSpecificOrigin: function(a, b, c, d) {
+									c !== h || g(0, 21157), a.postMessage(b, c, d);
+								},
+								sendMessageForCurrentOrigin: function(a, b) {
+									a.postMessage(b);
+								},
+								sendMessageAllowAnyOrigin_UNSAFE: function(a, b, c) {
+									a.postMessage(b, h, c);
+								}
+							};
+							e.exports = a;
+						},
+						null
+					);
+					__d(
 						"RafBeaconMeasurement.adquality",
 						[
 							"AdQualityMeasurementResult.adquality",
 							"AdQualityUtils.adquality",
 							"BaseBeaconXMeasurement.adquality",
 							"HTMLElementFrameContext.adquality",
+							"SecurePostMessage",
 							"SimplePromise.adquality",
 							"ViewabilitySettings"
 						],
@@ -9805,53 +10162,61 @@ try {
 								d.__setUpBeacon = function(a) {
 									a = document.createElement("iframe");
 									a.sandbox = "allow-scripts";
-									var b = function() {
+									var c = function() {
 										var a = 2,
-											b = null;
-										window.isVisible = function(c, d) {
-											var e = !1,
-												f = 0,
-												g = function g(h) {
-													if (e) return;
+											c = null;
+										window.isVisible = function(d, e) {
+											var f = !1,
+												g = 0,
+												h = function h(i) {
+													if (f) return;
 													else
-														f < a
-															? (b = window.requestAnimationFrame(g))
-															: ((e = !0),
-															  d.postMessage(
-																	'{"id": "' + c + '", "iv": true}',
-																	"*"
+														g < a
+															? (c = window.requestAnimationFrame(h))
+															: ((f = !0),
+															  b(
+																	"SecurePostMessage"
+															  ).sendMessageAllowAnyOrigin_UNSAFE(
+																	e,
+																	'{"id": "' + d + '", "iv": true}'
 															  ));
-													f++;
+													g++;
 												};
-											g();
+											h();
 										};
 										window.addEventListener("message", function(a) {
-											window.cancelAnimationFrame(b),
+											window.cancelAnimationFrame(c),
 												a.data !== "failed" &&
 													window.isVisible(a.data, a.source);
 										});
 									}.toString();
 									a.setAttribute(
 										"srcdoc",
-										"<script>var __p;(" + b + ")();</script>"
+										"<script>var __p;(" + c + ")();</script>"
 									);
 									return a;
 								};
 								d.__checkVisibility = function(a) {
 									var c = this,
 										d = Math.random() + "";
-									return new (b("SimplePromise.adquality"))(function(b, e) {
-										var f = a.contentWindow;
-										f.postMessage(d, "*");
-										var g = window.setTimeout(function() {
-											f.postMessage("failed", "*");
+									return new (b("SimplePromise.adquality"))(function(e, f) {
+										var g = a.contentWindow;
+										b("SecurePostMessage").sendMessageAllowAnyOrigin_UNSAFE(
+											g,
+											d
+										);
+										var h = window.setTimeout(function() {
+											b("SecurePostMessage").sendMessageAllowAnyOrigin_UNSAFE(
+												g,
+												"failed"
+											);
 											var a = c.$RafBeaconMeasurement4[d];
 											a && a(!1);
 										}, k * l);
 										c.$RafBeaconMeasurement4[d] = function(a) {
 											delete c.$RafBeaconMeasurement4[d],
-												window.clearTimeout(g),
-												b(a);
+												window.clearTimeout(h),
+												e(a);
 										};
 									});
 								};
@@ -10188,341 +10553,6 @@ try {
 									};
 								}
 							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"Env",
-						[],
-						function(a, b, c, d, e, f) {
-							b = {
-								ajaxpipe_token: null,
-								compat_iframe_token: null,
-								iframeKey: "",
-								iframeTarget: "",
-								iframeToken: "",
-								isCQuick: !1,
-								start: ES("Date", "now", !1),
-								nocatch: !1
-							};
-							a.Env && ES("Object", "assign", !1, b, a.Env);
-							a.Env = b;
-							e.exports = b;
-						},
-						null
-					);
-					__d(
-						"TAALOpcodes",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							a = {
-								PREVIOUS_FILE: 1,
-								PREVIOUS_FRAME: 2,
-								PREVIOUS_DIR: 3,
-								FORCED_KEY: 4
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"TAAL",
-						["TAALOpcodes"],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							a = {
-								blameToPreviousFile: function(a) {
-									return this.applyOpcodes(a, [b("TAALOpcodes").PREVIOUS_FILE]);
-								},
-								blameToPreviousFrame: function(a) {
-									return this.applyOpcodes(a, [
-										b("TAALOpcodes").PREVIOUS_FRAME
-									]);
-								},
-								blameToPreviousDirectory: function(a) {
-									return this.applyOpcodes(a, [b("TAALOpcodes").PREVIOUS_DIR]);
-								},
-								applyOpcodes: function(a, b) {
-									return b && b.length ? a + " TAAL[" + b.join(";") + "]" : a;
-								}
-							};
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ErrorSerializer",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							var g = { debug: 1, info: 2, warn: 3, error: 4, fatal: 5 };
-							function h(a) {
-								try {
-									var b = o(a, /^([\s\S]*)<\!\[EX\[(\[.*\])\]\]>([\s\S]*)$/);
-									if (!b) return n(a);
-									var c = b[0],
-										d = b[1];
-									b = b[2];
-									d = ES("JSON", "parse", !1, d);
-									var e = d[0];
-									d = d.slice(1);
-									e = n(e);
-									e.message = c + e.message + b;
-									d &&
-										d.length > 0 &&
-										(e.params = ES(d, "map", !0, function(a) {
-											return String(a);
-										}));
-									return e;
-								} catch (b) {
-									return {
-										message: "Unable to parse error message %s because %s",
-										params: [a, b.message]
-									};
-								}
-							}
-							function b(a) {
-								return "<![EX[" + ES("JSON", "stringify", !1, k(a)) + "]]>";
-							}
-							function i(a) {
-								if (a.messageFormat == null) return h(a.message);
-								var b = { message: a.messageFormat };
-								a.messageParams && (b.params = [].concat(a.messageParams));
-								b.forcedKey = a.forcedKey;
-								a.taalOpcodes && (b.taalOpcodes = a.taalOpcodes);
-								return b;
-							}
-							function c(a, b) {
-								var c = i(a);
-								if (ES("Object", "isFrozen", !1, a)) return;
-								b.type &&
-									((!a.type || g[a.type] > g[b.type]) && (a.type = b.type));
-								if (b.fbloggerMetadata != null) {
-									var d = a.fbloggerMetadata || [];
-									d.push.apply(d, b.fbloggerMetadata);
-									a.fbloggerMetadata = d;
-								}
-								b.project != null && (a.project = b.project);
-								b.errorName != null && (a.errorName = b.errorName);
-								d = c.message;
-								var e = m(c.params);
-								if (b.messageFormat != null) {
-									var f;
-									d += ". [Caught in: " + b.messageFormat + "]";
-									e.push.apply(e, (f = b.messageParams) != null ? f : []);
-								}
-								a.messageFormat = d;
-								a.messageParams = e;
-								f = b.forcedKey;
-								d = c.forcedKey;
-								b =
-									f != null && d != null
-										? f + "_" + d
-										: (e = f) != null
-											? e
-											: d;
-								a.forcedKey = b;
-								c.taalOpcodes != null && (a.taalOpcodes = c.taalOpcodes);
-							}
-							function j(a, b) {
-								var c = 0;
-								a = a.replace(/%s/g, function() {
-									return c < b.length ? b[c++] : "NOPARAM";
-								});
-								c < b.length &&
-									(a += " PARAMS" + ES("JSON", "stringify", !1, b.slice(c)));
-								return a;
-							}
-							function d(a) {
-								var b = a.message || "",
-									c = m(a.params);
-								return j(b, c) + l(a);
-							}
-							function k(a) {
-								return [a.message + l(a)].concat(m(a.params));
-							}
-							function l(a) {
-								var b = a.taalOpcodes;
-								a = a.forcedKey;
-								var c = [];
-								b && c.push.apply(c, b);
-								a && c.push("4" + a.replace(/[^\d\w]/g, "_"));
-								return c.length > 0 ? " TAAL[" + c.join(";") + "]" : "";
-							}
-							function m(a) {
-								return ES((a = a) != null ? a : [], "map", !0, function(a) {
-									return String(a);
-								});
-							}
-							function n(a) {
-								var b = o(a, /^([\s\S]*) TAAL\[(.*)\]$/);
-								b = (b = b) != null ? b : [a, null];
-								var c = b[0];
-								b = b[1];
-								c = { message: c };
-								if (b) {
-									var d = [];
-									for (
-										var b = b.split(";"),
-											e = ES("Array", "isArray", !1, b),
-											f = 0,
-											b = e
-												? b
-												: b[
-														typeof Symbol === "function"
-															? Symbol.iterator
-															: "@@iterator"
-												  ]();
-										;
-
-									) {
-										var g;
-										if (e) {
-											if (f >= b.length) break;
-											g = b[f++];
-										} else {
-											f = b.next();
-											if (f.done) break;
-											g = f.value;
-										}
-										g = g;
-										if (g === "1" || g === "2" || g === "3")
-											d.push(parseInt(g, 10));
-										else if (g[0] === "4" && g.length > 1)
-											c.forcedKey = g.substring(1);
-										else return { message: a };
-									}
-									d.length > 0 && (c.taalOpcodes = d);
-								}
-								return c;
-							}
-							function o(a, b) {
-								if (typeof a === "string") {
-									a = a.match(b);
-									if (a && a.length > 0) return a.slice(1);
-								}
-							}
-							e.exports = a.ErrorSerializer = {
-								aggregateError: c,
-								parseFromError: i,
-								stringify: b,
-								toFormattedMessage: d,
-								toReadableMessage: j,
-								toMessageWithParams: k,
-								toStringParams: m
-							};
-						},
-						3
-					);
-					__d(
-						"ex",
-						["ErrorSerializer"],
-						function(a, b, c, d, e, f) {
-							function a(a) {
-								for (
-									var c = arguments.length,
-										d = new Array(c > 1 ? c - 1 : 0),
-										e = 1;
-									e < c;
-									e++
-								)
-									d[e - 1] = arguments[e];
-								var f = ES(d, "map", !0, function(a) {
-									return String(a);
-								});
-								return b("ErrorSerializer").stringify({
-									message: a,
-									params: f
-								});
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"sprintf",
-						[],
-						function(a, b, c, d, e, f) {
-							function a(a) {
-								for (
-									var b = arguments.length,
-										c = new Array(b > 1 ? b - 1 : 0),
-										d = 1;
-									d < b;
-									d++
-								)
-									c[d - 1] = arguments[d];
-								var e = 0;
-								return a.replace(/%s/g, function() {
-									return String(c[e++]);
-								});
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"invariant",
-						["Env", "TAAL", "ex", "sprintf"],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							var g,
-								h = b("ex");
-							function a(a, c) {
-								if (!a) {
-									var d = c;
-									for (
-										var e = arguments.length,
-											f = new Array(e > 2 ? e - 2 : 0),
-											g = 2;
-										g < e;
-										g++
-									)
-										f[g - 2] = arguments[g];
-									if (typeof d === "number") {
-										var j = i(d, f),
-											k = j.message,
-											l = j.decoderLink;
-										d = k;
-										f.unshift(l);
-									} else if (d === void 0) {
-										d = "Invariant: ";
-										for (var m = 0; m < f.length; m++) d += "%s,";
-									}
-									d = b("TAAL").blameToPreviousFrame(d);
-									var n = new Error(h.apply(void 0, [d].concat(f)));
-									n.name = "Invariant Violation";
-									n.messageWithParams = [d].concat(f);
-									throw n;
-								}
-							}
-							function i(a, c) {
-								var d = "Minified invariant #" + a + "; %s";
-								c.length > 0 &&
-									(d +=
-										" Params: " +
-										ES(c, "map", !0, function(a) {
-											return "%s";
-										}).join(", "));
-								a =
-									(g || (g = b("Env"))).show_invariant_decoder === !0
-										? "visit " + j(a, c) + " to see the full message."
-										: "";
-								return { message: d, decoderLink: a };
-							}
-							function j(a, b) {
-								a =
-									"https://our.intern.facebook.com/intern/invariant/" + a + "/";
-								b.length > 0 &&
-									(a +=
-										"?" +
-										ES(b, "map", !0, function(a, b) {
-											return "args[" + b + "]=" + encodeURIComponent(String(a));
-										}).join("&"));
-								return a;
-							}
 							e.exports = a;
 						},
 						null
@@ -13302,7 +13332,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1001907159","namespace":"FB","message":"' +
+				'","revision":"1001927984","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
