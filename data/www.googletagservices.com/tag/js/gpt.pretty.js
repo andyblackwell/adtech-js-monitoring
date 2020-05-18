@@ -704,21 +704,7 @@
 				mode: "no-cors"
 			});
 		};
-	var Gb = function() {}; /*
- *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-*****************************************************************************/
+	var Gb = function() {};
 	var J = function(a) {
 		D(this, a, Hb, Ib);
 	};
@@ -2051,10 +2037,10 @@ PERFORMANCE OF THIS SOFTWARE.
 			return 0 === Zd(T(172));
 		};
 	var ae = function() {
-		return Cb("19") || 0;
+		return Cb("25") || 0;
 	};
 	Ud("getVersion", function() {
-		return "2020051410";
+		return "2020051413";
 	});
 	var fd = function() {
 		var a = {};
@@ -2110,7 +2096,7 @@ PERFORMANCE OF THIS SOFTWARE.
 			);
 		},
 		ee = function() {
-			var a = [Gd, Fd, new v(u, "2020051410"), new v(u, ".js")];
+			var a = [Gd, Fd, new v(u, "2020051413"), new v(u, ".js")];
 			for (var b = "", c = 0; c < a.length; c++) b += Ca(a[c]);
 			a = new w(Da, b);
 			var d = void 0 === d ? 0 : d;
