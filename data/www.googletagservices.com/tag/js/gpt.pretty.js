@@ -490,7 +490,8 @@
 			return c;
 		},
 		hb = new A();
-	hb.c = h.trustedTypes ? h.trustedTypes.emptyHTML : "";
+	hb.c =
+		h.trustedTypes && h.trustedTypes.emptyHTML ? h.trustedTypes.emptyHTML : "";
 	hb.g = 0;
 	var fb = hb;
 	var ib = function(a, b) {
@@ -1930,15 +1931,20 @@
 						redirect: "follow",
 						method: "get",
 						mode: "no-cors",
-						Y: { type: "srr-token-redemption", W: b, X: "none" }
+						W: {
+							type: "srr-token-redemption",
+							issuer: b,
+							refreshPolicy: "none"
+						}
 					})
 					.then(function(c) {
-						if (!c.ok) throw Error("Network response was not ok");
-						c.blob();
+						if (!c.ok) throw Error(c.status + ": Network response was not ok!");
 						a.a = 5;
 					})
-					.catch(function() {
-						4 > a.a && (a.a = 4);
+					.catch(function(c) {
+						"NoModificationAllowedError" === c.name
+							? (a.a = 5)
+							: 4 > a.a && (a.a = 4);
 					});
 			}));
 	};
@@ -2037,10 +2043,10 @@
 			return 0 === Zd(T(172));
 		};
 	var ae = function() {
-		return Cb("3") || 0;
+		return Cb("5") || 0;
 	};
 	Ud("getVersion", function() {
-		return "2020051801";
+		return "2020051802";
 	});
 	var fd = function() {
 		var a = {};
@@ -2096,7 +2102,7 @@
 			);
 		},
 		ee = function() {
-			var a = [Gd, Fd, new v(u, "2020051801"), new v(u, ".js")];
+			var a = [Gd, Fd, new v(u, "2020051802"), new v(u, ".js")];
 			for (var b = "", c = 0; c < a.length; c++) b += Ca(a[c]);
 			a = new w(Da, b);
 			var d = void 0 === d ? 0 : d;
@@ -2200,6 +2206,7 @@
 	[
 		[null, 7, null, [null, 0.1]],
 		[20, null, null, [], [[[1, [[4, null, 1]]], [1]]]],
+		[315, null, null, [1]],
 		[252, null, null, [1]],
 		[258, null, null, [1]],
 		[326, null, null, [1]],
@@ -2215,6 +2222,7 @@
 		[null, 51, null, [null, 1000]],
 		[139, null, null, [1]],
 		[298, null, null, [1]],
+		[89, null, null, [1]],
 		[null, null, 2, [null, null, "1-0-37"]],
 		[229, null, null, [1]],
 		[215, null, null, [1]],
@@ -2437,14 +2445,6 @@
 					3
 				],
 				[
-					10,
-					[
-						[21062796],
-						[21062797, null, [4, null, 8, null, null, null, null, ["Map"]]]
-					]
-				],
-				[50, [[21062832], [21062833, [[89, null, null, [1]]]]]],
-				[
 					5,
 					[
 						[21062899],
@@ -2561,7 +2561,6 @@
 					null,
 					20
 				],
-				[50, [[21065782], [21065783, [[315, null, null, [1]]]]]],
 				[1, [[21065803], [21065804, [[329, null, null, [1]]]]]],
 				[
 					50,
@@ -2596,18 +2595,10 @@
 							[
 								[143, null, null, [1]],
 								[322, null, null, [1]],
-								[293, null, null, [1]],
-								[89, null, null, [1]]
+								[293, null, null, [1]]
 							]
 						],
-						[
-							21066136,
-							[
-								[322, null, null, [1]],
-								[293, null, null, [1]],
-								[89, null, null, [1]]
-							]
-						]
+						[21066136, [[322, null, null, [1]], [293, null, null, [1]]]]
 					],
 					null,
 					22
@@ -2758,6 +2749,7 @@
 						]
 					]
 				],
+				[50, [[21066221], [21066222, [[89, null, null, []]]]]],
 				[
 					1000,
 					[
@@ -2832,18 +2824,6 @@
 						]
 					],
 					[12, null, null, null, 2, null, "today\\.line\\.me/.+/(main|article)"]
-				],
-				[
-					1000,
-					[
-						[
-							21064355,
-							[[89, null, null, [1]]],
-							[12, null, null, null, 3, null, "googPreventMultipleDisplay"]
-						]
-					],
-					null,
-					12
 				],
 				[
 					10,
