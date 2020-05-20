@@ -1,4 +1,4 @@
-/*1589840085,,JIT Construction: v1002139812,en_US*/
+/*1590005920,,JIT Construction: v1002150808,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -2188,10 +2188,8 @@ try {
 					});
 					__d("JSSDKCssConfig", [], {
 						rules:
-							"._2vfx{font-size:100px;overflow:hidden}._2vfy{overflow:hidden}._2vf-{overflow:hidden}._11u9{float:left;overflow:hidden;position:relative;text-decoration:none}._8edz{background-color:rgba(0, 0, 0, .6);border-radius:15px;color:#fff;font-size:12px;padding:5px 12px;position:absolute;right:8px;top:8px}._8ee0{background-color:#fff;font-size:12px;height:22px;text-align:center;width:100\u0025}._8mse._8ee0{background-color:transparent}._8ed-{background-color:lightgray;border-radius:3px;display:inline-block;height:6px;margin:15px 2px;margin-bottom:0;width:6px}._8ed_{background-color:#3578e5}._11u-{background:linear-gradient(rgba(0, 0, 0, 0) 0\u0025, rgba(0, 0, 0, .2) 100\u0025);bottom:0;left:0;position:absolute;right:0;top:60\u0025}._11u- ._11u_{bottom:8px;color:#fff;left:0;margin-top:0;padding-left:8px;padding-right:8px;position:absolute;right:0;text-shadow:0 1px 3px black}._11u_{bottom:10px;color:#606770;font-size:12\u0025;font-weight:normal;margin-top:4.023\u0025;padding-left:20px;padding-right:20px}._11v0,._11vj{line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._11v0{font-weight:500}._11vj{font-weight:normal}._11us{background-position:center center;background-repeat:no-repeat;background-size:cover;width:100\u0025}._11ur{overflow:hidden;position:relative}._11vk._7m01{background-color:#3578e5;color:#fff}._8fks{display:none}._8fkr{margin:0 8px}._8flf{border:1px solid #dadde1;border-radius:8px}._8flg{align-items:center;background:unset;display:flex;flex-flow:row nowrap;left:62px;top:0}._8flg._11u- ._11u_{bottom:unset;left:unset;padding-left:4px;padding-right:4px;right:unset;text-shadow:unset}._8fla{font-size:14px}._8flb{color:#1c1e21;font-family:SFUIText-Semibold, -apple-system, roboto, 'Helvetica Neue', sans-serif;line-height:16px;overflow:hidden;text-overflow:unset;white-space:unset}._8fld{margin-bottom:4px;max-height:32px}._8flc{max-height:48px}._8fle{color:#00a400;line-height:16px;max-height:32px;overflow:hidden;text-overflow:unset;white-space:unset}\n._7_ce{border-radius:50px;box-shadow:0 3px 10px rgba(0, 0, 0, .3);height:50px;left:50\u0025;overflow:hidden;position:absolute;top:50\u0025;transform:translate(-50\u0025, -50\u0025);width:50px}._7_cf{left:50\u0025;position:absolute;text-align:center;top:50\u0025;transform:translate(-50\u0025, -50\u0025);width:100\u0025}._7_cf ._7_ce{left:auto;margin:10px auto;position:relative;top:auto;transform:none}._7_cf ._7_c-{-webkit-font-smoothing:subpixel-antialiased;padding:0 10px}._7_c_ ._7_ce{transform:translate(-150\u0025, -50\u0025)}._7_c_._85o- ._7_ce{height:40px;left:0;transform:translate(-50\u0025, -50\u0025);width:40px}._7_d0{background-position:center center;background-repeat:no-repeat;background-size:cover;flex:1 0;position:relative}._7_d0:before{content:'';float:left;padding-top:100\u0025}._7_d1{display:flex}\n._8fl8{height:calc(100\u0025 - 76px);margin-bottom:12px;overflow:hidden;position:relative}._8fl9{bottom:12px;color:#fff;font-size:14px;left:12px;line-height:16px;position:absolute;right:12px;text-shadow:0 1px 3px black}._8fkt{color:#fff;font-family:SFUIText-Semibold, -apple-system, roboto, 'Helvetica Neue', sans-serif;margin-bottom:4px;max-height:32px;overflow:hidden}._8fku{font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;overflow:hidden}\n._1xj7{background-color:#000;height:100\u0025;overflow:hidden;position:relative;width:100\u0025}._1xj8{height:100\u0025;left:0;position:absolute;top:0;width:100\u0025}._1xj9{background-position:center;background-repeat:no-repeat;background-size:contain;bottom:12px;cursor:pointer;height:20px;position:absolute;right:12px;width:20px}._73wr ._1xj9{background-color:rgba(0, 0, 0, .3);background-size:16px 16px;border-radius:30px;padding:14px;right:8px;top:50px}._8e1m._1xj9{left:12px;right:unset}._7jun ._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/BISw5vI_8Pz.png)}._3c3s{background-color:rgba(0, 0, 0, .6);background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yv/r/j9woTBMUYPw.png);background-position:center;background-repeat:no-repeat;height:100\u0025;opacity:0;position:absolute;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden;width:100\u0025}._7juo ._3c3s._7kbt,._7kc3 ._3c3s._7kbu{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._6pfr{background-position:center center;background-repeat:no-repeat;background-size:cover;bottom:-30px;filter:blur(20px);left:-30px;pointer-events:none;position:absolute;right:-30px;top:-30px}._7462 ._3c3s,._7462 ._1xj9,._7462 ._1xj8{display:none}\u0040media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx){._7jun ._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/8S5uxp36YUs.png)}._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/EaMNviiJm9Y.png)}}._8e1n{bottom:0;left:0;position:absolute;right:0;top:0}\n._74hs{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/PJDwifb8hqb.png);background-position:center;background-repeat:no-repeat;background-size:cover;height:24px;position:absolute;right:16px;top:16px;width:52px}\n._7pnj{display:flex;height:100\u0025}._7pnh{background-color:#fff;height:100\u0025;width:1px}._7pni{background-position:top center;background-repeat:no-repeat;background-size:contain;height:100\u0025;width:100\u0025}\n._74vg{align-items:center;background-color:rgba(0, 0, 0, .6);display:flex;height:100\u0025;justify-content:center;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity .3s;width:100\u0025;z-index:100}._727i{align-items:center;background-color:#fff;border-radius:12px;display:flex;flex-direction:column;font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;justify-content:center;margin:10px;padding:12px 12px;text-align:center;width:200px}._727l{background-size:contain;border-radius:50\u0025;height:60px;margin-right:4px;margin-top:24px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:60px}._727m{margin:4px 4px 0 0}._727k{margin-right:4px;margin-top:4px}._727n{background-color:#3578e5;border-radius:4px;box-sizing:border-box;color:#fff;font-weight:normal;margin-top:24px;padding:6px;width:80\u0025}._727o{opacity:1}._727j{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yG/r/YQl1i8Ygg_s.png);background-size:contain;height:16px;margin-left:auto;text-align:right;width:16px}._8qpj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yG/r/YQl1i8Ygg_s.png);background-position:center;background-repeat:no-repeat;background-size:16px 16px;height:46px;margin-bottom:-15px;margin-left:auto;margin-right:-15px;margin-top:-15px;text-align:right;width:46px}\n._7vl6{bottom:0;left:0;position:absolute;right:0;top:0}._7vl7{bottom:0;left:0;position:absolute;right:0}._7vl8{background:linear-gradient(transparent, rgba(0, 0, 0, .9));bottom:0;display:flex;flex-direction:column;justify-content:flex-end;left:0;position:absolute;right:0}._7juo ._7vl6{top:inherit}._7vln{align-items:center;display:flex;flex-direction:row;font-size:14px;font-weight:normal;padding:12px 16px}._7vl7{background:linear-gradient( transparent, rgba(0, 0, 0, .2), rgba(0, 0, 0, .4) );height:60px;opacity:1;transition:opacity 1s}._7vk_{align-items:flex-start;background:linear-gradient(rgba(0, 0, 0, .5), transparent);display:flex;flex-direction:column;left:0;padding:10px;position:absolute;right:0;text-shadow:0 0 1px black;top:0}._7vl0{align-items:center;display:flex;flex-direction:row}._7vk_ .fbAdIcon{border-radius:50\u0025;height:48px;overflow:hidden;width:48px}._7vl2{margin-left:5px}._7vl2 .fbAdSubtitle{color:#fff;font-weight:bolder}._7vl3{color:whitesmoke}._7vl4{margin-top:8px;text-shadow:0 0 1px black;transition:opacity 1s}._7vl4 .fbAdTitle{color:#fff;font-weight:bolder}._7vl4 .fbAdBody{color:whitesmoke}._7vl5{display:flex;flex-direction:row;justify-content:flex-end}._7vl6 .fbAdCallToAction{background-color:rgba(255, 255, 255, .8);border-radius:6px;bottom:50;color:#000;margin-right:16px;padding:10px 20px}._7vl5{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._7vkw ._7vlo,._7vkw ._7vky,._7vkw ._7vl7,._7vkw ._7vl4,._7juo ._7vl5,._7juo ._7vk_{opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._7vkz{color:#fff;display:inline-block;flex-grow:0;min-width:40px;padding:0 12px;padding-left:0;text-align:center;text-shadow:0 0 1px rgba(0, 0, 0, .4)}._7vlo{background-color:rgba(255, 255, 255, .6);border-radius:2px;display:inline-block;flex-grow:1;height:2px;margin:0 12px;overflow:hidden;transition:opacity 1s}._7vky{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ym/r/7Ri190UbT7O.png);background-position:center;background-repeat:no-repeat;cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:24px;padding-left:0;transition:opacity 1s;width:24px}._7juo ._7vky{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/8qlISslWDk2.png)}._7vk-{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/BISw5vI_8Pz.png);background-position:center;background-repeat:no-repeat;cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:20px;width:20px}._7jun ._7vk-{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._7vkx{background-color:#3578e5;height:2px;transition:width .5s}\n._82tp,._82tr,._82tq{bottom:0;left:0;position:absolute;right:0}._82tp{top:0}._7juo ._82tp{top:initial}._8biy ._82to{background-position:50\u0025 50\u0025;background-size:20px 20px;height:40px;left:16px;position:relative;top:12px;width:40px}._8biy ._82tq,._8biy ._82tn,._8biy ._82tm,._8i36 ._82tm{display:none}._82tp ._82tr{align-items:center;display:flex;flex-direction:row;font-size:14px;font-weight:normal;padding:12px 16px;position:absolute}._82tq{background:linear-gradient( transparent, rgba(0, 0, 0, .2), rgba(0, 0, 0, .4) );height:60px;opacity:1;transition:opacity 1s}._82tn{color:#fff;display:inline-block;flex-grow:0;min-width:40px;padding:0;text-align:center;text-shadow:0 0 1px rgba(0, 0, 0, .4)}._82ts{flex:1 1 0px}._82tm{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ym/r/7Ri190UbT7O.png);background-position:center;background-repeat:no-repeat;background-size:contain;cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:24px;padding-left:0;transition:opacity 1s;width:24px}._7juo ._82tm{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/8qlISslWDk2.png)}._8i34 ._8i36 ._82to{display:none}._82to{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/BISw5vI_8Pz.png);background-position:center;background-repeat:no-repeat;background-size:contain;cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:20px;margin-left:12px;width:20px}._7jun ._82to{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._8f5c ._82tm{background-size:24px;margin-bottom:-20px;margin-left:-20px;padding:20px}._8f5c ._82to{background-size:20px;margin-bottom:-20px;margin-right:-20px;padding:20px}._8f5c ._82tn{margin-right:-20px;margin-top:20px}\u0040media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx){._82tm{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/DawR9iRE7xR.png)}._7jun ._82to{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/8S5uxp36YUs.png)}._82to{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/EaMNviiJm9Y.png)}}\n._7kc0{opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._7kb_{background-color:#000;background-position:center;background-repeat:no-repeat;background-size:contain;filter:blur(8px) brightness(.5);transform:scale3d(1.05, 1.05, 1)}._7kc1,._7kb_{bottom:0;left:0;position:absolute;right:0;top:0}._7kc1{align-items:center;display:flex;justify-content:center;padding:20px}._7juo ._7kc0{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._7kb-{align-items:center;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;margin-bottom:30px;max-width:100\u0025;padding:20px}.fbAdNoCallToAction ._7kc0 .fbAdCallToAction{display:none}._7kc0 .fbAdCallToAction{background-color:#fff;border-radius:6px;color:#23272f;padding:10px 20px}._7kc0 .fbAdSubtitle{color:#fff;margin-bottom:20px;max-width:100\u0025;text-shadow:0 0 1px black}._7kc0 .fbAdIcon{border-radius:50\u0025;height:48px;margin-bottom:8px;overflow:hidden;width:48px}\n._7kby{opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._7kbx{background-color:#000;background-position:center;background-repeat:no-repeat;background-size:contain;filter:blur(8px) brightness(.5);transform:scale3d(1.05, 1.05, 1)}._7kbz,._7kbx{bottom:0;left:0;position:absolute;right:0;top:0}._7kbz{align-items:center;display:flex;justify-content:center;padding:0 20px}._7kc2 ._7kby{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._7kbv{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/cGwBF2i3A8v.png);bottom:12px;height:24px;left:12px;position:absolute;width:24px}._7kbw{align-items:center;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;max-width:100\u0025;padding:20px}._7kby .fbAdCallToAction{background-color:rgba(255, 255, 255, .9);border-radius:6px;color:#23272f;padding:10px 20px}.fbAdNoCallToAction ._7kby .fbAdCallToAction{display:none}._7kby .fbAdSubtitle{color:#fff;margin-bottom:20px;text-shadow:0 0 1px black;max-width:100\u0025}._7kby .fbAdIcon{border-radius:50\u0025;height:48px;margin-bottom:8px;overflow:hidden;width:48px}\n._808y{font-size:16px;line-height:22px;opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._808x{background-color:#000;background-position:center;background-repeat:no-repeat;background-size:contain;filter:blur(8px) brightness(.5);transform:scale3d(1.05, 1.05, 1)}._8091,._808x{bottom:0;left:0;position:absolute;right:0;top:0}._8091{align-items:center;display:flex;justify-content:center;padding:0 12px}._7kc2 ._808y{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._808u{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/cGwBF2i3A8v.png);bottom:12px;height:24px;left:12px;position:absolute;width:24px}._808v{align-items:center;box-sizing:border-box;color:#fff;display:flex;flex-direction:column;justify-content:center;margin-bottom:30px;max-width:100\u0025;max-width:100\u0025;padding:20px;text-align:center;text-shadow:0 0 1px black}._808y .fbAdSubtitle,._808y .fbAdTitle{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._808y .fbAdIcon{border-radius:50\u0025;height:64px;overflow:hidden;width:64px}._808y .fbAdBody{max-height:44px;overflow:hidden}.fbAdNoCallToAction ._808y .fbAdCallToAction{display:none}._808y .fbAdCallToAction{background-color:rgba(255, 255, 255, .8);border-radius:6px;color:#23272f;padding:10px 20px}._808y .fbAdSubtitle{line-height:16px;margin-bottom:2px}._808y .fbAdTitle,._808y .fbAdSubtitle{margin-top:12px;max-width:100\u0025}._808y .fbAdCallToAction{margin-top:24px}\n._808s{font-size:16px;line-height:22px;opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._808r{background-color:#000;background-position:center;background-repeat:no-repeat;background-size:contain;filter:blur(8px) brightness(.5);transform:scale3d(1.05, 1.05, 1)}._808t,._808r,._808s{bottom:0;left:0;position:absolute;right:0;top:0}._808t{align-items:center;display:flex;justify-content:center;padding:20px}._7juo ._808s{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._808f{align-items:center;box-sizing:border-box;color:#fff;display:flex;flex-direction:column;justify-content:center;margin-bottom:30px;max-width:100\u0025;max-width:100\u0025;padding:20px;text-align:center;text-shadow:0 0 1px black}._808s .fbAdSubtitle,._808s .fbAdTitle{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._808s .fbAdIcon{border-radius:50\u0025;height:64px;overflow:hidden;width:64px}._808s .fbAdBody{max-height:44px;overflow:hidden}.fbAdNoCallToAction ._808s .fbAdCallToAction{display:none}._808s .fbAdCallToAction{background-color:rgba(255, 255, 255, .8);border-radius:6px;color:#23272f;padding:10px 20px}._808s .fbAdSubtitle{line-height:16px;margin-bottom:2px}._808s .fbAdTitle,._808s .fbAdSubtitle{margin-top:12px;max-width:100\u0025}._808s .fbAdCallToAction{margin-top:24px}\n._7juk,._7lkn,._7lkm{bottom:0;left:0;position:absolute;right:0}._7lkn{align-items:center;display:flex;flex-direction:row;font-size:14px;font-weight:normal;padding:12px 16px;position:absolute}._7lkm{background:linear-gradient( transparent, rgba(0, 0, 0, .2), rgba(0, 0, 0, .4) );height:60px;opacity:1;transition:opacity 1s}._7jum ._7jul,._7jum ._7jue,._7jum ._7lkm,._7kc3 ._7juk{opacity:0}._7jui{color:#fff;display:inline-block;flex-grow:0;min-width:40px;padding:0 12px;padding-left:0;text-align:center;text-shadow:0 0 1px rgba(0, 0, 0, .4)}._7jul{background-color:rgba(255, 255, 255, .6);border-radius:2px;display:inline-block;flex-grow:1;height:2px;margin:0 12px;overflow:hidden;transition:opacity 1s}._7jue{background:no-repeat center/contain url(https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/SFCq-evAN3w.png);cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:20px;padding-left:0;transition:opacity 1s;width:20px}._7juo ._7jue{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yw/r/3ojVzHWpcu_.png)}._7juj{background:no-repeat center/contain url(https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/BISw5vI_8Pz.png);cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:20px;width:20px}._7jun ._7juj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/8S5uxp36YUs.png)}._7juh{background-color:#3578e5;height:2px;transition:width .5s}\u0040media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx){._7jue{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/GMzBSraVZWM.png)}._7juj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/EaMNviiJm9Y.png)}._7juo ._7jue{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yU/r/L7truXq89HH.png)}._7jun ._7juj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/8S5uxp36YUs.png)}}\n._6qhh{font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;font-weight:normal;text-align:left}._6qhd{align-items:center;animation:fadeIn .3s ease-in-out both;background:#dadde1;bottom:0;display:flex;justify-content:center;left:0;padding:5px;position:absolute;right:0;top:0;z-index:100}._6wfr ._6qhd{bottom:-0.5px;left:-0.5px;right:-0.5px;top:-0.5px}._6qhe{animation:fadeIn .3s ease-in-out both;background:white;border-radius:10px;box-shadow:0 2px 8px 0 rgba(0, 0, 0, .3);box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;max-width:320px;position:relative}._6qha{overflow-x:hidden;overflow-y:auto;padding-top:10px}._6qhg{height:23px;position:absolute;right:0;-webkit-tap-highlight-color:transparent;top:0}._6qhg:after{background-color:rgba(255, 255, 255, .8);background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png);background-position:27px 3px;background-repeat:no-repeat;background-size:12px 12px;border-radius:0 0 0 6px;box-shadow:0 0 4px 0 rgba(0, 0, 0, .15);content:'';display:block;height:18px;margin-left:5px;margin-top:0;width:42px}._6qhg:before{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yu/r/4l2RpWw-PLG.png);background-position:0 4px;background-repeat:no-repeat;background-size:10px 10px;border-right:1px solid rgba(0, 0, 0, .2);content:'';height:18px;left:11px;position:absolute;top:0;width:15px}._8bwk._6qhg{height:43px;width:77px}._8bwk._6qhg:after{margin-left:35px}._8bwk._6qhg:before{left:41px}._7-er._6qhg:before{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y0/r/IYnD98CCX60.png);background-position:0 3px;background-size:12px 12px}._7-e_._6qhg:before{display:none}._7-e_._6qhg:after{background-position:7px 3px;width:24px}._8bwv._6qhg{height:43px;width:59px}._8bwv._6qhg:after{margin-left:35px}._6qhb{box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;padding:10px 16px}._6qhc{padding-bottom:0;overflow:hidden}._6qhk,._6qgk._6qgi,._6qgl._6qgi{background-repeat:no-repeat;background-size:18px 18px;display:inline-block;height:18px;width:18px}._6qhh ._6qho{align-items:center;display:flex;flex-direction:row;margin:10px 0;text-decoration:none}._6qhk{flex-shrink:0;margin-right:10px}._6qhm{color:#1c1e21;font-weight:normal}._6qhl{font-size:16px;line-height:19px}._6qhn{color:#606770;font-size:14px;line-height:16px}._6qgk{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/NOeCWD5no4s.png)}._6qgl{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/BKiZzia0l7j.png)}._6qhp{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png)}._6qi1{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/PITveVN_6ro.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:20px;vertical-align:middle;width:20px}._6qhz{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/kS3NV5igXMY.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:11px;margin-right:6px;width:15px}._6qh6{font-weight:normal;padding-bottom:4px;position:relative}._6qh6:after{background:linear-gradient(white, rgba(255, 255, 255, 0));content:'';height:10px;left:0;position:absolute;right:0;top:100\u0025}._6qgh{border-bottom:1px solid #ccc;font-size:16px;line-height:20px;margin-bottom:6px;padding-bottom:6px;text-align:center}._6qh5{align-items:center;display:flex;flex-direction:row}._7swf{margin-bottom:6px}._6qh4{color:#606770}._6qgi._6qgk,._6qgi._6qgl{flex-shrink:0;margin-right:10px}._6qh9{margin:0 -8px}._6qh9 ._6qh7{display:inline-block;margin-bottom:20px;margin-left:8px;margin-right:8px;vertical-align:middle}._6qh7{background:#ebedf0;border:none;border-radius:20px;color:#606770;font-size:14px;line-height:14px;padding:13px 16px;white-space:nowrap}._6qh7:focus,._6qh7:active{border:none;outline:none}._6qh7:active,._6qh8{background:#3578e5;color:#fff}._6qi4{align-items:center;display:flex;flex-direction:column}._6qhx{color:#1c1e21;font-size:16px;line-height:24px;margin-top:6px}._6qhy{color:#606770;font-size:14px;line-height:19px;margin:10px 0;text-align:center}._6qhu{background-position:center center;background-repeat:no-repeat;background-size:16px 16px;border-radius:50\u0025;height:42px;width:42px}._6qhv{background-color:#3578e5;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yE/r/oy4B7rSgGV0.png)}._6qhw{background-color:#f7923b;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/TQU64J6qQUe.png)}._6qi2{display:flex;flex-direction:row;margin-bottom:20px}._6qhh ._6qi0{align-items:center;color:#3578e5;display:flex;flex-direction:row;margin-top:auto;text-decoration:none;width:auto}._6qi1{margin-right:6px}._6qh-{border-radius:50\u0025;height:40px;margin-right:5px;width:40px}._6qhh ._6qi3{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/tlUefGrS_4W.png);background-position:center center;background-repeat:no-repeat;background-size:13px 13px;height:13px;margin-right:-10px;margin-top:-10px;padding:10px;position:absolute;right:16px;top:13px;width:13px}._6qhf{align-self:flex-start;color:#8d949e;font-size:16px;margin-top:20px}\u0040keyframes fadeIn{0\u0025{opacity:0}100\u0025{opacity:1}}._7t3e ._6qh5{display:none}._7t3e ._6qh6:after{display:none}._7t3e ._6qgh{border-bottom:none;margin-bottom:0}._7t3e ._6qhq{padding-bottom:10px}._7t3e ._6qhc{padding-bottom:2px}._7t3e ._6qh7{margin-bottom:8px;margin-left:0;padding:10px 12px}._7t3e ._6qh9{margin:0}._7t3e ._6qhu{display:none}._7tu- ._6qhd:after{align-items:center;background:rgba(0, 0, 0, .3);bottom:0;content:'';display:flex;justify-content:center;left:0;padding:5px;position:absolute;right:0;top:0;z-index:-100}\n._74-1{background-color:#fff;margin:auto;max-width:100\u0025;min-height:390px;position:relative;width:500px}._8-q5{background-color:#fff}._74qn{height:fit-content;width:100\u0025}._74-2{cursor:pointer;height:calc( ((100vh - 80px) * .5625 - 48px) * 9 / 16 );max-height:281px;min-height:261px;width:100\u0025}._74qw{display:flex;flex-direction:row;height:fit-content;margin-left:12px;margin-right:38px;margin-top:12px}._74-6{flex-shrink:0;height:60px;width:60px}._75zi{display:flex;flex-direction:column;flex-shrink:2;margin-left:12px}._74-4{-webkit-box-orient:vertical;color:#000;display:-webkit-box;font-family:'ArialMT';font-size:20px;font-weight:bold;height:fit-content;-webkit-line-clamp:1;line-height:24px;max-height:24px;overflow:hidden;text-align:left;text-overflow:ellipsis}._74-8{-webkit-box-orient:vertical;color:#606770;display:-webkit-box;font-family:'Arial';font-size:14px;height:fit-content;letter-spacing:normal;-webkit-line-clamp:2;line-height:18px;margin-top:2px;max-height:36px;overflow:hidden;overflow-wrap:normal;text-align:left;text-overflow:ellipsis}._74-9{background-color:#3578e5;border-radius:4px;color:#fff;cursor:pointer;font-size:12px;font-weight:bold;height:32px;line-height:32px;margin:12px;text-align:center}._7dan{background-color:rgba(0, 0, 0, .5);height:30px;left:12px;position:absolute;top:12px;width:30px;z-index:1}._7da8,._7da9{background-color:rgba(255, 255, 255, .8);border:1px solid rgba(255, 255, 255, .8);border-radius:2px;height:0;transform:translateY(13px) translateX(7px) rotate(45deg);width:14px}._7da9{transform:translateY(11px) translateX(7px) rotate(135deg)}._760w{display:block}._760x{display:none}",
+							"._8fl8{height:calc(100\u0025 - 76px);margin-bottom:12px;overflow:hidden;position:relative}._8fl9{bottom:12px;color:#fff;font-size:14px;left:12px;line-height:16px;position:absolute;right:12px;text-shadow:0 1px 3px black}._8fkt{color:#fff;font-family:SFUIText-Semibold, -apple-system, roboto, 'Helvetica Neue', sans-serif;margin-bottom:4px;max-height:32px;overflow:hidden}._8fku{font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;overflow:hidden}\n._1xj7{background-color:#000;height:100\u0025;overflow:hidden;position:relative;width:100\u0025}._1xj8{height:100\u0025;left:0;position:absolute;top:0;width:100\u0025}._1xj9{background-position:center;background-repeat:no-repeat;background-size:contain;bottom:12px;cursor:pointer;height:20px;position:absolute;right:12px;width:20px}._73wr ._1xj9{background-color:rgba(0, 0, 0, .3);background-size:16px 16px;border-radius:30px;padding:14px;right:8px;top:50px}._8e1m._1xj9{left:12px;right:unset}._7jun ._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/BISw5vI_8Pz.png)}._3c3s{background-color:rgba(0, 0, 0, .6);background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yv/r/j9woTBMUYPw.png);background-position:center;background-repeat:no-repeat;height:100\u0025;opacity:0;position:absolute;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden;width:100\u0025}._7juo ._3c3s._7kbt,._7kc3 ._3c3s._7kbu{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._6pfr{background-position:center center;background-repeat:no-repeat;background-size:cover;bottom:-30px;filter:blur(20px);left:-30px;pointer-events:none;position:absolute;right:-30px;top:-30px}._7462 ._3c3s,._7462 ._1xj9,._7462 ._1xj8{display:none}\u0040media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx){._7jun ._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/8S5uxp36YUs.png)}._1xj9{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/EaMNviiJm9Y.png)}}._8e1n{bottom:0;left:0;position:absolute;right:0;top:0}\n._74hs{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/PJDwifb8hqb.png);background-position:center;background-repeat:no-repeat;background-size:cover;height:24px;position:absolute;right:16px;top:16px;width:52px}\n._7pnj{display:flex;height:100\u0025}._7pnh{background-color:#fff;height:100\u0025;width:1px}._7pni{background-position:top center;background-repeat:no-repeat;background-size:contain;height:100\u0025;width:100\u0025}\n._74vg{align-items:center;background-color:rgba(0, 0, 0, .6);display:flex;height:100\u0025;justify-content:center;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity .3s;width:100\u0025;z-index:100}._727i{align-items:center;background-color:#fff;border-radius:12px;display:flex;flex-direction:column;font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;justify-content:center;margin:10px;padding:12px 12px;text-align:center;width:200px}._727l{background-size:contain;border-radius:50\u0025;height:60px;margin-right:4px;margin-top:24px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:60px}._727m{margin:4px 4px 0 0}._727k{margin-right:4px;margin-top:4px}._727n{background-color:#3578e5;border-radius:4px;box-sizing:border-box;color:#fff;font-weight:normal;margin-top:24px;padding:6px;width:80\u0025}._727o{opacity:1}._727j{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yG/r/YQl1i8Ygg_s.png);background-size:contain;height:16px;margin-left:auto;text-align:right;width:16px}._8qpj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yG/r/YQl1i8Ygg_s.png);background-position:center;background-repeat:no-repeat;background-size:16px 16px;height:46px;margin-bottom:-15px;margin-left:auto;margin-right:-15px;margin-top:-15px;text-align:right;width:46px}\n._7vl6{bottom:0;left:0;position:absolute;right:0;top:0}._7vl7{bottom:0;left:0;position:absolute;right:0}._7vl8{background:linear-gradient(transparent, rgba(0, 0, 0, .9));bottom:0;display:flex;flex-direction:column;justify-content:flex-end;left:0;position:absolute;right:0}._7juo ._7vl6{top:inherit}._7vln{align-items:center;display:flex;flex-direction:row;font-size:14px;font-weight:normal;padding:12px 16px}._7vl7{background:linear-gradient( transparent, rgba(0, 0, 0, .2), rgba(0, 0, 0, .4) );height:60px;opacity:1;transition:opacity 1s}._7vk_{align-items:flex-start;background:linear-gradient(rgba(0, 0, 0, .5), transparent);display:flex;flex-direction:column;left:0;padding:10px;position:absolute;right:0;text-shadow:0 0 1px black;top:0}._7vl0{align-items:center;display:flex;flex-direction:row}._7vk_ .fbAdIcon{border-radius:50\u0025;height:48px;overflow:hidden;width:48px}._7vl2{margin-left:5px}._7vl2 .fbAdSubtitle{color:#fff;font-weight:bolder}._7vl3{color:whitesmoke}._7vl4{margin-top:8px;text-shadow:0 0 1px black;transition:opacity 1s}._7vl4 .fbAdTitle{color:#fff;font-weight:bolder}._7vl4 .fbAdBody{color:whitesmoke}._7vl5{display:flex;flex-direction:row;justify-content:flex-end}._7vl6 .fbAdCallToAction{background-color:rgba(255, 255, 255, .8);border-radius:6px;bottom:50;color:#000;margin-right:16px;padding:10px 20px}._7vl5{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._7vkw ._7vlo,._7vkw ._7vky,._7vkw ._7vl7,._7vkw ._7vl4,._7juo ._7vl5,._7juo ._7vk_{opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._7vkz{color:#fff;display:inline-block;flex-grow:0;min-width:40px;padding:0 12px;padding-left:0;text-align:center;text-shadow:0 0 1px rgba(0, 0, 0, .4)}._7vlo{background-color:rgba(255, 255, 255, .6);border-radius:2px;display:inline-block;flex-grow:1;height:2px;margin:0 12px;overflow:hidden;transition:opacity 1s}._7vky{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ym/r/7Ri190UbT7O.png);background-position:center;background-repeat:no-repeat;cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:24px;padding-left:0;transition:opacity 1s;width:24px}._7juo ._7vky{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/8qlISslWDk2.png)}._7vk-{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/BISw5vI_8Pz.png);background-position:center;background-repeat:no-repeat;cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:20px;width:20px}._7jun ._7vk-{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._7vkx{background-color:#3578e5;height:2px;transition:width .5s}\n._82tp,._82tr,._82tq{bottom:0;left:0;position:absolute;right:0}._82tp{top:0}._7juo ._82tp{top:initial}._8biy ._82to{background-position:50\u0025 50\u0025;background-size:20px 20px;height:40px;left:16px;position:relative;top:12px;width:40px}._8biy ._82tq,._8biy ._82tn,._8biy ._82tm,._8i36 ._82tm{display:none}._82tp ._82tr{align-items:center;display:flex;flex-direction:row;font-size:14px;font-weight:normal;padding:12px 16px;position:absolute}._82tq{background:linear-gradient( transparent, rgba(0, 0, 0, .2), rgba(0, 0, 0, .4) );height:60px;opacity:1;transition:opacity 1s}._82tn{color:#fff;display:inline-block;flex-grow:0;min-width:40px;padding:0;text-align:center;text-shadow:0 0 1px rgba(0, 0, 0, .4)}._82ts{flex:1 1 0px}._82tm{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ym/r/7Ri190UbT7O.png);background-position:center;background-repeat:no-repeat;background-size:contain;cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:24px;padding-left:0;transition:opacity 1s;width:24px}._7juo ._82tm{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/8qlISslWDk2.png)}._8i34 ._8i36 ._82to{display:none}._82to{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/BISw5vI_8Pz.png);background-position:center;background-repeat:no-repeat;background-size:contain;cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:20px;margin-left:12px;width:20px}._7jun ._82to{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y-/r/muQZaN-Pay7.png)}._8f5c ._82tm{background-size:24px;margin-bottom:-20px;margin-left:-20px;padding:20px}._8f5c ._82to{background-size:20px;margin-bottom:-20px;margin-right:-20px;padding:20px}._8f5c ._82tn{margin-right:-20px;margin-top:20px}\u0040media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx){._82tm{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/DawR9iRE7xR.png)}._7jun ._82to{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/8S5uxp36YUs.png)}._82to{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/EaMNviiJm9Y.png)}}\n._7kc0{opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._7kb_{background-color:#000;background-position:center;background-repeat:no-repeat;background-size:contain;filter:blur(8px) brightness(.5);transform:scale3d(1.05, 1.05, 1)}._7kc1,._7kb_{bottom:0;left:0;position:absolute;right:0;top:0}._7kc1{align-items:center;display:flex;justify-content:center;padding:20px}._7juo ._7kc0{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._7kb-{align-items:center;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;margin-bottom:30px;max-width:100\u0025;padding:20px}.fbAdNoCallToAction ._7kc0 .fbAdCallToAction{display:none}._7kc0 .fbAdCallToAction{background-color:#fff;border-radius:6px;color:#23272f;padding:10px 20px}._7kc0 .fbAdSubtitle{color:#fff;margin-bottom:20px;max-width:100\u0025;text-shadow:0 0 1px black}._7kc0 .fbAdIcon{border-radius:50\u0025;height:48px;margin-bottom:8px;overflow:hidden;width:48px}\n._7kby{opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._7kbx{background-color:#000;background-position:center;background-repeat:no-repeat;background-size:contain;filter:blur(8px) brightness(.5);transform:scale3d(1.05, 1.05, 1)}._7kbz,._7kbx{bottom:0;left:0;position:absolute;right:0;top:0}._7kbz{align-items:center;display:flex;justify-content:center;padding:0 20px}._7kc2 ._7kby{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._7kbv{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/cGwBF2i3A8v.png);bottom:12px;height:24px;left:12px;position:absolute;width:24px}._7kbw{align-items:center;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;max-width:100\u0025;padding:20px}._7kby .fbAdCallToAction{background-color:rgba(255, 255, 255, .9);border-radius:6px;color:#23272f;padding:10px 20px}.fbAdNoCallToAction ._7kby .fbAdCallToAction{display:none}._7kby .fbAdSubtitle{color:#fff;margin-bottom:20px;text-shadow:0 0 1px black;max-width:100\u0025}._7kby .fbAdIcon{border-radius:50\u0025;height:48px;margin-bottom:8px;overflow:hidden;width:48px}\n._808y{font-size:16px;line-height:22px;opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._808x{background-color:#000;background-position:center;background-repeat:no-repeat;background-size:contain;filter:blur(8px) brightness(.5);transform:scale3d(1.05, 1.05, 1)}._8091,._808x{bottom:0;left:0;position:absolute;right:0;top:0}._8091{align-items:center;display:flex;justify-content:center;padding:0 12px}._7kc2 ._808y{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._808u{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/cGwBF2i3A8v.png);bottom:12px;height:24px;left:12px;position:absolute;width:24px}._808v{align-items:center;box-sizing:border-box;color:#fff;display:flex;flex-direction:column;justify-content:center;margin-bottom:30px;max-width:100\u0025;max-width:100\u0025;padding:20px;text-align:center;text-shadow:0 0 1px black}._808y .fbAdSubtitle,._808y .fbAdTitle{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._808y .fbAdIcon{border-radius:50\u0025;height:64px;overflow:hidden;width:64px}._808y .fbAdBody{max-height:44px;overflow:hidden}.fbAdNoCallToAction ._808y .fbAdCallToAction{display:none}._808y .fbAdCallToAction{background-color:rgba(255, 255, 255, .8);border-radius:6px;color:#23272f;padding:10px 20px}._808y .fbAdSubtitle{line-height:16px;margin-bottom:2px}._808y .fbAdTitle,._808y .fbAdSubtitle{margin-top:12px;max-width:100\u0025}._808y .fbAdCallToAction{margin-top:24px}\n._808s{font-size:16px;line-height:22px;opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;visibility:hidden}._808r{background-color:#000;background-position:center;background-repeat:no-repeat;background-size:contain;filter:blur(8px) brightness(.5);transform:scale3d(1.05, 1.05, 1)}._808t,._808r,._808s{bottom:0;left:0;position:absolute;right:0;top:0}._808t{align-items:center;display:flex;justify-content:center;padding:20px}._7juo ._808s{opacity:1;transition:visibility 0s linear 0s, opacity 300ms;visibility:visible}._808f{align-items:center;box-sizing:border-box;color:#fff;display:flex;flex-direction:column;justify-content:center;margin-bottom:30px;max-width:100\u0025;max-width:100\u0025;padding:20px;text-align:center;text-shadow:0 0 1px black}._808s .fbAdSubtitle,._808s .fbAdTitle{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}._808s .fbAdIcon{border-radius:50\u0025;height:64px;overflow:hidden;width:64px}._808s .fbAdBody{max-height:44px;overflow:hidden}.fbAdNoCallToAction ._808s .fbAdCallToAction{display:none}._808s .fbAdCallToAction{background-color:rgba(255, 255, 255, .8);border-radius:6px;color:#23272f;padding:10px 20px}._808s .fbAdSubtitle{line-height:16px;margin-bottom:2px}._808s .fbAdTitle,._808s .fbAdSubtitle{margin-top:12px;max-width:100\u0025}._808s .fbAdCallToAction{margin-top:24px}\n._7juk,._7lkn,._7lkm{bottom:0;left:0;position:absolute;right:0}._7lkn{align-items:center;display:flex;flex-direction:row;font-size:14px;font-weight:normal;padding:12px 16px;position:absolute}._7lkm{background:linear-gradient( transparent, rgba(0, 0, 0, .2), rgba(0, 0, 0, .4) );height:60px;opacity:1;transition:opacity 1s}._7jum ._7jul,._7jum ._7jue,._7jum ._7lkm,._7kc3 ._7juk{opacity:0}._7jui{color:#fff;display:inline-block;flex-grow:0;min-width:40px;padding:0 12px;padding-left:0;text-align:center;text-shadow:0 0 1px rgba(0, 0, 0, .4)}._7jul{background-color:rgba(255, 255, 255, .6);border-radius:2px;display:inline-block;flex-grow:1;height:2px;margin:0 12px;overflow:hidden;transition:opacity 1s}._7jue{background:no-repeat center/contain url(https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/SFCq-evAN3w.png);cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:20px;padding-left:0;transition:opacity 1s;width:20px}._7juo ._7jue{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yw/r/3ojVzHWpcu_.png)}._7juj{background:no-repeat center/contain url(https://static.xx.fbcdn.net/rsrc.php/v3/yp/r/BISw5vI_8Pz.png);cursor:pointer;filter:drop-shadow(0 0 1px rgba(0, 0, 0, .4));height:20px;width:20px}._7jun ._7juj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/8S5uxp36YUs.png)}._7juh{background-color:#3578e5;height:2px;transition:width .5s}\u0040media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx){._7jue{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/GMzBSraVZWM.png)}._7juj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/EaMNviiJm9Y.png)}._7juo ._7jue{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yU/r/L7truXq89HH.png)}._7jun ._7juj{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/8S5uxp36YUs.png)}}\n._6qhh{font-family:-apple-system, roboto, 'Helvetica Neue', sans-serif;font-size:14px;font-weight:normal;text-align:left}._6qhd{align-items:center;animation:fadeIn .3s ease-in-out both;background:#dadde1;bottom:0;display:flex;justify-content:center;left:0;padding:5px;position:absolute;right:0;top:0;z-index:100}._6wfr ._6qhd{bottom:-0.5px;left:-0.5px;right:-0.5px;top:-0.5px}._6qhe{animation:fadeIn .3s ease-in-out both;background:white;border-radius:10px;box-shadow:0 2px 8px 0 rgba(0, 0, 0, .3);box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;max-width:320px;position:relative}._6qha{overflow-x:hidden;overflow-y:auto;padding-top:10px}._6qhg{height:23px;position:absolute;right:0;-webkit-tap-highlight-color:transparent;top:0}._6qhg:after{background-color:rgba(255, 255, 255, .8);background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png);background-position:27px 3px;background-repeat:no-repeat;background-size:12px 12px;border-radius:0 0 0 6px;box-shadow:0 0 4px 0 rgba(0, 0, 0, .15);content:'';display:block;height:18px;margin-left:5px;margin-top:0;width:42px}._6qhg:before{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yu/r/4l2RpWw-PLG.png);background-position:0 4px;background-repeat:no-repeat;background-size:10px 10px;border-right:1px solid rgba(0, 0, 0, .2);content:'';height:18px;left:11px;position:absolute;top:0;width:15px}._8bwk._6qhg{height:43px;width:77px}._8bwk._6qhg:after{margin-left:35px}._8bwk._6qhg:before{left:41px}._7-er._6qhg:before{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y0/r/IYnD98CCX60.png);background-position:0 3px;background-size:12px 12px}._7-e_._6qhg:before{display:none}._7-e_._6qhg:after{background-position:7px 3px;width:24px}._8bwv._6qhg{height:43px;width:59px}._8bwv._6qhg:after{margin-left:35px}._6qhb{box-sizing:border-box;display:flex;flex-direction:column;max-height:100\u0025;padding:10px 16px}._6qhc{padding-bottom:0;overflow:hidden}._6qhk,._6qgk._6qgi,._6qgl._6qgi{background-repeat:no-repeat;background-size:18px 18px;display:inline-block;height:18px;width:18px}._6qhh ._6qho{align-items:center;display:flex;flex-direction:row;margin:10px 0;text-decoration:none}._6qhk{flex-shrink:0;margin-right:10px}._6qhm{color:#1c1e21;font-weight:normal}._6qhl{font-size:16px;line-height:19px}._6qhn{color:#606770;font-size:14px;line-height:16px}._6qgk{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/NOeCWD5no4s.png)}._6qgl{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/BKiZzia0l7j.png)}._6qhp{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/gX9Zgekva9J.png)}._6qi1{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/PITveVN_6ro.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:20px;vertical-align:middle;width:20px}._6qhz{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/kS3NV5igXMY.png);background-repeat:no-repeat;background-size:100\u0025;display:inline-block;height:11px;margin-right:6px;width:15px}._6qh6{font-weight:normal;padding-bottom:4px;position:relative}._6qh6:after{background:linear-gradient(white, rgba(255, 255, 255, 0));content:'';height:10px;left:0;position:absolute;right:0;top:100\u0025}._6qgh{border-bottom:1px solid #ccc;font-size:16px;line-height:20px;margin-bottom:6px;padding-bottom:6px;text-align:center}._6qh5{align-items:center;display:flex;flex-direction:row}._7swf{margin-bottom:6px}._6qh4{color:#606770}._6qgi._6qgk,._6qgi._6qgl{flex-shrink:0;margin-right:10px}._6qh9{margin:0 -8px}._6qh9 ._6qh7{display:inline-block;margin-bottom:20px;margin-left:8px;margin-right:8px;vertical-align:middle}._6qh7{background:#ebedf0;border:none;border-radius:20px;color:#606770;font-size:14px;line-height:14px;padding:13px 16px;white-space:nowrap}._6qh7:focus,._6qh7:active{border:none;outline:none}._6qh7:active,._6qh8{background:#3578e5;color:#fff}._6qi4{align-items:center;display:flex;flex-direction:column}._6qhx{color:#1c1e21;font-size:16px;line-height:24px;margin-top:6px}._6qhy{color:#606770;font-size:14px;line-height:19px;margin:10px 0;text-align:center}._6qhu{background-position:center center;background-repeat:no-repeat;background-size:16px 16px;border-radius:50\u0025;height:42px;width:42px}._6qhv{background-color:#3578e5;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yE/r/oy4B7rSgGV0.png)}._6qhw{background-color:#f7923b;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/TQU64J6qQUe.png)}._6qi2{display:flex;flex-direction:row;margin-bottom:20px}._6qhh ._6qi0{align-items:center;color:#3578e5;display:flex;flex-direction:row;margin-top:auto;text-decoration:none;width:auto}._6qi1{margin-right:6px}._6qh-{border-radius:50\u0025;height:40px;margin-right:5px;width:40px}._6qhh ._6qi3{background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/tlUefGrS_4W.png);background-position:center center;background-repeat:no-repeat;background-size:13px 13px;height:13px;margin-right:-10px;margin-top:-10px;padding:10px;position:absolute;right:16px;top:13px;width:13px}._6qhf{align-self:flex-start;color:#8d949e;font-size:16px;margin-top:20px}\u0040keyframes fadeIn{0\u0025{opacity:0}100\u0025{opacity:1}}._7t3e ._6qh5{display:none}._7t3e ._6qh6:after{display:none}._7t3e ._6qgh{border-bottom:none;margin-bottom:0}._7t3e ._6qhq{padding-bottom:10px}._7t3e ._6qhc{padding-bottom:2px}._7t3e ._6qh7{margin-bottom:8px;margin-left:0;padding:10px 12px}._7t3e ._6qh9{margin:0}._7t3e ._6qhu{display:none}._7tu- ._6qhd:after{align-items:center;background:rgba(0, 0, 0, .3);bottom:0;content:'';display:flex;justify-content:center;left:0;padding:5px;position:absolute;right:0;top:0;z-index:-100}\n._74-1{background-color:#fff;margin:auto;max-width:100\u0025;min-height:390px;position:relative;width:500px}._8-q5{background-color:#fff}._74qn{height:fit-content;width:100\u0025}._74-2{cursor:pointer;height:calc( ((100vh - 80px) * .5625 - 48px) * 9 / 16 );max-height:281px;min-height:261px;width:100\u0025}._74qw{display:flex;flex-direction:row;height:fit-content;margin-left:12px;margin-right:38px;margin-top:12px}._74-6{flex-shrink:0;height:60px;width:60px}._75zi{display:flex;flex-direction:column;flex-shrink:2;margin-left:12px}._74-4{-webkit-box-orient:vertical;color:#000;display:-webkit-box;font-family:'ArialMT';font-size:20px;font-weight:bold;height:fit-content;-webkit-line-clamp:1;line-height:24px;max-height:24px;overflow:hidden;text-align:left;text-overflow:ellipsis}._74-8{-webkit-box-orient:vertical;color:#606770;display:-webkit-box;font-family:'Arial';font-size:14px;height:fit-content;letter-spacing:normal;-webkit-line-clamp:2;line-height:18px;margin-top:2px;max-height:36px;overflow:hidden;overflow-wrap:normal;text-align:left;text-overflow:ellipsis}._74-9{background-color:#3578e5;border-radius:4px;color:#fff;cursor:pointer;font-size:12px;font-weight:bold;height:32px;line-height:32px;margin:12px;text-align:center}._7dan{background-color:rgba(0, 0, 0, .5);height:30px;left:12px;position:absolute;top:12px;width:30px;z-index:1}._7da8,._7da9{background-color:rgba(255, 255, 255, .8);border:1px solid rgba(255, 255, 255, .8);border-radius:2px;height:0;transform:translateY(13px) translateX(7px) rotate(45deg);width:14px}._7da9{transform:translateY(11px) translateX(7px) rotate(135deg)}._760w{display:block}._760x{display:none}",
 						components: [
-							"css:ANCarousel",
-							"css:ANCollage",
 							"css:ANDPAContainer",
 							"css:ANWebVideoPlayer",
 							"css:ANXOutRewardedVideo",
@@ -2865,56 +2863,6 @@ try {
 						null
 					);
 					__d(
-						"ANBanner",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							var g = "fbBannerCallToActionOverlay",
-								h = "fbBannerOverlay",
-								i = "fbInteractiveBanner";
-							a = (function() {
-								function a(a, b) {
-									(this.$1 = a.getElementsByClassName(i)),
-										(this.$2 = a.getElementsByClassName(g)[0]),
-										(this.$3 = a.getElementsByClassName(h)),
-										(this.$4 = b),
-										b.bannerMovingMedia === !0 && this.$5(a);
-								}
-								var b = a.prototype;
-								b.init = function() {
-									this.$4.bannerTwoStepClick === !0 && this.$6();
-								};
-								b.$6 = function() {
-									var a = this;
-									for (var b = 0; b < this.$1.length; b++)
-										this.$1[b].addEventListener("touchend", function() {
-											a.$7();
-										});
-									for (var b = 0; b < this.$3.length; b++)
-										this.$3[b].addEventListener("touchend", function() {
-											a.$8();
-										});
-								};
-								b.$7 = function() {
-									this.$2.classList.remove("hidden");
-								};
-								b.$8 = function() {
-									this.$2.classList.add("hidden");
-								};
-								b.$5 = function(a) {
-									var b = a.getElementsByClassName("fbBannerMovingImage")[0];
-									a = a.getElementsByClassName(
-										"fbBannerCallToActionContainer"
-									)[0];
-									b.style.width = 318 - a.clientWidth + "px";
-								};
-								return a;
-							})();
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"PageVisibility.adquality",
 						[],
 						function(a, b, c, d, e, f) {
@@ -3103,54 +3051,6 @@ try {
 						null
 					);
 					__d(
-						"OnScreenBehavior.anweb",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							a = (function() {
-								function a() {}
-								var b = a.prototype;
-								b.onPartiallyEntered = function() {};
-								b.onMostlyEntered = function() {};
-								b.onCompletelyEntered = function() {};
-								b.onPartiallyLeft = function() {};
-								b.onMostlyLeft = function() {};
-								b.onCompletelyLeft = function() {};
-								b.onBecameInvalid = function() {};
-								b.onBecameValid = function() {};
-								return a;
-							})();
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ANCarouselAutoRotateBehavior",
-						["OnScreenBehavior.anweb"],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							a = (function(a) {
-								babelHelpers.inheritsLoose(b, a);
-								function b(b) {
-									var c;
-									c = a.call(this) || this;
-									c.$ANCarouselAutoRotateBehavior1 = b;
-									c.$ANCarouselAutoRotateBehavior2 = !1;
-									return c;
-								}
-								var c = b.prototype;
-								c.onPartiallyEntered = function() {
-									if (this.$ANCarouselAutoRotateBehavior2) return;
-									this.$ANCarouselAutoRotateBehavior2 = !0;
-									this.$ANCarouselAutoRotateBehavior1.startAutoRotate();
-								};
-								return b;
-							})(b("OnScreenBehavior.anweb"));
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"VPAIDDomUtils",
 						["nullthrows"],
 						function(a, b, c, d, e, f) {
@@ -3216,696 +3116,12 @@ try {
 						null
 					);
 					__d(
-						"csx",
-						[],
-						function(a, b, c, d, e, f) {
-							function a(a) {
-								throw new Error(
-									"csx: Unexpected class selector transformation."
-								);
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
 						"cx",
 						[],
 						function(a, b, c, d, e, f) {
 							function a(a) {
 								throw new Error("cx: Unexpected class transformation.");
 							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ANCarouselItem",
-						["csx", "cx", "VPAIDDomUtils", "nullthrows"],
-						function(a, b, c, d, e, f, g, h) {
-							"use strict";
-							var i = b("VPAIDDomUtils").div,
-								j = b("VPAIDDomUtils").dom,
-								k = b("VPAIDDomUtils").find,
-								l = function(a, b) {
-									b === void 0 && (b = []);
-									var c = document.createElement("a");
-									c.className = a;
-									for (
-										var a = b,
-											b = ES("Array", "isArray", !1, a),
-											d = 0,
-											a = b
-												? a
-												: a[
-														typeof Symbol === "function"
-															? Symbol.iterator
-															: "@@iterator"
-												  ]();
-										;
-
-									) {
-										var e;
-										if (b) {
-											if (d >= a.length) break;
-											e = a[d++];
-										} else {
-											d = a.next();
-											if (d.done) break;
-											e = d.value;
-										}
-										e = e;
-										c.appendChild(e);
-									}
-									c.href = "#";
-									return c;
-								},
-								m = function(a, b) {
-									b === void 0 && (b = "");
-									return j("div", { className: a, textContent: b });
-								},
-								n = 62;
-							a = (function() {
-								function a(a, c, d, e) {
-									(this.$4 = c),
-										(this.$1 = a),
-										(this.$5 = d),
-										(this.$6 = e == null ? "" : b("nullthrows")(e)),
-										(this.$2 = this.$7());
-								}
-								var c = a.prototype;
-								c.setItemSize = function(a) {
-									a = a + "px";
-									this.$2.style.width = a;
-									if (this.$5) {
-										var b = n + "px";
-										this.$3.style.width = b;
-										this.$3.style.height = b;
-									} else (this.$3.style.width = a), (this.$3.style.height = a);
-								};
-								c.$8 = function() {
-									if (this.$5) {
-										var a =
-											this.$6 === ""
-												? i("_8fla _11u_", [
-														m(
-															"_8flb _8flc _11v0",
-															b("nullthrows")(this.$1.adTitle)
-														)
-												  ])
-												: i("_8fla _11u_", [
-														m(
-															"_8flb _8fld _11v0",
-															b("nullthrows")(this.$1.adTitle)
-														),
-														m("_8fle _11vj", this.$6)
-												  ]);
-										return l("_8flf _11u9", [
-											i("_11ur", [i("_11us"), i("_8flg _11u-", [a])])
-										]);
-									}
-									return l("_11u9", [i("_11ur", [i("_11us")])]);
-								};
-								c.$7 = function() {
-									var a = this.$8();
-									this.$3 = k(a, "._11us");
-									var c = this.$4;
-									if (c != null) {
-										var d = new Image();
-										d.addEventListener("load", function() {
-											c();
-										});
-										d.src = b("nullthrows")(this.$1.adImage);
-									}
-									this.$3.style.backgroundImage =
-										"url(" + b("nullthrows")(this.$1.adImage) + ")";
-									return a;
-								};
-								c.getElement = function() {
-									return this.$2;
-								};
-								return a;
-							})();
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ANCarouselMotion",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							var g = function(a, b) {
-									(a.style.transform = b), (a.style.webkitTransform = b);
-								},
-								h = 0;
-							a = function(a) {
-								var b = ES("Date", "now", !1),
-									c = Math.max(0, 16 - (b - h));
-								h = b + c;
-								return window.setTimeout(a, c);
-							};
-							var i = window.requestAnimationFrame || a,
-								j =
-									window.cancelAnimationFrame ||
-									function(a) {
-										return window.clearTimeout(a);
-									},
-								k = 4,
-								l = 1,
-								m = 0,
-								n = 401,
-								o = 1,
-								p = 400,
-								q = 400;
-							b = (function() {
-								function a(a, b) {
-									(this.$2 = !1),
-										(this.$6 = !1),
-										(this.$8 = 0),
-										(this.$11 = a),
-										(this.$10 = a.getRail()),
-										(this.$12 = b || function() {}),
-										g(this.$10, "translateX(0px)");
-								}
-								var b = a.prototype;
-								b.$13 = function() {
-									this.$10.style.transition = "";
-								};
-								b.$14 = function() {
-									this.$10.style.transition = "none";
-								};
-								b.$15 = function(a, b) {
-									a = this.$11.closestIndex(a);
-									this.$11["goto"](a, p);
-									this.$12(a, b);
-								};
-								b.$16 = function(a) {
-									if (this.$11.isWithinRange(a)) return a;
-									if (a > 0) return a / k;
-									var b = -this.$11.getMaxOffset();
-									return b + (a - b) / k;
-								};
-								b.onMoveStart = function(a) {
-									this.$11.onCriticalAnimationStart(),
-										this.$7 && window.clearTimeout(this.$7),
-										this.$14(),
-										(this.$4 = this.$5 = a),
-										(this.$1 = this.$8 - a.x * l),
-										(this.$3 = ES("Date", "now", !1)),
-										(this.$2 = !1),
-										(this.$6 = !1);
-								};
-								b.onMove = function(a, b) {
-									var c = this;
-									if (this.$6)
-										if (this.$2) a.preventDefault();
-										else return;
-									this.$9 && j(this.$9);
-									this.$5 = b;
-									if (this.$1 == null || this.$4 == null || this.$5 == null)
-										return;
-									a = this.$4;
-									var d = this.$5;
-									if (this.$6)
-										this.$2 &&
-											(this.$9 = i(function() {
-												c.scrollTo(c.$16(c.$1 + b.x * l));
-											}));
-									else if (ES("Date", "now", !1) - this.$3 > 2 * (1e3 / 60)) {
-										var e = a.x - d.x;
-										a = a.y - d.y;
-										e === 0 ? (d = Infinity) : (d = a / e);
-										Math.abs(d) < o && (this.$2 = !0);
-										this.$6 = !0;
-									}
-								};
-								b.onMoveEnd = function() {
-									var a = this;
-									if (!this.$2) return;
-									this.$9 && j(this.$9);
-									var b = "left";
-									this.$5 != null &&
-										this.$4 != null &&
-										(b = this.$5.x < this.$4.x ? "right" : "left");
-									this.$13();
-									this.$1 = this.$4 = this.$5 = null;
-									var c = -this.$8,
-										d = Math.round(m * this.$11.getItemWidthRatio()),
-										e = ES("Date", "now", !1) - this.$3 <= q;
-									e = e ? this.$11.getWidth() / 3 : 0;
-									b === "right" ? (c += e + d) : (c -= e + d);
-									this.$7 = window.setTimeout(function() {
-										a.$11.onCriticalAnimationEnd();
-									}, n);
-									this.$15(c, b);
-								};
-								b.scrollTo = function(a, b) {
-									b != null
-										? (this.$10.style.transitionDuration = b / 1e3 + "s")
-										: (this.$10.style.transitionDuration = ""),
-										g(this.$10, "translateX(" + a + "px)"),
-										(this.$8 = a);
-								};
-								b.scrollToTransition = function(a, b) {
-									var c = this;
-									this.$13();
-									this.$8 = a;
-									this.$9 = i(function() {
-										c.scrollTo(a, b);
-									});
-								};
-								b.getCurrentOffset = function() {
-									return -this.$8;
-								};
-								return a;
-							})();
-							e.exports = b;
-						},
-						null
-					);
-					__d(
-						"ANCarousel",
-						[
-							"csx",
-							"cx",
-							"ANCarouselAutoRotateBehavior",
-							"ANCarouselMotion",
-							"VPAIDDomUtils",
-							"ANCarouselItem"
-						],
-						function(a, b, c, d, e, f, g, h) {
-							"use strict";
-							var i = b("VPAIDDomUtils").div,
-								j = b("VPAIDDomUtils").find,
-								k = function() {},
-								l = function(a) {
-									return { x: a.touches[0].clientX, y: a.touches[0].clientY };
-								},
-								m = 300,
-								n = 172,
-								o = 4,
-								p = 1,
-								q = 8,
-								r = 1.2,
-								s = 4e3,
-								t = 2e3,
-								u = 1e3;
-							a = (function() {
-								function a(a) {
-									var b = a.ads,
-										c = a.onEvent,
-										d = a.onCriticalAnimationStart,
-										e = a.onCriticalAnimationEnd,
-										f = a.onLoadEventCounter,
-										g = a.adFeatures;
-									a = a.onScreenBehaviorManager;
-									this.$21 = !1;
-									this.$23 = !1;
-									this.$10 = m;
-									this.$11 = n;
-									this.$12 = o;
-									this.$13 = p;
-									this.$15 = f;
-									this.$6 = b;
-									this.$9 = c || k;
-									this.onCriticalAnimationStart = d || k;
-									this.onCriticalAnimationEnd = e || k;
-									this.$16 = g;
-									this.$18 = !!this.$16.useDPADesign;
-									this.$19 =
-										this.$16.dpaPriceLabels == null
-											? null
-											: this.$16.dpaPriceLabels.slice(1);
-									this.$20 = this.$16.showBlurredBackdrop === !0;
-									this.$21 = g.autoRotateCarousel === !0;
-									this.$24 = a;
-									this.$25();
-								}
-								var c = a.prototype;
-								c.$25 = function() {
-									var a = this;
-									this.$8 = 0;
-									this.$7 = [];
-									this.$17 = !!this.$16.useLargeCarouselWithCounter;
-									var c = i("_2vf-");
-									this.$18 && (c = i("_8fkr _2vf-"));
-									this.$3 = [];
-									var d = [c];
-									this.$17 && (d = [c, i("_8edz")]);
-									c = [i("_2vfy", d), this.$26()];
-									this.$1 = i("_2vfx", c);
-									this.$17 && ((this.$4 = j(this.$1, "._8edz")), this.$27());
-									this.$5 = j(this.$1, "._2vf-");
-									this.$2 = j(this.$1, "._2vfy");
-									this.$15.addRequiredEvent();
-									ES(this.$6, "forEach", !0, function(c, d) {
-										var e = a.$19 != null ? a.$19[d] : null;
-										c = new (b("ANCarouselItem"))(
-											c,
-											d === 0
-												? function() {
-														return a.$15.requiredEventFired();
-												  }
-												: null,
-											a.$18,
-											e
-										);
-										a.$7.push(c);
-										a.$5.appendChild(c.getElement());
-									});
-									this.$14 = new (b("ANCarouselMotion"))(this, function(b, c) {
-										(a.$23 = !0),
-											a.$28(),
-											a.$17 && a.$29(),
-											a.$21 && window.clearTimeout(a.$22),
-											a.$9("AN_CAROUSEL_EVENT_SWIPE", {
-												index: b,
-												direction: c
-											});
-									});
-									this.ensureSizes();
-									this.$30();
-									this.$31();
-								};
-								c.$31 = function() {
-									this.$21 &&
-										this.$24 &&
-										this.$24.addBehavior(
-											new (b("ANCarouselAutoRotateBehavior"))(this)
-										);
-								};
-								c.$32 = function() {
-									return this.$1.clientWidth;
-								};
-								c.$30 = function() {
-									var a = this;
-									this.$5.addEventListener("touchstart", function(b) {
-										a.$14.onMoveStart(l(b));
-									});
-									this.$5.addEventListener("touchmove", function(b) {
-										a.$14.onMove(b, l(b));
-									});
-									this.$5.addEventListener("touchend", function(b) {
-										a.$21 && !a.$23 && a.startAutoRotate(), a.$14.onMoveEnd();
-									});
-								};
-								c.$33 = function(a) {
-									if (this.isWithinRange(a)) return a;
-									return a > 0 ? 0 : -this.getMaxOffset();
-								};
-								c.$34 = function() {
-									return this.$18
-										? this.$6.length === 2
-											? (this.$10 - 4 * this.$12 - 2 * q) / 2
-											: (this.$10 - 3 * this.$12) / 2 + 2 * this.$13
-										: this.$10;
-								};
-								c.$35 = function() {
-									return this.$18 ? o : 0;
-								};
-								c.$36 = function() {
-									return this.$18 ? p : 0;
-								};
-								c.$37 = function() {
-									return this.$10 > m ? r : 1;
-								};
-								c.$38 = function(a) {
-									return this.$18
-										? (this.$11 + 2 * this.$12) * a + q
-										: this.$11 * a;
-								};
-								c.$39 = function() {
-									return i("_8ed-");
-								};
-								c.$26 = function() {
-									var a = [];
-									for (var b = 0; b < this.$6.length; b++) {
-										var c = this.$39();
-										a.push(c);
-										b === 0 && a[b].classList.add("_8ed_");
-									}
-									this.$18
-										? (c = i("_8fks _8ee0", a))
-										: this.$20
-											? (c = i("_8mse _8ee0", a))
-											: (c = i("_8ee0", a));
-									this.$3 = a;
-									return c;
-								};
-								c.$28 = function() {
-									for (var a = 0; a < this.$6.length; a++)
-										this.isIndexVisible(a)
-											? this.$3[a].classList.add("_8ed_")
-											: this.$3[a].classList.remove("_8ed_");
-								};
-								c.$27 = function() {
-									this.$4 && (this.$4.innerText = "1/" + this.$6.length);
-								};
-								c.$29 = function() {
-									this.$4 &&
-										(this.$4.innerText = this.$8 + 1 + "/" + this.$6.length);
-								};
-								c.getLinks = function() {
-									return ES(this.$7, "map", !0, function(a) {
-										return a.getElement();
-									});
-								};
-								c.getElement = function() {
-									return this.$1;
-								};
-								c.getRail = function() {
-									return this.$5;
-								};
-								c.getItemWidthRatio = function() {
-									return this.$18 ? this.$11 / n : this.$10 / m;
-								};
-								c.getFullWidth = function() {
-									return this.$6.length * (this.$11 + 2 * this.$12);
-								};
-								c.getMaxOffset = function() {
-									return this.$18
-										? this.getFullWidth() - this.$10 + q * 2
-										: this.getFullWidth() - this.$10;
-								};
-								c.getIndex = function() {
-									return this.$8;
-								};
-								c.getWidth = function() {
-									return this.$10;
-								};
-								c.isIndexVisible = function(a) {
-									var b = this.$14.getCurrentOffset();
-									a = this.$38(a);
-									return a >= b && a + this.$11 <= b + this.$10;
-								};
-								c["goto"] = function(a, b) {
-									var c = -a * (this.$11 + 2 * this.$12);
-									c += (this.$10 - this.$11 - 2 * this.$12) / 2 - 2 * this.$12;
-									c = this.$33(c);
-									this.$14.scrollToTransition(c, b);
-									this.$8 = a;
-								};
-								c.closestIndex = function(a) {
-									var b = this.$11 + this.$12;
-									a = a + this.$10 / 2;
-									a = Math.floor(a / b);
-									if (a >= this.$6.length) return this.$6.length - 1;
-									else if (a < 0) return 0;
-									return a;
-								};
-								c.isWithinRange = function(a) {
-									return a > 0 ? !1 : a > -this.getMaxOffset();
-								};
-								c.ensureSizes = function() {
-									var a = this;
-									this.$10 = this.$32() || m;
-									this.$11 = this.$34();
-									this.$12 = this.$35();
-									this.$13 = this.$36();
-									this.$1.style.fontSize = this.$37() * 100 + "px";
-									this.$5.style.width = this.getFullWidth() + "px";
-									ES(this.$7, "forEach", !0, function(b, c) {
-										if (a.$18) {
-											b.setItemSize(a.$11 - 2);
-											c = b.getElement();
-											c.style.marginRight = a.$12 + "px";
-											c.style.marginLeft = a.$12 + "px";
-										} else b.setItemSize(a.$11);
-									});
-								};
-								c.startAutoRotate = function(a) {
-									var b = this;
-									a === void 0 && (a = t);
-									window.clearTimeout(this.$22);
-									this.$22 = window.setTimeout(function() {
-										var a = (b.$8 + 1) % b.$6.length;
-										b["goto"](a, u);
-										b.$28();
-										b.startAutoRotate(s);
-									}, a);
-								};
-								return a;
-							})();
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"joinClasses",
-						[],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							function a(a) {
-								var b = a || "",
-									c = arguments.length <= 1 ? 0 : arguments.length - 1;
-								for (var d = 0; d < c; d++) {
-									var e =
-										d + 1 < 1 || arguments.length <= d + 1
-											? void 0
-											: arguments[d + 1];
-									e != null && e !== "" && (b = (b ? b + " " : "") + e);
-								}
-								return b;
-							}
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ANCollage",
-						["cx", "VPAIDDomUtils", "joinClasses", "nullthrows"],
-						function(a, b, c, d, e, f, g) {
-							"use strict";
-							var h = b("VPAIDDomUtils").div;
-							a = (function() {
-								function a(a) {
-									var b = a.ads,
-										c = a.onLoadEventCounter,
-										d = a.adFeatures;
-									a = a.extended;
-									this.$3 = c;
-									this.$2 = b;
-									this.$4 = d;
-									this.$10 = a;
-									this.$5 = [];
-									this.$6 = 0;
-									this.$7 = 0;
-									this.$9 = !1;
-									this.$8 = !1;
-									this.$1 = this.$11();
-									this.$12();
-									this.$9 || this.$13();
-									this.$3.addRequiredEvent();
-								}
-								var c = a.prototype;
-								c.$11 = function() {
-									var a = this.$2.length,
-										b;
-									h("_7_cd");
-									!this.$10
-										? a <= 2
-											? (b = h("_7_cd", [this.$14()]))
-											: a <= 4
-												? (b = h("_7_cd", [this.$14(), this.$14()]))
-												: (b = h("_7_cd", [this.$14(), this.$15()]))
-										: a <= 2
-											? (b = h("_7_cd", [this.$14()]))
-											: a <= 4
-												? (b = h("_7_cd", [this.$14(), this.$14()]))
-												: a <= 6
-													? (b = h("_7_cd", [
-															this.$14(),
-															this.$14(),
-															this.$14()
-													  ]))
-													: (b = h("_7_cd", [
-															this.$14(),
-															this.$14(),
-															this.$15()
-													  ]));
-									return b;
-								};
-								c.$12 = function() {
-									var a = this;
-									ES(this.$2, "forEach", !0, function(c, d) {
-										if (!a.$9) {
-											d = c.adImage;
-											c = a.$16();
-											a.$17(c, b("nullthrows")(d));
-										}
-									});
-								};
-								c.$13 = function() {
-									var a = this.$5[this.$6 - 1],
-										b;
-									!this.$10
-										? this.$7 === 3
-											? (b = this.$18())
-											: this.$7 === 5
-												? (b = this.$19())
-												: (b = this.$20())
-										: this.$7 === 3
-											? (b = this.$18())
-											: this.$7 === 5
-												? (b = this.$18())
-												: this.$7 === 7
-													? (b = this.$19())
-													: (b = this.$20());
-									a.appendChild(b);
-								};
-								c.$20 = function() {
-									return h(b("joinClasses")("fbAdLink", "fbAdIcon", "_7_ce"));
-								};
-								c.$18 = function() {
-									return h(b("joinClasses")("fbAdLink", "_7_cf"), [
-										h(b("joinClasses")("fbAdIcon", "_7_ce")),
-										h(b("joinClasses")("fbAdSubtitle", "_7_c-"))
-									]);
-								};
-								c.$19 = function() {
-									return h(b("joinClasses")("fbAdLink", "_7_c_"), [
-										h(b("joinClasses")("fbAdIcon", "_7_ce"))
-									]);
-								};
-								c.$14 = function() {
-									var a = h("_7_d0");
-									this.$5.push(a);
-									this.$6++;
-									var b = h("_7_d0");
-									this.$5.push(b);
-									this.$6++;
-									return h("_7_d1", [a, b]);
-								};
-								c.$15 = function() {
-									var a = h("_7_d0");
-									this.$5.push(a);
-									this.$6++;
-									return h("_7_d1", [a, h("_7_d0", [this.$14(), this.$14()])]);
-								};
-								c.$16 = function() {
-									var a = this.$5[this.$7];
-									this.$7 === this.$6 - 1 && (this.$9 = !0);
-									this.$7++;
-									return a;
-								};
-								c.$17 = function(a, b) {
-									var c = this,
-										d = document.createElement("img");
-									d.addEventListener("load", function() {
-										(a.style.backgroundImage = "url(" + b + ")"),
-											c.$8 || ((c.$8 = !0), c.$3.requiredEventFired());
-									});
-									d.src = b;
-								};
-								c.getElement = function() {
-									return this.$1;
-								};
-								c.getCells = function() {
-									return this.$5;
-								};
-								return a;
-							})();
 							e.exports = a;
 						},
 						null
@@ -3990,569 +3206,6 @@ try {
 								};
 								b.hasFired = function() {
 									return this.$2;
-								};
-								return a;
-							})();
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ANStyleChangeTracker",
-						["ANUtils", "nullthrows"],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							var g = 0;
-							function h() {
-								g++;
-								return "fban-fw-sct-" + g;
-							}
-							function i(a, b, c) {
-								if (a.has(c)) return;
-								var d = b.style.getPropertyValue(c);
-								d
-									? a.set(c, {
-											property: c,
-											value: b.style.getPropertyValue(c),
-											priority: b.style.getPropertyPriority(c)
-									  })
-									: a.set(c, { property: c });
-							}
-							a = (function() {
-								function a(a) {
-									(this.$1 = new Map()),
-										(this.$2 = new Map()),
-										(this.$3 = new Map()),
-										(this.$4 = a);
-								}
-								var c = a.prototype;
-								c.resize = function(a, c, d) {
-									this.$4 === !0
-										? this.addChanges(a, { width: b("ANUtils").cssSize(c) })
-										: this.addChanges(a, {
-												width: b("ANUtils").cssSize(c),
-												height: b("ANUtils").cssSize(d)
-										  });
-								};
-								c.addChanges = function(a, c) {
-									var d = this.$5(a);
-									this.$1.has(d) ||
-										(this.$1.set(d, new Map()), this.$2.set(d, new Map()));
-									var e = b("nullthrows")(this.$1.get(d));
-									d = b("nullthrows")(this.$2.get(d));
-									var f = ES("Object", "keys", !1, c);
-									for (var g = 0; g < f.length; g++) {
-										var h = f[g];
-										e.set(h, c[h]);
-										i(d, a, h);
-									}
-								};
-								c.applyChanges = function() {
-									for (
-										var a = this.$1.entries(),
-											c = ES("Array", "isArray", !1, a),
-											d = 0,
-											a = c
-												? a
-												: a[
-														typeof Symbol === "function"
-															? Symbol.iterator
-															: "@@iterator"
-												  ]();
-										;
-
-									) {
-										var e;
-										if (c) {
-											if (d >= a.length) break;
-											e = a[d++];
-										} else {
-											d = a.next();
-											if (d.done) break;
-											e = d.value;
-										}
-										e = e;
-										var f = e[0];
-										e = e[1];
-										f = b("nullthrows")(this.$3.get(f));
-										for (
-											var e = e.entries(),
-												g = ES("Array", "isArray", !1, e),
-												h = 0,
-												e = g
-													? e
-													: e[
-															typeof Symbol === "function"
-																? Symbol.iterator
-																: "@@iterator"
-													  ]();
-											;
-
-										) {
-											var i;
-											if (g) {
-												if (h >= e.length) break;
-												i = e[h++];
-											} else {
-												h = e.next();
-												if (h.done) break;
-												i = h.value;
-											}
-											i = i;
-											var j = i[0];
-											i = i[1];
-											f.style.setProperty(j, i, "important");
-										}
-									}
-								};
-								c.restoreOriginalStyles = function() {
-									for (
-										var a = this.$2.entries(),
-											c = ES("Array", "isArray", !1, a),
-											d = 0,
-											a = c
-												? a
-												: a[
-														typeof Symbol === "function"
-															? Symbol.iterator
-															: "@@iterator"
-												  ]();
-										;
-
-									) {
-										var e;
-										if (c) {
-											if (d >= a.length) break;
-											e = a[d++];
-										} else {
-											d = a.next();
-											if (d.done) break;
-											e = d.value;
-										}
-										e = e;
-										var f = e[0];
-										e = e[1];
-										f = b("nullthrows")(this.$3.get(f));
-										for (
-											var e = e.entries(),
-												g = ES("Array", "isArray", !1, e),
-												h = 0,
-												e = g
-													? e
-													: e[
-															typeof Symbol === "function"
-																? Symbol.iterator
-																: "@@iterator"
-													  ]();
-											;
-
-										) {
-											var i;
-											if (g) {
-												if (h >= e.length) break;
-												i = e[h++];
-											} else {
-												h = e.next();
-												if (h.done) break;
-												i = h.value;
-											}
-											i = i;
-											var j = i[0];
-											i = i[1];
-											i.value == null
-												? f.style.removeProperty(j)
-												: f.style.setProperty(j, i.value, i.priority);
-										}
-									}
-								};
-								c.$5 = function(a) {
-									a.id || (a.id = h());
-									this.$3.set(a.id, a);
-									return a.id;
-								};
-								return a;
-							})();
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ANFullWidthIFrame",
-						["ANStyleChangeTracker", "ANUtils", "nullthrows"],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							a = (function() {
-								function a(a, c, d, e, f, g, h, i, j) {
-									(this.$1 = new (b("ANStyleChangeTracker"))(i)),
-										(this.$2 = a),
-										(this.$3 = c),
-										(this.$4 = d),
-										(this.$5 = e),
-										(this.$6 = f),
-										(this.$7 = g),
-										(this.$8 = h),
-										(this.$9 = j);
-								}
-								var c = a.prototype;
-								c.resize = function(a, c) {
-									this.$7 || this.$1.resize(this.$4, a, c);
-									var d = this.$2;
-									if (this.$7) {
-										this.$1.addChanges(this.$3, { display: "block" });
-										b("ANUtils").isA9Container(this.$2) &&
-											(this.$1.resize(d, a, c),
-											(d = this.$2.ownerDocument.defaultView.frameElement));
-										this.$1.resize(d, a, c);
-										var e = b("ANUtils").getDFPRoot(d);
-										e != null
-											? this.$10(e, d, a, c)
-											: (this.$1.addChanges(d, {
-													overflow: "visible",
-													"margin-left": "auto",
-													"margin-right": "auto"
-											  }),
-											  this.$9 ||
-													this.$1.addChanges(d, { position: "initial" }));
-									}
-									this.$1.applyChanges();
-									e = d.ownerDocument.defaultView.frameElement;
-									this.$8 && e
-										? (this.$1.resize(e, a, c), this.$1.applyChanges())
-										: this.$7 && (this.$11(d), this.$1.applyChanges());
-								};
-								c.$10 = function(a, c, d, e) {
-									c = b("nullthrows")(
-										b("ANUtils").maybeHTMLElement(c.parentElement)
-									);
-									this.$1.addChanges(a, {
-										overflow: "visible",
-										"margin-left": "auto",
-										"margin-right": "auto",
-										height: "auto",
-										width: "auto"
-									});
-									this.$1.resize(c, d, e);
-									this.$1.addChanges(c, { "margin-left": "0" });
-									this.$9 ||
-										(this.$1.addChanges(a, { position: "initial" }),
-										this.$1.addChanges(c, { position: "initial" }));
-								};
-								c.restoreOriginalStyles = function() {
-									this.$1.restoreOriginalStyles();
-								};
-								c.$11 = function(a) {
-									this.$1.addChanges(a, { "max-width": "none" });
-									a = b("ANUtils").maybeHTMLElement(a.parentElement);
-									if (!a) return;
-									var c = this.$6 - a.getBoundingClientRect().left;
-									this.$1.addChanges(a, {
-										"margin-left": b("ANUtils").cssSize(c)
-									});
-									this.$1.addChanges(a, { "max-width": "none" });
-								};
-								return a;
-							})();
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ANFullWidthInline",
-						["ANStyleChangeTracker", "ANUtils"],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							a = (function() {
-								function a(a, c, d, e, f, g) {
-									(this.$1 = new (b("ANStyleChangeTracker"))(f)),
-										(this.$2 = a),
-										(this.$3 = c),
-										(this.$4 = d),
-										(this.$5 = e),
-										(this.$6 = g);
-								}
-								var c = a.prototype;
-								c.resize = function(a, c) {
-									this.$1.resize(this.$3, a, c);
-									if (this.$5) {
-										this.$1.addChanges(this.$2, { display: "block" });
-										var d = this.$7(this.$3);
-										d &&
-											(this.$1.resize(d, a, c),
-											this.$1.addChanges(d, {
-												"margin-left": "auto",
-												"margin-right": "auto"
-											}),
-											this.$1.addChanges(this.$2, { display: "block" }));
-									}
-									this.$1.applyChanges();
-									d = b("ANUtils").maybeHTMLElement(this.$3.parentElement);
-									var e = !1;
-									this.$6 && (e = this.$6.inline_resize_parent);
-									d &&
-										b("ANUtils").getElementHeight(d) < c &&
-										e === !0 &&
-										this.$1.resize(d, a, c);
-									this.$1.applyChanges();
-									this.$8();
-									this.$1.applyChanges();
-								};
-								c.restoreOriginalStyles = function() {
-									this.$1.restoreOriginalStyles();
-								};
-								c.$7 = function(a) {
-									a =
-										a.parentElement &&
-										a.parentElement.parentElement &&
-										a.parentElement.parentElement.parentElement;
-									return a && b("ANUtils").isDfpContainer(a)
-										? b("ANUtils").maybeHTMLElement(a)
-										: null;
-								};
-								c.$8 = function() {
-									var a = this.$3,
-										c = this.$4 - a.getBoundingClientRect().left;
-									this.$1.addChanges(a, {
-										"margin-left": b("ANUtils").cssSize(c),
-										"max-width": "none"
-									});
-								};
-								return a;
-							})();
-							e.exports = a;
-						},
-						null
-					);
-					__d(
-						"ANFullWidthLoader",
-						["ANFullWidthIFrame", "ANFullWidthInline", "ANUtils"],
-						function(a, b, c, d, e, f) {
-							"use strict";
-							var g = 300,
-								h = "fbOriginalHeightResizeChecks",
-								i = "ADNW_FW_PRE_RESIZE_CHECK_FAIL",
-								j = "ADNW_FW_POST_RESIZE_CHECK_FAIL",
-								k = "ADNW_FW_POST_RESIZE_CHECK_FAIL_OFF_SCREEN",
-								l = 0;
-							a = (function() {
-								function a(a, c, d, e, f, g, i, j, k, m) {
-									(this.$1 = a),
-										(this.$2 = c),
-										(this.$3 = d),
-										(this.$4 = e),
-										(this.$5 = f),
-										(this.$6 = g),
-										(this.$9 = []),
-										(this.$10 = h + l++),
-										(this.$12 = j),
-										(this.$11 = i),
-										(this.$13 = k),
-										(this.$14 = m != null && m.shouldResizeBanner),
-										(this.$15 =
-											m != null && m.shouldResizeBanner && m.isStickyBanner),
-										this.$2
-											? ((this.$7 = "iframe"),
-											  (this.$8 = new (b("ANFullWidthIFrame"))(
-													this.$2,
-													this.$3,
-													this.$4,
-													this.$6,
-													this.$11,
-													this.$12,
-													!1,
-													this.$14,
-													this.$15
-											  )))
-											: ((this.$7 = "inline"),
-											  (this.$8 = new (b("ANFullWidthInline"))(
-													this.$3,
-													this.$4,
-													i,
-													j,
-													this.$14,
-													this.$13
-											  )));
-								}
-								var c = a.prototype;
-								c.resize = function(a, c) {
-									var d = !1;
-									if (this.$1 && this.$12) {
-										d = this.$16();
-										if (!d && this.$1) {
-											this.$17();
-											return !1;
-										}
-									} else
-										this.$2 &&
-											this.$18() &&
-											(this.$8 = new (b("ANFullWidthIFrame"))(
-												this.$2,
-												this.$3,
-												this.$4,
-												this.$6,
-												this.$11,
-												this.$12,
-												!0,
-												this.$14,
-												this.$15
-											));
-									this.$8.resize(a, c);
-									this.$3.style.visibility = "";
-									if (!this.$12) return !0;
-									a = d;
-									this.$1 && d && (a = this.$19(c));
-									this.$17();
-									return a;
-								};
-								c.restoreOriginalStyles = function() {
-									this.$8.restoreOriginalStyles();
-								};
-								c.$17 = function() {
-									while (this.$9.length) {
-										var a = this.$9.pop();
-										delete a.dataset[this.$10];
-									}
-								};
-								c.$20 = function() {
-									return this.$2 ? this.$2 : this.$3;
-								};
-								c.$16 = function() {
-									var a = this.$20();
-									if (!a) return !1;
-									var c = b("ANUtils").isA9Container(this.$2);
-									if (a.ownerDocument.defaultView.frameElement && !c)
-										if (this.$2 && this.$18())
-											this.$8 = new (b("ANFullWidthIFrame"))(
-												this.$2,
-												this.$3,
-												this.$4,
-												this.$6,
-												this.$11,
-												this.$12,
-												!0,
-												this.$14,
-												this.$15
-											);
-										else {
-											this.$6.event(i, "iframe");
-											return !1;
-										}
-									if (!b("ANUtils").screenIsPortrait()) return !1;
-									c = 0;
-									var d = "";
-									while (a && b("ANUtils").shouldContinueTraversing(a))
-										(d = d || this.$21(a, c)),
-											(a.dataset[this.$10] =
-												b("ANUtils").getElementHeight(a) + ""),
-											this.$9.push(a),
-											(a = b("ANUtils").checkHTMLElement(a.parentElement)),
-											c++;
-									if (d) {
-										this.$6.event(i, d);
-										return !1;
-									}
-									return !0;
-								};
-								c.$18 = function() {
-									return (
-										this.$7 === "iframe" &&
-										this.$13 &&
-										this.$13.iframe_resize_parent === !0
-									);
-								};
-								c.$21 = function(a, c) {
-									var d = b("ANUtils").getStyle(a, "position");
-									if (
-										d &&
-										d !== "static" &&
-										!this.$15 &&
-										!(c === 0 && d === "relative")
-									)
-										if (d === "relative")
-											for (
-												var d = a.children,
-													a = ES("Array", "isArray", !1, d),
-													e = 0,
-													d = a
-														? d
-														: d[
-																typeof Symbol === "function"
-																	? Symbol.iterator
-																	: "@@iterator"
-														  ]();
-												;
-
-											) {
-												var f;
-												if (a) {
-													if (e >= d.length) break;
-													f = d[e++];
-												} else {
-													e = d.next();
-													if (e.done) break;
-													f = e.value;
-												}
-												f = f;
-												f = b("ANUtils").getStyle(f, "position");
-												if (f === "absolute") return "sibling_" + c;
-											}
-										else return "position_" + c;
-									return "";
-								};
-								c.$22 = function(a) {
-									return Object.prototype.hasOwnProperty.call(
-										a.dataset,
-										this.$10
-									)
-										? b("ANUtils").getElementHeight(a) -
-												parseInt(a.dataset[this.$10], 10)
-										: null;
-								};
-								c.$19 = function(a) {
-									var c = this.$20();
-									if (!c) return !1;
-									var d = this.$13 != null && this.$13.off_screen_10 === !0;
-									d = d ? 10 : 0;
-									if (this.$2) {
-										var e = this.$2.getBoundingClientRect();
-										if (
-											e.left < -d ||
-											e.right > b("ANUtils").getScreenWidth() + d
-										) {
-											this.$6.event(j, "off_screen");
-											e.right > b("ANUtils").getScreenWidth() + d &&
-												(this.$6.event(
-													k,
-													"" +
-														e.left +
-														"," +
-														e.right +
-														"," +
-														(b("ANUtils").getScreenWidth() + d)
-												),
-												!!this.$13 &&
-													this.$13.off_screen_fallback === !0 &&
-													b("ANUtils").getScreenWidth() + d - e.left >= g &&
-													this.resize(
-														b("ANUtils").getScreenWidth() + d - e.left,
-														a
-													));
-											return !1;
-										}
-									}
-									if (this.$14) return this.$22(c) === 0;
-									while (c && b("ANUtils").shouldContinueTraversing(c)) {
-										d = this.$22(c);
-										if (d == null) {
-											this.$6.event(j, "height_null");
-											return !1;
-										}
-										if (d === 0) {
-											this.$6.event(j, "height_unchanged");
-											return !1;
-										}
-										c = b("ANUtils").checkHTMLElement(c.parentElement);
-									}
-									return !0;
 								};
 								return a;
 							})();
@@ -4737,16 +3390,6 @@ try {
 											key: a.key,
 											top_domain: b("ANUtils").getTopDomain(),
 											payload: e.params.payload
-										}
-									]);
-								};
-								c.logPerfStats = function(a) {
-									this.$12([
-										{
-											type: "perf",
-											key: a.key,
-											top_domain: b("ANUtils").getTopDomain(),
-											payload: a.payload
 										}
 									]);
 								};
@@ -5088,52 +3731,14 @@ try {
 						null
 					);
 					__d(
-						"ANTextOnlyLoader",
-						["ANStyleChangeTracker", "ANUtils"],
+						"csx",
+						[],
 						function(a, b, c, d, e, f) {
-							"use strict";
-							a = (function() {
-								function a(a, c, d, e) {
-									(this.$1 = new (b("ANStyleChangeTracker"))()),
-										(this.$2 = a),
-										(this.$3 = c),
-										(this.$4 = d),
-										(this.$5 = e),
-										(this.$6 = this.getAdHeight()),
-										(this.$7 = b("ANUtils").getElementWidth(this.$8()));
-								}
-								var c = a.prototype;
-								c.$8 = function() {
-									return this.$2 ? this.$2 : this.$3;
-								};
-								c.getAdHeight = function() {
-									var a = this.$8();
-									return b("ANUtils").getElementHeight(a);
-								};
-								c.resize = function() {
-									var a = Math.max(210, this.$6);
-									this.$2 && this.$1.resize(this.$2, this.$7, a);
-									this.$1.resize(this.$4, this.$7, a);
-									this.$1.resize(this.$5, this.$7, a);
-									var b = this.$9(this.$4);
-									b && this.$1.resize(b, this.$7, a);
-									this.$1.applyChanges();
-								};
-								c.restoreOriginalStyles = function() {
-									this.$1.restoreOriginalStyles();
-								};
-								c.$9 = function(a) {
-									a =
-										a.parentElement &&
-										a.parentElement.parentElement &&
-										a.parentElement.parentElement.parentElement;
-									return a && b("ANUtils").isDfpContainer(a) ? a : null;
-								};
-								c.getBackgroundColor = function() {
-									return b("ANUtils").getStyle(this.$5, "background-color");
-								};
-								return a;
-							})();
+							function a(a) {
+								throw new Error(
+									"csx: Unexpected class selector transformation."
+								);
+							}
 							e.exports = a;
 						},
 						null
@@ -6210,6 +4815,27 @@ try {
 								};
 								return a;
 							})();
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"joinClasses",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							function a(a) {
+								var b = a || "",
+									c = arguments.length <= 1 ? 0 : arguments.length - 1;
+								for (var d = 0; d < c; d++) {
+									var e =
+										d + 1 < 1 || arguments.length <= d + 1
+											? void 0
+											: arguments[d + 1];
+									e != null && e !== "" && (b = (b ? b + " " : "") + e);
+								}
+								return b;
+							}
 							e.exports = a;
 						},
 						null
@@ -7441,6 +6067,28 @@ try {
 										a
 									);
 								};
+								return a;
+							})();
+							e.exports = a;
+						},
+						null
+					);
+					__d(
+						"OnScreenBehavior.anweb",
+						[],
+						function(a, b, c, d, e, f) {
+							"use strict";
+							a = (function() {
+								function a() {}
+								var b = a.prototype;
+								b.onPartiallyEntered = function() {};
+								b.onMostlyEntered = function() {};
+								b.onCompletelyEntered = function() {};
+								b.onPartiallyLeft = function() {};
+								b.onMostlyLeft = function() {};
+								b.onCompletelyLeft = function() {};
+								b.onBecameInvalid = function() {};
+								b.onBecameValid = function() {};
 								return a;
 							})();
 							e.exports = a;
@@ -11109,21 +9757,16 @@ try {
 							"AdViewability",
 							"AMPContextLoader",
 							"ANAdChoices",
-							"ANBanner",
 							"ANBounceBackManager",
 							"ANCallbackManager",
-							"ANCarousel",
-							"ANCollage",
 							"ANDPAContainer",
 							"ANEventCounter",
-							"ANFullWidthLoader",
 							"ANLinkOpener",
 							"ANLogger",
 							"ANMoatSivt",
 							"ANPageNavigationManager",
 							"ANRewardedVideoPlayer",
 							"ANStitchedImage",
-							"ANTextOnlyLoader",
 							"ANUtils",
 							"ANWebTwoStepClickDialog",
 							"ANWebVideoLogger.anweb",
@@ -11178,54 +9821,53 @@ try {
 							a = (function() {
 								function a(a, c) {
 									var d = this;
-									this.$96 = function() {
-										var a = b("nullthrows")(d.$28);
-										d.$23.eventWithParams({
+									this.$82 = function() {
+										var a = b("nullthrows")(d.$25);
+										d.$20.eventWithParams({
 											event_name: "VIDEO_CLICK",
 											video_playback_time: a.getCurrentTime(),
 											video_duration: a.getDuration()
 										});
 									};
-									this.$27 = new (b("ANCallbackManager"))(
+									this.$24 = new (b("ANCallbackManager"))(
 										c,
 										a.onMediaLoaded,
 										a.onRewardCompleted,
 										a.onAdClosed
 									);
 									this.$5 = a;
-									this.$22 = new (b("ANEventCounter"))();
-									this.$13 = !1;
-									this.$14 = !1;
-									this.$25 = !1;
+									this.$19 = new (b("ANEventCounter"))();
+									this.$11 = !1;
+									this.$12 = !1;
+									this.$22 = !1;
 									this.$4 = !1;
-									this.$22.addListener(function() {
-										return d.$27.mediaLoaded();
+									this.$19.addListener(function() {
+										return d.$24.mediaLoaded();
 									});
-									this.$10 = a.displayFormat || a.format || "300x250";
+									this.$8 = a.displayFormat || a.format || "300x250";
 									this.tagJsIframeAppendedTime = a.tagJsIframeAppendedTime;
-									this.$23 = new (b("ANLogger"))(
+									this.$20 = new (b("ANLogger"))(
 										3,
 										a.tagJsInitTime,
 										b("ANUtils").getNavigationStart(),
-										this.$33(),
+										this.$29(),
 										a.iframe,
 										a.domain
 									);
-									this.$11 = c;
-									this.$12 = new (b("HTMLElementFrameContext.adquality"))(
-										this.$11,
-										this.$34()
+									this.$9 = c;
+									this.$10 = new (b("HTMLElementFrameContext.adquality"))(
+										this.$9,
+										this.$30()
 									);
 									this.$2 = null;
 									this.$3 = null;
-									this.$20 = new (b("OnScreenBehaviorManager.anweb"))();
-									this.$24 = new (b("ANLinkOpener"))(this.$11);
-									this.$30 = !1;
-									this.$31 = "image";
-									this.$32 = 1;
+									this.$18 = new (b("OnScreenBehaviorManager.anweb"))();
+									this.$21 = new (b("ANLinkOpener"))(this.$9);
+									this.$27 = "image";
+									this.$28 = 1;
 								}
 								var c = a.prototype;
-								c.$33 = function() {
+								c.$29 = function() {
 									return b("ANUtils").onlyString(this.$5.data.key);
 								};
 								c.sendToFacebook = function(a) {
@@ -11235,280 +9877,200 @@ try {
 										a
 									);
 								};
-								c.$34 = function() {
-									return this.$11.ownerDocument.defaultView;
+								c.$30 = function() {
+									return this.$9.ownerDocument.defaultView;
 								};
-								c.$35 = function() {
-									return this.$34().frameElement;
+								c.$31 = function() {
+									return this.$30().frameElement;
 								};
-								c.$36 = function(a) {
+								c.$32 = function(a) {
 									a = a.ownerDocument;
 									var c = a.createElement("style");
 									c.innerText = b("JSSDKCssConfig").rules;
 									a.body && a.body.appendChild(c);
 								};
-								c.$37 = function() {
-									return b("nullthrows")(this.$26);
+								c.$33 = function() {
+									return b("nullthrows")(this.$23);
 								};
-								c.$38 = function() {
-									var a = this.$39() ? this.$8 || this.$11 : this.$11;
+								c.$34 = function() {
+									var a = this.$35() ? this.$6 || this.$9 : this.$9;
 									return a.getElementsByClassName("adnwTextOnlyXOut")[0];
 								};
-								c.$40 = function() {
-									if (!this.$37().$41) return !1;
-									var a = this.$42();
+								c.$36 = function() {
+									if (!this.$33().$37) return !1;
+									var a = this.$38();
 									return (
 										(a.clientWidth >= 300 && a.clientHeight >= 250) ||
-										this.$43() ||
-										this.$44()
+										this.$39() ||
+										this.$40()
 									);
 								};
-								c.$45 = function(a, c) {
-									var d = this,
-										e = this.$42();
-									if (!this.$40()) {
-										if (this.$37().$46.anXOutIcon) {
-											var f = document.createElement("a");
-											this.$37().$46.padXoutArea === !0
-												? (f.className = b("joinClasses")(
+								c.$41 = function(a) {
+									var c = this,
+										d = this.$38();
+									if (!this.$36()) {
+										if (this.$33().$42.anXOutIcon) {
+											var e = document.createElement("a");
+											this.$33().$42.padXoutArea === !0
+												? (e.className = b("joinClasses")(
 														"_6qhg",
 														"_7-er",
 														"_8bwk"
 												  ))
-												: (f.className = b("joinClasses")("_6qhg", "_7-er"));
-											f.href = b("nullthrows")(a.adChoicesHref);
-											f.target = "_blank";
-											e.appendChild(f);
+												: (e.className = b("joinClasses")("_6qhg", "_7-er"));
+											e.href = b("nullthrows")(a.adChoicesHref);
+											e.target = "_blank";
+											d.appendChild(e);
 											return;
 										}
-										f = new (b("ANAdChoices"))(e, a, this.$23, this.$37().$46);
-										f.render();
+										e = new (b("ANAdChoices"))(d, a, this.$20, this.$33().$42);
+										e.render();
 										return;
 									}
-									f = null;
-									this.$29
-										? (f = this.$29.getXoutButton())
-										: this.$44() && (f = this.$38());
-									if (f == null) {
-										f = document.createElement("a");
-										f.href = "#";
-										var g;
-										this.$37().$46.useCardDesign
-											? (g = ["_6qhg", "fbAdXOutButton"])
-											: (g = ["_6qhg"]);
-										this.$37().$46.anXOutIcon
-											? (g.push("_7-er"),
-											  this.$37().$46.padXoutArea === !0 && g.push("_8bwk"))
-											: this.$37().$46.padXoutArea === !0 && g.push("_8bwk");
-										f.className = b("joinClasses").apply(void 0, g);
-										e.appendChild(f);
+									e = null;
+									this.$26
+										? (e = this.$26.getXoutButton())
+										: this.$40() && (e = this.$34());
+									if (e == null) {
+										e = document.createElement("a");
+										e.href = "#";
+										var f;
+										this.$33().$42.useCardDesign
+											? (f = ["_6qhg", "fbAdXOutButton"])
+											: (f = ["_6qhg"]);
+										this.$33().$42.anXOutIcon
+											? (f.push("_7-er"),
+											  this.$33().$42.padXoutArea === !0 && f.push("_8bwk"))
+											: this.$33().$42.padXoutArea === !0 && f.push("_8bwk");
+										e.className = b("joinClasses").apply(void 0, f);
+										d.appendChild(e);
 									}
-									var h = this.$44()
-											? new (b("ANTextOnlyLoader"))(
-													this.$35(),
-													this.$11,
-													this.$9,
-													e
-											  )
-											: null,
-										i = "inline-condensed";
-									g = this.$37().$47;
-									if (g != null) {
-										var j = new (b("ANXOut"))({
-											parentEl: e,
+									var g = "inline-condensed";
+									f = this.$33().$43;
+									if (f != null) {
+										d = new (b("ANXOut"))({
+											parentEl: d,
 											adIcon: b("nullthrows")(a.adIcon),
 											adChoicesLink: b("nullthrows")(a.adChoicesHref),
-											content: g,
-											buttonEl: f,
-											isCondensed: this.$44(),
+											content: f,
+											buttonEl: e,
+											isCondensed: this.$40(),
 											onXOutStart: function() {
-												h &&
-													c &&
-													(j.setOverlayBackgroundColor(h.getBackgroundColor()),
-													h.resize(),
-													c.resize(d.$15, h.getAdHeight())),
-													d.$23.event("ADNW_XOUT_START", i);
+												c.$20.event("ADNW_XOUT_START", g);
 											},
 											onXOutCancel: function() {
-												h &&
-													c &&
-													(h.restoreOriginalStyles(),
-													c.resize(d.$15, h.getAdHeight())),
-													d.$23.event("ADNW_XOUT_CANCEL", i);
+												c.$20.event("ADNW_XOUT_CANCEL", g);
 											},
 											onXOutOption: function(a) {
-												d.sendToFacebook({
+												c.sendToFacebook({
 													name: "xout",
-													params: { key: d.$33(), reason: a, type: i }
+													params: { key: c.$29(), reason: a, type: g }
 												}),
-													d.$23.event("ADNW_XOUT_OPTION", a);
+													c.$20.event("ADNW_XOUT_OPTION", a);
 											},
 											onXOutFinish: function() {
-												d.$27.adClosed(), d.$23.event("ADNW_XOUT_FINISH");
+												c.$24.adClosed(), c.$20.event("ADNW_XOUT_FINISH");
 											}
 										});
-										j.render();
+										d.render();
 									}
 									return;
 								};
-								c.$48 = function(a) {
+								c.$44 = function(a) {
 									return (
 										a.creativeMarkup != null && a.creativeMarkup.raw != null
 									);
 								};
-								c.$49 = function() {
+								c.$45 = function() {
 									return !0;
 								};
-								c.$50 = function() {
-									var a = !!this.$37().$46.isIab,
-										b = !!this.$37().$46.useCardDesign;
-									if (b) return this.$42().offsetHeight + l;
-									else if (a) return this.$15 * j;
-									return this.$42().offsetHeight;
+								c.$46 = function() {
+									var a = !!this.$33().$42.isIab,
+										b = !!this.$33().$42.useCardDesign;
+									if (b) return this.$38().offsetHeight + l;
+									else if (a) return this.$13 * j;
+									return this.$38().offsetHeight;
 								};
 								c.renderAd = function(a, c, d) {
 									var e = this,
 										f = a.features || {};
-									this.$26 = {
-										$51: !!f.clickOpenNewTab,
-										$52: f.appIDHashed || "",
-										$46: f,
-										$41: f.inlineXOut,
-										$53: !!f.useIntersectionObserver,
-										$47: a.xout,
-										$54: f.clickGuardElements || i,
-										$55: f.fullwidthMinAspectRatio || 1.5,
-										$56: f.pubSideLogging === !0,
-										$57: f.moatUrl,
-										$58: f.earlyAdLoaded === !0,
-										$59: f.playWhenMostlyVisible === !0,
-										$60: a.topDomain
+									this.$23 = {
+										$47: !!f.clickOpenNewTab,
+										$48: f.appIDHashed || "",
+										$42: f,
+										$37: f.inlineXOut,
+										$49: !!f.useIntersectionObserver,
+										$43: a.xout,
+										$50: f.clickGuardElements || i,
+										$51: f.fullwidthMinAspectRatio || 1.5,
+										$52: f.pubSideLogging === !0,
+										$53: f.moatUrl,
+										$54: f.earlyAdLoaded === !0,
+										$55: f.playWhenMostlyVisible === !0,
+										$56: a.topDomain
 									};
-									this.$23.setLogLevel(this.$37().$46.logLevel || 3);
-									this.$23.frameReady();
-									this.$23.setUnifiedLoggingURL(a.unifiedLoggingURL);
+									this.$20.setLogLevel(this.$33().$42.logLevel || 3);
+									this.$20.frameReady();
+									this.$20.setUnifiedLoggingURL(a.unifiedLoggingURL);
 									this.$1 = b("getTime")();
-									f = this.$61();
+									f = this.$57();
 									if (f === "SAFE_FRAME" || f === "NESTED_SAFE_FRAME") {
-										f = this.$12.getSafeFrameAPI();
+										f = this.$10.getSafeFrameAPI();
 										if (f) {
 											f = f.supports();
 											f["exp-push"]
-												? this.$23.event(
+												? this.$20.event(
 														"ADNW_SAFEFRAME_PUSH_EXPANSION_ENABLED"
 												  )
 												: f["exp-ovr"]
-													? this.$23.event(
+													? this.$20.event(
 															"ADNW_SAFEFRAME_ONLY_OVERLAY_EXPANSION_ENABLED"
 													  )
-													: this.$23.event(
+													: this.$20.event(
 															"ADNW_SAFEFRAME_ALL_EXPANSIONS_DISABLED"
 													  );
 										}
 									}
-									this.$37().$46.rp && this.$27.enableReward();
-									var g = 0,
-										h = !!a.creativeMarkupBackup;
+									this.$33().$42.rp && this.$24.enableReward();
+									!!a.creativeMarkupBackup;
 									!a.nativeAd
-										? (this.$11.style.display = "")
-										: (this.$48(a) &&
-												(this.$39() ? this.$62() : this.$63(),
-												(this.$37().$46.resizeMediaView ||
-													this.$37().$46.shouldResizeBanner) &&
-													((this.$11.style.visibility = "hidden"),
-													(g = this.$64()))),
-										  this.$65(
+										? (this.$9.style.display = "")
+										: (this.$44(a) &&
+												(this.$35() ? this.$58() : this.$59(),
+												(this.$33().$42.resizeMediaView ||
+													this.$33().$42.shouldResizeBanner) &&
+													((this.$9.style.visibility = "hidden"), this.$60())),
+										  this.$61(
 												a,
 												b("nullthrows")(a.creativeMarkup),
-												this.$11,
+												this.$9,
 												c,
-												!!this.$37().$46.resizeMediaView
+												!!this.$33().$42.resizeMediaView
 										  ));
-									this.$42().classList.add("fbAdLoaded");
-									this.$37().$58 && d(a.placementId);
-									if (
-										this.$37().$46.resizeMediaView ||
-										this.$37().$46.shouldResizeBanner
-									) {
-										var j = {
-											shouldResizeBanner: !!this.$37().$46.shouldResizeBanner,
-											isStickyBanner: this.$66()
-										};
-										window.setTimeout(function() {
-											var c = new (b("ANFullWidthLoader"))(
-													h,
-													e.$35(),
-													e.$11,
-													e.$9,
-													e.$15,
-													e.$23,
-													g,
-													e.$49(),
-													e.$37().$46.fwResizeGKs,
-													j
-												),
-												d = e.$42();
-											d.style.width = b("ANUtils").cssSize(e.$15);
-											e.$6 && e.$6.ensureSizes();
-											d = e.$50();
-											d = c.resize(e.$15, d);
-											d && ((e.$13 = !0), (e.$14 = !!a.nativeCarouselAds));
-											e.$45(b("nullthrows")(a.nativeAd), c);
-											if (h) {
-												var f = function() {
-													(b("nullthrows")(
-														a.creativeMarkupBackup
-													).use_carousel_stitch = !0),
-														c.restoreOriginalStyles(),
-														e.$67(a, b("nullthrows")(a.creativeMarkupBackup)),
-														(e.$13 = !1),
-														(e.$14 = !1),
-														e.$45(b("nullthrows")(a.nativeAd)),
-														(e.$11.style.visibility = "visible");
-												};
-												if (!d) f();
-												else {
-													d = function a() {
-														b("ANUtils").screenIsPortrait() ||
-															(window.removeEventListener(
-																"orientationchange",
-																a
-															),
-															f());
-													};
-													window.addEventListener("orientationchange", d);
-												}
-											}
-										}, 0);
-									} else this.$45(b("nullthrows")(a.nativeAd));
-									this.$19 = this.$68(a.nativeAd, this.$11, c);
-									this.$69(!!b("nullthrows")(a.nativeAd).adVideo);
-									this.$23.eventWithParams(this.$70("ADNW_ADLOADED"));
-									f = new (b("ANPageNavigationManager"))(window.document);
-									f.onNavigation(function() {
-										e.$71();
+									this.$38().classList.add("fbAdLoaded");
+									this.$33().$54 && d(a.placementId);
+									this.$41(b("nullthrows")(a.nativeAd));
+									this.$17 = this.$62(a.nativeAd, this.$9, c);
+									this.$63(!!b("nullthrows")(a.nativeAd).adVideo);
+									this.$20.eventWithParams(this.$64("ADNW_ADLOADED"));
+									new (b("ANPageNavigationManager"))(window.document);
+									this.$65();
+									this.$33().$54 || d(a.placementId);
+									this.$30().addEventListener("beforeunload", function() {
+										e.$20.event("ADNW_PAGE_UNLOADED");
 									});
-									this.$72();
-									this.$37().$58 || d(a.placementId);
-									this.$34().addEventListener("beforeunload", function() {
-										e.$23.event("ADNW_PAGE_UNLOADED"), e.$71();
-									});
-									if (this.$73()) {
-										c = new (b("ANBanner"))(this.$42(), this.$37().$46);
-										c.init();
-									}
-									b("ANUtils").autofitTextWhereNeeded(this.$42(), function() {
-										e.$23.event("ADNW_TEXT_AUTOFIT_ERROR");
+									b("ANUtils").autofitTextWhereNeeded(this.$38(), function() {
+										e.$20.event("ADNW_TEXT_AUTOFIT_ERROR");
 									});
 								};
-								c.$70 = function(a) {
-									var c = this.$18;
+								c.$64 = function(a) {
+									var c = this.$16;
 									if (!c)
 										return {
 											event_name: a,
 											viewability: b("AdViewability").UNKNOWN
 										};
-									c = this.$18.getLastViewabilityState();
+									c = this.$16.getLastViewabilityState();
 									return {
 										event_name: a,
 										viewability: c.viewabilityLevels.join(","),
@@ -11524,30 +10086,30 @@ try {
 										viewable_reason: c.viewabilityReason || ""
 									};
 								};
-								c.$72 = function() {
-									var a = this.$37().$46.forceIframeSize;
+								c.$65 = function() {
+									var a = this.$33().$42.forceIframeSize;
 									if (a) {
-										var c = this.$35();
+										var c = this.$31();
 										c &&
 											((c.style.width = b("ANUtils").cssSize(a.w)),
 											(c.style.height = b("ANUtils").cssSize(a.h)));
 									}
 								};
-								c.$64 = function() {
+								c.$60 = function() {
 									var a = 300,
-										c = this.$37().$46.fwResizeGKs;
+										c = this.$33().$42.fwResizeGKs;
 									c = c && c.iframe_resize_parent === !0;
 									var d = b("ANUtils").getScreenWidth(),
-										e = this.$35() || this.$11;
+										e = this.$31() || this.$9;
 									e = b("ANUtils").findWidestParentElement(e, c);
 									c = b("ANUtils").calculateLargestMargin(e);
-									this.$15 = d - c * 2;
-									this.$15 < a &&
-										((this.$15 = a), (c = e.getBoundingClientRect().right - a));
+									this.$13 = d - c * 2;
+									this.$13 < a &&
+										((this.$13 = a), (c = e.getBoundingClientRect().right - a));
 									return c;
 								};
-								c.$62 = function() {
-									var a = h[this.$10],
+								c.$58 = function() {
+									var a = h[this.$8],
 										c = a[0];
 									a = a[1];
 									var d = document.createElement("iframe");
@@ -11555,7 +10117,7 @@ try {
 									d.style.border = "0";
 									d.style.width = b("ANUtils").cssSize(c);
 									d.style.height = b("ANUtils").cssSize(a);
-									this.$11.appendChild(d);
+									this.$9.appendChild(d);
 									d.contentDocument.open();
 									d.contentDocument.close();
 									c = b("nullthrows")(d.contentDocument.body);
@@ -11563,15 +10125,15 @@ try {
 									c.style.margin = "0";
 									c.style.padding = "0";
 									c.style.maxWidth = b("ANUtils").getScreenWidth() + "px";
-									this.$8 = c;
-									this.$9 = d;
+									this.$6 = c;
+									this.$7 = d;
 								};
-								c.$63 = function() {
+								c.$59 = function() {
 									var a = document.createElement("div");
 									a.style.textAlign = "center";
 									a.style.position = "relative";
-									this.$11.appendChild(a);
-									this.$9 = a;
+									this.$9.appendChild(a);
+									this.$7 = a;
 									var c = document.createElement("div");
 									c.style.maxWidth = b("ANUtils").cssSize(
 										b("ANUtils").getScreenWidth()
@@ -11580,21 +10142,21 @@ try {
 									c.style.position = "relative";
 									c.style.display = "inline-block";
 									a.appendChild(c);
-									this.$8 = c;
+									this.$6 = c;
 								};
-								c.$42 = function() {
-									var a = this.$39() ? this.$8 || this.$11 : this.$11;
+								c.$38 = function() {
+									var a = this.$35() ? this.$6 || this.$9 : this.$9;
 									return (
 										a.getElementsByClassName("fbANRoot")[0] ||
 										a.getElementsByClassName("thirdPartyRoot")[0] ||
 										a
 									);
 								};
-								c.$65 = function(a, b, c, d, e) {
+								c.$61 = function(a, b, c, d, e) {
 									(a.nativeAd.loaded = !1),
-										b.raw && ((this.$8.innerHTML = b.raw), (c = this.$8)),
-										c && ((c = this.$42()), this.$36(c)),
-										(this.$17 = this.$74(
+										b.raw && ((this.$6.innerHTML = b.raw), (c = this.$6)),
+										c && ((c = this.$38()), this.$32(c)),
+										(this.$15 = this.$66(
 											c,
 											a.requestId,
 											a.creativeMarkup,
@@ -11604,53 +10166,53 @@ try {
 											m(b.video)
 										));
 								};
-								c.$75 = function(a) {
-									return !!this.$37().$46.useDPADesign && a && a.length > 2;
+								c.$67 = function(a) {
+									return !!this.$33().$42.useDPADesign && a && a.length > 2;
 								};
-								c.$76 = function(a, c, d, e) {
-									var f = this.$75(c);
+								c.$68 = function(a, c, d, e) {
+									var f = this.$67(c);
 									if (!f && (!d || c)) return;
 									d = f ? b("nullthrows")(c)[0] : a;
-									f = this.$77(d);
-									this.$37().$46.useCardDesign
+									f = this.$69(d);
+									this.$33().$42.useCardDesign
 										? b("ANUtils").resizeElement(
 												e,
-												this.$15 - k,
-												Math.round((this.$15 - k) / f)
+												this.$13 - k,
+												Math.round((this.$13 - k) / f)
 										  )
 										: b("ANUtils").resizeElement(
 												e,
-												this.$15,
-												Math.round(this.$15 / f)
+												this.$13,
+												Math.round(this.$13 / f)
 										  );
 								};
-								c.$78 = function() {
-									this.$23.eventWithParams(
-										this.$70("ADNW_MOSTLY_VIEWABLE_FOR_1S")
+								c.$70 = function() {
+									this.$20.eventWithParams(
+										this.$64("ADNW_MOSTLY_VIEWABLE_FOR_1S")
 									);
 								};
-								c.$79 = function() {
+								c.$71 = function() {
 									if (this.$2) {
-										this.$23.error("Multiple ADIMPRESSION attempted.");
+										this.$20.error("Multiple ADIMPRESSION attempted.");
 										return;
 									}
 									this.$2 = b("getTime")();
-									var a = this.$80();
+									var a = this.$72();
 									this.sendToFacebook({
 										name: "impress",
-										params: { key: this.$33(), payload: a }
+										params: { key: this.$29(), payload: a }
 									});
-									this.$23.eventWithParams(this.$70("ADNW_ADIMPRESSION"));
-									this.$40() && this.$23.event("ADNW_HAS_INLINE_XOUT");
-									this.$81();
+									this.$20.eventWithParams(this.$64("ADNW_ADIMPRESSION"));
+									this.$36() && this.$20.event("ADNW_HAS_INLINE_XOUT");
+									this.$73();
 								};
-								c.$81 = function() {
+								c.$73 = function() {
 									var a = this,
-										c = this.$37().$57;
+										c = this.$33().$53;
 									if (c == null) return;
-									var d = this.$11;
+									var d = this.$9;
 									if (d == null) {
-										this.$23.error("missing ad element");
+										this.$20.error("missing ad element");
 										return;
 									}
 									c = new (b("ANMoatSivt"))(c, d.ownerDocument);
@@ -11660,21 +10222,21 @@ try {
 											.then(function(b) {
 												a.sendToFacebook({
 													name: "moat_sivt",
-													params: { key: a.$33(), payload: b }
+													params: { key: a.$29(), payload: b }
 												});
 											})
 											["catch"](function(b) {
-												return a.$23.error(b);
+												return a.$20.error(b);
 											})
 									);
 								};
-								c.$61 = function() {
-									var a = this.$12.getSafeFrameAPI();
-									if (this.$12.isCrossDomain() && !a)
+								c.$57 = function() {
+									var a = this.$10.getSafeFrameAPI();
+									if (this.$10.isCrossDomain() && !a)
 										return b("AMPContextLoader").isAMP()
 											? "AMP"
 											: "CROSS_DOMAIN_IFRAME";
-									var c = this.$12.getNestLevel();
+									var c = this.$10.getNestLevel();
 									if (c === 0) return "NO_IFRAME";
 									return c > 1
 										? a
@@ -11684,7 +10246,7 @@ try {
 											? "SAFE_FRAME"
 											: "FRIENDLY_IFRAME";
 								};
-								c.$68 = function(a, b, c) {
+								c.$62 = function(a, b, c) {
 									a = a && b;
 									if (a) {
 										b = a.getBoundingClientRect();
@@ -11697,30 +10259,27 @@ try {
 									}
 									return c;
 								};
-								c.$69 = function(a) {
+								c.$63 = function(a) {
 									var c = this,
 										d;
-									this.$18 = new (b("AdQualityViewabilityMonitor"))(
-										this.$19,
-										this.$37().$53
+									this.$16 = new (b("AdQualityViewabilityMonitor"))(
+										this.$17,
+										this.$33().$49
 									);
-									this.$18.attachBehaviorManager(this.$20);
+									this.$16.attachBehaviorManager(this.$18);
 									var e = new (b("AdImpressionBehavior.anweb"))(
 										function() {
-											(!a || !c.$82()) &&
-												(c.$83(),
-												a && c.$23.event("ADNW_VIDEO_IMPRESSION_ON_VISIBLE"));
+											(!a || !c.$74()) &&
+												(c.$75(),
+												a && c.$20.event("ADNW_VIDEO_IMPRESSION_ON_VISIBLE"));
 										},
 										function() {
-											return c.$23.event("ADNW_PARTIAL_ADIMPRESSION");
+											return c.$20.event("ADNW_PARTIAL_ADIMPRESSION");
 										}
 									);
-									this.$84() &&
-										((this.$21 = new (b("AdStatsBehavior.anweb"))()),
-										this.$20.addBehavior(this.$21));
-									this.$20.addBehavior(e);
+									this.$18.addBehavior(e);
 									d =
-										(d = this.$11) == null
+										(d = this.$9) == null
 											? void 0
 											: d.getElementsByClassName("_74-1");
 									if (d !== null && d.length > 0) {
@@ -11759,120 +10318,37 @@ try {
 											attributeFilter: ["class"]
 										});
 									} else
-										this.$22.addListener(function() {
+										this.$19.addListener(function() {
 											return e.mediaLoaded();
 										});
-									if (this.$37().$46.useMostlyViewableImp) {
+									if (this.$33().$42.useMostlyViewableImp) {
 										var g = new (b("AdMostlyViewableImpressionBehavior.anweb"))(
 											function() {
-												return c.$78();
+												return c.$70();
 											}
 										);
-										this.$20.addBehavior(g);
-										this.$22.addListener(function() {
+										this.$18.addBehavior(g);
+										this.$19.addListener(function() {
 											return g.mediaLoaded();
 										});
 									}
 								};
-								c.$77 = function(a) {
+								c.$69 = function(a) {
 									if (a.adImageAspectRatio != null && a.adImageAspectRatio > 0)
-										return Math.max(a.adImageAspectRatio, this.$37().$55);
+										return Math.max(a.adImageAspectRatio, this.$33().$51);
 									else if (a.adVideo) return 1.75;
 									else return 1.9;
 								};
-								c.$85 = function(a, c, d, e, f) {
-									this.$37().$46.isIab || this.$37().$46.useBannerV3
-										? (this.$86(a, d), (this.$31 = "image"))
-										: this.$75(e) && c
-											? (this.$87(a, b("nullthrows")(e)),
-											  (this.$31 = "dpa"),
-											  (this.$32 = b("nullthrows")(e).length))
-											: (this.$37().$46.useLargeCarousel ||
-													this.$37().$46.useLargeCarouselWithCounter) &&
-											  e &&
-											  c &&
-											  !c.use_carousel_stitch
-												? (this.$88(a, e),
-												  (this.$31 = "carousel"),
-												  (this.$32 = e.length))
-												: this.$37().$46.useClientSideCarouselCollage &&
-												  e &&
-												  c &&
-												  !c.use_carousel_stitch
-													? (this.$89(a, e),
-													  (this.$31 = "collage"),
-													  (this.$32 = e.length))
-													: e && c && !c.use_carousel_stitch
-														? (this.$88(a, e),
-														  (this.$31 = "carousel"),
-														  (this.$32 = e.length))
-														: d.adVideo
-															? (this.$90(a, d, f), (this.$31 = "video"))
-															: e && c && c.use_carousel_stitch && e.length > 1
-																? (this.$91(a, e),
-																  (this.$31 = "stitched_carousel"))
-																: (this.$86(a, d), (this.$31 = "image"));
+								c.$76 = function(a, b, c, d, e) {
+									this.$33().$42.isIab || this.$33().$42.useBannerV3
+										? (this.$77(a, c), (this.$27 = "image"))
+										: c.adVideo
+											? (this.$78(a, c, e), (this.$27 = "video"))
+											: d && b && b.use_carousel_stitch && d.length > 1
+												? (this.$79(a, d), (this.$27 = "stitched_carousel"))
+												: (this.$77(a, c), (this.$27 = "image"));
 								};
-								c.$92 = function(a, c) {
-									var d = "",
-										e = this.$37().$46.dpaPriceLabels;
-									e != null && (d = e[0]);
-									e = new (b("ANDPAContainer"))(d, c.adTitle || "");
-									d = e.getElement();
-									this.$86(d, c);
-									a.appendChild(d);
-								};
-								c.$87 = function(a, b) {
-									this.$92(a, b[0]), this.$88(a, b.slice(1));
-								};
-								c.$88 = function(a, c) {
-									var d = this,
-										e = new (b("ANCarousel"))({
-											parent: a,
-											ads: c,
-											onCriticalAnimationStart: function() {
-												d.$18.pause();
-											},
-											onCriticalAnimationEnd: function() {
-												d.$18.resume();
-											},
-											onEvent: function(a, b) {
-												switch (a) {
-													case "AN_CAROUSEL_EVENT_SWIPE":
-														d.$23.eventWithParams({
-															event_name: "CAROUSEL_SWIPE",
-															index: b.index,
-															direction: b.direction
-														});
-												}
-											},
-											onLoadEventCounter: this.$22,
-											adFeatures: this.$37().$46,
-											onScreenBehaviorManager: this.$20
-										});
-									a.appendChild(e.getElement());
-									e.ensureSizes();
-									ES(e.getLinks(), "forEach", !0, function(a, b) {
-										d.$93(a, c[b]);
-									});
-									this.$6 = e;
-								};
-								c.$89 = function(a, c) {
-									var d = this,
-										e = !!this.$37().$46.useExtendedCollage;
-									e = new (b("ANCollage"))({
-										ads: c,
-										onLoadEventCounter: this.$22,
-										adFeatures: this.$37().$46,
-										extended: e
-									});
-									a.appendChild(e.getElement());
-									ES(e.getCells(), "forEach", !0, function(a, b) {
-										d.$93(a, c[b]);
-									});
-									this.$7 = e;
-								};
-								c.$94 = function(a) {
+								c.$80 = function(a) {
 									var c = b("nullthrows")(a.parentElement);
 									c.style.overflow = "hidden";
 									var d = c.ownerDocument.defaultView.getComputedStyle(c)
@@ -11893,64 +10369,64 @@ try {
 									d.dataset.fbImageBackdrop = "true";
 									c.insertBefore(d, a);
 								};
-								c.$86 = function(a, b) {
-									var c = this.$95(b);
+								c.$77 = function(a, b) {
+									var c = this.$81(b);
 									a.firstChild
 										? a.insertBefore(c, a.firstChild)
 										: a.appendChild(c);
 									b.adImageAspectRatio &&
 										(b.adImageAspectRatio < 1.92 ||
-											this.$37().$46.useBannerV3) &&
-										this.$94(c);
+											this.$33().$42.useBannerV3) &&
+										this.$80(c);
 								};
-								c.$91 = function(a, c) {
-									var d = new (b("ANStitchedImage"))(this.$22, this.$23);
+								c.$79 = function(a, c) {
+									var d = new (b("ANStitchedImage"))(this.$19, this.$20);
 									a.appendChild(d.render(c[0], c[1]));
 								};
-								c.$90 = function(a, c, d) {
+								c.$78 = function(a, c, d) {
 									var e = this;
 									if (!c.adVideo) throw new Error("No video for Ad.");
-									this.$22.addRequiredEvent();
+									this.$19.addRequiredEvent();
 									d = new (b("ANWebVideoPlayer.anweb"))(
 										b("nullthrows")(c.adVideo),
 										b("nullthrows")(c.adImage),
 										d,
 										c.hasSound === !0,
 										function() {
-											e.$22.requiredEventFired();
+											e.$19.requiredEventFired();
 										},
-										this.$96
+										this.$82
 									);
-									c = this.$43() && this.$27.isRewardEnabled();
+									c = this.$39() && this.$24.isRewardEnabled();
 									if (c) {
-										var f = b("nullthrows")(this.$8);
-										this.$29 = new (b("ANRewardedVideoPlayer"))(
-											this.$27,
+										var f = b("nullthrows")(this.$6);
+										this.$26 = new (b("ANRewardedVideoPlayer"))(
+											this.$24,
 											f,
 											d,
-											Boolean(this.$37().$41)
+											Boolean(this.$33().$37)
 										);
-										this.$29.makeRewarded();
+										this.$26.makeRewarded();
 										f.style.maxWidth = "";
-										this.$9 &&
-											((this.$9.style.maxWidth = "100vw"),
-											(this.$9.style.maxHeight = "100vh"));
+										this.$7 &&
+											((this.$7.style.maxWidth = "100vw"),
+											(this.$7.style.maxHeight = "100vh"));
 									}
 									f = new (b("AudienceNetworkHTMLVideoPlayer"))(
 										d.getVideoElement(),
 										!0
 									);
 									var g = new (b("ANWebVideoLogger.anweb"))(
-										this.$37().$46.logVideoEvents === !0,
+										this.$33().$42.logVideoEvents === !0,
 										f,
-										this.$33(),
-										this.$23,
+										this.$29(),
+										this.$20,
 										function(a) {
 											return e.sendToFacebook(a);
 										},
 										function() {
-											e.$82() &&
-												(e.$83(), e.$23.event("ADNW_VIDEO_IMPRESSION_ON_PLAY"));
+											e.$74() &&
+												(e.$75(), e.$20.event("ADNW_VIDEO_IMPRESSION_ON_PLAY"));
 										}
 									);
 									g = new (b("AudienceNetworkVideoMonitor"))(
@@ -11959,44 +10435,44 @@ try {
 									);
 									g.startListening(f);
 									a.appendChild(d.getElement());
-									this.$28 = d;
-									this.$27.setVideo(d);
+									this.$25 = d;
+									this.$24.setVideo(d);
 									if (!c) {
-										g = this.$20;
+										g = this.$18;
 										f = d.getVideoElement();
 										a = new (b("AdQualityViewabilityMonitor"))(
 											f,
-											this.$37().$53
+											this.$33().$49
 										);
 										g = new (b("OnScreenBehaviorManager.anweb"))();
 										a.attachBehaviorManager(g);
 										g.addBehavior(
 											new (b("PlayVideoWhenOnScreenBehavior.anweb"))(
 												d,
-												this.$23,
-												this.$37().$59
+												this.$20,
+												this.$33().$55
 											)
 										);
 									}
 								};
-								c.$97 = function(a) {
-									this.$23.logClick(a, b("nullthrows")(this.$1));
+								c.$83 = function(a) {
+									this.$20.logClick(a, b("nullthrows")(this.$1));
 									var c = a.href;
 									a.clickParams.clknutab !== !0 || b("ANUtils").isAppStoreURL(c)
-										? this.$24.open(c)
-										: this.$24.openNewTab(c);
+										? this.$21.open(c)
+										: this.$21.openNewTab(c);
 								};
-								c.$93 = function(a, c) {
+								c.$84 = function(a, c) {
 									var d = this,
 										e = function(a, e) {
 											var f = b("getTime")(),
 												g = b("nullthrows")(c.href),
 												h = b("ANUtils").maybeHTMLElement(e.target);
-											h = h ? d.$98(h) : "UNKNOWN";
+											h = h ? d.$85(h) : "UNKNOWN";
 											var i = {};
-											if (d.$18) {
-												var j = d.$18.getDimensions(),
-													k = d.$18.getLastViewabilityState();
+											if (d.$16) {
+												var j = d.$16.getDimensions(),
+													k = d.$16.getLastViewabilityState();
 												j != null &&
 													((i.height = j.height),
 													(i.width = j.width),
@@ -12008,7 +10484,7 @@ try {
 														(i.visibleHeight = Math.round(
 															k.heightInView * j.height
 														))));
-												if (d.$12.getSafeFrameAPI())
+												if (d.$10.getSafeFrameAPI())
 													(i.relClickX = e.clientX), (i.relClickY = e.clientY);
 												else {
 													i.clickX = e.clientX;
@@ -12017,7 +10493,7 @@ try {
 														(i.relClickX = e.clientX - k.viewportLeft),
 															(i.relClickY = e.clientY - k.viewportTop);
 													else {
-														j = d.$42().getBoundingClientRect();
+														j = d.$38().getBoundingClientRect();
 														i.relClickX = e.clientX - j.left;
 														i.relClickY = e.clientY - j.top;
 													}
@@ -12025,7 +10501,7 @@ try {
 											}
 											k = {
 												clktm: Math.round(f / 1e3),
-												clknutab: d.$37().$51,
+												clknutab: d.$33().$47,
 												touch: ES("JSON", "stringify", !1, i)
 											};
 											d.$2 && (k.clkdel = f - d.$2);
@@ -12038,21 +10514,21 @@ try {
 													(i.height * i.width));
 											e = b("ANUtils").isAppStoreURL(g);
 											j =
-												d.$37().$56 &&
-												d.$23.isPublisherSideLoggingSupported() &&
+												d.$33().$52 &&
+												d.$20.isPublisherSideLoggingSupported() &&
 												a === 0;
 											j &&
 												g === "" &&
-												(d.$23.error("pub_logging_no_href"), (j = !1));
+												(d.$20.error("pub_logging_no_href"), (j = !1));
 											k = {
-												key: d.$33(),
+												key: d.$29(),
 												href: b("nullthrows")(g),
 												clickParams: k,
 												adElementType: h,
 												action: a,
-												videoDuration: d.$28 == null ? 0 : d.$28.getDuration(),
+												videoDuration: d.$25 == null ? 0 : d.$25.getDuration(),
 												videoPlaybackTime:
-													d.$28 == null ? 0 : d.$28.getCurrentTime(),
+													d.$25 == null ? 0 : d.$25.getCurrentTime(),
 												pos: {
 													element: h,
 													width: i.width,
@@ -12063,65 +10539,64 @@ try {
 													clickY: i.clickY,
 													relClickX: i.relClickX,
 													relClickY: i.relClickY,
-													carouselCardIndex:
-														d.$6 == null ? null : d.$6.getIndex()
+													carouselCardIndex: null
 												}
 											};
 											j
-												? d.$97(k)
+												? d.$83(k)
 												: (d.sendToFacebook({ name: "click", params: k }),
-												  d.$37().$51 &&
+												  d.$33().$47 &&
 														g &&
 														!e &&
 														a === 0 &&
-														d.$24.openNewTab(g));
+														d.$21.openNewTab(g));
 											a === 0 && (d.$3 = f);
 											if (
-												(!d.$37().$46.bouncebackForBillable || a === 0) &&
-												(d.$37().$51 || e)
+												(!d.$33().$42.bouncebackForBillable || a === 0) &&
+												(d.$33().$47 || e)
 											) {
 												h = new (b("ANBounceBackManager"))(window.document);
 												h.onBounceBack(function(a) {
 													d.sendToFacebook({
 														name: "bounce",
 														params: {
-															key: d.$33(),
+															key: d.$29(),
 															leaveTime: f,
 															backTime: b("getTime")()
 														}
 													}),
-														d.$23.event("ADNW_BOUNCEBACK", "" + a);
+														d.$20.event("ADNW_BOUNCEBACK", "" + a);
 												});
 											}
 										},
 										f = function() {
 											b("ANWebTwoStepClickDialog")
 												.openDialog(
-													d.$42(),
+													d.$38(),
 													b("nullthrows")(c.adSubtitle),
 													b("nullthrows")(c.adIcon),
-													!!d.$37().$46.padTwoStepClickCloseArea
+													!!d.$33().$42.padTwoStepClickCloseArea
 												)
 												.onConfirm(function(a) {
-													(d.$25 = !0), e(0, a);
+													(d.$22 = !0), e(0, a);
 												})
 												.onDismiss(function(a) {
-													(d.$25 = !1), e(12, a);
+													(d.$22 = !1), e(12, a);
 												});
 										},
 										g = function(a) {
 											var c = b("getTime")(),
 												g = b("ANUtils").maybeHTMLElement(a.target);
-											g = g ? d.$98(g) : "UNKNOWN";
-											var h = d.$37().$46.minClickDelay,
-												i = d.$37().$46.minClickDelayImpression;
+											g = g ? d.$85(g) : "UNKNOWN";
+											var h = d.$33().$42.minClickDelay,
+												i = d.$33().$42.minClickDelayImpression;
 											i && d.$2 && d.$2 + i > c && !d.$4
 												? ((d.$4 = !0), e(10, a))
 												: h && d.$1 && d.$1 + h > c && !d.$4
 													? ((d.$4 = !0), e(10, a))
-													: ES(d.$37().$54, "includes", !0, g) &&
-													  d.$37().$46.useTwoStepClick === !0 &&
-													  !d.$25
+													: ES(d.$33().$50, "includes", !0, g) &&
+													  d.$33().$42.useTwoStepClick === !0 &&
+													  !d.$22
 														? (e(11, a), f())
 														: e(0, a);
 											a.preventDefault();
@@ -12136,62 +10611,62 @@ try {
 											? (a.className += " fbVideoType")
 											: (a.className += " fbDisplayType");
 								};
-								c.$67 = function(a, c) {
-									this.$18.pause();
+								c.$86 = function(a, c) {
+									this.$16.pause();
 									a.nativeAd.loaded = !1;
-									var d = this.$8;
+									var d = this.$6;
 									if (d == null) return;
 									d.innerHTML = c.raw || "";
-									this.$36(this.$42());
-									this.$99(d, c, a.nativeAd, a.nativeCarouselAds, m(c.video));
+									this.$32(this.$38());
+									this.$87(d, c, a.nativeAd, a.nativeCarouselAds, m(c.video));
 									d &&
-										((this.$18 = new (b("AdQualityViewabilityMonitor"))(
+										((this.$16 = new (b("AdQualityViewabilityMonitor"))(
 											d,
-											this.$37().$53
+											this.$33().$49
 										)),
-										this.$18.attachBehaviorManager(this.$20));
+										this.$16.attachBehaviorManager(this.$18));
 								};
-								c.$99 = function(a, b, c, d, e) {
+								c.$87 = function(a, b, c, d, e) {
 									c.loaded = !0;
 									var f;
-									this.$16 = a.getElementsByClassName("fbAdMedia");
-									for (f = 0; f < this.$16.length; f++)
-										this.$85(this.$16[f], b, c, d, e);
-									this.$100(a, c);
+									this.$14 = a.getElementsByClassName("fbAdMedia");
+									for (f = 0; f < this.$14.length; f++)
+										this.$76(this.$14[f], b, c, d, e);
+									this.$88(a, c);
 									b = a.getElementsByClassName("fbAdIcon");
-									for (f = 0; f < b.length; f++) b[f].appendChild(this.$101(c));
+									for (f = 0; f < b.length; f++) b[f].appendChild(this.$89(c));
 								};
-								c.$102 = function(a) {
+								c.$90 = function(a) {
 									a = b("nullthrows")(a.ownerDocument.body);
 									a.addEventListener("touchstart", function() {}, !1);
 								};
-								c.$74 = function(a, b, c, d, e, f, g) {
+								c.$66 = function(a, b, c, d, e, f, g) {
 									if (!a || !d || d.loaded) return !1;
 									this.applyAdTypeClass(a, d, e);
-									this.$102(a);
+									this.$90(a);
 									d.loaded = !0;
-									b = this.$103(a, c, d, e, f, g);
+									b = this.$91(a, c, d, e, f, g);
 									return b;
 								};
-								c.$103 = function(a, b, c, d, e, f) {
-									this.$16 = a.getElementsByClassName("fbAdMedia");
-									var g = this.$16.length > 0,
-										h = ES("Array", "from", !1, this.$16);
+								c.$91 = function(a, b, c, d, e, f) {
+									this.$14 = a.getElementsByClassName("fbAdMedia");
+									var g = this.$14.length > 0,
+										h = ES("Array", "from", !1, this.$14);
 									for (var i = 0; i < h.length; i++) {
 										var j = h[i];
-										this.$76(c, d, e, j);
-										this.$85(j, b, c, d, f);
+										this.$68(c, d, e, j);
+										this.$76(j, b, c, d, f);
 									}
-									this.$100(a, c);
+									this.$88(a, c);
 									j = a.getElementsByClassName("fbAdIcon");
 									h = ES("Array", "from", !1, j);
 									for (var i = 0; i < h.length; i++) {
 										b = h[i];
-										b.appendChild(this.$101(c));
+										b.appendChild(this.$89(c));
 									}
 									return g;
 								};
-								c.$100 = function(a, b) {
+								c.$88 = function(a, b) {
 									var c,
 										d = a.getElementsByClassName("fbAdTitle");
 									for (c = 0; c < d.length; c++)
@@ -12212,39 +10687,39 @@ try {
 										for (c = 0; c < d.length; c++)
 											d[c].textContent = b.adCallToAction || "";
 										d = a.getElementsByClassName("fbAdLink");
-										for (c = 0; c < d.length; c++) this.$93(d[c], b);
+										for (c = 0; c < d.length; c++) this.$84(d[c], b);
 									}
 								};
-								c.$101 = function(a) {
+								c.$89 = function(a) {
 									var c = this,
 										d = document.createElement("img");
 									d.style.height = "100%";
 									d.style.width = "100%";
-									this.$22.addRequiredEvent();
+									this.$19.addRequiredEvent();
 									d.addEventListener("load", function() {
-										c.$22.requiredEventFired();
+										c.$19.requiredEventFired();
 									});
 									d.src = b("nullthrows")(a.adIcon);
 									return d;
 								};
-								c.$95 = function(a) {
+								c.$81 = function(a) {
 									var c = this,
 										d = document.createElement("img");
-									this.$37().$46.bannerMovingMedia || (d.style.height = "100%");
+									this.$33().$42.bannerMovingMedia || (d.style.height = "100%");
 									d.style.width = "100%";
-									this.$22.addRequiredEvent();
+									this.$19.addRequiredEvent();
 									d.addEventListener("load", function() {
-										c.$22.requiredEventFired(),
+										c.$19.requiredEventFired(),
 											d.naturalWidth === 1 &&
 												d.naturalHeight === 1 &&
-												c.$23.eventWithParams({
+												c.$20.eventWithParams({
 													event_name: "ADNW_ADERROR",
 													error_message: "Image loading error (1x1)",
 													error_stack_trace: d.src
 												});
 									});
 									d.addEventListener("error", function() {
-										c.$23.eventWithParams({
+										c.$20.eventWithParams({
 											event_name: "ADNW_ADERROR",
 											error_message: "Image loading error (uncaught)",
 											error_stack_trace: d.src
@@ -12253,33 +10728,33 @@ try {
 									d.src = b("nullthrows")(a.adImage);
 									return d;
 								};
-								c.$104 = function() {
-									return this.$10 === "native";
-								};
-								c.$43 = function() {
-									return this.$10 === "rewarded_video";
-								};
-								c.$105 = function() {
-									return this.$10 === "text";
-								};
-								c.$44 = function() {
-									return this.$105();
-								};
-								c.$73 = function() {
-									return this.$10 === "320x50";
+								c.$92 = function() {
+									return this.$8 === "native";
 								};
 								c.$39 = function() {
+									return this.$8 === "rewarded_video";
+								};
+								c.$93 = function() {
+									return this.$8 === "text";
+								};
+								c.$40 = function() {
+									return this.$93();
+								};
+								c.$94 = function() {
+									return this.$8 === "320x50";
+								};
+								c.$35 = function() {
 									return (
-										(!this.$35() || this.$43()) && !this.$104() && h[this.$10]
+										(!this.$31() || this.$39()) && !this.$92() && h[this.$8]
 									);
 								};
-								c.$83 = function() {
-									this.$42().classList.add("fbVisibleOnce"), this.$79();
+								c.$75 = function() {
+									this.$38().classList.add("fbVisibleOnce"), this.$71();
 								};
-								c.$80 = function() {
-									var a = this.$18.getDimensions(),
+								c.$72 = function() {
+									var a = this.$16.getDimensions(),
 										c =
-											(this.$18 && this.$18.getLastViewabilityState()) || null;
+											(this.$16 && this.$16.getLastViewabilityState()) || null;
 									a = {
 										width: a ? a.width : null,
 										height: a ? a.height : null,
@@ -12293,18 +10768,18 @@ try {
 										page_height: (c && c.pageHeight) || null,
 										viewable_reason: c.viewabilityReason || null,
 										viewable_detection: c.viewabilityDetection || null,
-										hosturl: this.$12.getTopURL(),
-										iframe_status: this.$61(),
-										nest_level: this.$12.getNestLevel(),
-										iframe_urls: this.$12.ancestorURLs.slice(0, -1),
+										hosturl: this.$10.getTopURL(),
+										iframe_status: this.$57(),
+										nest_level: this.$10.getNestLevel(),
+										iframe_urls: this.$10.ancestorURLs.slice(0, -1),
 										mediation_service: new (b("MediationDetector"))(
-											this.$12
+											this.$10
 										).getMediator(),
-										nmv: this.$17
+										nmv: this.$15
 									};
 									return a;
 								};
-								c.$98 = function(a) {
+								c.$85 = function(a) {
 									var b;
 									b = ((b = {
 										fbAdCallToAction: "fbAdCallToAction",
@@ -12318,7 +10793,7 @@ try {
 									(b._74vg = "fbTwoStepDialog"),
 									(b.fbAdRotatingCallToAction = "fbAdRotatingCallToAction"),
 									b);
-									var c = this.$42();
+									var c = this.$38();
 									for (var d in b) {
 										var e = c.getElementsByClassName(d);
 										e = ES("Array", "from", !1, e);
@@ -12329,107 +10804,16 @@ try {
 									}
 									return "UNKNOWN";
 								};
-								c.$82 = function() {
-									return this.$37().$46.videoMrcImpression === !0;
+								c.$74 = function() {
+									return this.$33().$42.videoMrcImpression === !0;
 								};
-								c.$84 = function() {
-									return this.$37().$46.logPerformanceStats === !0;
+								c.$95 = function() {
+									var a = this.$31();
+									return a ? a : this.$9;
 								};
-								c.$71 = function() {
-									if (!this.$84() || this.$30) return;
-									var a = b("getTime")(),
-										c = b("ANUtils").getNavigationStart(),
-										d = this.$5.tagJsInitTime - c,
-										e = null,
-										f = null,
-										g = null,
-										h = null;
-									c = a - c;
-									this.$1 && (e = this.$1 - this.$5.tagJsInitTime);
-									this.$2 && this.$1 && (f = this.$2 - this.$1);
-									this.$3 && this.$2 && (g = this.$3 - this.$2);
-									this.$3 && (h = a - this.$3);
-									var i = b("nullthrows")(this.$21),
-										j = i.getPartiallyVisibleTime(),
-										k = i.getMostlyVisibleTime();
-									i = i.getFullyVisibleTime();
-									if (
-										d < 0 ||
-										(e && e < 0) ||
-										(f && f < 0) ||
-										(g && g < 0) ||
-										(h && h < 0) ||
-										c < 0 ||
-										j < 0 ||
-										k < 0 ||
-										i < 0
-									) {
-										this.$23.warn("Invalid time received from Date.now");
-										return;
-									}
-									this.$30 = !0;
-									var l = this.$18.getInitialViewabilityState(),
-										m = this.$18.getLastViewabilityState(),
-										n = this.$28,
-										o = null,
-										p = null;
-									n != null &&
-										((o = n.getCurrentTime()), (p = n.getDuration()));
-									n = null;
-									l != null &&
-										l.viewabilityLevels != null &&
-										(n = l.viewabilityLevels.join(","));
-									var q = null;
-									m != null &&
-										m.viewabilityLevels != null &&
-										(q = m.viewabilityLevels.join(","));
-									var r =
-											this.$37().$56 &&
-											this.$23.isPublisherSideLoggingSupported(),
-										s = l == null ? void 0 : l.widthInView;
-									s && (s *= 100);
-									l = l == null ? void 0 : l.heightInView;
-									l && (l *= 100);
-									m = m == null ? void 0 : m.heightInView;
-									m && (m *= 100);
-									var t = null;
-									this.$73() && (t = this.$66());
-									j = {
-										key: this.$33(),
-										payload: {
-											partially_visible_time_ms: j,
-											mostly_visible_time_ms: k,
-											fully_visible_time_ms: i,
-											client_ts: a,
-											viewability: n,
-											width_in_view: s,
-											height_in_view: l,
-											request_delay: d,
-											load_time: e,
-											imp_delay: f,
-											click_delay: g,
-											click_to_navigation_time: h,
-											total_time_on_page: c,
-											video_playback_time: o,
-											video_duration: p,
-											creative_type: this.$31,
-											asset_count: this.$32,
-											viewability_at_navigation: q,
-											height_in_view_at_navigation: m,
-											is_sticky_banner: t
-										}
-									};
-									r
-										? this.$23.logPerfStats(j)
-										: this.sendToFacebook({ name: "perf", params: j });
-								};
-								c.$106 = function() {
-									var a = this.$35();
-									return a ? a : this.$11;
-								};
-								c.$66 = function() {
-									if (this.$34() === null) return !1;
-									var a = this.$106();
+								c.$96 = function() {
+									if (this.$30() === null) return !1;
+									var a = this.$95();
 									if (!a) return !1;
 									var c = 0;
 									while (a && b("ANUtils").shouldContinueTraversing(a)) {
@@ -12769,7 +11153,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1002139812","namespace":"FB","message":"' +
+				'","revision":"1002150808","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
