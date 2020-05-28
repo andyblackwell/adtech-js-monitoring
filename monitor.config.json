@@ -56,9 +56,9 @@
 			"name": "Google Publisher Tools",
 			"tags": ["Google", "DFP", "GAM"],
 			"url": "https://www.googletagservices.com/tag/js/gpt.js",
-			"version": "2020052701",
+			"version": "2020052801",
 			"versionRegex": "\\{return\"([0-9]+)\"\\}",
-			"etag": "\"527 / 317 of 1000 / last-modified: 1590605644\""
+			"etag": "\"528 / 511 of 1000 / last-modified: 1590680983\""
 		},
 		{
 			"name": "Moat",
