@@ -1884,7 +1884,7 @@
 			mode: "no-cors"
 		});
 	}
-	var Nd = ["https://www.google.com"],
+	var Nd = ["https://adservice.google.com"],
 		Od = function(a) {
 			this.c = Nd;
 			this.a = 2;
@@ -1897,7 +1897,7 @@
 			((a.a = 3),
 			p(a.c, function(b) {
 				window
-					.fetch(b + "/.well-known/trust-token", {
+					.fetch(b + "/tt/r", {
 						keepalive: !0,
 						redirect: "follow",
 						method: "get",
@@ -2024,10 +2024,10 @@
 			return 0 === Yd(T(172));
 		};
 	var $d = function() {
-		return Ab("3") || 0;
+		return Ab("5") || 0;
 	};
 	Rd("getVersion", function() {
-		return "2020060102";
+		return "2020060103";
 	});
 	var dd = function() {
 		var a = {};
@@ -2091,7 +2091,7 @@
 			);
 		},
 		ee = function() {
-			var a = [Ed, Dd, new v(u, "2020060102"), new v(u, ".js")];
+			var a = [Ed, Dd, new v(u, "2020060103"), new v(u, ".js")];
 			for (var b = "", c = 0; c < a.length; c++) b += Aa(a[c]);
 			a = new w(Ba, b);
 			var d = void 0 === d ? 0 : d;
