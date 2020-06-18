@@ -183,40 +183,13 @@
 		};
 	var Ca;
 	var p = function(a, b) {
-			for (
-				var c = a.length, d = "string" === typeof a ? a.split("") : a, e = 0;
-				e < c;
-				e++
-			)
-				e in d && b.call(void 0, d[e], e, a);
+			Array.prototype.forEach.call(a, b, void 0);
 		},
 		Da = function(a, b) {
-			for (
-				var c = a.length,
-					d = [],
-					e = 0,
-					f = "string" === typeof a ? a.split("") : a,
-					g = 0;
-				g < c;
-				g++
-			)
-				if (g in f) {
-					var k = f[g];
-					b.call(void 0, k, g, a) && (d[e++] = k);
-				}
-			return d;
+			return Array.prototype.filter.call(a, b, void 0);
 		},
 		q = function(a, b) {
-			for (
-				var c = a.length,
-					d = Array(c),
-					e = "string" === typeof a ? a.split("") : a,
-					f = 0;
-				f < c;
-				f++
-			)
-				f in e && (d[f] = b.call(void 0, e[f], f, a));
-			return d;
+			return Array.prototype.map.call(a, b, void 0);
 		},
 		Ea = function(a, b) {
 			a: {
@@ -249,17 +222,7 @@
 			return 0 > b ? null : "string" === typeof a ? a.charAt(b) : a[b];
 		},
 		r = function(a, b) {
-			a: if ("string" === typeof a)
-				a = "string" !== typeof b || 1 != b.length ? -1 : a.indexOf(b, 0);
-			else {
-				for (var c = 0; c < a.length; c++)
-					if (c in a && a[c] === b) {
-						a = c;
-						break a;
-					}
-				a = -1;
-			}
-			return 0 <= a;
+			return 0 <= Array.prototype.indexOf.call(a, b, void 0);
 		};
 	var t = function(a) {
 		var b = !1,
@@ -718,28 +681,18 @@
 						b.call(void 0, a[c], c, a);
 		},
 		Gb = t(function() {
-			a: {
-				var a = [
-					"Google Web Preview",
-					"Mediapartners-Google",
-					"Google-Read-Aloud",
-					"Google-Adwords"
-				];
-				for (
-					var b = Kb,
-						c = a.length,
-						d = "string" === typeof a ? a.split("") : a,
-						e = 0;
-					e < c;
-					e++
-				)
-					if (e in d && b.call(void 0, d[e], e, a)) {
-						a = !0;
-						break a;
-					}
-				a = !1;
-			}
-			return a || 1e-4 > Math.random();
+			return (
+				Array.prototype.some.call(
+					[
+						"Google Web Preview",
+						"Mediapartners-Google",
+						"Google-Read-Aloud",
+						"Google-Adwords"
+					],
+					Kb,
+					void 0
+				) || 1e-4 > Math.random()
+			);
 		}),
 		Fb = t(function() {
 			return Kb("MSIE");
@@ -1230,26 +1183,29 @@
 		};
 	l(P);
 	var Wc = function(a, b) {
-			a = xa(a);
-			a = "function" === typeof a ? a() : a;
-			return typeof a === b ? a : void 0;
+			try {
+				var c = xa(a),
+					d = "function" === typeof c ? c() : c;
+				if (typeof d === b) return d;
+			} catch (e) {}
 		},
 		Xc = function() {
 			var a = {};
 			this[3] = ((a[8] = function(b) {
-				return !!xa(b);
+				try {
+					return null != xa(b);
+				} catch (c) {}
 			}),
 			(a[9] = function(b) {
-				b = xa(b);
-				var c = typeof b;
-				if (
-					(c =
-						"function" ==
-						("object" != c ? c : b ? (Array.isArray(b) ? "array" : c) : "null"))
-				)
-					(b = b && b.toString && b.toString()),
-						(c = "string" === typeof b && -1 != b.indexOf("[native code]"));
-				return c;
+				try {
+					var c = xa(b);
+				} catch (d) {
+					return;
+				}
+				if ((b = "function" === typeof c))
+					(c = c && c.toString && c.toString()),
+						(b = "string" === typeof c && -1 != c.indexOf("[native code]"));
+				return b;
 			}),
 			(a[10] = function() {
 				return window == window.top;
@@ -2187,10 +2143,10 @@
 			return 0 === me(R(172));
 		};
 	var oe = function() {
-		return Mb("6") || 0;
+		return Mb("7") || 0;
 	};
 	he("getVersion", function() {
-		return "2020061610";
+		return "2020061611";
 	});
 	var ud = function() {
 		var a = {};
@@ -2254,7 +2210,7 @@
 			);
 		},
 		te = function() {
-			var a = [Vd, Ud, new v(u, "2020061610"), new v(u, ".js")];
+			var a = [Vd, Ud, new v(u, "2020061611"), new v(u, ".js")];
 			for (var b = "", c = 0; c < a.length; c++) b += Ia(a[c]);
 			a = new x(w, b);
 			var d = void 0 === d ? 0 : d;
@@ -2793,8 +2749,15 @@
 						]
 					]
 				],
-				[100, [[21066300], [21066301, [[null, 59, null, [null, 1]]]]]],
 				[50, [[21066340], [21066342, [[296, null, null, [1]]]]], null, 20],
+				[
+					null,
+					[
+						[21066462],
+						[21066463, [[null, 59, null, [null, 3]]]],
+						[21066464, [[null, 59, null, [null, 3]]]]
+					]
+				],
 				[
 					1000,
 					[
@@ -3012,7 +2975,7 @@
 					null,
 					24
 				],
-				[50, [[21066031], [21066032, [[239, null, null, [1]]]]], null, 24],
+				[null, [[21066031], [21066032, [[239, null, null, [1]]]]], null, 24],
 				[10, [[21066272], [21066273, [[339, null, null, [1]]]]]],
 				[1, [[21066334], [21066335, [[342, null, null, [1]]]]]],
 				[1, [[21066390], [21066391, [[346, null, null, [1]]]]]],
@@ -3084,6 +3047,34 @@
 								[null, 25, null, [null, 21066459]]
 							],
 							[6, null, null, 4, null, 7]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[1, [[21066465], [21066466, [[302, null, null, [1]]]]]],
+				[
+					1000,
+					[
+						[
+							21066471,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21066471]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21066471]]
+							],
+							[6, null, null, 4, null, 8]
+						],
+						[
+							21066472,
+							[
+								[null, 7, null, [null, 1]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]]
+							],
+							[6, null, null, 4, null, 9]
 						]
 					],
 					[4, null, 3],
