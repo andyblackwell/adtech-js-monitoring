@@ -5,14 +5,14 @@
 			"name": "Facebook Audience Network",
 			"tags": ["Facebook", "prebid"],
 			"url": "https://connect.facebook.net/en_US/fbadnw60.js",
-			"version": "1002275178",
+			"version": "1002287936",
 			"versionRegex": "^\\/.*?\\sv([0-9]+),",
 			"diffIgnorePatterns": [
 				"JIT Construction",
 				"revision",
 				"static\\.xx\\.fbcdn\\.net"
 			],
-			"etag": "\"36e67b0bf65004fcc4bc4d2605a6e992\""
+			"etag": "\"401723bf514f3fd23f18392ac7ae0406\""
 		},
 		{
 			"name": "Facebook Main",
@@ -56,9 +56,9 @@
 			"name": "Google Publisher Tools",
 			"tags": ["Google", "DFP", "GAM"],
 			"url": "https://www.googletagservices.com/tag/js/gpt.js",
-			"version": "2020062201",
+			"version": "2020062301",
 			"versionRegex": "\\{return\"([0-9]+)\"\\}",
-			"etag": "\"552 / 515 of 1000 / last-modified: 1592926261\""
+			"etag": "\"553 / 838 of 1000 / last-modified: 1593018511\""
 		},
 		{
 			"name": "Moat",
