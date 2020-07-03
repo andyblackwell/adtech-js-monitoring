@@ -1,4 +1,4 @@
-/*1593489186,,JIT Construction: v1002310476,en_US*/
+/*1593745974,,JIT Construction: v1002327560,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -3430,31 +3430,9 @@ try {
 									c === void 0 && (c = []);
 									a = document.createElement(a);
 									ES("Object", "assign", !1, a, b);
-									for (
-										var b = c,
-											c = ES("Array", "isArray", !1, b),
-											d = 0,
-											b = c
-												? b
-												: b[
-														typeof Symbol === "function"
-															? Symbol.iterator
-															: "@@iterator"
-												  ]();
-										;
-
-									) {
-										var e;
-										if (c) {
-											if (d >= b.length) break;
-											e = b[d++];
-										} else {
-											d = b.next();
-											if (d.done) break;
-											e = d.value;
-										}
-										e = e;
-										a.appendChild(e);
+									for (var b = 0; b < c.length; b++) {
+										var d = c[b];
+										a.appendChild(d);
 									}
 									return a;
 								};
@@ -10857,31 +10835,9 @@ try {
 								a.push = function(b) {
 									c(b), d.call(a, b);
 								};
-								for (
-									var e = a,
-										f = ES("Array", "isArray", !1, e),
-										h = 0,
-										e = f
-											? e
-											: e[
-													typeof Symbol === "function"
-														? Symbol.iterator
-														: "@@iterator"
-											  ]();
-									;
-
-								) {
-									var i;
-									if (f) {
-										if (h >= e.length) break;
-										i = e[h++];
-									} else {
-										h = e.next();
-										if (h.done) break;
-										i = h.value;
-									}
-									i = i;
-									c(i);
+								for (var e = 0; e < a.length; e++) {
+									var f = a[e];
+									c(f);
 								}
 							}
 							var i = function(a, c) {
@@ -11020,7 +10976,7 @@ try {
 				(e.fileName || e.sourceURL || e.script) +
 				'","stack":"' +
 				(e.stackTrace || e.stack) +
-				'","revision":"1002310476","namespace":"FB","message":"' +
+				'","revision":"1002327560","namespace":"FB","message":"' +
 				e.message +
 				'"}}'
 		);
