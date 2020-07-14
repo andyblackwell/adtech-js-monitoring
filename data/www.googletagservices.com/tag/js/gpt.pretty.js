@@ -2156,6 +2156,20 @@
 		this.b = me(641, this.b.bind(this));
 	};
 	qa(oe, $b);
+	var pe = function() {
+		var a = new oe();
+		a.D.observe({
+			entryTypes: [
+				"layout-shift",
+				"largest-contentful-paint",
+				"first-input",
+				"longtask"
+			],
+			buffered: !R(240)
+		});
+		document.addEventListener("unload", a.b);
+		document.addEventListener("visibilitychange", a.b);
+	};
 	oe.prototype.b = function() {
 		var a = document;
 		if (
@@ -2214,14 +2228,14 @@
 			mode: "no-cors"
 		});
 	}
-	var pe = ["https://adservice.google.com"],
-		qe = function(a) {
-			this.c = pe;
+	var qe = ["https://adservice.google.com"],
+		re = function(a) {
+			this.c = qe;
 			this.a = 2;
 			this.b = a;
 		};
-	qa(qe, $b);
-	var re = function(a) {
+	qa(re, $b);
+	var se = function(a) {
 		!document.hasTrustToken ||
 			3 <= a.a ||
 			((a.a = 3),
@@ -2249,18 +2263,18 @@
 					});
 			}));
 	};
-	var se = [
+	var te = [
 			"platform",
 			"platformVersion",
 			"architecture",
 			"model",
 			"uaFullVersion"
 		],
-		te = function(a) {
+		ue = function(a) {
 			return a.navigator &&
 				a.navigator.userAgentData &&
 				"function" === typeof a.navigator.userAgentData.getHighEntropyValues
-				? a.navigator.userAgentData.getHighEntropyValues(se).then(function(b) {
+				? a.navigator.userAgentData.getHighEntropyValues(te).then(function(b) {
 						var c = new Jb();
 						c = Gb(c, 1, b.platform);
 						c = Gb(c, 2, b.platformVersion);
@@ -2270,14 +2284,14 @@
 				  })
 				: null;
 		};
-	var ue = function() {
+	var ve = function() {
 			return p.googletag || (p.googletag = {});
 		},
-		ve = function(a, b) {
-			var c = ue();
+		we = function(a, b) {
+			var c = ve();
 			c.hasOwnProperty(a) || (c[a] = b);
 		},
-		we = function(a, b) {
+		xe = function(a, b) {
 			a.addEventListener
 				? a.addEventListener("load", b, !1)
 				: a.attachEvent && a.attachEvent("onload", b);
@@ -2335,17 +2349,17 @@
 	var S = function(a) {
 			return Z.f()[a];
 		},
-		xe = ue(),
-		ye = Z.f();
-	Aa(ye, xe._vars_);
-	xe._vars_ = ye;
-	var ze = function(a, b) {
+		ye = ve(),
+		ze = Z.f();
+	Aa(ze, ye._vars_);
+	ye._vars_ = ze;
+	var Ae = function(a, b) {
 		a = [a];
 		for (var c = b.length - 1; 0 <= c; --c) a.push(typeof b[c], b[c]);
 		return a.join("\x0B");
 	};
-	var Ae = (function(a, b) {
-			var c = b || ze;
+	var Be = (function(a, b) {
+			var c = b || Ae;
 			return function() {
 				var d = this || p;
 				d = d.closure_memoize_cache_ || (d.closure_memoize_cache_ = {});
@@ -2369,18 +2383,18 @@
 				return a + "\x0B" + (b && b[0] && b[0].src);
 			}
 		),
-		Be = function() {
-			return 0 === Ae(S(172));
+		Ce = function() {
+			return 0 === Be(S(172));
 		};
-	var Ce = function() {
+	var De = function() {
 		return Wb("5") || 0;
 	};
-	ve("getVersion", function() {
-		return "2020070901";
+	we("getVersion", function() {
+		return "2020071403";
 	});
 	var Hd = function() {
 		var a = {};
-		this[3] = ((a[3] = Be),
+		this[3] = ((a[3] = Ce),
 		(a[2] = S(36)),
 		(a[17] = function(b) {
 			for (var c = [], d = 0; d < arguments.length; ++d) c[d] = arguments[d];
@@ -2394,15 +2408,15 @@
 		this[4] = ((a[1] = function() {
 			return S(204);
 		}),
-		(a[4] = Ce),
+		(a[4] = De),
 		a);
 		this[5] = {};
 	};
 	q(Hd);
-	var De = [],
-		Ee = function(a) {
+	var Ee = [],
+		Fe = function(a) {
 			var b = new od(S(246));
-			a = new od(a || De);
+			a = new od(a || Ee);
 			if (!I(b, K, 1).length && I(a, K, 1).length) {
 				var c = I(a, K, 1);
 				Hb(b, 1, c);
@@ -2412,7 +2426,7 @@
 				((a = I(a, Q, 2)), Hb(b, 2, a));
 			Jd(b);
 		};
-	var Fe = function(a) {
+	var Ge = function(a) {
 			if ((a = a.scripts))
 				for (var b = 0; b < a.length; b++) {
 					var c = a[b];
@@ -2420,7 +2434,7 @@
 				}
 			return null;
 		},
-		Ge = function(a) {
+		He = function(a) {
 			var b = a.currentScript;
 			return (
 				"complete" != a.readyState &&
@@ -2428,8 +2442,8 @@
 				!(b && b.async)
 			);
 		},
-		He = function() {
-			var a = [he, ge, new w(v, "2020070901"), new w(v, ".js")];
+		Ie = function() {
+			var a = [he, ge, new w(v, "2020071403"), new w(v, ".js")];
 			for (var b = "", c = 0; c < a.length; c++) b += Ka(a[c]);
 			a = new x(La, b);
 			var d = void 0 === d ? 0 : d;
@@ -2441,21 +2455,21 @@
 				: (d = a);
 			return d;
 		},
-		Ie = function(a, b, c) {
-			a = a.currentScript || Fe(a);
+		Je = function(a, b, c) {
+			a = a.currentScript || Ge(a);
 			Z.f()[172] = a;
-			new Ee(b);
+			new Fe(b);
 			P.f().a(12);
 			P.f().a(5);
 			R(200) || R(220) || ((b = S(150)), Qd(), Nd(b) && (V[1] = b));
 			R(312) &&
-				re(
-					new qe(function(d) {
+				se(
+					new re(function(d) {
 						Z.f()[250] = d;
 					})
 				);
 			R(363) &&
-				(b = te(c)) &&
+				(b = ue(c)) &&
 				b.then(function(d) {
 					d = d.i();
 					Z.f()[251] = d;
@@ -2467,47 +2481,27 @@
 				(b = a.getAttribute("data-network-id")) &&
 				new ec(c, b).start();
 		},
-		Je = function(a) {
-			try {
-				if (
-					a.PerformanceObserver &&
-					(a.PerformanceLongTaskTiming && !R(377) && ie(a),
-					R(203) && !window.google_plmetrics)
-				) {
-					for (
-						var b = new oe(),
-							c = ia([
-								"layout-shift",
-								"largest-contentful-paint",
-								"first-input",
-								"longtask"
-							]),
-							d = c.next();
-						!d.done;
-						d = c.next()
-					)
-						b.D.observe({ type: d.value, buffered: !R(240) });
-					document.addEventListener("unload", b.b);
-					document.addEventListener("visibilitychange", b.b);
-					window.google_plmetrics = !0;
-				}
-			} catch (e) {}
-		},
 		Ke = function(a, b, c) {
-			var d = ue();
+			var d = ve();
 			a = a || d.fifWin || window;
 			b = b || a.document;
 			var e = d.fifWin ? window : a;
-			ve("cmd", []);
+			we("cmd", []);
 			if (d.evalScripts) d.evalScripts();
 			else {
-				Ie(b, c, a);
-				Je(a);
+				Je(b, c, a);
+				try {
+					a.PerformanceObserver &&
+						(a.PerformanceLongTaskTiming && ie(a),
+						R(203) &&
+							!window.google_plmetrics &&
+							(pe(), (window.google_plmetrics = !0)));
+				} catch (m) {}
 				R(339) && (Z.f()[249] = !0);
 				je(a);
-				a = He();
+				a = Ie();
 				c = R(200) || R(239);
-				if (Ge(b)) {
+				if (He(b)) {
 					var f = "gpt-impl-" + Math.random();
 					try {
 						vb(b, rb(a, { id: f, nonce: ua() }));
@@ -2522,7 +2516,7 @@
 					g.async = !0;
 					var k = b.head || b.body || b.documentElement;
 					"complete" !== e.document.readyState && d.fifWin
-						? we(e, function() {
+						? xe(e, function() {
 								return void k.appendChild(g);
 						  })
 						: k.appendChild(g);
@@ -2565,6 +2559,7 @@
 		[296, null, null, [1]],
 		[null, 61, null, [null, 0.001]],
 		[275, null, null, [1]],
+		[366, null, null, [1]],
 		[
 			274,
 			null,
@@ -2624,6 +2619,7 @@
 		[327, null, null, [1]],
 		[352, null, null, [1]],
 		[326, null, null, [1]],
+		[358, null, null, [1]],
 		[null, 8, null, [null, -1]],
 		[
 			237,
@@ -2693,44 +2689,6 @@
 						[44719513, [[null, 7, null, [null, 0.02]], [212, null, null, [1]]]]
 					]
 				],
-				[
-					null,
-					[
-						[21063927],
-						[21063928, [[null, 16, null, [null, 500]]]],
-						[21063929, [[null, 16, null, [null, 500]]]],
-						[21063930, [[null, 16, null, [null, 750]]]],
-						[21063931, [[null, 16, null, [null, 1000]]]],
-						[21063932, [[null, 17, null, [null, 50]]]],
-						[21063933, [[null, 17, null, [null, 100]]]],
-						[21063934, [[null, 17, null, [null, 150]]]],
-						[21063935, [[null, 17, null, [null, 200]]]],
-						[21063936, [[null, 18, null, [null, 1]]]],
-						[21063937, [[null, 18, null, [null, 250]]]],
-						[21063938, [[null, 18, null, [null, 500]]]],
-						[21063939, [[null, 18, null, [null, 750]]]],
-						[21063940, [[null, 18, null, [null, 1000]]]]
-					]
-				],
-				[
-					null,
-					[
-						[21063941],
-						[21063942, [[null, 16, null, [null, 250]]]],
-						[21063943, [[null, 16, null, [null, 500]]]],
-						[21063944, [[null, 16, null, [null, 750]]]],
-						[21063945, [[null, 16, null, [null, 1000]]]],
-						[21063946, [[null, 17, null, [null, 50]]]],
-						[21063947, [[null, 17, null, [null, 100]]]],
-						[21063948, [[null, 17, null, [null, 150]]]],
-						[21063949, [[null, 17, null, [null, 200]]]],
-						[21063950, [[null, 18, null, [null, 250]]]],
-						[21063951, [[null, 18, null, [null, 500]]]],
-						[21063952, [[null, 18, null, [null, 750]]]],
-						[21063953, [[null, 18, null, [null, 1000]]]]
-					]
-				],
-				[null, [[21063962], [21063963, [[null, 18, null, [null, 1]]]]]],
 				[
 					null,
 					[
@@ -2910,7 +2868,7 @@
 					null,
 					15
 				],
-				[1, [[21064411], [21064412, [[144, null, null, [1]]]]]],
+				[null, [[21064411], [21064412, [[144, null, null, [1]]]]]],
 				[
 					5,
 					[
@@ -3008,17 +2966,16 @@
 						]
 					]
 				],
-				[100, [[21066436], [21066437, [[358, null, null, [1]]]]]],
-				[100, [[21066519], [21066520, [[355, null, null, [1]]]]]],
+				[null, [[21066519], [21066520, [[355, null, null, [1]]]]]],
 				[1, [[21066560], [21066561, [[364, null, null, [1]]]]]],
-				[100, [[21066599], [21066600, [[366, null, null, [1]]]]]],
 				[50, [[21066654], [21066655, [[296, null, null, []]]]]],
 				[
 					25,
 					[
-						[21066674],
-						[21066675, [[null, 59, null, [null, 3]]]],
-						[21066676, [[null, 59, null, [null, 4]]]]
+						[21066720],
+						[21066721, [[null, 59, null, [null, 3]]]],
+						[21066722, [[null, 59, null, [null, 4]]]],
+						[21066723, [[null, 59, null, [null, 1]]]]
 					]
 				],
 				[
@@ -3124,7 +3081,7 @@
 					null,
 					24
 				],
-				[10, [[21066031], [21066032, [[239, null, null, [1]]]]], null, 24],
+				[50, [[21066031], [21066032, [[239, null, null, [1]]]]], null, 24],
 				[10, [[21066272], [21066273, [[339, null, null, [1]]]]]],
 				[1, [[21066390], [21066391, [[346, null, null, [1]]]]]],
 				[
@@ -3137,30 +3094,30 @@
 				],
 				[null, [[21066465], [21066466, [[302, null, null, [1]]]]]],
 				[10, [[21066602], [21066603, [[354, null, null, [1]]]]]],
-				[10, [[21066606], [21066607, [[372, null, null, [1]]]]]],
+				[100, [[21066606], [21066607, [[372, null, null, [1]]]]]],
 				[10, [[21066625], [21066626, [[373, null, null, [1]]]]]],
 				[
 					1000,
 					[
 						[
-							21066697,
+							21066754,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066697]],
+								[null, 24, null, [null, 21066754]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066697]]
+								[null, 25, null, [null, 21066754]]
 							],
 							[6, null, null, 4, null, 2]
 						],
 						[
-							21066698,
+							21066755,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066698]],
+								[null, 24, null, [null, 21066755]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066698]]
+								[null, 25, null, [null, 21066755]]
 							],
 							[6, null, null, 4, null, 3]
 						]
@@ -3172,26 +3129,84 @@
 					1000,
 					[
 						[
-							21066703,
+							21066756,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066703]],
+								[null, 24, null, [null, 21066756]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066703]]
+								[null, 25, null, [null, 21066756]]
 							],
 							[6, null, null, 4, null, 4]
 						],
 						[
-							21066704,
+							21066757,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066704]],
+								[null, 24, null, [null, 21066757]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066704]]
+								[null, 25, null, [null, 21066757]]
 							],
 							[6, null, null, 4, null, 5]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21066758,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21066758]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21066758]]
+							],
+							[6, null, null, 4, null, 6]
+						],
+						[
+							21066759,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21066759]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21066759]]
+							],
+							[6, null, null, 4, null, 7]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21066760,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21066760]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21066760]]
+							],
+							[6, null, null, 4, null, 8]
+						],
+						[
+							21066761,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21066761]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21066761]]
+							],
+							[6, null, null, 4, null, 9]
 						]
 					],
 					[4, null, 3],
@@ -3210,39 +3225,6 @@
 						[
 							[4, null, 6, null, null, null, null, ["21066613"]],
 							[4, null, 9, null, null, null, null, ["ReportingObserver"]]
-						]
-					]
-				],
-				[
-					1000,
-					[
-						[
-							8577212,
-							null,
-							[6, null, null, 6, null, 8577212, null, ["__gsaExp.id"]]
-						]
-					]
-				],
-				[
-					null,
-					[
-						[
-							8577213,
-							null,
-							[6, null, null, 6, null, 8577213, null, ["__gsaExp.id"]],
-							1000
-						],
-						[
-							21066691,
-							null,
-							[6, null, null, null, 4, null, "", ["frameElement.src"]],
-							1
-						],
-						[
-							21066692,
-							null,
-							[1, [[6, null, null, null, 4, null, "", ["frameElement.src"]]]],
-							1
 						]
 					]
 				],
@@ -3268,59 +3250,6 @@
 					[4, null, 9, null, null, null, null, ["LayoutShift"]]
 				],
 				[50, [[21066392], [21066393, [[338, null, null, [1]]]]]],
-				[
-					1000,
-					[
-						[
-							21066484,
-							null,
-							[
-								2,
-								[
-									[5, null, null, 6, null, null, null, ["__gsaExp.id"]],
-									[
-										1,
-										[[6, null, null, 6, null, 8577212, null, ["__gsaExp.id"]]]
-									],
-									[
-										1,
-										[[6, null, null, 6, null, 8577213, null, ["__gsaExp.id"]]]
-									]
-								]
-							]
-						],
-						[
-							21066485,
-							null,
-							[
-								2,
-								[
-									[
-										12,
-										null,
-										null,
-										null,
-										4,
-										null,
-										"Linux.*Chrome",
-										["navigator.userAgent"]
-									],
-									[1, [[5, null, null, 6, null, null, null, ["__gsaExp.id"]]]]
-								]
-							]
-						],
-						[
-							21066621,
-							null,
-							[6, null, null, 6, null, 8577212, null, ["__gsaExp.id"]]
-						],
-						[
-							21066622,
-							null,
-							[6, null, null, 6, null, 8577213, null, ["__gsaExp.id"]]
-						]
-					]
-				],
 				[1, [[21066522], [21066523, [[370, null, null, [1]]]]]],
 				[
 					500,
@@ -3338,6 +3267,50 @@
 						]
 					],
 					[4, null, 6, null, null, null, null, ["21066613"]]
+				],
+				[
+					1000,
+					[
+						[
+							21066738,
+							null,
+							[
+								2,
+								[
+									[6, null, null, 6, null, 8577213, null, ["__gsaExp.id"]],
+									[
+										1,
+										[[6, null, null, null, 4, null, "", ["frameElement.src"]]]
+									]
+								]
+							]
+						],
+						[
+							21066739,
+							null,
+							[
+								2,
+								[
+									[6, null, null, 6, null, 8577213, null, ["__gsaExp.id"]],
+									[6, null, null, null, 4, null, "", ["frameElement.src"]]
+								]
+							]
+						],
+						[
+							21066740,
+							null,
+							[
+								2,
+								[
+									[5, null, null, 6, null, null, null, ["__gsaExp.id"]],
+									[
+										1,
+										[[6, null, null, 6, null, 8577213, null, ["__gsaExp.id"]]]
+									]
+								]
+							]
+						]
+					]
 				]
 			]
 		],
@@ -3499,7 +3472,8 @@
 						[21066612],
 						[21066613, [[83, null, null, [1]], [84, null, null, [1]]]]
 					]
-				]
+				],
+				[1, [[21066705], [21066706, [[382, null, null, [1]]]]]]
 			]
 		]
 	]
