@@ -2156,20 +2156,6 @@
 		this.b = me(641, this.b.bind(this));
 	};
 	qa(oe, $b);
-	var pe = function() {
-		var a = new oe();
-		a.D.observe({
-			entryTypes: [
-				"layout-shift",
-				"largest-contentful-paint",
-				"first-input",
-				"longtask"
-			],
-			buffered: !R(240)
-		});
-		document.addEventListener("unload", a.b);
-		document.addEventListener("visibilitychange", a.b);
-	};
 	oe.prototype.b = function() {
 		var a = document;
 		if (
@@ -2228,14 +2214,14 @@
 			mode: "no-cors"
 		});
 	}
-	var qe = ["https://adservice.google.com"],
-		re = function(a) {
-			this.c = qe;
+	var pe = ["https://adservice.google.com"],
+		qe = function(a) {
+			this.c = pe;
 			this.a = 2;
 			this.b = a;
 		};
-	qa(re, $b);
-	var se = function(a) {
+	qa(qe, $b);
+	var re = function(a) {
 		!document.hasTrustToken ||
 			3 <= a.a ||
 			((a.a = 3),
@@ -2263,18 +2249,18 @@
 					});
 			}));
 	};
-	var te = [
+	var se = [
 			"platform",
 			"platformVersion",
 			"architecture",
 			"model",
 			"uaFullVersion"
 		],
-		ue = function(a) {
+		te = function(a) {
 			return a.navigator &&
 				a.navigator.userAgentData &&
 				"function" === typeof a.navigator.userAgentData.getHighEntropyValues
-				? a.navigator.userAgentData.getHighEntropyValues(te).then(function(b) {
+				? a.navigator.userAgentData.getHighEntropyValues(se).then(function(b) {
 						var c = new Jb();
 						c = Gb(c, 1, b.platform);
 						c = Gb(c, 2, b.platformVersion);
@@ -2284,14 +2270,14 @@
 				  })
 				: null;
 		};
-	var ve = function() {
+	var ue = function() {
 			return p.googletag || (p.googletag = {});
 		},
-		we = function(a, b) {
-			var c = ve();
+		ve = function(a, b) {
+			var c = ue();
 			c.hasOwnProperty(a) || (c[a] = b);
 		},
-		xe = function(a, b) {
+		we = function(a, b) {
 			a.addEventListener
 				? a.addEventListener("load", b, !1)
 				: a.attachEvent && a.attachEvent("onload", b);
@@ -2349,17 +2335,17 @@
 	var S = function(a) {
 			return Z.f()[a];
 		},
-		ye = ve(),
-		ze = Z.f();
-	Aa(ze, ye._vars_);
-	ye._vars_ = ze;
-	var Ae = function(a, b) {
+		xe = ue(),
+		ye = Z.f();
+	Aa(ye, xe._vars_);
+	xe._vars_ = ye;
+	var ze = function(a, b) {
 		a = [a];
 		for (var c = b.length - 1; 0 <= c; --c) a.push(typeof b[c], b[c]);
 		return a.join("\x0B");
 	};
-	var Be = (function(a, b) {
-			var c = b || Ae;
+	var Ae = (function(a, b) {
+			var c = b || ze;
 			return function() {
 				var d = this || p;
 				d = d.closure_memoize_cache_ || (d.closure_memoize_cache_ = {});
@@ -2383,18 +2369,18 @@
 				return a + "\x0B" + (b && b[0] && b[0].src);
 			}
 		),
-		Ce = function() {
-			return 0 === Be(S(172));
+		Be = function() {
+			return 0 === Ae(S(172));
 		};
-	var De = function() {
-		return Wb("7") || 0;
+	var Ce = function() {
+		return Wb("1") || 0;
 	};
-	we("getVersion", function() {
-		return "2020071405";
+	ve("getVersion", function() {
+		return "2020071408";
 	});
 	var Hd = function() {
 		var a = {};
-		this[3] = ((a[3] = Ce),
+		this[3] = ((a[3] = Be),
 		(a[2] = S(36)),
 		(a[17] = function(b) {
 			for (var c = [], d = 0; d < arguments.length; ++d) c[d] = arguments[d];
@@ -2408,15 +2394,15 @@
 		this[4] = ((a[1] = function() {
 			return S(204);
 		}),
-		(a[4] = De),
+		(a[4] = Ce),
 		a);
 		this[5] = {};
 	};
 	q(Hd);
-	var Ee = [],
-		Fe = function(a) {
+	var De = [],
+		Ee = function(a) {
 			var b = new od(S(246));
-			a = new od(a || Ee);
+			a = new od(a || De);
 			if (!I(b, K, 1).length && I(a, K, 1).length) {
 				var c = I(a, K, 1);
 				Hb(b, 1, c);
@@ -2426,7 +2412,7 @@
 				((a = I(a, Q, 2)), Hb(b, 2, a));
 			Jd(b);
 		};
-	var Ge = function(a) {
+	var Fe = function(a) {
 			if ((a = a.scripts))
 				for (var b = 0; b < a.length; b++) {
 					var c = a[b];
@@ -2434,7 +2420,7 @@
 				}
 			return null;
 		},
-		He = function(a) {
+		Ge = function(a) {
 			var b = a.currentScript;
 			return (
 				"complete" != a.readyState &&
@@ -2442,8 +2428,8 @@
 				!(b && b.async)
 			);
 		},
-		Ie = function() {
-			var a = [he, ge, new w(v, "2020071405"), new w(v, ".js")];
+		He = function() {
+			var a = [he, ge, new w(v, "2020071408"), new w(v, ".js")];
 			for (var b = "", c = 0; c < a.length; c++) b += Ka(a[c]);
 			a = new x(La, b);
 			var d = void 0 === d ? 0 : d;
@@ -2455,21 +2441,21 @@
 				: (d = a);
 			return d;
 		},
-		Je = function(a, b, c) {
-			a = a.currentScript || Ge(a);
+		Ie = function(a, b, c) {
+			a = a.currentScript || Fe(a);
 			Z.f()[172] = a;
-			new Fe(b);
+			new Ee(b);
 			P.f().a(12);
 			P.f().a(5);
 			R(200) || R(220) || ((b = S(150)), Qd(), Nd(b) && (V[1] = b));
 			R(312) &&
-				se(
-					new re(function(d) {
+				re(
+					new qe(function(d) {
 						Z.f()[250] = d;
 					})
 				);
 			R(363) &&
-				(b = ue(c)) &&
+				(b = te(c)) &&
 				b.then(function(d) {
 					d = d.i();
 					Z.f()[251] = d;
@@ -2481,27 +2467,47 @@
 				(b = a.getAttribute("data-network-id")) &&
 				new ec(c, b).start();
 		},
+		Je = function(a) {
+			try {
+				if (
+					a.PerformanceObserver &&
+					(a.PerformanceLongTaskTiming && !R(377) && ie(a),
+					R(203) && !window.google_plmetrics)
+				) {
+					for (
+						var b = new oe(),
+							c = ia([
+								"layout-shift",
+								"largest-contentful-paint",
+								"first-input",
+								"longtask"
+							]),
+							d = c.next();
+						!d.done;
+						d = c.next()
+					)
+						b.D.observe({ type: d.value, buffered: !R(240) });
+					document.addEventListener("unload", b.b);
+					document.addEventListener("visibilitychange", b.b);
+					window.google_plmetrics = !0;
+				}
+			} catch (e) {}
+		},
 		Ke = function(a, b, c) {
-			var d = ve();
+			var d = ue();
 			a = a || d.fifWin || window;
 			b = b || a.document;
 			var e = d.fifWin ? window : a;
-			we("cmd", []);
+			ve("cmd", []);
 			if (d.evalScripts) d.evalScripts();
 			else {
-				Je(b, c, a);
-				try {
-					a.PerformanceObserver &&
-						(a.PerformanceLongTaskTiming && ie(a),
-						R(203) &&
-							!window.google_plmetrics &&
-							(pe(), (window.google_plmetrics = !0)));
-				} catch (m) {}
+				Ie(b, c, a);
+				Je(a);
 				R(339) && (Z.f()[249] = !0);
 				je(a);
-				a = Ie();
+				a = He();
 				c = R(200) || R(239);
-				if (He(b)) {
+				if (Ge(b)) {
 					var f = "gpt-impl-" + Math.random();
 					try {
 						vb(b, rb(a, { id: f, nonce: ua() }));
@@ -2516,7 +2522,7 @@
 					g.async = !0;
 					var k = b.head || b.body || b.documentElement;
 					"complete" !== e.document.readyState && d.fifWin
-						? xe(e, function() {
+						? we(e, function() {
 								return void k.appendChild(g);
 						  })
 						: k.appendChild(g);
@@ -3094,123 +3100,7 @@
 				[null, [[21066465], [21066466, [[302, null, null, [1]]]]]],
 				[10, [[21066602], [21066603, [[354, null, null, [1]]]]]],
 				[100, [[21066606], [21066607, [[372, null, null, [1]]]]]],
-				[10, [[21066625], [21066626, [[373, null, null, [1]]]]]],
-				[
-					1000,
-					[
-						[
-							21066754,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066754]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066754]]
-							],
-							[6, null, null, 4, null, 2]
-						],
-						[
-							21066755,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066755]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066755]]
-							],
-							[6, null, null, 4, null, 3]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21066756,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066756]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066756]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21066757,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066757]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066757]]
-							],
-							[6, null, null, 4, null, 5]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21066758,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066758]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066758]]
-							],
-							[6, null, null, 4, null, 6]
-						],
-						[
-							21066759,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066759]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066759]]
-							],
-							[6, null, null, 4, null, 7]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21066760,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066760]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066760]]
-							],
-							[6, null, null, 4, null, 8]
-						],
-						[
-							21066761,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066761]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066761]]
-							],
-							[6, null, null, 4, null, 9]
-						]
-					],
-					[4, null, 3],
-					1
-				]
+				[50, [[21066625], [21066626, [[373, null, null, [1]]]]]]
 			]
 		],
 		[
@@ -3499,9 +3389,9 @@
 						]
 					]
 				],
-				[1, [[21066532], [21066533, [[363, null, null, [1]]]]], null, 25],
+				[10, [[21066532], [21066533, [[363, null, null, [1]]]]], null, 25],
 				[
-					1,
+					10,
 					[[21066534], [21066535, [[363, null, null, [1]]]]],
 					[
 						4,
