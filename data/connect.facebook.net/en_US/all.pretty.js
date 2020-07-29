@@ -1,4 +1,4 @@
-/*1595995330,,JIT Construction: v1002433896,en_US*/
+/*1596000134,,JIT Construction: v1002434348,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -84,8 +84,8 @@
 	i = document.getElementsByTagName("script")[0];
 	i.parentNode && i.parentNode.insertBefore(j, i);
 })(
-	"https://connect.facebook.net/en_US/all.js?hash=122674754dd02b6b50e5d384d18c545f",
-	1595995330,
+	"https://connect.facebook.net/en_US/all.js?hash=32822a97bd8f2a4ffb1d61a702f48ee0",
+	1596000134,
 	"FB",
 	[
 		"AppEvents.EventNames",
