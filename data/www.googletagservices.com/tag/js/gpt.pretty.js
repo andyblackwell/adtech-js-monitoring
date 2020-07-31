@@ -2032,14 +2032,12 @@
 		p.google_js_errors.push(b);
 		p.error_rep_loaded ||
 			((b = p.document),
+			(c = Nb(
+				p.location.protocol +
+					"//pagead2.googlesyndication.com/pagead/js/err_rep.js"
+			)),
 			(a = b.createElement("script")),
-			xb(
-				a,
-				Nb(
-					p.location.protocol +
-						"//pagead2.googlesyndication.com/pagead/js/err_rep.js"
-				)
-			),
+			xb(a, "string" === typeof c ? Nb(c) : c),
 			(b = b.getElementsByTagName("script")[0]) &&
 				b.parentNode &&
 				b.parentNode.insertBefore(a, b),
@@ -2240,7 +2238,7 @@
 						keepalive: !0,
 						redirect: "follow",
 						method: "get",
-						X: {
+						trustToken: {
 							type: "srr-token-redemption",
 							issuer: b,
 							refreshPolicy: "none"
@@ -2325,8 +2323,8 @@
 		226: [],
 		248: 0,
 		228: "//www.googletagservices.com/pubconsole/",
-		249: !1,
 		250: null,
+		252: null,
 		251: null
 	};
 	Y[6] = (function(a, b) {
@@ -2394,10 +2392,10 @@
 			return 0 === De(S(172));
 		};
 	var Fe = function() {
-		return Yb("5") || 0;
+		return Yb("3") || 0;
 	};
 	ye("getVersion", function() {
-		return "2020072701";
+		return "2020073001";
 	});
 	var Kd = function() {
 		var a = {};
@@ -2458,7 +2456,7 @@
 			var a = [
 				R(393) ? w("https://www.googletagservices.com/") : ke,
 				je,
-				w("2020072701"),
+				w("2020073001"),
 				w(".js")
 			];
 			for (var b = "", c = 0; c < a.length; c++) b += La(a[c]);
@@ -2534,7 +2532,6 @@
 			else {
 				Le(b, c, a);
 				Me(a);
-				R(339) && (Z.f()[249] = !0);
 				me(a);
 				a = Ke();
 				c = R(200) || R(239);
@@ -2626,6 +2623,7 @@
 		[89, null, null, [1]],
 		[355, null, null, [1]],
 		[null, null, 2, [null, null, "1-0-37"]],
+		[null, 59, null, [null, 1]],
 		[384, null, null, [1]],
 		[340, null, null, [1]],
 		[215, null, null, [1]],
@@ -2721,19 +2719,7 @@
 				[5, [[20194812, [[20, null, null, [1]]]], [20194813]], null, 3],
 				[
 					500,
-					[[21060697]],
-					[
-						2,
-						[
-							[4, null, 6, null, null, null, null, ["21066613"]],
-							[4, null, 8, null, null, null, null, ["Uint8Array"]],
-							[4, null, 11]
-						]
-					]
-				],
-				[
-					500,
-					[[21060698, [[87, null, null, [1]]]]],
+					[[21060697], [21060698, [[87, null, null, [1]]]]],
 					[
 						2,
 						[
@@ -2813,7 +2799,7 @@
 					9
 				],
 				[50, [[21064169], [21064170, [[168, null, null, [1]]]]]],
-				[10, [[21064211], [21064212, [[177, null, null, [1]]]]]],
+				[1, [[21064211], [21064212, [[177, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -2881,7 +2867,7 @@
 				],
 				[1, [[21065352], [21065353, [[123, null, null, [1]]]]]],
 				[50, [[21065516], [21065517, [[49, null, null, [1]]]]]],
-				[50, [[21065803], [21065804, [[329, null, null, [1]]]]]],
+				[100, [[21065803], [21065804, [[329, null, null, [1]]]]]],
 				[50, [[21065975], [21065976, [[319, null, null, [1]]]]]],
 				[
 					1000,
@@ -2957,18 +2943,28 @@
 					]
 				],
 				[1, [[21066560], [21066561, [[364, null, null, [1]]]]]],
-				[
-					25,
-					[
-						[21066720],
-						[21066721, [[null, 59, null, [null, 3]]]],
-						[21066722, [[null, 59, null, [null, 4]]]],
-						[21066723, [[null, 59, null, [null, 1]]]]
-					]
-				],
-				[10, [[21066724], [21066725, [[377, null, null, [1]]]]]],
+				[50, [[21066724], [21066725, [[377, null, null, [1]]]]]],
 				[10, [[21066781], [21066782]]],
 				[1, [[21066883], [21066884, [[87, null, null, [1]]]]]],
+				[
+					1,
+					[
+						[21066887],
+						[21066888, [[385, null, null, [1]], [387, null, null, [1]]]],
+						[21066889, [[385, null, null, [1]]]]
+					]
+				],
+				[1, [[21066894], [21066895], [21066896]]],
+				[
+					1,
+					[
+						[21066904],
+						[21066905, [[177, null, null, [1]]]],
+						[21066906, [[394, null, null, [1]]]],
+						[21066907, [[null, 395, null, [null, 1]]]],
+						[21066908, [[null, 395, null, [null, 2]]]]
+					]
+				],
 				[
 					1000,
 					[
@@ -3002,6 +2998,153 @@
 					],
 					[4, null, 9, null, null, null, null, ["LayoutShift"]]
 				]
+			]
+		],
+		[
+			12,
+			[
+				[10, [[21066920], [21066921, [[1900, null, null, [1]]]]]],
+				[
+					20,
+					[[21065724], [21065725, [[203, null, null, [1]]]]],
+					[4, null, 9, null, null, null, null, ["LayoutShift"]]
+				],
+				[10, [[21065755], [21065756, [[312, null, null, [1]]]]], null, 21],
+				[
+					100,
+					[[21065757], [21065758, [[312, null, null, [1]]]]],
+					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]],
+					21
+				],
+				[1, [[21065784]]],
+				[
+					1,
+					[
+						[
+							21065785,
+							null,
+							[
+								4,
+								null,
+								8,
+								null,
+								null,
+								null,
+								null,
+								["navigator.connection.saveData"]
+							]
+						]
+					]
+				],
+				[
+					1,
+					[
+						[
+							21065786,
+							null,
+							[
+								4,
+								null,
+								27,
+								null,
+								null,
+								null,
+								null,
+								["navigator.connection.saveData"]
+							]
+						]
+					]
+				],
+				[
+					1,
+					[
+						[
+							21065787,
+							null,
+							[
+								1,
+								[
+									[
+										4,
+										null,
+										27,
+										null,
+										null,
+										null,
+										null,
+										["navigator.connection.saveData"]
+									]
+								]
+							]
+						]
+					]
+				],
+				[
+					1,
+					[
+						[
+							21065798,
+							null,
+							[
+								2,
+								[
+									[5, null, 8, null, null, null, null, ["localStorage"]],
+									[4, null, 8, null, null, null, null, ["localStorage"]]
+								]
+							]
+						]
+					]
+				],
+				[
+					1,
+					[
+						[
+							21065799,
+							null,
+							[
+								2,
+								[
+									[5, null, 8, null, null, null, null, ["localStorage"]],
+									[1, [[4, null, 8, null, null, null, null, ["localStorage"]]]]
+								]
+							]
+						]
+					]
+				],
+				[
+					1,
+					[
+						[
+							21066438,
+							null,
+							[1, [[5, null, 8, null, null, null, null, ["localStorage"]]]]
+						]
+					]
+				],
+				[50, [[21066532], [21066533, [[363, null, null, [1]]]]], null, 25],
+				[
+					500,
+					[[21066534], [21066535, [[363, null, null, [1]]]]],
+					[
+						4,
+						null,
+						9,
+						null,
+						null,
+						null,
+						null,
+						["navigator.userAgentData.getHighEntropyValues"]
+					],
+					25
+				],
+				[
+					10,
+					[
+						[21066612],
+						[21066613, [[83, null, null, [1]], [84, null, null, [1]]]]
+					]
+				],
+				[10, [[21066705], [21066706, [[382, null, null, [1]]]]]]
 			]
 		],
 		[
@@ -3257,7 +3400,6 @@
 					24
 				],
 				[50, [[21066031], [21066032, [[239, null, null, [1]]]]], null, 24],
-				[10, [[21066272], [21066273, [[339, null, null, [1]]]]]],
 				[1, [[21066390], [21066391, [[346, null, null, [1]]]]]],
 				[1, [[21066465], [21066466, [[302, null, null, [1]]]]]],
 				[null, [[21066602], [21066603, [[354, null, null, [1]]]]]],
@@ -3268,35 +3410,6 @@
 						[21066808],
 						[21066809, [[361, null, null, [1]], [360, null, null, [1]]]]
 					]
-				],
-				[
-					1000,
-					[
-						[
-							21066825,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066825]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066825]]
-							],
-							[6, null, null, 4, null, 2]
-						],
-						[
-							21066826,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066826]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066826]]
-							],
-							[6, null, null, 4, null, 3]
-						]
-					],
-					[4, null, 3],
-					1
 				],
 				[
 					null,
@@ -3345,55 +3458,26 @@
 					1000,
 					[
 						[
-							21066881,
+							21066924,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066881]],
+								[null, 24, null, [null, 21066924]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066881]]
+								[null, 25, null, [null, 21066924]]
 							],
-							[6, null, null, 4, null, 6]
+							[6, null, null, 4, null, 2]
 						],
 						[
-							21066882,
+							21066925,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066882]],
+								[null, 24, null, [null, 21066925]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066882]]
+								[null, 25, null, [null, 21066925]]
 							],
-							[6, null, null, 4, null, 7]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21066899,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066899]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066899]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21066900,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21066900]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21066900]]
-							],
-							[6, null, null, 4, null, 5]
+							[6, null, null, 4, null, 3]
 						]
 					],
 					[4, null, 3],
@@ -3415,152 +3499,6 @@
 					21
 				],
 				[1, [[21066183], [21066184]], null, null, null, 43, null, 500]
-			]
-		],
-		[
-			12,
-			[
-				[
-					20,
-					[[21065724], [21065725, [[203, null, null, [1]]]]],
-					[4, null, 9, null, null, null, null, ["LayoutShift"]]
-				],
-				[10, [[21065755], [21065756, [[312, null, null, [1]]]]], null, 21],
-				[
-					100,
-					[[21065757], [21065758, [[312, null, null, [1]]]]],
-					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]],
-					21
-				],
-				[1, [[21065784]]],
-				[
-					1,
-					[
-						[
-							21065785,
-							null,
-							[
-								4,
-								null,
-								8,
-								null,
-								null,
-								null,
-								null,
-								["navigator.connection.saveData"]
-							]
-						]
-					]
-				],
-				[
-					1,
-					[
-						[
-							21065786,
-							null,
-							[
-								4,
-								null,
-								27,
-								null,
-								null,
-								null,
-								null,
-								["navigator.connection.saveData"]
-							]
-						]
-					]
-				],
-				[
-					1,
-					[
-						[
-							21065787,
-							null,
-							[
-								1,
-								[
-									[
-										4,
-										null,
-										27,
-										null,
-										null,
-										null,
-										null,
-										["navigator.connection.saveData"]
-									]
-								]
-							]
-						]
-					]
-				],
-				[
-					1,
-					[
-						[
-							21065798,
-							null,
-							[
-								2,
-								[
-									[5, null, 8, null, null, null, null, ["localStorage"]],
-									[4, null, 8, null, null, null, null, ["localStorage"]]
-								]
-							]
-						]
-					]
-				],
-				[
-					1,
-					[
-						[
-							21065799,
-							null,
-							[
-								2,
-								[
-									[5, null, 8, null, null, null, null, ["localStorage"]],
-									[1, [[4, null, 8, null, null, null, null, ["localStorage"]]]]
-								]
-							]
-						]
-					]
-				],
-				[
-					1,
-					[
-						[
-							21066438,
-							null,
-							[1, [[5, null, 8, null, null, null, null, ["localStorage"]]]]
-						]
-					]
-				],
-				[50, [[21066532], [21066533, [[363, null, null, [1]]]]], null, 25],
-				[
-					500,
-					[[21066534], [21066535, [[363, null, null, [1]]]]],
-					[
-						4,
-						null,
-						9,
-						null,
-						null,
-						null,
-						null,
-						["navigator.userAgentData.getHighEntropyValues"]
-					],
-					25
-				],
-				[
-					10,
-					[
-						[21066612],
-						[21066613, [[83, null, null, [1]], [84, null, null, [1]]]]
-					]
-				],
-				[10, [[21066705], [21066706, [[382, null, null, [1]]]]]]
 			]
 		]
 	]
