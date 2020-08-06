@@ -17,7 +17,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.22";
+fbq.version = "2.9.23";
 fbq._releaseSegment = "canary";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -6755,28 +6755,30 @@ fbq.pendingConfigs = ["global_config"];
 						),
 						g = f.getFbeventsModules("SignalsFBEventsTyped"),
 						i = g.coerce,
-						j = g.Typed,
-						k = f.getFbeventsModules("signalsFBEventsCoercePixelID");
-					g = f.getFbeventsModules("signalsFBEventsCoerceBatchingConfig");
-					var m = f.getFbeventsModules(
+						j = g.Typed;
+					g = f.getFbeventsModules("SignalsFBEventsOpenBridgeConfigTypedef");
+					var k = f.getFbeventsModules("signalsFBEventsCoercePixelID"),
+						m = f.getFbeventsModules("signalsFBEventsCoerceBatchingConfig"),
+						n = f.getFbeventsModules(
 							"signalsFBEventsCoerceAutomaticMatchingConfig"
 						),
-						n = f.getFbeventsModules(
+						p = f.getFbeventsModules(
 							"signalsFBEventsCoerceInferedEventsConfig"
 						),
-						p = f.getFbeventsModules("SignalsFBEventsLogging"),
-						q = p.logError,
-						r = "global",
-						s = {
-							automaticMatching: m,
-							batching: g,
-							inferredEvents: n,
+						q = f.getFbeventsModules("SignalsFBEventsLogging"),
+						r = q.logError,
+						s = "global",
+						t = {
+							automaticMatching: n,
+							openbridge: g,
+							batching: m,
+							inferredEvents: p,
 							microdata: c,
 							prohibitedSources: b,
 							unwantedData: d,
 							dataProcessingOptions: e
 						};
-					p = (function() {
+					q = (function() {
 						function b() {
 							o(this, b),
 								(this._configStore = {
@@ -6786,19 +6788,20 @@ fbq.pendingConfigs = ["global_config"];
 									microdata: {},
 									prohibitedSources: {},
 									unwantedData: {},
-									dataProcessingOptions: {}
+									dataProcessingOptions: {},
+									openbridge: {}
 								});
 						}
 						h(b, [
 							{
 								key: "set",
 								value: function(a, b, c) {
-									a = a == null ? r : k(a);
+									a = a == null ? s : k(a);
 									if (a == null) return;
 									b = i(b, j.string());
 									if (b == null) return;
 									if (this._configStore[b] == null) return;
-									this._configStore[b][a] = s[b] != null ? s[b](c) : c;
+									this._configStore[b][a] = t[b] != null ? t[b](c) : c;
 								}
 							},
 							{
@@ -6824,13 +6827,13 @@ fbq.pendingConfigs = ["global_config"];
 							{
 								key: "get",
 								value: function(a, b) {
-									return this._configStore[b][a != null ? a : r];
+									return this._configStore[b][a != null ? a : s];
 								}
 							},
 							{
 								key: "getWithGlobalFallback",
 								value: function(a, b) {
-									var c = r;
+									var c = s;
 									b = this._configStore[b];
 									a != null &&
 										Object.prototype.hasOwnProperty.call(b, a) &&
@@ -6841,21 +6844,21 @@ fbq.pendingConfigs = ["global_config"];
 							{
 								key: "getAutomaticMatchingConfig",
 								value: function(a) {
-									q(new Error("Calling legacy api getAutomaticMatchingConfig"));
+									r(new Error("Calling legacy api getAutomaticMatchingConfig"));
 									return this.get(a, "automaticMatching");
 								}
 							},
 							{
 								key: "getInferredEventsConfig",
 								value: function(a) {
-									q(new Error("Calling legacy api getInferredEventsConfig"));
+									r(new Error("Calling legacy api getInferredEventsConfig"));
 									return this.get(a, "inferredEvents");
 								}
 							}
 						]);
 						return b;
 					})();
-					l.exports = new p();
+					l.exports = new q();
 				})();
 				return l.exports;
 			})(a, b, c, d);
@@ -8119,6 +8122,31 @@ fbq.pendingConfigs = ["global_config"];
 				return j.exports;
 			})(a, b, c, d);
 		});
+		f.ensureModuleRegistered(
+			"SignalsFBEventsOpenBridgeConfigTypedef",
+			function() {
+				return (function(g, h, i, j) {
+					var k = { exports: {} };
+					k.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsTyped"),
+							b = a.Typed;
+						a.coerce;
+						a = b.objectWithFields({
+							endpoints: b.arrayOf(
+								b.objectWithFields({
+									targetDomain: b.allowNull(b.string()),
+									endpoint: b.allowNull(b.string())
+								})
+							)
+						});
+						k.exports = a;
+					})();
+					return k.exports;
+				})(a, b, c, d);
+			}
+		);
 		f.ensureModuleRegistered("SignalsFBEventsOptIn", function() {
 			return (function(g, i, j, k) {
 				var l = { exports: {} };
