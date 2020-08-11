@@ -2414,25 +2414,13 @@
 	var te = Pa("gpt/pubads_impl_"),
 		ue = Pa("https://securepubads.g.doubleclick.net/");
 	var ve = function(a) {
-		if (!a.google_ltobserver) {
-			var b = new a.PerformanceObserver(function(c) {
-				var d = (a.google_lt_queue = a.google_lt_queue || []);
-				y(c.getEntries(), function(e) {
-					return d.push(e);
-				});
-			});
-			b.observe({ entryTypes: ["longtask"] });
-			a.google_ltobserver = b;
-		}
-	};
-	var we = function(a) {
 			var b = ne(a);
 			b &&
 				((b = { label: "1", type: 9, value: b }),
 				(a = a.google_js_reporting_queue = a.google_js_reporting_queue || []),
 				2048 > a.length && a.push(b));
 		},
-		xe = function(a, b, c) {
+		we = function(a, b, c) {
 			var d = window;
 			return function() {
 				var e = ne(),
@@ -2454,34 +2442,34 @@
 				return g;
 			};
 		},
-		ye = function(a, b) {
-			return xe(a, b, function(c, d) {
+		xe = function(a, b) {
+			return we(a, b, function(c, d) {
 				new qe().j(c, d);
 			});
 		};
 	function Y(a, b) {
 		return null == b ? "&" + a + "=null" : "&" + a + "=" + Math.floor(b);
 	}
-	var ze = new m.Set();
-	function Ae(a) {
+	var ye = new m.Set();
+	function ze(a) {
 		a = a.id;
 		return (
-			ze.has(a) ||
+			ye.has(a) ||
 			n(a, "startsWith").call(a, "google_ads_iframe_") ||
 			n(a, "startsWith").call(a, "aswift")
 		);
 	}
-	function Be(a, b) {
+	function Ae(a, b) {
 		b = void 0 === b ? 4 : b;
 		if (!a) return !1;
-		if (Ae(a)) return !0;
+		if (ze(a)) return !0;
 		if (0 >= b) return !1;
 		a = r(a.childNodes);
 		for (var c = a.next(); !c.done; c = a.next())
-			if (Be(c.value, b - 1)) return !0;
+			if (Ae(c.value, b - 1)) return !0;
 		return !1;
 	}
-	var De = function() {
+	var Ce = function() {
 		var a = this;
 		this.R = this.H = this.J = this.c = this.D = this.A = this.j = 0;
 		this.U = !1;
@@ -2498,9 +2486,9 @@
 				(this.a ? "&qqid=" + encodeURIComponent(this.a) : Y("pvsid", this.I))),
 			(b += Y("test", 1)),
 			(b += "&top=" + (this.Y ? 1 : 0)),
-			Ce(b));
+			Be(b));
 		this.K = new PerformanceObserver(
-			ye(640, function(c) {
+			xe(640, function(c) {
 				var d = !1;
 				c = r(c.getEntries());
 				for (var e = c.next(); !e.done; e = c.next())
@@ -2510,13 +2498,13 @@
 								try {
 									if ("undefined" !== typeof googletag && googletag.pubads) {
 										var f = googletag.pubads();
-										ze.clear();
+										ye.clear();
 										for (
 											var g = r(f.getSlots()), h = g.next();
 											!h.done;
 											h = g.next()
 										)
-											ze.add(h.value.getSlotId().getDomId());
+											ye.add(h.value.getSlotId().getDomId());
 									}
 								} catch (p) {}
 								d = !0;
@@ -2529,7 +2517,7 @@
 									if (e.sources) {
 										var k = r(e.sources);
 										for (var l = k.next(); !l.done; l = k.next())
-											if (Be(l.value.node)) {
+											if (Ae(l.value.node)) {
 												k = !0;
 												break a;
 											}
@@ -2554,10 +2542,27 @@
 			})
 		);
 		this.L = !1;
-		this.b = ye(641, this.b.bind(this));
+		this.b = xe(641, this.b.bind(this));
 	};
-	ra(De, gc);
-	De.prototype.b = function() {
+	ra(Ce, gc);
+	var De = function() {
+		for (
+			var a = new Ce(),
+				b = r([
+					"layout-shift",
+					"largest-contentful-paint",
+					"first-input",
+					"longtask"
+				]),
+				c = b.next();
+			!c.done;
+			c = b.next()
+		)
+			a.K.observe({ type: c.value, buffered: !S(240) });
+		document.addEventListener("unload", a.b);
+		document.addEventListener("visibilitychange", a.b);
+	};
+	Ce.prototype.b = function() {
 		var a;
 		if ((a = !this.L))
 			(a = document),
@@ -2590,7 +2595,7 @@
 				!d.done;
 				d = c.next()
 			)
-				Ae(d.value) && b++;
+				ze(d.value) && b++;
 			a += Y("nif", b);
 			b = window.google_unique_id;
 			a += Y("ifi", "number" === typeof b ? b : 0);
@@ -2599,10 +2604,10 @@
 			this.X && (a += Y("test", 1));
 			a += "&top=" + (this.Y ? 1 : 0);
 			a += this.a ? "&qqid=" + encodeURIComponent(this.a) : Y("pvsid", this.I);
-			Ce(a);
+			Be(a);
 		}
 	};
-	function Ce(a) {
+	function Be(a) {
 		window.fetch(a, {
 			keepalive: !0,
 			credentials: "include",
@@ -2800,10 +2805,10 @@
 			return 0 === Re(T(172));
 		};
 	var Te = function() {
-		return bc("9") || 0;
+		return bc("3") || 0;
 	};
 	Ke("getVersion", function() {
-		return "2020080601";
+		return "2020081002";
 	});
 	var Ud = function() {
 		var a = {};
@@ -2864,7 +2869,7 @@
 			var a = [
 				S(393) ? Pa("https://www.googletagservices.com/") : ue,
 				te,
-				Pa("2020080601"),
+				Pa("2020081002"),
 				Pa(".js")
 			];
 			for (var b = "", c = 0; c < a.length; c++) b += Oa(a[c]);
@@ -2904,33 +2909,7 @@
 				(b = a.getAttribute("data-network-id")) &&
 				new qc(c, b).start();
 		},
-		$e = function(a) {
-			try {
-				if (
-					a.PerformanceObserver &&
-					(a.PerformanceLongTaskTiming && !S(377) && ve(a),
-					S(203) && !window.google_plmetrics)
-				) {
-					for (
-						var b = new De(),
-							c = r([
-								"layout-shift",
-								"largest-contentful-paint",
-								"first-input",
-								"longtask"
-							]),
-							d = c.next();
-						!d.done;
-						d = c.next()
-					)
-						b.K.observe({ type: d.value, buffered: !S(240) });
-					document.addEventListener("unload", b.b);
-					document.addEventListener("visibilitychange", b.b);
-					window.google_plmetrics = !0;
-				}
-			} catch (e) {}
-		},
-		af = function(a, b, c) {
+		$e = function(a, b, c) {
 			var d = Je();
 			a = a || d.fifWin || window;
 			b = b || a.document;
@@ -2939,8 +2918,13 @@
 			if (d.evalScripts) d.evalScripts();
 			else {
 				Ze(b, c, a);
-				$e(a);
-				we(a);
+				try {
+					a.PerformanceObserver &&
+						S(203) &&
+						!window.google_plmetrics &&
+						(De(), (window.google_plmetrics = !0));
+				} catch (k) {}
+				ve(a);
 				a = Ye();
 				c = S(200) || S(239);
 				if (Xe(b)) {
@@ -2966,15 +2950,15 @@
 				}
 			}
 		};
-	var bf;
+	var af;
 	a: {
 		try {
 			if (Array.isArray(E)) {
-				bf = E;
+				af = E;
 				break a;
 			}
 		} catch (a) {}
-		bf = [];
+		af = [];
 	}
 	(function(a, b, c) {
 		var d = new qe(null, "gpt_exception", 0.01);
@@ -2982,9 +2966,9 @@
 			e.methodId = 420;
 		});
 		se(d, function() {
-			return af(a, b, c);
+			return $e(a, b, c);
 		});
-	})(void 0, void 0, bf);
+	})(void 0, void 0, af);
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
 		[269, null, null, [1]],
@@ -3008,8 +2992,6 @@
 			[[[1, [[3, [[4, null, 15, null, null, null, null, ["31110078"]]]]]], [1]]]
 		],
 		[258, null, null, [1]],
-		[74, null, null, [1]],
-		[198, null, null, [1]],
 		[291, null, null, [1]],
 		[327, null, null, [1]],
 		[352, null, null, [1]],
@@ -3028,6 +3010,7 @@
 		[null, 51, null, [null, 1000]],
 		[139, null, null, [1]],
 		[89, null, null, [1]],
+		[391, null, null, [1]],
 		[329, null, null, [1]],
 		[null, null, 2, [null, null, "1-0-37"]],
 		[null, 59, null, [null, 1]],
@@ -3040,6 +3023,8 @@
 		[null, 33, null, [null, 250]],
 		[330, null, null, [1]],
 		[403, null, null, [1]],
+		[398, null, null, [1]],
+		[1900, null, null, [1]],
 		[
 			238,
 			null,
@@ -3092,6 +3077,14 @@
 						[21065694],
 						[21065695],
 						[21065697, [[267, null, null, [1]]]]
+					]
+				],
+				[
+					null,
+					[
+						[21067036],
+						[21067037, [[136, null, null, [1]]]],
+						[21067038, [[136, null, null, [1]], [137, null, null, [1]]]]
 					]
 				]
 			]
@@ -3352,17 +3345,16 @@
 				[10, [[21066781], [21066782]]],
 				[1, [[21066883], [21066884, [[87, null, null, [1]]]]]],
 				[
-					5,
+					10,
 					[
 						[21066904],
-						[21066905, [[177, null, null, [1]]]],
 						[21066906, [[394, null, null, [1]]]],
 						[21066907, [[null, 395, null, [null, 1]]]],
 						[21066908, [[null, 395, null, [null, 2]]]]
 					]
 				],
 				[
-					1,
+					null,
 					[
 						[21066913],
 						[21066914, [[177, null, null, [1]]]],
@@ -3373,7 +3365,9 @@
 						[21066919, [[389, null, null, [1]], [392, null, null, [1]]]]
 					]
 				],
-				[10, [[21066942], [21066943, [[408, null, null, [1]]]]]],
+				[10, [[21066936], [21066937, [[407, null, null, [1]]]]]],
+				[10, [[21066938], [21066939, [[411, null, null, [1]]]]]],
+				[50, [[21066942], [21066943, [[408, null, null, [1]]]]]],
 				[
 					1,
 					[
@@ -3392,9 +3386,9 @@
 						]
 					]
 				],
-				[100, [[21066982], [21066983, [[398, null, null, [1]]]]]],
-				[null, [[21066992], [21066993, [[410, null, null, [1]]]]]],
-				[10, [[21067019], [21067020], [21067021]]],
+				[10, [[21066992], [21066993, [[410, null, null, [1]]]]]],
+				[10, [[21066994], [21066995, [[404, null, null, [1]]]]]],
+				[10, [[21067049], [21067050], [21067051]]],
 				[
 					1000,
 					[
@@ -3438,13 +3432,6 @@
 					20,
 					[[21065724], [21065725, [[203, null, null, [1]]]]],
 					[4, null, 9, null, null, null, null, ["LayoutShift"]]
-				],
-				[10, [[21065755], [21065756, [[312, null, null, [1]]]]], null, 21],
-				[
-					100,
-					[[21065757], [21065758, [[312, null, null, [1]]]]],
-					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]],
-					21
 				],
 				[1, [[21065784]]],
 				[
@@ -3866,7 +3853,6 @@
 				[50, [[21066031], [21066032, [[239, null, null, [1]]]]], null, 24],
 				[1, [[21066390], [21066391, [[346, null, null, [1]]]]]],
 				[10, [[21066465], [21066466, [[302, null, null, [1]]]]]],
-				[null, [[21066602], [21066603, [[354, null, null, [1]]]]]],
 				[50, [[21066625], [21066626, [[373, null, null, [1]]]]]],
 				[
 					5,
@@ -3875,7 +3861,15 @@
 						[21066809, [[361, null, null, [1]], [360, null, null, [1]]]]
 					]
 				],
-				[100, [[21066940], [21066941, [[391, null, null, [1]]]]]],
+				[
+					1,
+					[
+						[21066928],
+						[21066929, [[239, null, null, [1]], [405, null, null, [1]]]]
+					],
+					null,
+					24
+				],
 				[10, [[21066984], [21066985], [21066986]]],
 				[
 					1000,
@@ -3909,64 +3903,6 @@
 					1000,
 					[
 						[
-							21067000,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067000]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067000]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21067001,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067001]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067001]]
-							],
-							[6, null, null, 4, null, 5]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21067013,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067013]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067013]]
-							],
-							[6, null, null, 4, null, 6]
-						],
-						[
-							21067014,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067014]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067014]]
-							],
-							[6, null, null, 4, null, 7]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
 							21067017,
 							[
 								[null, 7, null, [null, 1]],
@@ -3987,6 +3923,50 @@
 								[null, 25, null, [null, 21067018]]
 							],
 							[6, null, null, 4, null, 9]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					10,
+					[
+						[21067043],
+						[21067044, [[354, null, null, [1]]]],
+						[21067045, [[388, null, null, [1]]]]
+					]
+				],
+				[10, [[21067056], [21067057, [[312, null, null, [1]]]]], null, 21],
+				[
+					100,
+					[[21067058], [21067059, [[312, null, null, [1]]]]],
+					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]],
+					21
+				],
+				[
+					1000,
+					[
+						[
+							21067064,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067064]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067064]]
+							],
+							[6, null, null, 4, null, 2]
+						],
+						[
+							21067065,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067065]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067065]]
+							],
+							[6, null, null, 4, null, 3]
 						]
 					],
 					[4, null, 3],
