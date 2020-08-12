@@ -151,11 +151,11 @@
 	else {
 		var na;
 		a: {
-			var oa = { Z: !0 },
+			var oa = { Y: !0 },
 				pa = {};
 			try {
 				pa.__proto__ = oa;
-				na = pa.Z;
+				na = pa.Y;
 				break a;
 			} catch (a) {}
 			na = !1;
@@ -1853,7 +1853,7 @@
 			var e = void 0 === d ? {} : d;
 			d = void 0 === e.N ? !1 : e.N;
 			var f = void 0 === e.P ? {} : e.P;
-			e = void 0 === e.V ? [] : e.V;
+			e = void 0 === e.U ? [] : e.U;
 			a.a = b;
 			a.j = d;
 			a.g = f;
@@ -2047,7 +2047,7 @@
 	};
 	var Wd = function(a) {
 			var b = Ud.f(),
-				c = { N: T(211), P: T(227), V: T(226) },
+				c = { N: T(211), P: T(227), U: T(226) },
 				d = void 0,
 				e = 2;
 			d = void 0 === d ? vd() : d;
@@ -2072,7 +2072,7 @@
 				  rd(d),
 				  Vd(d, e),
 				  Xc(K(a, L, 1), e),
-				  (Kc = Kc || !(!c || !c.$)),
+				  (Kc = Kc || !(!c || !c.Z)),
 				  Td(ud.f()),
 				  b && Td(b));
 		},
@@ -2172,17 +2172,17 @@
 			u: function() {
 				return 0 < W[8];
 			},
-			G: function() {
+			H: function() {
 				W[8]++;
 			},
-			S: function() {
+			R: function() {
 				0 < W[8] && W[8]--;
 			},
-			T: function() {
+			S: function() {
 				W[8] = 0;
 			},
 			v: function() {},
-			W: function() {
+			V: function() {
 				return !1;
 			},
 			O: function() {
@@ -2194,17 +2194,17 @@
 			u: function() {
 				return W[6];
 			},
-			G: function() {
+			H: function() {
 				W[6] = !0;
+			},
+			R: function() {
+				W[6] = !1;
 			},
 			S: function() {
 				W[6] = !1;
 			},
-			T: function() {
-				W[6] = !1;
-			},
 			v: function() {},
-			W: function() {
+			V: function() {
 				return ".google.com" != W[1] && 2 < ++ge;
 			},
 			O: function() {
@@ -2239,7 +2239,7 @@
 					e = Rb(e);
 					Db(f, e);
 					try {
-						(a.head || a.body || a.documentElement).appendChild(f), he.G();
+						(a.head || a.body || a.documentElement).appendChild(f), he.H();
 					} catch (g) {}
 				},
 				c = W[1];
@@ -2280,7 +2280,7 @@
 					">");
 			fe(function() {
 				a.write(f);
-				ie.G();
+				ie.H();
 			});
 		}
 	};
@@ -2314,8 +2314,8 @@
 				h = b["1p_jar"] || "";
 			b = b.pucrd || "";
 			ce();
-			1 == c ? a.T() : a.S();
-			if (!d && a.W()) $d(".google.com") && (W[1] = ".google.com"), a.v();
+			1 == c ? a.S() : a.R();
+			if (!d && a.V()) $d(".google.com") && (W[1] = ".google.com"), a.v();
 			else {
 				var k = (U.googleToken = U.googleToken || {}),
 					l =
@@ -2469,102 +2469,111 @@
 			if (Ae(c.value, b - 1)) return !0;
 		return !1;
 	}
-	var Ce = function() {
-		var a = this;
-		this.R = this.H = this.J = this.c = this.D = this.A = this.j = 0;
-		this.U = !1;
+	var Be = function() {
+		this.T = this.I = this.J = this.c = this.D = this.A = this.j = 0;
+		this.W = !1;
 		this.F = this.o = this.g = 0;
-		this.X = 0.1 > Math.random();
-		this.Y = u === u.top;
-		var b = document.querySelector("[data-google-query-id]");
-		this.I = (this.a = b ? b.getAttribute("data-google-query-id") : null)
-			? null
-			: fc();
-		this.X &&
-			((b =
-				"https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics" +
-				(this.a ? "&qqid=" + encodeURIComponent(this.a) : Y("pvsid", this.I))),
-			(b += Y("test", 1)),
-			(b += "&top=" + (this.Y ? 1 : 0)),
-			Be(b));
-		this.K = new PerformanceObserver(
-			xe(640, function(c) {
-				var d = !1;
-				c = r(c.getEntries());
-				for (var e = c.next(); !e.done; e = c.next())
-					switch (((e = e.value), e.entryType)) {
-						case "layout-shift":
-							if (!d) {
-								try {
-									if ("undefined" !== typeof googletag && googletag.pubads) {
-										var f = googletag.pubads();
-										ye.clear();
-										for (
-											var g = r(f.getSlots()), h = g.next();
-											!h.done;
-											h = g.next()
-										)
-											ye.add(h.value.getSlotId().getDomId());
-									}
-								} catch (p) {}
-								d = !0;
-							}
-							if (!e.hadRecentInput && (!S(241) || 0.01 < e.value)) {
-								a.j += Number(e.value);
-								Number(e.value) > a.A && (a.A = Number(e.value));
-								a.D += 1;
-								a: {
-									if (e.sources) {
-										var k = r(e.sources);
-										for (var l = k.next(); !l.done; l = k.next())
-											if (Ae(l.value.node)) {
-												k = !0;
-												break a;
-											}
-									}
-									k = !1;
-								}
-								k && ((a.c += e.value), a.J++);
-							}
-							break;
-						case "largest-contentful-paint":
-							a.H = Math.floor(e.renderTime || e.loadTime);
-							break;
-						case "first-input":
-							a.R = Number((e.processingStart - e.startTime).toFixed(3));
-							a.U = !0;
-							break;
-						case "longtask":
-							(a.g += e.duration),
-								e.duration > a.o && (a.o = e.duration),
-								(a.F += 1);
-					}
-			})
-		);
-		this.L = !1;
+		this.L = 0.1 > Math.random();
+		this.X = u === u.top;
+		var a = document.querySelector("[data-google-query-id]");
+		this.a = a ? a.getAttribute("data-google-query-id") : null;
+		this.G = null;
+		this.K = !1;
 		this.b = xe(641, this.b.bind(this));
 	};
-	ra(Ce, gc);
-	var De = function() {
-		for (
-			var a = new Ce(),
-				b = r([
-					"layout-shift",
-					"largest-contentful-paint",
-					"first-input",
-					"longtask"
-				]),
-				c = b.next();
-			!c.done;
-			c = b.next()
-		)
-			a.K.observe({ type: c.value, buffered: !S(240) });
-		document.addEventListener("unload", a.b);
-		document.addEventListener("visibilitychange", a.b);
-	};
-	Ce.prototype.b = function() {
+	ra(Be, gc);
+	var Ee = function() {
+			var a = new Be();
+			if (S(203) && !window.google_plmetrics && window.PerformanceObserver) {
+				window.google_plmetrics = !0;
+				for (
+					var b = r([
+							"layout-shift",
+							"largest-contentful-paint",
+							"first-input",
+							"longtask"
+						]),
+						c = b.next();
+					!c.done;
+					c = b.next()
+				)
+					(c = c.value), Ce(a).observe({ type: c, buffered: !S(240) });
+				document.addEventListener("unload", a.b);
+				document.addEventListener("visibilitychange", a.b);
+				a.L &&
+					((b =
+						"https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics" +
+						(a.a ? "&qqid=" + encodeURIComponent(a.a) : Y("pvsid", fc()))),
+					(b += Y("test", 1)),
+					(b += "&top=" + (a.X ? 1 : 0)),
+					De(b));
+			}
+		},
+		Ce = function(a) {
+			a.G ||
+				(a.G = new PerformanceObserver(
+					xe(640, function(b) {
+						var c = !1;
+						b = r(b.getEntries());
+						for (var d = b.next(); !d.done; d = b.next())
+							switch (((d = d.value), d.entryType)) {
+								case "layout-shift":
+									if (!c) {
+										try {
+											if (
+												"undefined" !== typeof googletag &&
+												googletag.pubads
+											) {
+												var e = googletag.pubads();
+												ye.clear();
+												for (
+													var f = r(e.getSlots()), g = f.next();
+													!g.done;
+													g = f.next()
+												)
+													ye.add(g.value.getSlotId().getDomId());
+											}
+										} catch (p) {}
+										c = !0;
+									}
+									var h = a;
+									if (!d.hadRecentInput && (!S(241) || 0.01 < d.value)) {
+										h.j += Number(d.value);
+										Number(d.value) > h.A && (h.A = Number(d.value));
+										h.D += 1;
+										a: {
+											if (d.sources) {
+												var k = r(d.sources);
+												for (var l = k.next(); !l.done; l = k.next())
+													if (Ae(l.value.node)) {
+														k = !0;
+														break a;
+													}
+											}
+											k = !1;
+										}
+										k && ((h.c += d.value), h.J++);
+									}
+									break;
+								case "largest-contentful-paint":
+									a.I = Math.floor(d.renderTime || d.loadTime);
+									break;
+								case "first-input":
+									a.T = Number((d.processingStart - d.startTime).toFixed(3));
+									a.W = !0;
+									break;
+								case "longtask":
+									(a.g += d.duration),
+										d.duration > a.o && (a.o = d.duration),
+										(a.F += 1);
+							}
+					})
+				));
+			return a.G;
+		};
+	Be.prototype.b = function() {
 		var a;
-		if ((a = !this.L))
+		if ((a = !this.K))
 			(a = document),
 				(a =
 					2 ===
@@ -2575,8 +2584,8 @@
 							""
 					] || 0));
 		if (a) {
-			this.L = !0;
-			this.K.takeRecords();
+			this.K = !0;
+			Ce(this).takeRecords();
 			a = "https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics";
 			window.LayoutShift &&
 				((a += "&cls=" + this.j.toFixed(3)),
@@ -2584,8 +2593,8 @@
 				(a += Y("nls", this.D)),
 				window.LayoutShiftAttribution &&
 					((a += "&cas=" + this.c.toFixed(3)), (a += Y("nas", this.J))));
-			window.LargestContentfulPaint && (a += Y("lcp", this.H));
-			window.PerformanceEventTiming && this.U && (a += Y("fid", this.R));
+			window.LargestContentfulPaint && (a += Y("lcp", this.I));
+			window.PerformanceEventTiming && this.W && (a += Y("fid", this.T));
 			window.PerformanceLongTaskTiming &&
 				((a += Y("cbt", this.g)),
 				(a += Y("mbt", this.o)),
@@ -2601,13 +2610,13 @@
 			a += Y("ifi", "number" === typeof b ? b : 0);
 			b = Q.f().a();
 			a += "&eid=" + encodeURIComponent(b.join());
-			this.X && (a += Y("test", 1));
-			a += "&top=" + (this.Y ? 1 : 0);
-			a += this.a ? "&qqid=" + encodeURIComponent(this.a) : Y("pvsid", this.I);
-			Be(a);
+			this.L && (a += Y("test", 1));
+			a += "&top=" + (this.X ? 1 : 0);
+			a += this.a ? "&qqid=" + encodeURIComponent(this.a) : Y("pvsid", fc());
+			De(a);
 		}
 	};
-	function Be(a) {
+	function De(a) {
 		window.fetch(a, {
 			keepalive: !0,
 			credentials: "include",
@@ -2616,15 +2625,15 @@
 			mode: "no-cors"
 		});
 	}
-	var Ee = ["https://adservice.google.com"],
-		Fe = function(a) {
-			this.g = Ee;
+	var Fe = ["https://adservice.google.com"],
+		Ge = function(a) {
+			this.g = Fe;
 			this.a = 2;
 			this.b = a;
 			this.c = fc();
 		};
-	ra(Fe, gc);
-	var Ge = function(a) {
+	ra(Ge, gc);
+	var He = function(a) {
 		!document.hasTrustToken ||
 			3 <= a.a ||
 			((a.a = 3),
@@ -2664,18 +2673,18 @@
 					});
 			}));
 	};
-	var He = [
+	var Ie = [
 			"platform",
 			"platformVersion",
 			"architecture",
 			"model",
 			"uaFullVersion"
 		],
-		Ie = function(a) {
+		Je = function(a) {
 			return a.navigator &&
 				a.navigator.userAgentData &&
 				"function" === typeof a.navigator.userAgentData.getHighEntropyValues
-				? a.navigator.userAgentData.getHighEntropyValues(He).then(function(b) {
+				? a.navigator.userAgentData.getHighEntropyValues(Ie).then(function(b) {
 						var c = new oc();
 						c = J(c, 1, b.platform);
 						c = J(c, 2, b.platformVersion);
@@ -2685,14 +2694,14 @@
 				  })
 				: null;
 		};
-	var Je = function() {
+	var Ke = function() {
 			return u.googletag || (u.googletag = {});
 		},
-		Ke = function(a, b) {
-			var c = Je();
+		Le = function(a, b) {
+			var c = Ke();
 			c.hasOwnProperty(a) || (c[a] = b);
 		},
-		Le = function(a, b) {
+		Me = function(a, b) {
 			a.addEventListener
 				? a.addEventListener("load", b, !1)
 				: a.attachEvent && a.attachEvent("onload", b);
@@ -2743,25 +2752,25 @@
 	Z[148] = Jc;
 	Z[221] = /^true$/.test("");
 	Z[204] = bc("{{MOD}}", -1);
-	var Me = function() {
+	var Ne = function() {
 		Da(this, Z);
 	};
-	v(Me);
+	v(Ne);
 	var T = function(a) {
-			return Me.f()[a];
+			return Ne.f()[a];
 		},
-		Ne = Je(),
-		Oe = Me.f();
-	Da(Oe, Ne._vars_);
-	Ne._vars_ = Oe;
-	var Pe = new m.WeakMap(),
-		Qe = function(a, b) {
+		Oe = Ke(),
+		Pe = Ne.f();
+	Da(Pe, Oe._vars_);
+	Oe._vars_ = Pe;
+	var Qe = new m.WeakMap(),
+		Re = function(a, b) {
 			a = [a];
 			for (var c = b.length - 1; 0 <= c; --c) a.push(typeof b[c], b[c]);
 			return a.join("\x0B");
 		};
-	var Re = (function(a, b) {
-			b = void 0 === b ? Qe : b;
+	var Se = (function(a, b) {
+			b = void 0 === b ? Re : b;
 			var c = Ca(a),
 				d = function(e) {
 					e = r(e);
@@ -2772,8 +2781,8 @@
 			return function(e) {
 				for (var f = [], g = 0; g < arguments.length; ++g) f[g] = arguments[g];
 				g = this || u;
-				var h = Pe.get(g);
-				h || ((h = {}), Pe.set(g, h));
+				var h = Qe.get(g);
+				h || ((h = {}), Qe.set(g, h));
 				g = h;
 				h = [this].concat(ka(f));
 				f = d ? d(h) : h;
@@ -2801,18 +2810,18 @@
 				return a + "\x0B" + (b && b[0] && b[0].src);
 			}
 		),
-		Se = function() {
-			return 0 === Re(T(172));
+		Te = function() {
+			return 0 === Se(T(172));
 		};
-	var Te = function() {
-		return bc("3") || 0;
+	var Ue = function() {
+		return bc("5") || 0;
 	};
-	Ke("getVersion", function() {
-		return "2020081002";
+	Le("getVersion", function() {
+		return "2020081101";
 	});
 	var Ud = function() {
 		var a = {};
-		this[3] = ((a[3] = Se),
+		this[3] = ((a[3] = Te),
 		(a[2] = T(36)),
 		(a[17] = function(b) {
 			for (var c = [], d = 0; d < arguments.length; ++d) c[d] = arguments[d];
@@ -2826,7 +2835,7 @@
 		this[4] = ((a[1] = function() {
 			return T(204);
 		}),
-		(a[4] = Te),
+		(a[4] = Ue),
 		a);
 		a = {};
 		this[5] = ((a[5] = function() {
@@ -2836,10 +2845,10 @@
 		a);
 	};
 	v(Ud);
-	var Ue = [],
-		Ve = function(a) {
+	var Ve = [],
+		We = function(a) {
 			var b = new Bd(T(246));
-			a = new Bd(a || Ue);
+			a = new Bd(a || Ve);
 			if (!K(b, L, 1).length && K(a, L, 1).length) {
 				var c = K(a, L, 1);
 				Nb(b, 1, c);
@@ -2849,7 +2858,7 @@
 				((a = K(a, R, 2)), Nb(b, 2, a));
 			Wd(b);
 		};
-	var We = function(a) {
+	var Xe = function(a) {
 			if ((a = a.scripts))
 				for (var b = 0; b < a.length; b++) {
 					var c = a[b];
@@ -2857,7 +2866,7 @@
 				}
 			return null;
 		},
-		Xe = function(a) {
+		Ye = function(a) {
 			var b = a.currentScript;
 			return (
 				"complete" != a.readyState &&
@@ -2865,11 +2874,11 @@
 				!(b && b.async)
 			);
 		},
-		Ye = function() {
+		Ze = function() {
 			var a = [
 				S(393) ? Pa("https://www.googletagservices.com/") : ue,
 				te,
-				Pa("2020081002"),
+				Pa("2020081101"),
 				Pa(".js")
 			];
 			for (var b = "", c = 0; c < a.length; c++) b += Oa(a[c]);
@@ -2883,24 +2892,24 @@
 				: (d = a);
 			return d;
 		},
-		Ze = function(a, b, c) {
-			a = a.currentScript || We(a);
-			Me.f()[172] = a;
-			new Ve(b);
+		$e = function(a, b, c) {
+			a = a.currentScript || Xe(a);
+			Ne.f()[172] = a;
+			new We(b);
 			Q.f().b(12);
 			Q.f().b(5);
 			S(200) || S(220) || ((b = T(150)), ce(), $d(b) && (W[1] = b));
 			S(312) &&
-				Ge(
-					new Fe(function(d) {
-						Me.f()[250] = d;
+				He(
+					new Ge(function(d) {
+						Ne.f()[250] = d;
 					})
 				);
 			S(363) &&
-				(b = Ie(c)) &&
+				(b = Je(c)) &&
 				b.then(function(d) {
 					d = d.j();
-					Me.f()[251] = d;
+					Ne.f()[251] = d;
 				});
 			b = "";
 			S(349) &&
@@ -2909,25 +2918,22 @@
 				(b = a.getAttribute("data-network-id")) &&
 				new qc(c, b).start();
 		},
-		$e = function(a, b, c) {
-			var d = Je();
+		af = function(a, b, c) {
+			var d = Ke();
 			a = a || d.fifWin || window;
 			b = b || a.document;
 			var e = d.fifWin ? window : a;
-			Ke("cmd", []);
+			Le("cmd", []);
 			if (d.evalScripts) d.evalScripts();
 			else {
-				Ze(b, c, a);
+				$e(b, c, a);
 				try {
-					a.PerformanceObserver &&
-						S(203) &&
-						!window.google_plmetrics &&
-						(De(), (window.google_plmetrics = !0));
+					Ee();
 				} catch (k) {}
 				ve(a);
-				a = Ye();
+				a = Ze();
 				c = S(200) || S(239);
-				if (Xe(b)) {
+				if (Ye(b)) {
 					var f = "gpt-impl-" + Math.random();
 					try {
 						Cb(b, yb(a, { id: f, nonce: wa() }));
@@ -2942,7 +2948,7 @@
 					g.async = !0;
 					var h = b.head || b.body || b.documentElement;
 					"complete" !== e.document.readyState && d.fifWin
-						? Le(e, function() {
+						? Me(e, function() {
 								return void h.appendChild(g);
 						  })
 						: h.appendChild(g);
@@ -2950,15 +2956,15 @@
 				}
 			}
 		};
-	var af;
+	var bf;
 	a: {
 		try {
 			if (Array.isArray(E)) {
-				af = E;
+				bf = E;
 				break a;
 			}
 		} catch (a) {}
-		af = [];
+		bf = [];
 	}
 	(function(a, b, c) {
 		var d = new qe(null, "gpt_exception", 0.01);
@@ -2966,9 +2972,9 @@
 			e.methodId = 420;
 		});
 		se(d, function() {
-			return $e(a, b, c);
+			return af(a, b, c);
 		});
-	})(void 0, void 0, af);
+	})(void 0, void 0, bf);
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
 		[269, null, null, [1]],
@@ -3343,7 +3349,7 @@
 				],
 				[1, [[21066560], [21066561, [[364, null, null, [1]]]]]],
 				[10, [[21066781], [21066782]]],
-				[1, [[21066883], [21066884, [[87, null, null, [1]]]]]],
+				[10, [[21066883], [21066884, [[87, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -3365,7 +3371,8 @@
 						[21066919, [[389, null, null, [1]], [392, null, null, [1]]]]
 					]
 				],
-				[10, [[21066936], [21066937, [[407, null, null, [1]]]]]],
+				[1, [[21066930], [21066931, [[406, null, null, [1]]]]]],
+				[100, [[21066936], [21066937, [[407, null, null, [1]]]]]],
 				[10, [[21066938], [21066939, [[411, null, null, [1]]]]]],
 				[50, [[21066942], [21066943, [[408, null, null, [1]]]]]],
 				[
@@ -3405,23 +3412,7 @@
 					],
 					[4, null, 3]
 				],
-				[50, [[44723443], [44723444, [[374, null, null, [1]]]]]],
-				[
-					null,
-					[
-						[
-							21065729,
-							null,
-							[4, null, 6, null, null, null, null, ["21065725"]]
-						],
-						[
-							21065730,
-							[[null, 35, null, [null, 10]]],
-							[4, null, 6, null, null, null, null, ["21065725"]]
-						]
-					],
-					[4, null, 9, null, null, null, null, ["LayoutShift"]]
-				]
+				[50, [[44723443], [44723444, [[374, null, null, [1]]]]]]
 			]
 		],
 		[
@@ -3862,7 +3853,7 @@
 					]
 				],
 				[
-					1,
+					10,
 					[
 						[21066928],
 						[21066929, [[239, null, null, [1]], [405, null, null, [1]]]]
@@ -3967,6 +3958,35 @@
 								[null, 25, null, [null, 21067065]]
 							],
 							[6, null, null, 4, null, 3]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21067080,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067080]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067080]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21067081,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067081]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067081]]
+							],
+							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
