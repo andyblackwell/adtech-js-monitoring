@@ -151,11 +151,11 @@
 	else {
 		var na;
 		a: {
-			var oa = { Y: !0 },
+			var oa = { Z: !0 },
 				pa = {};
 			try {
 				pa.__proto__ = oa;
-				na = pa.Y;
+				na = pa.Z;
 				break a;
 			} catch (a) {}
 			na = !1;
@@ -1853,7 +1853,7 @@
 			var e = void 0 === d ? {} : d;
 			d = void 0 === e.N ? !1 : e.N;
 			var f = void 0 === e.P ? {} : e.P;
-			e = void 0 === e.U ? [] : e.U;
+			e = void 0 === e.V ? [] : e.V;
 			a.a = b;
 			a.j = d;
 			a.g = f;
@@ -2047,7 +2047,7 @@
 	};
 	var Wd = function(a) {
 			var b = Ud.f(),
-				c = { N: T(211), P: T(227), U: T(226) },
+				c = { N: T(211), P: T(227), V: T(226) },
 				d = void 0,
 				e = 2;
 			d = void 0 === d ? vd() : d;
@@ -2072,7 +2072,7 @@
 				  rd(d),
 				  Vd(d, e),
 				  Xc(K(a, L, 1), e),
-				  (Kc = Kc || !(!c || !c.Z)),
+				  (Kc = Kc || !(!c || !c.$)),
 				  Td(ud.f()),
 				  b && Td(b));
 		},
@@ -2172,17 +2172,17 @@
 			u: function() {
 				return 0 < W[8];
 			},
-			H: function() {
+			G: function() {
 				W[8]++;
 			},
-			R: function() {
+			S: function() {
 				0 < W[8] && W[8]--;
 			},
-			S: function() {
+			T: function() {
 				W[8] = 0;
 			},
 			v: function() {},
-			V: function() {
+			W: function() {
 				return !1;
 			},
 			O: function() {
@@ -2194,17 +2194,17 @@
 			u: function() {
 				return W[6];
 			},
-			H: function() {
+			G: function() {
 				W[6] = !0;
-			},
-			R: function() {
-				W[6] = !1;
 			},
 			S: function() {
 				W[6] = !1;
 			},
+			T: function() {
+				W[6] = !1;
+			},
 			v: function() {},
-			V: function() {
+			W: function() {
 				return ".google.com" != W[1] && 2 < ++ge;
 			},
 			O: function() {
@@ -2239,7 +2239,7 @@
 					e = Rb(e);
 					Db(f, e);
 					try {
-						(a.head || a.body || a.documentElement).appendChild(f), he.H();
+						(a.head || a.body || a.documentElement).appendChild(f), he.G();
 					} catch (g) {}
 				},
 				c = W[1];
@@ -2280,7 +2280,7 @@
 					">");
 			fe(function() {
 				a.write(f);
-				ie.H();
+				ie.G();
 			});
 		}
 	};
@@ -2314,8 +2314,8 @@
 				h = b["1p_jar"] || "";
 			b = b.pucrd || "";
 			ce();
-			1 == c ? a.S() : a.R();
-			if (!d && a.V()) $d(".google.com") && (W[1] = ".google.com"), a.v();
+			1 == c ? a.T() : a.S();
+			if (!d && a.W()) $d(".google.com") && (W[1] = ".google.com"), a.v();
 			else {
 				var k = (U.googleToken = U.googleToken || {}),
 					l =
@@ -2414,13 +2414,25 @@
 	var te = Pa("gpt/pubads_impl_"),
 		ue = Pa("https://securepubads.g.doubleclick.net/");
 	var ve = function(a) {
+		if (!a.google_ltobserver) {
+			var b = new a.PerformanceObserver(function(c) {
+				var d = (a.google_lt_queue = a.google_lt_queue || []);
+				y(c.getEntries(), function(e) {
+					return d.push(e);
+				});
+			});
+			b.observe({ entryTypes: ["longtask"] });
+			a.google_ltobserver = b;
+		}
+	};
+	var we = function(a) {
 			var b = ne(a);
 			b &&
 				((b = { label: "1", type: 9, value: b }),
 				(a = a.google_js_reporting_queue = a.google_js_reporting_queue || []),
 				2048 > a.length && a.push(b));
 		},
-		we = function(a, b, c) {
+		xe = function(a, b, c) {
 			var d = window;
 			return function() {
 				var e = ne(),
@@ -2442,138 +2454,112 @@
 				return g;
 			};
 		},
-		xe = function(a, b) {
-			return we(a, b, function(c, d) {
+		ye = function(a, b) {
+			return xe(a, b, function(c, d) {
 				new qe().j(c, d);
 			});
 		};
 	function Y(a, b) {
 		return null == b ? "&" + a + "=null" : "&" + a + "=" + Math.floor(b);
 	}
-	var ye = new m.Set();
-	function ze(a) {
+	var ze = new m.Set();
+	function Ae(a) {
 		a = a.id;
 		return (
-			ye.has(a) ||
+			ze.has(a) ||
 			n(a, "startsWith").call(a, "google_ads_iframe_") ||
 			n(a, "startsWith").call(a, "aswift")
 		);
 	}
-	function Ae(a, b) {
+	function Be(a, b) {
 		b = void 0 === b ? 4 : b;
 		if (!a) return !1;
-		if (ze(a)) return !0;
+		if (Ae(a)) return !0;
 		if (0 >= b) return !1;
 		a = r(a.childNodes);
 		for (var c = a.next(); !c.done; c = a.next())
-			if (Ae(c.value, b - 1)) return !0;
+			if (Be(c.value, b - 1)) return !0;
 		return !1;
 	}
-	var Be = function() {
-		this.T = this.I = this.J = this.c = this.D = this.A = this.j = 0;
-		this.W = !1;
+	var De = function() {
+		var a = this;
+		this.R = this.H = this.J = this.c = this.D = this.A = this.j = 0;
+		this.U = !1;
 		this.F = this.o = this.g = 0;
-		this.L = 0.1 > Math.random();
-		this.X = u === u.top;
-		var a = document.querySelector("[data-google-query-id]");
-		this.a = a ? a.getAttribute("data-google-query-id") : null;
-		this.G = null;
-		this.K = !1;
-		this.b = xe(641, this.b.bind(this));
-	};
-	ra(Be, gc);
-	var Ee = function() {
-			var a = new Be();
-			if (S(203) && !window.google_plmetrics && window.PerformanceObserver) {
-				window.google_plmetrics = !0;
-				for (
-					var b = r([
-							"layout-shift",
-							"largest-contentful-paint",
-							"first-input",
-							"longtask"
-						]),
-						c = b.next();
-					!c.done;
-					c = b.next()
-				)
-					(c = c.value), Ce(a).observe({ type: c, buffered: !S(240) });
-				document.addEventListener("unload", a.b);
-				document.addEventListener("visibilitychange", a.b);
-				a.L &&
-					((b =
-						"https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics" +
-						(a.a ? "&qqid=" + encodeURIComponent(a.a) : Y("pvsid", fc()))),
-					(b += Y("test", 1)),
-					(b += "&top=" + (a.X ? 1 : 0)),
-					De(b));
-			}
-		},
-		Ce = function(a) {
-			a.G ||
-				(a.G = new PerformanceObserver(
-					xe(640, function(b) {
-						var c = !1;
-						b = r(b.getEntries());
-						for (var d = b.next(); !d.done; d = b.next())
-							switch (((d = d.value), d.entryType)) {
-								case "layout-shift":
-									if (!c) {
-										try {
-											if (
-												"undefined" !== typeof googletag &&
-												googletag.pubads
-											) {
-												var e = googletag.pubads();
-												ye.clear();
-												for (
-													var f = r(e.getSlots()), g = f.next();
-													!g.done;
-													g = f.next()
-												)
-													ye.add(g.value.getSlotId().getDomId());
-											}
-										} catch (p) {}
-										c = !0;
+		this.X = 0.1 > Math.random();
+		this.Y = u === u.top;
+		var b = document.querySelector("[data-google-query-id]");
+		this.I = (this.a = b ? b.getAttribute("data-google-query-id") : null)
+			? null
+			: fc();
+		this.X &&
+			((b =
+				"https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics" +
+				(this.a ? "&qqid=" + encodeURIComponent(this.a) : Y("pvsid", this.I))),
+			(b += Y("test", 1)),
+			(b += "&top=" + (this.Y ? 1 : 0)),
+			Ce(b));
+		this.K = new PerformanceObserver(
+			ye(640, function(c) {
+				var d = !1;
+				c = r(c.getEntries());
+				for (var e = c.next(); !e.done; e = c.next())
+					switch (((e = e.value), e.entryType)) {
+						case "layout-shift":
+							if (!d) {
+								try {
+									if ("undefined" !== typeof googletag && googletag.pubads) {
+										var f = googletag.pubads();
+										ze.clear();
+										for (
+											var g = r(f.getSlots()), h = g.next();
+											!h.done;
+											h = g.next()
+										)
+											ze.add(h.value.getSlotId().getDomId());
 									}
-									var h = a;
-									if (!d.hadRecentInput && (!S(241) || 0.01 < d.value)) {
-										h.j += Number(d.value);
-										Number(d.value) > h.A && (h.A = Number(d.value));
-										h.D += 1;
-										a: {
-											if (d.sources) {
-												var k = r(d.sources);
-												for (var l = k.next(); !l.done; l = k.next())
-													if (Ae(l.value.node)) {
-														k = !0;
-														break a;
-													}
-											}
-											k = !1;
-										}
-										k && ((h.c += d.value), h.J++);
-									}
-									break;
-								case "largest-contentful-paint":
-									a.I = Math.floor(d.renderTime || d.loadTime);
-									break;
-								case "first-input":
-									a.T = Number((d.processingStart - d.startTime).toFixed(3));
-									a.W = !0;
-									break;
-								case "longtask":
-									(a.g += d.duration),
-										d.duration > a.o && (a.o = d.duration),
-										(a.F += 1);
+								} catch (p) {}
+								d = !0;
 							}
-					})
-				));
-			return a.G;
-		};
-	Be.prototype.b = function() {
+							if (!e.hadRecentInput && (!S(241) || 0.01 < e.value)) {
+								a.j += Number(e.value);
+								Number(e.value) > a.A && (a.A = Number(e.value));
+								a.D += 1;
+								a: {
+									if (e.sources) {
+										var k = r(e.sources);
+										for (var l = k.next(); !l.done; l = k.next())
+											if (Be(l.value.node)) {
+												k = !0;
+												break a;
+											}
+									}
+									k = !1;
+								}
+								k && ((a.c += e.value), a.J++);
+							}
+							break;
+						case "largest-contentful-paint":
+							a.H = Math.floor(e.renderTime || e.loadTime);
+							break;
+						case "first-input":
+							a.R = Number((e.processingStart - e.startTime).toFixed(3));
+							a.U = !0;
+							break;
+						case "longtask":
+							(a.g += e.duration),
+								e.duration > a.o && (a.o = e.duration),
+								(a.F += 1);
+					}
+			})
+		);
+		this.L = !1;
+		this.b = ye(641, this.b.bind(this));
+	};
+	ra(De, gc);
+	De.prototype.b = function() {
 		var a;
-		if ((a = !this.K))
+		if ((a = !this.L))
 			(a = document),
 				(a =
 					2 ===
@@ -2584,8 +2570,8 @@
 							""
 					] || 0));
 		if (a) {
-			this.K = !0;
-			Ce(this).takeRecords();
+			this.L = !0;
+			this.K.takeRecords();
 			a = "https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics";
 			window.LayoutShift &&
 				((a += "&cls=" + this.j.toFixed(3)),
@@ -2593,8 +2579,8 @@
 				(a += Y("nls", this.D)),
 				window.LayoutShiftAttribution &&
 					((a += "&cas=" + this.c.toFixed(3)), (a += Y("nas", this.J))));
-			window.LargestContentfulPaint && (a += Y("lcp", this.I));
-			window.PerformanceEventTiming && this.W && (a += Y("fid", this.T));
+			window.LargestContentfulPaint && (a += Y("lcp", this.H));
+			window.PerformanceEventTiming && this.U && (a += Y("fid", this.R));
 			window.PerformanceLongTaskTiming &&
 				((a += Y("cbt", this.g)),
 				(a += Y("mbt", this.o)),
@@ -2604,19 +2590,19 @@
 				!d.done;
 				d = c.next()
 			)
-				ze(d.value) && b++;
+				Ae(d.value) && b++;
 			a += Y("nif", b);
 			b = window.google_unique_id;
 			a += Y("ifi", "number" === typeof b ? b : 0);
 			b = Q.f().a();
 			a += "&eid=" + encodeURIComponent(b.join());
-			this.L && (a += Y("test", 1));
-			a += "&top=" + (this.X ? 1 : 0);
-			a += this.a ? "&qqid=" + encodeURIComponent(this.a) : Y("pvsid", fc());
-			De(a);
+			this.X && (a += Y("test", 1));
+			a += "&top=" + (this.Y ? 1 : 0);
+			a += this.a ? "&qqid=" + encodeURIComponent(this.a) : Y("pvsid", this.I);
+			Ce(a);
 		}
 	};
-	function De(a) {
+	function Ce(a) {
 		window.fetch(a, {
 			keepalive: !0,
 			credentials: "include",
@@ -2625,15 +2611,15 @@
 			mode: "no-cors"
 		});
 	}
-	var Fe = ["https://adservice.google.com"],
-		Ge = function(a) {
-			this.g = Fe;
+	var Ee = ["https://adservice.google.com"],
+		Fe = function(a) {
+			this.g = Ee;
 			this.a = 2;
 			this.b = a;
 			this.c = fc();
 		};
-	ra(Ge, gc);
-	var He = function(a) {
+	ra(Fe, gc);
+	var Ge = function(a) {
 		!document.hasTrustToken ||
 			3 <= a.a ||
 			((a.a = 3),
@@ -2673,18 +2659,18 @@
 					});
 			}));
 	};
-	var Ie = [
+	var He = [
 			"platform",
 			"platformVersion",
 			"architecture",
 			"model",
 			"uaFullVersion"
 		],
-		Je = function(a) {
+		Ie = function(a) {
 			return a.navigator &&
 				a.navigator.userAgentData &&
 				"function" === typeof a.navigator.userAgentData.getHighEntropyValues
-				? a.navigator.userAgentData.getHighEntropyValues(Ie).then(function(b) {
+				? a.navigator.userAgentData.getHighEntropyValues(He).then(function(b) {
 						var c = new oc();
 						c = J(c, 1, b.platform);
 						c = J(c, 2, b.platformVersion);
@@ -2694,14 +2680,14 @@
 				  })
 				: null;
 		};
-	var Ke = function() {
+	var Je = function() {
 			return u.googletag || (u.googletag = {});
 		},
-		Le = function(a, b) {
-			var c = Ke();
+		Ke = function(a, b) {
+			var c = Je();
 			c.hasOwnProperty(a) || (c[a] = b);
 		},
-		Me = function(a, b) {
+		Le = function(a, b) {
 			a.addEventListener
 				? a.addEventListener("load", b, !1)
 				: a.attachEvent && a.attachEvent("onload", b);
@@ -2752,25 +2738,25 @@
 	Z[148] = Jc;
 	Z[221] = /^true$/.test("");
 	Z[204] = bc("{{MOD}}", -1);
-	var Ne = function() {
+	var Me = function() {
 		Da(this, Z);
 	};
-	v(Ne);
+	v(Me);
 	var T = function(a) {
-			return Ne.f()[a];
+			return Me.f()[a];
 		},
-		Oe = Ke(),
-		Pe = Ne.f();
-	Da(Pe, Oe._vars_);
-	Oe._vars_ = Pe;
-	var Qe = new m.WeakMap(),
-		Re = function(a, b) {
+		Ne = Je(),
+		Oe = Me.f();
+	Da(Oe, Ne._vars_);
+	Ne._vars_ = Oe;
+	var Pe = new m.WeakMap(),
+		Qe = function(a, b) {
 			a = [a];
 			for (var c = b.length - 1; 0 <= c; --c) a.push(typeof b[c], b[c]);
 			return a.join("\x0B");
 		};
-	var Se = (function(a, b) {
-			b = void 0 === b ? Re : b;
+	var Re = (function(a, b) {
+			b = void 0 === b ? Qe : b;
 			var c = Ca(a),
 				d = function(e) {
 					e = r(e);
@@ -2781,8 +2767,8 @@
 			return function(e) {
 				for (var f = [], g = 0; g < arguments.length; ++g) f[g] = arguments[g];
 				g = this || u;
-				var h = Qe.get(g);
-				h || ((h = {}), Qe.set(g, h));
+				var h = Pe.get(g);
+				h || ((h = {}), Pe.set(g, h));
 				g = h;
 				h = [this].concat(ka(f));
 				f = d ? d(h) : h;
@@ -2810,18 +2796,18 @@
 				return a + "\x0B" + (b && b[0] && b[0].src);
 			}
 		),
-		Te = function() {
-			return 0 === Se(T(172));
+		Se = function() {
+			return 0 === Re(T(172));
 		};
-	var Ue = function() {
-		return bc("5") || 0;
+	var Te = function() {
+		return bc("3") || 0;
 	};
-	Le("getVersion", function() {
-		return "2020081101";
+	Ke("getVersion", function() {
+		return "2020081203";
 	});
 	var Ud = function() {
 		var a = {};
-		this[3] = ((a[3] = Te),
+		this[3] = ((a[3] = Se),
 		(a[2] = T(36)),
 		(a[17] = function(b) {
 			for (var c = [], d = 0; d < arguments.length; ++d) c[d] = arguments[d];
@@ -2835,7 +2821,7 @@
 		this[4] = ((a[1] = function() {
 			return T(204);
 		}),
-		(a[4] = Ue),
+		(a[4] = Te),
 		a);
 		a = {};
 		this[5] = ((a[5] = function() {
@@ -2845,10 +2831,10 @@
 		a);
 	};
 	v(Ud);
-	var Ve = [],
-		We = function(a) {
+	var Ue = [],
+		Ve = function(a) {
 			var b = new Bd(T(246));
-			a = new Bd(a || Ve);
+			a = new Bd(a || Ue);
 			if (!K(b, L, 1).length && K(a, L, 1).length) {
 				var c = K(a, L, 1);
 				Nb(b, 1, c);
@@ -2858,7 +2844,7 @@
 				((a = K(a, R, 2)), Nb(b, 2, a));
 			Wd(b);
 		};
-	var Xe = function(a) {
+	var We = function(a) {
 			if ((a = a.scripts))
 				for (var b = 0; b < a.length; b++) {
 					var c = a[b];
@@ -2866,7 +2852,7 @@
 				}
 			return null;
 		},
-		Ye = function(a) {
+		Xe = function(a) {
 			var b = a.currentScript;
 			return (
 				"complete" != a.readyState &&
@@ -2874,11 +2860,11 @@
 				!(b && b.async)
 			);
 		},
-		Ze = function() {
+		Ye = function() {
 			var a = [
 				S(393) ? Pa("https://www.googletagservices.com/") : ue,
 				te,
-				Pa("2020081101"),
+				Pa("2020081203"),
 				Pa(".js")
 			];
 			for (var b = "", c = 0; c < a.length; c++) b += Oa(a[c]);
@@ -2892,24 +2878,24 @@
 				: (d = a);
 			return d;
 		},
-		$e = function(a, b, c) {
-			a = a.currentScript || Xe(a);
-			Ne.f()[172] = a;
-			new We(b);
+		Ze = function(a, b, c) {
+			a = a.currentScript || We(a);
+			Me.f()[172] = a;
+			new Ve(b);
 			Q.f().b(12);
 			Q.f().b(5);
 			S(200) || S(220) || ((b = T(150)), ce(), $d(b) && (W[1] = b));
 			S(312) &&
-				He(
-					new Ge(function(d) {
-						Ne.f()[250] = d;
+				Ge(
+					new Fe(function(d) {
+						Me.f()[250] = d;
 					})
 				);
 			S(363) &&
-				(b = Je(c)) &&
+				(b = Ie(c)) &&
 				b.then(function(d) {
 					d = d.j();
-					Ne.f()[251] = d;
+					Me.f()[251] = d;
 				});
 			b = "";
 			S(349) &&
@@ -2918,22 +2904,46 @@
 				(b = a.getAttribute("data-network-id")) &&
 				new qc(c, b).start();
 		},
+		$e = function(a) {
+			try {
+				if (
+					a.PerformanceObserver &&
+					(a.PerformanceLongTaskTiming && !S(377) && ve(a),
+					S(203) && !window.google_plmetrics)
+				) {
+					for (
+						var b = new De(),
+							c = r([
+								"layout-shift",
+								"largest-contentful-paint",
+								"first-input",
+								"longtask"
+							]),
+							d = c.next();
+						!d.done;
+						d = c.next()
+					)
+						b.K.observe({ type: d.value, buffered: !S(240) });
+					document.addEventListener("unload", b.b);
+					document.addEventListener("visibilitychange", b.b);
+					window.google_plmetrics = !0;
+				}
+			} catch (e) {}
+		},
 		af = function(a, b, c) {
-			var d = Ke();
+			var d = Je();
 			a = a || d.fifWin || window;
 			b = b || a.document;
 			var e = d.fifWin ? window : a;
-			Le("cmd", []);
+			Ke("cmd", []);
 			if (d.evalScripts) d.evalScripts();
 			else {
-				$e(b, c, a);
-				try {
-					Ee();
-				} catch (k) {}
-				ve(a);
-				a = Ze();
+				Ze(b, c, a);
+				$e(a);
+				we(a);
+				a = Ye();
 				c = S(200) || S(239);
-				if (Ye(b)) {
+				if (Xe(b)) {
 					var f = "gpt-impl-" + Math.random();
 					try {
 						Cb(b, yb(a, { id: f, nonce: wa() }));
@@ -2948,7 +2958,7 @@
 					g.async = !0;
 					var h = b.head || b.body || b.documentElement;
 					"complete" !== e.document.readyState && d.fifWin
-						? Me(e, function() {
+						? Le(e, function() {
 								return void h.appendChild(g);
 						  })
 						: h.appendChild(g);
@@ -2990,13 +3000,7 @@
 		[296, null, null, [1]],
 		[null, 61, null, [null, 0.001]],
 		[275, null, null, [1]],
-		[
-			274,
-			null,
-			null,
-			null,
-			[[[1, [[3, [[4, null, 15, null, null, null, null, ["31110078"]]]]]], [1]]]
-		],
+		[274, null, null, [1]],
 		[258, null, null, [1]],
 		[291, null, null, [1]],
 		[327, null, null, [1]],
@@ -3371,16 +3375,21 @@
 						[21066919, [[389, null, null, [1]], [392, null, null, [1]]]]
 					]
 				],
-				[1, [[21066930], [21066931, [[406, null, null, [1]]]]]],
+				[null, [[21066930], [21066931, [[406, null, null, [1]]]]]],
 				[100, [[21066936], [21066937, [[407, null, null, [1]]]]]],
-				[10, [[21066938], [21066939, [[411, null, null, [1]]]]]],
+				[50, [[21066938], [21066939, [[411, null, null, [1]]]]]],
 				[50, [[21066942], [21066943, [[408, null, null, [1]]]]]],
 				[
-					1,
+					10,
 					[
 						[21066954],
 						[21066955, [[385, null, null, [1]], [387, null, null, [1]]]],
-						[21066956, [[385, null, null, [1]]]],
+						[21066956, [[385, null, null, [1]]]]
+					]
+				],
+				[
+					1,
+					[
 						[21066957, [[396, null, null, [1]]]],
 						[21066958, [[385, null, null, [1]], [396, null, null, [1]]]],
 						[
@@ -3393,7 +3402,7 @@
 						]
 					]
 				],
-				[10, [[21066992], [21066993, [[410, null, null, [1]]]]]],
+				[50, [[21066992], [21066993, [[410, null, null, [1]]]]]],
 				[10, [[21066994], [21066995, [[404, null, null, [1]]]]]],
 				[10, [[21067049], [21067050], [21067051]]],
 				[
@@ -3843,7 +3852,7 @@
 				],
 				[50, [[21066031], [21066032, [[239, null, null, [1]]]]], null, 24],
 				[1, [[21066390], [21066391, [[346, null, null, [1]]]]]],
-				[10, [[21066465], [21066466, [[302, null, null, [1]]]]]],
+				[null, [[21066465], [21066466, [[302, null, null, [1]]]]]],
 				[50, [[21066625], [21066626, [[373, null, null, [1]]]]]],
 				[
 					5,
@@ -3891,35 +3900,6 @@
 					[12, null, null, null, 5, null, "www\\.googletagservices\\.com"]
 				],
 				[
-					1000,
-					[
-						[
-							21067017,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067017]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067017]]
-							],
-							[6, null, null, 4, null, 8]
-						],
-						[
-							21067018,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067018]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067018]]
-							],
-							[6, null, null, 4, null, 9]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
 					10,
 					[
 						[21067043],
@@ -3938,55 +3918,26 @@
 					1000,
 					[
 						[
-							21067064,
+							21067093,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067064]],
+								[null, 24, null, [null, 21067093]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067064]]
+								[null, 25, null, [null, 21067093]]
 							],
 							[6, null, null, 4, null, 2]
 						],
 						[
-							21067065,
+							21067094,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067065]],
+								[null, 24, null, [null, 21067094]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067065]]
+								[null, 25, null, [null, 21067094]]
 							],
 							[6, null, null, 4, null, 3]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21067080,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067080]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067080]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21067081,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067081]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067081]]
-							],
-							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
@@ -3997,7 +3948,6 @@
 		[
 			2,
 			[
-				[10, [[21066169], [21066170, [[274, null, null, [1]]]]]],
 				[
 					1,
 					[[21066173], [21066174], [21066181], [21066182]],
