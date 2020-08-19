@@ -2788,10 +2788,10 @@
 			return 0 === Oe(T(172));
 		};
 	var Qe = function() {
-		return Zb("3") || 0;
+		return Zb("5") || 0;
 	};
 	He("getVersion", function() {
-		return "2020081801";
+		return "2020081901";
 	});
 	var Rd = function() {
 		var a = {};
@@ -2852,7 +2852,7 @@
 			var a = [
 				S(393) ? Pa("https://www.googletagservices.com/") : re,
 				qe,
-				Pa("2020081801"),
+				Pa("2020081901"),
 				Pa(".js")
 			];
 			for (var b = "", c = 0; c < a.length; c++) b += Oa(a[c]);
@@ -3297,11 +3297,9 @@
 				[null, [[21067049], [21067050], [21067051]]],
 				[100, [[21067071], [21067072, [[415, null, null, [1]]]]]],
 				[
-					1,
+					5,
 					[
 						[21067073],
-						[21067074, [[177, null, null, [1]]]],
-						[21067075, [[390, null, null, [1]]]],
 						[21067076, [[390, null, null, [1]], [177, null, null, [1]]]],
 						[21067077, [[399, null, null, [1]]]],
 						[21067078, [[389, null, null, [1]]]],
@@ -3684,18 +3682,6 @@
 					1000,
 					[
 						[
-							21064215,
-							null,
-							[4, null, 6, null, null, null, null, ["21067073"]]
-						],
-						[21064216, null, [4, null, 6, null, null, null, null, ["21067074"]]]
-					],
-					[4, null, 19]
-				],
-				[
-					1000,
-					[
-						[
 							21067022,
 							null,
 							[4, null, 6, null, null, null, null, ["21066904"]]
@@ -3885,6 +3871,35 @@
 								[null, 25, null, [null, 21067125]]
 							],
 							[6, null, null, 4, null, 3]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21067137,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067137]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067137]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21067138,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067138]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067138]]
+							],
+							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
