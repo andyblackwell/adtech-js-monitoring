@@ -2788,10 +2788,10 @@
 			return 0 === Oe(T(172));
 		};
 	var Qe = function() {
-		return Zb("5") || 0;
+		return Zb("7") || 0;
 	};
 	He("getVersion", function() {
-		return "2020081901";
+		return "2020082001";
 	});
 	var Rd = function() {
 		var a = {};
@@ -2852,7 +2852,7 @@
 			var a = [
 				S(393) ? Pa("https://www.googletagservices.com/") : re,
 				qe,
-				Pa("2020081901"),
+				Pa("2020082001"),
 				Pa(".js")
 			];
 			for (var b = "", c = 0; c < a.length; c++) b += Oa(a[c]);
@@ -2989,6 +2989,7 @@
 		[391, null, null, [1]],
 		[329, null, null, [1]],
 		[null, null, 2, [null, null, "1-0-37"]],
+		[411, null, null, [1]],
 		[null, 59, null, [null, 1]],
 		[407, null, null, [1]],
 		[340, null, null, [1]],
@@ -3291,7 +3292,6 @@
 				[10, [[21066781], [21066782]]],
 				[10, [[21066883], [21066884, [[87, null, null, [1]]]]]],
 				[50, [[21066904], [21066908, [[null, 395, null, [null, 2]]]]]],
-				[50, [[21066938], [21066939, [[411, null, null, [1]]]]]],
 				[50, [[21066992], [21066993, [[410, null, null, [1]]]]]],
 				[10, [[21066994], [21066995, [[404, null, null, [1]]]]]],
 				[null, [[21067049], [21067050], [21067051]]],
@@ -3307,8 +3307,16 @@
 					]
 				],
 				[10, [[21067095], [21067096, [[406, null, null, [1]]]]]],
-				[10, [[21067108], [21067109, [[412, null, null, [1]]]]]],
-				[10, [[21067110], [21067111, [[418, null, null, [1]]]]]],
+				[
+					1,
+					[
+						[21067099],
+						[21067100, [[null, 420, null, [null, 1]]]],
+						[21067101, [[null, 420, null, [null, 2]]]]
+					]
+				],
+				[100, [[21067108], [21067109, [[412, null, null, [1]]]]]],
+				[100, [[21067110], [21067111, [[418, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -3322,19 +3330,9 @@
 				[
 					1,
 					[
-						[21067131, [[396, null, null, [1]]]],
-						[21067132, [[385, null, null, [1]], [396, null, null, [1]]]],
-						[
-							21067133,
-							[
-								[385, null, null, [1]],
-								[396, null, null, [1]],
-								[387, null, null, [1]]
-							]
-						]
-					],
-					null,
-					29
+						[21067147],
+						[21067148, [[413, null, null, [1]], [null, 414, null, [null, 0.5]]]]
+					]
 				],
 				[
 					1000,
@@ -3352,147 +3350,6 @@
 					],
 					[4, null, 3]
 				]
-			]
-		],
-		[
-			12,
-			[
-				[50, [[21066920], [21066921, [[1900, null, null, [1]]]]]],
-				[
-					20,
-					[[21065724], [21065725, [[203, null, null, [1]]]]],
-					[4, null, 9, null, null, null, null, ["LayoutShift"]]
-				],
-				[1, [[21065784]]],
-				[
-					1,
-					[
-						[
-							21065785,
-							null,
-							[
-								4,
-								null,
-								8,
-								null,
-								null,
-								null,
-								null,
-								["navigator.connection.saveData"]
-							]
-						]
-					]
-				],
-				[
-					1,
-					[
-						[
-							21065786,
-							null,
-							[
-								4,
-								null,
-								27,
-								null,
-								null,
-								null,
-								null,
-								["navigator.connection.saveData"]
-							]
-						]
-					]
-				],
-				[
-					1,
-					[
-						[
-							21065787,
-							null,
-							[
-								1,
-								[
-									[
-										4,
-										null,
-										27,
-										null,
-										null,
-										null,
-										null,
-										["navigator.connection.saveData"]
-									]
-								]
-							]
-						]
-					]
-				],
-				[
-					1,
-					[
-						[
-							21065798,
-							null,
-							[
-								2,
-								[
-									[5, null, 8, null, null, null, null, ["localStorage"]],
-									[4, null, 8, null, null, null, null, ["localStorage"]]
-								]
-							]
-						]
-					]
-				],
-				[
-					1,
-					[
-						[
-							21065799,
-							null,
-							[
-								2,
-								[
-									[5, null, 8, null, null, null, null, ["localStorage"]],
-									[1, [[4, null, 8, null, null, null, null, ["localStorage"]]]]
-								]
-							]
-						]
-					]
-				],
-				[
-					1,
-					[
-						[
-							21066438,
-							null,
-							[1, [[5, null, 8, null, null, null, null, ["localStorage"]]]]
-						]
-					]
-				],
-				[50, [[21066532], [21066533, [[363, null, null, [1]]]]], null, 25],
-				[
-					500,
-					[[21066534], [21066535, [[363, null, null, [1]]]]],
-					[
-						4,
-						null,
-						9,
-						null,
-						null,
-						null,
-						null,
-						["navigator.userAgentData.getHighEntropyValues"]
-					],
-					25
-				],
-				[
-					10,
-					[
-						[21066612],
-						[21066613, [[83, null, null, [1]], [84, null, null, [1]]]]
-					]
-				],
-				[50, [[21066705], [21066706, [[382, null, null, [1]]]]]],
-				[10, [[44725623], [44725624, [[1901, null, null, [1]]]]], null, 28]
 			]
 		],
 		[
@@ -3817,35 +3674,6 @@
 					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]],
 					21
 				],
-				[
-					1000,
-					[
-						[
-							21067102,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067102]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067102]]
-							],
-							[6, null, null, 4, null, 6]
-						],
-						[
-							21067103,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067103]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067103]]
-							],
-							[6, null, null, 4, null, 7]
-						]
-					],
-					[4, null, 3],
-					1
-				],
 				[50, [[21067118], [21067119, [[373, null, null, [1]]]]]],
 				[
 					1000,
@@ -3904,7 +3732,176 @@
 					],
 					[4, null, 3],
 					1
+				],
+				[
+					1000,
+					[
+						[
+							21067180,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067180]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067180]]
+							],
+							[6, null, null, 4, null, 6]
+						],
+						[
+							21067181,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067181]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067181]]
+							],
+							[6, null, null, 4, null, 7]
+						]
+					],
+					[4, null, 3],
+					1
 				]
+			]
+		],
+		[
+			12,
+			[
+				[
+					20,
+					[[21065724], [21065725, [[203, null, null, [1]]]]],
+					[4, null, 9, null, null, null, null, ["LayoutShift"]]
+				],
+				[1, [[21065784]]],
+				[
+					1,
+					[
+						[
+							21065785,
+							null,
+							[
+								4,
+								null,
+								8,
+								null,
+								null,
+								null,
+								null,
+								["navigator.connection.saveData"]
+							]
+						]
+					]
+				],
+				[
+					1,
+					[
+						[
+							21065786,
+							null,
+							[
+								4,
+								null,
+								27,
+								null,
+								null,
+								null,
+								null,
+								["navigator.connection.saveData"]
+							]
+						]
+					]
+				],
+				[
+					1,
+					[
+						[
+							21065787,
+							null,
+							[
+								1,
+								[
+									[
+										4,
+										null,
+										27,
+										null,
+										null,
+										null,
+										null,
+										["navigator.connection.saveData"]
+									]
+								]
+							]
+						]
+					]
+				],
+				[
+					1,
+					[
+						[
+							21065798,
+							null,
+							[
+								2,
+								[
+									[5, null, 8, null, null, null, null, ["localStorage"]],
+									[4, null, 8, null, null, null, null, ["localStorage"]]
+								]
+							]
+						]
+					]
+				],
+				[
+					1,
+					[
+						[
+							21065799,
+							null,
+							[
+								2,
+								[
+									[5, null, 8, null, null, null, null, ["localStorage"]],
+									[1, [[4, null, 8, null, null, null, null, ["localStorage"]]]]
+								]
+							]
+						]
+					]
+				],
+				[
+					1,
+					[
+						[
+							21066438,
+							null,
+							[1, [[5, null, 8, null, null, null, null, ["localStorage"]]]]
+						]
+					]
+				],
+				[50, [[21066532], [21066533, [[363, null, null, [1]]]]], null, 25],
+				[
+					500,
+					[[21066534], [21066535, [[363, null, null, [1]]]]],
+					[
+						4,
+						null,
+						9,
+						null,
+						null,
+						null,
+						null,
+						["navigator.userAgentData.getHighEntropyValues"]
+					],
+					25
+				],
+				[
+					10,
+					[
+						[21066612],
+						[21066613, [[83, null, null, [1]], [84, null, null, [1]]]]
+					]
+				],
+				[50, [[21066705], [21066706, [[382, null, null, [1]]]]]],
+				[10, [[44725623], [44725624, [[1901, null, null, [1]]]]], null, 28]
 			]
 		]
 	]
