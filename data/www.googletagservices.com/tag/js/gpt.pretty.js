@@ -180,6 +180,9 @@
 							var d = Object.getOwnPropertyDescriptor(b, c);
 							d && Object.defineProperty(a, c, d);
 						} else a[c] = b[c];
+		},
+		t = function(a, b) {
+			return Object.prototype.hasOwnProperty.call(a, b);
 		};
 	q(
 		"Array.prototype.findIndex",
@@ -278,9 +281,6 @@
 		},
 		"es8"
 	);
-	var t = function(a, b) {
-		return Object.prototype.hasOwnProperty.call(a, b);
-	};
 	q(
 		"Object.is",
 		function(a) {
@@ -2816,10 +2816,10 @@
 			return 0 === Pe(T(172));
 		};
 	var Re = function() {
-		return Yb("5") || 0;
+		return Yb("7") || 0;
 	};
 	Ie("getVersion", function() {
-		return "2020082501";
+		return "2020082601";
 	});
 	var Qd = function() {
 		var a = {};
@@ -2880,7 +2880,7 @@
 			var a = [
 				S(393) ? A("https://www.googletagservices.com/") : qe,
 				pe,
-				A("2020082501"),
+				A("2020082601"),
 				A(".js")
 			];
 			for (var b = "", c = 0; c < a.length; c++) b += Oa(a[c]);
@@ -3014,6 +3014,7 @@
 		[null, 51, null, [null, 1000]],
 		[139, null, null, [1]],
 		[89, null, null, [1]],
+		[null, 420, null, [null, 2]],
 		[239, null, null, [1]],
 		[391, null, null, [1]],
 		[329, null, null, [1]],
@@ -3029,7 +3030,10 @@
 		[null, 33, null, [null, 250]],
 		[330, null, null, [1]],
 		[403, null, null, [1]],
+		[354, null, null, [1]],
+		[388, null, null, [1]],
 		[1900, null, null, [1]],
+		[405, null, null, [1]],
 		[
 			238,
 			null,
@@ -3295,7 +3299,7 @@
 				[10, [[21066883], [21066884, [[87, null, null, [1]]]]]],
 				[50, [[21066904], [21066908, [[null, 395, null, [null, 2]]]]]],
 				[50, [[21066992], [21066993, [[410, null, null, [1]]]]]],
-				[10, [[21066994], [21066995, [[404, null, null, [1]]]]]],
+				[50, [[21066994], [21066995, [[404, null, null, [1]]]]]],
 				[null, [[21067049], [21067050], [21067051]]],
 				[
 					null,
@@ -3307,8 +3311,6 @@
 						[21067079, [[389, null, null, [1]], [392, null, null, [1]]]]
 					]
 				],
-				[10, [[21067095], [21067096, [[406, null, null, [1]]]]]],
-				[100, [[21067099], [21067101, [[null, 420, null, [null, 2]]]]]],
 				[null, [[21067108], [21067109, [[412, null, null, [1]]]]]],
 				[null, [[21067110], [21067111, [[418, null, null, [1]]]]]],
 				[10, [[21067126], [21067127, [[421, null, null, [1]]]]]],
@@ -3339,6 +3341,25 @@
 							[[413, null, null, [1]], [null, 414, null, [null, 0.5]]]
 						],
 						[21067259, [[413, null, null, [1]], [null, 414, null, [null, 1]]]]
+					]
+				],
+				[
+					10,
+					[
+						[
+							21067297,
+							[
+								[
+									406,
+									null,
+									null,
+									[],
+									[[[4, null, 9, null, null, null, null, ["Array.from"]], [1]]]
+								]
+							]
+						],
+						[21067302],
+						[21067303, [[406, null, null, [1]]]]
 					]
 				],
 				[
@@ -3666,14 +3687,6 @@
 					[12, null, null, null, 5, null, "www\\.googletagservices\\.com"],
 					29
 				],
-				[
-					100,
-					[
-						[21067043],
-						[21067044, [[354, null, null, [1]]]],
-						[21067045, [[388, null, null, [1]]]]
-					]
-				],
 				[10, [[21067056], [21067057, [[312, null, null, [1]]]]], null, 21],
 				[
 					100,
@@ -3735,6 +3748,35 @@
 								[null, 25, null, [null, 21067295]]
 							],
 							[6, null, null, 4, null, 5]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21067309,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067309]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067309]]
+							],
+							[6, null, null, 4, null, 6]
+						],
+						[
+							21067310,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067310]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067310]]
+							],
+							[6, null, null, 4, null, 7]
 						]
 					],
 					[4, null, 3],
