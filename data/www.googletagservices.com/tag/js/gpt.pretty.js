@@ -2816,10 +2816,10 @@
 			return 0 === Pe(T(172));
 		};
 	var Re = function() {
-		return Yb("7") || 0;
+		return Yb("9") || 0;
 	};
 	Ie("getVersion", function() {
-		return "2020082601";
+		return "2020082701";
 	});
 	var Qd = function() {
 		var a = {};
@@ -2880,7 +2880,7 @@
 			var a = [
 				S(393) ? A("https://www.googletagservices.com/") : qe,
 				pe,
-				A("2020082601"),
+				A("2020082701"),
 				A(".js")
 			];
 			for (var b = "", c = 0; c < a.length; c++) b += Oa(a[c]);
@@ -3317,21 +3317,29 @@
 				[
 					10,
 					[
-						[21067128],
-						[21067129, [[385, null, null, [1]], [387, null, null, [1]]]],
-						[21067130, [[385, null, null, [1]]]]
-					],
-					null,
-					29
-				],
-				[
-					10,
-					[
 						[21067192],
 						[21067193, [[98, null, null, [1]]]],
 						[21067194, [[98, null, null, [1]]]]
 					]
 				],
+				[
+					10,
+					[
+						[21067199],
+						[
+							21067200,
+							[
+								[1902, null, null, [1]],
+								[385, null, null, [1]],
+								[387, null, null, [1]]
+							]
+						],
+						[21067201, [[1902, null, null, [1]], [385, null, null, [1]]]]
+					],
+					null,
+					29
+				],
+				[10, [[21067223], [21067224, [[422, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -3344,7 +3352,7 @@
 					]
 				],
 				[
-					10,
+					null,
 					[
 						[
 							21067297,
@@ -3362,6 +3370,7 @@
 						[21067303, [[406, null, null, [1]]]]
 					]
 				],
+				[10, [[21067307], [21067308, [[419, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -3555,7 +3564,8 @@
 					100,
 					[[21067087], [21067088, [[78, null, null, [1]]]]],
 					[2, [[4, null, 6, null, null, null, null, ["21066613"]]]]
-				]
+				],
+				[10, [[21067202], [21067203, [[1902, null, null, [1]]]]], null, 29]
 			]
 		],
 		[
@@ -3699,35 +3709,6 @@
 					1000,
 					[
 						[
-							21067245,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067245]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067245]]
-							],
-							[6, null, null, 4, null, 2]
-						],
-						[
-							21067246,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067246]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067246]]
-							],
-							[6, null, null, 4, null, 3]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
 							21067294,
 							[
 								[null, 7, null, [null, 1]],
@@ -3777,6 +3758,35 @@
 								[null, 25, null, [null, 21067310]]
 							],
 							[6, null, null, 4, null, 7]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21067330,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067330]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067330]]
+							],
+							[6, null, null, 4, null, 8]
+						],
+						[
+							21067331,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067331]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067331]]
+							],
+							[6, null, null, 4, null, 9]
 						]
 					],
 					[4, null, 3],
