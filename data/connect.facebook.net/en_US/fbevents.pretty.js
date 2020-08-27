@@ -17,7 +17,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.23";
+fbq.version = "2.9.24";
 fbq._releaseSegment = "canary";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -9753,8 +9753,9 @@ fbq.pendingConfigs = ["global_config"];
 					i.referrer;
 					var U = { PageView: new B(), PixelInitialized: new B() },
 						V = new r(a, T),
-						W = new y(V, M);
-					function ha(a) {
+						W = new y(V, M),
+						ha = new B(["eid"]);
+					function ia(a) {
 						for (var b in a) O.call(a, b) && (this[b] = a[b]);
 						return this;
 					}
@@ -9779,24 +9780,24 @@ fbq.pendingConfigs = ["global_config"];
 									Y.apply(this, d);
 									break;
 								case "set":
-									ia.apply(this, d);
+									ja.apply(this, d);
 									break;
 								case "track":
 									if (H(d[0])) {
-										ma.apply(this, d);
+										na.apply(this, d);
 										break;
 									}
 									if (e) {
 										Z.apply(this, d);
 										break;
 									}
-									la.apply(this, d);
+									ma.apply(this, d);
 									break;
 								case "trackCustom":
 									Z.apply(this, d);
 									break;
 								case "send":
-									na.apply(this, d);
+									oa.apply(this, d);
 									break;
 								case "on":
 									var h = j(d),
@@ -9851,7 +9852,7 @@ fbq.pendingConfigs = ["global_config"];
 							ea(a);
 						}
 					}
-					function ia(d) {
+					function ja(d) {
 						for (
 							var e = arguments.length, f = Array(e > 1 ? e - 1 : 0), g = 1;
 							g < e;
@@ -10029,7 +10030,7 @@ fbq.pendingConfigs = ["global_config"];
 									});
 									break;
 								}
-								ka(d, J, K);
+								la(d, J, K);
 								break;
 						}
 					}
@@ -10064,10 +10065,10 @@ fbq.pendingConfigs = ["global_config"];
 						S.push(a);
 						T[d] = a;
 						b != null && W.loadPlugin("identity");
-						ja();
+						ka();
 						V.loadConfig(d);
 					}
-					function ja() {
+					function ka() {
 						for (var b = 0; b < a._initHandlers.length; b++) {
 							var c = a._initHandlers[b];
 							a._initsDone[b] || (a._initsDone[b] = {});
@@ -10077,7 +10078,7 @@ fbq.pendingConfigs = ["global_config"];
 							}
 						}
 					}
-					function ka(a, b, c) {
+					function la(a, b, c) {
 						var d = q.validateMetadata(a);
 						d.error && L(d.error);
 						d.warnings &&
@@ -10092,7 +10093,7 @@ fbq.pendingConfigs = ["global_config"];
 								}
 						} else L({ metadataValue: b, pixelID: c, type: "SET_METADATA_ON_UNINITIALIZED_PIXEL_ID" });
 					}
-					function la(a, b, c) {
+					function ma(a, b, c) {
 						(b = b || {}),
 							q.validateEventAndLog(a, b),
 							a === "CustomEvent" &&
@@ -10114,15 +10115,15 @@ fbq.pendingConfigs = ["global_config"];
 							Object.prototype.hasOwnProperty.call(U, a) && U[a].add(f.id);
 						}
 					}
-					function ma(a, b) {
+					function na(a, b) {
 						$({ customData: b, eventName: a, pixel: null });
 					}
-					function na(a, b, c) {
+					function oa(a, b, c) {
 						S.forEach(function(c) {
 							return $({ customData: b, eventName: a, pixel: c });
 						});
 					}
-					function oa(b, c) {
+					function pa(b, c) {
 						var e = new d(a.piiTranslator);
 						try {
 							e.append("ud", (b && b.userData) || {}, !0),
@@ -10137,11 +10138,12 @@ fbq.pendingConfigs = ["global_config"];
 						c = K.trigger(b, c);
 						E(c, function(a) {
 							return E(I(a), function(b) {
-								if (e.containsKey(b))
-									throw new Error(
-										"Custom parameter " + b + " has already been specified."
-									);
-								else e.append(b, a[b]);
+								if (e.containsKey(b)) {
+									if (!ha.has(b))
+										throw new Error(
+											"Custom parameter " + b + " has already been specified."
+										);
+								} else e.append(b, a[b]);
 							});
 						});
 						e.append("it", N);
@@ -10170,12 +10172,14 @@ fbq.pendingConfigs = ["global_config"];
 							u.sendEvent(a, d, b || {});
 							return;
 						}
-						var f = oa(a, d);
+						var f = pa(a, d);
 						if (c != null) {
 							var g = c.eventID;
 							c = c.event_id;
 							g = g != null ? g : c;
-							f.append("eid", g);
+							f.containsKey("eid")
+								? f.replaceEntry("eid", g)
+								: f.append("eid", g);
 						}
 						b != null && da.trigger(a, b, d);
 						e({
@@ -10186,26 +10190,26 @@ fbq.pendingConfigs = ["global_config"];
 							piiTranslator: null
 						});
 					}
-					function pa() {
+					function qa() {
 						while (a.queue.length && !M.isLocked()) {
 							var b = a.queue.shift();
 							X.apply(a, b);
 						}
 					}
 					M.onUnlocked(function() {
-						pa();
+						qa();
 					});
 					a.pixelId && ((Q = !0), Y(a.pixelId));
 					((Q && R) || h.fbq !== h._fbq) && L({ type: "CONFLICTING_VERSIONS" });
 					S.length > 1 && L({ type: "MULTIPLE_PIXELS" });
-					function qa() {
+					function ra() {
 						if (a.disablePushState === !0) return;
 						if (!l.pushState || !l.replaceState) return;
 						var b = w(function() {
 							ga = P;
 							P = k.href;
 							if (P === ga) return;
-							var a = new ha({ allowDuplicatePageViews: !0 });
+							var a = new ia({ allowDuplicatePageViews: !0 });
 							X.call(a, "trackCustom", "PageView");
 						});
 						v(l, "pushState", b);
@@ -10213,25 +10217,25 @@ fbq.pendingConfigs = ["global_config"];
 						h.addEventListener("popstate", b, !1);
 					}
 					J.listenOnce(function() {
-						qa();
+						ra();
 					});
-					function ra(b) {
-						a._initHandlers.push(b), ja();
+					function sa(b) {
+						a._initHandlers.push(b), ka();
 					}
-					function sa() {
+					function ta() {
 						return { pixelInitializationTime: N, pixels: S };
 					}
-					function ta(a) {
+					function ua(a) {
 						(a.instance = V),
 							(a.callMethod = X),
 							(a._initHandlers = []),
 							(a._initsDone = {}),
-							(a.send = na),
-							(a.getEventCustomParameters = oa),
-							(a.addInitHandler = ra),
-							(a.getState = sa),
+							(a.send = oa),
+							(a.getEventCustomParameters = pa),
+							(a.addInitHandler = sa),
+							(a.getState = ta),
 							(a.init = Y),
-							(a.set = ia),
+							(a.set = ja),
 							(a.loadPlugin = function(a) {
 								return W.loadPlugin(a);
 							}),
@@ -10239,9 +10243,9 @@ fbq.pendingConfigs = ["global_config"];
 								W.registerPlugin(a, b);
 							});
 					}
-					ta(h.fbq);
-					pa();
-					m.exports = { doExport: ta };
+					ua(h.fbq);
+					qa();
+					m.exports = { doExport: ua };
 					o.trigger();
 				})();
 				return m.exports;
