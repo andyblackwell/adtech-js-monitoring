@@ -183,43 +183,22 @@
 		},
 		t = function(a, b) {
 			return Object.prototype.hasOwnProperty.call(a, b);
-		};
-	q(
-		"Array.prototype.findIndex",
-		function(a) {
-			return a
-				? a
-				: function(b, c) {
-						a: {
-							var d = this;
-							d instanceof String && (d = String(d));
-							for (var e = d.length, f = 0; f < e; f++)
-								if (b.call(c, d[f], f, d)) {
-									b = f;
-									break a;
-								}
-							b = -1;
-						}
-						return b;
-				  };
 		},
-		"es6"
-	);
-	var sa = function(a, b, c) {
-		if (null == a)
-			throw new TypeError(
-				"The 'this' value for String.prototype." +
-					c +
-					" must not be null or undefined"
-			);
-		if (b instanceof RegExp)
-			throw new TypeError(
-				"First argument to String.prototype." +
-					c +
-					" must not be a regular expression"
-			);
-		return a + "";
-	};
+		sa = function(a, b, c) {
+			if (null == a)
+				throw new TypeError(
+					"The 'this' value for String.prototype." +
+						c +
+						" must not be null or undefined"
+				);
+			if (b instanceof RegExp)
+				throw new TypeError(
+					"First argument to String.prototype." +
+						c +
+						" must not be a regular expression"
+				);
+			return a + "";
+		};
 	q(
 		"String.prototype.startsWith",
 		function(a) {
@@ -280,6 +259,27 @@
 				  };
 		},
 		"es8"
+	);
+	q(
+		"Array.prototype.findIndex",
+		function(a) {
+			return a
+				? a
+				: function(b, c) {
+						a: {
+							var d = this;
+							d instanceof String && (d = String(d));
+							for (var e = d.length, f = 0; f < e; f++)
+								if (b.call(c, d[f], f, d)) {
+									b = f;
+									break a;
+								}
+							b = -1;
+						}
+						return b;
+				  };
+		},
+		"es6"
 	);
 	q(
 		"Object.is",
@@ -667,40 +667,40 @@
 		},
 		Ga = function(a, b) {
 			return Array.prototype.map.call(a, b, void 0);
-		},
-		Ha = function(a, b) {
-			a: {
-				for (
-					var c = a.length, d = "string" === typeof a ? a.split("") : a, e = 0;
-					e < c;
-					e++
-				)
-					if (e in d && b.call(void 0, d[e], e, a)) {
-						b = e;
-						break a;
-					}
-				b = -1;
-			}
-			return 0 > b ? null : "string" === typeof a ? a.charAt(b) : a[b];
-		},
-		Ia = function(a, b) {
-			a: {
-				for (
-					var c = "string" === typeof a ? a.split("") : a, d = a.length - 1;
-					0 <= d;
-					d--
-				)
-					if (d in c && b.call(void 0, c[d], d, a)) {
-						b = d;
-						break a;
-					}
-				b = -1;
-			}
-			return 0 > b ? null : "string" === typeof a ? a.charAt(b) : a[b];
-		},
-		Ja = function(a, b) {
-			return 0 <= Array.prototype.indexOf.call(a, b, void 0);
 		};
+	function Ha(a, b) {
+		a: {
+			for (
+				var c = a.length, d = "string" === typeof a ? a.split("") : a, e = 0;
+				e < c;
+				e++
+			)
+				if (e in d && b.call(void 0, d[e], e, a)) {
+					b = e;
+					break a;
+				}
+			b = -1;
+		}
+		return 0 > b ? null : "string" === typeof a ? a.charAt(b) : a[b];
+	}
+	function Ia(a, b) {
+		a: {
+			for (
+				var c = "string" === typeof a ? a.split("") : a, d = a.length - 1;
+				0 <= d;
+				d--
+			)
+				if (d in c && b.call(void 0, c[d], d, a)) {
+					b = d;
+					break a;
+				}
+			b = -1;
+		}
+		return 0 > b ? null : "string" === typeof a ? a.charAt(b) : a[b];
+	}
+	function Ja(a, b) {
+		return 0 <= Array.prototype.indexOf.call(a, b, void 0);
+	}
 	var Ka = function(a) {
 		var b = !1,
 			c;
@@ -2816,10 +2816,10 @@
 			return 0 === Pe(T(172));
 		};
 	var Re = function() {
-		return Yb("9") || 0;
+		return Yb("3") || 0;
 	};
 	Ie("getVersion", function() {
-		return "2020082701";
+		return "2020083101";
 	});
 	var Qd = function() {
 		var a = {};
@@ -2880,7 +2880,7 @@
 			var a = [
 				S(393) ? A("https://www.googletagservices.com/") : qe,
 				pe,
-				A("2020082701"),
+				A("2020083101"),
 				A(".js")
 			];
 			for (var b = "", c = 0; c < a.length; c++) b += Oa(a[c]);
@@ -2999,7 +2999,6 @@
 		[327, null, null, [1]],
 		[352, null, null, [1]],
 		[326, null, null, [1]],
-		[415, null, null, [1]],
 		[358, null, null, [1]],
 		[null, 8, null, [null, -1]],
 		[
@@ -3032,7 +3031,6 @@
 		[403, null, null, [1]],
 		[354, null, null, [1]],
 		[388, null, null, [1]],
-		[1900, null, null, [1]],
 		[405, null, null, [1]],
 		[
 			238,
@@ -3216,7 +3214,6 @@
 					null,
 					15
 				],
-				[null, [[21064411], [21064412, [[144, null, null, [1]]]]]],
 				[10, [[21065112], [21065113, [[162, null, null, [1]]]]]],
 				[10, [[21065138], [21065139, [[148, null, null, [1]]]]]],
 				[
@@ -3311,9 +3308,7 @@
 						[21067079, [[389, null, null, [1]], [392, null, null, [1]]]]
 					]
 				],
-				[null, [[21067108], [21067109, [[412, null, null, [1]]]]]],
-				[null, [[21067110], [21067111, [[418, null, null, [1]]]]]],
-				[10, [[21067126], [21067127, [[421, null, null, [1]]]]]],
+				[100, [[21067126], [21067127, [[421, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -3323,7 +3318,7 @@
 					]
 				],
 				[
-					10,
+					50,
 					[
 						[21067199],
 						[
@@ -3339,7 +3334,7 @@
 					null,
 					29
 				],
-				[10, [[21067223], [21067224, [[422, null, null, [1]]]]]],
+				[100, [[21067223], [21067224, [[422, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -3351,6 +3346,8 @@
 						[21067259, [[413, null, null, [1]], [null, 414, null, [null, 1]]]]
 					]
 				],
+				[100, [[21067272], [21067273, [[412, null, null, [1]]]]]],
+				[100, [[21067282], [21067283, [[418, null, null, [1]]]]]],
 				[
 					null,
 					[
@@ -3370,7 +3367,7 @@
 						[21067303, [[406, null, null, [1]]]]
 					]
 				],
-				[10, [[21067307], [21067308, [[419, null, null, [1]]]]]],
+				[100, [[21067307], [21067308, [[419, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -3565,7 +3562,7 @@
 					[[21067087], [21067088, [[78, null, null, [1]]]]],
 					[2, [[4, null, 6, null, null, null, null, ["21066613"]]]]
 				],
-				[10, [[21067202], [21067203, [[1902, null, null, [1]]]]], null, 29]
+				[50, [[21067202], [21067203, [[1902, null, null, [1]]]]], null, 29]
 			]
 		],
 		[
@@ -3650,7 +3647,7 @@
 				],
 				[50, [[21066031], [21066032, [[239, null, null, [1]]]]], null, 24],
 				[1, [[21066390], [21066391, [[346, null, null, [1]]]]]],
-				[10, [[21066465], [21066466, [[302, null, null, [1]]]]]],
+				[50, [[21066465], [21066466, [[302, null, null, [1]]]]]],
 				[
 					5,
 					[
@@ -3709,84 +3706,26 @@
 					1000,
 					[
 						[
-							21067294,
+							21067354,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067294]],
+								[null, 24, null, [null, 21067354]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067294]]
+								[null, 25, null, [null, 21067354]]
 							],
-							[6, null, null, 4, null, 4]
+							[6, null, null, 4, null, 2]
 						],
 						[
-							21067295,
+							21067355,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067295]],
+								[null, 24, null, [null, 21067355]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067295]]
+								[null, 25, null, [null, 21067355]]
 							],
-							[6, null, null, 4, null, 5]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21067309,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067309]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067309]]
-							],
-							[6, null, null, 4, null, 6]
-						],
-						[
-							21067310,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067310]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067310]]
-							],
-							[6, null, null, 4, null, 7]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21067330,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067330]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067330]]
-							],
-							[6, null, null, 4, null, 8]
-						],
-						[
-							21067331,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067331]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067331]]
-							],
-							[6, null, null, 4, null, 9]
+							[6, null, null, 4, null, 3]
 						]
 					],
 					[4, null, 3],
