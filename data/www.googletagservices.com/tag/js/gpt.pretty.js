@@ -1183,29 +1183,24 @@
 	Kb.prototype.appendChild = function(a, b) {
 		a.appendChild(b);
 	};
-	var Nb = function(a) {
-			Mb();
-			return new B(a, Pa);
-		},
-		Mb = za;
-	var Ob = function() {
+	var Mb = function() {
 		return (
 			-1 != D.indexOf("iPad") ||
 			(-1 != D.indexOf("Android") && -1 == D.indexOf("Mobile")) ||
 			-1 != D.indexOf("Silk")
 		);
 	};
-	var Pb = /^(?:([^:/?#.]+):)?(?:\/\/(?:([^\\/?#]*)@)?([^\\/?#]*?)(?::([0-9]+))?(?=[\\/?#]|$))?([^?#]+)?(?:\?([^#]*))?(?:#([\s\S]*))?$/,
-		Qb = function(a) {
+	var Nb = /^(?:([^:/?#.]+):)?(?:\/\/(?:([^\\/?#]*)@)?([^\\/?#]*?)(?::([0-9]+))?(?=[\\/?#]|$))?([^?#]+)?(?:\?([^#]*))?(?:#([\s\S]*))?$/,
+		Ob = function(a) {
 			return a ? decodeURI(a) : a;
 		};
-	var Ub = function(a, b) {
-			var c = Rb();
-			return !c && !Sb() && ((c = Math.random()), c < b)
-				? ((c = Tb(u)), a[Math.floor(c * a.length)])
+	var Sb = function(a, b) {
+			var c = Pb();
+			return !c && !Qb() && ((c = Math.random()), c < b)
+				? ((c = Rb(u)), a[Math.floor(c * a.length)])
 				: null;
 		},
-		Tb = function(a) {
+		Rb = function(a) {
 			if (!a.crypto) return Math.random();
 			try {
 				var b = new Uint32Array(1);
@@ -1215,13 +1210,13 @@
 				return Math.random();
 			}
 		},
-		Vb = function(a, b) {
+		Tb = function(a, b) {
 			if (a)
 				for (var c in a)
 					Object.prototype.hasOwnProperty.call(a, c) &&
 						b.call(void 0, a[c], c, a);
 		},
-		Sb = Ka(function() {
+		Qb = Ka(function() {
 			return (
 				Array.prototype.some.call(
 					[
@@ -1230,44 +1225,44 @@
 						"Google-Read-Aloud",
 						"Google-Adwords"
 					],
-					Wb,
+					Ub,
 					void 0
 				) || 1e-4 > Math.random()
 			);
 		}),
-		Rb = Ka(function() {
-			return Wb("MSIE");
+		Pb = Ka(function() {
+			return Ub("MSIE");
 		}),
-		Wb = function(a) {
+		Ub = function(a) {
 			return -1 != D.indexOf(a);
 		},
-		Xb = /^(-?[0-9.]{1,30})$/,
-		Yb = function(a, b) {
-			return Xb.test(a) && ((a = Number(a)), !isNaN(a))
+		Vb = /^(-?[0-9.]{1,30})$/,
+		Wb = function(a, b) {
+			return Vb.test(a) && ((a = Number(a)), !isNaN(a))
 				? a
 				: void 0 == b
 					? null
 					: b;
 		},
-		Zb = function() {
+		Xb = function() {
 			try {
 				return wa();
 			} catch (a) {}
 		},
-		$b = Ka(function() {
-			return Ob() ||
+		Yb = Ka(function() {
+			return Mb() ||
 				(-1 == D.indexOf("iPod") &&
 					-1 == D.indexOf("iPhone") &&
 					-1 == D.indexOf("Android") &&
 					-1 == D.indexOf("IEMobile"))
-				? Ob()
+				? Mb()
 					? 1
 					: 0
 				: 2;
 		}),
-		ac = function() {
+		Zb = function() {
 			var a = void 0 === a ? window : a;
-			if ((a = Qb(a.location.href.match(Pb)[3] || null))) {
+			if ((a = Ob(a.location.href.match(Nb)[3] || null))) {
 				var b = a.length;
 				if (0 == b) a = 0;
 				else {
@@ -1278,22 +1273,22 @@
 			} else a = null;
 			return a;
 		};
-	var bc = function() {};
-	var cc = function(a, b) {
+	var $b = function() {};
+	var ac = function(a, b) {
 			a.google_image_requests || (a.google_image_requests = []);
 			var c = a.document.createElement("img");
 			c.src = b;
 			a.google_image_requests.push(c);
 		},
-		ec = function(a) {
+		cc = function(a) {
 			var b =
 				"https://pagead2.googlesyndication.com/pagead/gen_204?id=gpt_dupeid";
-			Vb(a, function(c, d) {
+			Tb(a, function(c, d) {
 				c && (b += "&" + d + "=" + encodeURIComponent(c));
 			});
-			dc(b);
+			bc(b);
 		},
-		dc = function(a) {
+		bc = function(a) {
 			var b = window;
 			b.fetch
 				? b.fetch(a, {
@@ -1303,20 +1298,25 @@
 						method: "get",
 						mode: "no-cors"
 				  })
-				: cc(b, a);
+				: ac(b, a);
 		};
-	var fc = {};
-	var gc = function() {},
-		hc = function(a, b) {
-			if (b !== fc) throw Error("Bad secret");
+	var dc = {};
+	var ec = function() {},
+		fc = function(a, b) {
+			if (b !== dc) throw Error("Bad secret");
 			this.a = a;
 		};
-	ra(hc, gc);
-	hc.prototype.toString = function() {
+	ra(fc, ec);
+	fc.prototype.toString = function() {
 		return this.a;
 	};
-	new hc("about:blank", fc);
-	new hc("about:invalid#zTSz", fc);
+	new fc("about:blank", dc);
+	new fc("about:invalid#zTSz", dc);
+	var hc = function(a) {
+			gc();
+			return new B(a, Pa);
+		},
+		gc = za;
 	var jc = function(a) {
 		H(this, a, ic, null);
 	};
@@ -1608,8 +1608,8 @@
 		},
 		Rc = function(a, b) {
 			var c = Jc(b);
-			Vb(a, function(d, e) {
-				return Vb(d, function(f, g) {
+			Tb(a, function(d, e) {
+				return Tb(d, function(f, g) {
 					return (c[e][g] = f);
 				});
 			});
@@ -1785,7 +1785,7 @@
 			a);
 			a = {};
 			this[4] = ((a[3] = function() {
-				return $b();
+				return Yb();
 			}),
 			(a[6] = function(b) {
 				b = pd(b, "number");
@@ -1891,7 +1891,7 @@
 		Fd = function(a, b, c) {
 			a.b[c] || (a.b[c] = []);
 			a = a.b[c];
-			Ja(a, b) ? ec({ eids: JSON.stringify(a), dup: b }) : a.push(b);
+			Ja(a, b) ? cc({ eids: JSON.stringify(a), dup: b }) : a.push(b);
 		},
 		Hd = function(a, b) {
 			a.a.push.apply(
@@ -1928,7 +1928,7 @@
 					try {
 						f = h(g);
 					} catch (k) {}
-				null === f && (f = Math.floor(1e3 * Tb(window)));
+				null === f && (f = Math.floor(1e3 * Rb(window)));
 				b = Id(b, f);
 				return !b || (d && !yc(Hb(b, tc, 3), d)) ? null : Jd(a, [b], 1);
 			}
@@ -1955,7 +1955,7 @@
 				e = Ha(b, function(f) {
 					return !!d[f.getId()];
 				});
-			return e ? e : a.j ? null : Ub(b, c);
+			return e ? e : a.j ? null : Sb(b, c);
 		},
 		Ld = function(a, b) {
 			P(
@@ -2215,7 +2215,7 @@
 		},
 		ae = function(a) {
 			1e-5 > Math.random() &&
-				cc(
+				ac(
 					u,
 					"https://pagead2.googlesyndication.com/pagead/gen_204?id=imerr&err=" +
 						a
@@ -2226,14 +2226,14 @@
 			var a = u.document,
 				b = function(e) {
 					e = Yd("js", e);
-					var f = Zb();
+					var f = Xb();
 					Td(a, e, f);
 					f = a.createElement("script");
 					f.type = "text/javascript";
 					f.onerror = function() {
 						return u.processGoogleToken({}, 2);
 					};
-					e = Nb(e);
+					e = hc(e);
 					yb(f, e);
 					try {
 						(a.head || a.body || a.documentElement).appendChild(f), de.G();
@@ -2253,7 +2253,7 @@
 		if (!ee.u()) {
 			var a = u.document,
 				b = Yd("sync.js", W[1]),
-				c = Zb();
+				c = Xb();
 			Td(a, b, c);
 			b = Xd(b);
 			var d = zb("script"),
@@ -2377,12 +2377,12 @@
 		u.google_js_errors.push(b);
 		u.error_rep_loaded ||
 			((b = u.document),
-			(c = Nb(
+			(c = hc(
 				u.location.protocol +
 					"//pagead2.googlesyndication.com/pagead/js/err_rep.js"
 			)),
 			(a = b.createElement("script")),
-			yb(a, "string" === typeof c ? Nb(c) : c),
+			yb(a, c),
 			(b = b.getElementsByTagName("script")[0]) &&
 				b.parentNode &&
 				b.parentNode.insertBefore(a, b),
@@ -2476,7 +2476,7 @@
 		this.H = !1;
 		this.a = te(641, this.a.bind(this));
 	};
-	ra(xe, bc);
+	ra(xe, $b);
 	var ze = function() {
 			var a = new xe();
 			if (S(203) && !window.google_plmetrics && window.PerformanceObserver) {
@@ -2630,7 +2630,7 @@
 			this.b = a;
 			this.a = Be(this);
 		};
-	ra(Ce, bc);
+	ra(Ce, $b);
 	var Be = function(a) {
 			var b = a.c.map(function(c) {
 				return {
@@ -2753,7 +2753,7 @@
 	Z[36] = /^true$/.test("false");
 	Z[148] = Ec;
 	Z[221] = /^true$/.test("");
-	Z[204] = Yb("{{MOD}}", -1);
+	Z[204] = Wb("{{MOD}}", -1);
 	var Ke = function() {
 		Da(this, Z);
 	};
@@ -2816,10 +2816,10 @@
 			return 0 === Pe(T(172));
 		};
 	var Re = function() {
-		return Yb("5") || 0;
+		return Wb("7") || 0;
 	};
 	Ie("getVersion", function() {
-		return "2020090101";
+		return "2020090201";
 	});
 	var Qd = function() {
 		var a = {};
@@ -2827,7 +2827,7 @@
 		(a[2] = T(36)),
 		(a[17] = function(b) {
 			for (var c = [], d = 0; d < arguments.length; ++d) c[d] = arguments[d];
-			return n(c, "includes").call(c, String(ac()));
+			return n(c, "includes").call(c, String(Zb()));
 		}),
 		(a[21] = function() {
 			return T(148);
@@ -2842,7 +2842,7 @@
 		a = {};
 		this[5] = ((a[5] = function() {
 			var b = T(172);
-			return b ? Qb(b.src.match(Pb)[3] || null) : void 0;
+			return b ? Ob(b.src.match(Nb)[3] || null) : void 0;
 		}),
 		a);
 	};
@@ -2880,7 +2880,7 @@
 			var a = [
 				S(393) ? A("https://www.googletagservices.com/") : qe,
 				pe,
-				A("2020090101"),
+				A("2020090201"),
 				A(".js")
 			];
 			for (var b = "", c = 0; c < a.length; c++) b += Oa(a[c]);
@@ -3022,6 +3022,9 @@
 		[null, null, 2, [null, null, "1-0-37"]],
 		[411, null, null, [1]],
 		[null, 59, null, [null, 1]],
+		[422, null, null, [1]],
+		[418, null, null, [1]],
+		[421, null, null, [1]],
 		[340, null, null, [1]],
 		[215, null, null, [1]],
 		[377, null, null, [1]],
@@ -3300,7 +3303,6 @@
 				[50, [[21066992], [21066993, [[410, null, null, [1]]]]]],
 				[50, [[21066994], [21066995, [[404, null, null, [1]]]]]],
 				[null, [[21067049], [21067050], [21067051]]],
-				[100, [[21067126], [21067127, [[421, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -3319,7 +3321,6 @@
 					null,
 					29
 				],
-				[100, [[21067223], [21067224, [[422, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -3332,7 +3333,6 @@
 					]
 				],
 				[100, [[21067272], [21067273, [[412, null, null, [1]]]]]],
-				[100, [[21067282], [21067283, [[418, null, null, [1]]]]]],
 				[
 					null,
 					[
@@ -3724,7 +3724,7 @@
 					[4, null, 3],
 					1
 				],
-				[10, [[21067360], [21067361, [[423, null, null, [1]]]]]],
+				[100, [[21067360], [21067361, [[423, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -3749,6 +3749,35 @@
 								[null, 25, null, [null, 21067373]]
 							],
 							[6, null, null, 4, null, 5]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21067382,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067382]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067382]]
+							],
+							[6, null, null, 4, null, 6]
+						],
+						[
+							21067383,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067383]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067383]]
+							],
+							[6, null, null, 4, null, 7]
 						]
 					],
 					[4, null, 3],
