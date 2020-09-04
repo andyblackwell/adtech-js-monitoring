@@ -2816,10 +2816,10 @@
 			return 0 === Pe(T(172));
 		};
 	var Re = function() {
-		return Wb("7") || 0;
+		return Wb("9") || 0;
 	};
 	Ie("getVersion", function() {
-		return "2020090201";
+		return "2020090301";
 	});
 	var Qd = function() {
 		var a = {};
@@ -2880,7 +2880,7 @@
 			var a = [
 				S(393) ? A("https://www.googletagservices.com/") : qe,
 				pe,
-				A("2020090201"),
+				A("2020090301"),
 				A(".js")
 			];
 			for (var b = "", c = 0; c < a.length; c++) b += Oa(a[c]);
@@ -2990,6 +2990,7 @@
 		[null, 45, null, [null, 0.5]],
 		[252, null, null, [1]],
 		[374, null, null, [1]],
+		[null, null, null, [], null, 428],
 		[293, null, null, [1]],
 		[333, null, null, [1]],
 		[296, null, null, [1]],
@@ -3031,7 +3032,7 @@
 		[null, 39, null, [null, 72]],
 		[null, 38, null, [null, 24]],
 		[null, 40, null, [null, 5]],
-		[null, 33, null, [null, 250]],
+		[null, 33, null, [null, -1]],
 		[330, null, null, [1]],
 		[403, null, null, [1]],
 		[354, null, null, [1]],
@@ -3689,7 +3690,7 @@
 				],
 				[10, [[21067056], [21067057, [[312, null, null, [1]]]]], null, 21],
 				[
-					100,
+					500,
 					[[21067058], [21067059, [[312, null, null, [1]]]]],
 					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]],
 					21
@@ -3778,6 +3779,35 @@
 								[null, 25, null, [null, 21067383]]
 							],
 							[6, null, null, 4, null, 7]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21067391,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067391]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067391]]
+							],
+							[6, null, null, 4, null, 8]
+						],
+						[
+							21067392,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067392]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067392]]
+							],
+							[6, null, null, 4, null, 9]
 						]
 					],
 					[4, null, 3],
