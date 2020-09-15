@@ -1840,20 +1840,23 @@
 	var qd = [12, 13],
 		rd = function() {},
 		sd = function(a, b, c, d) {
-			var e = void 0 === d ? {} : d;
-			d = void 0 === e.L ? !1 : e.L;
-			var f = void 0 === e.M ? {} : e.M;
-			e = void 0 === e.N ? [] : e.N;
+			d = void 0 === d ? {} : d;
+			var e = void 0 === d.L ? !1 : d.L,
+				f = void 0 === d.M ? {} : d.M;
+			d = void 0 === d.N ? [] : d.N;
 			a.a = b;
-			a.j = d;
+			a.j = e;
 			a.g = f;
 			b = {};
-			a.b = ((b[c] = e), (b[4] = []), b);
+			a.b = ((b[c] = []), (b[4] = []), b);
 			a.c = {};
 			(c = hc()) &&
 				x(c.split(",") || [], function(h) {
 					(h = parseInt(h, 10)) && (a.c[h] = !0);
 				});
+			x(d, function(h) {
+				a.c[h] = !0;
+			});
 			return a;
 		},
 		xd = function(a, b, c) {
@@ -2501,7 +2504,6 @@
 		150: "",
 		211: !1,
 		253: !1,
-		152: [],
 		172: null,
 		191: "",
 		192: "",
@@ -2584,7 +2586,7 @@
 		})(
 			function(a) {
 				return a && a.src
-					? /^(?:https?:)?\/\/(?:www\.googletagservices\.com|securepubads\.g\.doubleclick\.net)\/tag\/js\/gpt(?:_[a-z]+)*\.js/.test(
+					? /^(?:https?:)?\/\/(?:www\.googletagservices\.com|securepubads\.g\.doubleclick\.net|pagead2\.googlesyndication\.com)\/tag\/js\/gpt(?:_[a-z]+)*\.js/.test(
 							a.src
 					  )
 						? 0
@@ -2599,10 +2601,10 @@
 			return 0 === we(U(172));
 		};
 	var ye = function() {
-		return Sb("9") || 0;
+		return Sb("5") || 0;
 	};
 	pe("getVersion", function() {
-		return "2020091001";
+		return "2020091401";
 	});
 	var Id = function() {
 		var a = {};
@@ -2663,7 +2665,7 @@
 			var a = [
 				T(393) ? z("https://pagead2.googlesyndication.com/") : Wd,
 				Vd,
-				z("2020091001"),
+				z("2020091401"),
 				z(".js")
 			];
 			var b = "";
@@ -2770,7 +2772,7 @@
 		[347, null, null, [1]],
 		[1902, null, null, [1]],
 		[322, null, null, [1]],
-		[20, null, null, null, [[[1, [[4, null, 1]]], [1]]]],
+		[20, null, null, null, [[[1, [[6, null, null, 3, null, 0]]], [1]]]],
 		[null, 45, null, [null, 0.5]],
 		[252, null, null, [1]],
 		[374, null, null, [1]],
@@ -2811,7 +2813,6 @@
 		[422, null, null, [1]],
 		[423, null, null, [1]],
 		[412, null, null, [1]],
-		[418, null, null, [1]],
 		[421, null, null, [1]],
 		[340, null, null, [1]],
 		[215, null, null, [1]],
@@ -3107,26 +3108,8 @@
 						[21067259, [[413, null, null, [1]], [null, 414, null, [null, 1]]]]
 					]
 				],
-				[
-					10,
-					[
-						[
-							21067297,
-							[
-								[
-									406,
-									null,
-									null,
-									[],
-									[[[4, null, 9, null, null, null, null, ["Array.from"]], [1]]]
-								]
-							]
-						],
-						[21067341],
-						[21067342, [[406, null, null, [1]]]]
-					]
-				],
 				[100, [[21067332], [21067333, [[424, null, null, [1]]]]]],
+				[100, [[21067341], [21067342, [[406, null, null, [1]]]]]],
 				[
 					1,
 					[
@@ -3148,6 +3131,38 @@
 					]
 				],
 				[10, [[21067414], [21067415, [[401, null, null, [1]]]]]],
+				[10, [[21067434], [21067435, [[431, null, null, [1]]]]]],
+				[10, [[21067447], [21067448, [[430, null, null, [1]]]]]],
+				[
+					1000,
+					[
+						[
+							21067455,
+							[
+								[308, null, null, [1]],
+								[
+									null,
+									null,
+									null,
+									[null, null, null, ["criteotest"]],
+									null,
+									428
+								],
+								[311, null, null, [1]]
+							],
+							[
+								4,
+								null,
+								17,
+								null,
+								null,
+								null,
+								null,
+								["3312015223", "1819441360"]
+							]
+						]
+					]
+				],
 				[
 					1000,
 					[
@@ -3340,7 +3355,10 @@
 					100,
 					[[21067087], [21067088, [[78, null, null, [1]]]]],
 					[2, [[4, null, 6, null, null, null, null, ["21066613"]]]]
-				]
+				],
+				[1, [[21067386, null, [6, null, null, 3, null, 0]]]],
+				[1, [[21067387, null, [6, null, null, 3, null, 1]]]],
+				[1, [[21067388, null, [6, null, null, 3, null, 2]]]]
 			]
 		],
 		[
@@ -3449,65 +3467,7 @@
 					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]],
 					21
 				],
-				[
-					1000,
-					[
-						[
-							21067401,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067401]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067401]]
-							],
-							[6, null, null, 4, null, 2]
-						],
-						[
-							21067402,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067402]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067402]]
-							],
-							[6, null, null, 4, null, 3]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21067406,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067406]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067406]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21067407,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067407]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067407]]
-							],
-							[6, null, null, 4, null, 5]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[null, [[21067408], [21067409], [21067410]], null, 29],
+				[10, [[21067408], [21067409], [21067410]], null, 29],
 				[
 					1000,
 					[
@@ -3545,30 +3505,31 @@
 					],
 					29
 				],
+				[10, [[21067442], [21067443, [[425, null, null, [1]]]]]],
 				[
 					1000,
 					[
 						[
-							21067416,
+							21067449,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067416]],
+								[null, 24, null, [null, 21067449]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067416]]
+								[null, 25, null, [null, 21067449]]
 							],
-							[6, null, null, 4, null, 6]
+							[6, null, null, 4, null, 4]
 						],
 						[
-							21067417,
+							21067450,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067417]],
+								[null, 24, null, [null, 21067450]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067417]]
+								[null, 25, null, [null, 21067450]]
 							],
-							[6, null, null, 4, null, 7]
+							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
@@ -3578,32 +3539,31 @@
 					1000,
 					[
 						[
-							21067436,
+							21067462,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067436]],
+								[null, 24, null, [null, 21067462]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067436]]
+								[null, 25, null, [null, 21067462]]
 							],
-							[6, null, null, 4, null, 8]
+							[6, null, null, 4, null, 2]
 						],
 						[
-							21067437,
+							21067463,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067437]],
+								[null, 24, null, [null, 21067463]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067437]]
+								[null, 25, null, [null, 21067463]]
 							],
-							[6, null, null, 4, null, 9]
+							[6, null, null, 4, null, 3]
 						]
 					],
 					[4, null, 3],
 					1
-				],
-				[10, [[21067442], [21067443, [[425, null, null, [1]]]]]]
+				]
 			]
 		],
 		[
@@ -3743,7 +3703,17 @@
 					]
 				],
 				[50, [[21066705], [21066706, [[382, null, null, [1]]]]]],
-				[null, [[44725623], [44725624, [[1901, null, null, [1]]]]], null, 28]
+				[
+					10,
+					[
+						[44725623],
+						[44725624, [[null, 1904, null, [null, 1]]]],
+						[44727579, [[null, 1904, null, [null, 2]]]],
+						[44727580, [[null, 1904, null, [null, 3]]]]
+					],
+					null,
+					28
+				]
 			]
 		]
 	]
