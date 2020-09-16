@@ -2601,10 +2601,10 @@
 			return 0 === we(U(172));
 		};
 	var ye = function() {
-		return Sb("5") || 0;
+		return Sb("3") || 0;
 	};
 	pe("getVersion", function() {
-		return "2020091401";
+		return "2020091501";
 	});
 	var Id = function() {
 		var a = {};
@@ -2665,7 +2665,7 @@
 			var a = [
 				T(393) ? z("https://pagead2.googlesyndication.com/") : Wd,
 				Vd,
-				z("2020091401"),
+				z("2020091501"),
 				z(".js")
 			];
 			var b = "";
@@ -2821,6 +2821,7 @@
 		[null, 38, null, [null, 24]],
 		[null, 40, null, [null, 5]],
 		[null, 33, null, [null, -1]],
+		[363, null, null, [1]],
 		[330, null, null, [1]],
 		[403, null, null, [1]],
 		[354, null, null, [1]],
@@ -3163,6 +3164,7 @@
 						]
 					]
 				],
+				[1, [[21067470], [21067471, [[432, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -3563,7 +3565,8 @@
 					],
 					[4, null, 3],
 					1
-				]
+				],
+				[1, [[21067480], [21067481, [[429, null, null, [1]]]]]]
 			]
 		],
 		[
@@ -3678,22 +3681,6 @@
 							[1, [[5, null, 8, null, null, null, null, ["localStorage"]]]]
 						]
 					]
-				],
-				[50, [[21066532], [21066533, [[363, null, null, [1]]]]], null, 25],
-				[
-					500,
-					[[21066534], [21066535, [[363, null, null, [1]]]]],
-					[
-						4,
-						null,
-						9,
-						null,
-						null,
-						null,
-						null,
-						["navigator.userAgentData.getHighEntropyValues"]
-					],
-					25
 				],
 				[
 					10,
