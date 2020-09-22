@@ -180,6 +180,7 @@
 							var d = Object.getOwnPropertyDescriptor(b, c);
 							d && Object.defineProperty(a, c, d);
 						} else a[c] = b[c];
+			a.S = b.prototype;
 		},
 		t = function(a, b) {
 			return Object.prototype.hasOwnProperty.call(a, b);
@@ -653,8 +654,18 @@
 		w = function(a, b) {
 			function c() {}
 			c.prototype = b.prototype;
+			a.S = b.prototype;
 			a.prototype = new c();
 			a.prototype.constructor = a;
+			a.T = function(d, e, f) {
+				for (
+					var h = Array(arguments.length - 2), g = 2;
+					g < arguments.length;
+					g++
+				)
+					h[g - 2] = arguments[g];
+				return b.prototype[e].apply(d, h);
+			};
 		};
 	var Da;
 	var x = function(a, b) {
@@ -2067,7 +2078,7 @@
 				  cd(d),
 				  Hd(d, e),
 				  Ic(L(a, O, 1), e),
-				  (vc = vc || !(!c || !c.S)),
+				  (vc = vc || !(!c || !c.U)),
 				  Fd(fd.f()),
 				  b && Fd(b));
 		},
@@ -2582,10 +2593,10 @@
 			return 0 === qe(W(172));
 		};
 	var se = function() {
-		return Sb("9") || 0;
+		return Sb("5") || 0;
 	};
 	je("getVersion", function() {
-		return "2020091702";
+		return "2020092201";
 	});
 	var Gd = function() {
 		var a = {};
@@ -2646,7 +2657,7 @@
 			var a = [
 				V(393) ? z("https://pagead2.googlesyndication.com/") : Qd,
 				Pd,
-				z("2020091702"),
+				z("2020092201"),
 				z(".js")
 			];
 			var b = "";
@@ -2744,6 +2755,7 @@
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
 		[419, null, null, [1]],
+		[425, null, null, [1]],
 		[269, null, null, [1]],
 		[351, null, null, [1]],
 		[null, 7, null, [null, 0.1]],
@@ -2761,6 +2773,7 @@
 		[null, 61, null, [null, 0.001]],
 		[275, null, null, [1]],
 		[274, null, null, [1]],
+		[null, 435, null, [null, 500]],
 		[291, null, null, [1]],
 		[327, null, null, [1]],
 		[352, null, null, [1]],
@@ -2790,7 +2803,6 @@
 		[null, 59, null, [null, 1]],
 		[426, null, null, [1]],
 		[423, null, null, [1]],
-		[412, null, null, [1]],
 		[340, null, null, [1]],
 		[215, null, null, [1]],
 		[377, null, null, [1]],
@@ -2833,10 +2845,6 @@
 						[44716833, [[null, 7, null, [null, 0.03]], [212, null, null, [1]]]],
 						[44719570, [[null, 7, null, [null, 0.03]], [212, null, null, [1]]]]
 					]
-				],
-				[
-					null,
-					[[44718034, [[null, 7, null, [null, 0.02]], [212, null, null, [1]]]]]
 				],
 				[
 					null,
@@ -3110,6 +3118,7 @@
 				],
 				[50, [[21067414], [21067415, [[401, null, null, [1]]]]]],
 				[100, [[21067434], [21067435, [[431, null, null, [1]]]]]],
+				[10, [[21067445], [21067446, [[433, null, null, [1]]]]]],
 				[10, [[21067447], [21067448, [[430, null, null, [1]]]]]],
 				[
 					1000,
@@ -3133,7 +3142,7 @@
 					]
 				],
 				[10, [[21067470], [21067471, [[432, null, null, [1]]]]], null, 30],
-				[1, [[21067485]]],
+				[10, [[21067485]]],
 				[
 					1000,
 					[
@@ -3329,7 +3338,7 @@
 				[1, [[21067386, null, [6, null, null, 3, null, 0]]]],
 				[1, [[21067387, null, [6, null, null, 3, null, 1]]]],
 				[1, [[21067388, null, [6, null, null, 3, null, 2]]]],
-				[1, [[21067495]]]
+				[10, [[21067495]]]
 			]
 		],
 		[
@@ -3361,7 +3370,7 @@
 					],
 					[1, [[4, null, 19]]]
 				],
-				[1, [[21067486]]]
+				[10, [[21067486]]]
 			]
 		],
 		[
@@ -3467,36 +3476,6 @@
 					],
 					29
 				],
-				[100, [[21067442], [21067443, [[425, null, null, [1]]]]]],
-				[
-					1000,
-					[
-						[
-							21067449,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067449]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067449]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21067450,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067450]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067450]]
-							],
-							[6, null, null, 4, null, 5]
-						]
-					],
-					[4, null, 3],
-					1
-				],
 				[
 					1000,
 					[
@@ -3526,7 +3505,7 @@
 					[4, null, 3],
 					1
 				],
-				[10, [[21067480], [21067481, [[429, null, null, [1]]]]]],
+				[100, [[21067480], [21067481, [[429, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -3556,7 +3535,7 @@
 					[4, null, 3],
 					1
 				],
-				[1, [[21067484]]],
+				[10, [[21067484]]],
 				[
 					1000,
 					[[21067497]],
@@ -3590,10 +3569,39 @@
 					],
 					[4, null, 3],
 					1
+				],
+				[
+					1000,
+					[
+						[
+							21067516,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067516]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067516]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21067517,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067517]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067517]]
+							],
+							[6, null, null, 4, null, 5]
+						]
+					],
+					[4, null, 3],
+					1
 				]
 			]
 		],
-		[2, [[1, [[21067487]]]]],
+		[2, [[10, [[21067487]]]]],
 		[
 			12,
 			[
@@ -3715,7 +3723,7 @@
 					]
 				],
 				[50, [[21066705], [21066706, [[382, null, null, [1]]]]]],
-				[1, [[21067494]]],
+				[10, [[21067494]]],
 				[
 					10,
 					[
