@@ -2594,10 +2594,10 @@
 			return 0 === qe(W(172));
 		};
 	var se = function() {
-		return Sb("7") || 0;
+		return Sb("3") || 0;
 	};
 	je("getVersion", function() {
-		return "2020092401";
+		return "2020092901";
 	});
 	var Gd = function() {
 		var a = {};
@@ -2658,7 +2658,7 @@
 			var a = [
 				V(393) ? z("https://pagead2.googlesyndication.com/") : Qd,
 				Pd,
-				z("2020092401"),
+				z("2020092901"),
 				z(".js")
 			];
 			var b = "";
@@ -2784,6 +2784,18 @@
 		[326, null, null, [1]],
 		[358, null, null, [1]],
 		[null, 8, null, [null, -1]],
+		[
+			393,
+			null,
+			null,
+			null,
+			[
+				[
+					[12, null, null, null, 5, null, "pagead2\\.googlesyndication\\.com"],
+					[1]
+				]
+			]
+		],
 		[
 			237,
 			null,
@@ -3061,7 +3073,6 @@
 						]
 					]
 				],
-				[1, [[21066560], [21066561, [[364, null, null, [1]]]]]],
 				[10, [[21066781], [21066782]]],
 				[10, [[21066883], [21066884, [[87, null, null, [1]]]]]],
 				[50, [[21066904], [21066908, [[null, 395, null, [null, 2]]]]]],
@@ -3087,17 +3098,6 @@
 					29
 				],
 				[
-					10,
-					[
-						[21067257],
-						[
-							21067258,
-							[[413, null, null, [1]], [null, 414, null, [null, 0.5]]]
-						],
-						[21067259, [[413, null, null, [1]], [null, 414, null, [null, 1]]]]
-					]
-				],
-				[
 					1,
 					[
 						[21067362],
@@ -3112,14 +3112,14 @@
 				],
 				[10, [[21067389], [21067390, [[427, null, null, [1]]]]]],
 				[
-					10,
+					100,
 					[
 						[21067397],
 						[21067398, [[308, null, null, [1]], [311, null, null, [1]]]]
 					]
 				],
 				[50, [[21067414], [21067415, [[401, null, null, [1]]]]]],
-				[10, [[21067445], [21067446, [[433, null, null, [1]]]]]],
+				[null, [[21067445], [21067446, [[433, null, null, [1]]]]]],
 				[10, [[21067447], [21067448, [[430, null, null, [1]]]]]],
 				[
 					1000,
@@ -3299,6 +3299,7 @@
 					],
 					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]]
 				],
+				[10, [[21067577], [21067578, [[400, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -3604,112 +3605,24 @@
 					1000,
 					[
 						[
-							21067503,
+							21067558,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067503]],
+								[null, 24, null, [null, 21067558]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067503]]
-							],
-							[6, null, null, 4, null, 8]
-						],
-						[
-							21067504,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067504]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067504]]
-							],
-							[6, null, null, 4, null, 9]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21067516,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067516]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067516]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21067517,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067517]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067517]]
-							],
-							[6, null, null, 4, null, 5]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[100, [[21067522], [21067523], [21067524]], null, 29],
-				[
-					1000,
-					[
-						[
-							21067525,
-							null,
-							[4, null, 6, null, null, null, null, ["21067522"]]
-						],
-						[
-							21067526,
-							[
-								[null, 24, null, [null, 21067526]],
-								[null, 25, null, [null, 21067526]]
-							],
-							[4, null, 6, null, null, null, null, ["21067523"]]
-						],
-						[
-							21067527,
-							[
-								[null, 24, null, [null, 21067527]],
-								[393, null, null, [1]],
-								[null, 25, null, [null, 21067527]]
-							],
-							[4, null, 6, null, null, null, null, ["21067524"]]
-						]
-					],
-					[12, null, null, null, 5, null, "pagead2\\.googlesyndication\\.com"],
-					29
-				],
-				[
-					1000,
-					[
-						[
-							21067537,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067537]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067537]]
+								[null, 25, null, [null, 21067558]]
 							],
 							[6, null, null, 4, null, 6]
 						],
 						[
-							21067538,
+							21067559,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067538]],
+								[null, 24, null, [null, 21067559]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067538]]
+								[null, 25, null, [null, 21067559]]
 							],
 							[6, null, null, 4, null, 7]
 						]
@@ -3721,24 +3634,24 @@
 					1000,
 					[
 						[
-							21067551,
+							21067579,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067551]],
+								[null, 24, null, [null, 21067579]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067551]]
+								[null, 25, null, [null, 21067579]]
 							],
 							[6, null, null, 4, null, 2]
 						],
 						[
-							21067552,
+							21067580,
 							[
 								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067552]],
+								[null, 24, null, [null, 21067580]],
 								[60, null, null, [1]],
 								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067552]]
+								[null, 25, null, [null, 21067580]]
 							],
 							[6, null, null, 4, null, 3]
 						]
@@ -3894,7 +3807,8 @@
 						[44725623],
 						[44725624, [[null, 1904, null, [null, 1]]]],
 						[44727579, [[null, 1904, null, [null, 2]]]],
-						[44727580, [[null, 1904, null, [null, 3]]]]
+						[44727580, [[null, 1904, null, [null, 3]]]],
+						[44729242]
 					],
 					null,
 					28
