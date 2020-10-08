@@ -2600,11 +2600,11 @@
 			return 0 === re(W(172));
 		};
 	var te = function() {
-		return Tb("9") || 0;
-	};
-	je("getVersion", function() {
-		return "2020100701";
-	});
+			return Tb("3") || 0;
+		},
+		ue = function() {
+			return "2020100801";
+		};
 	var Gd = function() {
 		var a = {};
 		this[3] = ((a[3] = se),
@@ -2631,10 +2631,10 @@
 		a);
 	};
 	v(Gd);
-	var ue = [],
-		ve = function(a) {
+	var ve = [],
+		we = function(a) {
 			var b = new md(W(246));
-			a = new md(a || ue);
+			a = new md(a || ve);
 			if (!L(b, O, 1).length && L(a, O, 1).length) {
 				var c = L(a, O, 1);
 				Eb(b, 1, c);
@@ -2644,7 +2644,7 @@
 				((a = L(a, U, 2)), Eb(b, 2, a));
 			Id(b);
 		};
-	var we = function(a) {
+	var xe = function(a) {
 			if ((a = a.scripts))
 				for (var b = 0; b < a.length; b++) {
 					var c = a[b];
@@ -2652,7 +2652,7 @@
 				}
 			return null;
 		},
-		xe = function(a) {
+		ye = function(a) {
 			var b = a.currentScript;
 			return (
 				"complete" != a.readyState &&
@@ -2660,7 +2660,7 @@
 				!(b && b.async)
 			);
 		},
-		ye = function(a) {
+		ze = function(a) {
 			a = [
 				a &&
 				"pagead2.googlesyndication.com" ===
@@ -2668,7 +2668,7 @@
 					? z("https://pagead2.googlesyndication.com/")
 					: Qd,
 				Pd,
-				z("2020100701"),
+				z("2020100801"),
 				z(".js")
 			];
 			var b = "";
@@ -2682,9 +2682,9 @@
 				: (a = b);
 			return a;
 		},
-		ze = function(a, b, c) {
+		Ae = function(a, b, c) {
 			me(172, c);
-			new ve(a);
+			new we(a);
 			T.g().a(12);
 			T.g().a(5);
 			V(312) &&
@@ -2705,23 +2705,24 @@
 				(a = c.getAttribute("data-network-id")) &&
 				new ec(b, a).start();
 		},
-		Ae = function(a, b, c) {
+		Be = function(a, b, c) {
 			var d = ie();
 			a = a || d.fifWin || window;
 			b = b || a.document;
 			var e = d.fifWin ? window : a;
+			je("getVersion", ue);
 			je("cmd", []);
 			if (d.evalScripts) d.evalScripts();
 			else {
-				var f = b.currentScript || we(b);
-				ze(c, a, f);
+				var f = b.currentScript || xe(b);
+				Ae(c, a, f);
 				if (!V(435))
 					try {
 						$d();
 					} catch (k) {}
 				Rd(a);
-				a = ye(f);
-				if (xe(b)) {
+				a = ze(f);
+				if (ye(b)) {
 					c = "gpt-impl-" + Math.random();
 					try {
 						vb(b, sb(a, { id: c, nonce: wa() }));
@@ -2744,15 +2745,15 @@
 				}
 			}
 		};
-	var Be;
+	var Ce;
 	a: {
 		try {
 			if (Array.isArray(E)) {
-				Be = E;
+				Ce = E;
 				break a;
 			}
 		} catch (a) {}
-		Be = [];
+		Ce = [];
 	}
 	(function(a, b, c) {
 		var d = new Md(null, "gpt_exception", 0.01);
@@ -2760,9 +2761,9 @@
 			e.methodId = 420;
 		});
 		Od(d, function() {
-			return Ae(a, b, c);
+			return Be(a, b, c);
 		});
-	})(void 0, void 0, Be);
+	})(void 0, void 0, Ce);
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
 		[null, 395, null, [null, 2]],
@@ -3597,7 +3598,36 @@
 				],
 				[10, [[21067701], [21067702, [[438, null, null, [1]]]]]],
 				[10, [[21067703], [21067704, [[436, null, null, [1]]]]]],
-				[1, [[21067705], [21067706, [[409, null, null, [1]]]]]]
+				[1, [[21067705], [21067706, [[409, null, null, [1]]]]]],
+				[
+					1000,
+					[
+						[
+							21067713,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067713]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067713]]
+							],
+							[6, null, null, 4, null, 2]
+						],
+						[
+							21067714,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067714]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067714]]
+							],
+							[6, null, null, 4, null, 3]
+						]
+					],
+					[4, null, 3],
+					1
+				]
 			]
 		],
 		[
