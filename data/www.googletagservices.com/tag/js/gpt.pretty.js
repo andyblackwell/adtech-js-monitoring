@@ -2429,47 +2429,45 @@
 			});
 			0 <= d && ((a.f[d].state = c), a.h(a.f));
 		},
-		fe = function(a, b) {
-			window
-				.fetch(b.issuerOrigin + b.redemptionPath, {
-					keepalive: !0,
-					redirect: "follow",
-					method: "get",
-					trustToken: {
-						type: "srr-token-redemption",
-						issuer: b.issuerOrigin,
-						refreshPolicy: "none"
-					}
-				})
-				.then(function(c) {
-					if (!c.ok) throw Error(c.status + ": Network response was not ok!");
-					ee(a, b.issuerOrigin, 6);
-				})
-				.catch(function(c) {
-					c && "NoModificationAllowedError" === c.name
-						? ee(a, b.issuerOrigin, 6)
-						: ee(a, b.issuerOrigin, 5);
-				});
-			ee(a, b.issuerOrigin, 2);
-		},
-		ge = function(a) {
+		fe = function(a) {
 			document.hasTrustToken &&
 				a.l.forEach(function(b) {
-					fe(a, b);
+					window
+						.fetch(b.issuerOrigin + b.redemptionPath, {
+							keepalive: !0,
+							redirect: "follow",
+							method: "get",
+							trustToken: {
+								type: "srr-token-redemption",
+								issuer: b.issuerOrigin,
+								refreshPolicy: "none"
+							}
+						})
+						.then(function(c) {
+							if (!c.ok)
+								throw Error(c.status + ": Network response was not ok!");
+							ee(a, b.issuerOrigin, 6);
+						})
+						.catch(function(c) {
+							c && "NoModificationAllowedError" === c.name
+								? ee(a, b.issuerOrigin, 6)
+								: ee(a, b.issuerOrigin, 5);
+						});
+					ee(a, b.issuerOrigin, 2);
 				});
 		};
-	var he = [
+	var ge = [
 			"platform",
 			"platformVersion",
 			"architecture",
 			"model",
 			"uaFullVersion"
 		],
-		ie = function(a) {
+		he = function(a) {
 			return a.navigator &&
 				a.navigator.userAgentData &&
 				"function" === typeof a.navigator.userAgentData.getHighEntropyValues
-				? a.navigator.userAgentData.getHighEntropyValues(he).then(function(b) {
+				? a.navigator.userAgentData.getHighEntropyValues(ge).then(function(b) {
 						var c = new bc();
 						c = J(c, 1, b.platform);
 						c = J(c, 2, b.platformVersion);
@@ -2479,14 +2477,14 @@
 				  })
 				: null;
 		};
-	var je = function() {
+	var ie = function() {
 			return u.googletag || (u.googletag = {});
 		},
-		ke = function(a, b) {
-			var c = je();
+		je = function(a, b) {
+			var c = ie();
 			c.hasOwnProperty(a) || (c[a] = b);
 		},
-		le = function(a, b) {
+		ke = function(a, b) {
 			a.addEventListener
 				? a.addEventListener("load", b, !1)
 				: a.attachEvent && a.attachEvent("onload", b);
@@ -2538,28 +2536,28 @@
 	Z[221] = /^true$/.test("");
 	Z[254] = /^true$/.test("true");
 	Z[204] = Tb("{{MOD}}", -1);
-	var me = function() {
+	var le = function() {
 		Ca(this, Z);
 	};
-	v(me);
+	v(le);
 	var W = function(a) {
-			return me.g()[a];
+			return le.g()[a];
 		},
-		ne = function(a, b) {
-			me.g()[a] = b;
+		me = function(a, b) {
+			le.g()[a] = b;
 		},
-		oe = je(),
-		pe = me.g();
-	Ca(pe, oe._vars_);
-	oe._vars_ = pe;
-	var qe = new m.WeakMap(),
-		re = function(a, b) {
+		ne = ie(),
+		oe = le.g();
+	Ca(oe, ne._vars_);
+	ne._vars_ = oe;
+	var pe = new m.WeakMap(),
+		qe = function(a, b) {
 			a = [a];
 			for (var c = b.length - 1; 0 <= c; --c) a.push(typeof b[c], b[c]);
 			return a.join("\x0B");
 		};
-	var se = (function(a, b) {
-			b = void 0 === b ? re : b;
+	var re = (function(a, b) {
+			b = void 0 === b ? qe : b;
 			var c = Ba(a),
 				d = function(e) {
 					e = r(e);
@@ -2570,8 +2568,8 @@
 			return function(e) {
 				for (var f = [], h = 0; h < arguments.length; ++h) f[h] = arguments[h];
 				h = this || u;
-				var g = qe.get(h);
-				g || ((g = {}), qe.set(h, g));
+				var g = pe.get(h);
+				g || ((g = {}), pe.set(h, g));
 				h = g;
 				g = [this].concat(ka(f));
 				f = d ? d(g) : g;
@@ -2599,18 +2597,18 @@
 				return a + "\x0B" + (b && b[0] && b[0].src);
 			}
 		),
-		te = function() {
-			return 0 === se(W(172));
+		se = function() {
+			return 0 === re(W(172));
 		};
-	var ue = function() {
-			return Tb("5") || 0;
+	var te = function() {
+			return Tb("7") || 0;
 		},
-		ve = function() {
-			return "2020101201";
+		ue = function() {
+			return "2020101302";
 		};
 	var Gd = function() {
 		var a = {};
-		this[3] = ((a[3] = te),
+		this[3] = ((a[3] = se),
 		(a[2] = W(36)),
 		(a[17] = function(b) {
 			for (var c = [], d = 0; d < arguments.length; ++d) c[d] = arguments[d];
@@ -2624,7 +2622,7 @@
 		this[4] = ((a[1] = function() {
 			return W(204);
 		}),
-		(a[4] = ue),
+		(a[4] = te),
 		a);
 		a = {};
 		this[5] = ((a[5] = function() {
@@ -2634,10 +2632,10 @@
 		a);
 	};
 	v(Gd);
-	var we = [],
-		xe = function(a) {
+	var ve = [],
+		we = function(a) {
 			var b = new md(W(246));
-			a = new md(a || we);
+			a = new md(a || ve);
 			if (!L(b, O, 1).length && L(a, O, 1).length) {
 				var c = L(a, O, 1);
 				Eb(b, 1, c);
@@ -2647,7 +2645,7 @@
 				((a = L(a, U, 2)), Eb(b, 2, a));
 			Id(b);
 		};
-	var ye = function(a) {
+	var xe = function(a) {
 			if ((a = a.scripts))
 				for (var b = 0; b < a.length; b++) {
 					var c = a[b];
@@ -2655,7 +2653,7 @@
 				}
 			return null;
 		},
-		ze = function(a) {
+		ye = function(a) {
 			var b = a.currentScript;
 			return (
 				"complete" != a.readyState &&
@@ -2663,7 +2661,7 @@
 				!(b && b.async)
 			);
 		},
-		Ae = function(a) {
+		ze = function(a) {
 			a = [
 				a &&
 				"pagead2.googlesyndication.com" ===
@@ -2671,7 +2669,7 @@
 					? z("https://pagead2.googlesyndication.com/")
 					: Qd,
 				Pd,
-				z("2020101201"),
+				z("2020101302"),
 				z(".js")
 			];
 			var b = "";
@@ -2685,21 +2683,21 @@
 				: (a = b);
 			return a;
 		},
-		Be = function(a, b, c) {
-			ne(172, c);
-			new xe(a);
+		Ae = function(a, b, c) {
+			me(172, c);
+			new we(a);
 			T.g().a(12);
 			T.g().a(5);
 			V(312) &&
-				ge(
+				fe(
 					new de(function(d) {
-						ne(250, d);
+						me(250, d);
 					})
 				);
 			V(363) &&
-				(a = ie(b)) &&
+				(a = he(b)) &&
 				a.then(function(d) {
-					return ne(251, d.l());
+					return me(251, d.l());
 				});
 			a = "";
 			V(349) &&
@@ -2708,24 +2706,24 @@
 				(a = c.getAttribute("data-network-id")) &&
 				new ec(b, a).start();
 		},
-		Ce = function(a, b, c) {
-			var d = je();
+		Be = function(a, b, c) {
+			var d = ie();
 			a = a || d.fifWin || window;
 			b = b || a.document;
 			var e = d.fifWin ? window : a;
-			ke("getVersion", ve);
-			ke("cmd", []);
+			je("getVersion", ue);
+			je("cmd", []);
 			if (d.evalScripts) d.evalScripts();
 			else {
-				var f = b.currentScript || ye(b);
-				Be(c, a, f);
+				var f = b.currentScript || xe(b);
+				Ae(c, a, f);
 				if (!V(435))
 					try {
 						$d();
 					} catch (k) {}
 				Rd(a);
-				a = Ae(f);
-				if (ze(b)) {
+				a = ze(f);
+				if (ye(b)) {
 					c = "gpt-impl-" + Math.random();
 					try {
 						vb(b, sb(a, { id: c, nonce: wa() }));
@@ -2740,7 +2738,7 @@
 					h.async = !0;
 					var g = b.head || b.body || b.documentElement;
 					"complete" !== e.document.readyState && d.fifWin
-						? le(e, function() {
+						? ke(e, function() {
 								return void g.appendChild(h);
 						  })
 						: g.appendChild(h);
@@ -2748,15 +2746,15 @@
 				}
 			}
 		};
-	var De;
+	var Ce;
 	a: {
 		try {
 			if (Array.isArray(E)) {
-				De = E;
+				Ce = E;
 				break a;
 			}
 		} catch (a) {}
-		De = [];
+		Ce = [];
 	}
 	(function(a, b, c) {
 		var d = new Md(null, "gpt_exception", 0.01);
@@ -2764,9 +2762,9 @@
 			e.methodId = 420;
 		});
 		Od(d, function() {
-			return Ce(a, b, c);
+			return Be(a, b, c);
 		});
-	})(void 0, void 0, De);
+	})(void 0, void 0, Ce);
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
 		[null, 395, null, [null, 2]],
@@ -2781,13 +2779,19 @@
 		[1902, null, null, [1]],
 		[322, null, null, [1]],
 		[20, null, null, null, [[[1, [[6, null, null, 3, null, 0]]], [1]]]],
+		[410, null, null, [1]],
 		[null, 45, null, [null, 0.5]],
 		[252, null, null, [1]],
 		[
 			null,
 			null,
 			null,
-			[null, null, null, ["criteotest", "indextest", "thetradedesktest"]],
+			[
+				null,
+				null,
+				null,
+				["criteo", "indextest", "openxtest", "thetradedesktest"]
+			],
 			null,
 			428
 		],
@@ -2833,11 +2837,14 @@
 		[87, null, null, [1]],
 		[311, null, null, [1]],
 		[329, null, null, [1]],
+		[438, null, null, [1]],
 		[null, null, 2, [null, null, "1-0-37"]],
 		[370, null, null, [1]],
 		[411, null, null, [1]],
 		[null, 59, null, [null, 1]],
 		[423, null, null, [1]],
+		[433, null, null, [1]],
+		[436, null, null, [1]],
 		[340, null, null, [1]],
 		[215, null, null, [1]],
 		[377, null, null, [1]],
@@ -3031,9 +3038,7 @@
 						]
 					]
 				],
-				[50, [[21066992], [21066993, [[410, null, null, [1]]]]]],
 				[40, [[21066994], [21066995, [[404, null, null, [1]]]]]],
-				[null, [[21067049], [21067050], [21067051]]],
 				[
 					10,
 					[
@@ -3042,9 +3047,7 @@
 						[21067194, [[98, null, null, [1]]]]
 					]
 				],
-				[100, [[21067445], [21067446, [[433, null, null, [1]]]]]],
-				[50, [[21067447], [21067448, [[430, null, null, [1]]]]]],
-				[10, [[21067470], [21067471, [[432, null, null, [1]]]]], null, 30],
+				[100, [[21067447], [21067448, [[430, null, null, [1]]]]]],
 				[10, [[21067485]]],
 				[
 					10,
@@ -3170,7 +3173,19 @@
 					]
 				],
 				[50, [[21067752], [21067753]]],
-				[1, [[21067943], [21067944, [[440, null, null, [1]]]]]],
+				[50, [[21067794], [21067795, [[410, null, null, []]]]]],
+				[10, [[21067943], [21067944, [[440, null, null, [1]]]]]],
+				[
+					10,
+					[
+						[21067998],
+						[21067999, [[432, null, null, [1]]]],
+						[21068000, [[442, null, null, [1]]]],
+						[21068001, [[442, null, null, [1]], [432, null, null, [1]]]]
+					],
+					null,
+					30
+				],
 				[
 					1000,
 					[
@@ -3186,22 +3201,6 @@
 						]
 					],
 					[4, null, 3]
-				],
-				[
-					10,
-					[
-						[
-							21067662,
-							null,
-							[4, null, 6, null, null, null, null, ["21065725"]]
-						],
-						[
-							21067663,
-							[[435, null, null, [1]]],
-							[4, null, 6, null, null, null, null, ["21065725"]]
-						]
-					],
-					[4, null, 9, null, null, null, null, ["LayoutShift"]]
 				]
 			]
 		],
@@ -3656,37 +3655,6 @@
 					[[21067497]],
 					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]]
 				],
-				[
-					1000,
-					[
-						[
-							21067685,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067685]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067685]]
-							],
-							[6, null, null, 4, null, 8]
-						],
-						[
-							21067686,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21067686]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21067686]]
-							],
-							[6, null, null, 4, null, 9]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[100, [[21067701], [21067702, [[438, null, null, [1]]]]]],
-				[100, [[21067703], [21067704, [[436, null, null, [1]]]]]],
 				[10, [[21067705], [21067706, [[409, null, null, [1]]]]]],
 				[
 					1000,
@@ -3717,7 +3685,7 @@
 					[4, null, 3],
 					1
 				],
-				[10, [[21067760], [21067761, [[443, null, null, [1]]]]]],
+				[100, [[21067760], [21067761, [[443, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -3746,6 +3714,75 @@
 					],
 					[4, null, 3],
 					1
+				],
+				[
+					1000,
+					[
+						[
+							21067990,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067990]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067990]]
+							],
+							[6, null, null, 4, null, 6]
+						],
+						[
+							21067991,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067991]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067991]]
+							],
+							[6, null, null, 4, null, 7]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21067992,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067992]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067992]]
+							],
+							[6, null, null, 4, null, 8]
+						],
+						[
+							21067993,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21067993]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21067993]]
+							],
+							[6, null, null, 4, null, 9]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[10, [[21067994], [21067995, [[435, null, null, [1]]]]]],
+				[1, [[44728913], [44728914, [[445, null, null, [1]]]]]],
+				[
+					1,
+					[
+						[44729907],
+						[44729908, [[445, null, null, [1]]]],
+						[44729909, [[445, null, null, [1]], [305, null, null, [1]]]]
+					],
+					[4, null, 9, null, null, null, null, ["window.fetch"]]
 				]
 			]
 		],
