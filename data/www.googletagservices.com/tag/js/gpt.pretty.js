@@ -2430,8 +2430,8 @@
 			0 <= d && ((a.f[d].state = c), a.h(a.f));
 		},
 		fe = function(a, b) {
-			window
-				.fetch(b.issuerOrigin + b.redemptionPath, {
+			var c = b.issuerOrigin + b.redemptionPath,
+				d = {
 					keepalive: !0,
 					redirect: "follow",
 					method: "get",
@@ -2440,16 +2440,23 @@
 						issuer: b.issuerOrigin,
 						refreshPolicy: "none"
 					}
-				})
-				.then(function(c) {
-					if (!c.ok) throw Error(c.status + ": Network response was not ok!");
-					ee(a, b.issuerOrigin, 6);
-				})
-				.catch(function(c) {
-					c && "NoModificationAllowedError" === c.name
-						? ee(a, b.issuerOrigin, 6)
-						: ee(a, b.issuerOrigin, 5);
-				});
+				};
+			if (V(1913))
+				try {
+					window.fetch(c, d);
+				} catch (e) {}
+			else
+				window
+					.fetch(c, d)
+					.then(function(e) {
+						if (!e.ok) throw Error(e.status + ": Network response was not ok!");
+						ee(a, b.issuerOrigin, 6);
+					})
+					.catch(function(e) {
+						e && "NoModificationAllowedError" === e.name
+							? ee(a, b.issuerOrigin, 6)
+							: ee(a, b.issuerOrigin, 5);
+					});
 			ee(a, b.issuerOrigin, 2);
 		},
 		ge = function(a) {
@@ -2607,10 +2614,10 @@
 			return 0 === se(W(172));
 		};
 	var ue = function() {
-			return Tb("3") || 0;
+			return Tb("5") || 0;
 		},
 		ve = function() {
-			return "2020102001";
+			return "2020102101";
 		};
 	var Gd = function() {
 		var a = {};
@@ -2670,7 +2677,7 @@
 					? z("https://pagead2.googlesyndication.com/")
 					: Qd,
 				Pd,
-				z("2020102001"),
+				z("2020102101"),
 				z(".js")
 			];
 			var b = "";
@@ -3689,6 +3696,35 @@
 								[null, 25, null, [null, 21068090]]
 							],
 							[6, null, null, 4, null, 3]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21068104,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21068104]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21068104]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21068105,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21068105]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21068105]]
+							],
+							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
