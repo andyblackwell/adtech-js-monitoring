@@ -2509,11 +2509,9 @@
 								  })
 								: Y(a, b.issuerOrigin, 7);
 					  })
-					: U(1912)
-						? document.hasTrustToken(ce.issuerOrigin).then(function(b) {
-								b ? ge(a, ce) : Y(a, ce.issuerOrigin, 3);
-						  })
-						: ge(a, ce));
+					: document.hasTrustToken(ce.issuerOrigin).then(function(b) {
+							b ? ge(a, ce) : Y(a, ce.issuerOrigin, 3);
+					  }));
 		};
 	var je = [
 			"platform",
@@ -2660,10 +2658,10 @@
 			return 0 === ue(V(172));
 		};
 	var we = function() {
-			return Tb("3") || 0;
+			return Tb("5") || 0;
 		},
 		xe = function() {
-			return "2020102601";
+			return "2020102701";
 		};
 	var Hd = function() {
 		var a = {};
@@ -2723,7 +2721,7 @@
 					? z("https://pagead2.googlesyndication.com/")
 					: Rd,
 				Qd,
-				z("2020102601"),
+				z("2020102701"),
 				z(".js")
 			];
 			var b = "";
@@ -2830,6 +2828,7 @@
 		[null, 7, null, [null, 0.1]],
 		[437, null, null, [1]],
 		[347, null, null, [1]],
+		[1912, null, null, [1]],
 		[1902, null, null, [1]],
 		[322, null, null, [1]],
 		[20, null, null, null, [[[1, [[6, null, null, 3, null, 0]]], [1]]]],
@@ -2890,6 +2889,7 @@
 		[370, null, null, [1]],
 		[411, null, null, [1]],
 		[null, 59, null, [null, 1]],
+		[447, null, null, [1]],
 		[423, null, null, [1]],
 		[433, null, null, [1]],
 		[340, null, null, [1]],
@@ -2903,6 +2903,7 @@
 		[448, null, null, [1]],
 		[441, null, null, [1]],
 		[443, null, null, [1]],
+		[242, null, null, [1]],
 		[
 			238,
 			null,
@@ -3221,7 +3222,7 @@
 					]
 				],
 				[
-					10,
+					50,
 					[
 						[21068229],
 						[
@@ -3657,72 +3658,9 @@
 					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]]
 				],
 				[10, [[21067705], [21067706, [[409, null, null, [1]]]]]],
-				[
-					100,
-					[[21067940], [21067941, [[1912, null, null, [1]]]]],
-					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]]
-				],
 				[100, [[21067994], [21067995, [[435, null, null, [1]]]]]],
-				[100, [[21068065], [21068066, [[447, null, null, [1]]]]]],
-				[
-					1000,
-					[
-						[
-							21068104,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068104]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068104]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21068105,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068105]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068105]]
-							],
-							[6, null, null, 4, null, 5]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21068114,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068114]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068114]]
-							],
-							[6, null, null, 4, null, 8]
-						],
-						[
-							21068115,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068115]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068115]]
-							],
-							[6, null, null, 4, null, 9]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[10, [[21068116], [21068117, [[null, 449, null, [null, 6499]]]]]],
+				[100, [[21068116], [21068117, [[null, 449, null, [null, 6499]]]]]],
+				[10, [[21068118], [21068119, [[450, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -3747,6 +3685,36 @@
 								[null, 25, null, [null, 21068365]]
 							],
 							[6, null, null, 4, null, 3]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[10, [[21068380], [21068381, [[451, null, null, [1]]]]]],
+				[
+					1000,
+					[
+						[
+							21068384,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21068384]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21068384]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21068385,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21068385]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21068385]]
+							],
+							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
