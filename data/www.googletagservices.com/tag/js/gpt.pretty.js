@@ -1205,15 +1205,37 @@
 	var Kb = /^(?:([^:/?#.]+):)?(?:\/\/(?:([^\\/?#]*)@)?([^\\/?#]*?)(?::([0-9]+))?(?=[\\/?#]|$))?([^?#]+)?(?:\?([^#]*))?(?:#([\s\S]*))?$/,
 		Lb = function(a) {
 			return a ? decodeURI(a) : a;
+		},
+		Mb = /#|$/,
+		Nb = function(a) {
+			var b = a.search(Mb),
+				c;
+			a: {
+				for (c = 0; 0 <= (c = a.indexOf("network-code", c)) && c < b; ) {
+					var d = a.charCodeAt(c - 1);
+					if (38 == d || 63 == d)
+						if (
+							((d = a.charCodeAt(c + 12)), !d || 61 == d || 38 == d || 35 == d)
+						)
+							break a;
+					c += 13;
+				}
+				c = -1;
+			}
+			if (0 > c) return null;
+			d = a.indexOf("&", c);
+			if (0 > d || d > b) d = b;
+			c += 13;
+			return decodeURIComponent(a.substr(c, d - c).replace(/\+/g, " "));
 		};
-	var Pb = function(a, b) {
-			if (!Mb() && !Nb()) {
+	var Rb = function(a, b) {
+			if (!Ob() && !Pb()) {
 				var c = Math.random();
-				if (c < b) return (c = Ob(u)), a[Math.floor(c * a.length)];
+				if (c < b) return (c = Qb(u)), a[Math.floor(c * a.length)];
 			}
 			return null;
 		},
-		Ob = function(a) {
+		Qb = function(a) {
 			if (!a.crypto) return Math.random();
 			try {
 				var b = new Uint32Array(1);
@@ -1223,13 +1245,13 @@
 				return Math.random();
 			}
 		},
-		Qb = function(a, b) {
+		Sb = function(a, b) {
 			if (a)
 				for (var c in a)
 					Object.prototype.hasOwnProperty.call(a, c) &&
 						b.call(void 0, a[c], c, a);
 		},
-		Nb = Ja(function() {
+		Pb = Ja(function() {
 			return (
 				Array.prototype.some.call(
 					[
@@ -1238,26 +1260,26 @@
 						"Google-Read-Aloud",
 						"Google-Adwords"
 					],
-					Rb,
+					Tb,
 					void 0
 				) || 1e-4 > Math.random()
 			);
 		}),
-		Mb = Ja(function() {
-			return Rb("MSIE");
+		Ob = Ja(function() {
+			return Tb("MSIE");
 		}),
-		Rb = function(a) {
+		Tb = function(a) {
 			return -1 != C.indexOf(a);
 		},
-		Sb = /^(-?[0-9.]{1,30})$/,
-		Tb = function(a, b) {
-			return Sb.test(a) && ((a = Number(a)), !isNaN(a))
+		Ub = /^(-?[0-9.]{1,30})$/,
+		Vb = function(a, b) {
+			return Ub.test(a) && ((a = Number(a)), !isNaN(a))
 				? a
 				: void 0 == b
 					? null
 					: b;
 		},
-		Ub = Ja(function() {
+		Wb = Ja(function() {
 			return Jb() ||
 				(-1 == C.indexOf("iPod") &&
 					-1 == C.indexOf("iPhone") &&
@@ -1268,7 +1290,7 @@
 					: 0
 				: 2;
 		}),
-		Vb = function() {
+		Xb = function() {
 			var a = void 0 === a ? window : a;
 			if ((a = Lb(a.location.href.match(Kb)[3] || null))) {
 				var b = a.length;
@@ -1289,14 +1311,14 @@
 	M.prototype.o = function() {
 		if (this.c) for (; this.c.length; ) this.c.shift()();
 	};
-	var Xb = function(a, b) {
+	var Zb = function(a, b) {
 			var c = "https://pagead2.googlesyndication.com/pagead/gen_204?id=" + b;
-			Qb(a, function(d, e) {
+			Sb(a, function(d, e) {
 				d && (c += "&" + e + "=" + encodeURIComponent(d));
 			});
-			Wb(c);
+			Yb(c);
 		},
-		Wb = function(a) {
+		Yb = function(a) {
 			var b = window;
 			if (b.fetch)
 				b.fetch(a, {
@@ -1313,24 +1335,24 @@
 				b.google_image_requests.push(c);
 			}
 		};
-	var Yb = {};
-	var Zb = function() {},
-		$b = function(a, b) {
-			if (b !== Yb) throw Error("Bad secret");
+	var $b = {};
+	var ac = function() {},
+		bc = function(a, b) {
+			if (b !== $b) throw Error("Bad secret");
 			this.a = a;
 		};
-	ra($b, Zb);
-	$b.prototype.toString = function() {
+	ra(bc, ac);
+	bc.prototype.toString = function() {
 		return this.a;
 	};
-	new $b("about:blank", Yb);
-	new $b("about:invalid#zTSz", Yb);
-	var bc = function(a) {
-		G(this, a, ac, null);
+	new bc("about:blank", $b);
+	new bc("about:invalid#zTSz", $b);
+	var dc = function(a) {
+		G(this, a, cc, null);
 	};
-	w(bc, F);
-	var ac = [6];
-	var cc = function(a, b, c, d, e, f) {
+	w(dc, F);
+	var cc = [6];
+	var ec = function(a, b, c, d, e, f) {
 		try {
 			var h = a.a,
 				g = a.createElement("SCRIPT");
@@ -1343,13 +1365,13 @@
 				d && h.head.removeChild(g);
 			});
 			g.addEventListener("error", function() {
-				0 < c ? cc(a, b, c - 1, d, e, f) : (d && h.head.removeChild(g), f());
+				0 < c ? ec(a, b, c - 1, d, e, f) : (d && h.head.removeChild(g), f());
 			});
 		} catch (k) {
 			f();
 		}
 	};
-	var dc = function(a) {
+	var fc = function(a) {
 		var b = a.document,
 			c = Ib(a),
 			d = function() {
@@ -1369,24 +1391,24 @@
 			};
 		d();
 	};
-	var ec = function(a, b) {
+	var gc = function(a, b) {
 		this.a = a;
 		this.c = Ib(this.a);
 		this.f = b;
 	};
-	ec.prototype.start = function() {
+	gc.prototype.start = function() {
 		try {
-			dc(this.a), fc(this);
+			fc(this.a), hc(this);
 		} catch (a) {}
 	};
-	var fc = function(a) {
+	var hc = function(a) {
 		var b = Sa({ id: a.f, ers: 3 });
-		cc(a.c, b, 0, !1, function() {}, function() {});
+		ec(a.c, b, 0, !1, function() {}, function() {});
 	};
-	var gc = null,
-		hc = function() {
-			if (null === gc) {
-				gc = "";
+	var ic = null,
+		jc = function() {
+			if (null === ic) {
+				ic = "";
 				try {
 					var a = "";
 					try {
@@ -1396,22 +1418,22 @@
 					}
 					if (a) {
 						var b = a.match(/\bdeid=([\d,]+)/);
-						gc = b ? b[1] : "";
+						ic = b ? b[1] : "";
 					}
 				} catch (c) {}
 			}
-			return gc;
+			return ic;
 		};
 	var N = function(a) {
-		G(this, a, ic, jc);
+		G(this, a, kc, lc);
 	};
 	w(N, F);
-	var ic = [2, 8],
-		jc = [[3, 4, 5], [6, 7]];
-	var kc = function(a) {
+	var kc = [2, 8],
+		lc = [[3, 4, 5], [6, 7]];
+	var mc = function(a) {
 			return null != a ? !a : a;
 		},
-		lc = function(a, b) {
+		nc = function(a, b) {
 			for (var c = !1, d = 0; d < a.length; d++) {
 				var e = a[d].call();
 				if (e == b) return e;
@@ -1419,25 +1441,25 @@
 			}
 			if (!c) return !b;
 		},
-		nc = function(a, b) {
+		pc = function(a, b) {
 			var c = L(a, N, 2);
-			if (!c.length) return mc(a, b);
+			if (!c.length) return oc(a, b);
 			a = I(a, 1, 0);
-			if (1 == a) return kc(nc(c[0], b));
+			if (1 == a) return mc(pc(c[0], b));
 			c = Fa(c, function(d) {
 				return function() {
-					return nc(d, b);
+					return pc(d, b);
 				};
 			});
 			switch (a) {
 				case 2:
-					return lc(c, !1);
+					return nc(c, !1);
 				case 3:
-					return lc(c, !0);
+					return nc(c, !0);
 			}
 		},
-		mc = function(a, b) {
-			var c = Cb(a, jc[0]);
+		oc = function(a, b) {
+			var c = Cb(a, lc[0]);
 			a: {
 				switch (c) {
 					case 3:
@@ -1494,32 +1516,32 @@
 				}
 			}
 		},
-		oc = function(a, b) {
-			return !a || !(!b || !nc(a, b));
+		qc = function(a, b) {
+			return !a || !(!b || !pc(a, b));
 		};
-	var qc = function(a) {
-		G(this, a, pc, null);
+	var sc = function(a) {
+		G(this, a, rc, null);
 	};
-	w(qc, F);
-	var pc = [4];
+	w(sc, F);
+	var rc = [4];
 	var O = function(a) {
-		G(this, a, rc, sc);
+		G(this, a, tc, uc);
 	};
 	w(O, F);
-	var tc = function(a) {
+	var vc = function(a) {
 		G(this, a, null, null);
 	};
-	w(tc, F);
-	var rc = [5],
-		sc = [[1, 2, 3, 6, 7]];
+	w(vc, F);
+	var tc = [5],
+		uc = [[1, 2, 3, 6, 7]];
 	var P = function() {
 		var a = {};
 		this.a = ((a[3] = {}), (a[4] = {}), (a[5] = {}), a);
 	};
 	v(P);
-	var uc = /^true$/.test("false");
-	var vc = uc,
-		wc = function(a, b) {
+	var wc = /^true$/.test("false");
+	var xc = wc,
+		yc = function(a, b) {
 			switch (b) {
 				case 1:
 					return I(a, 1, 0);
@@ -1533,7 +1555,7 @@
 					return null;
 			}
 		},
-		xc = function(a, b) {
+		zc = function(a, b) {
 			if (!a) return null;
 			switch (b) {
 				case 1:
@@ -1550,8 +1572,8 @@
 					return null;
 			}
 		},
-		yc = Ja(function() {
-			if (!vc) return {};
+		Ac = Ja(function() {
+			if (!xc) return {};
 			try {
 				var a =
 					window.sessionStorage && window.sessionStorage.getItem("GGDFSSK");
@@ -1559,104 +1581,104 @@
 			} catch (b) {}
 			return {};
 		}),
-		Bc = function(a, b, c, d) {
+		Dc = function(a, b, c, d) {
 			d = void 0 === d ? 0 : d;
-			var e = yc();
+			var e = Ac();
 			if (e[a] && null != e[a][b]) return e[a][b];
-			b = zc(d)[a][b];
+			b = Bc(d)[a][b];
 			if (!b) return c;
 			b = new O(b);
-			b = Ac(b);
-			a = xc(b, a);
+			b = Cc(b);
+			a = zc(b, a);
 			return null != a ? a : c;
 		},
-		Ac = function(a) {
+		Cc = function(a) {
 			var b = P.g().a;
 			if (b) {
-				var c = Ha(L(a, tc, 5), function(d) {
-					return oc(K(d, N, 1), b);
+				var c = Ha(L(a, vc, 5), function(d) {
+					return qc(K(d, N, 1), b);
 				});
-				if (c) return K(c, qc, 2);
+				if (c) return K(c, sc, 2);
 			}
-			return K(a, qc, 4);
+			return K(a, sc, 4);
 		},
-		Cc = function() {
+		Ec = function() {
 			this.a = {};
 			this.c = [];
 		};
-	v(Cc);
-	var Dc = function(a, b, c) {
-			return !!Bc(1, a, void 0 === b ? !1 : b, c);
-		},
-		Ec = function(a, b, c) {
-			b = void 0 === b ? 0 : b;
-			a = Number(Bc(2, a, b, c));
-			return isNaN(a) ? b : a;
-		},
-		Fc = function(a, b, c) {
-			return Bc(3, a, void 0 === b ? "" : b, c);
+	v(Ec);
+	var Fc = function(a, b, c) {
+			return !!Dc(1, a, void 0 === b ? !1 : b, c);
 		},
 		Gc = function(a, b, c) {
-			b = void 0 === b ? [] : b;
-			return Bc(6, a, b, c);
+			b = void 0 === b ? 0 : b;
+			a = Number(Dc(2, a, b, c));
+			return isNaN(a) ? b : a;
 		},
-		zc = function(a) {
+		Hc = function(a, b, c) {
+			return Dc(3, a, void 0 === b ? "" : b, c);
+		},
+		Ic = function(a, b, c) {
+			b = void 0 === b ? [] : b;
+			return Dc(6, a, b, c);
+		},
+		Bc = function(a) {
 			var b = {};
 			return (
-				Cc.g().a[a] ||
-				(Cc.g().a[a] = ((b[1] = {}), (b[2] = {}), (b[3] = {}), (b[6] = {}), b))
+				Ec.g().a[a] ||
+				(Ec.g().a[a] = ((b[1] = {}), (b[2] = {}), (b[3] = {}), (b[6] = {}), b))
 			);
 		},
-		Hc = function(a, b) {
-			var c = zc(b);
-			Qb(a, function(d, e) {
-				return Qb(d, function(f, h) {
+		Jc = function(a, b) {
+			var c = Bc(b);
+			Sb(a, function(d, e) {
+				return Sb(d, function(f, h) {
 					return (c[e][h] = f);
 				});
 			});
 		},
-		Ic = function(a, b) {
-			var c = zc(b);
+		Kc = function(a, b) {
+			var c = Bc(b);
 			x(a, function(d) {
-				var e = Cb(d, sc[0]),
-					f = wc(d, e);
+				var e = Cb(d, uc[0]),
+					f = yc(d, e);
 				f && (c[e][f] = d.i);
 			});
 		},
-		Jc = function(a, b) {
-			var c = zc(b);
+		Lc = function(a, b) {
+			var c = Bc(b);
 			x(a, function(d) {
 				var e = new O(d),
-					f = Cb(e, sc[0]);
-				(e = wc(e, f)) && (c[f][e] || (c[f][e] = d));
+					f = Cb(e, uc[0]);
+				(e = yc(e, f)) && (c[f][e] || (c[f][e] = d));
 			});
 		},
-		Kc = function() {
-			return Fa(n(Object, "keys").call(Object, Cc.g().a), function(a) {
+		Mc = function() {
+			return Fa(n(Object, "keys").call(Object, Ec.g().a), function(a) {
 				return Number(a);
 			});
 		},
-		Lc = function(a) {
-			Ia(Cc.g().c, a) || Hc(zc(4), a);
+		Nc = function(a) {
+			Ia(Ec.g().c, a) || Jc(Bc(4), a);
 		};
 	var Q = function(a) {
 			this.methodName = a;
 		},
-		Mc = new Q(1),
-		Nc = new Q(15),
-		Oc = new Q(2),
-		Pc = new Q(3),
-		Qc = new Q(4),
-		Rc = new Q(5),
-		Sc = new Q(6),
-		Tc = new Q(7),
-		Uc = new Q(8),
-		Vc = new Q(9),
-		Wc = new Q(10),
-		Xc = new Q(11),
-		Yc = new Q(12),
-		Zc = new Q(13),
-		$c = new Q(14),
+		Oc = new Q(1),
+		Pc = new Q(15),
+		Qc = new Q(2),
+		Rc = new Q(3),
+		Sc = new Q(4),
+		Tc = new Q(5),
+		Uc = new Q(6),
+		Vc = new Q(7),
+		Wc = new Q(8),
+		Xc = new Q(9),
+		Yc = new Q(10),
+		Zc = new Q(11),
+		$c = new Q(12),
+		ad = new Q(13),
+		bd = new Q(14),
 		R = function(a, b, c) {
 			c.hasOwnProperty(a.methodName) ||
 				Object.defineProperty(c, String(a.methodName), { value: b });
@@ -1664,35 +1686,19 @@
 		S = function(a, b, c) {
 			return b[a.methodName] || c || function() {};
 		},
-		ad = function(a) {
-			R(Rc, Dc, a);
-			R(Sc, Ec, a);
+		cd = function(a) {
 			R(Tc, Fc, a);
 			R(Uc, Gc, a);
-			R(Zc, Jc, a);
-			R(Nc, Lc, a);
+			R(Vc, Hc, a);
+			R(Wc, Ic, a);
+			R(ad, Lc, a);
+			R(Pc, Nc, a);
 		},
-		bd = function(a) {
+		dd = function(a) {
 			R(
-				Qc,
+				Sc,
 				function(b) {
 					P.g().a = b;
-				},
-				a
-			);
-			R(
-				Vc,
-				function(b, c) {
-					var d = P.g();
-					d.a[3][b] || (d.a[3][b] = c);
-				},
-				a
-			);
-			R(
-				Wc,
-				function(b, c) {
-					var d = P.g();
-					d.a[4][b] || (d.a[4][b] = c);
 				},
 				a
 			);
@@ -1700,12 +1706,28 @@
 				Xc,
 				function(b, c) {
 					var d = P.g();
+					d.a[3][b] || (d.a[3][b] = c);
+				},
+				a
+			);
+			R(
+				Yc,
+				function(b, c) {
+					var d = P.g();
+					d.a[4][b] || (d.a[4][b] = c);
+				},
+				a
+			);
+			R(
+				Zc,
+				function(b, c) {
+					var d = P.g();
 					d.a[5][b] || (d.a[5][b] = c);
 				},
 				a
 			);
 			R(
-				$c,
+				bd,
 				function(b) {
 					for (
 						var c = P.g(), d = r([3, 4, 5]), e = d.next();
@@ -1717,30 +1739,30 @@
 				a
 			);
 		},
-		cd = function(a) {
+		ed = function(a) {
 			a.hasOwnProperty("init-done") ||
 				Object.defineProperty(a, "init-done", { value: !0 });
 		};
-	var dd = function() {
+	var fd = function() {
 			this.a = function() {};
 			this.c = function() {
 				return [];
 			};
 		},
-		ed = function(a, b, c) {
+		gd = function(a, b, c) {
 			a.a = function(d) {
-				S(Oc, b, function() {
+				S(Qc, b, function() {
 					return [];
 				})(d, c);
 			};
 			a.c = function() {
-				return S(Pc, b, function() {
+				return S(Rc, b, function() {
 					return [];
 				})(c);
 			};
 		};
-	v(dd);
-	var fd = function(a, b) {
+	v(fd);
+	var hd = function(a, b) {
 			try {
 				a: {
 					var c = a.split(".");
@@ -1755,7 +1777,7 @@
 				if (typeof f === b) return f;
 			} catch (h) {}
 		},
-		gd = function() {
+		id = function() {
 			var a = {};
 			this[3] = ((a[8] = function(b) {
 				try {
@@ -1777,19 +1799,19 @@
 				return window == window.top;
 			}),
 			(a[6] = function(b) {
-				return Ia(dd.g().c(), parseInt(b, 10));
+				return Ia(fd.g().c(), parseInt(b, 10));
 			}),
 			(a[27] = function(b) {
-				b = fd(b, "boolean");
+				b = hd(b, "boolean");
 				return void 0 !== b ? b : void 0;
 			}),
 			a);
 			a = {};
 			this[4] = ((a[3] = function() {
-				return Ub();
+				return Wb();
 			}),
 			(a[6] = function(b) {
-				b = fd(b, "number");
+				b = hd(b, "number");
 				return void 0 !== b ? b : void 0;
 			}),
 			a);
@@ -1805,51 +1827,51 @@
 				}
 			}),
 			(a[4] = function(b) {
-				b = fd(b, "string");
+				b = hd(b, "string");
 				return void 0 !== b ? b : void 0;
 			}),
 			a);
 		};
-	v(gd);
-	var hd = function() {
+	v(id);
+	var jd = function() {
 		var a = void 0 === a ? u : a;
 		return a.ggeac || (a.ggeac = {});
-	};
-	var jd = function(a) {
-		G(this, a, id, null);
-	};
-	w(jd, F);
-	var id = [2];
-	jd.prototype.getId = function() {
-		return I(this, 1, 0);
-	};
-	jd.prototype.v = function() {
-		return I(this, 7, 0);
 	};
 	var ld = function(a) {
 		G(this, a, kd, null);
 	};
 	w(ld, F);
 	var kd = [2];
+	ld.prototype.getId = function() {
+		return I(this, 1, 0);
+	};
 	ld.prototype.v = function() {
-		return I(this, 5, 0);
+		return I(this, 7, 0);
 	};
 	var nd = function(a) {
 		G(this, a, md, null);
 	};
 	w(nd, F);
-	var T = function(a) {
+	var md = [2];
+	nd.prototype.v = function() {
+		return I(this, 5, 0);
+	};
+	var pd = function(a) {
 		G(this, a, od, null);
 	};
+	w(pd, F);
+	var T = function(a) {
+		G(this, a, qd, null);
+	};
 	w(T, F);
-	var md = [1, 4, 2, 3],
-		od = [2];
+	var od = [1, 4, 2, 3],
+		qd = [2];
 	T.prototype.v = function() {
 		return I(this, 1, 0);
 	};
-	var pd = [12, 13],
-		qd = function() {},
-		rd = function(a, b, c, d) {
+	var rd = [12, 13],
+		sd = function() {},
+		td = function(a, b, c, d) {
 			d = void 0 === d ? {} : d;
 			var e = void 0 === d.N ? !1 : d.N,
 				f = void 0 === d.O ? {} : d.O;
@@ -1861,7 +1883,7 @@
 			b = {};
 			a.a = ((b[c] = []), (b[4] = []), b);
 			a.c = {};
-			(c = hc()) &&
+			(c = jc()) &&
 				x(c.split(",") || [], function(h) {
 					(h = parseInt(h, 10)) && (a.c[h] = !0);
 				});
@@ -1870,43 +1892,43 @@
 			});
 			return a;
 		},
-		sd = function(a, b, c) {
+		ud = function(a, b, c) {
 			if (a.l[b])
 				return (
-					0.001 >= Math.random() && Xb({ b: c, dp: b }, "tagging_dupdiv"), !0
+					0.001 >= Math.random() && Zb({ b: c, dp: b }, "tagging_dupdiv"), !0
 				);
 			a.l[b] = !0;
 			return !1;
 		},
-		wd = function(a, b, c) {
+		yd = function(a, b, c) {
 			var d = [],
-				e = td(a.f, b);
-			if ((9 !== b && sd(a, b, c)) || !e.length) return d;
-			var f = Ia(pd, b);
+				e = vd(a.f, b);
+			if ((9 !== b && ud(a, b, c)) || !e.length) return d;
+			var f = Ia(rd, b);
 			x(e, function(h) {
-				if ((h = ud(a, h, c))) {
+				if ((h = wd(a, h, c))) {
 					var g = h.getId();
 					d.push(g);
-					vd(a, g, f ? 4 : c);
+					xd(a, g, f ? 4 : c);
 					var k = L(h, O, 2);
 					k &&
 						(f
-							? x(Kc(), function(l) {
-									return Ic(k, l);
+							? x(Mc(), function(l) {
+									return Kc(k, l);
 							  })
-							: Ic(k, c));
+							: Kc(k, c));
 				}
 			});
 			return d;
 		},
-		vd = function(a, b, c) {
+		xd = function(a, b, c) {
 			a.a[c] || (a.a[c] = []);
 			a = a.a[c];
 			Ia(a, b)
-				? Xb({ eids: JSON.stringify(a), dup: b }, "gpt_dupeid")
+				? Zb({ eids: JSON.stringify(a), dup: b }, "gpt_dupeid")
 				: a.push(b);
 		},
-		xd = function(a, b) {
+		zd = function(a, b) {
 			a.f.push.apply(
 				a.f,
 				ka(
@@ -1915,16 +1937,16 @@
 							return new T(c);
 						}),
 						function(c) {
-							return !Ia(pd, c.v());
+							return !Ia(rd, c.v());
 						}
 					)
 				)
 			);
 		},
-		ud = function(a, b, c) {
+		wd = function(a, b, c) {
 			var d = P.g().a;
-			if (!oc(K(b, N, 3), d)) return null;
-			var e = L(b, jd, 2),
+			if (!qc(K(b, N, 3), d)) return null;
+			var e = L(b, ld, 2),
 				f = e.length * I(b, 1, 0),
 				h = I(b, 6, 0);
 			if (h) {
@@ -1941,84 +1963,84 @@
 					try {
 						f = g(h);
 					} catch (k) {}
-				null === f && (f = Math.floor(1e3 * Ob(window)));
-				b = yd(b, f);
-				return !b || (d && !oc(K(b, N, 3), d)) ? null : zd(a, [b], 1);
+				null === f && (f = Math.floor(1e3 * Qb(window)));
+				b = Ad(b, f);
+				return !b || (d && !qc(K(b, N, 3), d)) ? null : Bd(a, [b], 1);
 			}
 			h = d
 				? Ea(e, function(k) {
-						return oc(K(k, N, 3), d);
+						return qc(K(k, N, 3), d);
 				  })
 				: e;
 			return h.length
 				? (b = I(b, 4, 0))
-					? Ad(a, b, f, h)
-					: zd(a, h, f / 1e3)
+					? Cd(a, b, f, h)
+					: Bd(a, h, f / 1e3)
 				: null;
 		},
-		Ad = function(a, b, c, d) {
+		Cd = function(a, b, c, d) {
 			var e = null != a.h[b] ? a.h[b] : 1e3;
 			if (0 >= e) return null;
-			d = zd(a, d, c / e);
+			d = Bd(a, d, c / e);
 			a.h[b] = d ? 0 : e - c;
 			return d;
 		},
-		zd = function(a, b, c) {
+		Bd = function(a, b, c) {
 			var d = a.c,
 				e = Ga(b, function(f) {
 					return !!d[f.getId()];
 				});
-			return e ? e : a.o ? null : Pb(b, c);
+			return e ? e : a.o ? null : Rb(b, c);
 		},
-		Bd = function(a, b) {
+		Dd = function(a, b) {
 			R(
-				Mc,
+				Oc,
 				function(c) {
 					a.c[c] = !0;
 				},
 				b
 			);
 			R(
-				Oc,
+				Qc,
 				function(c, d) {
-					return wd(a, c, d);
+					return yd(a, c, d);
 				},
 				b
 			);
 			R(
-				Pc,
+				Rc,
 				function(c) {
 					return (a.a[c] || []).concat(a.a[4]);
 				},
 				b
 			);
 			R(
-				Yc,
+				$c,
 				function(c) {
-					return xd(a, c);
+					return zd(a, c);
 				},
 				b
 			);
 		};
-	v(qd);
-	var td = function(a, b) {
+	v(sd);
+	var vd = function(a, b) {
 			return (
 				((a = Ga(a, function(c) {
 					return c.v() == b;
 				})) &&
-					L(a, ld, 2)) ||
+					L(a, nd, 2)) ||
 				[]
 			);
 		},
-		yd = function(a, b) {
-			var c = L(a, jd, 2),
+		Ad = function(a, b) {
+			var c = L(a, ld, 2),
 				d = c.length,
 				e = I(a, 1, 0);
 			a = I(a, 8, 0);
 			var f = (b - a) % d;
 			return b < a || b - a - f >= d * e - 1 ? null : c[f];
 		};
-	var Cd = function() {
+	var Ed = function() {
 			this.c = function(a, b) {
 				return void 0 === b ? !1 : b;
 			};
@@ -2027,89 +2049,89 @@
 			};
 			this.a = function() {};
 		},
-		Dd = function(a, b, c) {
+		Fd = function(a, b, c) {
 			a.c = function(d, e) {
-				return S(Rc, b)(d, e, c);
+				return S(Tc, b)(d, e, c);
 			};
 			a.f = function(d, e) {
-				return S(Sc, b)(d, e, c);
+				return S(Uc, b)(d, e, c);
 			};
 			a.a = function() {
-				S(Nc, b)(c);
+				S(Pc, b)(c);
 			};
 		};
-	v(Cd);
+	v(Ed);
 	var U = function(a) {
 			var b = void 0 === b ? !1 : b;
-			return Cd.g().c(a, b);
+			return Ed.g().c(a, b);
 		},
-		Ed = function(a) {
+		Gd = function(a) {
 			var b = void 0 === b ? 0 : b;
-			return Cd.g().f(a, b);
+			return Ed.g().f(a, b);
 		};
-	var Fd = function() {
+	var Hd = function() {
 		this.a = function() {};
 	};
-	v(Fd);
-	var Gd = function(a) {
-		Fd.g().a(a);
+	v(Hd);
+	var Id = function(a) {
+		Hd.g().a(a);
 	};
-	var Jd = function(a) {
-			var b = Hd.g(),
+	var Ld = function(a) {
+			var b = Jd.g(),
 				c = { N: V(211), O: V(227), P: V(226) },
 				d = void 0,
 				e = 2;
-			d = void 0 === d ? hd() : d;
+			d = void 0 === d ? jd() : d;
 			e = void 0 === e ? 0 : e;
 			d.hasOwnProperty("init-done")
-				? (S(Yc, d)(
+				? (S($c, d)(
 						Fa(L(a, T, 2), function(f) {
 							return f.i;
 						})
 				  ),
-				  S(Zc, d)(
+				  S(ad, d)(
 						Fa(L(a, O, 1), function(f) {
 							return f.i;
 						}),
 						e
 				  ),
-				  b && S($c, d)(b),
-				  Id(d, e))
-				: (Bd(rd(qd.g(), L(a, T, 2), e, c), d),
-				  ad(d),
-				  bd(d),
+				  b && S(bd, d)(b),
+				  Kd(d, e))
+				: (Dd(td(sd.g(), L(a, T, 2), e, c), d),
 				  cd(d),
-				  Id(d, e),
-				  Ic(L(a, O, 1), e),
-				  (vc = vc || !(!c || !c.V)),
-				  Gd(gd.g()),
-				  b && Gd(b));
+				  dd(d),
+				  ed(d),
+				  Kd(d, e),
+				  Kc(L(a, O, 1), e),
+				  (xc = xc || !(!c || !c.V)),
+				  Id(id.g()),
+				  b && Id(b));
 		},
-		Id = function(a, b) {
-			a = void 0 === a ? hd() : a;
+		Kd = function(a, b) {
+			a = void 0 === a ? jd() : a;
 			b = void 0 === b ? 0 : b;
 			var c = a,
 				d = b;
 			d = void 0 === d ? 0 : d;
-			ed(dd.g(), c, d);
+			gd(fd.g(), c, d);
 			c = a;
 			b = void 0 === b ? 0 : b;
-			Dd(Cd.g(), c, b);
-			Fd.g().a = S($c, a);
-			Cd.g().a();
+			Fd(Ed.g(), c, b);
+			Hd.g().a = S(bd, a);
+			Ed.g().a();
 		};
-	var Kd = function(a) {
+	var Md = function(a) {
 		a = void 0 === a ? u : a;
 		return (a = a.performance) && a.now ? a.now() : null;
 	};
 	var W = u.performance,
-		Ld = !!(W && W.mark && W.measure && W.clearMarks),
-		Md = Ja(function() {
+		Nd = !!(W && W.mark && W.measure && W.clearMarks),
+		Od = Ja(function() {
 			var a;
-			if ((a = Ld)) (a = hc()), (a = !!a.indexOf && 0 <= a.indexOf("1337"));
+			if ((a = Nd)) (a = jc()), (a = !!a.indexOf && 0 <= a.indexOf("1337"));
 			return a;
 		});
-	var Nd = function(a, b, c) {
+	var Pd = function(a, b, c) {
 			this.a = void 0 === a ? null : a;
 			this.h = void 0 === b ? "jserror" : b;
 			this.c = null;
@@ -2117,10 +2139,10 @@
 			this.o = this.l;
 			this.u = null;
 		},
-		Od = function(a, b) {
+		Qd = function(a, b) {
 			a.c = b;
 		};
-	Nd.prototype.l = function(a, b, c, d, e) {
+	Pd.prototype.l = function(a, b, c, d, e) {
 		c = void 0 === c ? this.f : c;
 		e = void 0 === e ? this.h : e;
 		if (Math.random() > c) return !1;
@@ -2145,7 +2167,7 @@
 			(u.error_rep_loaded = !0));
 		return !1;
 	};
-	var Pd = function(a, b) {
+	var Rd = function(a, b) {
 		try {
 			var c = a.a && a.a.start("420", 3);
 			b();
@@ -2156,7 +2178,7 @@
 					c &&
 					(b = c) &&
 					W &&
-					Md() &&
+					Od() &&
 					(W.clearMarks("goog_" + b.label + "_" + b.uniqueId + "_start"),
 					W.clearMarks("goog_" + b.label + "_" + b.uniqueId + "_end")),
 				!a.o(420, d, a.f, void 0, a.h))
@@ -2164,19 +2186,19 @@
 				throw d;
 		}
 	};
-	var Qd = z("gpt/pubads_impl_"),
-		Rd = z("https://securepubads.g.doubleclick.net/");
-	var Sd = function(a) {
-			var b = Kd(a);
+	var Sd = z("gpt/pubads_impl_"),
+		Td = z("https://securepubads.g.doubleclick.net/");
+	var Ud = function(a) {
+			var b = Md(a);
 			b &&
 				((b = { label: "1", type: 9, value: b }),
 				(a = a.google_js_reporting_queue = a.google_js_reporting_queue || []),
 				2048 > a.length && a.push(b));
 		},
-		Td = function(a, b, c) {
+		Vd = function(a, b, c) {
 			var d = window;
 			return function() {
-				var e = Kd(),
+				var e = Md(),
 					f = 3;
 				try {
 					var h = b.apply(this, arguments);
@@ -2190,7 +2212,7 @@
 						((e = {
 							label: a.toString(),
 							value: e,
-							duration: (Kd() || 0) - e,
+							duration: (Md() || 0) - e,
 							type: f
 						}),
 						(f = d.google_js_reporting_queue =
@@ -2200,35 +2222,35 @@
 				return h;
 			};
 		},
-		Ud = function(a, b) {
-			return Td(a, b, function(c, d) {
-				new Nd().l(c, d);
+		Wd = function(a, b) {
+			return Vd(a, b, function(c, d) {
+				new Pd().l(c, d);
 			});
 		};
 	function X(a, b) {
 		return null == b ? "&" + a + "=null" : "&" + a + "=" + Math.floor(b);
 	}
-	var Vd = new m.Set();
-	function Wd(a) {
+	var Xd = new m.Set();
+	function Yd(a) {
 		a = a.id;
 		return (
 			null != a &&
-			(Vd.has(a) ||
+			(Xd.has(a) ||
 				n(a, "startsWith").call(a, "google_ads_iframe_") ||
 				n(a, "startsWith").call(a, "aswift"))
 		);
 	}
-	function Xd(a, b) {
+	function Zd(a, b) {
 		b = void 0 === b ? 4 : b;
 		if (!a) return !1;
-		if (Wd(a)) return !0;
+		if (Yd(a)) return !0;
 		if (0 >= b) return !1;
 		a = r(a.childNodes);
 		for (var c = a.next(); !c.done; c = a.next())
-			if (Xd(c.value, b - 1)) return !0;
+			if (Zd(c.value, b - 1)) return !0;
 		return !1;
 	}
-	var Yd = function() {
+	var $d = function() {
 		M.call(this);
 		this.H = this.J = this.K = this.f = this.D = this.C = this.l = 0;
 		this.I = !1;
@@ -2239,9 +2261,9 @@
 		this.L = !1;
 		this.R = function() {};
 	};
-	ra(Yd, M);
-	var ae = function() {
-			var a = new Yd();
+	ra($d, M);
+	var ce = function() {
+			var a = new $d();
 			if (U(203) && !window.google_plmetrics && window.PerformanceObserver) {
 				window.google_plmetrics = !0;
 				for (
@@ -2255,14 +2277,14 @@
 					!c.done;
 					c = b.next()
 				)
-					(c = c.value), Zd(a).observe({ type: c, buffered: !U(240) });
-				$d(a);
+					(c = c.value), ae(a).observe({ type: c, buffered: !U(240) });
+				be(a);
 			}
 		},
-		Zd = function(a) {
+		ae = function(a) {
 			a.G ||
 				(a.G = new PerformanceObserver(
-					Ud(640, function(b) {
+					Wd(640, function(b) {
 						var c = !1;
 						b = r(b.getEntries());
 						for (var d = b.next(); !d.done; d = b.next())
@@ -2275,13 +2297,13 @@
 												googletag.pubads
 											) {
 												var e = googletag.pubads();
-												Vd.clear();
+												Xd.clear();
 												for (
 													var f = r(e.getSlots()), h = f.next();
 													!h.done;
 													h = f.next()
 												)
-													Vd.add(h.value.getSlotId().getDomId());
+													Xd.add(h.value.getSlotId().getDomId());
 											}
 										} catch (p) {}
 										c = !0;
@@ -2295,7 +2317,7 @@
 											if (d.sources) {
 												var k = r(d.sources);
 												for (var l = k.next(); !l.done; l = k.next())
-													if (Xd(l.value.node)) {
+													if (Zd(l.value.node)) {
 														k = !0;
 														break a;
 													}
@@ -2321,8 +2343,8 @@
 				));
 			return a.G;
 		},
-		$d = function(a) {
-			var b = Ud(641, function() {
+		be = function(a) {
+			var b = Wd(641, function() {
 					var f = document;
 					2 ==
 						({ visible: 1, hidden: 2, prerender: 3, preview: 4, unloaded: 5 }[
@@ -2330,31 +2352,31 @@
 								f.webkitVisibilityState ||
 								f.mozVisibilityState ||
 								""
-						] || 0) && be(a);
+						] || 0) && de(a);
 				}),
-				c = Ud(641, function() {
-					return void be(a);
+				c = Wd(641, function() {
+					return void de(a);
 				});
 			document.addEventListener("visibilitychange", b);
 			document.addEventListener("unload", c);
-			var d = Ed(1905),
+			var d = Gd(1905),
 				e;
 			0 < d && (e = setTimeout(c, 1e3 * d));
 			a.R = function() {
 				document.removeEventListener("visibilitychange", b);
 				document.removeEventListener("unload", c);
-				Zd(a).disconnect();
+				ae(a).disconnect();
 				e && clearTimeout(e);
 			};
 		};
-	Yd.prototype.o = function() {
+	$d.prototype.o = function() {
 		M.prototype.o.call(this);
 		this.R();
 	};
-	var be = function(a) {
+	var de = function(a) {
 		if (!a.L) {
 			a.L = !0;
-			Zd(a).takeRecords();
+			ae(a).takeRecords();
 			var b =
 				"https://pagead2.googlesyndication.com/pagead/gen_204?id=plmetrics";
 			window.LayoutShift &&
@@ -2372,11 +2394,11 @@
 				!e.done;
 				e = d.next()
 			)
-				Wd(e.value) && c++;
+				Yd(e.value) && c++;
 			b += X("nif", c);
 			c = window.google_unique_id;
 			b += X("ifi", "number" === typeof c ? c : 0);
-			c = dd.g().c();
+			c = fd.g().c();
 			b += "&eid=" + encodeURIComponent(c.join());
 			b += "&top=" + (u === u.top ? 1 : 0);
 			if (a.M) c = "&qqid=" + encodeURIComponent(a.M);
@@ -2400,7 +2422,7 @@
 			a.a || ((a.a = !0), a.o());
 		}
 	};
-	var ce = {
+	var ee = {
 			issuerOrigin: "https://adservice.google.com",
 			issuancePath: "/tt/i",
 			redemptionPath: "/tt/r",
@@ -2411,8 +2433,8 @@
 				return !1;
 			}
 		},
-		de = [
-			ce,
+		fe = [
+			ee,
 			{
 				issuerOrigin: "https://attestation.android.com",
 				issuancePath: "/att/i",
@@ -2425,14 +2447,14 @@
 				}
 			}
 		],
-		fe = function(a) {
+		he = function(a) {
 			M.call(this);
-			this.l = de;
+			this.l = fe;
 			this.h = a;
-			this.f = ee(this);
+			this.f = ge(this);
 		};
-	ra(fe, M);
-	var ee = function(a) {
+	ra(he, M);
+	var ge = function(a) {
 			var b = a.l.map(function(c) {
 				return {
 					issuerOrigin: c.issuerOrigin,
@@ -2448,7 +2470,7 @@
 			});
 			0 <= d && ((a.f[d].state = c), a.h(a.f));
 		},
-		ge = function(a, b) {
+		ie = function(a, b) {
 			var c = b.issuerOrigin + b.redemptionPath,
 				d = {
 					keepalive: !0,
@@ -2478,7 +2500,7 @@
 					});
 			Y(a, b.issuerOrigin, 2);
 		},
-		he = function(a, b, c) {
+		je = function(a, b, c) {
 			window
 				.fetch(b.issuerOrigin + b.issuancePath, {
 					trustToken: { type: "token-request" }
@@ -2486,14 +2508,14 @@
 				.then(function(d) {
 					if (!d.ok) throw Error(d.status + ": Network response was not ok!");
 					Y(a, b.issuerOrigin, 10);
-					c && ge(a, b);
+					c && ie(a, b);
 				})
 				.catch(function() {
 					Y(a, b.issuerOrigin, 9);
 				});
 			Y(a, b.issuerOrigin, 8);
 		},
-		ie = function(a) {
+		ke = function(a) {
 			document.hasTrustToken &&
 				(U(1915)
 					? a.l.forEach(function(b) {
@@ -2502,30 +2524,30 @@
 							c || d
 								? document.hasTrustToken(b.issuerOrigin).then(function(e) {
 										e
-											? c && ge(a, b)
+											? c && ie(a, b)
 											: b.shouldRequestToken
-												? he(a, b, c)
+												? je(a, b, c)
 												: Y(a, b.issuerOrigin, 3);
 								  })
 								: Y(a, b.issuerOrigin, 7);
 					  })
-					: document.hasTrustToken(ce.issuerOrigin).then(function(b) {
-							b ? ge(a, ce) : Y(a, ce.issuerOrigin, 3);
+					: document.hasTrustToken(ee.issuerOrigin).then(function(b) {
+							b ? ie(a, ee) : Y(a, ee.issuerOrigin, 3);
 					  }));
 		};
-	var je = [
+	var le = [
 			"platform",
 			"platformVersion",
 			"architecture",
 			"model",
 			"uaFullVersion"
 		],
-		ke = function(a) {
+		me = function(a) {
 			return a.navigator &&
 				a.navigator.userAgentData &&
 				"function" === typeof a.navigator.userAgentData.getHighEntropyValues
-				? a.navigator.userAgentData.getHighEntropyValues(je).then(function(b) {
-						var c = new bc();
+				? a.navigator.userAgentData.getHighEntropyValues(le).then(function(b) {
+						var c = new dc();
 						c = J(c, 1, b.platform);
 						c = J(c, 2, b.platformVersion);
 						c = J(c, 3, b.architecture);
@@ -2534,14 +2556,14 @@
 				  })
 				: null;
 		};
-	var le = function() {
+	var ne = function() {
 			return u.googletag || (u.googletag = {});
 		},
-		me = function(a, b) {
-			var c = le();
+		oe = function(a, b) {
+			var c = ne();
 			c.hasOwnProperty(a) || (c[a] = b);
 		},
-		ne = function(a, b) {
+		pe = function(a, b) {
 			a.addEventListener
 				? a.addEventListener("load", b, !1)
 				: a.attachEvent && a.attachEvent("onload", b);
@@ -2589,32 +2611,32 @@
 	})(window);
 	Z[49] = new Date().getTime();
 	Z[36] = /^true$/.test("false");
-	Z[148] = uc;
+	Z[148] = wc;
 	Z[221] = /^true$/.test("");
 	Z[254] = /^true$/.test("true");
-	Z[204] = Tb("{{MOD}}", -1);
-	var oe = function() {
+	Z[204] = Vb("{{MOD}}", -1);
+	var qe = function() {
 		Ca(this, Z);
 	};
-	v(oe);
+	v(qe);
 	var V = function(a) {
-			return oe.g()[a];
+			return qe.g()[a];
 		},
-		pe = function(a, b) {
-			oe.g()[a] = b;
+		re = function(a, b) {
+			qe.g()[a] = b;
 		},
-		qe = le(),
-		re = oe.g();
-	Ca(re, qe._vars_);
-	qe._vars_ = re;
-	var se = new m.WeakMap(),
-		te = function(a, b) {
+		se = ne(),
+		te = qe.g();
+	Ca(te, se._vars_);
+	se._vars_ = te;
+	var ue = new m.WeakMap(),
+		ve = function(a, b) {
 			a = [a];
 			for (var c = b.length - 1; 0 <= c; --c) a.push(typeof b[c], b[c]);
 			return a.join("\x0B");
 		};
-	var ue = (function(a, b) {
-			b = void 0 === b ? te : b;
+	var we = (function(a, b) {
+			b = void 0 === b ? ve : b;
 			var c = Ba(a),
 				d = function(e) {
 					e = r(e);
@@ -2625,8 +2647,8 @@
 			return function(e) {
 				for (var f = [], h = 0; h < arguments.length; ++h) f[h] = arguments[h];
 				h = this || u;
-				var g = se.get(h);
-				g || ((g = {}), se.set(h, g));
+				var g = ue.get(h);
+				g || ((g = {}), ue.set(h, g));
 				h = g;
 				g = [this].concat(ka(f));
 				f = d ? d(g) : g;
@@ -2654,22 +2676,22 @@
 				return a + "\x0B" + (b && b[0] && b[0].src);
 			}
 		),
-		ve = function() {
-			return 0 === ue(V(172));
-		};
-	var we = function() {
-			return Tb("3") || 0;
-		},
 		xe = function() {
-			return "2020110201";
+			return 0 === we(V(172));
 		};
-	var Hd = function() {
+	var ye = function() {
+			return Vb("5") || 0;
+		},
+		ze = function() {
+			return "2020110301";
+		};
+	var Jd = function() {
 		var a = {};
-		this[3] = ((a[3] = ve),
+		this[3] = ((a[3] = xe),
 		(a[2] = V(36)),
 		(a[17] = function(b) {
 			for (var c = [], d = 0; d < arguments.length; ++d) c[d] = arguments[d];
-			return n(c, "includes").call(c, String(Vb()));
+			return n(c, "includes").call(c, String(Xb()));
 		}),
 		(a[21] = function() {
 			return V(148);
@@ -2679,15 +2701,15 @@
 		this[4] = ((a[1] = function() {
 			return V(204);
 		}),
-		(a[4] = we),
+		(a[4] = ye),
 		a);
 		this[5] = {};
 	};
-	v(Hd);
-	var ye = [],
-		ze = function(a) {
-			var b = new nd(V(246));
-			a = new nd(a || ye);
+	v(Jd);
+	var Ae = [],
+		Be = function(a) {
+			var b = new pd(V(246));
+			a = new pd(a || Ae);
 			if (!L(b, O, 1).length && L(a, O, 1).length) {
 				var c = L(a, O, 1);
 				Eb(b, 1, c);
@@ -2695,9 +2717,9 @@
 			!L(b, T, 2).length &&
 				L(a, T, 2).length &&
 				((a = L(a, T, 2)), Eb(b, 2, a));
-			Jd(b);
+			Ld(b);
 		};
-	var Ae = function(a) {
+	var Ce = function(a) {
 			if ((a = a.scripts))
 				for (var b = 0; b < a.length; b++) {
 					var c = a[b];
@@ -2705,7 +2727,7 @@
 				}
 			return null;
 		},
-		Be = function(a) {
+		De = function(a) {
 			var b = a.currentScript;
 			return (
 				"complete" != a.readyState &&
@@ -2713,21 +2735,21 @@
 				!(b && b.async)
 			);
 		},
-		Ce = function(a) {
+		Ee = function(a) {
 			a = [
 				a &&
 				"pagead2.googlesyndication.com" ===
 					Lb((a.src || "").match(Kb)[3] || null)
 					? z("https://pagead2.googlesyndication.com/")
-					: Rd,
-				Qd,
-				z("2020110201"),
+					: Td,
+				Sd,
+				z("2020110301"),
 				z(".js")
 			];
 			var b = "";
 			for (var c = 0; c < a.length; c++) b += Na(a[c]);
 			b = new A(b, Oa);
-			(a = Ed(24))
+			(a = Gd(24))
 				? ((a = String(a)),
 				  (b = Ta.exec(Pa(b).toString())),
 				  (c = b[3] || ""),
@@ -2735,47 +2757,47 @@
 				: (a = b);
 			return a;
 		},
-		De = function(a, b, c) {
-			pe(172, c);
-			new ze(a);
-			dd.g().a(12);
-			dd.g().a(5);
+		Fe = function(a, b, c) {
+			re(172, c);
+			new Be(a);
+			fd.g().a(12);
+			fd.g().a(5);
 			U(312) &&
-				ie(
-					new fe(function(d) {
-						pe(250, d);
+				ke(
+					new he(function(d) {
+						re(250, d);
 					})
 				);
 			U(363) &&
-				(a = ke(b)) &&
+				(a = me(b)) &&
 				a.then(function(d) {
-					return pe(251, d.l());
+					return re(251, d.l());
 				});
 			a = "";
 			U(349) &&
 				c &&
 				c.hasAttribute("data-load-fc") &&
-				(a = c.getAttribute("data-network-id")) &&
-				new ec(b, a).start();
+				(a = Nb(c.src)) &&
+				new gc(b, a).start();
 		},
-		Ee = function(a, b, c) {
-			var d = le();
+		Ge = function(a, b, c) {
+			var d = ne();
 			a = a || d.fifWin || window;
 			b = b || a.document;
 			var e = d.fifWin ? window : a;
-			me("getVersion", xe);
-			me("cmd", []);
+			oe("getVersion", ze);
+			oe("cmd", []);
 			if (d.evalScripts) d.evalScripts();
 			else {
-				var f = b.currentScript || Ae(b);
-				De(c, a, f);
+				var f = b.currentScript || Ce(b);
+				Fe(c, a, f);
 				if (!U(435))
 					try {
-						ae();
+						ce();
 					} catch (k) {}
-				Sd(a);
-				a = Ce(f);
-				if (Be(b)) {
+				Ud(a);
+				a = Ee(f);
+				if (De(b)) {
 					c = "gpt-impl-" + Math.random();
 					try {
 						vb(b, sb(a, { id: c, nonce: wa() }));
@@ -2790,7 +2812,7 @@
 					h.async = !0;
 					var g = b.head || b.body || b.documentElement;
 					"complete" !== e.document.readyState && d.fifWin
-						? ne(e, function() {
+						? pe(e, function() {
 								return void g.appendChild(h);
 						  })
 						: g.appendChild(h);
@@ -2798,25 +2820,25 @@
 				}
 			}
 		};
-	var Fe;
+	var He;
 	a: {
 		try {
 			if (Array.isArray(E)) {
-				Fe = E;
+				He = E;
 				break a;
 			}
 		} catch (a) {}
-		Fe = [];
+		He = [];
 	}
 	(function(a, b, c) {
-		var d = new Nd(null, "gpt_exception", 0.01);
-		Od(d, function(e) {
+		var d = new Pd(null, "gpt_exception", 0.01);
+		Qd(d, function(e) {
 			e.methodId = 420;
 		});
-		Pd(d, function() {
-			return Ee(a, b, c);
+		Rd(d, function() {
+			return Ge(a, b, c);
 		});
-	})(void 0, void 0, Fe);
+	})(void 0, void 0, He);
 }.call(this.googletag && googletag.fifWin ? googletag.fifWin.parent : this, [
 	[
 		[null, 395, null, [null, 2]],
@@ -2828,7 +2850,6 @@
 		[351, null, null, [1]],
 		[null, 7, null, [null, 0.1]],
 		[437, null, null, [1]],
-		[347, null, null, [1]],
 		[1912, null, null, [1]],
 		[1902, null, null, [1]],
 		[322, null, null, [1]],
@@ -2868,6 +2889,7 @@
 		[null, 1922, null, [null, 5]],
 		[null, 1919, null, [null, -1]],
 		[293, null, null, [1]],
+		[null, 449, null, [null, 6499]],
 		[296, null, null, [1]],
 		[null, 61, null, [null, 0.001]],
 		[275, null, null, [1]],
@@ -2903,9 +2925,9 @@
 		[370, null, null, [1]],
 		[411, null, null, [1]],
 		[null, 59, null, [null, 1]],
+		[450, null, null, [1]],
 		[423, null, null, [1]],
 		[433, null, null, [1]],
-		[340, null, null, [1]],
 		[215, null, null, [1]],
 		[377, null, null, [1]],
 		[null, 39, null, [null, 72]],
@@ -3067,7 +3089,13 @@
 					null,
 					15
 				],
-				[1, [[21064758], [21064759, [[206, null, null, [1]]]]]],
+				[
+					1,
+					[
+						[21064758],
+						[21064759, [[206, null, null, [1]], [null, 465, null, [null, 0.1]]]]
+					]
+				],
 				[10, [[21065112], [21065113, [[162, null, null, [1]]]]]],
 				[10, [[21065138], [21065139, [[148, null, null, [1]]]]]],
 				[
@@ -3129,27 +3157,7 @@
 					null,
 					30
 				],
-				[
-					10,
-					[
-						[21067575, [[null, 395, null, [null, 2]]]],
-						[21067576, [[null, 395, null, [null, 2]], [404, null, null, [1]]]]
-					],
-					null,
-					31
-				],
 				[10, [[21067590], [21067591]]],
-				[
-					10,
-					[
-						[21067628],
-						[21067629, [[null, 435, null, [null, -1]]]],
-						[21067630, [[null, 435, null, [null, 100]]]],
-						[21067631, [[null, 435, null, [null, 1000]]]],
-						[21067632, [[null, 435, null, [null, 5000]]]],
-						[21067633, [[null, 435, null, [null, 10000]]]]
-					]
-				],
 				[null, [[21067707], [21067708]]],
 				[
 					1000,
@@ -3210,27 +3218,7 @@
 					30
 				],
 				[50, [[21068030], [21068031, [[437, null, null, []]]]]],
-				[
-					1,
-					[
-						[21068076],
-						[21068077],
-						[21068078],
-						[21068079, [[385, null, null, [1]], [387, null, null, [1]]]]
-					],
-					null,
-					29
-				],
-				[
-					1,
-					[
-						[21068098],
-						[21068100, [[null, 395, null, [null, 1]]]],
-						[21068199, [[394, null, null, [1]]]]
-					],
-					null,
-					31
-				],
+				[1, [[21068098], [21068100, [[null, 395, null, [null, 1]]]]], null, 31],
 				[1, [[21068106], [21068107, [[364, null, null, [1]]]]]],
 				[
 					10,
@@ -3249,6 +3237,178 @@
 					29
 				],
 				[50, [[21068417], [21068418]], null, 34],
+				[
+					1,
+					[
+						[21068427],
+						[21068428],
+						[21068429],
+						[21068430, [[385, null, null, [1]], [387, null, null, [1]]]]
+					],
+					null,
+					29
+				],
+				[
+					50,
+					[
+						[
+							21068431,
+							null,
+							[
+								1,
+								[
+									[
+										3,
+										[
+											[12, null, null, null, 2, null, "www\\.bolha\\.com\\/"],
+											[12, null, null, null, 2, null, "www\\.eonline\\.com\\/"],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.eatwell101\\.com\\/"
+											],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.hotcopper\\.com\\.au\\/"
+											],
+											[12, null, null, null, 2, null, "www\\.wsj\\.com\\/"],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.stocktwits\\.com\\/"
+											],
+											[12, null, null, null, 2, null, "www\\.slate\\.com\\/"],
+											[12, null, null, null, 2, null, "www\\.nypost\\.com\\/"],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.fantasypros\\.com\\/"
+											],
+											[12, null, null, null, 2, null, "www\\.reuters\\.com\\/"],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.barchart\\.com\\/"
+											],
+											[12, null, null, null, 2, null, "www\\.finviz\\.com\\/"],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.ultimate-guitar\\.com\\/"
+											],
+											[12, null, null, null, 2, null, "www\\.wowhead\\.com\\/"],
+											[12, null, null, null, 2, null, "www\\.pof\\.com\\/"],
+											[12, null, null, null, 2, null, "www\\.buzzfeed\\.com\\/"]
+										]
+									]
+								]
+							]
+						],
+						[
+							21068432,
+							[[null, 435, null, [null, -1]]],
+							[
+								1,
+								[
+									[
+										3,
+										[
+											[12, null, null, null, 2, null, "www\\.bolha\\.com\\/"],
+											[12, null, null, null, 2, null, "www\\.eonline\\.com\\/"],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.eatwell101\\.com\\/"
+											],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.hotcopper\\.com\\.au\\/"
+											],
+											[12, null, null, null, 2, null, "www\\.wsj\\.com\\/"],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.stocktwits\\.com\\/"
+											],
+											[12, null, null, null, 2, null, "www\\.slate\\.com\\/"],
+											[12, null, null, null, 2, null, "www\\.nypost\\.com\\/"],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.fantasypros\\.com\\/"
+											],
+											[12, null, null, null, 2, null, "www\\.reuters\\.com\\/"],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.barchart\\.com\\/"
+											],
+											[12, null, null, null, 2, null, "www\\.finviz\\.com\\/"],
+											[
+												12,
+												null,
+												null,
+												null,
+												2,
+												null,
+												"www\\.ultimate-guitar\\.com\\/"
+											],
+											[12, null, null, null, 2, null, "www\\.wowhead\\.com\\/"],
+											[12, null, null, null, 2, null, "www\\.pof\\.com\\/"],
+											[12, null, null, null, 2, null, "www\\.buzzfeed\\.com\\/"]
+										]
+									]
+								]
+							]
+						]
+					]
+				],
 				[
 					1000,
 					[
@@ -3538,95 +3698,11 @@
 				],
 				[10, [[21067705], [21067706, [[409, null, null, [1]]]]]],
 				[100, [[21067994], [21067995, [[435, null, null, [1]]]]]],
-				[100, [[21068116], [21068117, [[null, 449, null, [null, 6499]]]]]],
-				[100, [[21068118], [21068119, [[450, null, null, [1]]]]]],
 				[100, [[21068380], [21068381, [[451, null, null, [1]]]]]],
 				[
 					1000,
-					[
-						[
-							21068393,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068393]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068393]]
-							],
-							[6, null, null, 4, null, 6]
-						],
-						[
-							21068394,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068394]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068394]]
-							],
-							[6, null, null, 4, null, 7]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21068403,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068403]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068403]]
-							],
-							[6, null, null, 4, null, 8]
-						],
-						[
-							21068404,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068404]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068404]]
-							],
-							[6, null, null, 4, null, 9]
-						]
-					],
-					[4, null, 3],
-					1
-				],
-				[
-					1000,
-					[
-						[
-							21068419,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068419]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068419]]
-							],
-							[6, null, null, 4, null, 4]
-						],
-						[
-							21068420,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068420]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068420]]
-							],
-							[6, null, null, 4, null, 5]
-						]
-					],
-					[4, null, 3],
-					1
+					[[21068406]],
+					[12, null, null, null, 3, null, "googEnableParentWidthExpansion"]
 				],
 				[1, [[21068421], [21068422, [[346, null, null, [1]]]]]],
 				[
@@ -3653,6 +3729,36 @@
 								[null, 25, null, [null, 21068424]]
 							],
 							[6, null, null, 4, null, 3]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[1, [[21068425], [21068426, [[457, null, null, [1]]]]]],
+				[
+					1000,
+					[
+						[
+							21068435,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21068435]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21068435]]
+							],
+							[6, null, null, 4, null, 4]
+						],
+						[
+							21068436,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21068436]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21068436]]
+							],
+							[6, null, null, 4, null, 5]
 						]
 					],
 					[4, null, 3],
