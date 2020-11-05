@@ -2680,10 +2680,10 @@
 			return 0 === we(V(172));
 		};
 	var ye = function() {
-			return Vb("5") || 0;
+			return Vb("7") || 0;
 		},
 		ze = function() {
-			return "2020110301";
+			return "2020110401";
 		};
 	var Jd = function() {
 		var a = {};
@@ -2743,7 +2743,7 @@
 					? z("https://pagead2.googlesyndication.com/")
 					: Td,
 				Sd,
-				z("2020110301"),
+				z("2020110401"),
 				z(".js")
 			];
 			var b = "";
@@ -2865,7 +2865,7 @@
 				null,
 				null,
 				null,
-				["criteo", "indextest", "openxtest", "thetradedesktest"]
+				["criteo", "index", "indextest", "openxtest", "thetradedesktest"]
 			],
 			null,
 			428
@@ -2878,7 +2878,7 @@
 				null,
 				null,
 				null,
-				["criteo", "indextest", "openxtest", "thetradedesktest"]
+				["criteo", "index", "indextest", "openxtest", "thetradedesktest"]
 			],
 			null,
 			1918
@@ -2888,6 +2888,7 @@
 		[null, 1920, null, [null, 24]],
 		[null, 1922, null, [null, 5]],
 		[null, 1919, null, [null, -1]],
+		[451, null, null, [1]],
 		[293, null, null, [1]],
 		[null, 449, null, [null, 6499]],
 		[296, null, null, [1]],
@@ -3227,15 +3228,6 @@
 						[21068111, [[453, null, null, [1]], [454, null, null, [1]]]]
 					]
 				],
-				[
-					50,
-					[
-						[21068229],
-						[21068230, [[385, null, null, [1]], [387, null, null, [1]]]]
-					],
-					null,
-					29
-				],
 				[50, [[21068417], [21068418]], null, 34],
 				[
 					1,
@@ -3260,70 +3252,22 @@
 									[
 										3,
 										[
-											[12, null, null, null, 2, null, "www\\.bolha\\.com\\/"],
-											[12, null, null, null, 2, null, "www\\.eonline\\.com\\/"],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.eatwell101\\.com\\/"
-											],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.hotcopper\\.com\\.au\\/"
-											],
-											[12, null, null, null, 2, null, "www\\.wsj\\.com\\/"],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.stocktwits\\.com\\/"
-											],
-											[12, null, null, null, 2, null, "www\\.slate\\.com\\/"],
-											[12, null, null, null, 2, null, "www\\.nypost\\.com\\/"],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.fantasypros\\.com\\/"
-											],
-											[12, null, null, null, 2, null, "www\\.reuters\\.com\\/"],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.barchart\\.com\\/"
-											],
-											[12, null, null, null, 2, null, "www\\.finviz\\.com\\/"],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.ultimate-guitar\\.com\\/"
-											],
-											[12, null, null, null, 2, null, "www\\.wowhead\\.com\\/"],
-											[12, null, null, null, 2, null, "www\\.pof\\.com\\/"],
-											[12, null, null, null, 2, null, "www\\.buzzfeed\\.com\\/"]
+											[12, null, null, null, 2, null, "bolha\\.com"],
+											[12, null, null, null, 2, null, "eonline\\.com"],
+											[12, null, null, null, 2, null, "eatwell101\\.com"],
+											[12, null, null, null, 2, null, "hotcopper\\.com\\.au"],
+											[12, null, null, null, 2, null, "wsj\\.com"],
+											[12, null, null, null, 2, null, "stocktwits\\.com"],
+											[12, null, null, null, 2, null, "slate\\.com"],
+											[12, null, null, null, 2, null, "nypost\\.com"],
+											[12, null, null, null, 2, null, "fantasypros\\.com"],
+											[12, null, null, null, 2, null, "reuters\\.com"],
+											[12, null, null, null, 2, null, "barchart\\.com"],
+											[12, null, null, null, 2, null, "finviz\\.com"],
+											[12, null, null, null, 2, null, "ultimate-guitar\\.com"],
+											[12, null, null, null, 2, null, "wowhead\\.com"],
+											[12, null, null, null, 2, null, "pof\\.com"],
+											[12, null, null, null, 2, null, "buzzfeed\\.com"]
 										]
 									]
 								]
@@ -3338,76 +3282,44 @@
 									[
 										3,
 										[
-											[12, null, null, null, 2, null, "www\\.bolha\\.com\\/"],
-											[12, null, null, null, 2, null, "www\\.eonline\\.com\\/"],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.eatwell101\\.com\\/"
-											],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.hotcopper\\.com\\.au\\/"
-											],
-											[12, null, null, null, 2, null, "www\\.wsj\\.com\\/"],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.stocktwits\\.com\\/"
-											],
-											[12, null, null, null, 2, null, "www\\.slate\\.com\\/"],
-											[12, null, null, null, 2, null, "www\\.nypost\\.com\\/"],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.fantasypros\\.com\\/"
-											],
-											[12, null, null, null, 2, null, "www\\.reuters\\.com\\/"],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.barchart\\.com\\/"
-											],
-											[12, null, null, null, 2, null, "www\\.finviz\\.com\\/"],
-											[
-												12,
-												null,
-												null,
-												null,
-												2,
-												null,
-												"www\\.ultimate-guitar\\.com\\/"
-											],
-											[12, null, null, null, 2, null, "www\\.wowhead\\.com\\/"],
-											[12, null, null, null, 2, null, "www\\.pof\\.com\\/"],
-											[12, null, null, null, 2, null, "www\\.buzzfeed\\.com\\/"]
+											[12, null, null, null, 2, null, "bolha\\.com"],
+											[12, null, null, null, 2, null, "eonline\\.com"],
+											[12, null, null, null, 2, null, "eatwell101\\.com"],
+											[12, null, null, null, 2, null, "hotcopper\\.com\\.au"],
+											[12, null, null, null, 2, null, "wsj\\.com"],
+											[12, null, null, null, 2, null, "stocktwits\\.com"],
+											[12, null, null, null, 2, null, "slate\\.com"],
+											[12, null, null, null, 2, null, "nypost\\.com"],
+											[12, null, null, null, 2, null, "fantasypros\\.com"],
+											[12, null, null, null, 2, null, "reuters\\.com"],
+											[12, null, null, null, 2, null, "barchart\\.com"],
+											[12, null, null, null, 2, null, "finviz\\.com"],
+											[12, null, null, null, 2, null, "ultimate-guitar\\.com"],
+											[12, null, null, null, 2, null, "wowhead\\.com"],
+											[12, null, null, null, 2, null, "pof\\.com"],
+											[12, null, null, null, 2, null, "buzzfeed\\.com"]
 										]
 									]
 								]
 							]
 						]
 					]
+				],
+				[
+					50,
+					[
+						[21068441],
+						[
+							21068442,
+							[
+								[385, null, null, [1]],
+								[459, null, null, []],
+								[387, null, null, [1]]
+							]
+						]
+					],
+					null,
+					29
 				],
 				[
 					1000,
@@ -3698,7 +3610,6 @@
 				],
 				[10, [[21067705], [21067706, [[409, null, null, [1]]]]]],
 				[100, [[21067994], [21067995, [[435, null, null, [1]]]]]],
-				[100, [[21068380], [21068381, [[451, null, null, [1]]]]]],
 				[
 					1000,
 					[[21068406]],
@@ -3763,6 +3674,71 @@
 					],
 					[4, null, 3],
 					1
+				],
+				[100, [[21068437], [21068438, [[458, null, null, [1]]]]]],
+				[100, [[21068439], [21068440, [[459, null, null, []]]]]],
+				[
+					1000,
+					[
+						[
+							21068460,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21068460]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21068460]]
+							],
+							[6, null, null, 4, null, 6]
+						],
+						[
+							21068461,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21068461]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21068461]]
+							],
+							[6, null, null, 4, null, 7]
+						]
+					],
+					[4, null, 3],
+					1
+				],
+				[
+					1000,
+					[
+						[
+							21068464,
+							null,
+							[
+								12,
+								null,
+								null,
+								null,
+								4,
+								null,
+								"Chrome/8[4-6]",
+								["navigator.userAgent"]
+							]
+						],
+						[
+							21068465,
+							[[1912, null, null, []]],
+							[
+								12,
+								null,
+								null,
+								null,
+								4,
+								null,
+								"Chrome/8[4-6]",
+								["navigator.userAgent"]
+							]
+						]
+					],
+					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]]
 				],
 				[1, [[44728913], [44728914, [[445, null, null, [1]]]]]],
 				[
