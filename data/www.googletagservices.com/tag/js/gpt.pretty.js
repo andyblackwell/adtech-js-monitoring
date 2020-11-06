@@ -2531,9 +2531,11 @@
 								  })
 								: Y(a, b.issuerOrigin, 7);
 					  })
-					: document.hasTrustToken(ee.issuerOrigin).then(function(b) {
-							b ? ie(a, ee) : Y(a, ee.issuerOrigin, 3);
-					  }));
+					: U(1912)
+						? document.hasTrustToken(ee.issuerOrigin).then(function(b) {
+								b ? ie(a, ee) : Y(a, ee.issuerOrigin, 3);
+						  })
+						: ie(a, ee));
 		};
 	var le = [
 			"platform",
@@ -2680,10 +2682,10 @@
 			return 0 === we(V(172));
 		};
 	var ye = function() {
-			return Vb("7") || 0;
+			return Vb("3") || 0;
 		},
 		ze = function() {
-			return "2020110401";
+			return "2020110501";
 		};
 	var Jd = function() {
 		var a = {};
@@ -2743,7 +2745,7 @@
 					? z("https://pagead2.googlesyndication.com/")
 					: Td,
 				Sd,
-				z("2020110401"),
+				z("2020110501"),
 				z(".js")
 			];
 			var b = "";
@@ -2897,6 +2899,8 @@
 		[373, null, null, [1]],
 		[429, null, null, [1]],
 		[null, 435, null, [null, 500]],
+		[136, null, null, [1]],
+		[137, null, null, [1]],
 		[291, null, null, [1]],
 		[327, null, null, [1]],
 		[352, null, null, [1]],
@@ -2975,14 +2979,7 @@
 						[44719570, [[null, 7, null, [null, 0.03]], [212, null, null, [1]]]]
 					]
 				],
-				[null, [[676982681]]],
-				[
-					null,
-					[
-						[21067452],
-						[21067454, [[136, null, null, [1]], [137, null, null, [1]]]]
-					]
-				]
+				[null, [[676982681]]]
 			]
 		],
 		[
@@ -3111,7 +3108,6 @@
 				],
 				[1, [[21065352], [21065353, [[123, null, null, [1]]]]]],
 				[50, [[21065516], [21065517, [[49, null, null, [1]]]]]],
-				[50, [[21065975], [21065976, [[319, null, null, [1]]]]]],
 				[
 					10,
 					[
@@ -3228,7 +3224,8 @@
 						[21068111, [[453, null, null, [1]], [454, null, null, [1]]]]
 					]
 				],
-				[50, [[21068417], [21068418]], null, 34],
+				[20, [[21068417]], null, 34],
+				[980, [[21068418]], null, 34],
 				[
 					1,
 					[
@@ -3321,6 +3318,7 @@
 					null,
 					29
 				],
+				[50, [[21068479], [21068480, [[319, null, null, [1]]]]]],
 				[
 					1000,
 					[
@@ -3616,35 +3614,6 @@
 					[12, null, null, null, 3, null, "googEnableParentWidthExpansion"]
 				],
 				[1, [[21068421], [21068422, [[346, null, null, [1]]]]]],
-				[
-					1000,
-					[
-						[
-							21068423,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068423]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068423]]
-							],
-							[6, null, null, 4, null, 2]
-						],
-						[
-							21068424,
-							[
-								[null, 7, null, [null, 1]],
-								[null, 24, null, [null, 21068424]],
-								[60, null, null, [1]],
-								[null, 28, null, [null, 0.1]],
-								[null, 25, null, [null, 21068424]]
-							],
-							[6, null, null, 4, null, 3]
-						]
-					],
-					[4, null, 3],
-					1
-				],
 				[1, [[21068425], [21068426, [[457, null, null, [1]]]]]],
 				[
 					1000,
@@ -3739,6 +3708,37 @@
 						]
 					],
 					[4, null, 9, null, null, null, null, ["document.hasTrustToken"]]
+				],
+				[10, [[21068473], [21068474, [[460, null, null, [1]]]]]],
+				[10, [[21068475], [21068476, [[461, null, null, [1]]]]]],
+				[
+					1000,
+					[
+						[
+							21068477,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21068477]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21068477]]
+							],
+							[6, null, null, 4, null, 2]
+						],
+						[
+							21068478,
+							[
+								[null, 7, null, [null, 1]],
+								[null, 24, null, [null, 21068478]],
+								[60, null, null, [1]],
+								[null, 28, null, [null, 0.1]],
+								[null, 25, null, [null, 21068478]]
+							],
+							[6, null, null, 4, null, 3]
+						]
+					],
+					[4, null, 3],
+					1
 				],
 				[1, [[44728913], [44728914, [[445, null, null, [1]]]]]],
 				[
