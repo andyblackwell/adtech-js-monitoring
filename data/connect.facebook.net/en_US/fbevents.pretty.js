@@ -17,7 +17,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.27";
+fbq.version = "2.9.28";
 fbq._releaseSegment = "canary";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -1289,6 +1289,9 @@ fbq.pendingConfigs = ["global_config"];
 						n = f.getFbeventsModules("SignalsFBEventsSetIWLExtractorsEvent"),
 						o = f.getFbeventsModules(
 							"SignalsFBEventsValidateCustomParametersEvent"
+						),
+						p = f.getFbeventsModules(
+							"SignalsFBEventsValidateUrlParametersEvent"
 						);
 					b = {
 						configLoaded: b,
@@ -1303,7 +1306,8 @@ fbq.pendingConfigs = ["global_config"];
 						pluginLoaded: l,
 						setEventId: m,
 						setIWLExtractors: n,
-						validateCustomParameters: o
+						validateCustomParameters: o,
+						validateUrlParameters: p
 					};
 					k.exports = b;
 				})();
@@ -2236,7 +2240,9 @@ fbq.pendingConfigs = ["global_config"];
 								b = a.pixelID;
 								return "Pixel " + b + " not found";
 							case "UNWANTED_CUSTOM_DATA":
-								return "Removed keys from custom data.";
+								return "Removed parameters from custom data due to potential violations. Go to Events Manager to learn more.";
+							case "UNWANTED_URL_DATA":
+								return "Removed URL query parameters due to potential violations.";
 							default:
 								F(
 									new Error(
@@ -3073,74 +3079,76 @@ fbq.pendingConfigs = ["global_config"];
 						c = a.setEventId,
 						d = f.getFbeventsModules("SignalsFBEventsQE"),
 						e = f.getFbeventsModules("SignalsParamList"),
-						j = f.getFbeventsModules("signalsFBEventsSendBatch"),
-						l = f.getFbeventsModules("signalsFBEventsSendBeacon"),
-						m = f.getFbeventsModules("signalsFBEventsSendGET"),
-						n = f.getFbeventsModules("signalsFBEventsSendXHR"),
-						o = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
-						p = f.getFbeventsModules("signalsFBEventsGetIsChrome");
+						h = f.getFbeventsModules("signalsFBEventsSendBatch"),
+						i = f.getFbeventsModules("signalsFBEventsSendBeacon"),
+						j = f.getFbeventsModules("signalsFBEventsSendGET"),
+						l = f.getFbeventsModules("signalsFBEventsSendXHR"),
+						m = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
+						n = f.getFbeventsModules("signalsFBEventsGetIsChrome");
 					a = f.getFbeventsModules("SignalsFBEventsExperimentNames");
-					var q = a.BATCHING_EXPERIMENT,
-						r = a.SEND_BEACON_STRING_EXPERIMENT,
-						s = a.SEND_XHR_EXPERIMENT,
-						t = g.top !== g,
-						u = "SubscribedButtonClick";
-					function v(a) {
+					var o = a.BATCHING_EXPERIMENT,
+						p = a.SEND_BEACON_STRING_EXPERIMENT,
+						q = a.SEND_XHR_EXPERIMENT,
+						r = g.top !== g,
+						s = "SubscribedButtonClick";
+					function t(a) {
 						var b = a.customData,
 							c = a.customParams,
 							f = a.eventName,
-							j = a.id;
-						a = a.piiTranslator;
-						a = new e(a);
-						a.append("id", j);
-						a.append("ev", f);
-						a.append("dl", i.href);
-						a.append("rl", h.referrer);
-						a.append("if", t);
-						a.append("ts", new Date().valueOf());
-						a.append("cd", b);
-						a.append("sw", g.screen.width);
-						a.append("sh", g.screen.height);
-						c && a.addRange(c);
-						a.appendHash(d.getCustomDataPayload());
-						return a;
+							h = a.id,
+							i = a.piiTranslator,
+							j = a.documentLink;
+						a = a.referrerLink;
+						i = new e(i);
+						i.append("id", h);
+						i.append("ev", f);
+						i.append("dl", j);
+						i.append("rl", a);
+						i.append("if", r);
+						i.append("ts", new Date().valueOf());
+						i.append("cd", b);
+						i.append("sw", g.screen.width);
+						i.append("sh", g.screen.height);
+						c && i.addRange(c);
+						i.appendHash(d.getCustomDataPayload());
+						return i;
 					}
-					function w(a) {
+					function u(a) {
 						var e = a.customData,
 							f = a.eventName,
-							g = v(a);
+							g = t(a);
 						c.trigger(a.id, g);
-						if (d.isInTest(q)) {
-							j(g);
+						if (d.isInTest(o)) {
+							h(g);
 							b.trigger("BATCH", g, e);
 							return;
 						}
-						a = d.isInTestOrControl(r) || !p();
-						if (a && f === u && l(g)) {
+						a = d.isInTestOrControl(p) || !n();
+						if (a && f === s && i(g)) {
 							b.trigger("BEACON", g, e);
 							return;
 						}
-						if (m(g)) {
+						if (j(g)) {
 							b.trigger("GET", g, e);
 							return;
 						}
-						if (a && l(g)) {
+						if (a && i(g)) {
 							b.trigger("BEACON", g, e);
 							return;
 						}
-						if (d.isInTest(s)) {
-							if (n(g)) {
+						if (d.isInTest(q)) {
+							if (l(g)) {
 								b.trigger("XHR", g, e);
 								return;
 							}
-							m(g, { ignoreRequestLengthCheck: !0 });
+							j(g, { ignoreRequestLengthCheck: !0 });
 							b.trigger("FGET", g, e);
 							return;
 						}
-						o(g);
+						m(g);
 						b.trigger("POST", g, e);
 					}
-					k.exports = w;
+					k.exports = u;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -3203,17 +3211,20 @@ fbq.pendingConfigs = ["global_config"];
 					var a = f.getFbeventsModules("SignalsFBEventsNetworkConfig"),
 						b = 2048;
 					function c(c, d) {
-						d = d || {};
-						var e = d.ignoreRequestLengthCheck;
-						e = e === void 0 ? !1 : e;
-						d = d.url;
-						d = d === void 0 ? a.ENDPOINT : d;
-						c.replaceEntry("rqm", e ? "FGET" : "GET");
+						var e = d || {},
+							f = e.ignoreRequestLengthCheck;
+						f = f === void 0 ? !1 : f;
+						e = e.url;
+						e = e === void 0 ? a.ENDPOINT : e;
+						c.replaceEntry("rqm", f ? "FGET" : "GET");
 						c = c.toQueryString();
-						d = d + "?" + c;
-						if (e || d.length < b) {
+						e = e + "?" + c;
+						if (f || e.length < b) {
 							c = new Image();
-							c.src = d;
+							d != null &&
+								d.errorHandler != null &&
+								(c.onerror = d.errorHandler);
+							c.src = e;
 							return !0;
 						}
 						return !1;
@@ -3243,30 +3254,33 @@ fbq.pendingConfigs = ["global_config"];
 						g =
 							typeof XMLHttpRequest !== "undefined" &&
 							"withCredentials" in new XMLHttpRequest();
-					function h(a, b) {
-						var c = new XMLHttpRequest();
-						c.withCredentials = !0;
-						c.open("POST", b);
-						c.onreadystatechange = function() {
-							if (c.readyState !== e.DONE) return;
-							c.status !== 200 &&
-								d(
-									new Error(
-										"Error sending XHR " + c.status + " - " + c.statusText
-									)
-								);
+					function h(a, b, c) {
+						var f = new XMLHttpRequest();
+						f.withCredentials = !0;
+						f.open("POST", b);
+						f.onreadystatechange = function() {
+							if (f.readyState !== e.DONE) return;
+							f.status !== 200 &&
+								(c != null
+									? c()
+									: d(
+											new Error(
+												"Error sending XHR " + f.status + " - " + f.statusText
+											)
+									  ));
 						};
-						c.send(a);
+						f.send(a);
 					}
 					function i(c) {
 						var d =
-							arguments.length > 1 && arguments[1] !== void 0
-								? arguments[1]
-								: a.ENDPOINT;
+								arguments.length > 1 && arguments[1] !== void 0
+									? arguments[1]
+									: a.ENDPOINT,
+							e = arguments[2];
 						if (!g) return !1;
 						c instanceof b && c.replaceEntry("rqm", "xhr");
-						var e = c instanceof b ? c.toFormData() : c;
-						h(e, d);
+						var f = c instanceof b ? c.toFormData() : c;
+						h(f, d, e);
 						return !0;
 					}
 					k.exports = i;
@@ -3644,9 +3658,6 @@ fbq.pendingConfigs = ["global_config"];
 					a = b.objectWithFields({
 						blacklisted_keys: b.allowNull(
 							b.mapOf(b.mapOf(b.arrayOf(b.string())))
-						),
-						blacklisted_keys_v2: b.allowNull(
-							b.mapOf(b.mapOf(b.mapOf(b.number())))
 						)
 					});
 					k.exports = a;
@@ -3881,6 +3892,33 @@ fbq.pendingConfigs = ["global_config"];
 		});
 		f.ensureModuleRegistered(
 			"SignalsFBEventsValidateCustomParametersEvent",
+			function() {
+				return (function(g, h, i, j) {
+					var k = { exports: {} };
+					k.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
+							b = f.getFbeventsModules("SignalsFBEventsTyped"),
+							c = b.coerce,
+							d = b.Typed,
+							e = f.getFbeventsModules("signalsFBEventsCoercePixel");
+						b = f.getFbeventsModules("SignalsFBEventsCoercePrimitives");
+						b.coerceString;
+						function g() {
+							for (var a = arguments.length, b = Array(a), f = 0; f < a; f++)
+								b[f] = arguments[f];
+							return c(d.tuple([e, d.object(), d.string()]), b);
+						}
+						b = new a(g);
+						k.exports = b;
+					})();
+					return k.exports;
+				})(a, b, c, d);
+			}
+		);
+		f.ensureModuleRegistered(
+			"SignalsFBEventsValidateUrlParametersEvent",
 			function() {
 				return (function(g, h, i, j) {
 					var k = { exports: {} };
@@ -4883,30 +4921,31 @@ fbq.pendingConfigs = ["global_config"];
 						J = z.piiInvalidated,
 						ca = z.setIWLExtractors,
 						K = z.validateCustomParameters,
-						L = o.logError,
+						L = z.validateUrlParameters,
+						da = o.logError,
 						M = o.logUserError,
 						N = s.global,
 						O = -1,
-						da = Array.prototype.slice,
+						ea = Array.prototype.slice,
 						P = Object.prototype.hasOwnProperty,
 						Q = c.href,
 						R = !1,
-						ea = !1,
+						fa = !1,
 						S = [],
 						T = {},
-						fa;
+						ga;
 					b.referrer;
 					var U = { PageView: new A(), PixelInitialized: new A() },
 						V = new q(f, T),
 						W = new x(V, N),
-						ga = new A(["eid"]);
-					function ha(a) {
+						ha = new A(["eid"]);
+					function ia(a) {
 						for (var b in a) P.call(a, b) && (this[b] = a[b]);
 						return this;
 					}
 					function X() {
 						try {
-							var a = da.call(arguments);
+							var a = ea.call(arguments);
 							if (N.isLocked() && a[0] !== "consent") {
 								f.queue.push(arguments);
 								return;
@@ -4921,28 +4960,28 @@ fbq.pendingConfigs = ["global_config"];
 									Y.apply(this, c);
 									break;
 								case "init":
-									ea = !0;
+									fa = !0;
 									Y.apply(this, c);
 									break;
 								case "set":
-									ia.apply(this, c);
+									ja.apply(this, c);
 									break;
 								case "track":
 									if (F(c[0])) {
-										ma.apply(this, c);
+										na.apply(this, c);
 										break;
 									}
 									if (d) {
 										Z.apply(this, c);
 										break;
 									}
-									la.apply(this, c);
+									ma.apply(this, c);
 									break;
 								case "trackCustom":
 									Z.apply(this, c);
 									break;
 								case "send":
-									na.apply(this, c);
+									oa.apply(this, c);
 									break;
 								case "on":
 									var j = h(c),
@@ -4994,10 +5033,10 @@ fbq.pendingConfigs = ["global_config"];
 									break;
 							}
 						} catch (a) {
-							L(a);
+							da(a);
 						}
 					}
-					function ia(a) {
+					function ja(a) {
 						for (
 							var b = arguments.length, c = Array(b > 1 ? b - 1 : 0), d = 1;
 							d < b;
@@ -5180,7 +5219,7 @@ fbq.pendingConfigs = ["global_config"];
 									});
 									break;
 								}
-								ka(a, K, L);
+								la(a, K, L);
 								break;
 						}
 					}
@@ -5215,10 +5254,10 @@ fbq.pendingConfigs = ["global_config"];
 						S.push(a);
 						T[d] = a;
 						b != null && W.loadPlugin("identity");
-						ja();
+						ka();
 						V.loadConfig(d);
 					}
-					function ja() {
+					function ka() {
 						for (var a = 0; a < f._initHandlers.length; a++) {
 							var b = f._initHandlers[a];
 							f._initsDone[a] || (f._initsDone[a] = {});
@@ -5228,7 +5267,7 @@ fbq.pendingConfigs = ["global_config"];
 							}
 						}
 					}
-					function ka(a, b, c) {
+					function la(a, b, c) {
 						var d = p.validateMetadata(a);
 						d.error && M(d.error);
 						d.warnings &&
@@ -5243,7 +5282,7 @@ fbq.pendingConfigs = ["global_config"];
 								}
 						} else M({ metadataValue: b, pixelID: c, type: "SET_METADATA_ON_UNINITIALIZED_PIXEL_ID" });
 					}
-					function la(a, b, c) {
+					function ma(a, b, c) {
 						(b = b || {}),
 							p.validateEventAndLog(a, b),
 							a === "CustomEvent" &&
@@ -5265,15 +5304,15 @@ fbq.pendingConfigs = ["global_config"];
 							Object.prototype.hasOwnProperty.call(U, a) && U[a].add(f.id);
 						}
 					}
-					function ma(a, b) {
+					function na(a, b) {
 						$({ customData: b, eventName: a, pixel: null });
 					}
-					function na(a, b, c) {
+					function oa(a, b, c) {
 						S.forEach(function(c) {
 							return $({ customData: b, eventName: a, pixel: c });
 						});
 					}
-					function oa(a, b) {
+					function pa(a, b) {
 						var c = new l(f.piiTranslator);
 						try {
 							c.append("ud", (a && a.userData) || {}, !0),
@@ -5289,7 +5328,7 @@ fbq.pendingConfigs = ["global_config"];
 						C(b, function(a) {
 							return C(G(a), function(b) {
 								if (c.containsKey(b)) {
-									if (!ga.has(b))
+									if (!ha.has(b))
 										throw new Error(
 											"Custom parameter " + b + " has already been specified."
 										);
@@ -5314,53 +5353,61 @@ fbq.pendingConfigs = ["global_config"];
 						return c;
 					}
 					function $(a) {
-						var b = a.customData,
-							c = a.eventData,
-							d = a.eventName;
+						var d = a.customData,
+							e = a.eventData,
+							f = a.eventName;
 						a = a.pixel;
 						if (a != null && t.pixelHasActiveBridge(a)) {
-							t.sendEvent(a, d, b || {});
+							t.sendEvent(a, f, d || {});
 							return;
 						}
-						var e = oa(a, d);
-						if (c != null) {
-							var f = c.eventID;
-							c = c.event_id;
-							f = f != null ? f : c;
-							e.containsKey("eid")
-								? e.replaceEntry("eid", f)
-								: e.append("eid", f);
+						var g = pa(a, f);
+						if (e != null) {
+							var h = e.eventID;
+							e = e.event_id;
+							h = h != null ? h : e;
+							g.containsKey("eid")
+								? g.replaceEntry("eid", h)
+								: g.append("eid", h);
 						}
-						b != null && K.trigger(a, b, d);
+						d != null && K.trigger(a, d, f);
+						e = c.href;
+						h = b.referrer;
+						var i = {};
+						e != null && (i.dl = e);
+						h != null && (i.rl = h);
+						D(i) || L.trigger(a, i, f);
 						m({
-							customData: b,
-							customParams: e,
-							eventName: d,
+							customData: d,
+							customParams: g,
+							eventName: f,
 							id: a ? a.id : null,
-							piiTranslator: null
+							piiTranslator: null,
+							documentLink: i.dl ? i.dl : "",
+							referrerLink: i.rl ? i.rl : ""
 						});
 					}
-					function pa() {
+					function qa() {
 						while (f.queue.length && !N.isLocked()) {
 							var a = f.queue.shift();
 							X.apply(f, a);
 						}
 					}
 					N.onUnlocked(function() {
-						pa();
+						qa();
 					});
 					f.pixelId && ((R = !0), Y(f.pixelId));
-					((R && ea) || a.fbq !== a._fbq) &&
+					((R && fa) || a.fbq !== a._fbq) &&
 						M({ type: "CONFLICTING_VERSIONS" });
 					S.length > 1 && M({ type: "MULTIPLE_PIXELS" });
-					function qa() {
+					function ra() {
 						if (f.disablePushState === !0) return;
 						if (!d.pushState || !d.replaceState) return;
 						var b = v(function() {
-							fa = Q;
+							ga = Q;
 							Q = c.href;
-							if (Q === fa) return;
-							var a = new ha({ allowDuplicatePageViews: !0 });
+							if (Q === ga) return;
+							var a = new ia({ allowDuplicatePageViews: !0 });
 							X.call(a, "trackCustom", "PageView");
 						});
 						u(d, "pushState", b);
@@ -5368,25 +5415,25 @@ fbq.pendingConfigs = ["global_config"];
 						a.addEventListener("popstate", b, !1);
 					}
 					H.listenOnce(function() {
-						qa();
+						ra();
 					});
-					function ra(a) {
-						f._initHandlers.push(a), ja();
+					function sa(a) {
+						f._initHandlers.push(a), ka();
 					}
-					function sa() {
+					function ta() {
 						return { pixelInitializationTime: O, pixels: S };
 					}
-					function ta(a) {
+					function ua(a) {
 						(a.instance = V),
 							(a.callMethod = X),
 							(a._initHandlers = []),
 							(a._initsDone = {}),
-							(a.send = na),
-							(a.getEventCustomParameters = oa),
-							(a.addInitHandler = ra),
-							(a.getState = sa),
+							(a.send = oa),
+							(a.getEventCustomParameters = pa),
+							(a.addInitHandler = sa),
+							(a.getState = ta),
 							(a.init = Y),
-							(a.set = ia),
+							(a.set = ja),
 							(a.loadPlugin = function(a) {
 								return W.loadPlugin(a);
 							}),
@@ -5394,9 +5441,9 @@ fbq.pendingConfigs = ["global_config"];
 								W.registerPlugin(a, b);
 							});
 					}
-					ta(a.fbq);
-					pa();
-					e.exports = { doExport: ta };
+					ua(a.fbq);
+					qa();
+					e.exports = { doExport: ua };
 					n.trigger();
 				})();
 				return e.exports;
