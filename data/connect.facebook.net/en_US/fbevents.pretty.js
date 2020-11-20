@@ -17,8 +17,8 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.28";
-fbq._releaseSegment = "canary";
+fbq.version = "2.9.29";
+fbq._releaseSegment = "stable";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
 	var e = { exports: {} };
@@ -3079,76 +3079,80 @@ fbq.pendingConfigs = ["global_config"];
 						c = a.setEventId,
 						d = f.getFbeventsModules("SignalsFBEventsQE"),
 						e = f.getFbeventsModules("SignalsParamList"),
-						h = f.getFbeventsModules("signalsFBEventsSendBatch"),
-						i = f.getFbeventsModules("signalsFBEventsSendBeacon"),
-						j = f.getFbeventsModules("signalsFBEventsSendGET"),
-						l = f.getFbeventsModules("signalsFBEventsSendXHR"),
-						m = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
-						n = f.getFbeventsModules("signalsFBEventsGetIsChrome");
+						j = f.getFbeventsModules("signalsFBEventsSendBatch"),
+						l = f.getFbeventsModules("signalsFBEventsSendBeacon"),
+						m = f.getFbeventsModules("signalsFBEventsSendGET"),
+						n = f.getFbeventsModules("signalsFBEventsSendXHR"),
+						o = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
+						p = f.getFbeventsModules("signalsFBEventsGetIsChrome");
 					a = f.getFbeventsModules("SignalsFBEventsExperimentNames");
-					var o = a.BATCHING_EXPERIMENT,
-						p = a.SEND_BEACON_STRING_EXPERIMENT,
-						q = a.SEND_XHR_EXPERIMENT,
-						r = g.top !== g,
-						s = "SubscribedButtonClick";
-					function t(a) {
+					var q = a.BATCHING_EXPERIMENT,
+						r = a.SEND_BEACON_STRING_EXPERIMENT,
+						s = a.SEND_XHR_EXPERIMENT,
+						t = g.top !== g,
+						u = "SubscribedButtonClick";
+					function v(a) {
 						var b = a.customData,
 							c = a.customParams,
 							f = a.eventName,
-							h = a.id,
-							i = a.piiTranslator,
-							j = a.documentLink;
-						a = a.referrerLink;
-						i = new e(i);
-						i.append("id", h);
-						i.append("ev", f);
-						i.append("dl", j);
-						i.append("rl", a);
-						i.append("if", r);
-						i.append("ts", new Date().valueOf());
-						i.append("cd", b);
-						i.append("sw", g.screen.width);
-						i.append("sh", g.screen.height);
-						c && i.addRange(c);
-						i.appendHash(d.getCustomDataPayload());
-						return i;
+							j = a.id,
+							k = a.piiTranslator,
+							l = a.documentLink,
+							m = a.referrerLink,
+							n = i.href;
+						Object.prototype.hasOwnProperty.call(a, "documentLink") && (n = l);
+						l = h.referrer;
+						Object.prototype.hasOwnProperty.call(a, "referrerLink") && (l = m);
+						a = new e(k);
+						a.append("id", j);
+						a.append("ev", f);
+						a.append("dl", n);
+						a.append("rl", l);
+						a.append("if", t);
+						a.append("ts", new Date().valueOf());
+						a.append("cd", b);
+						a.append("sw", g.screen.width);
+						a.append("sh", g.screen.height);
+						c && a.addRange(c);
+						a.appendHash(d.getCustomDataPayload());
+						return a;
 					}
-					function u(a) {
+					function w(a) {
 						var e = a.customData,
 							f = a.eventName,
-							g = t(a);
+							g = v(a);
 						c.trigger(a.id, g);
-						if (d.isInTest(o)) {
-							h(g);
+						if (d.isInTest(q)) {
+							j(g);
 							b.trigger("BATCH", g, e);
 							return;
 						}
-						a = d.isInTestOrControl(p) || !n();
-						if (a && f === s && i(g)) {
+						a = d.isInTestOrControl(r) || !p();
+						if (a && f === u && l(g)) {
 							b.trigger("BEACON", g, e);
 							return;
 						}
-						if (j(g)) {
+						if (m(g)) {
 							b.trigger("GET", g, e);
 							return;
 						}
-						if (a && i(g)) {
+						if (a && l(g)) {
 							b.trigger("BEACON", g, e);
 							return;
 						}
-						if (d.isInTest(q)) {
-							if (l(g)) {
+						if (d.isInTest(s)) {
+							if (n(g)) {
 								b.trigger("XHR", g, e);
 								return;
 							}
-							j(g, { ignoreRequestLengthCheck: !0 });
+							m(g, { ignoreRequestLengthCheck: !0 });
 							b.trigger("FGET", g, e);
 							return;
 						}
-						m(g);
+						o(g);
 						b.trigger("POST", g, e);
 					}
-					k.exports = u;
+					k.exports = w;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -3658,7 +3662,8 @@ fbq.pendingConfigs = ["global_config"];
 					a = b.objectWithFields({
 						blacklisted_keys: b.allowNull(
 							b.mapOf(b.mapOf(b.arrayOf(b.string())))
-						)
+						),
+						sensitive_keys: b.allowNull(b.mapOf(b.mapOf(b.arrayOf(b.string()))))
 					});
 					k.exports = a;
 				})();
@@ -4657,163 +4662,6 @@ fbq.pendingConfigs = ["global_config"];
 			return;
 		var g = (function() {
 			function a(a, b) {
-				for (var c = 0; c < b.length; c++) {
-					var d = b[c];
-					d.enumerable = d.enumerable || !1;
-					d.configurable = !0;
-					"value" in d && (d.writable = !0);
-					Object.defineProperty(a, d.key, d);
-				}
-			}
-			return function(b, c, d) {
-				c && a(b.prototype, c);
-				d && a(b, d);
-				return b;
-			};
-		})();
-		function h(a, b) {
-			if (!(a instanceof b))
-				throw new TypeError("Cannot call a class as a function");
-		}
-		f.__fbeventsModules ||
-			((f.__fbeventsModules = {}),
-			(f.__fbeventsResolvedModules = {}),
-			(f.getFbeventsModules = function(a) {
-				f.__fbeventsResolvedModules[a] ||
-					(f.__fbeventsResolvedModules[a] = f.__fbeventsModules[a]());
-				return f.__fbeventsResolvedModules[a];
-			}),
-			(f.fbIsModuleLoaded = function(a) {
-				return !!f.__fbeventsModules[a];
-			}),
-			(f.ensureModuleRegistered = function(b, a) {
-				f.fbIsModuleLoaded(b) || (f.__fbeventsModules[b] = a);
-			}));
-		f.ensureModuleRegistered("SignalsFBEventsPerformanceTiming", function() {
-			return (function(a, b, c, d) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var b =
-							Object.assign ||
-							function(a) {
-								for (var b = 1; b < arguments.length; b++) {
-									var c = arguments[b];
-									for (var d in c)
-										Object.prototype.hasOwnProperty.call(c, d) && (a[d] = c[d]);
-								}
-								return a;
-							},
-						c = f.getFbeventsModules("SignalsFBEventsEvents"),
-						d = c.execEnd,
-						i = c.getCustomParameters,
-						j = c.pluginLoaded;
-					c = (function() {
-						function c(e) {
-							var g = this;
-							h(this, c);
-							this._execEnd = null;
-							this._fires = [];
-							this._pageStartTime = a.performance.timing.fetchStart;
-							this._startOffset =
-								this._pageStartTime - a.performance.timing.navigationStart;
-							if (e.execStart != null)
-								this._execStart = e.execStart - this._startOffset;
-							else
-								throw new Error("fbq.execStart must be set in the base code.");
-							j.listen(function() {
-								return g.execEnd();
-							});
-							d.listen(function() {
-								return g.execEnd();
-							});
-							i.listen(function() {
-								return b({}, g.fire());
-							});
-						}
-						g(c, [
-							{
-								key: "execEnd",
-								value: function() {
-									this._execEnd = a.performance.now() - this._startOffset;
-								}
-							},
-							{
-								key: "fire",
-								value: function() {
-									this._fires.unshift(a.performance.now() - this._startOffset);
-									return {
-										ttf: this._fires[0].toString(),
-										tts: this._execStart.toString(),
-										ttse:
-											this._execEnd != null ? this._execEnd.toString() : null
-									};
-								}
-							}
-						]);
-						return c;
-					})();
-					c.supported =
-						a.performance && a.performance.now && !!a.performance.timing;
-					e.exports = c;
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEvents.plugins.performance", function() {
-			return (function(g, h, c, d) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsPerformanceTiming"),
-						b = f.getFbeventsModules("SignalsFBEventsPlugin");
-					e.exports = new b(function(b) {
-						a.supported && !b.__performance && (b.__performance = new a(b));
-					});
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		e.exports = f.getFbeventsModules("SignalsFBEvents.plugins.performance");
-		f.registerPlugin &&
-			f.registerPlugin("fbevents.plugins.performance", e.exports);
-		f.ensureModuleRegistered("fbevents.plugins.performance", function() {
-			return e.exports;
-		});
-	})();
-})(window, document, location, history);
-(function(a, b, c, d) {
-	var e = { exports: {} };
-	e.exports;
-	(function() {
-		var f = a.fbq;
-		f.execStart = a.performance && a.performance.now && a.performance.now();
-		if (
-			!(function() {
-				var b = a.postMessage || function() {};
-				if (!f) {
-					b(
-						{
-							action: "FB_LOG",
-							logType: "Facebook Pixel Error",
-							logMessage: "Pixel code is not installed correctly on this page"
-						},
-						"*"
-					);
-					"error" in console &&
-						console.error(
-							"Facebook Pixel Error: Pixel code is not installed correctly on this page"
-						);
-					return !1;
-				}
-				return !0;
-			})()
-		)
-			return;
-		var g = (function() {
-			function a(a, b) {
 				var c = [],
 					d = !0,
 					e = !1,
@@ -5461,7 +5309,6 @@ fbq.registerPlugin("global_config", {
 	plugin: function(fbq, instance, config) {
 		fbq.loadPlugin("commonincludes");
 		fbq.loadPlugin("opttracking");
-		fbq.loadPlugin("performance");
 		fbq.set("experiments", [
 			{
 				allocation: 0.005,
