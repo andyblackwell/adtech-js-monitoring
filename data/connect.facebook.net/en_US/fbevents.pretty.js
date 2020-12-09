@@ -17,7 +17,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.29";
+fbq.version = "2.9.30";
 fbq._releaseSegment = "stable";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -1398,7 +1398,9 @@ fbq.pendingConfigs = ["global_config"];
 							ParallelFire: !0,
 							ProhibitedSources: !0,
 							Timespent: !0,
-							UnwantedData: !0
+							UnwantedData: !0,
+							LocalComputation: !0,
+							IABPCMAEBridge: !0
 						},
 						x = {
 							Track: 0,
@@ -1426,7 +1428,9 @@ fbq.pendingConfigs = ["global_config"];
 							ParallelFire: ["parallelfire"],
 							ProhibitedSources: ["prohibitedsources"],
 							Timespent: ["timespent"],
-							UnwantedData: ["unwanteddata"]
+							UnwantedData: ["unwanteddata"],
+							LocalComputation: ["localcomputation"],
+							IABPCMAEBridge: ["iabpcmaebridge"]
 						};
 					function A(a) {
 						return !!(w[a] || y[a]);
