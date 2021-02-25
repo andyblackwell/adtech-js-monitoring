@@ -17,7 +17,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.34";
+fbq.version = "2.9.35";
 fbq._releaseSegment = "canary";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
