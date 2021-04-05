@@ -17,7 +17,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.38";
+fbq.version = "2.9.39";
 fbq._releaseSegment = "canary";
 fbq.pendingConfigs = ["global_config"];
 (function(a, b, c, d) {
@@ -1328,7 +1328,8 @@ fbq.pendingConfigs = ["global_config"];
 					j.exports = {
 						BATCHING_EXPERIMENT: "batching",
 						SEND_BEACON_STRING_EXPERIMENT: "send_beacon_string",
-						SEND_XHR_EXPERIMENT: "send_xhr"
+						SEND_XHR_EXPERIMENT: "send_xhr",
+						LOCAL_COMPUTATION_PLUGIN_EXPERIMENT: "local_computation_plugin"
 					};
 				})();
 				return j.exports;
@@ -1744,11 +1745,14 @@ fbq.pendingConfigs = ["global_config"];
 										var b = j.href,
 											c = i.referrer,
 											d;
-										r() === !1
-											? (d = "")
-											: g !== g.parent && c != null && c !== ""
-												? (d = c)
-												: (d = b != null && b !== "" ? b : "");
+										if (r() === !1) d = "";
+										else if (g !== g.parent && c != null && c !== "") {
+											c = new URL(c);
+											d = c.hostname;
+										} else if (b != null || b !== "") {
+											c = new URL(b);
+											d = c.hostname;
+										} else d = "";
 										F(
 											a,
 											this.VERSION,
@@ -2180,7 +2184,8 @@ fbq.pendingConfigs = ["global_config"];
 									quoteCurrency: a.string(),
 									rate: a.number()
 								})
-							)
+							),
+							etldOne: a.string()
 						});
 						k.exports = a;
 					})();
@@ -5583,6 +5588,12 @@ fbq.registerPlugin("global_config", {
 				allocation: 0.005,
 				code: "s",
 				name: "send_beacon_string",
+				passRate: 0.5
+			},
+			{
+				allocation: 0,
+				code: "l",
+				name: "local_computation_plugin",
 				passRate: 0.5
 			}
 		]);
