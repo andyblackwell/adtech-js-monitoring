@@ -17,9 +17,10 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.39";
-fbq._releaseSegment = "canary";
+fbq.version = "2.9.40";
+fbq._releaseSegment = "stable";
 fbq.pendingConfigs = ["global_config"];
+fbq.__openBridgeRollout = 0.0;
 (function(a, b, c, d) {
 	var e = { exports: {} };
 	e.exports;
@@ -1128,10 +1129,13 @@ fbq.pendingConfigs = ["global_config"];
 						r = f.getFbeventsModules(
 							"signalsFBEventsCoerceInferedEventsConfig"
 						),
-						s = f.getFbeventsModules("SignalsFBEventsLogging"),
-						t = s.logError,
-						u = "global",
-						v = {
+						s = f.getFbeventsModules(
+							"SignalsFBEventsPCMInstagramTriggerAttributionConfigTypedef"
+						),
+						t = f.getFbeventsModules("SignalsFBEventsLogging"),
+						u = t.logError,
+						v = "global",
+						w = {
 							automaticMatching: q,
 							openbridge: g,
 							batching: p,
@@ -1141,9 +1145,10 @@ fbq.pendingConfigs = ["global_config"];
 							unwantedData: d,
 							dataProcessingOptions: e,
 							parallelfire: k,
+							pcmInstagramTriggerAttribution: s,
 							localcomputation: m
 						};
-					s = (function() {
+					t = (function() {
 						function b() {
 							n(this, b),
 								(this._configStore = {
@@ -1156,6 +1161,7 @@ fbq.pendingConfigs = ["global_config"];
 									dataProcessingOptions: {},
 									openbridge: {},
 									parallelfire: {},
+									pcmInstagramTriggerAttribution: {},
 									localcomputation: {}
 								});
 						}
@@ -1163,12 +1169,12 @@ fbq.pendingConfigs = ["global_config"];
 							{
 								key: "set",
 								value: function(a, b, c) {
-									a = a == null ? u : o(a);
+									a = a == null ? v : o(a);
 									if (a == null) return;
 									b = i(b, j.string());
 									if (b == null) return;
 									if (this._configStore[b] == null) return;
-									this._configStore[b][a] = v[b] != null ? v[b](c) : c;
+									this._configStore[b][a] = w[b] != null ? w[b](c) : c;
 								}
 							},
 							{
@@ -1194,13 +1200,13 @@ fbq.pendingConfigs = ["global_config"];
 							{
 								key: "get",
 								value: function(a, b) {
-									return this._configStore[b][a != null ? a : u];
+									return this._configStore[b][a != null ? a : v];
 								}
 							},
 							{
 								key: "getWithGlobalFallback",
 								value: function(a, b) {
-									var c = u;
+									var c = v;
 									b = this._configStore[b];
 									a != null &&
 										Object.prototype.hasOwnProperty.call(b, a) &&
@@ -1211,21 +1217,21 @@ fbq.pendingConfigs = ["global_config"];
 							{
 								key: "getAutomaticMatchingConfig",
 								value: function(a) {
-									t(new Error("Calling legacy api getAutomaticMatchingConfig"));
+									u(new Error("Calling legacy api getAutomaticMatchingConfig"));
 									return this.get(a, "automaticMatching");
 								}
 							},
 							{
 								key: "getInferredEventsConfig",
 								value: function(a) {
-									t(new Error("Calling legacy api getInferredEventsConfig"));
+									u(new Error("Calling legacy api getInferredEventsConfig"));
 									return this.get(a, "inferredEvents");
 								}
 							}
 						]);
 						return b;
 					})();
-					l.exports = new s();
+					l.exports = new t();
 				})();
 				return l.exports;
 			})(a, b, c, d);
@@ -1403,6 +1409,7 @@ fbq.pendingConfigs = ["global_config"];
 							MicrodataJsonLd: !0,
 							OpenBridge: !0,
 							ParallelFire: !0,
+							PCMInstagramTriggerAttribution: !0,
 							ProhibitedSources: !0,
 							Timespent: !0,
 							UnwantedData: !0,
@@ -1431,8 +1438,11 @@ fbq.pendingConfigs = ["global_config"];
 							InferredEvents: ["inferredevents", "identity"],
 							Microdata: ["microdata", "identity"],
 							MicrodataJsonLd: ["jsonld_microdata"],
-							OpenBridge: ["openbridge"],
+							OpenBridge: ["openbridgerollout"],
 							ParallelFire: ["parallelfire"],
+							PCMInstagramTriggerAttribution: [
+								"pcmInstagramTriggerAttribution"
+							],
 							ProhibitedSources: ["prohibitedsources"],
 							Timespent: ["timespent"],
 							UnwantedData: ["unwanteddata"],
@@ -2607,7 +2617,10 @@ fbq.pendingConfigs = ["global_config"];
 				j.exports;
 				(function() {
 					"use strict";
-					var a = { ENDPOINT: "https://www.facebook.com/tr/" };
+					var a = {
+						ENDPOINT: "https://www.facebook.com/tr/",
+						INSTAGRAM_TRIGGER_ATTRIBUTION: "https://www.instagram.com/tr/"
+					};
 					j.exports = a;
 				})();
 				return j.exports;
@@ -2762,6 +2775,25 @@ fbq.pendingConfigs = ["global_config"];
 						var a = f.getFbeventsModules("SignalsFBEventsTyped");
 						a = a.Typed;
 						a = a.objectWithFields({ target: a.string() });
+						k.exports = a;
+					})();
+					return k.exports;
+				})(a, b, c, d);
+			}
+		);
+		f.ensureModuleRegistered(
+			"SignalsFBEventsPCMInstagramTriggerAttributionConfigTypedef",
+			function() {
+				return (function(g, h, i, j) {
+					var k = { exports: {} };
+					k.exports;
+					(function() {
+						"use strict";
+						var a = f.getFbeventsModules("SignalsFBEventsTyped");
+						a = a.Typed;
+						a = a.objectWithFields({
+							pcmInstagramTriggerAttributionURL: a.string()
+						});
 						k.exports = a;
 					})();
 					return k.exports;
@@ -4778,163 +4810,6 @@ fbq.pendingConfigs = ["global_config"];
 			return;
 		var g = (function() {
 			function a(a, b) {
-				for (var c = 0; c < b.length; c++) {
-					var d = b[c];
-					d.enumerable = d.enumerable || !1;
-					d.configurable = !0;
-					"value" in d && (d.writable = !0);
-					Object.defineProperty(a, d.key, d);
-				}
-			}
-			return function(b, c, d) {
-				c && a(b.prototype, c);
-				d && a(b, d);
-				return b;
-			};
-		})();
-		function h(a, b) {
-			if (!(a instanceof b))
-				throw new TypeError("Cannot call a class as a function");
-		}
-		f.__fbeventsModules ||
-			((f.__fbeventsModules = {}),
-			(f.__fbeventsResolvedModules = {}),
-			(f.getFbeventsModules = function(a) {
-				f.__fbeventsResolvedModules[a] ||
-					(f.__fbeventsResolvedModules[a] = f.__fbeventsModules[a]());
-				return f.__fbeventsResolvedModules[a];
-			}),
-			(f.fbIsModuleLoaded = function(a) {
-				return !!f.__fbeventsModules[a];
-			}),
-			(f.ensureModuleRegistered = function(b, a) {
-				f.fbIsModuleLoaded(b) || (f.__fbeventsModules[b] = a);
-			}));
-		f.ensureModuleRegistered("SignalsFBEventsPerformanceTiming", function() {
-			return (function(a, b, c, d) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var b =
-							Object.assign ||
-							function(a) {
-								for (var b = 1; b < arguments.length; b++) {
-									var c = arguments[b];
-									for (var d in c)
-										Object.prototype.hasOwnProperty.call(c, d) && (a[d] = c[d]);
-								}
-								return a;
-							},
-						c = f.getFbeventsModules("SignalsFBEventsEvents"),
-						d = c.execEnd,
-						i = c.getCustomParameters,
-						j = c.pluginLoaded;
-					c = (function() {
-						function c(e) {
-							var g = this;
-							h(this, c);
-							this._execEnd = null;
-							this._fires = [];
-							this._pageStartTime = a.performance.timing.fetchStart;
-							this._startOffset =
-								this._pageStartTime - a.performance.timing.navigationStart;
-							if (e.execStart != null)
-								this._execStart = e.execStart - this._startOffset;
-							else
-								throw new Error("fbq.execStart must be set in the base code.");
-							j.listen(function() {
-								return g.execEnd();
-							});
-							d.listen(function() {
-								return g.execEnd();
-							});
-							i.listen(function() {
-								return b({}, g.fire());
-							});
-						}
-						g(c, [
-							{
-								key: "execEnd",
-								value: function() {
-									this._execEnd = a.performance.now() - this._startOffset;
-								}
-							},
-							{
-								key: "fire",
-								value: function() {
-									this._fires.unshift(a.performance.now() - this._startOffset);
-									return {
-										ttf: this._fires[0].toString(),
-										tts: this._execStart.toString(),
-										ttse:
-											this._execEnd != null ? this._execEnd.toString() : null
-									};
-								}
-							}
-						]);
-						return c;
-					})();
-					c.supported =
-						a.performance && a.performance.now && !!a.performance.timing;
-					e.exports = c;
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		f.ensureModuleRegistered("SignalsFBEvents.plugins.performance", function() {
-			return (function(g, h, c, d) {
-				var e = { exports: {} };
-				e.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsPerformanceTiming"),
-						b = f.getFbeventsModules("SignalsFBEventsPlugin");
-					e.exports = new b(function(b) {
-						a.supported && !b.__performance && (b.__performance = new a(b));
-					});
-				})();
-				return e.exports;
-			})(a, b, c, d);
-		});
-		e.exports = f.getFbeventsModules("SignalsFBEvents.plugins.performance");
-		f.registerPlugin &&
-			f.registerPlugin("fbevents.plugins.performance", e.exports);
-		f.ensureModuleRegistered("fbevents.plugins.performance", function() {
-			return e.exports;
-		});
-	})();
-})(window, document, location, history);
-(function(a, b, c, d) {
-	var e = { exports: {} };
-	e.exports;
-	(function() {
-		var f = a.fbq;
-		f.execStart = a.performance && a.performance.now && a.performance.now();
-		if (
-			!(function() {
-				var b = a.postMessage || function() {};
-				if (!f) {
-					b(
-						{
-							action: "FB_LOG",
-							logType: "Facebook Pixel Error",
-							logMessage: "Pixel code is not installed correctly on this page"
-						},
-						"*"
-					);
-					"error" in console &&
-						console.error(
-							"Facebook Pixel Error: Pixel code is not installed correctly on this page"
-						);
-					return !1;
-				}
-				return !0;
-			})()
-		)
-			return;
-		var g = (function() {
-			function a(a, b) {
 				var c = [],
 					d = !0,
 					e = !1,
@@ -5027,23 +4902,23 @@ fbq.pendingConfigs = ["global_config"];
 						y = f.getFbeventsModules("signalsFBEventsCoercePixelID"),
 						z = f.getFbeventsModules("SignalsFBEventsEvents"),
 						A = f.getFbeventsModules("SignalsFBEventsTyped"),
-						B = A.coerce,
-						aa = A.Typed,
-						C = n.each;
+						aa = A.coerce,
+						ba = A.Typed,
+						B = n.each;
 					A = n.FBSet;
-					var D = n.isEmptyObject,
-						E = n.isPlainObject,
-						F = n.isNumber,
-						G = n.keys;
+					var C = n.isEmptyObject,
+						D = n.isPlainObject,
+						E = n.isNumber,
+						F = n.keys;
 					n = z.execEnd;
-					var H = z.fired,
-						I = z.getCustomParameters,
-						ba = z.iwlBootstrap,
-						J = z.piiInvalidated,
-						ca = z.setIWLExtractors,
-						K = z.validateCustomParameters,
-						L = z.validateUrlParameters,
-						da = o.logError,
+					var G = z.fired,
+						H = z.getCustomParameters,
+						ca = z.iwlBootstrap,
+						I = z.piiInvalidated,
+						da = z.setIWLExtractors,
+						J = z.validateCustomParameters,
+						K = z.validateUrlParameters,
+						L = o.logError,
 						M = o.logUserError,
 						N = s.global,
 						O = -1,
@@ -5088,7 +4963,7 @@ fbq.pendingConfigs = ["global_config"];
 									ja.apply(this, c);
 									break;
 								case "track":
-									if (F(c[0])) {
+									if (E(c[0])) {
 										na.apply(this, c);
 										break;
 									}
@@ -5154,7 +5029,7 @@ fbq.pendingConfigs = ["global_config"];
 									break;
 							}
 						} catch (a) {
-							da(a);
+							L(a);
 						}
 					}
 					function ja(a) {
@@ -5255,23 +5130,30 @@ fbq.pendingConfigs = ["global_config"];
 							case "iwlExtractors":
 								var w = c[0],
 									x = c[1];
-								ca.triggerWeakly({ extractors: x, pixelID: w });
+								da.triggerWeakly({ extractors: x, pixelID: w });
 								break;
 							case "startIWLBootstrap":
 								var y = c[0],
 									z = c[1];
-								ba.triggerWeakly({ graphToken: y, pixelID: z });
+								ca.triggerWeakly({ graphToken: y, pixelID: z });
 								break;
 							case "parallelfire":
 								var A = c[0],
-									C = c[1];
-								V.pluginConfig.set(A, "parallelfire", { target: C });
+									B = c[1];
+								V.pluginConfig.set(A, "parallelfire", { target: B });
+								break;
+							case "pcmInstagramTriggerAttribution":
+								var C = c[0];
+								V.pluginConfig.set(C, "pcmInstagramTriggerAttribution", {
+									pcmInstagramTriggerAttributionURL:
+										j.INSTAGRAM_TRIGGER_ATTRIBUTION
+								});
 								break;
 							case "trackSingleOnly":
 								var D = c[0],
 									E = c[1],
-									F = B(D, aa["boolean"]()),
-									G = B(E, aa.fbid());
+									F = aa(D, ba["boolean"]()),
+									G = aa(E, ba.fbid());
 								if (G == null) {
 									M({
 										invalidParamName: "pixel_id",
@@ -5350,7 +5232,7 @@ fbq.pendingConfigs = ["global_config"];
 						O = O === -1 ? Date.now() : O;
 						var d = y(a);
 						if (d == null) return;
-						var e = b == null || E(b);
+						var e = b == null || D(b);
 						e ||
 							M({
 								invalidParamName: "user_data",
@@ -5360,7 +5242,7 @@ fbq.pendingConfigs = ["global_config"];
 								type: "INVALID_FBQ_METHOD_PARAMETER"
 							});
 						if (P.call(T, d)) {
-							b != null && D(T[d].userData)
+							b != null && C(T[d].userData)
 								? ((T[d].userData = e ? b || {} : {}), W.loadPlugin("identity"))
 								: M({ pixelID: d, type: "DUPLICATE_PIXEL_ID" });
 							return;
@@ -5439,15 +5321,15 @@ fbq.pendingConfigs = ["global_config"];
 							e.append("ud", (a && a.userData) || {}, !0),
 								e.append("udff", (a && a.userDataFormFields) || {}, !0);
 						} catch (b) {
-							J.trigger(a);
+							I.trigger(a);
 						}
 						e.append("v", f.version);
 						f._releaseSegment && e.append("r", f._releaseSegment);
 						e.append("a", a && a.agent ? a.agent : f.agent);
 						a && (e.append("ec", a.eventCount), a.eventCount++);
-						b = I.trigger(a, b, c, d);
-						C(b, function(a) {
-							return C(G(a), function(b) {
+						b = H.trigger(a, b, c, d);
+						B(b, function(a) {
+							return B(F(a), function(b) {
 								if (e.containsKey(b)) {
 									if (!ha.has(b))
 										throw new Error(
@@ -5491,13 +5373,13 @@ fbq.pendingConfigs = ["global_config"];
 								? g.replaceEntry("eid", h)
 								: g.append("eid", h);
 						}
-						d != null && K.trigger(a, d, f);
+						d != null && J.trigger(a, d, f);
 						e = c.href;
 						h = b.referrer;
 						var i = {};
 						e != null && (i.dl = e);
 						h != null && (i.rl = h);
-						D(i) || L.trigger(a, i, f);
+						C(i) || K.trigger(a, i, f);
 						m({
 							customData: d,
 							customParams: g,
@@ -5535,7 +5417,7 @@ fbq.pendingConfigs = ["global_config"];
 						u(d, "replaceState", b);
 						a.addEventListener("popstate", b, !1);
 					}
-					H.listenOnce(function() {
+					G.listenOnce(function() {
 						ra();
 					});
 					function sa(a) {
@@ -5582,16 +5464,9 @@ fbq.registerPlugin("global_config", {
 	plugin: function(fbq, instance, config) {
 		fbq.loadPlugin("commonincludes");
 		fbq.loadPlugin("opttracking");
-		fbq.loadPlugin("performance");
 		fbq.set("experiments", [
 			{
-				allocation: 0.005,
-				code: "s",
-				name: "send_beacon_string",
-				passRate: 0.5
-			},
-			{
-				allocation: 0,
+				allocation: 1,
 				code: "l",
 				name: "local_computation_plugin",
 				passRate: 0.5
