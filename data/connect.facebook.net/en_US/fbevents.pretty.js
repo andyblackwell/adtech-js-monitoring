@@ -17,8 +17,8 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-fbq.version = "2.9.40";
-fbq._releaseSegment = "stable";
+fbq.version = "2.9.41";
+fbq._releaseSegment = "canary";
 fbq.pendingConfigs = ["global_config"];
 fbq.__openBridgeRollout = 0.0;
 (function(a, b, c, d) {
@@ -835,37 +835,6 @@ fbq.__openBridgeRollout = 0.0;
 				})(a, b, c, d);
 			}
 		);
-		f.ensureModuleRegistered("signalsFBEventsCoercePixel", function() {
-			return (function(g, h, j, k) {
-				var l = { exports: {} };
-				l.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("signalsFBEventsCoercePixelID"),
-						b = f.getFbeventsModules("signalsFBEventsCoerceUserData");
-					function c(c) {
-						if (
-							c == null ||
-							(typeof c === "undefined" ? "undefined" : i(c)) !== "object"
-						)
-							return null;
-						var d = c.eventCount,
-							e = c.id,
-							f = c.userData;
-						c = c.userDataFormFields;
-						d = typeof d === "number" ? d : null;
-						e = a(e);
-						f = b(f);
-						c = b(c);
-						return e != null && f != null && d != null && c != null
-							? { eventCount: d, id: e, userData: f, userDataFormFields: c }
-							: null;
-					}
-					l.exports = c;
-				})();
-				return l.exports;
-			})(a, b, c, d);
-		});
 		f.ensureModuleRegistered("signalsFBEventsCoercePixelID", function() {
 			return (function(g, h, i, j) {
 				var k = { exports: {} };
@@ -1053,33 +1022,6 @@ fbq.__openBridgeRollout = 0.0;
 				})(a, b, c, d);
 			}
 		);
-		f.ensureModuleRegistered("signalsFBEventsCoerceUserData", function() {
-			return (function(g, h, j, k) {
-				var l = { exports: {} };
-				l.exports;
-				(function() {
-					"use strict";
-					var a = f.getFbeventsModules("SignalsFBEventsUtils"),
-						b = a.each,
-						c = a.keys;
-					function d(a) {
-						if (
-							(typeof a === "undefined" ? "undefined" : i(a)) !== "object" ||
-							a == null
-						)
-							return null;
-						var d = {};
-						b(c(a), function(b) {
-							var c = a[b];
-							typeof c === "string" && (d[b] = c);
-						});
-						return d;
-					}
-					l.exports = d;
-				})();
-				return l.exports;
-			})(a, b, c, d);
-		});
 		f.ensureModuleRegistered("SignalsFBEventsConfigLoadedEvent", function() {
 			return (function(g, h, i, j) {
 				var k = { exports: {} };
@@ -1227,6 +1169,17 @@ fbq.__openBridgeRollout = 0.0;
 									u(new Error("Calling legacy api getInferredEventsConfig"));
 									return this.get(a, "inferredEvents");
 								}
+							},
+							{
+								key: "getPCMInstagramTriggerAttributionConfig",
+								value: function(a) {
+									u(
+										new Error(
+											"Failed to check if the current pixel fired pcmInstagramTriggerAttribution plugin"
+										)
+									);
+									return this.get(a, "pcmInstagramTriggerAttribution");
+								}
 							}
 						]);
 						return b;
@@ -1303,7 +1256,8 @@ fbq.__openBridgeRollout = 0.0;
 						),
 						p = f.getFbeventsModules(
 							"SignalsFBEventsValidateUrlParametersEvent"
-						);
+						),
+						q = f.getFbeventsModules("SignalsFBEventsGetAemResultEvent");
 					b = {
 						configLoaded: b,
 						execEnd: new a(),
@@ -1318,7 +1272,8 @@ fbq.__openBridgeRollout = 0.0;
 						setEventId: m,
 						setIWLExtractors: n,
 						validateCustomParameters: o,
-						validateUrlParameters: p
+						validateUrlParameters: p,
+						getAemResult: q
 					};
 					k.exports = b;
 				})();
@@ -1334,8 +1289,7 @@ fbq.__openBridgeRollout = 0.0;
 					j.exports = {
 						BATCHING_EXPERIMENT: "batching",
 						SEND_BEACON_STRING_EXPERIMENT: "send_beacon_string",
-						SEND_XHR_EXPERIMENT: "send_xhr",
-						LOCAL_COMPUTATION_PLUGIN_EXPERIMENT: "local_computation_plugin"
+						SEND_XHR_EXPERIMENT: "send_xhr"
 					};
 				})();
 				return j.exports;
@@ -1414,7 +1368,8 @@ fbq.__openBridgeRollout = 0.0;
 							Timespent: !0,
 							UnwantedData: !0,
 							LocalComputation: !0,
-							IABPCMAEBridge: !0
+							IABPCMAEBridge: !0,
+							AEM: !0
 						},
 						A = {
 							Track: 0,
@@ -1447,7 +1402,8 @@ fbq.__openBridgeRollout = 0.0;
 							Timespent: ["timespent"],
 							UnwantedData: ["unwanteddata"],
 							LocalComputation: ["localcomputation"],
-							IABPCMAEBridge: ["iabpcmaebridge"]
+							IABPCMAEBridge: ["iabpcmaebridge"],
+							AEM: ["aem"]
 						};
 					function D(a) {
 						return !!(z[a] || B[a]);
@@ -1912,6 +1868,25 @@ fbq.__openBridgeRollout = 0.0;
 				return l.exports;
 			})(a, b, c, d);
 		});
+		f.ensureModuleRegistered("SignalsFBEventsGetAemResultEvent", function() {
+			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent");
+					function b(a, b, c) {
+						a = a != null && typeof a === "number" && a !== -1 ? a : null;
+						b = b != null && typeof b === "number" && b !== -1 ? b : null;
+						c = c != null && typeof c === "string" && c !== "" ? c : null;
+						return a !== null && b !== null && c !== null ? [a, b, c] : null;
+					}
+					a = new a(b);
+					k.exports = a;
+				})();
+				return k.exports;
+			})(a, b, c, d);
+		});
 		f.ensureModuleRegistered(
 			"SignalsFBEventsGetCustomParametersEvent",
 			function() {
@@ -1921,16 +1896,19 @@ fbq.__openBridgeRollout = 0.0;
 					(function() {
 						"use strict";
 						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-							b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-						function c(a, c, d, e) {
-							a = b(a);
-							c = c != null && typeof c === "string" ? c : null;
-							d = d instanceof CustomData ? d : null;
-							e = e != null && typeof e === "string" ? e : null;
-							return a != null && c != null ? [a, c, d, e] : null;
+							b = f.getFbeventsModules("SignalsFBEventsPixelTypedef"),
+							c = f.getFbeventsModules("SignalsFBEventsTyped"),
+							d = c.Typed,
+							e = c.coerce;
+						function g(a, c, f, g) {
+							a = e(a, b);
+							c = e(c, d.string());
+							f = f instanceof CustomData ? f : null;
+							g = g != null && typeof g === "string" ? g : null;
+							return a != null && c != null ? [a, c, f, g] : null;
 						}
-						a = new a(c);
-						k.exports = a;
+						c = new a(g);
+						k.exports = c;
 					})();
 					return k.exports;
 				})(a, b, c, d);
@@ -1990,6 +1968,42 @@ fbq.__openBridgeRollout = 0.0;
 				return j.exports;
 			})(a, b, c, d);
 		});
+		f.ensureModuleRegistered("signalsFBEventsGetIsMobileSafari", function() {
+			return (function(f, g, h, i) {
+				var j = { exports: {} };
+				j.exports;
+				(function() {
+					"use strict";
+					function a() {
+						var a = f.navigator;
+						return (
+							a.userAgent.indexOf("Safari") !== -1 &&
+							a.userAgent.indexOf("Chrome") === -1
+						);
+					}
+					function b() {
+						return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+							f.navigator.userAgent
+						);
+					}
+					function c() {
+						var a = f.navigator.userAgent.match(/OS (\d+)_(\d+)_?(\d+)?/);
+						if (a == null || a.length < 2) return !1;
+						a = [
+							parseInt(a[1], 10),
+							parseInt(a[2], 10),
+							parseInt(a[3] || 0, 10)
+						];
+						return a[0] < 14 || (a[0] === 14 && a[1] < 5) ? !1 : !0;
+					}
+					function d() {
+						return a() && b() && c();
+					}
+					j.exports = d;
+				})();
+				return j.exports;
+			})(a, b, c, d);
+		});
 		f.ensureModuleRegistered(
 			"SignalsFBEventsGetIWLParametersEvent",
 			function() {
@@ -2000,23 +2014,25 @@ fbq.__openBridgeRollout = 0.0;
 						"use strict";
 						var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
 							b = f.getFbeventsModules("SignalsConvertNodeToHTMLElement"),
-							c = f.getFbeventsModules("signalsFBEventsCoercePixel");
-						function d() {
-							for (var a = arguments.length, d = Array(a), e = 0; e < a; e++)
-								d[e] = arguments[e];
-							var f = d[0];
+							c = f.getFbeventsModules("SignalsFBEventsPixelTypedef"),
+							d = f.getFbeventsModules("SignalsFBEventsTyped"),
+							e = d.coerce;
+						function g() {
+							for (var a = arguments.length, d = Array(a), f = 0; f < a; f++)
+								d[f] = arguments[f];
+							var g = d[0];
 							if (
-								f == null ||
-								(typeof f === "undefined" ? "undefined" : i(f)) !== "object"
+								g == null ||
+								(typeof g === "undefined" ? "undefined" : i(g)) !== "object"
 							)
 								return null;
-							var g = f.unsafePixel,
-								h = f.unsafeTarget,
-								j = c(g),
-								k = h instanceof Node ? b(h) : null;
-							return j != null && k != null ? [{ pixel: j, target: k }] : null;
+							var h = g.unsafePixel,
+								j = g.unsafeTarget,
+								k = e(h, c),
+								l = j instanceof Node ? b(j) : null;
+							return k != null && l != null ? [{ pixel: k, target: l }] : null;
 						}
-						l.exports = new a(d);
+						l.exports = new a(g);
 					})();
 					return l.exports;
 				})(a, b, c, d);
@@ -2619,7 +2635,9 @@ fbq.__openBridgeRollout = 0.0;
 					"use strict";
 					var a = {
 						ENDPOINT: "https://www.facebook.com/tr/",
-						INSTAGRAM_TRIGGER_ATTRIBUTION: "https://www.instagram.com/tr/"
+						INSTAGRAM_TRIGGER_ATTRIBUTION: "https://www.instagram.com/tr/",
+						AEM_ENDPOINT:
+							"https://www.facebook.com/.well-known/aggregated-event-measurement/"
 					};
 					j.exports = a;
 				})();
@@ -2807,13 +2825,15 @@ fbq.__openBridgeRollout = 0.0;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-					function c(a) {
-						a = b(a);
+						b = f.getFbeventsModules("SignalsFBEventsPixelTypedef"),
+						c = f.getFbeventsModules("SignalsFBEventsTyped"),
+						d = c.coerce;
+					function e(a) {
+						a = d(a, b);
 						return a != null ? [a] : null;
 					}
-					a = new a(c);
-					k.exports = a;
+					c = new a(e);
+					k.exports = c;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -2825,13 +2845,15 @@ fbq.__openBridgeRollout = 0.0;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-					function c(a) {
-						a = b(a);
+						b = f.getFbeventsModules("SignalsFBEventsPixelTypedef"),
+						c = f.getFbeventsModules("SignalsFBEventsTyped"),
+						d = c.coerce;
+					function e(a) {
+						a = d(a, b);
 						return a != null ? [a] : null;
 					}
-					a = new a(c);
-					k.exports = a;
+					c = new a(e);
+					k.exports = c;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -2843,12 +2865,33 @@ fbq.__openBridgeRollout = 0.0;
 				(function() {
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
-						b = f.getFbeventsModules("signalsFBEventsCoercePixel");
-					function c(a) {
-						a = b(a);
+						b = f.getFbeventsModules("SignalsFBEventsPixelTypedef"),
+						c = f.getFbeventsModules("SignalsFBEventsTyped"),
+						d = c.coerce;
+					function e(a) {
+						a = d(a, b);
 						return a != null ? [a] : null;
 					}
-					k.exports = new a(c);
+					k.exports = new a(e);
+				})();
+				return k.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEventsPixelTypedef", function() {
+			return (function(g, h, i, j) {
+				var k = { exports: {} };
+				k.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsTyped");
+					a = a.Typed;
+					a = a.objectWithFields({
+						eventCount: a.number(),
+						id: a.fbid(),
+						userData: a.mapOf(a.string(), a.string()),
+						userDataFormFields: a.mapOf(a.string(), a.string())
+					});
+					k.exports = a;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -3228,19 +3271,25 @@ fbq.__openBridgeRollout = 0.0;
 						c = a.setEventId,
 						d = f.getFbeventsModules("SignalsFBEventsQE"),
 						e = f.getFbeventsModules("SignalsParamList"),
-						j = f.getFbeventsModules("signalsFBEventsSendBatch"),
-						l = f.getFbeventsModules("signalsFBEventsSendBeacon"),
-						m = f.getFbeventsModules("signalsFBEventsSendGET"),
-						n = f.getFbeventsModules("signalsFBEventsSendXHR"),
-						o = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
-						p = f.getFbeventsModules("signalsFBEventsGetIsChrome");
+						j = f.getFbeventsModules("SignalsFBEventsConfigStore"),
+						l = f.getFbeventsModules("signalsFBEventsSendBatch"),
+						m = f.getFbeventsModules("signalsFBEventsSendBeacon"),
+						n = f.getFbeventsModules("signalsFBEventsSendGET"),
+						o = f.getFbeventsModules("signalsFBEventsSendXHR"),
+						p = f.getFbeventsModules("signalsFBEventsSendFormPOST"),
+						q = f.getFbeventsModules("signalsFBEventsGetIsChrome"),
+						r = f.getFbeventsModules("signalsFBEventsGetIsMobileSafari");
 					a = f.getFbeventsModules("SignalsFBEventsExperimentNames");
-					var q = a.BATCHING_EXPERIMENT,
-						r = a.SEND_BEACON_STRING_EXPERIMENT,
-						s = a.SEND_XHR_EXPERIMENT,
-						t = g.top !== g,
-						u = "SubscribedButtonClick";
-					function v(a) {
+					var s = a.BATCHING_EXPERIMENT,
+						t = a.SEND_BEACON_STRING_EXPERIMENT,
+						u = a.SEND_XHR_EXPERIMENT,
+						v = g.top !== g,
+						w = "SubscribedButtonClick";
+					function x(a) {
+						a = j.getPCMInstagramTriggerAttributionConfig(a) != null;
+						return r() && a;
+					}
+					function y(a) {
 						var b = a.customData,
 							c = a.customParams,
 							f = a.eventName,
@@ -3257,51 +3306,52 @@ fbq.__openBridgeRollout = 0.0;
 						a.append("ev", f);
 						a.append("dl", n);
 						a.append("rl", l);
-						a.append("if", t);
+						a.append("if", v);
 						a.append("ts", new Date().valueOf());
 						a.append("cd", b);
 						a.append("sw", g.screen.width);
 						a.append("sh", g.screen.height);
+						x(j) && a.append("is_pcm", !0);
 						c && a.addRange(c);
 						a.appendHash(d.getCustomDataPayload());
 						return a;
 					}
-					function w(a) {
+					function z(a) {
 						var e = a.customData,
 							f = a.eventName,
-							g = v(a);
+							g = y(a);
 						c.trigger(a.id, g);
-						if (d.isInTest(q)) {
-							j(g);
+						if (d.isInTest(s)) {
+							l(g);
 							b.trigger("BATCH", g, e);
 							return;
 						}
-						a = d.isInTestOrControl(r) || !p();
-						if (a && f === u && l(g)) {
+						a = d.isInTestOrControl(t) || !q();
+						if (a && f === w && m(g)) {
 							b.trigger("BEACON", g, e);
 							return;
 						}
-						if (m(g)) {
+						if (n(g)) {
 							b.trigger("GET", g, e);
 							return;
 						}
-						if (a && l(g)) {
+						if (a && m(g)) {
 							b.trigger("BEACON", g, e);
 							return;
 						}
-						if (d.isInTest(s)) {
-							if (n(g)) {
+						if (d.isInTest(u)) {
+							if (o(g)) {
 								b.trigger("XHR", g, e);
 								return;
 							}
-							m(g, { ignoreRequestLengthCheck: !0 });
+							n(g, { ignoreRequestLengthCheck: !0 });
 							b.trigger("FGET", g, e);
 							return;
 						}
-						o(g);
+						p(g);
 						b.trigger("POST", g, e);
 					}
-					k.exports = w;
+					k.exports = z;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -3449,14 +3499,16 @@ fbq.__openBridgeRollout = 0.0;
 					"use strict";
 					var a = f.getFbeventsModules("SignalsFBEventsBaseEvent"),
 						b = f.getFbeventsModules("SignalsParamList"),
-						c = f.getFbeventsModules("signalsFBEventsCoercePixel");
-					function d(a, d) {
-						a = c(a);
+						c = f.getFbeventsModules("SignalsFBEventsPixelTypedef"),
+						d = f.getFbeventsModules("SignalsFBEventsTyped"),
+						e = d.coerce;
+					function g(a, d) {
+						a = e(a, c);
 						d = d instanceof b ? d : null;
 						return a != null && d != null ? [a, d] : null;
 					}
-					a = new a(d);
-					k.exports = a;
+					d = new a(g);
+					k.exports = d;
 				})();
 				return k.exports;
 			})(a, b, c, d);
@@ -4055,7 +4107,7 @@ fbq.__openBridgeRollout = 0.0;
 							b = f.getFbeventsModules("SignalsFBEventsTyped"),
 							c = b.coerce,
 							d = b.Typed,
-							e = f.getFbeventsModules("signalsFBEventsCoercePixel");
+							e = f.getFbeventsModules("SignalsFBEventsPixelTypedef");
 						b = f.getFbeventsModules("SignalsFBEventsCoercePrimitives");
 						b.coerceString;
 						function g() {
@@ -4082,7 +4134,7 @@ fbq.__openBridgeRollout = 0.0;
 							b = f.getFbeventsModules("SignalsFBEventsTyped"),
 							c = b.coerce,
 							d = b.Typed,
-							e = f.getFbeventsModules("signalsFBEventsCoercePixel");
+							e = f.getFbeventsModules("SignalsFBEventsPixelTypedef");
 						b = f.getFbeventsModules("SignalsFBEventsCoercePrimitives");
 						b.coerceString;
 						function g() {
@@ -4810,6 +4862,163 @@ fbq.__openBridgeRollout = 0.0;
 			return;
 		var g = (function() {
 			function a(a, b) {
+				for (var c = 0; c < b.length; c++) {
+					var d = b[c];
+					d.enumerable = d.enumerable || !1;
+					d.configurable = !0;
+					"value" in d && (d.writable = !0);
+					Object.defineProperty(a, d.key, d);
+				}
+			}
+			return function(b, c, d) {
+				c && a(b.prototype, c);
+				d && a(b, d);
+				return b;
+			};
+		})();
+		function h(a, b) {
+			if (!(a instanceof b))
+				throw new TypeError("Cannot call a class as a function");
+		}
+		f.__fbeventsModules ||
+			((f.__fbeventsModules = {}),
+			(f.__fbeventsResolvedModules = {}),
+			(f.getFbeventsModules = function(a) {
+				f.__fbeventsResolvedModules[a] ||
+					(f.__fbeventsResolvedModules[a] = f.__fbeventsModules[a]());
+				return f.__fbeventsResolvedModules[a];
+			}),
+			(f.fbIsModuleLoaded = function(a) {
+				return !!f.__fbeventsModules[a];
+			}),
+			(f.ensureModuleRegistered = function(b, a) {
+				f.fbIsModuleLoaded(b) || (f.__fbeventsModules[b] = a);
+			}));
+		f.ensureModuleRegistered("SignalsFBEventsPerformanceTiming", function() {
+			return (function(a, b, c, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var b =
+							Object.assign ||
+							function(a) {
+								for (var b = 1; b < arguments.length; b++) {
+									var c = arguments[b];
+									for (var d in c)
+										Object.prototype.hasOwnProperty.call(c, d) && (a[d] = c[d]);
+								}
+								return a;
+							},
+						c = f.getFbeventsModules("SignalsFBEventsEvents"),
+						d = c.execEnd,
+						i = c.getCustomParameters,
+						j = c.pluginLoaded;
+					c = (function() {
+						function c(e) {
+							var g = this;
+							h(this, c);
+							this._execEnd = null;
+							this._fires = [];
+							this._pageStartTime = a.performance.timing.fetchStart;
+							this._startOffset =
+								this._pageStartTime - a.performance.timing.navigationStart;
+							if (e.execStart != null)
+								this._execStart = e.execStart - this._startOffset;
+							else
+								throw new Error("fbq.execStart must be set in the base code.");
+							j.listen(function() {
+								return g.execEnd();
+							});
+							d.listen(function() {
+								return g.execEnd();
+							});
+							i.listen(function() {
+								return b({}, g.fire());
+							});
+						}
+						g(c, [
+							{
+								key: "execEnd",
+								value: function() {
+									this._execEnd = a.performance.now() - this._startOffset;
+								}
+							},
+							{
+								key: "fire",
+								value: function() {
+									this._fires.unshift(a.performance.now() - this._startOffset);
+									return {
+										ttf: this._fires[0].toString(),
+										tts: this._execStart.toString(),
+										ttse:
+											this._execEnd != null ? this._execEnd.toString() : null
+									};
+								}
+							}
+						]);
+						return c;
+					})();
+					c.supported =
+						a.performance && a.performance.now && !!a.performance.timing;
+					e.exports = c;
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		f.ensureModuleRegistered("SignalsFBEvents.plugins.performance", function() {
+			return (function(g, h, c, d) {
+				var e = { exports: {} };
+				e.exports;
+				(function() {
+					"use strict";
+					var a = f.getFbeventsModules("SignalsFBEventsPerformanceTiming"),
+						b = f.getFbeventsModules("SignalsFBEventsPlugin");
+					e.exports = new b(function(b) {
+						a.supported && !b.__performance && (b.__performance = new a(b));
+					});
+				})();
+				return e.exports;
+			})(a, b, c, d);
+		});
+		e.exports = f.getFbeventsModules("SignalsFBEvents.plugins.performance");
+		f.registerPlugin &&
+			f.registerPlugin("fbevents.plugins.performance", e.exports);
+		f.ensureModuleRegistered("fbevents.plugins.performance", function() {
+			return e.exports;
+		});
+	})();
+})(window, document, location, history);
+(function(a, b, c, d) {
+	var e = { exports: {} };
+	e.exports;
+	(function() {
+		var f = a.fbq;
+		f.execStart = a.performance && a.performance.now && a.performance.now();
+		if (
+			!(function() {
+				var b = a.postMessage || function() {};
+				if (!f) {
+					b(
+						{
+							action: "FB_LOG",
+							logType: "Facebook Pixel Error",
+							logMessage: "Pixel code is not installed correctly on this page"
+						},
+						"*"
+					);
+					"error" in console &&
+						console.error(
+							"Facebook Pixel Error: Pixel code is not installed correctly on this page"
+						);
+					return !1;
+				}
+				return !0;
+			})()
+		)
+			return;
+		var g = (function() {
+			function a(a, b) {
 				var c = [],
 					d = !0,
 					e = !1,
@@ -5464,6 +5673,7 @@ fbq.registerPlugin("global_config", {
 	plugin: function(fbq, instance, config) {
 		fbq.loadPlugin("commonincludes");
 		fbq.loadPlugin("opttracking");
+		fbq.loadPlugin("performance");
 		fbq.set("experiments", [
 			{
 				allocation: 1,
