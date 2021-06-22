@@ -1,4 +1,4 @@
-/*1624319142,,JIT Construction: v1004007229,en_US*/
+/*1624327150,,JIT Construction: v1004009314,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -70,22 +70,15 @@
 			};
 		})(f);
 	}
-	k = a;
-	h = /Chrome\/(\d+)/.exec(navigator.userAgent);
-	h &&
-		Number(h[1]) >= 55 &&
-		"assign" in Object &&
-		"findIndex" in [] &&
-		(k += "&ua=modern_es6");
-	j = document.createElement("script");
-	j.src = k;
-	j.async = !0;
-	e && (j.crossOrigin = "anonymous");
-	i = document.getElementsByTagName("script")[0];
-	i.parentNode && i.parentNode.insertBefore(j, i);
+	k = document.createElement("script");
+	k.src = a;
+	k.async = !0;
+	e && (k.crossOrigin = "anonymous");
+	h = document.getElementsByTagName("script")[0];
+	h.parentNode && h.parentNode.insertBefore(k, h);
 })(
-	"https://connect.facebook.net/en_US/all.js?hash=224b6d1b0db55473245742a910c88672",
-	1624319142,
+	"https://connect.facebook.net/en_US/all.js?hash=73463c9ba7db202da17e558c527b9fd5",
+	1624327150,
 	"FB",
 	[
 		"AppEvents.EventNames",
